@@ -54,7 +54,7 @@ pub const qmetatype = struct {
         qtc.QMetaType_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#registerNormalizedTypedef)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#registerNormalizedTypedef)
     ///
     /// ``` normalizedTypeName: []u8, typeVal: QtC.QMetaType ```
     pub fn RegisterNormalizedTypedef(normalizedTypeName: []u8, typeVal: QtC.QMetaType) void {
@@ -65,7 +65,7 @@ pub const qmetatype = struct {
         qtc.QMetaType_RegisterNormalizedTypedef(normalizedTypeName_str, @ptrCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#type)
     ///
     /// ``` typeName: []const u8 ```
     pub fn Type(typeName: []const u8) i32 {
@@ -73,7 +73,7 @@ pub const qmetatype = struct {
         return qtc.QMetaType_Type(typeName_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#type)
     ///
     /// ``` typeName: []u8 ```
     pub fn Type2(typeName: []u8) i32 {
@@ -84,7 +84,7 @@ pub const qmetatype = struct {
         return qtc.QMetaType_Type2(typeName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#typeName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#typeName)
     ///
     /// ``` typeVal: i32 ```
     pub fn TypeName(typeVal: i32) []const u8 {
@@ -92,14 +92,14 @@ pub const qmetatype = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#sizeOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#sizeOf)
     ///
     /// ``` typeVal: i32 ```
     pub fn SizeOf(typeVal: i32) i32 {
         return qtc.QMetaType_SizeOf(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#typeFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#typeFlags)
     ///
     /// ``` typeVal: i32 ```
     ///
@@ -108,91 +108,91 @@ pub const qmetatype = struct {
         return qtc.QMetaType_TypeFlags(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#metaObjectForType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#metaObjectForType)
     ///
     /// ``` typeVal: i32 ```
     pub fn MetaObjectForType(typeVal: i32) QtC.QMetaObject {
         return qtc.QMetaType_MetaObjectForType(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
     ///
     /// ``` typeVal: i32 ```
     pub fn Create(typeVal: i32) ?*anyopaque {
         return qtc.QMetaType_Create(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destroy)
     ///
     /// ``` typeVal: i32, data: ?*anyopaque ```
     pub fn Destroy(typeVal: i32, data: ?*anyopaque) void {
         qtc.QMetaType_Destroy(@intCast(typeVal), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#construct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#construct)
     ///
     /// ``` typeVal: i32, where: ?*anyopaque, copyVal: ?*anyopaque ```
     pub fn Construct(typeVal: i32, where: ?*anyopaque, copyVal: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaType_Construct(@intCast(typeVal), @ptrCast(where), @ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#destruct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destruct)
     ///
     /// ``` typeVal: i32, where: ?*anyopaque ```
     pub fn Destruct(typeVal: i32, where: ?*anyopaque) void {
         qtc.QMetaType_Destruct(@intCast(typeVal), @ptrCast(where));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isRegistered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isRegistered)
     ///
     /// ``` typeVal: i32 ```
     pub fn IsRegistered(typeVal: i32) bool {
         return qtc.QMetaType_IsRegistered(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isValid)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QMetaType_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isRegistered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isRegistered)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn IsRegistered2(self: ?*anyopaque) bool {
         return qtc.QMetaType_IsRegistered2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#registerType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#registerType)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn RegisterType(self: ?*anyopaque) void {
         qtc.QMetaType_RegisterType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#id)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#id)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn Id(self: ?*anyopaque) i32 {
         return qtc.QMetaType_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#sizeOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#sizeOf)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn SizeOf2(self: ?*anyopaque) i64 {
         return qtc.QMetaType_SizeOf2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#alignOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#alignOf)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn AlignOf(self: ?*anyopaque) i64 {
         return qtc.QMetaType_AlignOf(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#flags)
     ///
     /// ``` self: QtC.QMetaType ```
     ///
@@ -201,14 +201,14 @@ pub const qmetatype = struct {
         return qtc.QMetaType_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QMetaType_MetaObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#name)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn Name(self: ?*anyopaque) []const u8 {
@@ -216,133 +216,133 @@ pub const qmetatype = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn Create2(self: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaType_Create2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destroy)
     ///
     /// ``` self: QtC.QMetaType, data: ?*anyopaque ```
     pub fn Destroy2(self: ?*anyopaque, data: ?*anyopaque) void {
         qtc.QMetaType_Destroy2(@ptrCast(self), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#construct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#construct)
     ///
     /// ``` self: QtC.QMetaType, where: ?*anyopaque ```
     pub fn Construct2(self: ?*anyopaque, where: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaType_Construct2(@ptrCast(self), @ptrCast(where));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#destruct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destruct)
     ///
     /// ``` self: QtC.QMetaType, data: ?*anyopaque ```
     pub fn Destruct2(self: ?*anyopaque, data: ?*anyopaque) void {
         qtc.QMetaType_Destruct2(@ptrCast(self), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#compare)
     ///
     /// ``` self: QtC.QMetaType, lhs: ?*anyopaque, rhs: ?*anyopaque ```
     pub fn Compare(self: ?*anyopaque, lhs: ?*anyopaque, rhs: ?*anyopaque) QtC.QPartialOrdering {
         return qtc.QMetaType_Compare(@ptrCast(self), @ptrCast(lhs), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#equals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#equals)
     ///
     /// ``` self: QtC.QMetaType, lhs: ?*anyopaque, rhs: ?*anyopaque ```
     pub fn Equals(self: ?*anyopaque, lhs: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QMetaType_Equals(@ptrCast(self), @ptrCast(lhs), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isDefaultConstructible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isDefaultConstructible)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn IsDefaultConstructible(self: ?*anyopaque) bool {
         return qtc.QMetaType_IsDefaultConstructible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isCopyConstructible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isCopyConstructible)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn IsCopyConstructible(self: ?*anyopaque) bool {
         return qtc.QMetaType_IsCopyConstructible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isMoveConstructible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isMoveConstructible)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn IsMoveConstructible(self: ?*anyopaque) bool {
         return qtc.QMetaType_IsMoveConstructible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isDestructible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isDestructible)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn IsDestructible(self: ?*anyopaque) bool {
         return qtc.QMetaType_IsDestructible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isEqualityComparable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isEqualityComparable)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn IsEqualityComparable(self: ?*anyopaque) bool {
         return qtc.QMetaType_IsEqualityComparable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isOrdered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isOrdered)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn IsOrdered(self: ?*anyopaque) bool {
         return qtc.QMetaType_IsOrdered(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#save)
     ///
     /// ``` self: QtC.QMetaType, stream: QtC.QDataStream, data: ?*anyopaque ```
     pub fn Save(self: ?*anyopaque, stream: ?*anyopaque, data: ?*anyopaque) bool {
         return qtc.QMetaType_Save(@ptrCast(self), @ptrCast(stream), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#load)
     ///
     /// ``` self: QtC.QMetaType, stream: QtC.QDataStream, data: ?*anyopaque ```
     pub fn Load(self: ?*anyopaque, stream: ?*anyopaque, data: ?*anyopaque) bool {
         return qtc.QMetaType_Load(@ptrCast(self), @ptrCast(stream), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDataStreamOperators)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDataStreamOperators)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn HasRegisteredDataStreamOperators(self: ?*anyopaque) bool {
         return qtc.QMetaType_HasRegisteredDataStreamOperators(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#save)
     ///
     /// ``` stream: QtC.QDataStream, typeVal: i32, data: ?*anyopaque ```
     pub fn Save2(stream: ?*anyopaque, typeVal: i32, data: ?*anyopaque) bool {
         return qtc.QMetaType_Save2(@ptrCast(stream), @intCast(typeVal), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#load)
     ///
     /// ``` stream: QtC.QDataStream, typeVal: i32, data: ?*anyopaque ```
     pub fn Load2(stream: ?*anyopaque, typeVal: i32, data: ?*anyopaque) bool {
         return qtc.QMetaType_Load2(@ptrCast(stream), @intCast(typeVal), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#underlyingType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#underlyingType)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn UnderlyingType(self: ?*anyopaque) QtC.QMetaType {
         return qtc.QMetaType_UnderlyingType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#fromName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#fromName)
     ///
     /// ``` name: []const u8 ```
     pub fn FromName(name: []const u8) QtC.QMetaType {
@@ -353,147 +353,147 @@ pub const qmetatype = struct {
         return qtc.QMetaType_FromName(name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#debugStream)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#debugStream)
     ///
     /// ``` self: QtC.QMetaType, dbg: QtC.QDebug, rhs: ?*anyopaque ```
     pub fn DebugStream(self: ?*anyopaque, dbg: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QMetaType_DebugStream(@ptrCast(self), @ptrCast(dbg), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator)
     ///
     /// ``` self: QtC.QMetaType ```
     pub fn HasRegisteredDebugStreamOperator(self: ?*anyopaque) bool {
         return qtc.QMetaType_HasRegisteredDebugStreamOperator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#debugStream)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#debugStream)
     ///
     /// ``` dbg: QtC.QDebug, rhs: ?*anyopaque, typeId: i32 ```
     pub fn DebugStream2(dbg: ?*anyopaque, rhs: ?*anyopaque, typeId: i32) bool {
         return qtc.QMetaType_DebugStream2(@ptrCast(dbg), @ptrCast(rhs), @intCast(typeId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator)
     ///
     /// ``` typeId: i32 ```
     pub fn HasRegisteredDebugStreamOperator2(typeId: i32) bool {
         return qtc.QMetaType_HasRegisteredDebugStreamOperator2(@intCast(typeId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#convert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#convert)
     ///
     /// ``` fromType: QtC.QMetaType, from: ?*anyopaque, toType: QtC.QMetaType, to: ?*anyopaque ```
     pub fn Convert(fromType: QtC.QMetaType, from: ?*anyopaque, toType: QtC.QMetaType, to: ?*anyopaque) bool {
         return qtc.QMetaType_Convert(@ptrCast(fromType), @ptrCast(from), @ptrCast(toType), @ptrCast(to));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#canConvert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#canConvert)
     ///
     /// ``` fromType: QtC.QMetaType, toType: QtC.QMetaType ```
     pub fn CanConvert(fromType: QtC.QMetaType, toType: QtC.QMetaType) bool {
         return qtc.QMetaType_CanConvert(@ptrCast(fromType), @ptrCast(toType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#view)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#view)
     ///
     /// ``` fromType: QtC.QMetaType, from: ?*anyopaque, toType: QtC.QMetaType, to: ?*anyopaque ```
     pub fn View(fromType: QtC.QMetaType, from: ?*anyopaque, toType: QtC.QMetaType, to: ?*anyopaque) bool {
         return qtc.QMetaType_View(@ptrCast(fromType), @ptrCast(from), @ptrCast(toType), @ptrCast(to));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#canView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#canView)
     ///
     /// ``` fromType: QtC.QMetaType, toType: QtC.QMetaType ```
     pub fn CanView(fromType: QtC.QMetaType, toType: QtC.QMetaType) bool {
         return qtc.QMetaType_CanView(@ptrCast(fromType), @ptrCast(toType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#convert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#convert)
     ///
     /// ``` from: ?*anyopaque, fromTypeId: i32, to: ?*anyopaque, toTypeId: i32 ```
     pub fn Convert2(from: ?*anyopaque, fromTypeId: i32, to: ?*anyopaque, toTypeId: i32) bool {
         return qtc.QMetaType_Convert2(@ptrCast(from), @intCast(fromTypeId), @ptrCast(to), @intCast(toTypeId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#compare)
     ///
     /// ``` lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32 ```
     pub fn Compare2(lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32) bool {
         return qtc.QMetaType_Compare2(@ptrCast(lhs), @ptrCast(rhs), @intCast(typeId), @ptrCast(result));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#equals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#equals)
     ///
     /// ``` lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32 ```
     pub fn Equals2(lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32) bool {
         return qtc.QMetaType_Equals2(@ptrCast(lhs), @ptrCast(rhs), @intCast(typeId), @ptrCast(result));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredConverterFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredConverterFunction)
     ///
     /// ``` fromType: QtC.QMetaType, toType: QtC.QMetaType ```
     pub fn HasRegisteredConverterFunction(fromType: QtC.QMetaType, toType: QtC.QMetaType) bool {
         return qtc.QMetaType_HasRegisteredConverterFunction(@ptrCast(fromType), @ptrCast(toType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredMutableViewFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredMutableViewFunction)
     ///
     /// ``` fromType: QtC.QMetaType, toType: QtC.QMetaType ```
     pub fn HasRegisteredMutableViewFunction(fromType: QtC.QMetaType, toType: QtC.QMetaType) bool {
         return qtc.QMetaType_HasRegisteredMutableViewFunction(@ptrCast(fromType), @ptrCast(toType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#unregisterConverterFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#unregisterConverterFunction)
     ///
     /// ``` from: QtC.QMetaType, to: QtC.QMetaType ```
     pub fn UnregisterConverterFunction(from: QtC.QMetaType, to: QtC.QMetaType) void {
         qtc.QMetaType_UnregisterConverterFunction(@ptrCast(from), @ptrCast(to));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#unregisterMutableViewFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#unregisterMutableViewFunction)
     ///
     /// ``` from: QtC.QMetaType, to: QtC.QMetaType ```
     pub fn UnregisterMutableViewFunction(from: QtC.QMetaType, to: QtC.QMetaType) void {
         qtc.QMetaType_UnregisterMutableViewFunction(@ptrCast(from), @ptrCast(to));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#unregisterMetaType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#unregisterMetaType)
     ///
     /// ``` typeVal: QtC.QMetaType ```
     pub fn UnregisterMetaType(typeVal: QtC.QMetaType) void {
         qtc.QMetaType_UnregisterMetaType(@ptrCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
     ///
     /// ``` typeVal: i32, copyVal: ?*anyopaque ```
     pub fn Create22(typeVal: i32, copyVal: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaType_Create22(@intCast(typeVal), @ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#id)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#id)
     ///
     /// ``` self: QtC.QMetaType, param1: i32 ```
     pub fn Id1(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QMetaType_Id1(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
     ///
     /// ``` self: QtC.QMetaType, copyVal: ?*anyopaque ```
     pub fn Create1(self: ?*anyopaque, copyVal: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaType_Create1(@ptrCast(self), @ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#construct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#construct)
     ///
     /// ``` self: QtC.QMetaType, where: ?*anyopaque, copyVal: ?*anyopaque ```
     pub fn Construct22(self: ?*anyopaque, where: ?*anyopaque, copyVal: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaType_Construct22(@ptrCast(self), @ptrCast(where), @ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#dtor.QMetaType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#dtor.QMetaType)
     ///
     /// Delete this object from C++ memory.
     ///

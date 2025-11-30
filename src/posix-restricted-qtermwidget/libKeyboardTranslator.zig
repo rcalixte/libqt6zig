@@ -25,7 +25,7 @@ pub const konsole__keyboardtranslator = struct {
         return qtc.Konsole__KeyboardTranslator_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -36,7 +36,7 @@ pub const konsole__keyboardtranslator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -47,7 +47,7 @@ pub const konsole__keyboardtranslator = struct {
         qtc.Konsole__KeyboardTranslator_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -58,7 +58,7 @@ pub const konsole__keyboardtranslator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
@@ -69,35 +69,35 @@ pub const konsole__keyboardtranslator = struct {
         qtc.Konsole__KeyboardTranslator_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, keyCode: i32, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn FindEntry(self: ?*anyopaque, keyCode: i32, modifiers: i64) QtC.Konsole__KeyboardTranslator__Entry {
         return qtc.Konsole__KeyboardTranslator_FindEntry(@ptrCast(self), @intCast(keyCode), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, entry: QtC.Konsole__KeyboardTranslator__Entry ```
     pub fn AddEntry(self: ?*anyopaque, entry: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslator_AddEntry(@ptrCast(self), @ptrCast(entry));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, existing: QtC.Konsole__KeyboardTranslator__Entry, replacement: QtC.Konsole__KeyboardTranslator__Entry ```
     pub fn ReplaceEntry(self: ?*anyopaque, existing: ?*anyopaque, replacement: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslator_ReplaceEntry(@ptrCast(self), @ptrCast(existing), @ptrCast(replacement));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, entry: QtC.Konsole__KeyboardTranslator__Entry ```
     pub fn RemoveEntry(self: ?*anyopaque, entry: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslator_RemoveEntry(@ptrCast(self), @ptrCast(entry));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, allocator: std.mem.Allocator ```
     pub fn Entries(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Konsole__KeyboardTranslator__Entry {
@@ -109,7 +109,7 @@ pub const konsole__keyboardtranslator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, keyCode: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, state: flag of KeyboardTranslator_enums.State ```
     pub fn FindEntry3(self: ?*anyopaque, keyCode: i32, modifiers: i64, state: i32) QtC.Konsole__KeyboardTranslator__Entry {
@@ -133,7 +133,7 @@ pub const konsole__keyboardtranslatorreader = struct {
         return qtc.Konsole__KeyboardTranslatorReader_new(@ptrCast(source));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorReader, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -144,28 +144,28 @@ pub const konsole__keyboardtranslatorreader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorReader ```
     pub fn HasNextEntry(self: ?*anyopaque) bool {
         return qtc.Konsole__KeyboardTranslatorReader_HasNextEntry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorReader ```
     pub fn NextEntry(self: ?*anyopaque) QtC.Konsole__KeyboardTranslator__Entry {
         return qtc.Konsole__KeyboardTranslatorReader_NextEntry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorReader ```
     pub fn ParseError(self: ?*anyopaque) bool {
         return qtc.Konsole__KeyboardTranslatorReader_ParseError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` condition: []const u8, result: []const u8 ```
     pub fn CreateEntry(condition: []const u8, result: []const u8) QtC.Konsole__KeyboardTranslator__Entry {
@@ -197,7 +197,7 @@ pub const konsole__keyboardtranslatorwriter = struct {
         return qtc.Konsole__KeyboardTranslatorWriter_new(@ptrCast(destination));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorWriter, description: []const u8 ```
     pub fn WriteHeader(self: ?*anyopaque, description: []const u8) void {
@@ -208,7 +208,7 @@ pub const konsole__keyboardtranslatorwriter = struct {
         qtc.Konsole__KeyboardTranslatorWriter_WriteHeader(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorWriter, entry: QtC.Konsole__KeyboardTranslator__Entry ```
     pub fn WriteEntry(self: ?*anyopaque, entry: ?*anyopaque) void {
@@ -232,14 +232,14 @@ pub const konsole__keyboardtranslatormanager = struct {
         return qtc.Konsole__KeyboardTranslatorManager_new();
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorManager, translator: QtC.Konsole__KeyboardTranslator ```
     pub fn AddTranslator(self: ?*anyopaque, translator: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslatorManager_AddTranslator(@ptrCast(self), @ptrCast(translator));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorManager, name: []const u8 ```
     pub fn DeleteTranslator(self: ?*anyopaque, name: []const u8) bool {
@@ -250,14 +250,14 @@ pub const konsole__keyboardtranslatormanager = struct {
         return qtc.Konsole__KeyboardTranslatorManager_DeleteTranslator(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorManager ```
     pub fn DefaultTranslator(self: ?*anyopaque) QtC.Konsole__KeyboardTranslator {
         return qtc.Konsole__KeyboardTranslatorManager_DefaultTranslator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorManager, name: []const u8 ```
     pub fn FindTranslator(self: ?*anyopaque, name: []const u8) QtC.Konsole__KeyboardTranslator {
@@ -268,7 +268,7 @@ pub const konsole__keyboardtranslatormanager = struct {
         return qtc.Konsole__KeyboardTranslatorManager_FindTranslator(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslatorManager, allocator: std.mem.Allocator ```
     pub fn AllTranslators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -290,7 +290,7 @@ pub const konsole__keyboardtranslatormanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     ///
     pub fn Instance() QtC.Konsole__KeyboardTranslatorManager {
@@ -307,7 +307,7 @@ pub const konsole__keyboardtranslatormanager = struct {
 
 /// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
 pub const konsole = struct {
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` param1: i32 ```
     pub fn OneOrZero(param1: i32) i32 {
@@ -331,14 +331,14 @@ pub const konsole__keyboardtranslator__entry = struct {
         return qtc.Konsole__KeyboardTranslator__Entry_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.Konsole__KeyboardTranslator__Entry_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     ///
@@ -347,14 +347,14 @@ pub const konsole__keyboardtranslator__entry = struct {
         return qtc.Konsole__KeyboardTranslator__Entry_Command(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, command: KeyboardTranslator_enums.Command ```
     pub fn SetCommand(self: ?*anyopaque, command: i32) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetCommand(@ptrCast(self), @intCast(command));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -365,7 +365,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, text: []u8 ```
     pub fn SetText(self: ?*anyopaque, text: []u8) void {
@@ -376,7 +376,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         qtc.Konsole__KeyboardTranslator__Entry_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, allocator: std.mem.Allocator ```
     pub fn EscapedText(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -387,21 +387,21 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     pub fn KeyCode(self: ?*anyopaque) i32 {
         return qtc.Konsole__KeyboardTranslator__Entry_KeyCode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, keyCode: i32 ```
     pub fn SetKeyCode(self: ?*anyopaque, keyCode: i32) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetKeyCode(@ptrCast(self), @intCast(keyCode));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     ///
@@ -410,7 +410,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return qtc.Konsole__KeyboardTranslator__Entry_Modifiers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     ///
@@ -419,21 +419,21 @@ pub const konsole__keyboardtranslator__entry = struct {
         return qtc.Konsole__KeyboardTranslator__Entry_ModifierMask(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifierMask(self: ?*anyopaque, modifiers: i64) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetModifierMask(@ptrCast(self), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     ///
@@ -442,7 +442,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return qtc.Konsole__KeyboardTranslator__Entry_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     ///
@@ -451,21 +451,21 @@ pub const konsole__keyboardtranslator__entry = struct {
         return qtc.Konsole__KeyboardTranslator__Entry_StateMask(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, state: flag of KeyboardTranslator_enums.State ```
     pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, mask: flag of KeyboardTranslator_enums.State ```
     pub fn SetStateMask(self: ?*anyopaque, mask: i32) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetStateMask(@ptrCast(self), @intCast(mask));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, allocator: std.mem.Allocator ```
     pub fn ConditionToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -476,7 +476,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, allocator: std.mem.Allocator ```
     pub fn ResultToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -487,21 +487,21 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, keyCode: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, flags: flag of KeyboardTranslator_enums.State ```
     pub fn Matches(self: ?*anyopaque, keyCode: i32, modifiers: i64, flags: i32) bool {
         return qtc.Konsole__KeyboardTranslator__Entry_Matches(@ptrCast(self), @intCast(keyCode), @intCast(modifiers), @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, rhs: QtC.Konsole__KeyboardTranslator__Entry ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.Konsole__KeyboardTranslator__Entry_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, expandWildCards: bool, allocator: std.mem.Allocator ```
     pub fn Text1(self: ?*anyopaque, expandWildCards: bool, allocator: std.mem.Allocator) []u8 {
@@ -512,7 +512,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, expandWildCards: bool, modifiers: flag of qnamespace_enums.KeyboardModifier, allocator: std.mem.Allocator ```
     pub fn Text2(self: ?*anyopaque, expandWildCards: bool, modifiers: i64, allocator: std.mem.Allocator) []u8 {
@@ -523,7 +523,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, expandWildCards: bool, allocator: std.mem.Allocator ```
     pub fn EscapedText1(self: ?*anyopaque, expandWildCards: bool, allocator: std.mem.Allocator) []u8 {
@@ -534,7 +534,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, expandWildCards: bool, modifiers: flag of qnamespace_enums.KeyboardModifier, allocator: std.mem.Allocator ```
     pub fn EscapedText2(self: ?*anyopaque, expandWildCards: bool, modifiers: i64, allocator: std.mem.Allocator) []u8 {
@@ -545,7 +545,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, expandWildCards: bool, allocator: std.mem.Allocator ```
     pub fn ResultToString1(self: ?*anyopaque, expandWildCards: bool, allocator: std.mem.Allocator) []const u8 {
@@ -556,7 +556,7 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, expandWildCards: bool, modifiers: flag of qnamespace_enums.KeyboardModifier, allocator: std.mem.Allocator ```
     pub fn ResultToString2(self: ?*anyopaque, expandWildCards: bool, modifiers: i64, allocator: std.mem.Allocator) []const u8 {

@@ -12,21 +12,21 @@ pub const qrestreply = struct {
         return qtc.QRestReply_new(@ptrCast(reply));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#swap)
     ///
     /// ``` self: QtC.QRestReply, other: QtC.QRestReply ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QRestReply_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#networkReply)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#networkReply)
     ///
     /// ``` self: QtC.QRestReply ```
     pub fn NetworkReply(self: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QRestReply_NetworkReply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#readBody)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readBody)
     ///
     /// ``` self: QtC.QRestReply, allocator: std.mem.Allocator ```
     pub fn ReadBody(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -37,7 +37,7 @@ pub const qrestreply = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#readText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readText)
     ///
     /// ``` self: QtC.QRestReply, allocator: std.mem.Allocator ```
     pub fn ReadText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -48,35 +48,35 @@ pub const qrestreply = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#isSuccess)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#isSuccess)
     ///
     /// ``` self: QtC.QRestReply ```
     pub fn IsSuccess(self: ?*anyopaque) bool {
         return qtc.QRestReply_IsSuccess(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#httpStatus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#httpStatus)
     ///
     /// ``` self: QtC.QRestReply ```
     pub fn HttpStatus(self: ?*anyopaque) i32 {
         return qtc.QRestReply_HttpStatus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#isHttpStatusSuccess)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#isHttpStatusSuccess)
     ///
     /// ``` self: QtC.QRestReply ```
     pub fn IsHttpStatusSuccess(self: ?*anyopaque) bool {
         return qtc.QRestReply_IsHttpStatusSuccess(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#hasError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#hasError)
     ///
     /// ``` self: QtC.QRestReply ```
     pub fn HasError(self: ?*anyopaque) bool {
         return qtc.QRestReply_HasError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#error)
     ///
     /// ``` self: QtC.QRestReply ```
     ///
@@ -85,7 +85,7 @@ pub const qrestreply = struct {
         return qtc.QRestReply_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#errorString)
     ///
     /// ``` self: QtC.QRestReply, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -96,7 +96,7 @@ pub const qrestreply = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#dtor.QRestReply)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#dtor.QRestReply)
     ///
     /// Delete this object from C++ memory.
     ///

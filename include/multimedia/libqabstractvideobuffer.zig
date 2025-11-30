@@ -3,28 +3,28 @@ const qtc = @import("qt6c");
 
 /// https://doc.qt.io/qt-6/qabstractvideobuffer.html
 pub const qabstractvideobuffer = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer.html#unmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#unmap)
     ///
     /// ``` self: QtC.QAbstractVideoBuffer ```
     pub fn Unmap(self: ?*anyopaque) void {
         qtc.QAbstractVideoBuffer_Unmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#format)
     ///
     /// ``` self: QtC.QAbstractVideoBuffer ```
     pub fn Format(self: ?*anyopaque) QtC.QVideoFrameFormat {
         return qtc.QAbstractVideoBuffer_Format(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractVideoBuffer, param1: QtC.QAbstractVideoBuffer ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QAbstractVideoBuffer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer.html#dtor.QAbstractVideoBuffer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#dtor.QAbstractVideoBuffer)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -64,14 +64,14 @@ pub const qabstractvideobuffer__mapdata = struct {
         qtc.QAbstractVideoBuffer__MapData_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer-mapdata.html#planeCount-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer-mapdata.html#planeCount-var)
     ///
     /// ``` self: QtC.QAbstractVideoBuffer__MapData ```
     pub fn PlaneCount(self: ?*anyopaque) i32 {
         return qtc.QAbstractVideoBuffer__MapData_PlaneCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer-mapdata.html#planeCount-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer-mapdata.html#planeCount-var)
     ///
     /// ``` self: QtC.QAbstractVideoBuffer__MapData, planeCount: i32 ```
     pub fn SetPlaneCount(self: ?*anyopaque, planeCount: i32) void {

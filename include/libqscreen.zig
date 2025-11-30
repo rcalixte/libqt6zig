@@ -6,7 +6,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qscreen.html
 pub const qscreen = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -24,7 +24,7 @@ pub const qscreen = struct {
         return qtc.QScreen_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -36,7 +36,7 @@ pub const qscreen = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#name)
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -47,7 +47,7 @@ pub const qscreen = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#manufacturer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#manufacturer)
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn Manufacturer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -58,7 +58,7 @@ pub const qscreen = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#model)
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn Model(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -69,7 +69,7 @@ pub const qscreen = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#serialNumber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#serialNumber)
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn SerialNumber(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -80,98 +80,98 @@ pub const qscreen = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#depth)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn Depth(self: ?*anyopaque) i32 {
         return qtc.QScreen_Depth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#size)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QScreen_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#geometry)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QScreen_Geometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#physicalSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#physicalSize)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn PhysicalSize(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QScreen_PhysicalSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchX)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn PhysicalDotsPerInchX(self: ?*anyopaque) f64 {
         return qtc.QScreen_PhysicalDotsPerInchX(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchY)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn PhysicalDotsPerInchY(self: ?*anyopaque) f64 {
         return qtc.QScreen_PhysicalDotsPerInchY(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInch)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn PhysicalDotsPerInch(self: ?*anyopaque) f64 {
         return qtc.QScreen_PhysicalDotsPerInch(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchX)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn LogicalDotsPerInchX(self: ?*anyopaque) f64 {
         return qtc.QScreen_LogicalDotsPerInchX(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchY)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn LogicalDotsPerInchY(self: ?*anyopaque) f64 {
         return qtc.QScreen_LogicalDotsPerInchY(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInch)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn LogicalDotsPerInch(self: ?*anyopaque) f64 {
         return qtc.QScreen_LogicalDotsPerInch(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
         return qtc.QScreen_DevicePixelRatio(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#availableSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#availableSize)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn AvailableSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QScreen_AvailableSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#availableGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#availableGeometry)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn AvailableGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QScreen_AvailableGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#virtualSiblings)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#virtualSiblings)
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn VirtualSiblings(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QScreen {
@@ -183,42 +183,42 @@ pub const qscreen = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#virtualSiblingAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#virtualSiblingAt)
     ///
     /// ``` self: QtC.QScreen, point: QtC.QPoint ```
     pub fn VirtualSiblingAt(self: ?*anyopaque, point: QtC.QPoint) QtC.QScreen {
         return qtc.QScreen_VirtualSiblingAt(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#virtualSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#virtualSize)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn VirtualSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QScreen_VirtualSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#virtualGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#virtualGeometry)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn VirtualGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QScreen_VirtualGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#availableVirtualSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#availableVirtualSize)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn AvailableVirtualSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QScreen_AvailableVirtualSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#availableVirtualGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#availableVirtualGeometry)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn AvailableVirtualGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QScreen_AvailableVirtualGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#primaryOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#primaryOrientation)
     ///
     /// ``` self: QtC.QScreen ```
     ///
@@ -227,7 +227,7 @@ pub const qscreen = struct {
         return qtc.QScreen_PrimaryOrientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#orientation)
     ///
     /// ``` self: QtC.QScreen ```
     ///
@@ -236,7 +236,7 @@ pub const qscreen = struct {
         return qtc.QScreen_Orientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#nativeOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#nativeOrientation)
     ///
     /// ``` self: QtC.QScreen ```
     ///
@@ -245,182 +245,182 @@ pub const qscreen = struct {
         return qtc.QScreen_NativeOrientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#angleBetween)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#angleBetween)
     ///
     /// ``` self: QtC.QScreen, a: qnamespace_enums.ScreenOrientation, b: qnamespace_enums.ScreenOrientation ```
     pub fn AngleBetween(self: ?*anyopaque, a: i32, b: i32) i32 {
         return qtc.QScreen_AngleBetween(@ptrCast(self), @intCast(a), @intCast(b));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#transformBetween)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#transformBetween)
     ///
     /// ``` self: QtC.QScreen, a: qnamespace_enums.ScreenOrientation, b: qnamespace_enums.ScreenOrientation, target: QtC.QRect ```
     pub fn TransformBetween(self: ?*anyopaque, a: i32, b: i32, target: ?*anyopaque) QtC.QTransform {
         return qtc.QScreen_TransformBetween(@ptrCast(self), @intCast(a), @intCast(b), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#mapBetween)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#mapBetween)
     ///
     /// ``` self: QtC.QScreen, a: qnamespace_enums.ScreenOrientation, b: qnamespace_enums.ScreenOrientation, rect: QtC.QRect ```
     pub fn MapBetween(self: ?*anyopaque, a: i32, b: i32, rect: ?*anyopaque) QtC.QRect {
         return qtc.QScreen_MapBetween(@ptrCast(self), @intCast(a), @intCast(b), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#isPortrait)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#isPortrait)
     ///
     /// ``` self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
     pub fn IsPortrait(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QScreen_IsPortrait(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#isLandscape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#isLandscape)
     ///
     /// ``` self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
     pub fn IsLandscape(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QScreen_IsLandscape(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn GrabWindow(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QScreen_GrabWindow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#refreshRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#refreshRate)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn RefreshRate(self: ?*anyopaque) f64 {
         return qtc.QScreen_RefreshRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#geometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#geometryChanged)
     ///
     /// ``` self: QtC.QScreen, geometry: QtC.QRect ```
     pub fn GeometryChanged(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QScreen_GeometryChanged(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#geometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#geometryChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, geometry: QtC.QRect) callconv(.c) void ```
     pub fn OnGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScreen_Connect_GeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#availableGeometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#availableGeometryChanged)
     ///
     /// ``` self: QtC.QScreen, geometry: QtC.QRect ```
     pub fn AvailableGeometryChanged(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QScreen_AvailableGeometryChanged(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#availableGeometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#availableGeometryChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, geometry: QtC.QRect) callconv(.c) void ```
     pub fn OnAvailableGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScreen_Connect_AvailableGeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#physicalSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#physicalSizeChanged)
     ///
     /// ``` self: QtC.QScreen, size: QtC.QSizeF ```
     pub fn PhysicalSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QScreen_PhysicalSizeChanged(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#physicalSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#physicalSizeChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, size: QtC.QSizeF) callconv(.c) void ```
     pub fn OnPhysicalSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScreen_Connect_PhysicalSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchChanged)
     ///
     /// ``` self: QtC.QScreen, dpi: f64 ```
     pub fn PhysicalDotsPerInchChanged(self: ?*anyopaque, dpi: f64) void {
         qtc.QScreen_PhysicalDotsPerInchChanged(@ptrCast(self), @floatCast(dpi));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, dpi: f64) callconv(.c) void ```
     pub fn OnPhysicalDotsPerInchChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QScreen_Connect_PhysicalDotsPerInchChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchChanged)
     ///
     /// ``` self: QtC.QScreen, dpi: f64 ```
     pub fn LogicalDotsPerInchChanged(self: ?*anyopaque, dpi: f64) void {
         qtc.QScreen_LogicalDotsPerInchChanged(@ptrCast(self), @floatCast(dpi));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, dpi: f64) callconv(.c) void ```
     pub fn OnLogicalDotsPerInchChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QScreen_Connect_LogicalDotsPerInchChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#virtualGeometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#virtualGeometryChanged)
     ///
     /// ``` self: QtC.QScreen, rect: QtC.QRect ```
     pub fn VirtualGeometryChanged(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QScreen_VirtualGeometryChanged(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#virtualGeometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#virtualGeometryChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, rect: QtC.QRect) callconv(.c) void ```
     pub fn OnVirtualGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScreen_Connect_VirtualGeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#primaryOrientationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#primaryOrientationChanged)
     ///
     /// ``` self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
     pub fn PrimaryOrientationChanged(self: ?*anyopaque, orientation: i32) void {
         qtc.QScreen_PrimaryOrientationChanged(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#primaryOrientationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#primaryOrientationChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
     pub fn OnPrimaryOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScreen_Connect_PrimaryOrientationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#orientationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#orientationChanged)
     ///
     /// ``` self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
     pub fn OrientationChanged(self: ?*anyopaque, orientation: i32) void {
         qtc.QScreen_OrientationChanged(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#orientationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#orientationChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
     pub fn OnOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScreen_Connect_OrientationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#refreshRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#refreshRateChanged)
     ///
     /// ``` self: QtC.QScreen, refreshRate: f64 ```
     pub fn RefreshRateChanged(self: ?*anyopaque, refreshRate: f64) void {
         qtc.QScreen_RefreshRateChanged(@ptrCast(self), @floatCast(refreshRate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#refreshRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#refreshRateChanged)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, refreshRate: f64) callconv(.c) void ```
     pub fn OnRefreshRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QScreen_Connect_RefreshRateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -433,7 +433,7 @@ pub const qscreen = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -446,35 +446,35 @@ pub const qscreen = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
     ///
     /// ``` self: QtC.QScreen, window: usize ```
     pub fn GrabWindow1(self: ?*anyopaque, window: usize) QtC.QPixmap {
         return qtc.QScreen_GrabWindow1(@ptrCast(self), @intCast(window));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
     ///
     /// ``` self: QtC.QScreen, window: usize, x: i32 ```
     pub fn GrabWindow2(self: ?*anyopaque, window: usize, x: i32) QtC.QPixmap {
         return qtc.QScreen_GrabWindow2(@ptrCast(self), @intCast(window), @intCast(x));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
     ///
     /// ``` self: QtC.QScreen, window: usize, x: i32, y: i32 ```
     pub fn GrabWindow3(self: ?*anyopaque, window: usize, x: i32, y: i32) QtC.QPixmap {
         return qtc.QScreen_GrabWindow3(@ptrCast(self), @intCast(window), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
     ///
     /// ``` self: QtC.QScreen, window: usize, x: i32, y: i32, w: i32 ```
     pub fn GrabWindow4(self: ?*anyopaque, window: usize, x: i32, y: i32, w: i32) QtC.QPixmap {
         return qtc.QScreen_GrabWindow4(@ptrCast(self), @intCast(window), @intCast(x), @intCast(y), @intCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#grabWindow)
     ///
     /// ``` self: QtC.QScreen, window: usize, x: i32, y: i32, w: i32, h: i32 ```
     pub fn GrabWindow5(self: ?*anyopaque, window: usize, x: i32, y: i32, w: i32, h: i32) QtC.QPixmap {
@@ -483,7 +483,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QScreen, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -492,7 +492,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QScreen, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -501,7 +501,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -514,7 +514,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QScreen, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -527,7 +527,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -536,7 +536,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -545,7 +545,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -554,7 +554,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -563,7 +563,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QScreen, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -572,7 +572,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -581,7 +581,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QScreen, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -590,7 +590,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QScreen, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -599,7 +599,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QScreen, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -608,7 +608,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QScreen, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -617,7 +617,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -631,7 +631,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QScreen, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -640,7 +640,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QScreen, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -649,7 +649,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QScreen, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -658,7 +658,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -667,7 +667,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QScreen, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -678,7 +678,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -687,7 +687,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -696,7 +696,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -705,7 +705,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -714,7 +714,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QScreen, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -724,7 +724,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QScreen, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -734,7 +734,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -758,7 +758,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -767,7 +767,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -776,7 +776,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -785,7 +785,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -794,7 +794,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -803,7 +803,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QScreen, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -813,7 +813,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QScreen ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -822,7 +822,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QScreen, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -831,7 +831,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QScreen, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -840,7 +840,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -849,7 +849,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QScreen, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -860,7 +860,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QScreen, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -869,7 +869,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QScreen, callback: *const fn (self: QtC.QScreen, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -878,7 +878,7 @@ pub const qscreen = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -887,7 +887,7 @@ pub const qscreen = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#dtor.QScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscreen.html#dtor.QScreen)
     ///
     /// Delete this object from C++ memory.
     ///

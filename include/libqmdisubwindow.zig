@@ -32,7 +32,7 @@ pub const qmdisubwindow = struct {
         return qtc.QMdiSubWindow_new3(@ptrCast(parent), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -64,7 +64,7 @@ pub const qmdisubwindow = struct {
         return qtc.QMdiSubWindow_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -76,14 +76,14 @@ pub const qmdisubwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#sizeHint)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QMdiSubWindow_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -92,7 +92,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -101,14 +101,14 @@ pub const qmdisubwindow = struct {
         return qtc.QMdiSubWindow_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#minimumSizeHint)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QMdiSubWindow_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -117,7 +117,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -126,154 +126,154 @@ pub const qmdisubwindow = struct {
         return qtc.QMdiSubWindow_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#setWidget)
     ///
     /// ``` self: QtC.QMdiSubWindow, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QMdiSubWindow_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#widget)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QMdiSubWindow_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#maximizedButtonsWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#maximizedButtonsWidget)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MaximizedButtonsWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QMdiSubWindow_MaximizedButtonsWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#maximizedSystemMenuIconWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#maximizedSystemMenuIconWidget)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MaximizedSystemMenuIconWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QMdiSubWindow_MaximizedSystemMenuIconWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#isShaded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#isShaded)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsShaded(self: ?*anyopaque) bool {
         return qtc.QMdiSubWindow_IsShaded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#setOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#setOption)
     ///
     /// ``` self: QtC.QMdiSubWindow, option: qmdisubwindow_enums.SubWindowOption ```
     pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QMdiSubWindow_SetOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#testOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#testOption)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: qmdisubwindow_enums.SubWindowOption ```
     pub fn TestOption(self: ?*anyopaque, param1: i32) bool {
         return qtc.QMdiSubWindow_TestOption(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#setKeyboardSingleStep)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#setKeyboardSingleStep)
     ///
     /// ``` self: QtC.QMdiSubWindow, step: i32 ```
     pub fn SetKeyboardSingleStep(self: ?*anyopaque, step: i32) void {
         qtc.QMdiSubWindow_SetKeyboardSingleStep(@ptrCast(self), @intCast(step));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#keyboardSingleStep)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#keyboardSingleStep)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn KeyboardSingleStep(self: ?*anyopaque) i32 {
         return qtc.QMdiSubWindow_KeyboardSingleStep(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#setKeyboardPageStep)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#setKeyboardPageStep)
     ///
     /// ``` self: QtC.QMdiSubWindow, step: i32 ```
     pub fn SetKeyboardPageStep(self: ?*anyopaque, step: i32) void {
         qtc.QMdiSubWindow_SetKeyboardPageStep(@ptrCast(self), @intCast(step));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#keyboardPageStep)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#keyboardPageStep)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn KeyboardPageStep(self: ?*anyopaque) i32 {
         return qtc.QMdiSubWindow_KeyboardPageStep(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#setSystemMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#setSystemMenu)
     ///
     /// ``` self: QtC.QMdiSubWindow, systemMenu: QtC.QMenu ```
     pub fn SetSystemMenu(self: ?*anyopaque, systemMenu: ?*anyopaque) void {
         qtc.QMdiSubWindow_SetSystemMenu(@ptrCast(self), @ptrCast(systemMenu));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#systemMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#systemMenu)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn SystemMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.QMdiSubWindow_SystemMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mdiArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mdiArea)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MdiArea(self: ?*anyopaque) QtC.QMdiArea {
         return qtc.QMdiSubWindow_MdiArea(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#windowStateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#windowStateChanged)
     ///
     /// ``` self: QtC.QMdiSubWindow, oldState: flag of qnamespace_enums.WindowState, newState: flag of qnamespace_enums.WindowState ```
     pub fn WindowStateChanged(self: ?*anyopaque, oldState: i32, newState: i32) void {
         qtc.QMdiSubWindow_WindowStateChanged(@ptrCast(self), @intCast(oldState), @intCast(newState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#windowStateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#windowStateChanged)
     ///
     /// ``` self: QtC.QMdiSubWindow, callback: *const fn (self: QtC.QMdiSubWindow, oldState: flag of qnamespace_enums.WindowState, newState: flag of qnamespace_enums.WindowState) callconv(.c) void ```
     pub fn OnWindowStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QMdiSubWindow_Connect_WindowStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#aboutToActivate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#aboutToActivate)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn AboutToActivate(self: ?*anyopaque) void {
         qtc.QMdiSubWindow_AboutToActivate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#aboutToActivate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#aboutToActivate)
     ///
     /// ``` self: QtC.QMdiSubWindow, callback: *const fn (self: QtC.QMdiSubWindow) callconv(.c) void ```
     pub fn OnAboutToActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMdiSubWindow_Connect_AboutToActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#showSystemMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#showSystemMenu)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ShowSystemMenu(self: ?*anyopaque) void {
         qtc.QMdiSubWindow_ShowSystemMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#showShaded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#showShaded)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ShowShaded(self: ?*anyopaque) void {
         qtc.QMdiSubWindow_ShowShaded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#eventFilter)
     ///
     /// ``` self: QtC.QMdiSubWindow, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QMdiSubWindow_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -282,7 +282,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -291,14 +291,14 @@ pub const qmdisubwindow = struct {
         return qtc.QMdiSubWindow_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#event)
     ///
     /// ``` self: QtC.QMdiSubWindow, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QMdiSubWindow_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -307,7 +307,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#event)
     ///
     /// Base class method implementation
     ///
@@ -316,14 +316,14 @@ pub const qmdisubwindow = struct {
         return qtc.QMdiSubWindow_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#showEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, showEvent: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, showEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_ShowEvent(@ptrCast(self), @ptrCast(showEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -332,7 +332,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -341,14 +341,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseShowEvent(@ptrCast(self), @ptrCast(showEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#hideEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, hideEvent: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, hideEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_HideEvent(@ptrCast(self), @ptrCast(hideEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#hideEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -357,7 +357,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#hideEvent)
     ///
     /// Base class method implementation
     ///
@@ -366,14 +366,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseHideEvent(@ptrCast(self), @ptrCast(hideEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#changeEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, changeEvent: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, changeEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_ChangeEvent(@ptrCast(self), @ptrCast(changeEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#changeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -382,7 +382,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#changeEvent)
     ///
     /// Base class method implementation
     ///
@@ -391,14 +391,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseChangeEvent(@ptrCast(self), @ptrCast(changeEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#closeEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, closeEvent: QtC.QCloseEvent ```
     pub fn CloseEvent(self: ?*anyopaque, closeEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_CloseEvent(@ptrCast(self), @ptrCast(closeEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#closeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -407,7 +407,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#closeEvent)
     ///
     /// Base class method implementation
     ///
@@ -416,14 +416,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseCloseEvent(@ptrCast(self), @ptrCast(closeEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#leaveEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, leaveEvent: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, leaveEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_LeaveEvent(@ptrCast(self), @ptrCast(leaveEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -432,7 +432,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -441,14 +441,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseLeaveEvent(@ptrCast(self), @ptrCast(leaveEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#resizeEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, resizeEvent: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, resizeEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_ResizeEvent(@ptrCast(self), @ptrCast(resizeEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -457,7 +457,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -466,14 +466,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseResizeEvent(@ptrCast(self), @ptrCast(resizeEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#timerEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, timerEvent: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, timerEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_TimerEvent(@ptrCast(self), @ptrCast(timerEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#timerEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -482,7 +482,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#timerEvent)
     ///
     /// Base class method implementation
     ///
@@ -491,14 +491,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseTimerEvent(@ptrCast(self), @ptrCast(timerEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#moveEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, moveEvent: QtC.QMoveEvent ```
     pub fn MoveEvent(self: ?*anyopaque, moveEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_MoveEvent(@ptrCast(self), @ptrCast(moveEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#moveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -507,7 +507,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#moveEvent)
     ///
     /// Base class method implementation
     ///
@@ -516,14 +516,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseMoveEvent(@ptrCast(self), @ptrCast(moveEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#paintEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, paintEvent: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, paintEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_PaintEvent(@ptrCast(self), @ptrCast(paintEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -532,7 +532,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -541,14 +541,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBasePaintEvent(@ptrCast(self), @ptrCast(paintEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mousePressEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, mouseEvent: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, mouseEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_MousePressEvent(@ptrCast(self), @ptrCast(mouseEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -557,7 +557,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -566,14 +566,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseMousePressEvent(@ptrCast(self), @ptrCast(mouseEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseDoubleClickEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, mouseEvent: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, mouseEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(mouseEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseDoubleClickEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -582,7 +582,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
     ///
@@ -591,14 +591,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(mouseEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, mouseEvent: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, mouseEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_MouseReleaseEvent(@ptrCast(self), @ptrCast(mouseEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -607,7 +607,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -616,14 +616,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(mouseEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, mouseEvent: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, mouseEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_MouseMoveEvent(@ptrCast(self), @ptrCast(mouseEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -632,7 +632,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -641,14 +641,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(mouseEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#keyPressEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, keyEvent: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, keyEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_KeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -657,7 +657,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -666,14 +666,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#contextMenuEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, contextMenuEvent: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, contextMenuEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_ContextMenuEvent(@ptrCast(self), @ptrCast(contextMenuEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#contextMenuEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -682,7 +682,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#contextMenuEvent)
     ///
     /// Base class method implementation
     ///
@@ -691,14 +691,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(contextMenuEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#focusInEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, focusInEvent: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, focusInEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_FocusInEvent(@ptrCast(self), @ptrCast(focusInEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -707,7 +707,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -716,14 +716,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseFocusInEvent(@ptrCast(self), @ptrCast(focusInEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#focusOutEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, focusOutEvent: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, focusOutEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_FocusOutEvent(@ptrCast(self), @ptrCast(focusOutEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -732,7 +732,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -741,14 +741,14 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(focusOutEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#childEvent)
     ///
     /// ``` self: QtC.QMdiSubWindow, childEvent: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, childEvent: ?*anyopaque) void {
         qtc.QMdiSubWindow_ChildEvent(@ptrCast(self), @ptrCast(childEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#childEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -757,7 +757,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#childEvent)
     ///
     /// Base class method implementation
     ///
@@ -766,7 +766,7 @@ pub const qmdisubwindow = struct {
         qtc.QMdiSubWindow_QBaseChildEvent(@ptrCast(self), @ptrCast(childEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -779,7 +779,7 @@ pub const qmdisubwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -792,7 +792,7 @@ pub const qmdisubwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#setOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#setOption)
     ///
     /// ``` self: QtC.QMdiSubWindow, option: qmdisubwindow_enums.SubWindowOption, on: bool ```
     pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
@@ -801,7 +801,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -810,7 +810,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -819,7 +819,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -828,7 +828,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -837,7 +837,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -846,7 +846,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.QMdiSubWindow, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -855,7 +855,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -864,7 +864,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -873,7 +873,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -882,7 +882,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -893,7 +893,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QMdiSubWindow, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -902,7 +902,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -911,7 +911,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -920,7 +920,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.QMdiSubWindow, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -929,7 +929,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.QMdiSubWindow, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -938,7 +938,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.QMdiSubWindow, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -947,7 +947,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -956,7 +956,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -965,7 +965,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -974,7 +974,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -983,7 +983,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -992,7 +992,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -1001,7 +1001,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -1010,7 +1010,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -1019,7 +1019,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -1028,7 +1028,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -1037,7 +1037,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -1046,7 +1046,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -1055,7 +1055,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -1064,7 +1064,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -1073,7 +1073,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -1082,7 +1082,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -1091,7 +1091,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -1100,7 +1100,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -1109,7 +1109,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -1118,7 +1118,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QMdiSubWindow, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -1127,7 +1127,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QMdiSubWindow, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -1136,7 +1136,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QMdiSubWindow, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -1145,7 +1145,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QMdiSubWindow, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -1154,7 +1154,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QMdiSubWindow, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -1163,7 +1163,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QMdiSubWindow, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -1172,7 +1172,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QMdiSubWindow, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -1181,7 +1181,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QMdiSubWindow, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -1190,7 +1190,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -1199,7 +1199,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QMdiSubWindow, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -1208,7 +1208,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QMdiSubWindow, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1217,7 +1217,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -1226,7 +1226,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QMdiSubWindow, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -1235,7 +1235,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QMdiSubWindow, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -1244,7 +1244,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QMdiSubWindow, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -1253,7 +1253,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QMdiSubWindow, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1262,7 +1262,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.QMdiSubWindow, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -1271,7 +1271,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.QMdiSubWindow, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -1280,7 +1280,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1289,7 +1289,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1298,7 +1298,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1307,7 +1307,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1316,7 +1316,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1325,7 +1325,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1334,7 +1334,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1343,7 +1343,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1352,7 +1352,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1361,7 +1361,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1370,7 +1370,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1379,7 +1379,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1388,7 +1388,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -1397,7 +1397,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1406,7 +1406,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1415,7 +1415,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -1424,7 +1424,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.QMdiSubWindow, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -1433,7 +1433,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QMdiSubWindow, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -1442,7 +1442,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -1453,7 +1453,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QMdiSubWindow, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -1462,7 +1462,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -1473,7 +1473,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -1482,7 +1482,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.QMdiSubWindow, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -1491,7 +1491,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -1500,7 +1500,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -1509,7 +1509,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -1518,7 +1518,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.QMdiSubWindow, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -1527,7 +1527,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -1536,7 +1536,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.QMdiSubWindow, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -1545,7 +1545,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -1554,7 +1554,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -1563,7 +1563,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.QMdiSubWindow, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -1572,7 +1572,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -1581,7 +1581,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QMdiSubWindow, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -1590,7 +1590,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QMdiSubWindow, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -1599,7 +1599,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -1608,7 +1608,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -1617,7 +1617,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiSubWindow, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -1626,7 +1626,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiSubWindow, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -1635,7 +1635,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -1644,7 +1644,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -1653,7 +1653,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QMdiSubWindow, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -1662,7 +1662,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QMdiSubWindow, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1671,7 +1671,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.QMdiSubWindow, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1680,7 +1680,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QMdiSubWindow, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -1693,7 +1693,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.QMdiSubWindow, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -1706,7 +1706,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1719,7 +1719,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1732,7 +1732,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.QMdiSubWindow, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -1741,7 +1741,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -1750,7 +1750,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.QMdiSubWindow, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -1763,7 +1763,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1776,7 +1776,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.QMdiSubWindow, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -1789,7 +1789,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1802,7 +1802,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.QMdiSubWindow, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -1815,7 +1815,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1828,7 +1828,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.QMdiSubWindow, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -1837,7 +1837,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -1846,7 +1846,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -1855,7 +1855,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.QMdiSubWindow, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -1868,7 +1868,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1881,7 +1881,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.QMdiSubWindow, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -1890,7 +1890,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -1899,7 +1899,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.QMdiSubWindow, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -1912,7 +1912,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1925,7 +1925,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.QMdiSubWindow, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -1938,7 +1938,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1951,7 +1951,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1964,7 +1964,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.QMdiSubWindow, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -1977,7 +1977,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1990,7 +1990,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.QMdiSubWindow, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -2003,7 +2003,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QMdiSubWindow, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -2012,7 +2012,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -2023,7 +2023,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -2032,7 +2032,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.QMdiSubWindow, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -2041,7 +2041,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -2050,7 +2050,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -2059,7 +2059,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -2068,7 +2068,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -2077,7 +2077,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -2086,7 +2086,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -2095,7 +2095,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -2104,7 +2104,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -2113,7 +2113,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QMdiSubWindow, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -2122,7 +2122,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -2133,7 +2133,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QMdiSubWindow, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2142,7 +2142,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -2151,7 +2151,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -2160,7 +2160,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.QMdiSubWindow, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -2169,7 +2169,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -2178,7 +2178,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -2189,7 +2189,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QMdiSubWindow, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2198,7 +2198,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -2207,7 +2207,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2216,7 +2216,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -2225,7 +2225,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -2234,7 +2234,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -2243,7 +2243,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QMdiSubWindow, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -2252,7 +2252,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QMdiSubWindow, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -2261,7 +2261,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QMdiSubWindow, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -2270,7 +2270,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QMdiSubWindow, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -2279,7 +2279,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -2288,7 +2288,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -2297,7 +2297,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -2306,7 +2306,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.QMdiSubWindow, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -2315,7 +2315,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -2324,7 +2324,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Update(self: ?*anyopaque) void {
@@ -2333,7 +2333,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -2342,7 +2342,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMdiSubWindow, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2351,7 +2351,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2360,7 +2360,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2369,7 +2369,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMdiSubWindow, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2378,7 +2378,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2387,7 +2387,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2396,7 +2396,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.QMdiSubWindow, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -2405,7 +2405,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Show(self: ?*anyopaque) void {
@@ -2414,7 +2414,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -2423,7 +2423,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -2432,7 +2432,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -2441,7 +2441,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -2450,7 +2450,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -2459,7 +2459,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -2468,7 +2468,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -2477,7 +2477,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -2486,7 +2486,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2495,7 +2495,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QMdiSubWindow, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -2504,7 +2504,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2513,7 +2513,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QMdiSubWindow, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2522,7 +2522,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2531,7 +2531,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QMdiSubWindow, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2540,7 +2540,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QMdiSubWindow, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -2549,7 +2549,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -2562,7 +2562,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.QMdiSubWindow, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -2575,7 +2575,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -2584,7 +2584,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -2593,7 +2593,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2602,7 +2602,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -2611,7 +2611,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -2620,7 +2620,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -2629,7 +2629,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -2638,7 +2638,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -2649,7 +2649,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QMdiSubWindow, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -2658,7 +2658,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QMdiSubWindow, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -2667,7 +2667,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -2676,7 +2676,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QMdiSubWindow, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -2685,7 +2685,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QMdiSubWindow, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -2694,7 +2694,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2703,7 +2703,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QMdiSubWindow, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -2712,7 +2712,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QMdiSubWindow, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -2721,7 +2721,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -2730,7 +2730,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -2739,7 +2739,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -2748,7 +2748,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.QMdiSubWindow, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -2757,7 +2757,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -2766,7 +2766,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QMdiSubWindow, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2775,7 +2775,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QMdiSubWindow, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -2784,7 +2784,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QMdiSubWindow, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -2793,7 +2793,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QMdiSubWindow, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -2802,7 +2802,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2811,7 +2811,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -2820,7 +2820,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -2829,7 +2829,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -2838,7 +2838,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QMdiSubWindow, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -2847,7 +2847,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiSubWindow, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -2856,7 +2856,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.QMdiSubWindow, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -2869,7 +2869,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.QMdiSubWindow, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -2882,7 +2882,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.QMdiSubWindow, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -2891,7 +2891,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.QMdiSubWindow, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -2900,7 +2900,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -2914,7 +2914,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiSubWindow, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -2927,7 +2927,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiSubWindow, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -2940,7 +2940,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiSubWindow, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -2953,7 +2953,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiSubWindow, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -2966,7 +2966,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2975,7 +2975,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QMdiSubWindow, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -2984,7 +2984,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -2995,7 +2995,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -3004,7 +3004,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.QMdiSubWindow, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3013,7 +3013,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -3024,7 +3024,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -3033,7 +3033,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMdiSubWindow, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -3042,7 +3042,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMdiSubWindow, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3051,7 +3051,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMdiSubWindow, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3060,7 +3060,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -3069,7 +3069,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -3078,7 +3078,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -3087,7 +3087,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.QMdiSubWindow, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -3096,7 +3096,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -3105,7 +3105,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QMdiSubWindow, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -3114,7 +3114,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -3123,7 +3123,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -3132,7 +3132,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -3141,7 +3141,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.QMdiSubWindow, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -3150,7 +3150,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -3159,7 +3159,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QMdiSubWindow, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -3172,7 +3172,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QMdiSubWindow, callback: *const fn (self: QtC.QMdiSubWindow, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3181,7 +3181,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QMdiSubWindow, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3190,7 +3190,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QMdiSubWindow, callback: *const fn (self: QtC.QMdiSubWindow, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3199,7 +3199,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QMdiSubWindow, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -3212,7 +3212,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QMdiSubWindow, callback: *const fn (self: QtC.QMdiSubWindow, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3221,7 +3221,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QMdiSubWindow, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -3230,7 +3230,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QMdiSubWindow, callback: *const fn (self: QtC.QMdiSubWindow, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3239,7 +3239,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     ///
@@ -3250,7 +3250,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QMdiSubWindow, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -3259,7 +3259,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiSubWindow, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3268,7 +3268,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiSubWindow, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3277,7 +3277,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiSubWindow, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3286,7 +3286,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiSubWindow, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3295,7 +3295,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiSubWindow, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3304,7 +3304,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiSubWindow, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3313,7 +3313,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QMdiSubWindow, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -3322,7 +3322,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QMdiSubWindow, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -3331,7 +3331,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QMdiSubWindow, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -3340,7 +3340,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QMdiSubWindow, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3349,7 +3349,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QMdiSubWindow, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3358,7 +3358,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -3367,7 +3367,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -3376,7 +3376,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -3385,7 +3385,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -3394,7 +3394,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3407,7 +3407,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QMdiSubWindow, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3420,7 +3420,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3429,7 +3429,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3438,7 +3438,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3447,7 +3447,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3456,7 +3456,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QMdiSubWindow, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3465,7 +3465,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3474,7 +3474,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMdiSubWindow, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3483,7 +3483,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMdiSubWindow, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3492,7 +3492,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMdiSubWindow, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3501,7 +3501,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMdiSubWindow, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3510,7 +3510,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3524,7 +3524,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QMdiSubWindow, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3533,7 +3533,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QMdiSubWindow, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3542,7 +3542,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3551,7 +3551,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMdiSubWindow, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -3562,7 +3562,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -3571,7 +3571,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -3580,7 +3580,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -3589,7 +3589,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -3598,7 +3598,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QMdiSubWindow, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -3608,7 +3608,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QMdiSubWindow, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -3618,7 +3618,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QMdiSubWindow, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -3642,7 +3642,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3651,7 +3651,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3660,7 +3660,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -3669,7 +3669,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMdiSubWindow, callback: *const fn (self: QtC.QMdiSubWindow) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3678,7 +3678,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3687,7 +3687,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QMdiSubWindow, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3697,7 +3697,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3706,7 +3706,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMdiSubWindow, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3715,7 +3715,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMdiSubWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3724,7 +3724,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3733,7 +3733,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMdiSubWindow, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3744,7 +3744,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMdiSubWindow, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3753,7 +3753,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMdiSubWindow, callback: *const fn (self: QtC.QMdiSubWindow, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3762,7 +3762,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -3771,7 +3771,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -3780,7 +3780,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -3789,7 +3789,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -3798,7 +3798,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -3807,7 +3807,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -3816,7 +3816,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -3825,7 +3825,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -3834,7 +3834,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -3843,7 +3843,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -3852,7 +3852,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QMdiSubWindow ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -3861,7 +3861,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -3870,7 +3870,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -3879,7 +3879,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3890,7 +3890,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3901,7 +3901,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3912,7 +3912,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3923,7 +3923,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3934,7 +3934,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3945,7 +3945,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3956,7 +3956,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3967,7 +3967,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3978,7 +3978,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3989,7 +3989,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4000,7 +4000,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4011,7 +4011,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4022,7 +4022,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4033,7 +4033,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4044,7 +4044,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4055,7 +4055,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4066,7 +4066,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4077,7 +4077,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4088,7 +4088,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4099,7 +4099,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4110,7 +4110,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4121,7 +4121,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4132,7 +4132,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4143,7 +4143,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4154,7 +4154,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4165,7 +4165,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4176,7 +4176,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4187,7 +4187,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4198,7 +4198,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4209,7 +4209,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4220,7 +4220,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4231,7 +4231,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4242,7 +4242,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4253,7 +4253,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4264,7 +4264,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4275,7 +4275,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4286,7 +4286,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4297,7 +4297,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4308,7 +4308,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4319,7 +4319,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4330,7 +4330,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4341,7 +4341,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4356,7 +4356,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4371,7 +4371,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4382,7 +4382,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4393,7 +4393,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4404,7 +4404,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4415,7 +4415,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4426,7 +4426,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4437,7 +4437,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4448,7 +4448,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4459,7 +4459,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4470,7 +4470,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4481,7 +4481,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4492,7 +4492,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4503,7 +4503,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4514,7 +4514,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4525,7 +4525,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4536,7 +4536,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4547,7 +4547,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4558,7 +4558,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4569,7 +4569,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4580,7 +4580,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4591,7 +4591,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4602,7 +4602,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4613,7 +4613,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4624,7 +4624,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4635,7 +4635,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4646,7 +4646,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4657,7 +4657,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4668,7 +4668,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4679,7 +4679,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4690,7 +4690,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4701,7 +4701,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4712,7 +4712,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4723,7 +4723,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4734,7 +4734,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4745,7 +4745,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4756,7 +4756,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4767,7 +4767,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4778,7 +4778,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4789,7 +4789,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4800,7 +4800,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4811,7 +4811,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4822,7 +4822,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4833,7 +4833,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4844,7 +4844,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4855,7 +4855,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4866,7 +4866,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4877,7 +4877,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4888,7 +4888,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4899,7 +4899,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4910,7 +4910,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4921,7 +4921,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4932,7 +4932,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4943,7 +4943,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4955,7 +4955,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4967,7 +4967,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4978,7 +4978,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4989,7 +4989,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5000,7 +5000,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5011,7 +5011,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5022,7 +5022,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5033,7 +5033,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5044,7 +5044,7 @@ pub const qmdisubwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -5053,7 +5053,7 @@ pub const qmdisubwindow = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdisubwindow.html#dtor.QMdiSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdisubwindow.html#dtor.QMdiSubWindow)
     ///
     /// Delete this object from C++ memory.
     ///

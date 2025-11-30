@@ -26,7 +26,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -58,7 +58,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -70,7 +70,7 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootPathChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootPathChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, newPath: []const u8 ```
     pub fn RootPathChanged(self: ?*anyopaque, newPath: []const u8) void {
@@ -81,14 +81,14 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_RootPathChanged(@ptrCast(self), newPath_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootPathChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootPathChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, newPath: [*:0]const u8) callconv(.c) void ```
     pub fn OnRootPathChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemModel_Connect_RootPathChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileRenamed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileRenamed)
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8, oldName: []const u8, newName: []const u8 ```
     pub fn FileRenamed(self: ?*anyopaque, path: []const u8, oldName: []const u8, newName: []const u8) void {
@@ -107,14 +107,14 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_FileRenamed(@ptrCast(self), path_str, oldName_str, newName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileRenamed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileRenamed)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, path: [*:0]const u8, oldName: [*:0]const u8, newName: [*:0]const u8) callconv(.c) void ```
     pub fn OnFileRenamed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemModel_Connect_FileRenamed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#directoryLoaded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#directoryLoaded)
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8 ```
     pub fn DirectoryLoaded(self: ?*anyopaque, path: []const u8) void {
@@ -125,21 +125,21 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_DirectoryLoaded(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#directoryLoaded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#directoryLoaded)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, path: [*:0]const u8) callconv(.c) void ```
     pub fn OnDirectoryLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemModel_Connect_DirectoryLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
     ///
     /// ``` self: QtC.QFileSystemModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
         return qtc.QFileSystemModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
     ///
     /// Allows for overriding the related default method
     ///
@@ -148,7 +148,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
     ///
     /// Base class method implementation
     ///
@@ -157,7 +157,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8 ```
     pub fn Index2(self: ?*anyopaque, path: []const u8) QtC.QModelIndex {
@@ -168,14 +168,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_Index2(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#parent)
     ///
     /// ``` self: QtC.QFileSystemModel, child: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
         return qtc.QFileSystemModel_Parent(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -184,7 +184,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -193,14 +193,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseParent(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sibling)
     ///
     /// ``` self: QtC.QFileSystemModel, row: i32, column: i32, idx: QtC.QModelIndex ```
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
         return qtc.QFileSystemModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sibling)
     ///
     /// Allows for overriding the related default method
     ///
@@ -209,7 +209,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sibling)
     ///
     /// Base class method implementation
     ///
@@ -218,14 +218,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#hasChildren)
     ///
     /// ``` self: QtC.QFileSystemModel, parent: QtC.QModelIndex ```
     pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
         return qtc.QFileSystemModel_HasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#hasChildren)
     ///
     /// Allows for overriding the related default method
     ///
@@ -234,7 +234,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#hasChildren)
     ///
     /// Base class method implementation
     ///
@@ -243,14 +243,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseHasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#canFetchMore)
     ///
     /// ``` self: QtC.QFileSystemModel, parent: QtC.QModelIndex ```
     pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
         return qtc.QFileSystemModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#canFetchMore)
     ///
     /// Allows for overriding the related default method
     ///
@@ -259,7 +259,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#canFetchMore)
     ///
     /// Base class method implementation
     ///
@@ -268,14 +268,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseCanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fetchMore)
     ///
     /// ``` self: QtC.QFileSystemModel, parent: QtC.QModelIndex ```
     pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QFileSystemModel_FetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fetchMore)
     ///
     /// Allows for overriding the related default method
     ///
@@ -284,7 +284,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fetchMore)
     ///
     /// Base class method implementation
     ///
@@ -293,14 +293,14 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_QBaseFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rowCount)
     ///
     /// ``` self: QtC.QFileSystemModel, parent: QtC.QModelIndex ```
     pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.QFileSystemModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rowCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -309,7 +309,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rowCount)
     ///
     /// Base class method implementation
     ///
@@ -318,14 +318,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#columnCount)
     ///
     /// ``` self: QtC.QFileSystemModel, parent: QtC.QModelIndex ```
     pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.QFileSystemModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#columnCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -334,7 +334,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#columnCount)
     ///
     /// Base class method implementation
     ///
@@ -343,21 +343,21 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#myComputer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#myComputer)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn MyComputer(self: ?*anyopaque) QtC.QVariant {
         return qtc.QFileSystemModel_MyComputer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#data)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, role: i32 ```
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QFileSystemModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -366,7 +366,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#data)
     ///
     /// Base class method implementation
     ///
@@ -375,14 +375,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32 ```
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
         return qtc.QFileSystemModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -391,7 +391,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
     ///
     /// Base class method implementation
     ///
@@ -400,14 +400,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
     ///
     /// ``` self: QtC.QFileSystemModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32 ```
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
         return qtc.QFileSystemModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -416,7 +416,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
     ///
     /// Base class method implementation
     ///
@@ -425,7 +425,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     ///
@@ -434,7 +434,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -443,7 +443,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
     ///
     /// Base class method implementation
     ///
@@ -454,14 +454,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sort)
     ///
     /// ``` self: QtC.QFileSystemModel, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QFileSystemModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sort)
     ///
     /// Allows for overriding the related default method
     ///
@@ -470,7 +470,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sort)
     ///
     /// Base class method implementation
     ///
@@ -479,7 +479,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes)
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -501,7 +501,7 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -510,7 +510,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes)
     ///
     /// Base class method implementation
     ///
@@ -534,7 +534,7 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeData)
     ///
     /// ``` self: QtC.QFileSystemModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
@@ -545,7 +545,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_MimeData(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -554,7 +554,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeData)
     ///
     /// Base class method implementation
     ///
@@ -567,14 +567,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseMimeData(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#dropMimeData)
     ///
     /// ``` self: QtC.QFileSystemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QFileSystemModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#dropMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -583,7 +583,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#dropMimeData)
     ///
     /// Base class method implementation
     ///
@@ -592,7 +592,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     ///
@@ -601,7 +601,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_SupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -610,7 +610,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
     ///
     /// Base class method implementation
     ///
@@ -621,7 +621,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#roleNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#roleNames)
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
@@ -642,7 +642,7 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setRootPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setRootPath)
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8 ```
     pub fn SetRootPath(self: ?*anyopaque, path: []const u8) QtC.QModelIndex {
@@ -653,7 +653,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_SetRootPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootPath)
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn RootPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -664,35 +664,35 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootDirectory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootDirectory)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn RootDirectory(self: ?*anyopaque) QtC.QDir {
         return qtc.QFileSystemModel_RootDirectory(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setIconProvider)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setIconProvider)
     ///
     /// ``` self: QtC.QFileSystemModel, provider: QtC.QAbstractFileIconProvider ```
     pub fn SetIconProvider(self: ?*anyopaque, provider: ?*anyopaque) void {
         qtc.QFileSystemModel_SetIconProvider(@ptrCast(self), @ptrCast(provider));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#iconProvider)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#iconProvider)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn IconProvider(self: ?*anyopaque) QtC.QAbstractFileIconProvider {
         return qtc.QFileSystemModel_IconProvider(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setFilter)
     ///
     /// ``` self: QtC.QFileSystemModel, filters: flag of qdir_enums.Filter ```
     pub fn SetFilter(self: ?*anyopaque, filters: i32) void {
         qtc.QFileSystemModel_SetFilter(@ptrCast(self), @intCast(filters));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#filter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#filter)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     ///
@@ -701,49 +701,49 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_Filter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setResolveSymlinks)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setResolveSymlinks)
     ///
     /// ``` self: QtC.QFileSystemModel, enable: bool ```
     pub fn SetResolveSymlinks(self: ?*anyopaque, enable: bool) void {
         qtc.QFileSystemModel_SetResolveSymlinks(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#resolveSymlinks)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#resolveSymlinks)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn ResolveSymlinks(self: ?*anyopaque) bool {
         return qtc.QFileSystemModel_ResolveSymlinks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setReadOnly)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setReadOnly)
     ///
     /// ``` self: QtC.QFileSystemModel, enable: bool ```
     pub fn SetReadOnly(self: ?*anyopaque, enable: bool) void {
         qtc.QFileSystemModel_SetReadOnly(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#isReadOnly)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#isReadOnly)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
         return qtc.QFileSystemModel_IsReadOnly(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setNameFilterDisables)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setNameFilterDisables)
     ///
     /// ``` self: QtC.QFileSystemModel, enable: bool ```
     pub fn SetNameFilterDisables(self: ?*anyopaque, enable: bool) void {
         qtc.QFileSystemModel_SetNameFilterDisables(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#nameFilterDisables)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#nameFilterDisables)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn NameFilterDisables(self: ?*anyopaque) bool {
         return qtc.QFileSystemModel_NameFilterDisables(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setNameFilters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setNameFilters)
     ///
     /// ``` self: QtC.QFileSystemModel, filters: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetNameFilters(self: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) void {
@@ -762,7 +762,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_SetNameFilters(@ptrCast(self), filters_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#nameFilters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#nameFilters)
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -784,28 +784,28 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOption)
     ///
     /// ``` self: QtC.QFileSystemModel, option: qfilesystemmodel_enums.Option ```
     pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QFileSystemModel_SetOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#testOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#testOption)
     ///
     /// ``` self: QtC.QFileSystemModel, option: qfilesystemmodel_enums.Option ```
     pub fn TestOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QFileSystemModel_TestOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOptions)
     ///
     /// ``` self: QtC.QFileSystemModel, options: flag of qfilesystemmodel_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QFileSystemModel_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#options)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#options)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     ///
@@ -814,7 +814,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#filePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#filePath)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -825,21 +825,21 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#isDir)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#isDir)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     pub fn IsDir(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QFileSystemModel_IsDir(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#size)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     pub fn Size(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_Size(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#type)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn Type(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -850,21 +850,21 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#lastModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#lastModified)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     pub fn LastModified(self: ?*anyopaque, index: ?*anyopaque) QtC.QDateTime {
         return qtc.QFileSystemModel_LastModified(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#lastModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#lastModified)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, tz: QtC.QTimeZone ```
     pub fn LastModified2(self: ?*anyopaque, index: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
         return qtc.QFileSystemModel_LastModified2(@ptrCast(self), @ptrCast(index), @ptrCast(tz));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#mkdir)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mkdir)
     ///
     /// ``` self: QtC.QFileSystemModel, parent: QtC.QModelIndex, name: []const u8 ```
     pub fn Mkdir(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QModelIndex {
@@ -875,14 +875,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_Mkdir(@ptrCast(self), @ptrCast(parent), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rmdir)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rmdir)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     pub fn Rmdir(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QFileSystemModel_Rmdir(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileName)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -893,14 +893,14 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileIcon)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     pub fn FileIcon(self: ?*anyopaque, index: ?*anyopaque) QtC.QIcon {
         return qtc.QFileSystemModel_FileIcon(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#permissions)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     ///
@@ -909,28 +909,28 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_Permissions(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileInfo)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     pub fn FileInfo(self: ?*anyopaque, index: ?*anyopaque) QtC.QFileInfo {
         return qtc.QFileSystemModel_FileInfo(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#remove)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     pub fn Remove(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QFileSystemModel_Remove(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#timerEvent)
     ///
     /// ``` self: QtC.QFileSystemModel, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QFileSystemModel_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#timerEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -939,7 +939,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#timerEvent)
     ///
     /// Base class method implementation
     ///
@@ -948,14 +948,14 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#event)
     ///
     /// ``` self: QtC.QFileSystemModel, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QFileSystemModel_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -964,7 +964,7 @@ pub const qfilesystemmodel = struct {
         qtc.QFileSystemModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#event)
     ///
     /// Base class method implementation
     ///
@@ -973,7 +973,7 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -986,7 +986,7 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -999,7 +999,7 @@ pub const qfilesystemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8, column: i32 ```
     pub fn Index22(self: ?*anyopaque, path: []const u8, column: i32) QtC.QModelIndex {
@@ -1010,14 +1010,14 @@ pub const qfilesystemmodel = struct {
         return qtc.QFileSystemModel_Index22(@ptrCast(self), path_str, @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#myComputer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#myComputer)
     ///
     /// ``` self: QtC.QFileSystemModel, role: i32 ```
     pub fn MyComputer1(self: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QFileSystemModel_MyComputer1(@ptrCast(self), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOption)
     ///
     /// ``` self: QtC.QFileSystemModel, option: qfilesystemmodel_enums.Option, on: bool ```
     pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
@@ -1026,7 +1026,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QFileSystemModel, row: i32, column: i32 ```
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
@@ -1035,7 +1035,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QFileSystemModel, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
@@ -1044,7 +1044,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QFileSystemModel, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
@@ -1053,7 +1053,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QFileSystemModel, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
@@ -1062,7 +1062,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QFileSystemModel, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
@@ -1071,7 +1071,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
     ///
     /// ``` self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceRow: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -1080,7 +1080,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
     ///
     /// ``` self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -1089,7 +1089,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
     pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -1098,7 +1098,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
@@ -1107,7 +1107,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1116,7 +1116,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
@@ -1125,7 +1125,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
@@ -1134,7 +1134,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -1143,7 +1143,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1152,7 +1152,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
@@ -1161,7 +1161,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1170,7 +1170,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QFileSystemModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -1179,7 +1179,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QFileSystemModel, row: i32, parent: QtC.QModelIndex ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -1188,7 +1188,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QFileSystemModel, column: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -1197,7 +1197,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QFileSystemModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -1206,7 +1206,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QFileSystemModel, column: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -1215,7 +1215,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
@@ -1224,7 +1224,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -1237,7 +1237,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
@@ -1246,7 +1246,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -1259,7 +1259,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -1268,7 +1268,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -1281,7 +1281,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -1290,7 +1290,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -1303,7 +1303,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -1312,7 +1312,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -1325,7 +1325,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -1334,7 +1334,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1347,7 +1347,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QFileSystemModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1360,7 +1360,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1369,7 +1369,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1378,7 +1378,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1387,7 +1387,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1396,7 +1396,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QFileSystemModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1405,7 +1405,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1414,7 +1414,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFileSystemModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1423,7 +1423,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFileSystemModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1432,7 +1432,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFileSystemModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1441,7 +1441,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFileSystemModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1450,7 +1450,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1464,7 +1464,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QFileSystemModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1473,7 +1473,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QFileSystemModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1482,7 +1482,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QFileSystemModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1491,7 +1491,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1500,7 +1500,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFileSystemModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1511,7 +1511,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1520,7 +1520,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1529,7 +1529,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1538,7 +1538,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1547,7 +1547,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QFileSystemModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1557,7 +1557,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QFileSystemModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1567,7 +1567,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1591,7 +1591,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1600,7 +1600,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1609,7 +1609,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1618,7 +1618,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1627,7 +1627,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QFileSystemModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1637,7 +1637,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QFileSystemModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1646,7 +1646,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFileSystemModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1655,7 +1655,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFileSystemModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1664,7 +1664,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1673,7 +1673,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFileSystemModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1684,7 +1684,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFileSystemModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1693,7 +1693,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFileSystemModel, callback: *const fn (self: QtC.QFileSystemModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1702,7 +1702,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1713,7 +1713,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1724,7 +1724,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1735,7 +1735,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1760,7 +1760,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1788,7 +1788,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1799,7 +1799,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1810,7 +1810,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1821,7 +1821,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1832,7 +1832,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1843,7 +1843,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1854,7 +1854,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1867,7 +1867,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1880,7 +1880,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1891,7 +1891,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1902,7 +1902,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1913,7 +1913,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1924,7 +1924,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1935,7 +1935,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1946,7 +1946,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1957,7 +1957,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1968,7 +1968,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1979,7 +1979,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1990,7 +1990,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2001,7 +2001,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2012,7 +2012,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2023,7 +2023,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2034,7 +2034,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2045,7 +2045,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2056,7 +2056,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2067,7 +2067,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2078,7 +2078,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2089,7 +2089,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2100,7 +2100,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2111,7 +2111,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2122,7 +2122,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2138,7 +2138,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2154,7 +2154,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2165,7 +2165,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2176,7 +2176,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2187,7 +2187,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2198,7 +2198,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2209,7 +2209,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2220,7 +2220,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2231,7 +2231,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2242,7 +2242,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2253,7 +2253,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2264,7 +2264,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2275,7 +2275,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2286,7 +2286,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2297,7 +2297,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2308,7 +2308,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2319,7 +2319,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2330,7 +2330,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2341,7 +2341,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2352,7 +2352,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2363,7 +2363,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2374,7 +2374,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2385,7 +2385,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2396,7 +2396,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2407,7 +2407,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2418,7 +2418,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2429,7 +2429,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2440,7 +2440,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2451,7 +2451,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2462,7 +2462,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2473,7 +2473,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2484,7 +2484,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2495,7 +2495,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2506,7 +2506,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2517,7 +2517,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2528,7 +2528,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2543,7 +2543,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2558,7 +2558,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2569,7 +2569,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2580,7 +2580,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2591,7 +2591,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2602,7 +2602,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2613,7 +2613,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2624,7 +2624,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2635,7 +2635,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2646,7 +2646,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2657,7 +2657,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2668,7 +2668,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2679,7 +2679,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2690,7 +2690,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2701,7 +2701,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2712,7 +2712,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2723,7 +2723,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2734,7 +2734,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2745,7 +2745,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2756,7 +2756,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2767,7 +2767,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2778,7 +2778,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2789,7 +2789,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2800,7 +2800,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2811,7 +2811,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2822,7 +2822,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2833,7 +2833,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2844,7 +2844,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2855,7 +2855,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2866,7 +2866,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2877,7 +2877,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2888,7 +2888,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2899,7 +2899,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2910,7 +2910,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2921,7 +2921,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2932,7 +2932,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2943,7 +2943,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2954,7 +2954,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2965,7 +2965,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2976,7 +2976,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2987,7 +2987,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2998,7 +2998,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3009,7 +3009,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3020,7 +3020,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3031,7 +3031,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3042,7 +3042,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3053,7 +3053,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3064,7 +3064,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3075,7 +3075,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3086,7 +3086,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3097,7 +3097,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3116,7 +3116,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3135,7 +3135,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3146,7 +3146,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3162,7 +3162,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3178,7 +3178,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3189,7 +3189,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3200,7 +3200,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3211,7 +3211,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3222,7 +3222,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3233,7 +3233,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3244,7 +3244,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3255,7 +3255,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3267,7 +3267,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3279,7 +3279,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3290,7 +3290,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3301,7 +3301,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3312,7 +3312,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3323,7 +3323,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3334,7 +3334,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3345,7 +3345,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3356,7 +3356,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3367,7 +3367,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3378,7 +3378,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3389,7 +3389,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3400,7 +3400,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3411,7 +3411,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3422,7 +3422,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3433,7 +3433,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3444,7 +3444,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3455,7 +3455,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3466,7 +3466,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3477,7 +3477,7 @@ pub const qfilesystemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3486,7 +3486,7 @@ pub const qfilesystemmodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#dtor.QFileSystemModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#dtor.QFileSystemModel)
     ///
     /// Delete this object from C++ memory.
     ///

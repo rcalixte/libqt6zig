@@ -17,56 +17,56 @@ pub const ktexteditor__inlinenote = struct {
         return qtc.KTextEditor__InlineNote_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenote.html#width)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#width)
     ///
     /// ``` self: QtC.KTextEditor__InlineNote ```
     pub fn Width(self: ?*anyopaque) f64 {
         return qtc.KTextEditor__InlineNote_Width(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenote.html#provider)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#provider)
     ///
     /// ``` self: QtC.KTextEditor__InlineNote ```
     pub fn Provider(self: ?*anyopaque) QtC.KTextEditor__InlineNoteProvider {
         return qtc.KTextEditor__InlineNote_Provider(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenote.html#view)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#view)
     ///
     /// ``` self: QtC.KTextEditor__InlineNote ```
     pub fn View(self: ?*anyopaque) QtC.KTextEditor__View {
         return qtc.KTextEditor__InlineNote_View(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenote.html#position)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#position)
     ///
     /// ``` self: QtC.KTextEditor__InlineNote ```
     pub fn Position(self: ?*anyopaque) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__InlineNote_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenote.html#index)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#index)
     ///
     /// ``` self: QtC.KTextEditor__InlineNote ```
     pub fn Index(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__InlineNote_Index(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenote.html#underMouse)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#underMouse)
     ///
     /// ``` self: QtC.KTextEditor__InlineNote ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
         return qtc.KTextEditor__InlineNote_UnderMouse(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenote.html#font)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#font)
     ///
     /// ``` self: QtC.KTextEditor__InlineNote ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.KTextEditor__InlineNote_Font(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenote.html#lineHeight)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#lineHeight)
     ///
     /// ``` self: QtC.KTextEditor__InlineNote ```
     pub fn LineHeight(self: ?*anyopaque) i32 {

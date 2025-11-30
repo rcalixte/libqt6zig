@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qabstractseries-qtcharts.html
 pub const qabstractseries = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qabstractseries = struct {
         return qtc.QAbstractSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,7 +37,7 @@ pub const qabstractseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#type)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     ///
@@ -46,7 +46,7 @@ pub const qabstractseries = struct {
         return qtc.QAbstractSeries_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setName)
     ///
     /// ``` self: QtC.QAbstractSeries, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -57,7 +57,7 @@ pub const qabstractseries = struct {
         qtc.QAbstractSeries_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#name)
     ///
     /// ``` self: QtC.QAbstractSeries, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -68,70 +68,70 @@ pub const qabstractseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setVisible)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn SetVisible(self: ?*anyopaque) void {
         qtc.QAbstractSeries_SetVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#isVisible)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QAbstractSeries_IsVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#opacity)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn Opacity(self: ?*anyopaque) f64 {
         return qtc.QAbstractSeries_Opacity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setOpacity)
     ///
     /// ``` self: QtC.QAbstractSeries, opacity: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
         qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @floatCast(opacity));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setUseOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setUseOpenGL)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn SetUseOpenGL(self: ?*anyopaque) void {
         qtc.QAbstractSeries_SetUseOpenGL(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#useOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#useOpenGL)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn UseOpenGL(self: ?*anyopaque) bool {
         return qtc.QAbstractSeries_UseOpenGL(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#chart)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#chart)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn Chart(self: ?*anyopaque) QtC.QChart {
         return qtc.QAbstractSeries_Chart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#attachAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#attachAxis)
     ///
     /// ``` self: QtC.QAbstractSeries, axis: QtC.QAbstractAxis ```
     pub fn AttachAxis(self: ?*anyopaque, axis: ?*anyopaque) bool {
         return qtc.QAbstractSeries_AttachAxis(@ptrCast(self), @ptrCast(axis));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#detachAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#detachAxis)
     ///
     /// ``` self: QtC.QAbstractSeries, axis: QtC.QAbstractAxis ```
     pub fn DetachAxis(self: ?*anyopaque, axis: ?*anyopaque) bool {
         return qtc.QAbstractSeries_DetachAxis(@ptrCast(self), @ptrCast(axis));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#attachedAxes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#attachedAxes)
     ///
     /// ``` self: QtC.QAbstractSeries, allocator: std.mem.Allocator ```
     pub fn AttachedAxes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
@@ -143,77 +143,77 @@ pub const qabstractseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#show)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn Show(self: ?*anyopaque) void {
         qtc.QAbstractSeries_Show(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#hide)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn Hide(self: ?*anyopaque) void {
         qtc.QAbstractSeries_Hide(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#nameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#nameChanged)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn NameChanged(self: ?*anyopaque) void {
         qtc.QAbstractSeries_NameChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#nameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#nameChanged)
     ///
     /// ``` self: QtC.QAbstractSeries, callback: *const fn (self: QtC.QAbstractSeries) callconv(.c) void ```
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#visibleChanged)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
         qtc.QAbstractSeries_VisibleChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#visibleChanged)
     ///
     /// ``` self: QtC.QAbstractSeries, callback: *const fn (self: QtC.QAbstractSeries) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#opacityChanged)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn OpacityChanged(self: ?*anyopaque) void {
         qtc.QAbstractSeries_OpacityChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#opacityChanged)
     ///
     /// ``` self: QtC.QAbstractSeries, callback: *const fn (self: QtC.QAbstractSeries) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#useOpenGLChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#useOpenGLChanged)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn UseOpenGLChanged(self: ?*anyopaque) void {
         qtc.QAbstractSeries_UseOpenGLChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#useOpenGLChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#useOpenGLChanged)
     ///
     /// ``` self: QtC.QAbstractSeries, callback: *const fn (self: QtC.QAbstractSeries) callconv(.c) void ```
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -226,7 +226,7 @@ pub const qabstractseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -239,14 +239,14 @@ pub const qabstractseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setVisible)
     ///
     /// ``` self: QtC.QAbstractSeries, visible: bool ```
     pub fn SetVisible1(self: ?*anyopaque, visible: bool) void {
         qtc.QAbstractSeries_SetVisible1(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setUseOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#setUseOpenGL)
     ///
     /// ``` self: QtC.QAbstractSeries, enable: bool ```
     pub fn SetUseOpenGL1(self: ?*anyopaque, enable: bool) void {
@@ -255,7 +255,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QAbstractSeries, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -264,7 +264,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QAbstractSeries, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -273,7 +273,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractSeries, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -286,7 +286,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractSeries, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -299,7 +299,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -308,7 +308,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -317,7 +317,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -326,7 +326,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -335,7 +335,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractSeries, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -344,7 +344,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -353,7 +353,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractSeries, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -362,7 +362,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractSeries, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -371,7 +371,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractSeries, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -380,7 +380,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractSeries, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -389,7 +389,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractSeries, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -403,7 +403,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAbstractSeries, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -412,7 +412,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractSeries, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -421,7 +421,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractSeries, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -430,7 +430,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -439,7 +439,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractSeries, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -450,7 +450,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -459,7 +459,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -468,7 +468,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -477,7 +477,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -486,7 +486,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractSeries, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -496,7 +496,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractSeries, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -506,7 +506,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractSeries, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -530,7 +530,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -539,7 +539,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -548,7 +548,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -557,7 +557,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractSeries, callback: *const fn (self: QtC.QAbstractSeries) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -566,7 +566,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -575,7 +575,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractSeries, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -585,7 +585,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractSeries ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -594,7 +594,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractSeries, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -603,7 +603,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractSeries, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -612,7 +612,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -621,7 +621,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractSeries, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -632,7 +632,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractSeries, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -641,7 +641,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractSeries, callback: *const fn (self: QtC.QAbstractSeries, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -650,7 +650,7 @@ pub const qabstractseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -659,7 +659,7 @@ pub const qabstractseries = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#dtor.QAbstractSeries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#dtor.QAbstractSeries)
     ///
     /// Delete this object from C++ memory.
     ///

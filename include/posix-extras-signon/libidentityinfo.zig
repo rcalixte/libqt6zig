@@ -56,28 +56,28 @@ pub const signon__identityinfo = struct {
         return qtc.SignOn__IdentityInfo_new3(caption_str, userName_str, methods_map);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, other: QtC.SignOn__IdentityInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.SignOn__IdentityInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, id: u32 ```
     pub fn SetId(self: ?*anyopaque, id: u32) void {
         qtc.SignOn__IdentityInfo_SetId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo ```
     pub fn Id(self: ?*anyopaque) u32 {
         return qtc.SignOn__IdentityInfo_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, secret: []const u8 ```
     pub fn SetSecret(self: ?*anyopaque, secret: []const u8) void {
@@ -88,7 +88,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetSecret(@ptrCast(self), secret_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, allocator: std.mem.Allocator ```
     pub fn Secret(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -99,21 +99,21 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo ```
     pub fn IsStoringSecret(self: ?*anyopaque) bool {
         return qtc.SignOn__IdentityInfo_IsStoringSecret(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, storeSecret: bool ```
     pub fn SetStoreSecret(self: ?*anyopaque, storeSecret: bool) void {
         qtc.SignOn__IdentityInfo_SetStoreSecret(@ptrCast(self), storeSecret);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, userName: []const u8 ```
     pub fn SetUserName(self: ?*anyopaque, userName: []const u8) void {
@@ -124,7 +124,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetUserName(@ptrCast(self), userName_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, allocator: std.mem.Allocator ```
     pub fn UserName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -135,7 +135,7 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, caption: []const u8 ```
     pub fn SetCaption(self: ?*anyopaque, caption: []const u8) void {
@@ -146,7 +146,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetCaption(@ptrCast(self), caption_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, allocator: std.mem.Allocator ```
     pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -157,7 +157,7 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, realms: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetRealms(self: ?*anyopaque, realms: [][]const u8, allocator: std.mem.Allocator) void {
@@ -176,7 +176,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetRealms(@ptrCast(self), realms_list);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, allocator: std.mem.Allocator ```
     pub fn Realms(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -198,7 +198,7 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, ownerToken: []const u8 ```
     pub fn SetOwner(self: ?*anyopaque, ownerToken: []const u8) void {
@@ -209,7 +209,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetOwner(@ptrCast(self), ownerToken_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, allocator: std.mem.Allocator ```
     pub fn Owner(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -220,7 +220,7 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, accessControlList: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAccessControlList(self: ?*anyopaque, accessControlList: [][]const u8, allocator: std.mem.Allocator) void {
@@ -239,7 +239,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetAccessControlList(@ptrCast(self), accessControlList_list);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, accessControlList: []QtC.SignOn__SecurityContext ```
     pub fn SetAccessControlList2(self: ?*anyopaque, accessControlList: []QtC.SignOn__SecurityContext) void {
@@ -250,7 +250,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetAccessControlList2(@ptrCast(self), accessControlList_list);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, allocator: std.mem.Allocator ```
     pub fn AccessControlList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -272,7 +272,7 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, allocator: std.mem.Allocator ```
     pub fn AccessControlListFull(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.SignOn__SecurityContext {
@@ -284,7 +284,7 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, method: []const u8, mechanismsList: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetMethod(self: ?*anyopaque, method: []const u8, mechanismsList: [][]const u8, allocator: std.mem.Allocator) void {
@@ -307,7 +307,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetMethod(@ptrCast(self), method_str, mechanismsList_list);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, method: []const u8 ```
     pub fn RemoveMethod(self: ?*anyopaque, method: []const u8) void {
@@ -318,14 +318,14 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_RemoveMethod(@ptrCast(self), method_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, typeVal: identityinfo_enums.CredentialsType ```
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.SignOn__IdentityInfo_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo ```
     ///
@@ -334,7 +334,7 @@ pub const signon__identityinfo = struct {
         return qtc.SignOn__IdentityInfo_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, allocator: std.mem.Allocator ```
     pub fn Methods(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -356,7 +356,7 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, method: []const u8, allocator: std.mem.Allocator ```
     pub fn Mechanisms(self: ?*anyopaque, method: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -382,21 +382,21 @@ pub const signon__identityinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, refCount: i32 ```
     pub fn SetRefCount(self: ?*anyopaque, refCount: i32) void {
         qtc.SignOn__IdentityInfo_SetRefCount(@ptrCast(self), @intCast(refCount));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo ```
     pub fn RefCount(self: ?*anyopaque) i32 {
         return qtc.SignOn__IdentityInfo_RefCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// ``` self: QtC.SignOn__IdentityInfo, secret: []const u8, storeSecret: bool ```
     pub fn SetSecret2(self: ?*anyopaque, secret: []const u8, storeSecret: bool) void {
@@ -407,7 +407,7 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetSecret2(@ptrCast(self), secret_str, storeSecret);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// Delete this object from C++ memory.
     ///

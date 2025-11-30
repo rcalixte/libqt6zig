@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qsessionmanager.html
 pub const qsessionmanager = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qsessionmanager = struct {
         return qtc.QSessionManager_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,7 +37,7 @@ pub const qsessionmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#sessionId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#sessionId)
     ///
     /// ``` self: QtC.QSessionManager, allocator: std.mem.Allocator ```
     pub fn SessionId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -48,7 +48,7 @@ pub const qsessionmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#sessionKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#sessionKey)
     ///
     /// ``` self: QtC.QSessionManager, allocator: std.mem.Allocator ```
     pub fn SessionKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -59,42 +59,42 @@ pub const qsessionmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#allowsInteraction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#allowsInteraction)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn AllowsInteraction(self: ?*anyopaque) bool {
         return qtc.QSessionManager_AllowsInteraction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#allowsErrorInteraction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#allowsErrorInteraction)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn AllowsErrorInteraction(self: ?*anyopaque) bool {
         return qtc.QSessionManager_AllowsErrorInteraction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#release)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#release)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn Release(self: ?*anyopaque) void {
         qtc.QSessionManager_Release(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#cancel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#cancel)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn Cancel(self: ?*anyopaque) void {
         qtc.QSessionManager_Cancel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#setRestartHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#setRestartHint)
     ///
     /// ``` self: QtC.QSessionManager, restartHint: qsessionmanager_enums.RestartHint ```
     pub fn SetRestartHint(self: ?*anyopaque, restartHint: i32) void {
         qtc.QSessionManager_SetRestartHint(@ptrCast(self), @intCast(restartHint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#restartHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#restartHint)
     ///
     /// ``` self: QtC.QSessionManager ```
     ///
@@ -103,7 +103,7 @@ pub const qsessionmanager = struct {
         return qtc.QSessionManager_RestartHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#setRestartCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#setRestartCommand)
     ///
     /// ``` self: QtC.QSessionManager, restartCommand: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetRestartCommand(self: ?*anyopaque, restartCommand: [][]const u8, allocator: std.mem.Allocator) void {
@@ -122,7 +122,7 @@ pub const qsessionmanager = struct {
         qtc.QSessionManager_SetRestartCommand(@ptrCast(self), restartCommand_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#restartCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#restartCommand)
     ///
     /// ``` self: QtC.QSessionManager, allocator: std.mem.Allocator ```
     pub fn RestartCommand(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -144,7 +144,7 @@ pub const qsessionmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#setDiscardCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#setDiscardCommand)
     ///
     /// ``` self: QtC.QSessionManager, discardCommand: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetDiscardCommand(self: ?*anyopaque, discardCommand: [][]const u8, allocator: std.mem.Allocator) void {
@@ -163,7 +163,7 @@ pub const qsessionmanager = struct {
         qtc.QSessionManager_SetDiscardCommand(@ptrCast(self), discardCommand_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#discardCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#discardCommand)
     ///
     /// ``` self: QtC.QSessionManager, allocator: std.mem.Allocator ```
     pub fn DiscardCommand(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -185,7 +185,7 @@ pub const qsessionmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#setManagerProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#setManagerProperty)
     ///
     /// ``` self: QtC.QSessionManager, name: []const u8, value: []const u8 ```
     pub fn SetManagerProperty(self: ?*anyopaque, name: []const u8, value: []const u8) void {
@@ -200,7 +200,7 @@ pub const qsessionmanager = struct {
         qtc.QSessionManager_SetManagerProperty(@ptrCast(self), name_str, value_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#setManagerProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#setManagerProperty)
     ///
     /// ``` self: QtC.QSessionManager, name: []const u8, value: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetManagerProperty2(self: ?*anyopaque, name: []const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
@@ -223,21 +223,21 @@ pub const qsessionmanager = struct {
         qtc.QSessionManager_SetManagerProperty2(@ptrCast(self), name_str, value_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#isPhase2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#isPhase2)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn IsPhase2(self: ?*anyopaque) bool {
         return qtc.QSessionManager_IsPhase2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsessionmanager.html#requestPhase2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#requestPhase2)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn RequestPhase2(self: ?*anyopaque) void {
         qtc.QSessionManager_RequestPhase2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -250,7 +250,7 @@ pub const qsessionmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -265,7 +265,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QSessionManager, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -274,7 +274,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QSessionManager, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -283,7 +283,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSessionManager, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -296,7 +296,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSessionManager, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -309,7 +309,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -318,7 +318,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -327,7 +327,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -336,7 +336,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -345,7 +345,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSessionManager, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -354,7 +354,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -363,7 +363,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSessionManager, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -372,7 +372,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSessionManager, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -381,7 +381,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSessionManager, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -390,7 +390,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSessionManager, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -399,7 +399,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSessionManager, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -413,7 +413,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSessionManager, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -422,7 +422,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSessionManager, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -431,7 +431,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSessionManager, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -440,7 +440,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -449,7 +449,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSessionManager, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -460,7 +460,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -469,7 +469,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -478,7 +478,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -487,7 +487,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -496,7 +496,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSessionManager, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -506,7 +506,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSessionManager, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -516,7 +516,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSessionManager, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -540,7 +540,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -549,7 +549,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -558,7 +558,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -567,7 +567,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSessionManager, callback: *const fn (self: QtC.QSessionManager) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -576,7 +576,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -585,7 +585,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSessionManager, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -595,7 +595,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSessionManager ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -604,7 +604,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSessionManager, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -613,7 +613,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSessionManager, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -622,7 +622,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -631,7 +631,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSessionManager, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -642,7 +642,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSessionManager, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -651,7 +651,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSessionManager, callback: *const fn (self: QtC.QSessionManager, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -660,7 +660,7 @@ pub const qsessionmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

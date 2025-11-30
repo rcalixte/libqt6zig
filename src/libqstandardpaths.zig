@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qstandardpaths.html
 pub const qstandardpaths = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#writableLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#writableLocation)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, allocator: std.mem.Allocator ```
     pub fn WritableLocation(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -16,7 +16,7 @@ pub const qstandardpaths = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#standardLocations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#standardLocations)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, allocator: std.mem.Allocator ```
     pub fn StandardLocations(typeVal: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -38,7 +38,7 @@ pub const qstandardpaths = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#locate)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn Locate(typeVal: i32, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -53,7 +53,7 @@ pub const qstandardpaths = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locateAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#locateAll)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn LocateAll(typeVal: i32, fileName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -79,7 +79,7 @@ pub const qstandardpaths = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#displayName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#displayName)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, allocator: std.mem.Allocator ```
     pub fn DisplayName(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -90,7 +90,7 @@ pub const qstandardpaths = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#findExecutable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#findExecutable)
     ///
     /// ``` executableName: []const u8, allocator: std.mem.Allocator ```
     pub fn FindExecutable(executableName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -105,21 +105,21 @@ pub const qstandardpaths = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#setTestModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#setTestModeEnabled)
     ///
     /// ``` testMode: bool ```
     pub fn SetTestModeEnabled(testMode: bool) void {
         qtc.QStandardPaths_SetTestModeEnabled(testMode);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#isTestModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#isTestModeEnabled)
     ///
     ///
     pub fn IsTestModeEnabled() bool {
         return qtc.QStandardPaths_IsTestModeEnabled();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#locate)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: flag of qstandardpaths_enums.LocateOption, allocator: std.mem.Allocator ```
     pub fn Locate3(typeVal: i32, fileName: []const u8, options: i32, allocator: std.mem.Allocator) []const u8 {
@@ -134,7 +134,7 @@ pub const qstandardpaths = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locateAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#locateAll)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: flag of qstandardpaths_enums.LocateOption, allocator: std.mem.Allocator ```
     pub fn LocateAll3(typeVal: i32, fileName: []const u8, options: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -160,7 +160,7 @@ pub const qstandardpaths = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#findExecutable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#findExecutable)
     ///
     /// ``` executableName: []const u8, paths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FindExecutable2(executableName: []const u8, paths: [][]const u8, allocator: std.mem.Allocator) []const u8 {

@@ -45,35 +45,35 @@ pub const qhashseed = struct {
         qtc.QHashSeed_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhashseed.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#operator)
     ///
     /// ``` self: QtC.QHashSeed ```
     pub fn ToUnsignedLong(self: ?*anyopaque) u64 {
         return qtc.QHashSeed_ToUnsignedLong(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhashseed.html#globalSeed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#globalSeed)
     ///
     ///
     pub fn GlobalSeed() QtC.QHashSeed {
         return qtc.QHashSeed_GlobalSeed();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhashseed.html#setDeterministicGlobalSeed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#setDeterministicGlobalSeed)
     ///
     ///
     pub fn SetDeterministicGlobalSeed() void {
         qtc.QHashSeed_SetDeterministicGlobalSeed();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhashseed.html#resetRandomGlobalSeed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#resetRandomGlobalSeed)
     ///
     ///
     pub fn ResetRandomGlobalSeed() void {
         qtc.QHashSeed_ResetRandomGlobalSeed();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhashseed.html#dtor.QHashSeed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#dtor.QHashSeed)
     ///
     /// Delete this object from C++ memory.
     ///

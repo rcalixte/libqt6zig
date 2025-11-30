@@ -22,7 +22,7 @@ pub const qlocalserver = struct {
         return qtc.QLocalServer_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -54,7 +54,7 @@ pub const qlocalserver = struct {
         return qtc.QLocalServer_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -66,28 +66,28 @@ pub const qlocalserver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#newConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#newConnection)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn NewConnection(self: ?*anyopaque) void {
         qtc.QLocalServer_NewConnection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#newConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#newConnection)
     ///
     /// ``` self: QtC.QLocalServer, callback: *const fn (self: QtC.QLocalServer) callconv(.c) void ```
     pub fn OnNewConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLocalServer_Connect_NewConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#close)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn Close(self: ?*anyopaque) void {
         qtc.QLocalServer_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#errorString)
     ///
     /// ``` self: QtC.QLocalServer, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -98,14 +98,14 @@ pub const qlocalserver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#hasPendingConnections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#hasPendingConnections)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn HasPendingConnections(self: ?*anyopaque) bool {
         return qtc.QLocalServer_HasPendingConnections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#hasPendingConnections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#hasPendingConnections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -114,7 +114,7 @@ pub const qlocalserver = struct {
         qtc.QLocalServer_OnHasPendingConnections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#hasPendingConnections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#hasPendingConnections)
     ///
     /// Base class method implementation
     ///
@@ -123,14 +123,14 @@ pub const qlocalserver = struct {
         return qtc.QLocalServer_QBaseHasPendingConnections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#isListening)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#isListening)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn IsListening(self: ?*anyopaque) bool {
         return qtc.QLocalServer_IsListening(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#listen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#listen)
     ///
     /// ``` self: QtC.QLocalServer, name: []const u8 ```
     pub fn Listen(self: ?*anyopaque, name: []const u8) bool {
@@ -141,28 +141,28 @@ pub const qlocalserver = struct {
         return qtc.QLocalServer_Listen(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#listen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#listen)
     ///
     /// ``` self: QtC.QLocalServer, socketDescriptor: isize ```
     pub fn Listen2(self: ?*anyopaque, socketDescriptor: isize) bool {
         return qtc.QLocalServer_Listen2(@ptrCast(self), @intCast(socketDescriptor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#maxPendingConnections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#maxPendingConnections)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn MaxPendingConnections(self: ?*anyopaque) i32 {
         return qtc.QLocalServer_MaxPendingConnections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#nextPendingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#nextPendingConnection)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn NextPendingConnection(self: ?*anyopaque) QtC.QLocalSocket {
         return qtc.QLocalServer_NextPendingConnection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#nextPendingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#nextPendingConnection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -171,7 +171,7 @@ pub const qlocalserver = struct {
         qtc.QLocalServer_OnNextPendingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#nextPendingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#nextPendingConnection)
     ///
     /// Base class method implementation
     ///
@@ -180,7 +180,7 @@ pub const qlocalserver = struct {
         return qtc.QLocalServer_QBaseNextPendingConnection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#serverName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#serverName)
     ///
     /// ``` self: QtC.QLocalServer, allocator: std.mem.Allocator ```
     pub fn ServerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -191,7 +191,7 @@ pub const qlocalserver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#fullServerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#fullServerName)
     ///
     /// ``` self: QtC.QLocalServer, allocator: std.mem.Allocator ```
     pub fn FullServerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -202,7 +202,7 @@ pub const qlocalserver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#removeServer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#removeServer)
     ///
     /// ``` name: []const u8 ```
     pub fn RemoveServer(name: []const u8) bool {
@@ -213,7 +213,7 @@ pub const qlocalserver = struct {
         return qtc.QLocalServer_RemoveServer(name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#serverError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#serverError)
     ///
     /// ``` self: QtC.QLocalServer ```
     ///
@@ -222,42 +222,42 @@ pub const qlocalserver = struct {
         return qtc.QLocalServer_ServerError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#setMaxPendingConnections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#setMaxPendingConnections)
     ///
     /// ``` self: QtC.QLocalServer, numConnections: i32 ```
     pub fn SetMaxPendingConnections(self: ?*anyopaque, numConnections: i32) void {
         qtc.QLocalServer_SetMaxPendingConnections(@ptrCast(self), @intCast(numConnections));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#waitForNewConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#waitForNewConnection)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn WaitForNewConnection(self: ?*anyopaque) bool {
         return qtc.QLocalServer_WaitForNewConnection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#setListenBacklogSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#setListenBacklogSize)
     ///
     /// ``` self: QtC.QLocalServer, size: i32 ```
     pub fn SetListenBacklogSize(self: ?*anyopaque, size: i32) void {
         qtc.QLocalServer_SetListenBacklogSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#listenBacklogSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#listenBacklogSize)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn ListenBacklogSize(self: ?*anyopaque) i32 {
         return qtc.QLocalServer_ListenBacklogSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#setSocketOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#setSocketOptions)
     ///
     /// ``` self: QtC.QLocalServer, options: flag of qlocalserver_enums.SocketOption ```
     pub fn SetSocketOptions(self: ?*anyopaque, options: i32) void {
         qtc.QLocalServer_SetSocketOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#socketOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#socketOptions)
     ///
     /// ``` self: QtC.QLocalServer ```
     ///
@@ -266,21 +266,21 @@ pub const qlocalserver = struct {
         return qtc.QLocalServer_SocketOptions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#socketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#socketDescriptor)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn SocketDescriptor(self: ?*anyopaque) isize {
         return qtc.QLocalServer_SocketDescriptor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#incomingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#incomingConnection)
     ///
     /// ``` self: QtC.QLocalServer, socketDescriptor: usize ```
     pub fn IncomingConnection(self: ?*anyopaque, socketDescriptor: usize) void {
         qtc.QLocalServer_IncomingConnection(@ptrCast(self), @intCast(socketDescriptor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#incomingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#incomingConnection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -289,7 +289,7 @@ pub const qlocalserver = struct {
         qtc.QLocalServer_OnIncomingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#incomingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#incomingConnection)
     ///
     /// Base class method implementation
     ///
@@ -298,14 +298,14 @@ pub const qlocalserver = struct {
         qtc.QLocalServer_QBaseIncomingConnection(@ptrCast(self), @intCast(socketDescriptor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
     ///
     /// ``` self: QtC.QLocalServer, socket: QtC.QLocalSocket ```
     pub fn AddPendingConnection(self: ?*anyopaque, socket: ?*anyopaque) void {
         qtc.QLocalServer_AddPendingConnection(@ptrCast(self), @ptrCast(socket));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -314,7 +314,7 @@ pub const qlocalserver = struct {
         qtc.QLocalServer_OnAddPendingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
     ///
     /// Base class method implementation
     ///
@@ -323,7 +323,7 @@ pub const qlocalserver = struct {
         qtc.QLocalServer_QBaseAddPendingConnection(@ptrCast(self), @ptrCast(socket));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -336,7 +336,7 @@ pub const qlocalserver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -349,14 +349,14 @@ pub const qlocalserver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#waitForNewConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#waitForNewConnection)
     ///
     /// ``` self: QtC.QLocalServer, msec: i32 ```
     pub fn WaitForNewConnection1(self: ?*anyopaque, msec: i32) bool {
         return qtc.QLocalServer_WaitForNewConnection1(@ptrCast(self), @intCast(msec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#waitForNewConnection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#waitForNewConnection)
     ///
     /// ``` self: QtC.QLocalServer, msec: i32, timedOut: *bool ```
     pub fn WaitForNewConnection2(self: ?*anyopaque, msec: i32, timedOut: *bool) bool {
@@ -365,7 +365,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QLocalServer, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -378,7 +378,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QLocalServer, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -391,7 +391,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -400,7 +400,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -409,7 +409,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -418,7 +418,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -427,7 +427,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QLocalServer, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -436,7 +436,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -445,7 +445,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QLocalServer, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -454,7 +454,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QLocalServer, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -463,7 +463,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QLocalServer, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -472,7 +472,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QLocalServer, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -481,7 +481,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QLocalServer, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -495,7 +495,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QLocalServer, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -504,7 +504,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QLocalServer, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -513,7 +513,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QLocalServer, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -522,7 +522,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -531,7 +531,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QLocalServer, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -542,7 +542,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -551,7 +551,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -560,7 +560,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -569,7 +569,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -578,7 +578,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QLocalServer, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -588,7 +588,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QLocalServer, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -598,7 +598,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QLocalServer, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -622,7 +622,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -631,7 +631,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -640,7 +640,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -649,7 +649,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QLocalServer, callback: *const fn (self: QtC.QLocalServer) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -658,7 +658,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -667,7 +667,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QLocalServer, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -677,7 +677,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QLocalServer ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -686,7 +686,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QLocalServer, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -695,7 +695,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QLocalServer, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -704,7 +704,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -713,7 +713,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QLocalServer, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -724,7 +724,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QLocalServer, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -733,7 +733,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QLocalServer, callback: *const fn (self: QtC.QLocalServer, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -742,7 +742,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -753,7 +753,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -764,7 +764,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -775,7 +775,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -786,7 +786,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -797,7 +797,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -808,7 +808,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -819,7 +819,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -830,7 +830,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -841,7 +841,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -852,7 +852,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -863,7 +863,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -874,7 +874,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -885,7 +885,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -896,7 +896,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -907,7 +907,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -918,7 +918,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -929,7 +929,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -940,7 +940,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -951,7 +951,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -962,7 +962,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -973,7 +973,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -984,7 +984,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -995,7 +995,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1006,7 +1006,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1017,7 +1017,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1028,7 +1028,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1039,7 +1039,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1051,7 +1051,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1063,7 +1063,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1074,7 +1074,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1085,7 +1085,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1096,7 +1096,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1107,7 +1107,7 @@ pub const qlocalserver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1116,7 +1116,7 @@ pub const qlocalserver = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#dtor.QLocalServer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#dtor.QLocalServer)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -21,7 +21,7 @@ pub const qimagecapture = struct {
         return qtc.QImageCapture_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qimagecapture = struct {
         return qtc.QImageCapture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,21 +65,21 @@ pub const qimagecapture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#isAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#isAvailable)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn IsAvailable(self: ?*anyopaque) bool {
         return qtc.QImageCapture_IsAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#captureSession)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#captureSession)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn CaptureSession(self: ?*anyopaque) QtC.QMediaCaptureSession {
         return qtc.QImageCapture_CaptureSession(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#error)
     ///
     /// ``` self: QtC.QImageCapture ```
     ///
@@ -88,7 +88,7 @@ pub const qimagecapture = struct {
         return qtc.QImageCapture_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#errorString)
     ///
     /// ``` self: QtC.QImageCapture, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -99,14 +99,14 @@ pub const qimagecapture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#isReadyForCapture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#isReadyForCapture)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn IsReadyForCapture(self: ?*anyopaque) bool {
         return qtc.QImageCapture_IsReadyForCapture(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#fileFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#fileFormat)
     ///
     /// ``` self: QtC.QImageCapture ```
     ///
@@ -115,14 +115,14 @@ pub const qimagecapture = struct {
         return qtc.QImageCapture_FileFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#setFileFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#setFileFormat)
     ///
     /// ``` self: QtC.QImageCapture, format: qimagecapture_enums.FileFormat ```
     pub fn SetFileFormat(self: ?*anyopaque, format: i32) void {
         qtc.QImageCapture_SetFileFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#supportedFormats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#supportedFormats)
     ///
     /// ``` allocator: std.mem.Allocator ```
     ///
@@ -136,7 +136,7 @@ pub const qimagecapture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatName)
     ///
     /// ``` c: qimagecapture_enums.FileFormat, allocator: std.mem.Allocator ```
     pub fn FileFormatName(c: i32, allocator: std.mem.Allocator) []const u8 {
@@ -147,7 +147,7 @@ pub const qimagecapture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatDescription)
     ///
     /// ``` c: qimagecapture_enums.FileFormat, allocator: std.mem.Allocator ```
     pub fn FileFormatDescription(c: i32, allocator: std.mem.Allocator) []const u8 {
@@ -158,28 +158,28 @@ pub const qimagecapture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#resolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#resolution)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn Resolution(self: ?*anyopaque) QtC.QSize {
         return qtc.QImageCapture_Resolution(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#setResolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#setResolution)
     ///
     /// ``` self: QtC.QImageCapture, resolution: QtC.QSize ```
     pub fn SetResolution(self: ?*anyopaque, resolution: ?*anyopaque) void {
         qtc.QImageCapture_SetResolution(@ptrCast(self), @ptrCast(resolution));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#setResolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#setResolution)
     ///
     /// ``` self: QtC.QImageCapture, width: i32, height: i32 ```
     pub fn SetResolution2(self: ?*anyopaque, width: i32, height: i32) void {
         qtc.QImageCapture_SetResolution2(@ptrCast(self), @intCast(width), @intCast(height));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#quality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#quality)
     ///
     /// ``` self: QtC.QImageCapture ```
     ///
@@ -188,63 +188,63 @@ pub const qimagecapture = struct {
         return qtc.QImageCapture_Quality(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#setQuality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#setQuality)
     ///
     /// ``` self: QtC.QImageCapture, quality: qimagecapture_enums.Quality ```
     pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
         qtc.QImageCapture_SetQuality(@ptrCast(self), @intCast(quality));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#metaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#metaData)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn MetaData(self: ?*anyopaque) QtC.QMediaMetaData {
         return qtc.QImageCapture_MetaData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#setMetaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#setMetaData)
     ///
     /// ``` self: QtC.QImageCapture, metaData: QtC.QMediaMetaData ```
     pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
         qtc.QImageCapture_SetMetaData(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#addMetaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#addMetaData)
     ///
     /// ``` self: QtC.QImageCapture, metaData: QtC.QMediaMetaData ```
     pub fn AddMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
         qtc.QImageCapture_AddMetaData(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#captureToFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#captureToFile)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn CaptureToFile(self: ?*anyopaque) i32 {
         return qtc.QImageCapture_CaptureToFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#capture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#capture)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn Capture(self: ?*anyopaque) i32 {
         return qtc.QImageCapture_Capture(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#errorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#errorChanged)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn ErrorChanged(self: ?*anyopaque) void {
         qtc.QImageCapture_ErrorChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#errorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#errorChanged)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture) callconv(.c) void ```
     pub fn OnErrorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ErrorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#errorOccurred)
     ///
     /// ``` self: QtC.QImageCapture, id: i32, errorVal: qimagecapture_enums.Error, errorString: []const u8 ```
     pub fn ErrorOccurred(self: ?*anyopaque, id: i32, errorVal: i32, errorString: []const u8) void {
@@ -255,140 +255,140 @@ pub const qimagecapture = struct {
         qtc.QImageCapture_ErrorOccurred(@ptrCast(self), @intCast(id), @intCast(errorVal), errorString_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#errorOccurred)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture, id: i32, errorVal: qimagecapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void ```
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#readyForCaptureChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#readyForCaptureChanged)
     ///
     /// ``` self: QtC.QImageCapture, ready: bool ```
     pub fn ReadyForCaptureChanged(self: ?*anyopaque, ready: bool) void {
         qtc.QImageCapture_ReadyForCaptureChanged(@ptrCast(self), ready);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#readyForCaptureChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#readyForCaptureChanged)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture, ready: bool) callconv(.c) void ```
     pub fn OnReadyForCaptureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ReadyForCaptureChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#metaDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#metaDataChanged)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn MetaDataChanged(self: ?*anyopaque) void {
         qtc.QImageCapture_MetaDataChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#metaDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#metaDataChanged)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture) callconv(.c) void ```
     pub fn OnMetaDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_MetaDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatChanged)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn FileFormatChanged(self: ?*anyopaque) void {
         qtc.QImageCapture_FileFormatChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatChanged)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture) callconv(.c) void ```
     pub fn OnFileFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_FileFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#qualityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#qualityChanged)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn QualityChanged(self: ?*anyopaque) void {
         qtc.QImageCapture_QualityChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#qualityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#qualityChanged)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture) callconv(.c) void ```
     pub fn OnQualityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_QualityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#resolutionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#resolutionChanged)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn ResolutionChanged(self: ?*anyopaque) void {
         qtc.QImageCapture_ResolutionChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#resolutionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#resolutionChanged)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture) callconv(.c) void ```
     pub fn OnResolutionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ResolutionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageExposed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageExposed)
     ///
     /// ``` self: QtC.QImageCapture, id: i32 ```
     pub fn ImageExposed(self: ?*anyopaque, id: i32) void {
         qtc.QImageCapture_ImageExposed(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageExposed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageExposed)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture, id: i32) callconv(.c) void ```
     pub fn OnImageExposed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageExposed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageCaptured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageCaptured)
     ///
     /// ``` self: QtC.QImageCapture, id: i32, preview: QtC.QImage ```
     pub fn ImageCaptured(self: ?*anyopaque, id: i32, preview: ?*anyopaque) void {
         qtc.QImageCapture_ImageCaptured(@ptrCast(self), @intCast(id), @ptrCast(preview));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageCaptured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageCaptured)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture, id: i32, preview: QtC.QImage) callconv(.c) void ```
     pub fn OnImageCaptured(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageCaptured(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageMetadataAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageMetadataAvailable)
     ///
     /// ``` self: QtC.QImageCapture, id: i32, metaData: QtC.QMediaMetaData ```
     pub fn ImageMetadataAvailable(self: ?*anyopaque, id: i32, metaData: ?*anyopaque) void {
         qtc.QImageCapture_ImageMetadataAvailable(@ptrCast(self), @intCast(id), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageMetadataAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageMetadataAvailable)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture, id: i32, metaData: QtC.QMediaMetaData) callconv(.c) void ```
     pub fn OnImageMetadataAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageMetadataAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageAvailable)
     ///
     /// ``` self: QtC.QImageCapture, id: i32, frame: QtC.QVideoFrame ```
     pub fn ImageAvailable(self: ?*anyopaque, id: i32, frame: ?*anyopaque) void {
         qtc.QImageCapture_ImageAvailable(@ptrCast(self), @intCast(id), @ptrCast(frame));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageAvailable)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture, id: i32, frame: QtC.QVideoFrame) callconv(.c) void ```
     pub fn OnImageAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageSaved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageSaved)
     ///
     /// ``` self: QtC.QImageCapture, id: i32, fileName: []const u8 ```
     pub fn ImageSaved(self: ?*anyopaque, id: i32, fileName: []const u8) void {
@@ -399,14 +399,14 @@ pub const qimagecapture = struct {
         qtc.QImageCapture_ImageSaved(@ptrCast(self), @intCast(id), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageSaved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#imageSaved)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture, id: i32, fileName: [*:0]const u8) callconv(.c) void ```
     pub fn OnImageSaved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageSaved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -419,7 +419,7 @@ pub const qimagecapture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -432,7 +432,7 @@ pub const qimagecapture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#captureToFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#captureToFile)
     ///
     /// ``` self: QtC.QImageCapture, location: []const u8 ```
     pub fn CaptureToFile1(self: ?*anyopaque, location: []const u8) i32 {
@@ -445,7 +445,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QImageCapture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -458,7 +458,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QImageCapture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -471,7 +471,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -480,7 +480,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -489,7 +489,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -498,7 +498,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -507,7 +507,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QImageCapture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -516,7 +516,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -525,7 +525,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QImageCapture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -534,7 +534,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QImageCapture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -543,7 +543,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QImageCapture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -552,7 +552,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QImageCapture, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -561,7 +561,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QImageCapture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -575,7 +575,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QImageCapture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -584,7 +584,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QImageCapture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -593,7 +593,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QImageCapture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -602,7 +602,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -611,7 +611,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QImageCapture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -622,7 +622,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -631,7 +631,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -640,7 +640,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -649,7 +649,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -658,7 +658,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QImageCapture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -668,7 +668,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QImageCapture, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -678,7 +678,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QImageCapture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -702,7 +702,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -711,7 +711,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -720,7 +720,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -729,7 +729,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -738,7 +738,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -747,7 +747,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QImageCapture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -757,7 +757,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QImageCapture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -766,7 +766,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QImageCapture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -775,7 +775,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QImageCapture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -784,7 +784,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -793,7 +793,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QImageCapture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -804,7 +804,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QImageCapture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -813,7 +813,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QImageCapture, callback: *const fn (self: QtC.QImageCapture, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -822,7 +822,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -833,7 +833,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -844,7 +844,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -855,7 +855,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -866,7 +866,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -877,7 +877,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -888,7 +888,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -899,7 +899,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -910,7 +910,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -921,7 +921,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -932,7 +932,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -943,7 +943,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -954,7 +954,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -965,7 +965,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -976,7 +976,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -987,7 +987,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -998,7 +998,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1009,7 +1009,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1020,7 +1020,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1031,7 +1031,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1042,7 +1042,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1053,7 +1053,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1064,7 +1064,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1075,7 +1075,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1086,7 +1086,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1097,7 +1097,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1108,7 +1108,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1119,7 +1119,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1131,7 +1131,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1143,7 +1143,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1154,7 +1154,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1165,7 +1165,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1176,7 +1176,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1187,7 +1187,7 @@ pub const qimagecapture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1196,7 +1196,7 @@ pub const qimagecapture = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#dtor.QImageCapture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#dtor.QImageCapture)
     ///
     /// Delete this object from C++ memory.
     ///

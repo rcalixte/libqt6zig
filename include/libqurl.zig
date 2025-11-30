@@ -43,14 +43,14 @@ pub const qurl = struct {
         return qtc.QUrl_new4(url_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#operator-eq)
     ///
     /// ``` self: QtC.QUrl, copyVal: QtC.QUrl ```
     pub fn OperatorAssign(self: ?*anyopaque, copyVal: ?*anyopaque) void {
         qtc.QUrl_OperatorAssign(@ptrCast(self), @ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#operator-eq)
     ///
     /// ``` self: QtC.QUrl, url: []const u8 ```
     pub fn OperatorAssign2(self: ?*anyopaque, url: []const u8) void {
@@ -61,14 +61,14 @@ pub const qurl = struct {
         qtc.QUrl_OperatorAssign2(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#swap)
     ///
     /// ``` self: QtC.QUrl, other: QtC.QUrl ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QUrl_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setUrl)
     ///
     /// ``` self: QtC.QUrl, url: []const u8 ```
     pub fn SetUrl(self: ?*anyopaque, url: []const u8) void {
@@ -79,7 +79,7 @@ pub const qurl = struct {
         qtc.QUrl_SetUrl(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#url)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#url)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,7 +90,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toString)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -101,7 +101,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toDisplayString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toDisplayString)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ToDisplayString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -112,7 +112,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toEncoded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toEncoded)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ToEncoded(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -123,7 +123,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromEncoded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromEncoded)
     ///
     /// ``` input: []const u8 ```
     pub fn FromEncoded(input: []const u8) QtC.QUrl {
@@ -134,7 +134,7 @@ pub const qurl = struct {
         return qtc.QUrl_FromEncoded(input_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
     ///
     /// ``` userInput: []const u8 ```
     pub fn FromUserInput(userInput: []const u8) QtC.QUrl {
@@ -145,14 +145,14 @@ pub const qurl = struct {
         return qtc.QUrl_FromUserInput(userInput_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#isValid)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QUrl_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#errorString)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -163,21 +163,21 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#isEmpty)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QUrl_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#clear)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QUrl_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setScheme)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setScheme)
     ///
     /// ``` self: QtC.QUrl, scheme: []const u8 ```
     pub fn SetScheme(self: ?*anyopaque, scheme: []const u8) void {
@@ -188,7 +188,7 @@ pub const qurl = struct {
         qtc.QUrl_SetScheme(@ptrCast(self), scheme_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#scheme)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#scheme)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Scheme(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -199,7 +199,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setAuthority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setAuthority)
     ///
     /// ``` self: QtC.QUrl, authority: []const u8 ```
     pub fn SetAuthority(self: ?*anyopaque, authority: []const u8) void {
@@ -210,7 +210,7 @@ pub const qurl = struct {
         qtc.QUrl_SetAuthority(@ptrCast(self), authority_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#authority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#authority)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Authority(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -221,7 +221,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUserInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setUserInfo)
     ///
     /// ``` self: QtC.QUrl, userInfo: []const u8 ```
     pub fn SetUserInfo(self: ?*anyopaque, userInfo: []const u8) void {
@@ -232,7 +232,7 @@ pub const qurl = struct {
         qtc.QUrl_SetUserInfo(@ptrCast(self), userInfo_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#userInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#userInfo)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn UserInfo(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -243,7 +243,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUserName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setUserName)
     ///
     /// ``` self: QtC.QUrl, userName: []const u8 ```
     pub fn SetUserName(self: ?*anyopaque, userName: []const u8) void {
@@ -254,7 +254,7 @@ pub const qurl = struct {
         qtc.QUrl_SetUserName(@ptrCast(self), userName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#userName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#userName)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn UserName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -265,7 +265,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setPassword)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setPassword)
     ///
     /// ``` self: QtC.QUrl, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
@@ -276,7 +276,7 @@ pub const qurl = struct {
         qtc.QUrl_SetPassword(@ptrCast(self), password_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#password)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#password)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -287,7 +287,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setHost)
     ///
     /// ``` self: QtC.QUrl, host: []const u8 ```
     pub fn SetHost(self: ?*anyopaque, host: []const u8) void {
@@ -298,7 +298,7 @@ pub const qurl = struct {
         qtc.QUrl_SetHost(@ptrCast(self), host_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#host)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#host)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Host(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -309,21 +309,21 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setPort)
     ///
     /// ``` self: QtC.QUrl, port: i32 ```
     pub fn SetPort(self: ?*anyopaque, port: i32) void {
         qtc.QUrl_SetPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#port)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#port)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn Port(self: ?*anyopaque) i32 {
         return qtc.QUrl_Port(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setPath)
     ///
     /// ``` self: QtC.QUrl, path: []const u8 ```
     pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
@@ -334,7 +334,7 @@ pub const qurl = struct {
         qtc.QUrl_SetPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#path)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#path)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -345,7 +345,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fileName)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -356,14 +356,14 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#hasQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#hasQuery)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn HasQuery(self: ?*anyopaque) bool {
         return qtc.QUrl_HasQuery(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setQuery)
     ///
     /// ``` self: QtC.QUrl, query: []const u8 ```
     pub fn SetQuery(self: ?*anyopaque, query: []const u8) void {
@@ -374,14 +374,14 @@ pub const qurl = struct {
         qtc.QUrl_SetQuery(@ptrCast(self), query_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setQuery)
     ///
     /// ``` self: QtC.QUrl, query: QtC.QUrlQuery ```
     pub fn SetQuery2(self: ?*anyopaque, query: ?*anyopaque) void {
         qtc.QUrl_SetQuery2(@ptrCast(self), @ptrCast(query));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#query)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#query)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Query(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -392,14 +392,14 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#hasFragment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#hasFragment)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn HasFragment(self: ?*anyopaque) bool {
         return qtc.QUrl_HasFragment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fragment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fragment)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Fragment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -410,7 +410,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setFragment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setFragment)
     ///
     /// ``` self: QtC.QUrl, fragment: []const u8 ```
     pub fn SetFragment(self: ?*anyopaque, fragment: []const u8) void {
@@ -421,35 +421,35 @@ pub const qurl = struct {
         qtc.QUrl_SetFragment(@ptrCast(self), fragment_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#resolved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#resolved)
     ///
     /// ``` self: QtC.QUrl, relative: QtC.QUrl ```
     pub fn Resolved(self: ?*anyopaque, relative: ?*anyopaque) QtC.QUrl {
         return qtc.QUrl_Resolved(@ptrCast(self), @ptrCast(relative));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#isRelative)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#isRelative)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn IsRelative(self: ?*anyopaque) bool {
         return qtc.QUrl_IsRelative(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#isParentOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#isParentOf)
     ///
     /// ``` self: QtC.QUrl, url: QtC.QUrl ```
     pub fn IsParentOf(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.QUrl_IsParentOf(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#isLocalFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#isLocalFile)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn IsLocalFile(self: ?*anyopaque) bool {
         return qtc.QUrl_IsLocalFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromLocalFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromLocalFile)
     ///
     /// ``` localfile: []const u8 ```
     pub fn FromLocalFile(localfile: []const u8) QtC.QUrl {
@@ -460,7 +460,7 @@ pub const qurl = struct {
         return qtc.QUrl_FromLocalFile(localfile_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toLocalFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toLocalFile)
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ToLocalFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -471,21 +471,21 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#detach)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#detach)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn Detach(self: ?*anyopaque) void {
         qtc.QUrl_Detach(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#isDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#isDetached)
     ///
     /// ``` self: QtC.QUrl ```
     pub fn IsDetached(self: ?*anyopaque) bool {
         return qtc.QUrl_IsDetached(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromPercentEncoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromPercentEncoding)
     ///
     /// ``` param1: []u8, allocator: std.mem.Allocator ```
     pub fn FromPercentEncoding(param1: []u8, allocator: std.mem.Allocator) []const u8 {
@@ -500,7 +500,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toPercentEncoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toPercentEncoding)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn ToPercentEncoding(param1: []const u8, allocator: std.mem.Allocator) []u8 {
@@ -515,7 +515,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromAce)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromAce)
     ///
     /// ``` domain: []u8, allocator: std.mem.Allocator ```
     pub fn FromAce(domain: []u8, allocator: std.mem.Allocator) []const u8 {
@@ -530,7 +530,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toAce)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toAce)
     ///
     /// ``` domain: []const u8, allocator: std.mem.Allocator ```
     pub fn ToAce(domain: []const u8, allocator: std.mem.Allocator) []u8 {
@@ -545,7 +545,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#idnWhitelist)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#idnWhitelist)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn IdnWhitelist(allocator: std.mem.Allocator) [][]const u8 {
@@ -567,7 +567,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toStringList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toStringList)
     ///
     /// ``` uris: []QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ToStringList(uris: []QtC.QUrl, allocator: std.mem.Allocator) [][]const u8 {
@@ -593,7 +593,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromStringList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromStringList)
     ///
     /// ``` uris: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FromStringList(uris: [][]const u8, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -617,7 +617,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setIdnWhitelist)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setIdnWhitelist)
     ///
     /// ``` idnWhitelist: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetIdnWhitelist(idnWhitelist: [][]const u8, allocator: std.mem.Allocator) void {
@@ -636,7 +636,7 @@ pub const qurl = struct {
         qtc.QUrl_SetIdnWhitelist(idnWhitelist_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setUrl)
     ///
     /// ``` self: QtC.QUrl, url: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetUrl2(self: ?*anyopaque, url: []const u8, mode: i32) void {
@@ -647,7 +647,7 @@ pub const qurl = struct {
         qtc.QUrl_SetUrl2(@ptrCast(self), url_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromEncoded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromEncoded)
     ///
     /// ``` input: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn FromEncoded2(input: []const u8, mode: i32) QtC.QUrl {
@@ -658,7 +658,7 @@ pub const qurl = struct {
         return qtc.QUrl_FromEncoded2(input_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
     ///
     /// ``` userInput: []const u8, workingDirectory: []const u8 ```
     pub fn FromUserInput2(userInput: []const u8, workingDirectory: []const u8) QtC.QUrl {
@@ -673,7 +673,7 @@ pub const qurl = struct {
         return qtc.QUrl_FromUserInput2(userInput_str, workingDirectory_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
     ///
     /// ``` userInput: []const u8, workingDirectory: []const u8, options: flag of qurl_enums.UserInputResolutionOption ```
     pub fn FromUserInput3(userInput: []const u8, workingDirectory: []const u8, options: i32) QtC.QUrl {
@@ -688,7 +688,7 @@ pub const qurl = struct {
         return qtc.QUrl_FromUserInput3(userInput_str, workingDirectory_str, @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setAuthority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setAuthority)
     ///
     /// ``` self: QtC.QUrl, authority: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetAuthority2(self: ?*anyopaque, authority: []const u8, mode: i32) void {
@@ -699,7 +699,7 @@ pub const qurl = struct {
         qtc.QUrl_SetAuthority2(@ptrCast(self), authority_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#authority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#authority)
     ///
     /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Authority1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
@@ -710,7 +710,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUserInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setUserInfo)
     ///
     /// ``` self: QtC.QUrl, userInfo: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetUserInfo2(self: ?*anyopaque, userInfo: []const u8, mode: i32) void {
@@ -721,7 +721,7 @@ pub const qurl = struct {
         qtc.QUrl_SetUserInfo2(@ptrCast(self), userInfo_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#userInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#userInfo)
     ///
     /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn UserInfo1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
@@ -732,7 +732,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUserName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setUserName)
     ///
     /// ``` self: QtC.QUrl, userName: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetUserName2(self: ?*anyopaque, userName: []const u8, mode: i32) void {
@@ -743,7 +743,7 @@ pub const qurl = struct {
         qtc.QUrl_SetUserName2(@ptrCast(self), userName_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#userName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#userName)
     ///
     /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn UserName1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
@@ -754,7 +754,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setPassword)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setPassword)
     ///
     /// ``` self: QtC.QUrl, password: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetPassword2(self: ?*anyopaque, password: []const u8, mode: i32) void {
@@ -765,7 +765,7 @@ pub const qurl = struct {
         qtc.QUrl_SetPassword2(@ptrCast(self), password_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#password)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#password)
     ///
     /// ``` self: QtC.QUrl, param1: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Password1(self: ?*anyopaque, param1: u32, allocator: std.mem.Allocator) []const u8 {
@@ -776,7 +776,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setHost)
     ///
     /// ``` self: QtC.QUrl, host: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i32) void {
@@ -787,7 +787,7 @@ pub const qurl = struct {
         qtc.QUrl_SetHost2(@ptrCast(self), host_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#host)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#host)
     ///
     /// ``` self: QtC.QUrl, param1: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Host1(self: ?*anyopaque, param1: u32, allocator: std.mem.Allocator) []const u8 {
@@ -798,14 +798,14 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#port)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#port)
     ///
     /// ``` self: QtC.QUrl, defaultPort: i32 ```
     pub fn Port1(self: ?*anyopaque, defaultPort: i32) i32 {
         return qtc.QUrl_Port1(@ptrCast(self), @intCast(defaultPort));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setPath)
     ///
     /// ``` self: QtC.QUrl, path: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetPath2(self: ?*anyopaque, path: []const u8, mode: i32) void {
@@ -816,7 +816,7 @@ pub const qurl = struct {
         qtc.QUrl_SetPath2(@ptrCast(self), path_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#path)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#path)
     ///
     /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Path1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
@@ -827,7 +827,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fileName)
     ///
     /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn FileName1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
@@ -838,7 +838,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setQuery)
     ///
     /// ``` self: QtC.QUrl, query: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetQuery22(self: ?*anyopaque, query: []const u8, mode: i32) void {
@@ -849,7 +849,7 @@ pub const qurl = struct {
         qtc.QUrl_SetQuery22(@ptrCast(self), query_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#query)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#query)
     ///
     /// ``` self: QtC.QUrl, param1: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Query1(self: ?*anyopaque, param1: u32, allocator: std.mem.Allocator) []const u8 {
@@ -860,7 +860,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fragment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fragment)
     ///
     /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Fragment1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
@@ -871,7 +871,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setFragment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#setFragment)
     ///
     /// ``` self: QtC.QUrl, fragment: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetFragment2(self: ?*anyopaque, fragment: []const u8, mode: i32) void {
@@ -882,7 +882,7 @@ pub const qurl = struct {
         qtc.QUrl_SetFragment2(@ptrCast(self), fragment_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toPercentEncoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toPercentEncoding)
     ///
     /// ``` param1: []const u8, exclude: []u8, allocator: std.mem.Allocator ```
     pub fn ToPercentEncoding2(param1: []const u8, exclude: []u8, allocator: std.mem.Allocator) []u8 {
@@ -901,7 +901,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toPercentEncoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toPercentEncoding)
     ///
     /// ``` param1: []const u8, exclude: []u8, include: []u8, allocator: std.mem.Allocator ```
     pub fn ToPercentEncoding3(param1: []const u8, exclude: []u8, include: []u8, allocator: std.mem.Allocator) []u8 {
@@ -924,7 +924,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromAce)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromAce)
     ///
     /// ``` domain: []u8, options: flag of qurl_enums.AceProcessingOption, allocator: std.mem.Allocator ```
     pub fn FromAce2(domain: []u8, options: u32, allocator: std.mem.Allocator) []const u8 {
@@ -939,7 +939,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toAce)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#toAce)
     ///
     /// ``` domain: []const u8, options: flag of qurl_enums.AceProcessingOption, allocator: std.mem.Allocator ```
     pub fn ToAce2(domain: []const u8, options: u32, allocator: std.mem.Allocator) []u8 {
@@ -954,7 +954,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromStringList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#fromStringList)
     ///
     /// ``` uris: [][]const u8, mode: qurl_enums.ParsingMode, allocator: std.mem.Allocator ```
     pub fn FromStringList2(uris: [][]const u8, mode: i32, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -978,7 +978,7 @@ pub const qurl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#dtor.QUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurl.html#dtor.QUrl)
     ///
     /// Delete this object from C++ memory.
     ///

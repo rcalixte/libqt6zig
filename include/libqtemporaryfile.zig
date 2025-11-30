@@ -46,7 +46,7 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_new4(templateName_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -78,7 +78,7 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -90,28 +90,28 @@ pub const qtemporaryfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#autoRemove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#autoRemove)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn AutoRemove(self: ?*anyopaque) bool {
         return qtc.QTemporaryFile_AutoRemove(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#setAutoRemove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#setAutoRemove)
     ///
     /// ``` self: QtC.QTemporaryFile, b: bool ```
     pub fn SetAutoRemove(self: ?*anyopaque, b: bool) void {
         qtc.QTemporaryFile_SetAutoRemove(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn Open(self: ?*anyopaque) bool {
         return qtc.QTemporaryFile_Open(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const qtemporaryfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
     ///
     /// Allows for overriding the related default method
     ///
@@ -131,7 +131,7 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_OnFileName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
     ///
     /// Base class method implementation
     ///
@@ -144,7 +144,7 @@ pub const qtemporaryfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#fileTemplate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileTemplate)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn FileTemplate(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -155,7 +155,7 @@ pub const qtemporaryfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#setFileTemplate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#setFileTemplate)
     ///
     /// ``` self: QtC.QTemporaryFile, name: []const u8 ```
     pub fn SetFileTemplate(self: ?*anyopaque, name: []const u8) void {
@@ -166,7 +166,7 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_SetFileTemplate(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#rename)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#rename)
     ///
     /// ``` self: QtC.QTemporaryFile, newName: []const u8 ```
     pub fn Rename(self: ?*anyopaque, newName: []const u8) bool {
@@ -177,7 +177,7 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Rename(@ptrCast(self), newName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#createNativeFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#createNativeFile)
     ///
     /// ``` fileName: []const u8 ```
     pub fn CreateNativeFile(fileName: []const u8) QtC.QTemporaryFile {
@@ -188,21 +188,21 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_CreateNativeFile(fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#createNativeFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#createNativeFile)
     ///
     /// ``` file: QtC.QFile ```
     pub fn CreateNativeFile2(file: ?*anyopaque) QtC.QTemporaryFile {
         return qtc.QTemporaryFile_CreateNativeFile2(@ptrCast(file));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
     /// ``` self: QtC.QTemporaryFile, flags: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open2(self: ?*anyopaque, flags: i32) bool {
         return qtc.QTemporaryFile_Open2(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
     /// Allows for overriding the related default method
     ///
@@ -211,7 +211,7 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_OnOpen2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
     /// Base class method implementation
     ///
@@ -220,7 +220,7 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_QBaseOpen2(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -233,7 +233,7 @@ pub const qtemporaryfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -248,7 +248,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#setFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setFileName)
     ///
     /// ``` self: QtC.QTemporaryFile, name: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, name: []const u8) void {
@@ -261,7 +261,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#encodeName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#encodeName)
     ///
     /// ``` fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn EncodeName(fileName: []const u8, allocator: std.mem.Allocator) []u8 {
@@ -278,7 +278,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#decodeName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#decodeName)
     ///
     /// ``` localFileName: []u8, allocator: std.mem.Allocator ```
     pub fn DecodeName(localFileName: []u8, allocator: std.mem.Allocator) []const u8 {
@@ -295,7 +295,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#decodeName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#decodeName)
     ///
     /// ``` localFileName: []const u8, allocator: std.mem.Allocator ```
     pub fn DecodeName2(localFileName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -309,7 +309,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#exists)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#exists)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn Exists(self: ?*anyopaque) bool {
@@ -318,7 +318,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#exists)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#exists)
     ///
     /// ``` fileName: []const u8 ```
     pub fn Exists2(fileName: []const u8) bool {
@@ -331,7 +331,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn SymLinkTarget(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -344,7 +344,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
     ///
     /// ``` fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn SymLinkTarget2(fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -361,7 +361,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#remove)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn Remove(self: ?*anyopaque) bool {
@@ -370,7 +370,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#remove)
     ///
     /// ``` fileName: []const u8 ```
     pub fn Remove2(fileName: []const u8) bool {
@@ -383,7 +383,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn MoveToTrash(self: ?*anyopaque) bool {
@@ -392,7 +392,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
     ///
     /// ``` fileName: []const u8 ```
     pub fn MoveToTrash2(fileName: []const u8) bool {
@@ -405,7 +405,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#rename)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#rename)
     ///
     /// ``` oldName: []const u8, newName: []const u8 ```
     pub fn Rename2(oldName: []const u8, newName: []const u8) bool {
@@ -422,7 +422,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#link)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
     ///
     /// ``` self: QtC.QTemporaryFile, newName: []const u8 ```
     pub fn Link(self: ?*anyopaque, newName: []const u8) bool {
@@ -435,7 +435,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#link)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
     ///
     /// ``` fileName: []const u8, newName: []const u8 ```
     pub fn Link2(fileName: []const u8, newName: []const u8) bool {
@@ -452,7 +452,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#copy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
     ///
     /// ``` self: QtC.QTemporaryFile, newName: []const u8 ```
     pub fn Copy(self: ?*anyopaque, newName: []const u8) bool {
@@ -465,7 +465,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#copy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
     ///
     /// ``` fileName: []const u8, newName: []const u8 ```
     pub fn Copy2(fileName: []const u8, newName: []const u8) bool {
@@ -482,7 +482,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
     ///
     /// ``` self: QtC.QTemporaryFile, fd: i32, ioFlags: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open4(self: ?*anyopaque, fd: i32, ioFlags: i32) bool {
@@ -491,7 +491,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
     /// ``` filename: []const u8, sz: i64 ```
     pub fn Resize2(filename: []const u8, sz: i64) bool {
@@ -504,7 +504,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
     ///
     /// ``` filename: []const u8 ```
     ///
@@ -519,7 +519,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#setPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
     ///
     /// ``` filename: []const u8, permissionSpec: flag of qfiledevice_enums.Permission ```
     pub fn SetPermissions2(filename: []const u8, permissionSpec: i32) bool {
@@ -532,7 +532,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
     ///
     /// ``` self: QtC.QTemporaryFile, fd: i32, ioFlags: flag of qiodevicebase_enums.OpenModeFlag, handleFlags: flag of qfiledevice_enums.FileHandleFlag ```
     pub fn Open33(self: ?*anyopaque, fd: i32, ioFlags: i32, handleFlags: i32) bool {
@@ -541,7 +541,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#error)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     ///
@@ -552,7 +552,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn UnsetError(self: ?*anyopaque) void {
@@ -561,7 +561,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#handle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#handle)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn Handle(self: ?*anyopaque) i32 {
@@ -570,7 +570,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#flush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#flush)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn Flush(self: ?*anyopaque) bool {
@@ -579,7 +579,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ``` self: QtC.QTemporaryFile, offset: i64, size: i64 ```
     pub fn Map(self: ?*anyopaque, offset: i64, size: i64) ?*u8 {
@@ -588,7 +588,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
     ///
     /// ``` self: QtC.QTemporaryFile, address: *u8 ```
     pub fn Unmap(self: ?*anyopaque, address: *u8) bool {
@@ -597,7 +597,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
     ///
     /// ``` self: QtC.QTemporaryFile, time: qfiledevice_enums.FileTime ```
     pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
@@ -606,7 +606,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
     ///
     /// ``` self: QtC.QTemporaryFile, newDate: QtC.QDateTime, fileTime: qfiledevice_enums.FileTime ```
     pub fn SetFileTime(self: ?*anyopaque, newDate: ?*anyopaque, fileTime: i32) bool {
@@ -615,7 +615,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ``` self: QtC.QTemporaryFile, offset: i64, size: i64, flags: flag of qfiledevice_enums.MemoryMapFlag ```
     pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
@@ -624,7 +624,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     ///
@@ -635,7 +635,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
     ///
     /// ``` self: QtC.QTemporaryFile, enabled: bool ```
     pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -644,7 +644,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
@@ -653,7 +653,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn IsOpen(self: ?*anyopaque) bool {
@@ -662,7 +662,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn IsReadable(self: ?*anyopaque) bool {
@@ -671,7 +671,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn IsWritable(self: ?*anyopaque) bool {
@@ -680,7 +680,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn ReadChannelCount(self: ?*anyopaque) i32 {
@@ -689,7 +689,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn WriteChannelCount(self: ?*anyopaque) i32 {
@@ -698,7 +698,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
@@ -707,7 +707,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
     ///
     /// ``` self: QtC.QTemporaryFile, channel: i32 ```
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
@@ -716,7 +716,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
@@ -725,7 +725,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
     ///
     /// ``` self: QtC.QTemporaryFile, channel: i32 ```
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
@@ -734,7 +734,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QTemporaryFile, data: []u8, maxlen: i64 ```
     pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -744,7 +744,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QTemporaryFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -757,7 +757,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -770,7 +770,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QTemporaryFile, data: []u8, maxlen: i64 ```
     pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -780,7 +780,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -793,7 +793,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn StartTransaction(self: ?*anyopaque) void {
@@ -802,7 +802,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn CommitTransaction(self: ?*anyopaque) void {
@@ -811,7 +811,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn RollbackTransaction(self: ?*anyopaque) void {
@@ -820,7 +820,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn IsTransactionStarted(self: ?*anyopaque) bool {
@@ -829,7 +829,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QTemporaryFile, data: []const u8, lenVal: i64 ```
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -839,7 +839,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QTemporaryFile, data: []const u8 ```
     pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
@@ -849,7 +849,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QTemporaryFile, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
@@ -862,7 +862,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QTemporaryFile, data: []u8, maxlen: i64 ```
     pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -872,7 +872,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QTemporaryFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -885,7 +885,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
     ///
     /// ``` self: QtC.QTemporaryFile, maxSize: i64 ```
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
@@ -894,7 +894,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
     /// ``` self: QtC.QTemporaryFile, c: u8 ```
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
@@ -903,7 +903,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#putChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
     /// ``` self: QtC.QTemporaryFile, c: u8 ```
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
@@ -912,7 +912,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#getChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
     /// ``` self: QtC.QTemporaryFile, c: []u8 ```
     pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
@@ -922,7 +922,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -935,7 +935,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn ReadyRead(self: ?*anyopaque) void {
@@ -944,7 +944,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile) callconv(.c) void ```
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -953,7 +953,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QTemporaryFile, channel: i32 ```
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
@@ -962,7 +962,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, channel: i32) callconv(.c) void ```
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -971,7 +971,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QTemporaryFile, bytes: i64 ```
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
@@ -980,7 +980,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, bytes: i64) callconv(.c) void ```
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
@@ -989,7 +989,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QTemporaryFile, channel: i32, bytes: i64 ```
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
@@ -998,7 +998,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, channel: i32, bytes: i64) callconv(.c) void ```
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
@@ -1007,7 +1007,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn AboutToClose(self: ?*anyopaque) void {
@@ -1016,7 +1016,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile) callconv(.c) void ```
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1025,7 +1025,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn ReadChannelFinished(self: ?*anyopaque) void {
@@ -1034,7 +1034,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile) callconv(.c) void ```
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1043,7 +1043,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QTemporaryFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -1056,7 +1056,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1069,7 +1069,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QTemporaryFile, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1082,7 +1082,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1091,7 +1091,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1100,7 +1100,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1109,7 +1109,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1118,7 +1118,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QTemporaryFile, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1127,7 +1127,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1136,7 +1136,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTemporaryFile, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1145,7 +1145,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTemporaryFile, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1154,7 +1154,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTemporaryFile, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1163,7 +1163,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTemporaryFile, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1172,7 +1172,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1186,7 +1186,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QTemporaryFile, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1195,7 +1195,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QTemporaryFile, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1204,7 +1204,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QTemporaryFile, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1213,7 +1213,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1222,7 +1222,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTemporaryFile, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1233,7 +1233,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1242,7 +1242,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1251,7 +1251,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1260,7 +1260,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1269,7 +1269,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QTemporaryFile, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1279,7 +1279,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QTemporaryFile, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1289,7 +1289,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QTemporaryFile, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1313,7 +1313,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1322,7 +1322,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1331,7 +1331,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1340,7 +1340,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1349,7 +1349,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1358,7 +1358,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QTemporaryFile, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1368,7 +1368,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QTemporaryFile ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1377,7 +1377,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTemporaryFile, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1386,7 +1386,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTemporaryFile, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1395,7 +1395,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1404,7 +1404,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTemporaryFile, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1415,7 +1415,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTemporaryFile, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1424,7 +1424,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1433,7 +1433,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1444,7 +1444,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1455,7 +1455,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1466,7 +1466,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1477,7 +1477,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1488,7 +1488,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1499,7 +1499,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1512,7 +1512,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1525,7 +1525,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1536,7 +1536,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#setPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1547,7 +1547,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#setPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1558,7 +1558,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFile
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfile.html#setPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1569,7 +1569,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1580,7 +1580,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1591,7 +1591,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1602,7 +1602,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1613,7 +1613,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1624,7 +1624,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1635,7 +1635,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1646,7 +1646,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1657,7 +1657,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1668,7 +1668,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1679,7 +1679,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1690,7 +1690,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1701,7 +1701,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1712,7 +1712,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1723,7 +1723,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1734,7 +1734,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1746,7 +1746,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1758,7 +1758,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1769,7 +1769,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1781,7 +1781,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1793,7 +1793,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1804,7 +1804,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1816,7 +1816,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1828,7 +1828,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1839,7 +1839,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1850,7 +1850,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1861,7 +1861,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1872,7 +1872,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1883,7 +1883,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1894,7 +1894,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1905,7 +1905,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1916,7 +1916,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1927,7 +1927,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1938,7 +1938,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1949,7 +1949,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1960,7 +1960,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1971,7 +1971,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1982,7 +1982,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1993,7 +1993,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2004,7 +2004,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2015,7 +2015,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2026,7 +2026,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2037,7 +2037,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2048,7 +2048,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2059,7 +2059,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2070,7 +2070,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2081,7 +2081,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2092,7 +2092,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2103,7 +2103,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2114,7 +2114,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2125,7 +2125,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2136,7 +2136,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2147,7 +2147,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2158,7 +2158,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2169,7 +2169,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2180,7 +2180,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2191,7 +2191,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2202,7 +2202,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2213,7 +2213,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2224,7 +2224,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2235,7 +2235,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2246,7 +2246,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2257,7 +2257,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2268,7 +2268,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2279,7 +2279,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2290,7 +2290,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2301,7 +2301,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2312,7 +2312,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2323,7 +2323,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2334,7 +2334,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2349,7 +2349,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2364,7 +2364,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2375,7 +2375,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2386,7 +2386,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2397,7 +2397,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2408,7 +2408,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2419,7 +2419,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2430,7 +2430,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2441,7 +2441,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2453,7 +2453,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2465,7 +2465,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2476,7 +2476,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2487,7 +2487,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2498,7 +2498,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2509,7 +2509,7 @@ pub const qtemporaryfile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2518,7 +2518,7 @@ pub const qtemporaryfile = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#dtor.QTemporaryFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#dtor.QTemporaryFile)
     ///
     /// Delete this object from C++ memory.
     ///

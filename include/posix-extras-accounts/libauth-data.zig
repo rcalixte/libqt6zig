@@ -12,14 +12,14 @@ pub const accounts__authdata = struct {
         return qtc.Accounts__AuthData_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
     /// ``` self: QtC.Accounts__AuthData ```
     pub fn CredentialsId(self: ?*anyopaque) u32 {
         return qtc.Accounts__AuthData_CredentialsId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
     /// ``` self: QtC.Accounts__AuthData, allocator: std.mem.Allocator ```
     pub fn Method(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -30,7 +30,7 @@ pub const accounts__authdata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
     /// ``` self: QtC.Accounts__AuthData, allocator: std.mem.Allocator ```
     pub fn Mechanism(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -41,7 +41,7 @@ pub const accounts__authdata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
     /// ``` self: QtC.Accounts__AuthData, allocator: std.mem.Allocator ```
     pub fn Parameters(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
@@ -67,7 +67,7 @@ pub const accounts__authdata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
     /// Delete this object from C++ memory.
     ///

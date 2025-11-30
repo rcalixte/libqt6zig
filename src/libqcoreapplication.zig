@@ -27,7 +27,7 @@ pub const qcoreapplication = struct {
         return qtc.QCoreApplication_new2(&argc_param, argv_param, @intCast(param3));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -59,7 +59,7 @@ pub const qcoreapplication = struct {
         return qtc.QCoreApplication_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -71,7 +71,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#arguments)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#arguments)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Arguments(allocator: std.mem.Allocator) [][]const u8 {
@@ -93,21 +93,21 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setAttribute)
     ///
     /// ``` attribute: qnamespace_enums.ApplicationAttribute ```
     pub fn SetAttribute(attribute: i32) void {
         qtc.QCoreApplication_SetAttribute(@intCast(attribute));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#testAttribute)
     ///
     /// ``` attribute: qnamespace_enums.ApplicationAttribute ```
     pub fn TestAttribute(attribute: i32) bool {
         return qtc.QCoreApplication_TestAttribute(@intCast(attribute));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setOrganizationDomain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setOrganizationDomain)
     ///
     /// ``` orgDomain: []const u8 ```
     pub fn SetOrganizationDomain(orgDomain: []const u8) void {
@@ -118,7 +118,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_SetOrganizationDomain(orgDomain_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#organizationDomain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#organizationDomain)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn OrganizationDomain(allocator: std.mem.Allocator) []const u8 {
@@ -129,7 +129,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setOrganizationName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setOrganizationName)
     ///
     /// ``` orgName: []const u8 ```
     pub fn SetOrganizationName(orgName: []const u8) void {
@@ -140,7 +140,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_SetOrganizationName(orgName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#organizationName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#organizationName)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn OrganizationName(allocator: std.mem.Allocator) []const u8 {
@@ -151,7 +151,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setApplicationName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setApplicationName)
     ///
     /// ``` application: []const u8 ```
     pub fn SetApplicationName(application: []const u8) void {
@@ -162,7 +162,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_SetApplicationName(application_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationName)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationName(allocator: std.mem.Allocator) []const u8 {
@@ -173,7 +173,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setApplicationVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setApplicationVersion)
     ///
     /// ``` version: []const u8 ```
     pub fn SetApplicationVersion(version: []const u8) void {
@@ -184,7 +184,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_SetApplicationVersion(version_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationVersion)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationVersion(allocator: std.mem.Allocator) []const u8 {
@@ -195,105 +195,105 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setSetuidAllowed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setSetuidAllowed)
     ///
     /// ``` allow: bool ```
     pub fn SetSetuidAllowed(allow: bool) void {
         qtc.QCoreApplication_SetSetuidAllowed(allow);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#isSetuidAllowed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#isSetuidAllowed)
     ///
     ///
     pub fn IsSetuidAllowed() bool {
         return qtc.QCoreApplication_IsSetuidAllowed();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#instance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#instance)
     ///
     ///
     pub fn Instance() QtC.QCoreApplication {
         return qtc.QCoreApplication_Instance();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#exec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#exec)
     ///
     ///
     pub fn Exec() i32 {
         return qtc.QCoreApplication_Exec();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
     ///
     pub fn ProcessEvents() void {
         qtc.QCoreApplication_ProcessEvents();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
     /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag, maxtime: i32 ```
     pub fn ProcessEvents2(flags: i32, maxtime: i32) void {
         qtc.QCoreApplication_ProcessEvents2(@intCast(flags), @intCast(maxtime));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
     /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag, deadline: QtC.QDeadlineTimer ```
     pub fn ProcessEvents3(flags: i32, deadline: QtC.QDeadlineTimer) void {
         qtc.QCoreApplication_ProcessEvents3(@intCast(flags), @ptrCast(deadline));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#sendEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#sendEvent)
     ///
     /// ``` receiver: QtC.QObject, event: QtC.QEvent ```
     pub fn SendEvent(receiver: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QCoreApplication_SendEvent(@ptrCast(receiver), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#postEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#postEvent)
     ///
     /// ``` receiver: QtC.QObject, event: QtC.QEvent ```
     pub fn PostEvent(receiver: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QCoreApplication_PostEvent(@ptrCast(receiver), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#sendPostedEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#sendPostedEvents)
     ///
     ///
     pub fn SendPostedEvents() void {
         qtc.QCoreApplication_SendPostedEvents();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#removePostedEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#removePostedEvents)
     ///
     /// ``` receiver: QtC.QObject ```
     pub fn RemovePostedEvents(receiver: ?*anyopaque) void {
         qtc.QCoreApplication_RemovePostedEvents(@ptrCast(receiver));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#eventDispatcher)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#eventDispatcher)
     ///
     ///
     pub fn EventDispatcher() QtC.QAbstractEventDispatcher {
         return qtc.QCoreApplication_EventDispatcher();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setEventDispatcher)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setEventDispatcher)
     ///
     /// ``` eventDispatcher: QtC.QAbstractEventDispatcher ```
     pub fn SetEventDispatcher(eventDispatcher: ?*anyopaque) void {
         qtc.QCoreApplication_SetEventDispatcher(@ptrCast(eventDispatcher));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#notify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#notify)
     ///
     /// ``` self: QtC.QCoreApplication, param1: QtC.QObject, param2: QtC.QEvent ```
     pub fn Notify(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
         return qtc.QCoreApplication_Notify(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#notify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#notify)
     ///
     /// Allows for overriding the related default method
     ///
@@ -302,7 +302,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_OnNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#notify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#notify)
     ///
     /// Base class method implementation
     ///
@@ -311,21 +311,21 @@ pub const qcoreapplication = struct {
         return qtc.QCoreApplication_QBaseNotify(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#startingUp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#startingUp)
     ///
     ///
     pub fn StartingUp() bool {
         return qtc.QCoreApplication_StartingUp();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#closingDown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#closingDown)
     ///
     ///
     pub fn ClosingDown() bool {
         return qtc.QCoreApplication_ClosingDown();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationDirPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationDirPath)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationDirPath(allocator: std.mem.Allocator) []const u8 {
@@ -336,7 +336,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationFilePath)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationFilePath(allocator: std.mem.Allocator) []const u8 {
@@ -347,14 +347,14 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationPid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationPid)
     ///
     ///
     pub fn ApplicationPid() i64 {
         return qtc.QCoreApplication_ApplicationPid();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#checkPermission)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#checkPermission)
     ///
     /// ``` self: QtC.QCoreApplication, permission: QtC.QPermission ```
     ///
@@ -363,7 +363,7 @@ pub const qcoreapplication = struct {
         return qtc.QCoreApplication_CheckPermission(@ptrCast(self), @ptrCast(permission));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setLibraryPaths)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setLibraryPaths)
     ///
     /// ``` libraryPaths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetLibraryPaths(libraryPaths: [][]const u8, allocator: std.mem.Allocator) void {
@@ -382,7 +382,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_SetLibraryPaths(libraryPaths_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#libraryPaths)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#libraryPaths)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn LibraryPaths(allocator: std.mem.Allocator) [][]const u8 {
@@ -404,7 +404,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#addLibraryPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#addLibraryPath)
     ///
     /// ``` param1: []const u8 ```
     pub fn AddLibraryPath(param1: []const u8) void {
@@ -415,7 +415,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_AddLibraryPath(param1_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#removeLibraryPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#removeLibraryPath)
     ///
     /// ``` param1: []const u8 ```
     pub fn RemoveLibraryPath(param1: []const u8) void {
@@ -426,21 +426,21 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_RemoveLibraryPath(param1_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#installTranslator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#installTranslator)
     ///
     /// ``` messageFile: QtC.QTranslator ```
     pub fn InstallTranslator(messageFile: ?*anyopaque) bool {
         return qtc.QCoreApplication_InstallTranslator(@ptrCast(messageFile));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#removeTranslator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#removeTranslator)
     ///
     /// ``` messageFile: QtC.QTranslator ```
     pub fn RemoveTranslator(messageFile: ?*anyopaque) bool {
         return qtc.QCoreApplication_RemoveTranslator(@ptrCast(messageFile));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#translate)
     ///
     /// ``` context: []const u8, key: []const u8, allocator: std.mem.Allocator ```
     pub fn Translate(context: []const u8, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -453,7 +453,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#resolveInterface)
     ///
     /// ``` self: QtC.QCoreApplication, name: []const u8, revision: i32 ```
     pub fn ResolveInterface(self: ?*anyopaque, name: []const u8, revision: i32) ?*anyopaque {
@@ -461,7 +461,7 @@ pub const qcoreapplication = struct {
         return qtc.QCoreApplication_ResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#resolveInterface)
     ///
     /// Allows for overriding the related default method
     ///
@@ -470,7 +470,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_OnResolveInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#resolveInterface)
     ///
     /// Base class method implementation
     ///
@@ -480,126 +480,126 @@ pub const qcoreapplication = struct {
         return qtc.QCoreApplication_QBaseResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#installNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#installNativeEventFilter)
     ///
     /// ``` self: QtC.QCoreApplication, filterObj: QtC.QAbstractNativeEventFilter ```
     pub fn InstallNativeEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QCoreApplication_InstallNativeEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#installNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#installNativeEventFilter)
     ///
     /// ``` self: QtC.QCoreApplication, callback: *const fn (self: QtC.QCoreApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void ```
     pub fn OnInstallNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_InstallNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#removeNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#removeNativeEventFilter)
     ///
     /// ``` self: QtC.QCoreApplication, filterObj: QtC.QAbstractNativeEventFilter ```
     pub fn RemoveNativeEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QCoreApplication_RemoveNativeEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#removeNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#removeNativeEventFilter)
     ///
     /// ``` self: QtC.QCoreApplication, callback: *const fn (self: QtC.QCoreApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void ```
     pub fn OnRemoveNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_RemoveNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#isQuitLockEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#isQuitLockEnabled)
     ///
     ///
     pub fn IsQuitLockEnabled() bool {
         return qtc.QCoreApplication_IsQuitLockEnabled();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setQuitLockEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setQuitLockEnabled)
     ///
     /// ``` enabled: bool ```
     pub fn SetQuitLockEnabled(enabled: bool) void {
         qtc.QCoreApplication_SetQuitLockEnabled(enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#quit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#quit)
     ///
     ///
     pub fn Quit() void {
         qtc.QCoreApplication_Quit();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#exit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#exit)
     ///
     ///
     pub fn Exit() void {
         qtc.QCoreApplication_Exit();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#organizationNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#organizationNameChanged)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn OrganizationNameChanged(self: ?*anyopaque) void {
         qtc.QCoreApplication_OrganizationNameChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#organizationNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#organizationNameChanged)
     ///
     /// ``` self: QtC.QCoreApplication, callback: *const fn (self: QtC.QCoreApplication) callconv(.c) void ```
     pub fn OnOrganizationNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_OrganizationNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#organizationDomainChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#organizationDomainChanged)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn OrganizationDomainChanged(self: ?*anyopaque) void {
         qtc.QCoreApplication_OrganizationDomainChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#organizationDomainChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#organizationDomainChanged)
     ///
     /// ``` self: QtC.QCoreApplication, callback: *const fn (self: QtC.QCoreApplication) callconv(.c) void ```
     pub fn OnOrganizationDomainChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_OrganizationDomainChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationNameChanged)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn ApplicationNameChanged(self: ?*anyopaque) void {
         qtc.QCoreApplication_ApplicationNameChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationNameChanged)
     ///
     /// ``` self: QtC.QCoreApplication, callback: *const fn (self: QtC.QCoreApplication) callconv(.c) void ```
     pub fn OnApplicationNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_ApplicationNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationVersionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationVersionChanged)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn ApplicationVersionChanged(self: ?*anyopaque) void {
         qtc.QCoreApplication_ApplicationVersionChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationVersionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#applicationVersionChanged)
     ///
     /// ``` self: QtC.QCoreApplication, callback: *const fn (self: QtC.QCoreApplication) callconv(.c) void ```
     pub fn OnApplicationVersionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCoreApplication_Connect_ApplicationVersionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#event)
     ///
     /// ``` self: QtC.QCoreApplication, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QCoreApplication_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -608,7 +608,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#event)
     ///
     /// Base class method implementation
     ///
@@ -617,7 +617,7 @@ pub const qcoreapplication = struct {
         return qtc.QCoreApplication_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -630,7 +630,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -643,49 +643,49 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#setAttribute)
     ///
     /// ``` attribute: qnamespace_enums.ApplicationAttribute, on: bool ```
     pub fn SetAttribute2(attribute: i32, on: bool) void {
         qtc.QCoreApplication_SetAttribute2(@intCast(attribute), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
     /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag ```
     pub fn ProcessEvents1(flags: i32) void {
         qtc.QCoreApplication_ProcessEvents1(@intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#postEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#postEvent)
     ///
     /// ``` receiver: QtC.QObject, event: QtC.QEvent, priority: i32 ```
     pub fn PostEvent3(receiver: ?*anyopaque, event: ?*anyopaque, priority: i32) void {
         qtc.QCoreApplication_PostEvent3(@ptrCast(receiver), @ptrCast(event), @intCast(priority));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#sendPostedEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#sendPostedEvents)
     ///
     /// ``` receiver: QtC.QObject ```
     pub fn SendPostedEvents1(receiver: ?*anyopaque) void {
         qtc.QCoreApplication_SendPostedEvents1(@ptrCast(receiver));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#sendPostedEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#sendPostedEvents)
     ///
     /// ``` receiver: QtC.QObject, event_type: i32 ```
     pub fn SendPostedEvents2(receiver: ?*anyopaque, event_type: i32) void {
         qtc.QCoreApplication_SendPostedEvents2(@ptrCast(receiver), @intCast(event_type));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#removePostedEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#removePostedEvents)
     ///
     /// ``` receiver: QtC.QObject, eventType: i32 ```
     pub fn RemovePostedEvents2(receiver: ?*anyopaque, eventType: i32) void {
         qtc.QCoreApplication_RemovePostedEvents2(@ptrCast(receiver), @intCast(eventType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#translate)
     ///
     /// ``` context: []const u8, key: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Translate3(context: []const u8, key: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -699,7 +699,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#translate)
     ///
     /// ``` context: []const u8, key: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Translate4(context: []const u8, key: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -713,7 +713,7 @@ pub const qcoreapplication = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#exit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#exit)
     ///
     /// ``` retcode: i32 ```
     pub fn Exit1(retcode: i32) void {
@@ -722,7 +722,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QCoreApplication, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -735,7 +735,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QCoreApplication, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -748,7 +748,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -757,7 +757,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -766,7 +766,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -775,7 +775,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -784,7 +784,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QCoreApplication, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -793,7 +793,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -802,7 +802,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QCoreApplication, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -811,7 +811,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QCoreApplication, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -820,7 +820,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QCoreApplication, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -829,7 +829,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QCoreApplication, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -838,7 +838,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QCoreApplication, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -852,7 +852,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QCoreApplication, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -861,7 +861,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QCoreApplication, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -870,7 +870,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QCoreApplication, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -879,7 +879,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -888,7 +888,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QCoreApplication, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -899,7 +899,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -908,7 +908,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -917,7 +917,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -926,7 +926,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -935,7 +935,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QCoreApplication, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -945,7 +945,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QCoreApplication, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -955,7 +955,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QCoreApplication, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -979,7 +979,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -988,7 +988,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -997,7 +997,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1006,7 +1006,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCoreApplication, callback: *const fn (self: QtC.QCoreApplication) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1015,7 +1015,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1024,7 +1024,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QCoreApplication, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1034,7 +1034,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QCoreApplication ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1043,7 +1043,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QCoreApplication, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1052,7 +1052,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QCoreApplication, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1061,7 +1061,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1070,7 +1070,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QCoreApplication, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1081,7 +1081,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCoreApplication, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1090,7 +1090,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCoreApplication, callback: *const fn (self: QtC.QCoreApplication, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1099,7 +1099,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1110,7 +1110,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1121,7 +1121,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1132,7 +1132,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1143,7 +1143,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1154,7 +1154,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1165,7 +1165,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1176,7 +1176,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1187,7 +1187,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1198,7 +1198,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1209,7 +1209,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1220,7 +1220,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1231,7 +1231,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1242,7 +1242,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1253,7 +1253,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1264,7 +1264,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1275,7 +1275,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1286,7 +1286,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1297,7 +1297,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1308,7 +1308,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1319,7 +1319,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1330,7 +1330,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1341,7 +1341,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1352,7 +1352,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1363,7 +1363,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1375,7 +1375,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1387,7 +1387,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1398,7 +1398,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1409,7 +1409,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1420,7 +1420,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1429,7 +1429,7 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#aboutToQuit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#aboutToQuit)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1440,7 +1440,7 @@ pub const qcoreapplication = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1449,7 +1449,7 @@ pub const qcoreapplication = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#dtor.QCoreApplication)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#dtor.QCoreApplication)
     ///
     /// Delete this object from C++ memory.
     ///

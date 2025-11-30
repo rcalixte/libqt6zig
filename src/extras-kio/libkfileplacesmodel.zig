@@ -25,7 +25,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -57,7 +57,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -69,42 +69,42 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#url)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#url)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn Url(self: ?*anyopaque, index: ?*anyopaque) QtC.QUrl {
         return qtc.KFilePlacesModel_Url(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#setupNeeded)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#setupNeeded)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn SetupNeeded(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFilePlacesModel_SetupNeeded(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#isTeardownAllowed)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#isTeardownAllowed)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn IsTeardownAllowed(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFilePlacesModel_IsTeardownAllowed(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#isEjectAllowed)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#isEjectAllowed)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn IsEjectAllowed(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFilePlacesModel_IsEjectAllowed(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#isTeardownOverlayRecommended)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#isTeardownOverlayRecommended)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn IsTeardownOverlayRecommended(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFilePlacesModel_IsTeardownOverlayRecommended(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#deviceAccessibility)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#deviceAccessibility)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     ///
@@ -113,14 +113,14 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_DeviceAccessibility(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#icon)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#icon)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn Icon(self: ?*anyopaque, index: ?*anyopaque) QtC.QIcon {
         return qtc.KFilePlacesModel_Icon(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#text)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#text)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -131,56 +131,56 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#isHidden)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#isHidden)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn IsHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFilePlacesModel_IsHidden(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#isGroupHidden)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#isGroupHidden)
     ///
     /// ``` self: QtC.KFilePlacesModel, typeVal: kfileplacesmodel_enums.GroupType ```
     pub fn IsGroupHidden(self: ?*anyopaque, typeVal: i32) bool {
         return qtc.KFilePlacesModel_IsGroupHidden(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#isGroupHidden)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#isGroupHidden)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn IsGroupHidden2(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFilePlacesModel_IsGroupHidden2(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#isDevice)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#isDevice)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn IsDevice(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFilePlacesModel_IsDevice(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#deviceForIndex)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#deviceForIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn DeviceForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.Solid__Device {
         return qtc.KFilePlacesModel_DeviceForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#bookmarkForIndex)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#bookmarkForIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn BookmarkForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.KBookmark {
         return qtc.KFilePlacesModel_BookmarkForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#bookmarkForUrl)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#bookmarkForUrl)
     ///
     /// ``` self: QtC.KFilePlacesModel, searchUrl: QtC.QUrl ```
     pub fn BookmarkForUrl(self: ?*anyopaque, searchUrl: ?*anyopaque) QtC.KBookmark {
         return qtc.KFilePlacesModel_BookmarkForUrl(@ptrCast(self), @ptrCast(searchUrl));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#groupType)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#groupType)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     ///
@@ -189,7 +189,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_GroupType(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#groupIndexes)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#groupIndexes)
     ///
     /// ``` self: QtC.KFilePlacesModel, typeVal: kfileplacesmodel_enums.GroupType, allocator: std.mem.Allocator ```
     pub fn GroupIndexes(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -201,49 +201,49 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#teardownActionForIndex)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#teardownActionForIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn TeardownActionForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAction {
         return qtc.KFilePlacesModel_TeardownActionForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#ejectActionForIndex)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#ejectActionForIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn EjectActionForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAction {
         return qtc.KFilePlacesModel_EjectActionForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#partitionActionForIndex)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#partitionActionForIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn PartitionActionForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAction {
         return qtc.KFilePlacesModel_PartitionActionForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#requestTeardown)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#requestTeardown)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn RequestTeardown(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFilePlacesModel_RequestTeardown(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#requestEject)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#requestEject)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn RequestEject(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFilePlacesModel_RequestEject(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#requestSetup)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#requestSetup)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn RequestSetup(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFilePlacesModel_RequestSetup(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#addPlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#addPlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, text: []const u8, url: QtC.QUrl ```
     pub fn AddPlace(self: ?*anyopaque, text: []const u8, url: ?*anyopaque) void {
@@ -254,7 +254,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_AddPlace(@ptrCast(self), text_str, @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#addPlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#addPlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, text: []const u8, url: QtC.QUrl, iconName: []const u8, appName: []const u8, after: QtC.QModelIndex ```
     pub fn AddPlace2(self: ?*anyopaque, text: []const u8, url: ?*anyopaque, iconName: []const u8, appName: []const u8, after: ?*anyopaque) void {
@@ -273,7 +273,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_AddPlace2(@ptrCast(self), text_str, @ptrCast(url), iconName_str, appName_str, @ptrCast(after));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#editPlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#editPlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, text: []const u8, url: QtC.QUrl ```
     pub fn EditPlace(self: ?*anyopaque, index: ?*anyopaque, text: []const u8, url: ?*anyopaque) void {
@@ -284,49 +284,49 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_EditPlace(@ptrCast(self), @ptrCast(index), text_str, @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#removePlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#removePlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn RemovePlace(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFilePlacesModel_RemovePlace(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#setPlaceHidden)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#setPlaceHidden)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, hidden: bool ```
     pub fn SetPlaceHidden(self: ?*anyopaque, index: ?*anyopaque, hidden: bool) void {
         qtc.KFilePlacesModel_SetPlaceHidden(@ptrCast(self), @ptrCast(index), hidden);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#setGroupHidden)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#setGroupHidden)
     ///
     /// ``` self: QtC.KFilePlacesModel, typeVal: kfileplacesmodel_enums.GroupType, hidden: bool ```
     pub fn SetGroupHidden(self: ?*anyopaque, typeVal: i32, hidden: bool) void {
         qtc.KFilePlacesModel_SetGroupHidden(@ptrCast(self), @intCast(typeVal), hidden);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#movePlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#movePlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, itemRow: i32, row: i32 ```
     pub fn MovePlace(self: ?*anyopaque, itemRow: i32, row: i32) bool {
         return qtc.KFilePlacesModel_MovePlace(@ptrCast(self), @intCast(itemRow), @intCast(row));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#hiddenCount)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#hiddenCount)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn HiddenCount(self: ?*anyopaque) i32 {
         return qtc.KFilePlacesModel_HiddenCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#data)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#data)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, role: i32 ```
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.KFilePlacesModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#data)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -335,7 +335,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#data)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#data)
     ///
     /// Base class method implementation
     ///
@@ -344,14 +344,14 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#index)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#index)
     ///
     /// ``` self: QtC.KFilePlacesModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
         return qtc.KFilePlacesModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#index)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#index)
     ///
     /// Allows for overriding the related default method
     ///
@@ -360,7 +360,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#index)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#index)
     ///
     /// Base class method implementation
     ///
@@ -369,14 +369,14 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#parent)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#parent)
     ///
     /// ``` self: QtC.KFilePlacesModel, child: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
         return qtc.KFilePlacesModel_Parent(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#parent)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -385,7 +385,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#parent)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -394,7 +394,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseParent(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#roleNames)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#roleNames)
     ///
     /// ``` self: QtC.KFilePlacesModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
@@ -415,14 +415,14 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#rowCount)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#rowCount)
     ///
     /// ``` self: QtC.KFilePlacesModel, parent: QtC.QModelIndex ```
     pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.KFilePlacesModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#rowCount)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#rowCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -431,7 +431,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#rowCount)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#rowCount)
     ///
     /// Base class method implementation
     ///
@@ -440,14 +440,14 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#columnCount)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#columnCount)
     ///
     /// ``` self: QtC.KFilePlacesModel, parent: QtC.QModelIndex ```
     pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.KFilePlacesModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#columnCount)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#columnCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -456,7 +456,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#columnCount)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#columnCount)
     ///
     /// Base class method implementation
     ///
@@ -465,14 +465,14 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#closestItem)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#closestItem)
     ///
     /// ``` self: QtC.KFilePlacesModel, url: QtC.QUrl ```
     pub fn ClosestItem(self: ?*anyopaque, url: ?*anyopaque) QtC.QModelIndex {
         return qtc.KFilePlacesModel_ClosestItem(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#supportedDropActions)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     ///
@@ -481,7 +481,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_SupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#supportedDropActions)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#supportedDropActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -490,7 +490,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#supportedDropActions)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#supportedDropActions)
     ///
     /// Base class method implementation
     ///
@@ -501,7 +501,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#flags)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#flags)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     ///
@@ -510,7 +510,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#flags)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#flags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -519,7 +519,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#flags)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#flags)
     ///
     /// Base class method implementation
     ///
@@ -530,7 +530,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#mimeTypes)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#mimeTypes)
     ///
     /// ``` self: QtC.KFilePlacesModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -552,7 +552,7 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#mimeTypes)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#mimeTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -561,7 +561,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#mimeTypes)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#mimeTypes)
     ///
     /// Base class method implementation
     ///
@@ -585,7 +585,7 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#mimeData)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#mimeData)
     ///
     /// ``` self: QtC.KFilePlacesModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
@@ -596,7 +596,7 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_MimeData(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#mimeData)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#mimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -605,7 +605,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#mimeData)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#mimeData)
     ///
     /// Base class method implementation
     ///
@@ -618,14 +618,14 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseMimeData(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#dropMimeData)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#dropMimeData)
     ///
     /// ``` self: QtC.KFilePlacesModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.KFilePlacesModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#dropMimeData)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#dropMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -634,7 +634,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#dropMimeData)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#dropMimeData)
     ///
     /// Base class method implementation
     ///
@@ -643,21 +643,21 @@ pub const kfileplacesmodel = struct {
         return qtc.KFilePlacesModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#refresh)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#refresh)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn Refresh(self: ?*anyopaque) void {
         qtc.KFilePlacesModel_Refresh(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#convertedUrl)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#convertedUrl)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn ConvertedUrl(url: ?*anyopaque) QtC.QUrl {
         return qtc.KFilePlacesModel_ConvertedUrl(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#setSupportedSchemes)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#setSupportedSchemes)
     ///
     /// ``` self: QtC.KFilePlacesModel, schemes: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: [][]const u8, allocator: std.mem.Allocator) void {
@@ -676,7 +676,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_SetSupportedSchemes(@ptrCast(self), schemes_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#supportedSchemes)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#supportedSchemes)
     ///
     /// ``` self: QtC.KFilePlacesModel, allocator: std.mem.Allocator ```
     pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -698,7 +698,7 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#errorMessage)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#errorMessage)
     ///
     /// ``` self: QtC.KFilePlacesModel, message: []const u8 ```
     pub fn ErrorMessage(self: ?*anyopaque, message: []const u8) void {
@@ -709,84 +709,84 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_ErrorMessage(@ptrCast(self), message_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#errorMessage)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#errorMessage)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnErrorMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KFilePlacesModel_Connect_ErrorMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#setupDone)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#setupDone)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, success: bool ```
     pub fn SetupDone(self: ?*anyopaque, index: ?*anyopaque, success: bool) void {
         qtc.KFilePlacesModel_SetupDone(@ptrCast(self), @ptrCast(index), success);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#setupDone)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#setupDone)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, success: bool) callconv(.c) void ```
     pub fn OnSetupDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KFilePlacesModel_Connect_SetupDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#teardownDone)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#teardownDone)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant ```
     pub fn TeardownDone(self: ?*anyopaque, index: ?*anyopaque, errorVal: i32, errorData: ?*anyopaque) void {
         qtc.KFilePlacesModel_TeardownDone(@ptrCast(self), @ptrCast(index), @intCast(errorVal), @ptrCast(errorData));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#teardownDone)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#teardownDone)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant) callconv(.c) void ```
     pub fn OnTeardownDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesModel_Connect_TeardownDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#groupHiddenChanged)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#groupHiddenChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, group: kfileplacesmodel_enums.GroupType, hidden: bool ```
     pub fn GroupHiddenChanged(self: ?*anyopaque, group: i32, hidden: bool) void {
         qtc.KFilePlacesModel_GroupHiddenChanged(@ptrCast(self), @intCast(group), hidden);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#groupHiddenChanged)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#groupHiddenChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, group: kfileplacesmodel_enums.GroupType, hidden: bool) callconv(.c) void ```
     pub fn OnGroupHiddenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.KFilePlacesModel_Connect_GroupHiddenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#reloaded)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#reloaded)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn Reloaded(self: ?*anyopaque) void {
         qtc.KFilePlacesModel_Reloaded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#reloaded)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#reloaded)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void ```
     pub fn OnReloaded(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesModel_Connect_Reloaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#supportedSchemesChanged)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#supportedSchemesChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn SupportedSchemesChanged(self: ?*anyopaque) void {
         qtc.KFilePlacesModel_SupportedSchemesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#supportedSchemesChanged)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#supportedSchemesChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void ```
     pub fn OnSupportedSchemesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KFilePlacesModel_Connect_SupportedSchemesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -799,7 +799,7 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -812,7 +812,7 @@ pub const kfileplacesmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#addPlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#addPlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, text: []const u8, url: QtC.QUrl, iconName: []const u8 ```
     pub fn AddPlace3(self: ?*anyopaque, text: []const u8, url: ?*anyopaque, iconName: []const u8) void {
@@ -827,7 +827,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_AddPlace3(@ptrCast(self), text_str, @ptrCast(url), iconName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#addPlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#addPlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, text: []const u8, url: QtC.QUrl, iconName: []const u8, appName: []const u8 ```
     pub fn AddPlace4(self: ?*anyopaque, text: []const u8, url: ?*anyopaque, iconName: []const u8, appName: []const u8) void {
@@ -846,7 +846,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_AddPlace4(@ptrCast(self), text_str, @ptrCast(url), iconName_str, appName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#editPlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#editPlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, text: []const u8, url: QtC.QUrl, iconName: []const u8 ```
     pub fn EditPlace4(self: ?*anyopaque, index: ?*anyopaque, text: []const u8, url: ?*anyopaque, iconName: []const u8) void {
@@ -861,7 +861,7 @@ pub const kfileplacesmodel = struct {
         qtc.KFilePlacesModel_EditPlace4(@ptrCast(self), @ptrCast(index), text_str, @ptrCast(url), iconName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#editPlace)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#editPlace)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, text: []const u8, url: QtC.QUrl, iconName: []const u8, appName: []const u8 ```
     pub fn EditPlace5(self: ?*anyopaque, index: ?*anyopaque, text: []const u8, url: ?*anyopaque, iconName: []const u8, appName: []const u8) void {
@@ -882,7 +882,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, row: i32, column: i32 ```
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
@@ -891,7 +891,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.KFilePlacesModel, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
@@ -900,7 +900,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.KFilePlacesModel, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
@@ -909,7 +909,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.KFilePlacesModel, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
@@ -918,7 +918,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.KFilePlacesModel, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
@@ -927,7 +927,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
     ///
     /// ``` self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceRow: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -936,7 +936,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
     ///
     /// ``` self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -945,7 +945,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex ```
     pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -954,7 +954,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
@@ -963,7 +963,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -972,7 +972,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
@@ -981,7 +981,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
@@ -990,7 +990,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -999,7 +999,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1008,7 +1008,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
@@ -1017,7 +1017,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1026,7 +1026,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -1035,7 +1035,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.KFilePlacesModel, row: i32, parent: QtC.QModelIndex ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -1044,7 +1044,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.KFilePlacesModel, column: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -1053,7 +1053,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.KFilePlacesModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -1062,7 +1062,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.KFilePlacesModel, column: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -1071,7 +1071,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.KFilePlacesModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
@@ -1080,7 +1080,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -1093,7 +1093,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
@@ -1102,7 +1102,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -1115,7 +1115,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -1124,7 +1124,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -1137,7 +1137,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -1146,7 +1146,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -1159,7 +1159,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -1168,7 +1168,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -1181,7 +1181,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -1190,7 +1190,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KFilePlacesModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1203,7 +1203,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KFilePlacesModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1216,7 +1216,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1225,7 +1225,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1234,7 +1234,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1243,7 +1243,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1252,7 +1252,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KFilePlacesModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1261,7 +1261,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1270,7 +1270,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KFilePlacesModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1279,7 +1279,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KFilePlacesModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1288,7 +1288,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KFilePlacesModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1297,7 +1297,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KFilePlacesModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1306,7 +1306,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KFilePlacesModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1320,7 +1320,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KFilePlacesModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1329,7 +1329,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KFilePlacesModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1338,7 +1338,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KFilePlacesModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1347,7 +1347,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1356,7 +1356,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KFilePlacesModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1367,7 +1367,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1376,7 +1376,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1385,7 +1385,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1394,7 +1394,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1403,7 +1403,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KFilePlacesModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1413,7 +1413,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KFilePlacesModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1423,7 +1423,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KFilePlacesModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1447,7 +1447,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1456,7 +1456,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1465,7 +1465,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1474,7 +1474,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1483,7 +1483,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KFilePlacesModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1493,7 +1493,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KFilePlacesModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1502,7 +1502,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KFilePlacesModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1511,7 +1511,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KFilePlacesModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1520,7 +1520,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1529,7 +1529,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KFilePlacesModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1540,7 +1540,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KFilePlacesModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1549,7 +1549,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KFilePlacesModel, callback: *const fn (self: QtC.KFilePlacesModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1558,7 +1558,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1569,7 +1569,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1580,7 +1580,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1591,7 +1591,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1602,7 +1602,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1613,7 +1613,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1624,7 +1624,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1635,7 +1635,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1646,7 +1646,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1657,7 +1657,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1668,7 +1668,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1679,7 +1679,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1690,7 +1690,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1701,7 +1701,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1712,7 +1712,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1723,7 +1723,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1748,7 +1748,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1776,7 +1776,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1787,7 +1787,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1798,7 +1798,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1809,7 +1809,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1820,7 +1820,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1831,7 +1831,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1842,7 +1842,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1855,7 +1855,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1868,7 +1868,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1879,7 +1879,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1890,7 +1890,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1901,7 +1901,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1912,7 +1912,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1923,7 +1923,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1934,7 +1934,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1945,7 +1945,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1956,7 +1956,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1967,7 +1967,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1978,7 +1978,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1989,7 +1989,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2000,7 +2000,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2011,7 +2011,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2022,7 +2022,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2033,7 +2033,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2044,7 +2044,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2055,7 +2055,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2066,7 +2066,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2077,7 +2077,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2088,7 +2088,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2099,7 +2099,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2110,7 +2110,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2121,7 +2121,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2132,7 +2132,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2143,7 +2143,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2154,7 +2154,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2165,7 +2165,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2176,7 +2176,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2187,7 +2187,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2198,7 +2198,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2209,7 +2209,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2225,7 +2225,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2241,7 +2241,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2252,7 +2252,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2263,7 +2263,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2274,7 +2274,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2285,7 +2285,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2296,7 +2296,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2307,7 +2307,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2318,7 +2318,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2329,7 +2329,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2340,7 +2340,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2351,7 +2351,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2362,7 +2362,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2373,7 +2373,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2384,7 +2384,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2395,7 +2395,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2406,7 +2406,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2417,7 +2417,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2428,7 +2428,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2439,7 +2439,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2450,7 +2450,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2461,7 +2461,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2472,7 +2472,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2483,7 +2483,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2494,7 +2494,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2505,7 +2505,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2516,7 +2516,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2527,7 +2527,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2538,7 +2538,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2549,7 +2549,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2560,7 +2560,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2571,7 +2571,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2582,7 +2582,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2593,7 +2593,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2604,7 +2604,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2615,7 +2615,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2626,7 +2626,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2637,7 +2637,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2648,7 +2648,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2659,7 +2659,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2670,7 +2670,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2681,7 +2681,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2696,7 +2696,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2711,7 +2711,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2722,7 +2722,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2733,7 +2733,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2744,7 +2744,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2755,7 +2755,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2766,7 +2766,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2777,7 +2777,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2788,7 +2788,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2799,7 +2799,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2810,7 +2810,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2821,7 +2821,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2832,7 +2832,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2843,7 +2843,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2854,7 +2854,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2865,7 +2865,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2876,7 +2876,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2887,7 +2887,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2898,7 +2898,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2909,7 +2909,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2920,7 +2920,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2931,7 +2931,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2942,7 +2942,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2953,7 +2953,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2964,7 +2964,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2975,7 +2975,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2986,7 +2986,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2997,7 +2997,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3008,7 +3008,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3019,7 +3019,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3030,7 +3030,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3041,7 +3041,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3052,7 +3052,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3063,7 +3063,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3074,7 +3074,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3085,7 +3085,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3096,7 +3096,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3107,7 +3107,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3118,7 +3118,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3129,7 +3129,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3140,7 +3140,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3151,7 +3151,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3162,7 +3162,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3173,7 +3173,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3184,7 +3184,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3195,7 +3195,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3206,7 +3206,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3217,7 +3217,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3228,7 +3228,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3239,7 +3239,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3250,7 +3250,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3269,7 +3269,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3288,7 +3288,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3299,7 +3299,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3315,7 +3315,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3331,7 +3331,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3342,7 +3342,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3353,7 +3353,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3364,7 +3364,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3375,7 +3375,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3386,7 +3386,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3397,7 +3397,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3408,7 +3408,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3420,7 +3420,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3432,7 +3432,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3443,7 +3443,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3454,7 +3454,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3465,7 +3465,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3476,7 +3476,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3487,7 +3487,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3498,7 +3498,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3509,7 +3509,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3520,7 +3520,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3531,7 +3531,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3542,7 +3542,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3553,7 +3553,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3564,7 +3564,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3575,7 +3575,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3586,7 +3586,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3597,7 +3597,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3608,7 +3608,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3619,7 +3619,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3630,7 +3630,7 @@ pub const kfileplacesmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3639,7 +3639,7 @@ pub const kfileplacesmodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileplacesmodel.html#dtor.KFilePlacesModel)
+    /// [Upstream resources](https://api.kde.org/kfileplacesmodel.html#dtor.KFilePlacesModel)
     ///
     /// Delete this object from C++ memory.
     ///

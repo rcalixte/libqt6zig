@@ -21,7 +21,7 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_new2(@ptrCast(topLevel), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,14 +65,14 @@ pub const kparts__partmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setSelectionPolicy)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setSelectionPolicy)
     ///
     /// ``` self: QtC.KParts__PartManager, policy: partmanager_enums.SelectionPolicy ```
     pub fn SetSelectionPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.KParts__PartManager_SetSelectionPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#selectionPolicy)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#selectionPolicy)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     ///
@@ -81,56 +81,56 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_SelectionPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setAllowNestedParts)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setAllowNestedParts)
     ///
     /// ``` self: QtC.KParts__PartManager, allow: bool ```
     pub fn SetAllowNestedParts(self: ?*anyopaque, allow: bool) void {
         qtc.KParts__PartManager_SetAllowNestedParts(@ptrCast(self), allow);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#allowNestedParts)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#allowNestedParts)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn AllowNestedParts(self: ?*anyopaque) bool {
         return qtc.KParts__PartManager_AllowNestedParts(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setIgnoreScrollBars)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setIgnoreScrollBars)
     ///
     /// ``` self: QtC.KParts__PartManager, ignore: bool ```
     pub fn SetIgnoreScrollBars(self: ?*anyopaque, ignore: bool) void {
         qtc.KParts__PartManager_SetIgnoreScrollBars(@ptrCast(self), ignore);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#ignoreScrollBars)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#ignoreScrollBars)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn IgnoreScrollBars(self: ?*anyopaque) bool {
         return qtc.KParts__PartManager_IgnoreScrollBars(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setActivationButtonMask)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setActivationButtonMask)
     ///
     /// ``` self: QtC.KParts__PartManager, buttonMask: i16 ```
     pub fn SetActivationButtonMask(self: ?*anyopaque, buttonMask: i16) void {
         qtc.KParts__PartManager_SetActivationButtonMask(@ptrCast(self), @intCast(buttonMask));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activationButtonMask)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activationButtonMask)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn ActivationButtonMask(self: ?*anyopaque) i16 {
         return qtc.KParts__PartManager_ActivationButtonMask(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#eventFilter)
     ///
     /// ``` self: QtC.KParts__PartManager, obj: QtC.QObject, ev: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, obj: ?*anyopaque, ev: ?*anyopaque) bool {
         return qtc.KParts__PartManager_EventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(ev));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -139,7 +139,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -148,14 +148,14 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_QBaseEventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(ev));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#addPart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#addPart)
     ///
     /// ``` self: QtC.KParts__PartManager, part: QtC.KParts__Part, setActive: bool ```
     pub fn AddPart(self: ?*anyopaque, part: ?*anyopaque, setActive: bool) void {
         qtc.KParts__PartManager_AddPart(@ptrCast(self), @ptrCast(part), setActive);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#addPart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#addPart)
     ///
     /// Allows for overriding the related default method
     ///
@@ -164,7 +164,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnAddPart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#addPart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#addPart)
     ///
     /// Base class method implementation
     ///
@@ -173,14 +173,14 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_QBaseAddPart(@ptrCast(self), @ptrCast(part), setActive);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#removePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#removePart)
     ///
     /// ``` self: QtC.KParts__PartManager, part: QtC.KParts__Part ```
     pub fn RemovePart(self: ?*anyopaque, part: ?*anyopaque) void {
         qtc.KParts__PartManager_RemovePart(@ptrCast(self), @ptrCast(part));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#removePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#removePart)
     ///
     /// Allows for overriding the related default method
     ///
@@ -189,7 +189,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnRemovePart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#removePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#removePart)
     ///
     /// Base class method implementation
     ///
@@ -198,14 +198,14 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_QBaseRemovePart(@ptrCast(self), @ptrCast(part));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#replacePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#replacePart)
     ///
     /// ``` self: QtC.KParts__PartManager, oldPart: QtC.KParts__Part, newPart: QtC.KParts__Part, setActive: bool ```
     pub fn ReplacePart(self: ?*anyopaque, oldPart: ?*anyopaque, newPart: ?*anyopaque, setActive: bool) void {
         qtc.KParts__PartManager_ReplacePart(@ptrCast(self), @ptrCast(oldPart), @ptrCast(newPart), setActive);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#replacePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#replacePart)
     ///
     /// Allows for overriding the related default method
     ///
@@ -214,7 +214,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnReplacePart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#replacePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#replacePart)
     ///
     /// Base class method implementation
     ///
@@ -223,14 +223,14 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_QBaseReplacePart(@ptrCast(self), @ptrCast(oldPart), @ptrCast(newPart), setActive);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setActivePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setActivePart)
     ///
     /// ``` self: QtC.KParts__PartManager, part: QtC.KParts__Part, widget: QtC.QWidget ```
     pub fn SetActivePart(self: ?*anyopaque, part: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KParts__PartManager_SetActivePart(@ptrCast(self), @ptrCast(part), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setActivePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setActivePart)
     ///
     /// Allows for overriding the related default method
     ///
@@ -239,7 +239,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSetActivePart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setActivePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setActivePart)
     ///
     /// Base class method implementation
     ///
@@ -248,14 +248,14 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_QBaseSetActivePart(@ptrCast(self), @ptrCast(part), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activePart)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn ActivePart(self: ?*anyopaque) QtC.KParts__Part {
         return qtc.KParts__PartManager_ActivePart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activePart)
     ///
     /// Allows for overriding the related default method
     ///
@@ -264,7 +264,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnActivePart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activePart)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activePart)
     ///
     /// Base class method implementation
     ///
@@ -273,14 +273,14 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_QBaseActivePart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activeWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activeWidget)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn ActiveWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KParts__PartManager_ActiveWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activeWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activeWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -289,7 +289,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnActiveWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activeWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activeWidget)
     ///
     /// Base class method implementation
     ///
@@ -298,7 +298,7 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_QBaseActiveWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#parts)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#parts)
     ///
     /// ``` self: QtC.KParts__PartManager, allocator: std.mem.Allocator ```
     pub fn Parts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KParts__Part {
@@ -310,77 +310,77 @@ pub const kparts__partmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#addManagedTopLevelWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#addManagedTopLevelWidget)
     ///
     /// ``` self: QtC.KParts__PartManager, topLevel: QtC.QWidget ```
     pub fn AddManagedTopLevelWidget(self: ?*anyopaque, topLevel: ?*anyopaque) void {
         qtc.KParts__PartManager_AddManagedTopLevelWidget(@ptrCast(self), @ptrCast(topLevel));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#removeManagedTopLevelWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#removeManagedTopLevelWidget)
     ///
     /// ``` self: QtC.KParts__PartManager, topLevel: QtC.QWidget ```
     pub fn RemoveManagedTopLevelWidget(self: ?*anyopaque, topLevel: ?*anyopaque) void {
         qtc.KParts__PartManager_RemoveManagedTopLevelWidget(@ptrCast(self), @ptrCast(topLevel));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#reason)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#reason)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn Reason(self: ?*anyopaque) i32 {
         return qtc.KParts__PartManager_Reason(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#partAdded)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#partAdded)
     ///
     /// ``` self: QtC.KParts__PartManager, part: QtC.KParts__Part ```
     pub fn PartAdded(self: ?*anyopaque, part: ?*anyopaque) void {
         qtc.KParts__PartManager_PartAdded(@ptrCast(self), @ptrCast(part));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#partAdded)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#partAdded)
     ///
     /// ``` self: QtC.KParts__PartManager, callback: *const fn (self: QtC.KParts__PartManager, part: QtC.KParts__Part) callconv(.c) void ```
     pub fn OnPartAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__PartManager_Connect_PartAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#partRemoved)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#partRemoved)
     ///
     /// ``` self: QtC.KParts__PartManager, part: QtC.KParts__Part ```
     pub fn PartRemoved(self: ?*anyopaque, part: ?*anyopaque) void {
         qtc.KParts__PartManager_PartRemoved(@ptrCast(self), @ptrCast(part));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#partRemoved)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#partRemoved)
     ///
     /// ``` self: QtC.KParts__PartManager, callback: *const fn (self: QtC.KParts__PartManager, part: QtC.KParts__Part) callconv(.c) void ```
     pub fn OnPartRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__PartManager_Connect_PartRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activePartChanged)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activePartChanged)
     ///
     /// ``` self: QtC.KParts__PartManager, newPart: QtC.KParts__Part ```
     pub fn ActivePartChanged(self: ?*anyopaque, newPart: ?*anyopaque) void {
         qtc.KParts__PartManager_ActivePartChanged(@ptrCast(self), @ptrCast(newPart));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#activePartChanged)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#activePartChanged)
     ///
     /// ``` self: QtC.KParts__PartManager, callback: *const fn (self: QtC.KParts__PartManager, newPart: QtC.KParts__Part) callconv(.c) void ```
     pub fn OnActivePartChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__PartManager_Connect_ActivePartChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
     ///
     /// ``` self: QtC.KParts__PartManager, ignoreExplictFocusRequests: bool ```
     pub fn SetIgnoreExplictFocusRequests(self: ?*anyopaque, ignoreExplictFocusRequests: bool) void {
         qtc.KParts__PartManager_SetIgnoreExplictFocusRequests(@ptrCast(self), ignoreExplictFocusRequests);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
     ///
     /// Allows for overriding the related default method
     ///
@@ -389,7 +389,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSetIgnoreExplictFocusRequests(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
     ///
     /// Base class method implementation
     ///
@@ -398,14 +398,14 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_QBaseSetIgnoreExplictFocusRequests(@ptrCast(self), ignoreExplictFocusRequests);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn SlotObjectDestroyed(self: ?*anyopaque) void {
         qtc.KParts__PartManager_SlotObjectDestroyed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -414,7 +414,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSlotObjectDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
     ///
     /// Base class method implementation
     ///
@@ -423,14 +423,14 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_QBaseSlotObjectDestroyed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn SlotWidgetDestroyed(self: ?*anyopaque) void {
         qtc.KParts__PartManager_SlotWidgetDestroyed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -439,7 +439,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSlotWidgetDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
     ///
     /// Base class method implementation
     ///
@@ -448,14 +448,14 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_QBaseSlotWidgetDestroyed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn SlotManagedTopLevelWidgetDestroyed(self: ?*anyopaque) void {
         qtc.KParts__PartManager_SlotManagedTopLevelWidgetDestroyed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -464,7 +464,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSlotManagedTopLevelWidgetDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
     ///
     /// Base class method implementation
     ///
@@ -473,7 +473,7 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_QBaseSlotManagedTopLevelWidgetDestroyed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -486,7 +486,7 @@ pub const kparts__partmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -501,7 +501,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KParts__PartManager, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -514,7 +514,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KParts__PartManager, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -527,7 +527,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -536,7 +536,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -545,7 +545,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -554,7 +554,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -563,7 +563,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KParts__PartManager, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -572,7 +572,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -581,7 +581,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KParts__PartManager, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -590,7 +590,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KParts__PartManager, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -599,7 +599,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KParts__PartManager, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -608,7 +608,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KParts__PartManager, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -617,7 +617,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KParts__PartManager, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -631,7 +631,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KParts__PartManager, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -640,7 +640,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KParts__PartManager, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -649,7 +649,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KParts__PartManager, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -658,7 +658,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -667,7 +667,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KParts__PartManager, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -678,7 +678,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -687,7 +687,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -696,7 +696,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -705,7 +705,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -714,7 +714,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KParts__PartManager, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -724,7 +724,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KParts__PartManager, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -734,7 +734,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KParts__PartManager, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -758,7 +758,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -767,7 +767,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -776,7 +776,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -785,7 +785,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__PartManager, callback: *const fn (self: QtC.KParts__PartManager) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -794,7 +794,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -803,7 +803,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KParts__PartManager, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -813,7 +813,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KParts__PartManager ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -822,7 +822,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KParts__PartManager, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -831,7 +831,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KParts__PartManager, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -840,7 +840,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -849,7 +849,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KParts__PartManager, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -860,7 +860,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__PartManager, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -869,7 +869,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__PartManager, callback: *const fn (self: QtC.KParts__PartManager, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -878,7 +878,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -889,7 +889,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -900,7 +900,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -911,7 +911,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -922,7 +922,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -933,7 +933,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -944,7 +944,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -955,7 +955,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -966,7 +966,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -977,7 +977,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -988,7 +988,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -999,7 +999,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1010,7 +1010,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1021,7 +1021,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1032,7 +1032,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1043,7 +1043,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1054,7 +1054,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1065,7 +1065,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1076,7 +1076,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1087,7 +1087,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1098,7 +1098,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1109,7 +1109,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1120,7 +1120,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1131,7 +1131,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1142,7 +1142,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1154,7 +1154,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1166,7 +1166,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1177,7 +1177,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1188,7 +1188,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1199,7 +1199,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1210,7 +1210,7 @@ pub const kparts__partmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

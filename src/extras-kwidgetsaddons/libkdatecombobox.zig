@@ -28,7 +28,7 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -60,7 +60,7 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -72,28 +72,28 @@ pub const kdatecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#date)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#date)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Date(self: ?*anyopaque) QtC.QDate {
         return qtc.KDateComboBox_Date(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#isValid)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#isValid)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KDateComboBox_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#isNull)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#isNull)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.KDateComboBox_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#options)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#options)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -102,7 +102,7 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#displayFormat)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#displayFormat)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -111,21 +111,21 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_DisplayFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#minimumDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#minimumDate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MinimumDate(self: ?*anyopaque) QtC.QDate {
         return qtc.KDateComboBox_MinimumDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#maximumDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#maximumDate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MaximumDate(self: ?*anyopaque) QtC.QDate {
         return qtc.KDateComboBox_MaximumDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateMap)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#dateMap)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn DateMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_qtcqdate_constu8 {
@@ -146,112 +146,112 @@ pub const kdatecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateEntered)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#dateEntered)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn DateEntered(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_DateEntered(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateEntered)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#dateEntered)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateComboBox_Connect_DateEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateChanged)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#dateChanged)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn DateChanged(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_DateChanged(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateChanged)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#dateChanged)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateComboBox_Connect_DateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateEdited)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#dateEdited)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn DateEdited(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_DateEdited(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateEdited)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#dateEdited)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateEdited(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateComboBox_Connect_DateEdited(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setDate)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn SetDate(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_SetDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setOptions)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setOptions)
     ///
     /// ``` self: QtC.KDateComboBox, options: flag of kdatecombobox_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.KDateComboBox_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDisplayFormat)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setDisplayFormat)
     ///
     /// ``` self: QtC.KDateComboBox, format: qlocale_enums.FormatType ```
     pub fn SetDisplayFormat(self: ?*anyopaque, format: i32) void {
         qtc.KDateComboBox_SetDisplayFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDateRange)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setDateRange)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate, maxDate: QtC.QDate ```
     pub fn SetDateRange(self: ?*anyopaque, minDate: ?*anyopaque, maxDate: ?*anyopaque) void {
         qtc.KDateComboBox_SetDateRange(@ptrCast(self), @ptrCast(minDate), @ptrCast(maxDate));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resetDateRange)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#resetDateRange)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ResetDateRange(self: ?*anyopaque) void {
         qtc.KDateComboBox_ResetDateRange(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setMinimumDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setMinimumDate)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate ```
     pub fn SetMinimumDate(self: ?*anyopaque, minDate: ?*anyopaque) void {
         qtc.KDateComboBox_SetMinimumDate(@ptrCast(self), @ptrCast(minDate));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resetMinimumDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#resetMinimumDate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ResetMinimumDate(self: ?*anyopaque) void {
         qtc.KDateComboBox_ResetMinimumDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setMaximumDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setMaximumDate)
     ///
     /// ``` self: QtC.KDateComboBox, maxDate: QtC.QDate ```
     pub fn SetMaximumDate(self: ?*anyopaque, maxDate: ?*anyopaque) void {
         qtc.KDateComboBox_SetMaximumDate(@ptrCast(self), @ptrCast(maxDate));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resetMaximumDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#resetMaximumDate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ResetMaximumDate(self: ?*anyopaque) void {
         qtc.KDateComboBox_ResetMaximumDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDateMap)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setDateMap)
     ///
     /// ``` self: QtC.KDateComboBox, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator ```
     pub fn SetDateMap(self: ?*anyopaque, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator) void {
@@ -275,14 +275,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetDateMap(@ptrCast(self), dateMap_map);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#eventFilter)
     ///
     /// ``` self: QtC.KDateComboBox, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDateComboBox_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -291,7 +291,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -300,14 +300,14 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#showPopup)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#showPopup)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ShowPopup(self: ?*anyopaque) void {
         qtc.KDateComboBox_ShowPopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#showPopup)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#showPopup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -316,7 +316,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnShowPopup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#showPopup)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#showPopup)
     ///
     /// Base class method implementation
     ///
@@ -325,14 +325,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseShowPopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#hidePopup)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#hidePopup)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn HidePopup(self: ?*anyopaque) void {
         qtc.KDateComboBox_HidePopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#hidePopup)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#hidePopup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -341,7 +341,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnHidePopup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#hidePopup)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#hidePopup)
     ///
     /// Base class method implementation
     ///
@@ -350,14 +350,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseHidePopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#mousePressEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#mousePressEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#mousePressEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -366,7 +366,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#mousePressEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -375,14 +375,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#wheelEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#wheelEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#wheelEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#wheelEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -391,7 +391,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#wheelEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#wheelEvent)
     ///
     /// Base class method implementation
     ///
@@ -400,14 +400,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#keyPressEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -416,7 +416,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -425,14 +425,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusInEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#focusInEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusInEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -441,7 +441,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusInEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -450,14 +450,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusOutEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#focusOutEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusOutEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -466,7 +466,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusOutEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -475,14 +475,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resizeEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#resizeEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resizeEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -491,7 +491,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resizeEvent)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -500,14 +500,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#assignDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#assignDate)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn AssignDate(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_AssignDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#assignDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#assignDate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -516,7 +516,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnAssignDate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#assignDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#assignDate)
     ///
     /// Base class method implementation
     ///
@@ -525,7 +525,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseAssignDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -538,7 +538,7 @@ pub const kdatecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -551,7 +551,7 @@ pub const kdatecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDateRange)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setDateRange)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate, maxDate: QtC.QDate, minWarnMsg: []const u8 ```
     pub fn SetDateRange3(self: ?*anyopaque, minDate: ?*anyopaque, maxDate: ?*anyopaque, minWarnMsg: []const u8) void {
@@ -562,7 +562,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetDateRange3(@ptrCast(self), @ptrCast(minDate), @ptrCast(maxDate), minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDateRange)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setDateRange)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate, maxDate: QtC.QDate, minWarnMsg: []const u8, maxWarnMsg: []const u8 ```
     pub fn SetDateRange4(self: ?*anyopaque, minDate: ?*anyopaque, maxDate: ?*anyopaque, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
@@ -577,7 +577,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetDateRange4(@ptrCast(self), @ptrCast(minDate), @ptrCast(maxDate), minWarnMsg_str, maxWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setMinimumDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setMinimumDate)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate, minWarnMsg: []const u8 ```
     pub fn SetMinimumDate2(self: ?*anyopaque, minDate: ?*anyopaque, minWarnMsg: []const u8) void {
@@ -588,7 +588,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetMinimumDate2(@ptrCast(self), @ptrCast(minDate), minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setMaximumDate)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#setMaximumDate)
     ///
     /// ``` self: QtC.KDateComboBox, maxDate: QtC.QDate, maxWarnMsg: []const u8 ```
     pub fn SetMaximumDate2(self: ?*anyopaque, maxDate: ?*anyopaque, maxWarnMsg: []const u8) void {
@@ -601,7 +601,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#maxVisibleItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#maxVisibleItems)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MaxVisibleItems(self: ?*anyopaque) i32 {
@@ -610,7 +610,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setMaxVisibleItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setMaxVisibleItems)
     ///
     /// ``` self: QtC.KDateComboBox, maxItems: i32 ```
     pub fn SetMaxVisibleItems(self: ?*anyopaque, maxItems: i32) void {
@@ -619,7 +619,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#count)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Count(self: ?*anyopaque) i32 {
@@ -628,7 +628,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setMaxCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setMaxCount)
     ///
     /// ``` self: QtC.KDateComboBox, max: i32 ```
     pub fn SetMaxCount(self: ?*anyopaque, max: i32) void {
@@ -637,7 +637,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#maxCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#maxCount)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MaxCount(self: ?*anyopaque) i32 {
@@ -646,7 +646,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#duplicatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#duplicatesEnabled)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn DuplicatesEnabled(self: ?*anyopaque) bool {
@@ -655,7 +655,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setDuplicatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setDuplicatesEnabled)
     ///
     /// ``` self: QtC.KDateComboBox, enable: bool ```
     pub fn SetDuplicatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -664,7 +664,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setFrame)
     ///
     /// ``` self: QtC.KDateComboBox, frame: bool ```
     pub fn SetFrame(self: ?*anyopaque, frame: bool) void {
@@ -673,7 +673,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#hasFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#hasFrame)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn HasFrame(self: ?*anyopaque) bool {
@@ -682,7 +682,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#findText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#findText)
     ///
     /// ``` self: QtC.KDateComboBox, text: []const u8 ```
     pub fn FindText(self: ?*anyopaque, text: []const u8) i32 {
@@ -695,7 +695,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#findData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#findData)
     ///
     /// ``` self: QtC.KDateComboBox, data: QtC.QVariant ```
     pub fn FindData(self: ?*anyopaque, data: ?*anyopaque) i32 {
@@ -704,7 +704,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#insertPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertPolicy)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -715,7 +715,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setInsertPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setInsertPolicy)
     ///
     /// ``` self: QtC.KDateComboBox, policy: qcombobox_enums.InsertPolicy ```
     pub fn SetInsertPolicy(self: ?*anyopaque, policy: i32) void {
@@ -724,7 +724,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -735,7 +735,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.KDateComboBox, policy: qcombobox_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -744,7 +744,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#minimumContentsLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#minimumContentsLength)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MinimumContentsLength(self: ?*anyopaque) i32 {
@@ -753,7 +753,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setMinimumContentsLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setMinimumContentsLength)
     ///
     /// ``` self: QtC.KDateComboBox, characters: i32 ```
     pub fn SetMinimumContentsLength(self: ?*anyopaque, characters: i32) void {
@@ -762,7 +762,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#iconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#iconSize)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IconSize(self: ?*anyopaque) QtC.QSize {
@@ -771,7 +771,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setIconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setIconSize)
     ///
     /// ``` self: QtC.KDateComboBox, size: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -780,7 +780,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setPlaceholderText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setPlaceholderText)
     ///
     /// ``` self: QtC.KDateComboBox, placeholderText: []const u8 ```
     pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
@@ -793,7 +793,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#placeholderText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#placeholderText)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn PlaceholderText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -806,7 +806,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#isEditable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#isEditable)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsEditable(self: ?*anyopaque) bool {
@@ -815,7 +815,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setEditable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setEditable)
     ///
     /// ``` self: QtC.KDateComboBox, editable: bool ```
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
@@ -824,7 +824,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setLineEdit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setLineEdit)
     ///
     /// ``` self: QtC.KDateComboBox, edit: QtC.QLineEdit ```
     pub fn SetLineEdit(self: ?*anyopaque, edit: ?*anyopaque) void {
@@ -833,7 +833,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#lineEdit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#lineEdit)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn LineEdit(self: ?*anyopaque) QtC.QLineEdit {
@@ -842,7 +842,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setValidator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setValidator)
     ///
     /// ``` self: QtC.KDateComboBox, v: QtC.QValidator ```
     pub fn SetValidator(self: ?*anyopaque, v: ?*anyopaque) void {
@@ -851,7 +851,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#validator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#validator)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Validator(self: ?*anyopaque) QtC.QValidator {
@@ -860,7 +860,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setCompleter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setCompleter)
     ///
     /// ``` self: QtC.KDateComboBox, c: QtC.QCompleter ```
     pub fn SetCompleter(self: ?*anyopaque, c: ?*anyopaque) void {
@@ -869,7 +869,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#completer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#completer)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Completer(self: ?*anyopaque) QtC.QCompleter {
@@ -878,7 +878,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#itemDelegate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -887,7 +887,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setItemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setItemDelegate)
     ///
     /// ``` self: QtC.KDateComboBox, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -896,7 +896,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#model)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
@@ -905,7 +905,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#rootModelIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#rootModelIndex)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn RootModelIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -914,7 +914,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setRootModelIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setRootModelIndex)
     ///
     /// ``` self: QtC.KDateComboBox, index: QtC.QModelIndex ```
     pub fn SetRootModelIndex(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -923,7 +923,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#modelColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#modelColumn)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ModelColumn(self: ?*anyopaque) i32 {
@@ -932,7 +932,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setModelColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setModelColumn)
     ///
     /// ``` self: QtC.KDateComboBox, visibleColumn: i32 ```
     pub fn SetModelColumn(self: ?*anyopaque, visibleColumn: i32) void {
@@ -941,7 +941,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#currentIndex)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn CurrentIndex(self: ?*anyopaque) i32 {
@@ -950,7 +950,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#currentText)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -963,7 +963,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#currentData)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn CurrentData(self: ?*anyopaque) QtC.QVariant {
@@ -972,7 +972,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#itemText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#itemText)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, allocator: std.mem.Allocator ```
     pub fn ItemText(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
@@ -985,7 +985,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#itemIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#itemIcon)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32 ```
     pub fn ItemIcon(self: ?*anyopaque, index: i32) QtC.QIcon {
@@ -994,7 +994,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#itemData)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32 ```
     pub fn ItemData(self: ?*anyopaque, index: i32) QtC.QVariant {
@@ -1003,7 +1003,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#addItem)
     ///
     /// ``` self: QtC.KDateComboBox, text: []const u8 ```
     pub fn AddItem(self: ?*anyopaque, text: []const u8) void {
@@ -1016,7 +1016,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#addItem)
     ///
     /// ``` self: QtC.KDateComboBox, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddItem2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) void {
@@ -1029,7 +1029,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#addItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#addItems)
     ///
     /// ``` self: QtC.KDateComboBox, texts: [][]const u8, allocator: std.mem.Allocator ```
     pub fn AddItems(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
@@ -1050,7 +1050,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, text: []const u8 ```
     pub fn InsertItem(self: ?*anyopaque, index: i32, text: []const u8) void {
@@ -1063,7 +1063,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, icon: QtC.QIcon, text: []const u8 ```
     pub fn InsertItem2(self: ?*anyopaque, index: i32, icon: ?*anyopaque, text: []const u8) void {
@@ -1076,7 +1076,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#insertItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItems)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, texts: [][]const u8, allocator: std.mem.Allocator ```
     pub fn InsertItems(self: ?*anyopaque, index: i32, texts: [][]const u8, allocator: std.mem.Allocator) void {
@@ -1097,7 +1097,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#insertSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertSeparator)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32 ```
     pub fn InsertSeparator(self: ?*anyopaque, index: i32) void {
@@ -1106,7 +1106,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#removeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#removeItem)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32 ```
     pub fn RemoveItem(self: ?*anyopaque, index: i32) void {
@@ -1115,7 +1115,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setItemText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setItemText)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, text: []const u8 ```
     pub fn SetItemText(self: ?*anyopaque, index: i32, text: []const u8) void {
@@ -1128,7 +1128,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setItemIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setItemIcon)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, icon: QtC.QIcon ```
     pub fn SetItemIcon(self: ?*anyopaque, index: i32, icon: ?*anyopaque) void {
@@ -1137,7 +1137,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setItemData)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, value: QtC.QVariant ```
     pub fn SetItemData(self: ?*anyopaque, index: i32, value: ?*anyopaque) void {
@@ -1146,7 +1146,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#view)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#view)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn View(self: ?*anyopaque) QtC.QAbstractItemView {
@@ -1155,7 +1155,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setView)
     ///
     /// ``` self: QtC.KDateComboBox, itemView: QtC.QAbstractItemView ```
     pub fn SetView(self: ?*anyopaque, itemView: ?*anyopaque) void {
@@ -1164,7 +1164,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
     ///
     /// ``` self: QtC.KDateComboBox, query: qnamespace_enums.InputMethodQuery, argument: QtC.QVariant ```
     pub fn InputMethodQuery2(self: ?*anyopaque, query: i64, argument: ?*anyopaque) QtC.QVariant {
@@ -1173,7 +1173,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#clear)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -1182,7 +1182,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#clearEditText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#clearEditText)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ClearEditText(self: ?*anyopaque) void {
@@ -1191,7 +1191,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setEditText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setEditText)
     ///
     /// ``` self: QtC.KDateComboBox, text: []const u8 ```
     pub fn SetEditText(self: ?*anyopaque, text: []const u8) void {
@@ -1204,7 +1204,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setCurrentIndex)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32 ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
@@ -1213,7 +1213,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setCurrentText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setCurrentText)
     ///
     /// ``` self: QtC.KDateComboBox, text: []const u8 ```
     pub fn SetCurrentText(self: ?*anyopaque, text: []const u8) void {
@@ -1226,7 +1226,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
     ///
     /// ``` self: QtC.KDateComboBox, param1: []const u8 ```
     pub fn EditTextChanged(self: ?*anyopaque, param1: []const u8) void {
@@ -1239,7 +1239,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnEditTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -1248,7 +1248,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#activated)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32 ```
     pub fn Activated(self: ?*anyopaque, index: i32) void {
@@ -1257,7 +1257,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#activated)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, index: i32) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1266,7 +1266,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
     ///
     /// ``` self: QtC.KDateComboBox, param1: []const u8 ```
     pub fn TextActivated(self: ?*anyopaque, param1: []const u8) void {
@@ -1279,7 +1279,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -1288,7 +1288,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#highlighted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#highlighted)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32 ```
     pub fn Highlighted(self: ?*anyopaque, index: i32) void {
@@ -1297,7 +1297,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#highlighted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#highlighted)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, index: i32) callconv(.c) void ```
     pub fn OnHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1306,7 +1306,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
     ///
     /// ``` self: QtC.KDateComboBox, param1: []const u8 ```
     pub fn TextHighlighted(self: ?*anyopaque, param1: []const u8) void {
@@ -1319,7 +1319,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -1328,7 +1328,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentIndexChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#currentIndexChanged)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32 ```
     pub fn CurrentIndexChanged(self: ?*anyopaque, index: i32) void {
@@ -1337,7 +1337,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentIndexChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#currentIndexChanged)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, index: i32) callconv(.c) void ```
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1346,7 +1346,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#currentTextChanged)
     ///
     /// ``` self: QtC.KDateComboBox, param1: []const u8 ```
     pub fn CurrentTextChanged(self: ?*anyopaque, param1: []const u8) void {
@@ -1359,7 +1359,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#currentTextChanged)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnCurrentTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -1368,7 +1368,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#findText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#findText)
     ///
     /// ``` self: QtC.KDateComboBox, text: []const u8, flags: flag of qnamespace_enums.MatchFlag ```
     pub fn FindText2(self: ?*anyopaque, text: []const u8, flags: i32) i32 {
@@ -1381,7 +1381,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#findData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#findData)
     ///
     /// ``` self: QtC.KDateComboBox, data: QtC.QVariant, role: i32 ```
     pub fn FindData2(self: ?*anyopaque, data: ?*anyopaque, role: i32) i32 {
@@ -1390,7 +1390,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#findData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#findData)
     ///
     /// ``` self: QtC.KDateComboBox, data: QtC.QVariant, role: i32, flags: flag of qnamespace_enums.MatchFlag ```
     pub fn FindData3(self: ?*anyopaque, data: ?*anyopaque, role: i32, flags: i32) i32 {
@@ -1399,7 +1399,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#currentData)
     ///
     /// ``` self: QtC.KDateComboBox, role: i32 ```
     pub fn CurrentData1(self: ?*anyopaque, role: i32) QtC.QVariant {
@@ -1408,7 +1408,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#itemData)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, role: i32 ```
     pub fn ItemData2(self: ?*anyopaque, index: i32, role: i32) QtC.QVariant {
@@ -1417,7 +1417,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#addItem)
     ///
     /// ``` self: QtC.KDateComboBox, text: []const u8, userData: QtC.QVariant ```
     pub fn AddItem22(self: ?*anyopaque, text: []const u8, userData: ?*anyopaque) void {
@@ -1430,7 +1430,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#addItem)
     ///
     /// ``` self: QtC.KDateComboBox, icon: QtC.QIcon, text: []const u8, userData: QtC.QVariant ```
     pub fn AddItem3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, userData: ?*anyopaque) void {
@@ -1443,7 +1443,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, text: []const u8, userData: QtC.QVariant ```
     pub fn InsertItem3(self: ?*anyopaque, index: i32, text: []const u8, userData: ?*anyopaque) void {
@@ -1456,7 +1456,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, icon: QtC.QIcon, text: []const u8, userData: QtC.QVariant ```
     pub fn InsertItem4(self: ?*anyopaque, index: i32, icon: ?*anyopaque, text: []const u8, userData: ?*anyopaque) void {
@@ -1469,7 +1469,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setItemData)
     ///
     /// ``` self: QtC.KDateComboBox, index: i32, value: QtC.QVariant, role: i32 ```
     pub fn SetItemData3(self: ?*anyopaque, index: i32, value: ?*anyopaque, role: i32) void {
@@ -1478,7 +1478,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -1487,7 +1487,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -1496,7 +1496,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -1505,7 +1505,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -1514,7 +1514,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -1523,7 +1523,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.KDateComboBox, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -1532,7 +1532,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -1541,7 +1541,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -1550,7 +1550,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -1559,7 +1559,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -1570,7 +1570,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.KDateComboBox, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -1579,7 +1579,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1588,7 +1588,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -1597,7 +1597,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.KDateComboBox, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1606,7 +1606,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.KDateComboBox, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -1615,7 +1615,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.KDateComboBox, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -1624,7 +1624,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1633,7 +1633,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -1642,7 +1642,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1651,7 +1651,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -1660,7 +1660,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -1669,7 +1669,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -1678,7 +1678,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -1687,7 +1687,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -1696,7 +1696,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -1705,7 +1705,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -1714,7 +1714,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -1723,7 +1723,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -1732,7 +1732,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -1741,7 +1741,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -1750,7 +1750,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -1759,7 +1759,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -1768,7 +1768,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -1777,7 +1777,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -1786,7 +1786,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -1795,7 +1795,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KDateComboBox, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -1804,7 +1804,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KDateComboBox, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -1813,7 +1813,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KDateComboBox, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -1822,7 +1822,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KDateComboBox, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -1831,7 +1831,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.KDateComboBox, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -1840,7 +1840,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.KDateComboBox, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -1849,7 +1849,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.KDateComboBox, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -1858,7 +1858,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.KDateComboBox, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -1867,7 +1867,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -1876,7 +1876,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KDateComboBox, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -1885,7 +1885,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KDateComboBox, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1894,7 +1894,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -1903,7 +1903,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KDateComboBox, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -1912,7 +1912,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KDateComboBox, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -1921,7 +1921,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KDateComboBox, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -1930,7 +1930,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KDateComboBox, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1939,7 +1939,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.KDateComboBox, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -1948,7 +1948,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.KDateComboBox, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -1957,7 +1957,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1966,7 +1966,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1975,7 +1975,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1984,7 +1984,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1993,7 +1993,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2002,7 +2002,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2011,7 +2011,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2020,7 +2020,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2029,7 +2029,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2038,7 +2038,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2047,7 +2047,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2056,7 +2056,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2065,7 +2065,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -2074,7 +2074,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2083,7 +2083,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2092,7 +2092,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -2101,7 +2101,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.KDateComboBox, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -2110,7 +2110,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.KDateComboBox, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -2119,7 +2119,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -2130,7 +2130,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.KDateComboBox, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -2139,7 +2139,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -2150,7 +2150,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -2159,7 +2159,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.KDateComboBox, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -2168,7 +2168,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -2177,7 +2177,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -2186,7 +2186,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -2195,7 +2195,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.KDateComboBox, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -2204,7 +2204,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -2213,7 +2213,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.KDateComboBox, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -2222,7 +2222,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -2231,7 +2231,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -2240,7 +2240,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.KDateComboBox, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -2249,7 +2249,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -2258,7 +2258,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KDateComboBox, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2267,7 +2267,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KDateComboBox, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2276,7 +2276,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -2285,7 +2285,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -2294,7 +2294,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDateComboBox, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -2303,7 +2303,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDateComboBox, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -2312,7 +2312,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -2321,7 +2321,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -2330,7 +2330,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.KDateComboBox, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -2339,7 +2339,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KDateComboBox, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2348,7 +2348,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.KDateComboBox, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2357,7 +2357,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.KDateComboBox, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -2370,7 +2370,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.KDateComboBox, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -2383,7 +2383,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2396,7 +2396,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2409,7 +2409,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.KDateComboBox, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -2418,7 +2418,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -2427,7 +2427,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.KDateComboBox, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -2440,7 +2440,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2453,7 +2453,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.KDateComboBox, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -2466,7 +2466,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2479,7 +2479,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.KDateComboBox, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -2492,7 +2492,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2505,7 +2505,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.KDateComboBox, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -2514,7 +2514,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -2523,7 +2523,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -2532,7 +2532,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.KDateComboBox, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -2545,7 +2545,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2558,7 +2558,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.KDateComboBox, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -2567,7 +2567,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -2576,7 +2576,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.KDateComboBox, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -2589,7 +2589,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2602,7 +2602,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.KDateComboBox, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -2615,7 +2615,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2628,7 +2628,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2641,7 +2641,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.KDateComboBox, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -2654,7 +2654,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2667,7 +2667,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.KDateComboBox, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -2680,7 +2680,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KDateComboBox, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -2689,7 +2689,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -2700,7 +2700,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -2709,7 +2709,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.KDateComboBox, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -2718,7 +2718,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -2727,7 +2727,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -2736,7 +2736,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -2745,7 +2745,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -2754,7 +2754,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -2763,7 +2763,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -2772,7 +2772,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -2781,7 +2781,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -2790,7 +2790,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KDateComboBox, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -2799,7 +2799,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -2810,7 +2810,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.KDateComboBox, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2819,7 +2819,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -2828,7 +2828,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -2837,7 +2837,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.KDateComboBox, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -2846,7 +2846,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -2855,7 +2855,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -2866,7 +2866,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.KDateComboBox, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2875,7 +2875,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -2884,7 +2884,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2893,7 +2893,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -2902,7 +2902,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -2911,7 +2911,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -2920,7 +2920,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KDateComboBox, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -2929,7 +2929,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.KDateComboBox, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -2938,7 +2938,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KDateComboBox, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -2947,7 +2947,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KDateComboBox, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -2956,7 +2956,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -2965,7 +2965,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -2974,7 +2974,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -2983,7 +2983,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.KDateComboBox, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -2992,7 +2992,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -3001,7 +3001,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Update(self: ?*anyopaque) void {
@@ -3010,7 +3010,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -3019,7 +3019,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KDateComboBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3028,7 +3028,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3037,7 +3037,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3046,7 +3046,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KDateComboBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3055,7 +3055,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3064,7 +3064,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3073,7 +3073,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.KDateComboBox, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -3082,7 +3082,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Show(self: ?*anyopaque) void {
@@ -3091,7 +3091,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -3100,7 +3100,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -3109,7 +3109,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -3118,7 +3118,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -3127,7 +3127,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -3136,7 +3136,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -3145,7 +3145,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -3154,7 +3154,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -3163,7 +3163,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3172,7 +3172,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KDateComboBox, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -3181,7 +3181,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3190,7 +3190,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KDateComboBox, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3199,7 +3199,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3208,7 +3208,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KDateComboBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3217,7 +3217,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KDateComboBox, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -3226,7 +3226,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -3239,7 +3239,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.KDateComboBox, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -3252,7 +3252,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -3261,7 +3261,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -3270,7 +3270,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -3279,7 +3279,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -3288,7 +3288,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -3297,7 +3297,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -3306,7 +3306,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -3315,7 +3315,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -3326,7 +3326,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KDateComboBox, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -3335,7 +3335,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KDateComboBox, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -3344,7 +3344,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -3353,7 +3353,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KDateComboBox, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -3362,7 +3362,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KDateComboBox, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -3371,7 +3371,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -3380,7 +3380,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KDateComboBox, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -3389,7 +3389,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KDateComboBox, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -3398,7 +3398,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -3407,7 +3407,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -3416,7 +3416,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -3425,7 +3425,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.KDateComboBox, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -3434,7 +3434,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -3443,7 +3443,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KDateComboBox, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3452,7 +3452,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KDateComboBox, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -3461,7 +3461,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KDateComboBox, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -3470,7 +3470,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KDateComboBox, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -3479,7 +3479,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3488,7 +3488,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -3497,7 +3497,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -3506,7 +3506,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -3515,7 +3515,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.KDateComboBox, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -3524,7 +3524,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KDateComboBox, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3533,7 +3533,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.KDateComboBox, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3546,7 +3546,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.KDateComboBox, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3559,7 +3559,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.KDateComboBox, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -3568,7 +3568,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.KDateComboBox, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3577,7 +3577,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -3591,7 +3591,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KDateComboBox, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3604,7 +3604,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KDateComboBox, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3617,7 +3617,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KDateComboBox, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3630,7 +3630,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KDateComboBox, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3643,7 +3643,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3652,7 +3652,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.KDateComboBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3661,7 +3661,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -3672,7 +3672,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KDateComboBox, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -3681,7 +3681,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.KDateComboBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3690,7 +3690,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -3701,7 +3701,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -3710,7 +3710,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KDateComboBox, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -3719,7 +3719,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KDateComboBox, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3728,7 +3728,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KDateComboBox, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3737,7 +3737,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KDateComboBox, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -3746,7 +3746,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.KDateComboBox, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -3755,7 +3755,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -3764,7 +3764,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.KDateComboBox, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -3773,7 +3773,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -3782,7 +3782,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.KDateComboBox, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -3791,7 +3791,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -3800,7 +3800,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -3809,7 +3809,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -3818,7 +3818,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.KDateComboBox, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -3827,7 +3827,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -3836,7 +3836,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KDateComboBox, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -3849,7 +3849,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3858,7 +3858,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KDateComboBox, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3867,7 +3867,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3876,7 +3876,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KDateComboBox, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -3889,7 +3889,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3898,7 +3898,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KDateComboBox, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -3907,7 +3907,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3916,7 +3916,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -3927,7 +3927,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.KDateComboBox, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -3936,7 +3936,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDateComboBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3945,7 +3945,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDateComboBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3954,7 +3954,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDateComboBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3963,7 +3963,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDateComboBox, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3972,7 +3972,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDateComboBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3981,7 +3981,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDateComboBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3990,7 +3990,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KDateComboBox, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -3999,7 +3999,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KDateComboBox, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -4008,7 +4008,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KDateComboBox, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -4017,7 +4017,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KDateComboBox, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4026,7 +4026,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KDateComboBox, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4035,7 +4035,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KDateComboBox, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -4044,7 +4044,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KDateComboBox, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -4053,7 +4053,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -4062,7 +4062,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -4071,7 +4071,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4084,7 +4084,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KDateComboBox, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -4097,7 +4097,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -4106,7 +4106,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -4115,7 +4115,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -4124,7 +4124,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4133,7 +4133,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KDateComboBox, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4142,7 +4142,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4151,7 +4151,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KDateComboBox, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4160,7 +4160,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KDateComboBox, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4169,7 +4169,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KDateComboBox, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4178,7 +4178,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KDateComboBox, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -4187,7 +4187,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -4201,7 +4201,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KDateComboBox, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -4210,7 +4210,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KDateComboBox, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -4219,7 +4219,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -4228,7 +4228,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KDateComboBox, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4239,7 +4239,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4248,7 +4248,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4257,7 +4257,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4266,7 +4266,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4275,7 +4275,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KDateComboBox, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4285,7 +4285,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KDateComboBox, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4295,7 +4295,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -4319,7 +4319,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4328,7 +4328,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4337,7 +4337,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -4346,7 +4346,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -4355,7 +4355,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -4364,7 +4364,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KDateComboBox, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -4374,7 +4374,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -4383,7 +4383,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KDateComboBox, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -4392,7 +4392,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KDateComboBox, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -4401,7 +4401,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4410,7 +4410,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KDateComboBox, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4421,7 +4421,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDateComboBox, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4430,7 +4430,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDateComboBox, callback: *const fn (self: QtC.KDateComboBox, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4439,7 +4439,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -4448,7 +4448,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -4457,7 +4457,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -4466,7 +4466,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -4475,7 +4475,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -4484,7 +4484,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -4493,7 +4493,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -4502,7 +4502,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -4511,7 +4511,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -4520,7 +4520,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -4529,7 +4529,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -4538,7 +4538,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -4547,7 +4547,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -4556,7 +4556,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4567,7 +4567,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4578,7 +4578,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4589,7 +4589,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4600,7 +4600,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4611,7 +4611,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4622,7 +4622,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4633,7 +4633,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4644,7 +4644,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4655,7 +4655,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4666,7 +4666,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4677,7 +4677,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4688,7 +4688,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4699,7 +4699,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4710,7 +4710,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4721,7 +4721,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4732,7 +4732,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4743,7 +4743,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4754,7 +4754,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4765,7 +4765,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4776,7 +4776,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4787,7 +4787,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4798,7 +4798,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4809,7 +4809,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4820,7 +4820,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4831,7 +4831,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4842,7 +4842,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4853,7 +4853,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4864,7 +4864,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4875,7 +4875,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4886,7 +4886,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4897,7 +4897,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4908,7 +4908,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4919,7 +4919,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4930,7 +4930,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4941,7 +4941,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4952,7 +4952,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4963,7 +4963,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4974,7 +4974,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4985,7 +4985,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4996,7 +4996,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5007,7 +5007,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QComboBox
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5018,7 +5018,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5029,7 +5029,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5040,7 +5040,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5051,7 +5051,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5062,7 +5062,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5073,7 +5073,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5084,7 +5084,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5095,7 +5095,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5106,7 +5106,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5117,7 +5117,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5128,7 +5128,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5139,7 +5139,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5150,7 +5150,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5161,7 +5161,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5172,7 +5172,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5183,7 +5183,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5194,7 +5194,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5205,7 +5205,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5216,7 +5216,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5227,7 +5227,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5238,7 +5238,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5249,7 +5249,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5260,7 +5260,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5271,7 +5271,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5282,7 +5282,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5293,7 +5293,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5304,7 +5304,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5315,7 +5315,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5326,7 +5326,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5337,7 +5337,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5348,7 +5348,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5359,7 +5359,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5370,7 +5370,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5381,7 +5381,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5392,7 +5392,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5403,7 +5403,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5414,7 +5414,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5425,7 +5425,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5436,7 +5436,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5447,7 +5447,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5458,7 +5458,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5469,7 +5469,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5480,7 +5480,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5491,7 +5491,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5502,7 +5502,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5513,7 +5513,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5524,7 +5524,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5535,7 +5535,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5546,7 +5546,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5557,7 +5557,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5568,7 +5568,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5579,7 +5579,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5594,7 +5594,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5609,7 +5609,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5620,7 +5620,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5631,7 +5631,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5642,7 +5642,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5653,7 +5653,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5664,7 +5664,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5675,7 +5675,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5686,7 +5686,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5697,7 +5697,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5708,7 +5708,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5719,7 +5719,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5730,7 +5730,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5741,7 +5741,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5752,7 +5752,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5763,7 +5763,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5774,7 +5774,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5785,7 +5785,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5796,7 +5796,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5807,7 +5807,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5818,7 +5818,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5829,7 +5829,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5840,7 +5840,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5851,7 +5851,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5862,7 +5862,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5873,7 +5873,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5884,7 +5884,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5895,7 +5895,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5906,7 +5906,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5917,7 +5917,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5928,7 +5928,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5939,7 +5939,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5950,7 +5950,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5961,7 +5961,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5972,7 +5972,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5983,7 +5983,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5994,7 +5994,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6005,7 +6005,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6016,7 +6016,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6027,7 +6027,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6038,7 +6038,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6049,7 +6049,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6060,7 +6060,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6071,7 +6071,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6082,7 +6082,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6093,7 +6093,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6104,7 +6104,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6115,7 +6115,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6126,7 +6126,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6137,7 +6137,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6148,7 +6148,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6159,7 +6159,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6170,7 +6170,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6181,7 +6181,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6193,7 +6193,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6205,7 +6205,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6216,7 +6216,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6227,7 +6227,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6238,7 +6238,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6249,7 +6249,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6260,7 +6260,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6271,7 +6271,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6282,7 +6282,7 @@ pub const kdatecombobox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6291,7 +6291,7 @@ pub const kdatecombobox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dtor.KDateComboBox)
+    /// [Upstream resources](https://api.kde.org/kdatecombobox.html#dtor.KDateComboBox)
     ///
     /// Delete this object from C++ memory.
     ///

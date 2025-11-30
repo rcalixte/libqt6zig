@@ -31,7 +31,7 @@ pub const qbindingstatus = struct {
         qtc.QBindingStatus_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbindingstatus.html#dtor.QBindingStatus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbindingstatus.html#dtor.QBindingStatus)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -50,28 +50,28 @@ pub const qbindingstorage = struct {
         return qtc.QBindingStorage_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbindingstorage.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbindingstorage.html#isEmpty)
     ///
     /// ``` self: QtC.QBindingStorage ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QBindingStorage_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbindingstorage.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbindingstorage.html#isValid)
     ///
     /// ``` self: QtC.QBindingStorage ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QBindingStorage_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbindingstorage.html#registerDependency)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbindingstorage.html#registerDependency)
     ///
     /// ``` self: QtC.QBindingStorage, data: QtC.QUntypedPropertyData ```
     pub fn RegisterDependency(self: ?*anyopaque, data: ?*anyopaque) void {
         qtc.QBindingStorage_RegisterDependency(@ptrCast(self), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbindingstorage.html#dtor.QBindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbindingstorage.html#dtor.QBindingStorage)
     ///
     /// Delete this object from C++ memory.
     ///

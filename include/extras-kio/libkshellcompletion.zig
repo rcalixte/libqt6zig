@@ -15,7 +15,7 @@ pub const kshellcompletion = struct {
         return qtc.KShellCompletion_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -47,7 +47,7 @@ pub const kshellcompletion = struct {
         return qtc.KShellCompletion_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -59,7 +59,7 @@ pub const kshellcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#makeCompletion)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#makeCompletion)
     ///
     /// ``` self: QtC.KShellCompletion, text: []const u8, allocator: std.mem.Allocator ```
     pub fn MakeCompletion(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -74,7 +74,7 @@ pub const kshellcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#makeCompletion)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#makeCompletion)
     ///
     /// Allows for overriding the related default method
     ///
@@ -83,7 +83,7 @@ pub const kshellcompletion = struct {
         qtc.KShellCompletion_OnMakeCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#makeCompletion)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#makeCompletion)
     ///
     /// Base class method implementation
     ///
@@ -100,7 +100,7 @@ pub const kshellcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
     /// ``` self: QtC.KShellCompletion, matches: [][]const u8, allocator: std.mem.Allocator ```
     pub fn PostProcessMatches(self: ?*anyopaque, matches: [][]const u8, allocator: std.mem.Allocator) void {
@@ -119,7 +119,7 @@ pub const kshellcompletion = struct {
         qtc.KShellCompletion_PostProcessMatches(@ptrCast(self), matches_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
     /// Allows for overriding the related default method
     ///
@@ -128,7 +128,7 @@ pub const kshellcompletion = struct {
         qtc.KShellCompletion_OnPostProcessMatches(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
     /// Base class method implementation
     ///
@@ -149,14 +149,14 @@ pub const kshellcompletion = struct {
         qtc.KShellCompletion_QBasePostProcessMatches(@ptrCast(self), matches_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
     /// ``` self: QtC.KShellCompletion, matches: QtC.KCompletionMatches ```
     pub fn PostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
         qtc.KShellCompletion_PostProcessMatches2(@ptrCast(self), @ptrCast(matches));
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
     /// Allows for overriding the related default method
     ///
@@ -165,7 +165,7 @@ pub const kshellcompletion = struct {
         qtc.KShellCompletion_OnPostProcessMatches2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
     /// Base class method implementation
     ///
@@ -174,7 +174,7 @@ pub const kshellcompletion = struct {
         qtc.KShellCompletion_QBasePostProcessMatches2(@ptrCast(self), @ptrCast(matches));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -187,7 +187,7 @@ pub const kshellcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -202,7 +202,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replacedPath)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replacedPath)
     ///
     /// ``` self: QtC.KShellCompletion, text: []const u8, allocator: std.mem.Allocator ```
     pub fn ReplacedPath(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -219,7 +219,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replacedPath)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replacedPath)
     ///
     /// ``` text: []const u8, replaceHome: bool, allocator: std.mem.Allocator ```
     pub fn ReplacedPath2(text: []const u8, replaceHome: bool, allocator: std.mem.Allocator) []const u8 {
@@ -236,7 +236,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setMimeTypeFilters)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setMimeTypeFilters)
     ///
     /// ``` self: QtC.KShellCompletion, mimeTypes: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetMimeTypeFilters(self: ?*anyopaque, mimeTypes: [][]const u8, allocator: std.mem.Allocator) void {
@@ -257,7 +257,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#mimeTypeFilters)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#mimeTypeFilters)
     ///
     /// ``` self: QtC.KShellCompletion, allocator: std.mem.Allocator ```
     pub fn MimeTypeFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -281,7 +281,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replacedPath)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replacedPath)
     ///
     /// ``` text: []const u8, replaceHome: bool, replaceEnv: bool, allocator: std.mem.Allocator ```
     pub fn ReplacedPath3(text: []const u8, replaceHome: bool, replaceEnv: bool, allocator: std.mem.Allocator) []const u8 {
@@ -298,7 +298,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#substringCompletion)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#substringCompletion)
     ///
     /// ``` self: QtC.KShellCompletion, stringVal: []const u8, allocator: std.mem.Allocator ```
     pub fn SubstringCompletion(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -326,7 +326,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#items)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#items)
     ///
     /// ``` self: QtC.KShellCompletion, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -350,7 +350,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#isEmpty)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#isEmpty)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
@@ -359,7 +359,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#completionMode)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#completionMode)
     ///
     /// ``` self: QtC.KShellCompletion ```
     ///
@@ -370,7 +370,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#order)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#order)
     ///
     /// ``` self: QtC.KShellCompletion ```
     ///
@@ -381,7 +381,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#ignoreCase)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#ignoreCase)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn IgnoreCase(self: ?*anyopaque) bool {
@@ -390,7 +390,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#shouldAutoSuggest)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#shouldAutoSuggest)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn ShouldAutoSuggest(self: ?*anyopaque) bool {
@@ -399,7 +399,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#allMatches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#allMatches)
     ///
     /// ``` self: QtC.KShellCompletion, allocator: std.mem.Allocator ```
     pub fn AllMatches(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -423,7 +423,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#allMatches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#allMatches)
     ///
     /// ``` self: QtC.KShellCompletion, stringVal: []const u8, allocator: std.mem.Allocator ```
     pub fn AllMatches2(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -451,7 +451,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#allWeightedMatches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#allWeightedMatches)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn AllWeightedMatches(self: ?*anyopaque) QtC.KCompletionMatches {
@@ -460,7 +460,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#allWeightedMatches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#allWeightedMatches)
     ///
     /// ``` self: QtC.KShellCompletion, stringVal: []const u8 ```
     pub fn AllWeightedMatches2(self: ?*anyopaque, stringVal: []const u8) QtC.KCompletionMatches {
@@ -473,7 +473,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#soundsEnabled)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#soundsEnabled)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn SoundsEnabled(self: ?*anyopaque) bool {
@@ -482,7 +482,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#hasMultipleMatches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#hasMultipleMatches)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn HasMultipleMatches(self: ?*anyopaque) bool {
@@ -491,7 +491,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#previousMatch)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#previousMatch)
     ///
     /// ``` self: QtC.KShellCompletion, allocator: std.mem.Allocator ```
     pub fn PreviousMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -504,7 +504,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#nextMatch)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#nextMatch)
     ///
     /// ``` self: QtC.KShellCompletion, allocator: std.mem.Allocator ```
     pub fn NextMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -517,7 +517,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#insertItems)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#insertItems)
     ///
     /// ``` self: QtC.KShellCompletion, items: [][]const u8, allocator: std.mem.Allocator ```
     pub fn InsertItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
@@ -538,7 +538,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#addItem)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#addItem)
     ///
     /// ``` self: QtC.KShellCompletion, item: []const u8 ```
     pub fn AddItem(self: ?*anyopaque, item: []const u8) void {
@@ -551,7 +551,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#addItem)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#addItem)
     ///
     /// ``` self: QtC.KShellCompletion, item: []const u8, weight: u32 ```
     pub fn AddItem2(self: ?*anyopaque, item: []const u8, weight: u32) void {
@@ -564,7 +564,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#removeItem)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#removeItem)
     ///
     /// ``` self: QtC.KShellCompletion, item: []const u8 ```
     pub fn RemoveItem(self: ?*anyopaque, item: []const u8) void {
@@ -577,7 +577,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#match)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#match)
     ///
     /// ``` self: QtC.KShellCompletion, item: []const u8 ```
     pub fn Match(self: ?*anyopaque, item: []const u8) void {
@@ -590,7 +590,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#match)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#match)
     ///
     /// ``` self: QtC.KShellCompletion, callback: *const fn (self: QtC.KShellCompletion, item: [*:0]const u8) callconv(.c) void ```
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -599,7 +599,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#matches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#matches)
     ///
     /// ``` self: QtC.KShellCompletion, matchlist: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Matches(self: ?*anyopaque, matchlist: [][]const u8, allocator: std.mem.Allocator) void {
@@ -620,7 +620,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#matches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#matches)
     ///
     /// ``` self: QtC.KShellCompletion, callback: *const fn (self: QtC.KShellCompletion, matchlist: [*][*:0]const u8) callconv(.c) void ```
     pub fn OnMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
@@ -629,7 +629,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#multipleMatches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#multipleMatches)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn MultipleMatches(self: ?*anyopaque) void {
@@ -638,7 +638,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#multipleMatches)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#multipleMatches)
     ///
     /// ``` self: QtC.KShellCompletion, callback: *const fn (self: QtC.KShellCompletion) callconv(.c) void ```
     pub fn OnMultipleMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -647,7 +647,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KShellCompletion, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -660,7 +660,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KShellCompletion, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -673,7 +673,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -682,7 +682,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -691,7 +691,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -700,7 +700,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -709,7 +709,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KShellCompletion, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -718,7 +718,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -727,7 +727,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KShellCompletion, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -736,7 +736,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KShellCompletion, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -745,7 +745,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KShellCompletion, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -754,7 +754,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KShellCompletion, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -763,7 +763,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KShellCompletion, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -777,7 +777,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KShellCompletion, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -786,7 +786,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KShellCompletion, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -795,7 +795,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KShellCompletion, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -804,7 +804,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -813,7 +813,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KShellCompletion, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -824,7 +824,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -833,7 +833,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -842,7 +842,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -851,7 +851,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -860,7 +860,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KShellCompletion, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -870,7 +870,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KShellCompletion, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -880,7 +880,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KShellCompletion, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -904,7 +904,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -913,7 +913,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -922,7 +922,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -931,7 +931,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KShellCompletion, callback: *const fn (self: QtC.KShellCompletion) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -940,7 +940,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -949,7 +949,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KShellCompletion, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -959,7 +959,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KShellCompletion ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -968,7 +968,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KShellCompletion, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -977,7 +977,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KShellCompletion, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -986,7 +986,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -995,7 +995,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KShellCompletion, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1006,7 +1006,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KShellCompletion, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1015,7 +1015,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KShellCompletion, callback: *const fn (self: QtC.KShellCompletion, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1024,7 +1024,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setDir)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setDir)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1035,7 +1035,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setDir)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setDir)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1046,7 +1046,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setDir)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setDir)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1057,7 +1057,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#dir)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#dir)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1068,7 +1068,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#dir)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#dir)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1079,7 +1079,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#dir)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#dir)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1090,7 +1090,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#isRunning)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#isRunning)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1101,7 +1101,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#isRunning)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#isRunning)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1112,7 +1112,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#isRunning)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#isRunning)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1123,7 +1123,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#stop)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#stop)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1134,7 +1134,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#stop)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#stop)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1145,7 +1145,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#stop)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#stop)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1156,7 +1156,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#mode)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#mode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1169,7 +1169,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#mode)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#mode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1182,7 +1182,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#mode)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#mode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1193,7 +1193,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setMode)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1204,7 +1204,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setMode)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1215,7 +1215,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setMode)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1226,7 +1226,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replaceEnv)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1237,7 +1237,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replaceEnv)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1248,7 +1248,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replaceEnv)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1259,7 +1259,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1270,7 +1270,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1281,7 +1281,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1292,7 +1292,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replaceHome)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceHome)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1303,7 +1303,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replaceHome)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceHome)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1314,7 +1314,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#replaceHome)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceHome)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1325,7 +1325,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setReplaceHome)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceHome)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1336,7 +1336,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setReplaceHome)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceHome)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1347,7 +1347,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KUrlCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kurlcompletion.html#setReplaceHome)
+    /// [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceHome)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1358,7 +1358,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#lastMatch)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1373,7 +1373,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#lastMatch)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1388,7 +1388,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#lastMatch)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1399,7 +1399,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setCompletionMode)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1410,7 +1410,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setCompletionMode)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1421,7 +1421,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setCompletionMode)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1432,7 +1432,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setOrder)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setOrder)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1443,7 +1443,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setOrder)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setOrder)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1454,7 +1454,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setOrder)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setOrder)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1465,7 +1465,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setIgnoreCase)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1476,7 +1476,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setIgnoreCase)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1487,7 +1487,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setIgnoreCase)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1498,7 +1498,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setSoundsEnabled)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1509,7 +1509,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setSoundsEnabled)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1520,7 +1520,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setSoundsEnabled)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1531,7 +1531,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setItems)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setItems)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1554,7 +1554,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setItems)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setItems)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1577,7 +1577,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setItems)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setItems)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1588,7 +1588,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#clear)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#clear)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1599,7 +1599,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#clear)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#clear)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1610,7 +1610,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#clear)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#clear)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1621,7 +1621,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1632,7 +1632,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1643,7 +1643,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1654,7 +1654,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1665,7 +1665,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1676,7 +1676,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1687,7 +1687,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1698,7 +1698,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1709,7 +1709,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1720,7 +1720,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1731,7 +1731,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1742,7 +1742,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1753,7 +1753,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1764,7 +1764,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1775,7 +1775,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1786,7 +1786,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1797,7 +1797,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1808,7 +1808,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1819,7 +1819,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1830,7 +1830,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1841,7 +1841,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1852,7 +1852,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1863,7 +1863,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1874,7 +1874,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from KCompletion
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
+    /// [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1885,7 +1885,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1896,7 +1896,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1907,7 +1907,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1918,7 +1918,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1929,7 +1929,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1940,7 +1940,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1951,7 +1951,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1963,7 +1963,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1975,7 +1975,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1986,7 +1986,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1997,7 +1997,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2008,7 +2008,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2019,7 +2019,7 @@ pub const kshellcompletion = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2028,7 +2028,7 @@ pub const kshellcompletion = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#dtor.KShellCompletion)
+    /// [Upstream resources](https://api.kde.org/kshellcompletion.html#dtor.KShellCompletion)
     ///
     /// Delete this object from C++ memory.
     ///

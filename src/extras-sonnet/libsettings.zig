@@ -20,7 +20,7 @@ pub const sonnet__settings = struct {
         return qtc.Sonnet__Settings_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -52,7 +52,7 @@ pub const sonnet__settings = struct {
         return qtc.Sonnet__Settings_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -64,7 +64,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setDefaultLanguage)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setDefaultLanguage)
     ///
     /// ``` self: QtC.Sonnet__Settings, lang: []const u8 ```
     pub fn SetDefaultLanguage(self: ?*anyopaque, lang: []const u8) void {
@@ -75,7 +75,7 @@ pub const sonnet__settings = struct {
         qtc.Sonnet__Settings_SetDefaultLanguage(@ptrCast(self), lang_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultLanguage)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultLanguage)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn DefaultLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -86,7 +86,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setPreferredLanguages)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setPreferredLanguages)
     ///
     /// ``` self: QtC.Sonnet__Settings, lang: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetPreferredLanguages(self: ?*anyopaque, lang: [][]const u8, allocator: std.mem.Allocator) void {
@@ -105,7 +105,7 @@ pub const sonnet__settings = struct {
         qtc.Sonnet__Settings_SetPreferredLanguages(@ptrCast(self), lang_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#preferredLanguages)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#preferredLanguages)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn PreferredLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -127,7 +127,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setDefaultClient)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setDefaultClient)
     ///
     /// ``` self: QtC.Sonnet__Settings, client: []const u8 ```
     pub fn SetDefaultClient(self: ?*anyopaque, client: []const u8) void {
@@ -138,7 +138,7 @@ pub const sonnet__settings = struct {
         qtc.Sonnet__Settings_SetDefaultClient(@ptrCast(self), client_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultClient)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultClient)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn DefaultClient(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -149,77 +149,77 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setSkipUppercase)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setSkipUppercase)
     ///
     /// ``` self: QtC.Sonnet__Settings, skipUppercase: bool ```
     pub fn SetSkipUppercase(self: ?*anyopaque, skipUppercase: bool) void {
         qtc.Sonnet__Settings_SetSkipUppercase(@ptrCast(self), skipUppercase);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipUppercase)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#skipUppercase)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SkipUppercase(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_SkipUppercase(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setAutodetectLanguage)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setAutodetectLanguage)
     ///
     /// ``` self: QtC.Sonnet__Settings, autodetectLanguage: bool ```
     pub fn SetAutodetectLanguage(self: ?*anyopaque, autodetectLanguage: bool) void {
         qtc.Sonnet__Settings_SetAutodetectLanguage(@ptrCast(self), autodetectLanguage);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#autodetectLanguage)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#autodetectLanguage)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn AutodetectLanguage(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_AutodetectLanguage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setSkipRunTogether)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setSkipRunTogether)
     ///
     /// ``` self: QtC.Sonnet__Settings, skipRunTogether: bool ```
     pub fn SetSkipRunTogether(self: ?*anyopaque, skipRunTogether: bool) void {
         qtc.Sonnet__Settings_SetSkipRunTogether(@ptrCast(self), skipRunTogether);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipRunTogether)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#skipRunTogether)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SkipRunTogether(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_SkipRunTogether(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setBackgroundCheckerEnabled)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setBackgroundCheckerEnabled)
     ///
     /// ``` self: QtC.Sonnet__Settings, backgroundCheckerEnabled: bool ```
     pub fn SetBackgroundCheckerEnabled(self: ?*anyopaque, backgroundCheckerEnabled: bool) void {
         qtc.Sonnet__Settings_SetBackgroundCheckerEnabled(@ptrCast(self), backgroundCheckerEnabled);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabled)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabled)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn BackgroundCheckerEnabled(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_BackgroundCheckerEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setCheckerEnabledByDefault)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setCheckerEnabledByDefault)
     ///
     /// ``` self: QtC.Sonnet__Settings, checkerEnabledByDefault: bool ```
     pub fn SetCheckerEnabledByDefault(self: ?*anyopaque, checkerEnabledByDefault: bool) void {
         qtc.Sonnet__Settings_SetCheckerEnabledByDefault(@ptrCast(self), checkerEnabledByDefault);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefault)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefault)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn CheckerEnabledByDefault(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_CheckerEnabledByDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setCurrentIgnoreList)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#setCurrentIgnoreList)
     ///
     /// ``` self: QtC.Sonnet__Settings, ignores: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetCurrentIgnoreList(self: ?*anyopaque, ignores: [][]const u8, allocator: std.mem.Allocator) void {
@@ -238,7 +238,7 @@ pub const sonnet__settings = struct {
         qtc.Sonnet__Settings_SetCurrentIgnoreList(@ptrCast(self), ignores_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#currentIgnoreList)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#currentIgnoreList)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn CurrentIgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -260,7 +260,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#clients)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#clients)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn Clients(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -282,28 +282,28 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#modified)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#modified)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn Modified(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_Modified(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#dictionaryModel)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#dictionaryModel)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DictionaryModel(self: ?*anyopaque) QtC.QAbstractListModel {
         return qtc.Sonnet__Settings_DictionaryModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#save)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#save)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn Save(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_Save(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultIgnoreList)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultIgnoreList)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultIgnoreList(allocator: std.mem.Allocator) [][]const u8 {
@@ -325,42 +325,42 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultSkipUppercase)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultSkipUppercase)
     ///
     ///
     pub fn DefaultSkipUppercase() bool {
         return qtc.Sonnet__Settings_DefaultSkipUppercase();
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultAutodetectLanguage)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultAutodetectLanguage)
     ///
     ///
     pub fn DefaultAutodetectLanguage() bool {
         return qtc.Sonnet__Settings_DefaultAutodetectLanguage();
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultBackgroundCheckerEnabled)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultBackgroundCheckerEnabled)
     ///
     ///
     pub fn DefaultBackgroundCheckerEnabled() bool {
         return qtc.Sonnet__Settings_DefaultBackgroundCheckerEnabled();
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultCheckerEnabledByDefault)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultCheckerEnabledByDefault)
     ///
     ///
     pub fn DefaultCheckerEnabledByDefault() bool {
         return qtc.Sonnet__Settings_DefaultCheckerEnabledByDefault();
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defauktSkipRunTogether)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defauktSkipRunTogether)
     ///
     ///
     pub fn DefauktSkipRunTogether() bool {
         return qtc.Sonnet__Settings_DefauktSkipRunTogether();
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultDefaultLanguage)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultDefaultLanguage)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultDefaultLanguage(allocator: std.mem.Allocator) []const u8 {
@@ -371,7 +371,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultPreferredLanguages)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultPreferredLanguages)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultPreferredLanguages(allocator: std.mem.Allocator) [][]const u8 {
@@ -393,147 +393,147 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SkipUppercaseChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_SkipUppercaseChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnSkipUppercaseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_SkipUppercaseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn AutodetectLanguageChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_AutodetectLanguageChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnAutodetectLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_AutodetectLanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn BackgroundCheckerEnabledChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_BackgroundCheckerEnabledChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnBackgroundCheckerEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_BackgroundCheckerEnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DefaultClientChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_DefaultClientChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnDefaultClientChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_DefaultClientChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DefaultLanguageChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_DefaultLanguageChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnDefaultLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_DefaultLanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn PreferredLanguagesChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_PreferredLanguagesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnPreferredLanguagesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_PreferredLanguagesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SkipRunTogetherChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_SkipRunTogetherChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnSkipRunTogetherChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_SkipRunTogetherChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn CheckerEnabledByDefaultChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_CheckerEnabledByDefaultChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnCheckerEnabledByDefaultChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_CheckerEnabledByDefaultChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn CurrentIgnoreListChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_CurrentIgnoreListChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnCurrentIgnoreListChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_CurrentIgnoreListChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#modifiedChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#modifiedChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn ModifiedChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_ModifiedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#modifiedChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-settings.html#modifiedChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnModifiedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_ModifiedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -546,7 +546,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -561,7 +561,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -574,7 +574,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Sonnet__Settings, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -587,7 +587,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -596,7 +596,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -605,7 +605,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -614,7 +614,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -623,7 +623,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Sonnet__Settings, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -632,7 +632,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -641,7 +641,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Sonnet__Settings, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -650,7 +650,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Sonnet__Settings, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -659,7 +659,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Sonnet__Settings, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -668,7 +668,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Sonnet__Settings, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -677,7 +677,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -691,7 +691,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Sonnet__Settings, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -700,7 +700,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Sonnet__Settings, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -709,7 +709,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Sonnet__Settings, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -718,7 +718,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -727,7 +727,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Sonnet__Settings, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -738,7 +738,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -747,7 +747,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -756,7 +756,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -765,7 +765,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -774,7 +774,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Sonnet__Settings, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -784,7 +784,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Sonnet__Settings, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -794,7 +794,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -818,7 +818,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -827,7 +827,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -836,7 +836,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -845,7 +845,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -854,7 +854,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -863,7 +863,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Sonnet__Settings, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -873,7 +873,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -882,7 +882,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Sonnet__Settings, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -891,7 +891,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Sonnet__Settings, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -900,7 +900,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -909,7 +909,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Sonnet__Settings, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -920,7 +920,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Sonnet__Settings, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -929,7 +929,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -938,7 +938,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -949,7 +949,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -960,7 +960,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -971,7 +971,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -982,7 +982,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -993,7 +993,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1004,7 +1004,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1015,7 +1015,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1026,7 +1026,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1037,7 +1037,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1048,7 +1048,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1059,7 +1059,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1070,7 +1070,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1081,7 +1081,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1092,7 +1092,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1103,7 +1103,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1114,7 +1114,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1125,7 +1125,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1136,7 +1136,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1147,7 +1147,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1158,7 +1158,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1169,7 +1169,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1180,7 +1180,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1191,7 +1191,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1202,7 +1202,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1213,7 +1213,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1224,7 +1224,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1235,7 +1235,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1247,7 +1247,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1259,7 +1259,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1270,7 +1270,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1281,7 +1281,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1292,7 +1292,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1303,7 +1303,7 @@ pub const sonnet__settings = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

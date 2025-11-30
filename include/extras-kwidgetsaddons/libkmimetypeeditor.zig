@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 
 /// https://api.kde.org/kmimetypeeditor.html
 pub const kmimetypeeditor = struct {
-    /// [Qt documentation](https://api.kde.org/kmimetypeeditor.html#editMimeType)
+    /// [Upstream resources](https://api.kde.org/kmimetypeeditor.html#editMimeType)
     ///
     /// ``` param1: []const u8, param2: QtC.QWidget ```
     pub fn EditMimeType(param1: []const u8, param2: ?*anyopaque) void {

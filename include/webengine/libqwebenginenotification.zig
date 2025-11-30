@@ -6,7 +6,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qwebenginenotification.html
 pub const qwebenginenotification = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -24,7 +24,7 @@ pub const qwebenginenotification = struct {
         return qtc.QWebEngineNotification_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -36,28 +36,28 @@ pub const qwebenginenotification = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#matches)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#matches)
     ///
     /// ``` self: QtC.QWebEngineNotification, other: QtC.QWebEngineNotification ```
     pub fn Matches(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QWebEngineNotification_Matches(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#origin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#origin)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Origin(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineNotification_Origin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#icon)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Icon(self: ?*anyopaque) QtC.QImage {
         return qtc.QWebEngineNotification_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#title)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#title)
     ///
     /// ``` self: QtC.QWebEngineNotification, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -68,7 +68,7 @@ pub const qwebenginenotification = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#message)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#message)
     ///
     /// ``` self: QtC.QWebEngineNotification, allocator: std.mem.Allocator ```
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -79,7 +79,7 @@ pub const qwebenginenotification = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#tag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#tag)
     ///
     /// ``` self: QtC.QWebEngineNotification, allocator: std.mem.Allocator ```
     pub fn Tag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,7 +90,7 @@ pub const qwebenginenotification = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#language)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#language)
     ///
     /// ``` self: QtC.QWebEngineNotification, allocator: std.mem.Allocator ```
     pub fn Language(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -101,7 +101,7 @@ pub const qwebenginenotification = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#direction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#direction)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     ///
@@ -110,42 +110,42 @@ pub const qwebenginenotification = struct {
         return qtc.QWebEngineNotification_Direction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#show)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Show(self: ?*anyopaque) void {
         qtc.QWebEngineNotification_Show(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#click)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#click)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Click(self: ?*anyopaque) void {
         qtc.QWebEngineNotification_Click(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#close)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Close(self: ?*anyopaque) void {
         qtc.QWebEngineNotification_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#closed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#closed)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Closed(self: ?*anyopaque) void {
         qtc.QWebEngineNotification_Closed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#closed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#closed)
     ///
     /// ``` self: QtC.QWebEngineNotification, callback: *const fn (self: QtC.QWebEngineNotification) callconv(.c) void ```
     pub fn OnClosed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineNotification_Connect_Closed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -158,7 +158,7 @@ pub const qwebenginenotification = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -173,7 +173,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QWebEngineNotification, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -182,7 +182,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QWebEngineNotification, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -191,7 +191,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QWebEngineNotification, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -204,7 +204,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QWebEngineNotification, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -217,7 +217,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -226,7 +226,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -235,7 +235,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -244,7 +244,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -253,7 +253,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QWebEngineNotification, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -262,7 +262,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -271,7 +271,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineNotification, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -280,7 +280,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineNotification, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -289,7 +289,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineNotification, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -298,7 +298,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineNotification, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -307,7 +307,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QWebEngineNotification, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -321,7 +321,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QWebEngineNotification, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -330,7 +330,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QWebEngineNotification, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -339,7 +339,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QWebEngineNotification, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -348,7 +348,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -357,7 +357,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineNotification, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -368,7 +368,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -377,7 +377,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -386,7 +386,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -395,7 +395,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -404,7 +404,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QWebEngineNotification, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -414,7 +414,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QWebEngineNotification, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -424,7 +424,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QWebEngineNotification, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -448,7 +448,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -457,7 +457,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -466,7 +466,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -475,7 +475,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineNotification, callback: *const fn (self: QtC.QWebEngineNotification) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -484,7 +484,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -493,7 +493,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QWebEngineNotification, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -503,7 +503,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QWebEngineNotification ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -512,7 +512,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineNotification, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -521,7 +521,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineNotification, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -530,7 +530,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -539,7 +539,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineNotification, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -550,7 +550,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineNotification, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -559,7 +559,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineNotification, callback: *const fn (self: QtC.QWebEngineNotification, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -568,7 +568,7 @@ pub const qwebenginenotification = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -577,7 +577,7 @@ pub const qwebenginenotification = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginenotification.html#dtor.QWebEngineNotification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginenotification.html#dtor.QWebEngineNotification)
     ///
     /// Delete this object from C++ memory.
     ///

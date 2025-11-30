@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qcborerror.html
 pub const qcborerror = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#c-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
     ///
     /// ``` self: QtC.QCborError ```
     ///
@@ -14,14 +14,14 @@ pub const qcborerror = struct {
         return qtc.QCborError_C(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#c-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
     ///
     /// ``` self: QtC.QCborError, c: qcborcommon_enums.Code ```
     pub fn SetC(self: ?*anyopaque, c: i32) void {
         qtc.QCborError_SetC(@ptrCast(self), @intCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#operator)
     ///
     /// ``` self: QtC.QCborError ```
     ///
@@ -30,7 +30,7 @@ pub const qcborerror = struct {
         return qtc.QCborError_ToQCborError__Code(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#toString)
     ///
     /// ``` self: QtC.QCborError, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -41,7 +41,7 @@ pub const qcborerror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#dtor.QCborError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#dtor.QCborError)
     ///
     /// Delete this object from C++ memory.
     ///

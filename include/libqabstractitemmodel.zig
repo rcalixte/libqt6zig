@@ -16,42 +16,42 @@ pub const qmodelroledata = struct {
         return qtc.QModelRoleData_new(@intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#role)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledata.html#role)
     ///
     /// ``` self: QtC.QModelRoleData ```
     pub fn Role(self: ?*anyopaque) i32 {
         return qtc.QModelRoleData_Role(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledata.html#data)
     ///
     /// ``` self: QtC.QModelRoleData ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
         return qtc.QModelRoleData_Data(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledata.html#data)
     ///
     /// ``` self: QtC.QModelRoleData ```
     pub fn Data2(self: ?*anyopaque) QtC.QVariant {
         return qtc.QModelRoleData_Data2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#clearData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledata.html#clearData)
     ///
     /// ``` self: QtC.QModelRoleData ```
     pub fn ClearData(self: ?*anyopaque) void {
         qtc.QModelRoleData_ClearData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledata.html#operator-eq)
     ///
     /// ``` self: QtC.QModelRoleData, param1: QtC.QModelRoleData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QModelRoleData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#dtor.QModelRoleData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledata.html#dtor.QModelRoleData)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -119,56 +119,56 @@ pub const qmodelroledataspan = struct {
         qtc.QModelRoleDataSpan_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#size)
     ///
     /// ``` self: QtC.QModelRoleDataSpan ```
     pub fn Size(self: ?*anyopaque) i64 {
         return qtc.QModelRoleDataSpan_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#length)
     ///
     /// ``` self: QtC.QModelRoleDataSpan ```
     pub fn Length(self: ?*anyopaque) i64 {
         return qtc.QModelRoleDataSpan_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#data)
     ///
     /// ``` self: QtC.QModelRoleDataSpan ```
     pub fn Data(self: ?*anyopaque) QtC.QModelRoleData {
         return qtc.QModelRoleDataSpan_Data(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#begin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#begin)
     ///
     /// ``` self: QtC.QModelRoleDataSpan ```
     pub fn Begin(self: ?*anyopaque) QtC.QModelRoleData {
         return qtc.QModelRoleDataSpan_Begin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#end)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#end)
     ///
     /// ``` self: QtC.QModelRoleDataSpan ```
     pub fn End(self: ?*anyopaque) QtC.QModelRoleData {
         return qtc.QModelRoleDataSpan_End(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QModelRoleDataSpan, index: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, index: i64) QtC.QModelRoleData {
         return qtc.QModelRoleDataSpan_OperatorSubscript(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#dataForRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#dataForRole)
     ///
     /// ``` self: QtC.QModelRoleDataSpan, role: i32 ```
     pub fn DataForRole(self: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QModelRoleDataSpan_DataForRole(@ptrCast(self), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#dtor.QModelRoleDataSpan)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#dtor.QModelRoleDataSpan)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -222,84 +222,84 @@ pub const qmodelindex = struct {
         qtc.QModelIndex_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#row)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#row)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn Row(self: ?*anyopaque) i32 {
         return qtc.QModelIndex_Row(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#column)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#column)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn Column(self: ?*anyopaque) i32 {
         return qtc.QModelIndex_Column(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#internalId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#internalId)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn InternalId(self: ?*anyopaque) usize {
         return qtc.QModelIndex_InternalId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#internalPointer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#internalPointer)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn InternalPointer(self: ?*anyopaque) ?*anyopaque {
         return qtc.QModelIndex_InternalPointer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#constInternalPointer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#constInternalPointer)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn ConstInternalPointer(self: ?*anyopaque) ?*const anyopaque {
         return qtc.QModelIndex_ConstInternalPointer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#parent)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QModelIndex_Parent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#sibling)
     ///
     /// ``` self: QtC.QModelIndex, row: i32, column: i32 ```
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
         return qtc.QModelIndex_Sibling(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#siblingAtColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#siblingAtColumn)
     ///
     /// ``` self: QtC.QModelIndex, column: i32 ```
     pub fn SiblingAtColumn(self: ?*anyopaque, column: i32) QtC.QModelIndex {
         return qtc.QModelIndex_SiblingAtColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#siblingAtRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#siblingAtRow)
     ///
     /// ``` self: QtC.QModelIndex, row: i32 ```
     pub fn SiblingAtRow(self: ?*anyopaque, row: i32) QtC.QModelIndex {
         return qtc.QModelIndex_SiblingAtRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#data)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
         return qtc.QModelIndex_Data(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#multiData)
     ///
     /// ``` self: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan ```
     pub fn MultiData(self: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
         qtc.QModelIndex_MultiData(@ptrCast(self), @ptrCast(roleDataSpan));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#flags)
     ///
     /// ``` self: QtC.QModelIndex ```
     ///
@@ -308,28 +308,28 @@ pub const qmodelindex = struct {
         return qtc.QModelIndex_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#model)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QModelIndex_Model(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#isValid)
     ///
     /// ``` self: QtC.QModelIndex ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QModelIndex_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#data)
     ///
     /// ``` self: QtC.QModelIndex, role: i32 ```
     pub fn Data1(self: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QModelIndex_Data1(@ptrCast(self), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#dtor.QModelIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#dtor.QModelIndex)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -362,98 +362,98 @@ pub const qpersistentmodelindex = struct {
         return qtc.QPersistentModelIndex_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator-eq)
     ///
     /// ``` self: QtC.QPersistentModelIndex, other: QtC.QPersistentModelIndex ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPersistentModelIndex_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#swap)
     ///
     /// ``` self: QtC.QPersistentModelIndex, other: QtC.QPersistentModelIndex ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPersistentModelIndex_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator-eq)
     ///
     /// ``` self: QtC.QPersistentModelIndex, other: QtC.QModelIndex ```
     pub fn OperatorAssign2(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPersistentModelIndex_OperatorAssign2(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn ToQModelIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QPersistentModelIndex_ToQModelIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#row)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#row)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn Row(self: ?*anyopaque) i32 {
         return qtc.QPersistentModelIndex_Row(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#column)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#column)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn Column(self: ?*anyopaque) i32 {
         return qtc.QPersistentModelIndex_Column(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#internalPointer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#internalPointer)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn InternalPointer(self: ?*anyopaque) ?*anyopaque {
         return qtc.QPersistentModelIndex_InternalPointer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#constInternalPointer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#constInternalPointer)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn ConstInternalPointer(self: ?*anyopaque) ?*const anyopaque {
         return qtc.QPersistentModelIndex_ConstInternalPointer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#internalId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#internalId)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn InternalId(self: ?*anyopaque) usize {
         return qtc.QPersistentModelIndex_InternalId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#parent)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn Parent(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QPersistentModelIndex_Parent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#sibling)
     ///
     /// ``` self: QtC.QPersistentModelIndex, row: i32, column: i32 ```
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
         return qtc.QPersistentModelIndex_Sibling(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#data)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
         return qtc.QPersistentModelIndex_Data(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#multiData)
     ///
     /// ``` self: QtC.QPersistentModelIndex, roleDataSpan: QtC.QModelRoleDataSpan ```
     pub fn MultiData(self: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
         qtc.QPersistentModelIndex_MultiData(@ptrCast(self), @ptrCast(roleDataSpan));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#flags)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     ///
@@ -462,28 +462,28 @@ pub const qpersistentmodelindex = struct {
         return qtc.QPersistentModelIndex_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#model)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QPersistentModelIndex_Model(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#isValid)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QPersistentModelIndex_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#data)
     ///
     /// ``` self: QtC.QPersistentModelIndex, role: i32 ```
     pub fn Data1(self: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QPersistentModelIndex_Data1(@ptrCast(self), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#dtor.QPersistentModelIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#dtor.QPersistentModelIndex)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -509,7 +509,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -541,7 +541,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -553,21 +553,21 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, column: i32 ```
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
         return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractItemModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
     ///
     /// Allows for overriding the related default method
     ///
@@ -576,7 +576,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
     ///
     /// Base class method implementation
     ///
@@ -585,14 +585,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// ``` self: QtC.QAbstractItemModel, child: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractItemModel_Parent(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -601,7 +601,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -610,14 +610,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseParent(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, column: i32, idx: QtC.QModelIndex ```
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractItemModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
     ///
     /// Allows for overriding the related default method
     ///
@@ -626,7 +626,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
     ///
     /// Base class method implementation
     ///
@@ -635,14 +635,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex ```
     pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -651,7 +651,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// Base class method implementation
     ///
@@ -660,14 +660,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex ```
     pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -676,7 +676,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// Base class method implementation
     ///
@@ -685,14 +685,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex ```
     pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_HasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Allows for overriding the related default method
     ///
@@ -701,7 +701,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Base class method implementation
     ///
@@ -710,14 +710,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseHasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, role: i32 ```
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QAbstractItemModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -726,7 +726,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// Base class method implementation
     ///
@@ -735,14 +735,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32 ```
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
         return qtc.QAbstractItemModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -751,7 +751,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Base class method implementation
     ///
@@ -760,14 +760,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// ``` self: QtC.QAbstractItemModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32 ```
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
         return qtc.QAbstractItemModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -776,7 +776,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Base class method implementation
     ///
@@ -785,14 +785,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// ``` self: QtC.QAbstractItemModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32 ```
     pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
         return qtc.QAbstractItemModel_SetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -801,7 +801,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnSetHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Base class method implementation
     ///
@@ -810,7 +810,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseSetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
@@ -831,7 +831,7 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
@@ -855,14 +855,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_ClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -871,7 +871,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnClearItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Base class method implementation
     ///
@@ -880,7 +880,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -902,7 +902,7 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -911,7 +911,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Base class method implementation
     ///
@@ -935,7 +935,7 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// ``` self: QtC.QAbstractItemModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
@@ -946,7 +946,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_MimeData(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -955,7 +955,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Base class method implementation
     ///
@@ -968,14 +968,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseMimeData(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// ``` self: QtC.QAbstractItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -984,7 +984,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnCanDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Base class method implementation
     ///
@@ -993,14 +993,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
     ///
     /// ``` self: QtC.QAbstractItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1009,7 +1009,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
     ///
     /// Base class method implementation
     ///
@@ -1018,7 +1018,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     ///
@@ -1027,7 +1027,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_SupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1036,7 +1036,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Base class method implementation
     ///
@@ -1047,7 +1047,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     ///
@@ -1056,7 +1056,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_SupportedDragActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1065,7 +1065,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnSupportedDragActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Base class method implementation
     ///
@@ -1076,14 +1076,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseSupportedDragActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_InsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1092,7 +1092,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Base class method implementation
     ///
@@ -1101,14 +1101,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseInsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel, column: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1117,7 +1117,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Base class method implementation
     ///
@@ -1126,14 +1126,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseInsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1142,7 +1142,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Base class method implementation
     ///
@@ -1151,14 +1151,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseRemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel, column: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1167,7 +1167,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Base class method implementation
     ///
@@ -1176,14 +1176,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseRemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// ``` self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
         return qtc.QAbstractItemModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1192,7 +1192,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Base class method implementation
     ///
@@ -1201,14 +1201,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
         return qtc.QAbstractItemModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1217,7 +1217,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Base class method implementation
     ///
@@ -1226,56 +1226,56 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
         return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QAbstractItemModel, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
         return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
         return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QAbstractItemModel, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
         return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
     ///
     /// ``` self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceRow: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
         return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @ptrCast(destinationParent), @intCast(destinationChild));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
     ///
     /// ``` self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
         return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @ptrCast(destinationParent), @intCast(destinationChild));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex ```
     pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QAbstractItemModel_FetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1284,7 +1284,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Base class method implementation
     ///
@@ -1293,14 +1293,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex ```
     pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1309,7 +1309,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Base class method implementation
     ///
@@ -1318,7 +1318,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseCanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#flags)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     ///
@@ -1327,7 +1327,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#flags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1336,7 +1336,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#flags)
     ///
     /// Base class method implementation
     ///
@@ -1347,14 +1347,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// ``` self: QtC.QAbstractItemModel, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QAbstractItemModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1363,7 +1363,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Base class method implementation
     ///
@@ -1372,14 +1372,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     pub fn Buddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractItemModel_Buddy(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1388,7 +1388,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnBuddy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Base class method implementation
     ///
@@ -1397,7 +1397,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseBuddy(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// ``` self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -1409,7 +1409,7 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1418,7 +1418,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Base class method implementation
     ///
@@ -1432,14 +1432,14 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     pub fn Span(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
         return qtc.QAbstractItemModel_Span(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1448,7 +1448,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnSpan(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Base class method implementation
     ///
@@ -1457,7 +1457,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseSpan(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames)
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
@@ -1478,21 +1478,21 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan ```
     pub fn MultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
         qtc.QAbstractItemModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1501,7 +1501,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnMultiData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Base class method implementation
     ///
@@ -1510,70 +1510,70 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
         qtc.QAbstractItemModel_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
         qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn Submit(self: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_Submit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1582,7 +1582,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnSubmit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Base class method implementation
     ///
@@ -1591,14 +1591,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseSubmit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn Revert(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_Revert(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1607,7 +1607,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnRevert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Base class method implementation
     ///
@@ -1616,14 +1616,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseRevert(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn ResetInternalData(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_ResetInternalData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1632,7 +1632,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnResetInternalData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Base class method implementation
     ///
@@ -1641,14 +1641,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseResetInternalData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, column: i32 ```
     pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
         return qtc.QAbstractItemModel_CreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1657,7 +1657,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnCreateIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Base class method implementation
     ///
@@ -1666,14 +1666,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseCreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, column: i32, id: usize ```
     pub fn CreateIndex2(self: ?*anyopaque, row: i32, column: i32, id: usize) QtC.QModelIndex {
         return qtc.QAbstractItemModel_CreateIndex2(@ptrCast(self), @intCast(row), @intCast(column), @intCast(id));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1682,7 +1682,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnCreateIndex2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Base class method implementation
     ///
@@ -1691,7 +1691,7 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseCreateIndex2(@ptrCast(self), @intCast(row), @intCast(column), @intCast(id));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// ``` self: QtC.QAbstractItemModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
@@ -1702,7 +1702,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1711,7 +1711,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Base class method implementation
     ///
@@ -1724,14 +1724,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_DecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1740,7 +1740,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnDecodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Base class method implementation
     ///
@@ -1749,14 +1749,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseDecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32 ```
     pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
         qtc.QAbstractItemModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1765,7 +1765,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnBeginInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Base class method implementation
     ///
@@ -1774,14 +1774,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn EndInsertRows(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_EndInsertRows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1790,7 +1790,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnEndInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Base class method implementation
     ///
@@ -1799,14 +1799,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseEndInsertRows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32 ```
     pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
         qtc.QAbstractItemModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1815,7 +1815,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnBeginRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Base class method implementation
     ///
@@ -1824,14 +1824,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn EndRemoveRows(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_EndRemoveRows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1840,7 +1840,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnEndRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Base class method implementation
     ///
@@ -1849,14 +1849,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseEndRemoveRows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// ``` self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32 ```
     pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
         return qtc.QAbstractItemModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1865,7 +1865,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnBeginMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Base class method implementation
     ///
@@ -1874,14 +1874,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn EndMoveRows(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_EndMoveRows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1890,7 +1890,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnEndMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Base class method implementation
     ///
@@ -1899,14 +1899,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseEndMoveRows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32 ```
     pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
         qtc.QAbstractItemModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1915,7 +1915,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnBeginInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Base class method implementation
     ///
@@ -1924,14 +1924,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn EndInsertColumns(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_EndInsertColumns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1940,7 +1940,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnEndInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Base class method implementation
     ///
@@ -1949,14 +1949,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseEndInsertColumns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32 ```
     pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
         qtc.QAbstractItemModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1965,7 +1965,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnBeginRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Base class method implementation
     ///
@@ -1974,14 +1974,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn EndRemoveColumns(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_EndRemoveColumns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1990,7 +1990,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnEndRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Base class method implementation
     ///
@@ -1999,14 +1999,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseEndRemoveColumns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32 ```
     pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
         return qtc.QAbstractItemModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2015,7 +2015,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnBeginMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Base class method implementation
     ///
@@ -2024,14 +2024,14 @@ pub const qabstractitemmodel = struct {
         return qtc.QAbstractItemModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn EndMoveColumns(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_EndMoveColumns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2040,7 +2040,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnEndMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Base class method implementation
     ///
@@ -2049,14 +2049,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseEndMoveColumns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn BeginResetModel(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_BeginResetModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2065,7 +2065,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnBeginResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Base class method implementation
     ///
@@ -2074,14 +2074,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseBeginResetModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn EndResetModel(self: ?*anyopaque) void {
         qtc.QAbstractItemModel_EndResetModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2090,7 +2090,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnEndResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Base class method implementation
     ///
@@ -2099,14 +2099,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseEndResetModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, from: QtC.QModelIndex, to: QtC.QModelIndex ```
     pub fn ChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
         qtc.QAbstractItemModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2115,7 +2115,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnChangePersistentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Base class method implementation
     ///
@@ -2124,7 +2124,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// ``` self: QtC.QAbstractItemModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
@@ -2139,7 +2139,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2148,7 +2148,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Base class method implementation
     ///
@@ -2165,7 +2165,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_QBaseChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -2177,7 +2177,7 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2186,7 +2186,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Base class method implementation
     ///
@@ -2200,7 +2200,7 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2213,7 +2213,7 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -2226,49 +2226,49 @@ pub const qabstractitemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, parent: QtC.QModelIndex ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QAbstractItemModel, column: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QAbstractItemModel, column: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -2279,14 +2279,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_DataChanged3(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -2297,14 +2297,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self), parents_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -2315,14 +2315,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @intCast(hint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -2333,14 +2333,14 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self), parents_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -2351,21 +2351,21 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @intCast(hint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, row: i32, column: i32, data: ?*anyopaque ```
     pub fn CreateIndex3(self: ?*anyopaque, row: i32, column: i32, data: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractItemModel_CreateIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2374,7 +2374,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnCreateIndex3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Base class method implementation
     ///
@@ -2385,7 +2385,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2398,7 +2398,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractItemModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2411,7 +2411,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2420,7 +2420,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2429,7 +2429,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2438,7 +2438,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2447,7 +2447,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractItemModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2456,7 +2456,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2465,7 +2465,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractItemModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2474,7 +2474,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractItemModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2483,7 +2483,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractItemModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2492,7 +2492,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractItemModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2501,7 +2501,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2515,7 +2515,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAbstractItemModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2524,7 +2524,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractItemModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2533,7 +2533,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractItemModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2542,7 +2542,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2551,7 +2551,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractItemModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2562,7 +2562,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2571,7 +2571,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2580,7 +2580,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2589,7 +2589,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2598,7 +2598,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractItemModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2608,7 +2608,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractItemModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2618,7 +2618,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2642,7 +2642,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2651,7 +2651,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2660,7 +2660,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2669,7 +2669,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2678,7 +2678,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractItemModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2688,7 +2688,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2697,7 +2697,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractItemModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2706,7 +2706,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractItemModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2715,7 +2715,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2724,7 +2724,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractItemModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2735,7 +2735,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractItemModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2744,7 +2744,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractItemModel, callback: *const fn (self: QtC.QAbstractItemModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2753,7 +2753,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2764,7 +2764,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2775,7 +2775,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2786,7 +2786,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2797,7 +2797,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2808,7 +2808,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2819,7 +2819,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2830,7 +2830,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2841,7 +2841,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2852,7 +2852,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2863,7 +2863,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2874,7 +2874,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2885,7 +2885,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2896,7 +2896,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2907,7 +2907,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2918,7 +2918,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2929,7 +2929,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2940,7 +2940,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2951,7 +2951,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2962,7 +2962,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2973,7 +2973,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2984,7 +2984,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2995,7 +2995,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3006,7 +3006,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3017,7 +3017,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3028,7 +3028,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3039,7 +3039,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3050,7 +3050,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3062,7 +3062,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3074,7 +3074,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3085,7 +3085,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3096,7 +3096,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3107,7 +3107,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3116,7 +3116,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3125,7 +3125,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3134,7 +3134,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3143,7 +3143,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3152,7 +3152,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3161,7 +3161,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3170,7 +3170,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3179,7 +3179,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3188,7 +3188,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3197,7 +3197,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3206,7 +3206,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3215,7 +3215,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3224,7 +3224,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3233,7 +3233,7 @@ pub const qabstractitemmodel = struct {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3244,7 +3244,7 @@ pub const qabstractitemmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3253,7 +3253,7 @@ pub const qabstractitemmodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dtor.QAbstractItemModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dtor.QAbstractItemModel)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -3279,7 +3279,7 @@ pub const qabstracttablemodel = struct {
         return qtc.QAbstractTableModel_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -3311,7 +3311,7 @@ pub const qabstracttablemodel = struct {
         return qtc.QAbstractTableModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3323,14 +3323,14 @@ pub const qabstracttablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
     ///
     /// ``` self: QtC.QAbstractTableModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractTableModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3339,7 +3339,7 @@ pub const qabstracttablemodel = struct {
         qtc.QAbstractTableModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
     ///
     /// Base class method implementation
     ///
@@ -3348,14 +3348,14 @@ pub const qabstracttablemodel = struct {
         return qtc.QAbstractTableModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
     ///
     /// ``` self: QtC.QAbstractTableModel, row: i32, column: i32, idx: QtC.QModelIndex ```
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractTableModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3364,7 +3364,7 @@ pub const qabstracttablemodel = struct {
         qtc.QAbstractTableModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
     ///
     /// Base class method implementation
     ///
@@ -3373,14 +3373,14 @@ pub const qabstracttablemodel = struct {
         return qtc.QAbstractTableModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
     ///
     /// ``` self: QtC.QAbstractTableModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractTableModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3389,7 +3389,7 @@ pub const qabstracttablemodel = struct {
         qtc.QAbstractTableModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
     ///
     /// Base class method implementation
     ///
@@ -3398,7 +3398,7 @@ pub const qabstracttablemodel = struct {
         return qtc.QAbstractTableModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
     ///
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex ```
     ///
@@ -3407,7 +3407,7 @@ pub const qabstracttablemodel = struct {
         return qtc.QAbstractTableModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3416,7 +3416,7 @@ pub const qabstracttablemodel = struct {
         qtc.QAbstractTableModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
     ///
     /// Base class method implementation
     ///
@@ -3427,7 +3427,7 @@ pub const qabstracttablemodel = struct {
         return qtc.QAbstractTableModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3440,7 +3440,7 @@ pub const qabstracttablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -3455,7 +3455,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QAbstractTableModel, row: i32, column: i32 ```
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
@@ -3464,7 +3464,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// ``` self: QtC.QAbstractTableModel, child: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
@@ -3473,7 +3473,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3484,7 +3484,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -3495,7 +3495,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// ``` self: QtC.QAbstractTableModel, parent: QtC.QModelIndex ```
     pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
@@ -3504,7 +3504,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3515,7 +3515,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Base class method implementation
     ///
@@ -3526,7 +3526,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QAbstractTableModel, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
@@ -3535,7 +3535,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QAbstractTableModel, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
@@ -3544,7 +3544,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QAbstractTableModel, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
@@ -3553,7 +3553,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QAbstractTableModel, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
@@ -3562,7 +3562,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
     ///
     /// ``` self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceRow: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -3571,7 +3571,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
     ///
     /// ``` self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -3580,7 +3580,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex ```
     pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -3589,7 +3589,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
@@ -3598,7 +3598,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3607,7 +3607,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
@@ -3616,7 +3616,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
@@ -3625,7 +3625,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -3634,7 +3634,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3643,7 +3643,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
@@ -3652,7 +3652,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3661,7 +3661,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QAbstractTableModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -3670,7 +3670,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QAbstractTableModel, row: i32, parent: QtC.QModelIndex ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -3679,7 +3679,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QAbstractTableModel, column: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -3688,7 +3688,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QAbstractTableModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -3697,7 +3697,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QAbstractTableModel, column: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -3706,7 +3706,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
@@ -3715,7 +3715,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -3728,7 +3728,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
@@ -3737,7 +3737,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -3750,7 +3750,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -3759,7 +3759,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -3772,7 +3772,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -3781,7 +3781,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -3794,7 +3794,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -3803,7 +3803,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -3816,7 +3816,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -3825,7 +3825,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3838,7 +3838,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractTableModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3851,7 +3851,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3860,7 +3860,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3869,7 +3869,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3878,7 +3878,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3887,7 +3887,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractTableModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3896,7 +3896,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3905,7 +3905,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractTableModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3914,7 +3914,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractTableModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3923,7 +3923,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractTableModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3932,7 +3932,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractTableModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3941,7 +3941,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3955,7 +3955,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAbstractTableModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3964,7 +3964,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractTableModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3973,7 +3973,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractTableModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3982,7 +3982,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3991,7 +3991,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractTableModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4002,7 +4002,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4011,7 +4011,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4020,7 +4020,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4029,7 +4029,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4038,7 +4038,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractTableModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4048,7 +4048,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractTableModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4058,7 +4058,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -4082,7 +4082,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4091,7 +4091,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4100,7 +4100,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -4109,7 +4109,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -4118,7 +4118,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractTableModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -4128,7 +4128,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -4137,7 +4137,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractTableModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -4146,7 +4146,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractTableModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -4155,7 +4155,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4164,7 +4164,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractTableModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4175,7 +4175,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractTableModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4184,7 +4184,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractTableModel, callback: *const fn (self: QtC.QAbstractTableModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4193,7 +4193,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4204,7 +4204,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4215,7 +4215,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4226,7 +4226,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4237,7 +4237,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4248,7 +4248,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4259,7 +4259,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4270,7 +4270,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4281,7 +4281,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4292,7 +4292,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4303,7 +4303,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4314,7 +4314,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4325,7 +4325,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4336,7 +4336,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4347,7 +4347,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4358,7 +4358,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4369,7 +4369,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4380,7 +4380,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4391,7 +4391,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4416,7 +4416,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4444,7 +4444,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4455,7 +4455,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4466,7 +4466,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4477,7 +4477,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4503,7 +4503,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4529,7 +4529,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4540,7 +4540,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4555,7 +4555,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4570,7 +4570,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4581,7 +4581,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4592,7 +4592,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4603,7 +4603,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4614,7 +4614,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4627,7 +4627,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4640,7 +4640,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4651,7 +4651,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4664,7 +4664,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4677,7 +4677,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4688,7 +4688,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4699,7 +4699,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4710,7 +4710,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4721,7 +4721,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4732,7 +4732,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4743,7 +4743,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4754,7 +4754,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4765,7 +4765,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4776,7 +4776,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4787,7 +4787,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4798,7 +4798,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4809,7 +4809,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4820,7 +4820,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4831,7 +4831,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4842,7 +4842,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4853,7 +4853,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4864,7 +4864,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4875,7 +4875,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4886,7 +4886,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4897,7 +4897,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4908,7 +4908,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4919,7 +4919,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4930,7 +4930,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4941,7 +4941,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4952,7 +4952,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4963,7 +4963,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4974,7 +4974,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4985,7 +4985,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4996,7 +4996,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5007,7 +5007,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5018,7 +5018,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5034,7 +5034,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5050,7 +5050,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5061,7 +5061,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5072,7 +5072,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5083,7 +5083,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5094,7 +5094,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5119,7 +5119,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5130,7 +5130,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5141,7 +5141,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5152,7 +5152,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5163,7 +5163,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5174,7 +5174,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5185,7 +5185,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5196,7 +5196,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5207,7 +5207,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5218,7 +5218,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5229,7 +5229,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5240,7 +5240,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5251,7 +5251,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5262,7 +5262,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5273,7 +5273,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5284,7 +5284,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5295,7 +5295,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5306,7 +5306,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5317,7 +5317,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5328,7 +5328,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5339,7 +5339,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5350,7 +5350,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5361,7 +5361,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5372,7 +5372,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5383,7 +5383,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5394,7 +5394,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5405,7 +5405,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5416,7 +5416,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5427,7 +5427,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5438,7 +5438,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5449,7 +5449,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5460,7 +5460,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5471,7 +5471,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5482,7 +5482,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5493,7 +5493,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5504,7 +5504,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5515,7 +5515,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5530,7 +5530,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5545,7 +5545,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5556,7 +5556,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5567,7 +5567,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5578,7 +5578,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5589,7 +5589,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5600,7 +5600,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5611,7 +5611,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5622,7 +5622,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5633,7 +5633,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5644,7 +5644,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5655,7 +5655,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5666,7 +5666,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5677,7 +5677,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5688,7 +5688,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5699,7 +5699,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5710,7 +5710,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5721,7 +5721,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5732,7 +5732,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5743,7 +5743,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5754,7 +5754,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5765,7 +5765,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5776,7 +5776,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5787,7 +5787,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5798,7 +5798,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5809,7 +5809,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5820,7 +5820,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5831,7 +5831,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5842,7 +5842,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5853,7 +5853,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5864,7 +5864,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5875,7 +5875,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5886,7 +5886,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5897,7 +5897,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5908,7 +5908,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5919,7 +5919,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5930,7 +5930,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5941,7 +5941,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5952,7 +5952,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5963,7 +5963,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5974,7 +5974,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5985,7 +5985,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5996,7 +5996,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6007,7 +6007,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6018,7 +6018,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6029,7 +6029,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6040,7 +6040,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6051,7 +6051,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6062,7 +6062,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6073,7 +6073,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6084,7 +6084,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6103,7 +6103,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6122,7 +6122,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6133,7 +6133,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6149,7 +6149,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6165,7 +6165,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6176,7 +6176,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6187,7 +6187,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6198,7 +6198,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6209,7 +6209,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6220,7 +6220,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6231,7 +6231,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6242,7 +6242,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6254,7 +6254,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6266,7 +6266,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6277,7 +6277,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6288,7 +6288,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6299,7 +6299,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6310,7 +6310,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6321,7 +6321,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6332,7 +6332,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6343,7 +6343,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6354,7 +6354,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6365,7 +6365,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6376,7 +6376,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6387,7 +6387,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6398,7 +6398,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6409,7 +6409,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6420,7 +6420,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6431,7 +6431,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6442,7 +6442,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6453,7 +6453,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6464,7 +6464,7 @@ pub const qabstracttablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6473,7 +6473,7 @@ pub const qabstracttablemodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#dtor.QAbstractTableModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dtor.QAbstractTableModel)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -6499,7 +6499,7 @@ pub const qabstractlistmodel = struct {
         return qtc.QAbstractListModel_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -6531,7 +6531,7 @@ pub const qabstractlistmodel = struct {
         return qtc.QAbstractListModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -6543,14 +6543,14 @@ pub const qabstractlistmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
     ///
     /// ``` self: QtC.QAbstractListModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractListModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
     ///
     /// Allows for overriding the related default method
     ///
@@ -6559,7 +6559,7 @@ pub const qabstractlistmodel = struct {
         qtc.QAbstractListModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
     ///
     /// Base class method implementation
     ///
@@ -6568,14 +6568,14 @@ pub const qabstractlistmodel = struct {
         return qtc.QAbstractListModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
     ///
     /// ``` self: QtC.QAbstractListModel, row: i32, column: i32, idx: QtC.QModelIndex ```
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractListModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
     ///
     /// Allows for overriding the related default method
     ///
@@ -6584,7 +6584,7 @@ pub const qabstractlistmodel = struct {
         qtc.QAbstractListModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
     ///
     /// Base class method implementation
     ///
@@ -6593,14 +6593,14 @@ pub const qabstractlistmodel = struct {
         return qtc.QAbstractListModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
     ///
     /// ``` self: QtC.QAbstractListModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QAbstractListModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -6609,7 +6609,7 @@ pub const qabstractlistmodel = struct {
         qtc.QAbstractListModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
     ///
     /// Base class method implementation
     ///
@@ -6618,7 +6618,7 @@ pub const qabstractlistmodel = struct {
         return qtc.QAbstractListModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
     ///
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex ```
     ///
@@ -6627,7 +6627,7 @@ pub const qabstractlistmodel = struct {
         return qtc.QAbstractListModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -6636,7 +6636,7 @@ pub const qabstractlistmodel = struct {
         qtc.QAbstractListModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
     ///
     /// Base class method implementation
     ///
@@ -6647,7 +6647,7 @@ pub const qabstractlistmodel = struct {
         return qtc.QAbstractListModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -6660,7 +6660,7 @@ pub const qabstractlistmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -6675,7 +6675,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QAbstractListModel, row: i32, column: i32 ```
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
@@ -6684,7 +6684,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// ``` self: QtC.QAbstractListModel, child: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
@@ -6693,7 +6693,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -6704,7 +6704,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -6715,7 +6715,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// ``` self: QtC.QAbstractListModel, parent: QtC.QModelIndex ```
     pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
@@ -6724,7 +6724,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -6735,7 +6735,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// Base class method implementation
     ///
@@ -6746,7 +6746,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// ``` self: QtC.QAbstractListModel, parent: QtC.QModelIndex ```
     pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
@@ -6755,7 +6755,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Allows for overriding the related default method
     ///
@@ -6766,7 +6766,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Base class method implementation
     ///
@@ -6777,7 +6777,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QAbstractListModel, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
@@ -6786,7 +6786,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QAbstractListModel, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
@@ -6795,7 +6795,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QAbstractListModel, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
@@ -6804,7 +6804,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QAbstractListModel, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
@@ -6813,7 +6813,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
     ///
     /// ``` self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceRow: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -6822,7 +6822,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
     ///
     /// ``` self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -6831,7 +6831,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex ```
     pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -6840,7 +6840,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
@@ -6849,7 +6849,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -6858,7 +6858,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
@@ -6867,7 +6867,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
@@ -6876,7 +6876,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -6885,7 +6885,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -6894,7 +6894,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
@@ -6903,7 +6903,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -6912,7 +6912,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QAbstractListModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -6921,7 +6921,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QAbstractListModel, row: i32, parent: QtC.QModelIndex ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -6930,7 +6930,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QAbstractListModel, column: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -6939,7 +6939,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QAbstractListModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -6948,7 +6948,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QAbstractListModel, column: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -6957,7 +6957,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
@@ -6966,7 +6966,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -6979,7 +6979,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
@@ -6988,7 +6988,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -7001,7 +7001,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -7010,7 +7010,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -7023,7 +7023,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -7032,7 +7032,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -7045,7 +7045,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -7054,7 +7054,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -7067,7 +7067,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -7076,7 +7076,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -7089,7 +7089,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractListModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -7102,7 +7102,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -7111,7 +7111,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -7120,7 +7120,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -7129,7 +7129,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -7138,7 +7138,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractListModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -7147,7 +7147,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -7156,7 +7156,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractListModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -7165,7 +7165,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractListModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -7174,7 +7174,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractListModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -7183,7 +7183,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractListModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -7192,7 +7192,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -7206,7 +7206,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAbstractListModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -7215,7 +7215,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractListModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -7224,7 +7224,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractListModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -7233,7 +7233,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -7242,7 +7242,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractListModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -7253,7 +7253,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -7262,7 +7262,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -7271,7 +7271,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -7280,7 +7280,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -7289,7 +7289,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractListModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -7299,7 +7299,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractListModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -7309,7 +7309,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -7333,7 +7333,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -7342,7 +7342,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -7351,7 +7351,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -7360,7 +7360,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -7369,7 +7369,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractListModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -7379,7 +7379,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractListModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -7388,7 +7388,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractListModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -7397,7 +7397,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractListModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -7406,7 +7406,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -7415,7 +7415,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractListModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -7426,7 +7426,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractListModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -7435,7 +7435,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractListModel, callback: *const fn (self: QtC.QAbstractListModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -7444,7 +7444,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7455,7 +7455,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7466,7 +7466,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7477,7 +7477,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7488,7 +7488,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7499,7 +7499,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7510,7 +7510,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7521,7 +7521,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7532,7 +7532,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7543,7 +7543,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7554,7 +7554,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7565,7 +7565,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7576,7 +7576,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7587,7 +7587,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7598,7 +7598,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7609,7 +7609,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7634,7 +7634,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7662,7 +7662,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7673,7 +7673,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7684,7 +7684,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7695,7 +7695,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7721,7 +7721,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7747,7 +7747,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7758,7 +7758,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7773,7 +7773,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7788,7 +7788,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7799,7 +7799,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7810,7 +7810,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7821,7 +7821,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7832,7 +7832,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7845,7 +7845,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7858,7 +7858,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7869,7 +7869,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7882,7 +7882,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7895,7 +7895,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7906,7 +7906,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7917,7 +7917,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7928,7 +7928,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7939,7 +7939,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7950,7 +7950,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7961,7 +7961,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7972,7 +7972,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7983,7 +7983,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7994,7 +7994,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8005,7 +8005,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8016,7 +8016,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8027,7 +8027,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8038,7 +8038,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8049,7 +8049,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8060,7 +8060,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8071,7 +8071,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8082,7 +8082,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8093,7 +8093,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8104,7 +8104,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8115,7 +8115,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8126,7 +8126,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8137,7 +8137,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8148,7 +8148,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8159,7 +8159,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8170,7 +8170,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8181,7 +8181,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8192,7 +8192,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8203,7 +8203,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8214,7 +8214,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8225,7 +8225,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8236,7 +8236,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8252,7 +8252,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8268,7 +8268,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8279,7 +8279,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8290,7 +8290,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8301,7 +8301,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8312,7 +8312,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8337,7 +8337,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8348,7 +8348,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8359,7 +8359,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8370,7 +8370,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8381,7 +8381,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8392,7 +8392,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8403,7 +8403,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8414,7 +8414,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8425,7 +8425,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8436,7 +8436,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8447,7 +8447,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8458,7 +8458,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8469,7 +8469,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8480,7 +8480,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8491,7 +8491,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8502,7 +8502,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8513,7 +8513,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8524,7 +8524,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8535,7 +8535,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8546,7 +8546,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8557,7 +8557,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8568,7 +8568,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8579,7 +8579,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8590,7 +8590,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8601,7 +8601,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8612,7 +8612,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8623,7 +8623,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8634,7 +8634,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8645,7 +8645,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8656,7 +8656,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8667,7 +8667,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8678,7 +8678,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8689,7 +8689,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8700,7 +8700,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8711,7 +8711,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8722,7 +8722,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8733,7 +8733,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8748,7 +8748,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8763,7 +8763,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8774,7 +8774,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8785,7 +8785,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8796,7 +8796,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8807,7 +8807,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8818,7 +8818,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8829,7 +8829,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8840,7 +8840,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8851,7 +8851,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8862,7 +8862,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8873,7 +8873,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8884,7 +8884,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8895,7 +8895,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8906,7 +8906,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8917,7 +8917,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8928,7 +8928,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8939,7 +8939,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8950,7 +8950,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8961,7 +8961,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8972,7 +8972,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8983,7 +8983,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8994,7 +8994,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9005,7 +9005,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9016,7 +9016,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9027,7 +9027,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9038,7 +9038,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9049,7 +9049,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9060,7 +9060,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9071,7 +9071,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9082,7 +9082,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9093,7 +9093,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9104,7 +9104,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9115,7 +9115,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9126,7 +9126,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9137,7 +9137,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9148,7 +9148,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9159,7 +9159,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9170,7 +9170,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9181,7 +9181,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9192,7 +9192,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9203,7 +9203,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9214,7 +9214,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9225,7 +9225,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9236,7 +9236,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9247,7 +9247,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9258,7 +9258,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9269,7 +9269,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9280,7 +9280,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9291,7 +9291,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9302,7 +9302,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9321,7 +9321,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9340,7 +9340,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9351,7 +9351,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9367,7 +9367,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9383,7 +9383,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9394,7 +9394,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9405,7 +9405,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9416,7 +9416,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9427,7 +9427,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9438,7 +9438,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9449,7 +9449,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9460,7 +9460,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9472,7 +9472,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9484,7 +9484,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9495,7 +9495,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9506,7 +9506,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9517,7 +9517,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9528,7 +9528,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9539,7 +9539,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9550,7 +9550,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9561,7 +9561,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9572,7 +9572,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9583,7 +9583,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9594,7 +9594,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9605,7 +9605,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9616,7 +9616,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9627,7 +9627,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9638,7 +9638,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9649,7 +9649,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9660,7 +9660,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9671,7 +9671,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9682,7 +9682,7 @@ pub const qabstractlistmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9691,7 +9691,7 @@ pub const qabstractlistmodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#dtor.QAbstractListModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dtor.QAbstractListModel)
     ///
     /// Delete this object from C++ memory.
     ///

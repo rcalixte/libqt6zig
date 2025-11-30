@@ -28,7 +28,7 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -60,7 +60,7 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -72,14 +72,14 @@ pub const qmdiarea = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#sizeHint)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QMdiArea_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -88,7 +88,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -97,14 +97,14 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#minimumSizeHint)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QMdiArea_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -113,7 +113,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -122,21 +122,21 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#currentSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#currentSubWindow)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn CurrentSubWindow(self: ?*anyopaque) QtC.QMdiSubWindow {
         return qtc.QMdiArea_CurrentSubWindow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#activeSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#activeSubWindow)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ActiveSubWindow(self: ?*anyopaque) QtC.QMdiSubWindow {
         return qtc.QMdiArea_ActiveSubWindow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#subWindowList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#subWindowList)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn SubWindowList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QMdiSubWindow {
@@ -148,35 +148,35 @@ pub const qmdiarea = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#addSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#addSubWindow)
     ///
     /// ``` self: QtC.QMdiArea, widget: QtC.QWidget ```
     pub fn AddSubWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QMdiSubWindow {
         return qtc.QMdiArea_AddSubWindow(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#removeSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#removeSubWindow)
     ///
     /// ``` self: QtC.QMdiArea, widget: QtC.QWidget ```
     pub fn RemoveSubWindow(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QMdiArea_RemoveSubWindow(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#background)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#background)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Background(self: ?*anyopaque) QtC.QBrush {
         return qtc.QMdiArea_Background(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setBackground)
     ///
     /// ``` self: QtC.QMdiArea, background: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, background: ?*anyopaque) void {
         qtc.QMdiArea_SetBackground(@ptrCast(self), @ptrCast(background));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#activationOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#activationOrder)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -185,35 +185,35 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_ActivationOrder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setActivationOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setActivationOrder)
     ///
     /// ``` self: QtC.QMdiArea, order: qmdiarea_enums.WindowOrder ```
     pub fn SetActivationOrder(self: ?*anyopaque, order: i32) void {
         qtc.QMdiArea_SetActivationOrder(@ptrCast(self), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setOption)
     ///
     /// ``` self: QtC.QMdiArea, option: qmdiarea_enums.AreaOption ```
     pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QMdiArea_SetOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#testOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#testOption)
     ///
     /// ``` self: QtC.QMdiArea, opton: qmdiarea_enums.AreaOption ```
     pub fn TestOption(self: ?*anyopaque, opton: i32) bool {
         return qtc.QMdiArea_TestOption(@ptrCast(self), @intCast(opton));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setViewMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setViewMode)
     ///
     /// ``` self: QtC.QMdiArea, mode: qmdiarea_enums.ViewMode ```
     pub fn SetViewMode(self: ?*anyopaque, mode: i32) void {
         qtc.QMdiArea_SetViewMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#viewMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#viewMode)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -222,56 +222,56 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_ViewMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#documentMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#documentMode)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn DocumentMode(self: ?*anyopaque) bool {
         return qtc.QMdiArea_DocumentMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setDocumentMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setDocumentMode)
     ///
     /// ``` self: QtC.QMdiArea, enabled: bool ```
     pub fn SetDocumentMode(self: ?*anyopaque, enabled: bool) void {
         qtc.QMdiArea_SetDocumentMode(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setTabsClosable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setTabsClosable)
     ///
     /// ``` self: QtC.QMdiArea, closable: bool ```
     pub fn SetTabsClosable(self: ?*anyopaque, closable: bool) void {
         qtc.QMdiArea_SetTabsClosable(@ptrCast(self), closable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#tabsClosable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#tabsClosable)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn TabsClosable(self: ?*anyopaque) bool {
         return qtc.QMdiArea_TabsClosable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setTabsMovable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setTabsMovable)
     ///
     /// ``` self: QtC.QMdiArea, movable: bool ```
     pub fn SetTabsMovable(self: ?*anyopaque, movable: bool) void {
         qtc.QMdiArea_SetTabsMovable(@ptrCast(self), movable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#tabsMovable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#tabsMovable)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn TabsMovable(self: ?*anyopaque) bool {
         return qtc.QMdiArea_TabsMovable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setTabShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setTabShape)
     ///
     /// ``` self: QtC.QMdiArea, shape: qtabwidget_enums.TabShape ```
     pub fn SetTabShape(self: ?*anyopaque, shape: i32) void {
         qtc.QMdiArea_SetTabShape(@ptrCast(self), @intCast(shape));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#tabShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#tabShape)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -280,14 +280,14 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_TabShape(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setTabPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setTabPosition)
     ///
     /// ``` self: QtC.QMdiArea, position: qtabwidget_enums.TabPosition ```
     pub fn SetTabPosition(self: ?*anyopaque, position: i32) void {
         qtc.QMdiArea_SetTabPosition(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#tabPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#tabPosition)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -296,77 +296,77 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_TabPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#subWindowActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#subWindowActivated)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QMdiSubWindow ```
     pub fn SubWindowActivated(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QMdiArea_SubWindowActivated(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#subWindowActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#subWindowActivated)
     ///
     /// ``` self: QtC.QMdiArea, callback: *const fn (self: QtC.QMdiArea, param1: QtC.QMdiSubWindow) callconv(.c) void ```
     pub fn OnSubWindowActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMdiArea_Connect_SubWindowActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setActiveSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setActiveSubWindow)
     ///
     /// ``` self: QtC.QMdiArea, window: QtC.QMdiSubWindow ```
     pub fn SetActiveSubWindow(self: ?*anyopaque, window: ?*anyopaque) void {
         qtc.QMdiArea_SetActiveSubWindow(@ptrCast(self), @ptrCast(window));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#tileSubWindows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#tileSubWindows)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn TileSubWindows(self: ?*anyopaque) void {
         qtc.QMdiArea_TileSubWindows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#cascadeSubWindows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#cascadeSubWindows)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn CascadeSubWindows(self: ?*anyopaque) void {
         qtc.QMdiArea_CascadeSubWindows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#closeActiveSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#closeActiveSubWindow)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn CloseActiveSubWindow(self: ?*anyopaque) void {
         qtc.QMdiArea_CloseActiveSubWindow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#closeAllSubWindows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#closeAllSubWindows)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn CloseAllSubWindows(self: ?*anyopaque) void {
         qtc.QMdiArea_CloseAllSubWindows(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#activateNextSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#activateNextSubWindow)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ActivateNextSubWindow(self: ?*anyopaque) void {
         qtc.QMdiArea_ActivateNextSubWindow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#activatePreviousSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#activatePreviousSubWindow)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ActivatePreviousSubWindow(self: ?*anyopaque) void {
         qtc.QMdiArea_ActivatePreviousSubWindow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setupViewport)
     ///
     /// ``` self: QtC.QMdiArea, viewport: QtC.QWidget ```
     pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
         qtc.QMdiArea_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setupViewport)
     ///
     /// Allows for overriding the related default method
     ///
@@ -375,7 +375,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setupViewport)
     ///
     /// Base class method implementation
     ///
@@ -384,14 +384,14 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#event)
     ///
     /// ``` self: QtC.QMdiArea, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QMdiArea_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -400,7 +400,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#event)
     ///
     /// Base class method implementation
     ///
@@ -409,14 +409,14 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#eventFilter)
     ///
     /// ``` self: QtC.QMdiArea, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QMdiArea_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -425,7 +425,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -434,14 +434,14 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#paintEvent)
     ///
     /// ``` self: QtC.QMdiArea, paintEvent: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, paintEvent: ?*anyopaque) void {
         qtc.QMdiArea_PaintEvent(@ptrCast(self), @ptrCast(paintEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -450,7 +450,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -459,14 +459,14 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_QBasePaintEvent(@ptrCast(self), @ptrCast(paintEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#childEvent)
     ///
     /// ``` self: QtC.QMdiArea, childEvent: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, childEvent: ?*anyopaque) void {
         qtc.QMdiArea_ChildEvent(@ptrCast(self), @ptrCast(childEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#childEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -475,7 +475,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#childEvent)
     ///
     /// Base class method implementation
     ///
@@ -484,14 +484,14 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_QBaseChildEvent(@ptrCast(self), @ptrCast(childEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#resizeEvent)
     ///
     /// ``` self: QtC.QMdiArea, resizeEvent: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, resizeEvent: ?*anyopaque) void {
         qtc.QMdiArea_ResizeEvent(@ptrCast(self), @ptrCast(resizeEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -500,7 +500,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -509,14 +509,14 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_QBaseResizeEvent(@ptrCast(self), @ptrCast(resizeEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#timerEvent)
     ///
     /// ``` self: QtC.QMdiArea, timerEvent: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, timerEvent: ?*anyopaque) void {
         qtc.QMdiArea_TimerEvent(@ptrCast(self), @ptrCast(timerEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#timerEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -525,7 +525,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#timerEvent)
     ///
     /// Base class method implementation
     ///
@@ -534,14 +534,14 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_QBaseTimerEvent(@ptrCast(self), @ptrCast(timerEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#showEvent)
     ///
     /// ``` self: QtC.QMdiArea, showEvent: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, showEvent: ?*anyopaque) void {
         qtc.QMdiArea_ShowEvent(@ptrCast(self), @ptrCast(showEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -550,7 +550,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -559,14 +559,14 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_QBaseShowEvent(@ptrCast(self), @ptrCast(showEvent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#viewportEvent)
     ///
     /// ``` self: QtC.QMdiArea, event: QtC.QEvent ```
     pub fn ViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QMdiArea_ViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#viewportEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -575,7 +575,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#viewportEvent)
     ///
     /// Base class method implementation
     ///
@@ -584,14 +584,14 @@ pub const qmdiarea = struct {
         return qtc.QMdiArea_QBaseViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#scrollContentsBy)
     ///
     /// ``` self: QtC.QMdiArea, dx: i32, dy: i32 ```
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QMdiArea_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#scrollContentsBy)
     ///
     /// Allows for overriding the related default method
     ///
@@ -600,7 +600,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#scrollContentsBy)
     ///
     /// Base class method implementation
     ///
@@ -609,7 +609,7 @@ pub const qmdiarea = struct {
         qtc.QMdiArea_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -622,7 +622,7 @@ pub const qmdiarea = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -635,7 +635,7 @@ pub const qmdiarea = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#subWindowList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#subWindowList)
     ///
     /// ``` self: QtC.QMdiArea, order: qmdiarea_enums.WindowOrder, allocator: std.mem.Allocator ```
     pub fn SubWindowList1(self: ?*anyopaque, order: i32, allocator: std.mem.Allocator) []QtC.QMdiSubWindow {
@@ -647,14 +647,14 @@ pub const qmdiarea = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#addSubWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#addSubWindow)
     ///
     /// ``` self: QtC.QMdiArea, widget: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn AddSubWindow2(self: ?*anyopaque, widget: ?*anyopaque, flags: i64) QtC.QMdiSubWindow {
         return qtc.QMdiArea_AddSubWindow2(@ptrCast(self), @ptrCast(widget), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#setOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#setOption)
     ///
     /// ``` self: QtC.QMdiArea, option: qmdiarea_enums.AreaOption, on: bool ```
     pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
@@ -663,7 +663,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -674,7 +674,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QMdiArea, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -683,7 +683,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -692,7 +692,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.QMdiArea, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -701,7 +701,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -712,7 +712,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QMdiArea, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -721,7 +721,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -730,7 +730,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.QMdiArea, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -739,7 +739,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -748,7 +748,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.QMdiArea, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -757,7 +757,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QMdiArea, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -766,7 +766,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QMdiArea, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -780,7 +780,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -789,7 +789,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.QMdiArea, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -798,7 +798,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -807,7 +807,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -818,7 +818,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QMdiArea, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -827,7 +827,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -836,7 +836,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.QMdiArea, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -845,7 +845,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -854,7 +854,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -865,7 +865,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QMdiArea, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -874,7 +874,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -885,7 +885,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QMdiArea, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -894,7 +894,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -903,7 +903,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.QMdiArea, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -912,7 +912,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -921,7 +921,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.QMdiArea, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -930,7 +930,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -939,7 +939,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.QMdiArea, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -948,7 +948,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -957,7 +957,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -966,7 +966,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -975,7 +975,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -984,7 +984,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -993,7 +993,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.QMdiArea, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -1002,7 +1002,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -1011,7 +1011,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -1020,7 +1020,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -1029,7 +1029,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -1040,7 +1040,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QMdiArea, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -1049,7 +1049,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1058,7 +1058,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -1067,7 +1067,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.QMdiArea, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1076,7 +1076,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.QMdiArea, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -1085,7 +1085,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.QMdiArea, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -1094,7 +1094,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1103,7 +1103,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -1112,7 +1112,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1121,7 +1121,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -1130,7 +1130,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -1139,7 +1139,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -1148,7 +1148,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -1157,7 +1157,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -1166,7 +1166,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -1175,7 +1175,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -1184,7 +1184,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -1193,7 +1193,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -1202,7 +1202,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -1211,7 +1211,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -1220,7 +1220,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -1229,7 +1229,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -1238,7 +1238,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -1247,7 +1247,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -1256,7 +1256,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -1265,7 +1265,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QMdiArea, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -1274,7 +1274,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QMdiArea, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -1283,7 +1283,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QMdiArea, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -1292,7 +1292,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QMdiArea, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -1301,7 +1301,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QMdiArea, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -1310,7 +1310,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QMdiArea, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -1319,7 +1319,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QMdiArea, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -1328,7 +1328,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QMdiArea, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -1337,7 +1337,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -1346,7 +1346,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QMdiArea, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -1355,7 +1355,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QMdiArea, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1364,7 +1364,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -1373,7 +1373,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QMdiArea, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -1382,7 +1382,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QMdiArea, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -1391,7 +1391,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QMdiArea, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -1400,7 +1400,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QMdiArea, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1409,7 +1409,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.QMdiArea, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -1418,7 +1418,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.QMdiArea, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -1427,7 +1427,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1436,7 +1436,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1445,7 +1445,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1454,7 +1454,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1463,7 +1463,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1472,7 +1472,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1481,7 +1481,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1490,7 +1490,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1499,7 +1499,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1508,7 +1508,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1517,7 +1517,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1526,7 +1526,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1535,7 +1535,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -1544,7 +1544,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1553,7 +1553,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1562,7 +1562,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -1571,7 +1571,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.QMdiArea, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -1580,7 +1580,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QMdiArea, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -1589,7 +1589,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -1600,7 +1600,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QMdiArea, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -1609,7 +1609,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -1620,7 +1620,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -1629,7 +1629,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.QMdiArea, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -1638,7 +1638,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -1647,7 +1647,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -1656,7 +1656,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -1665,7 +1665,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.QMdiArea, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -1674,7 +1674,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -1683,7 +1683,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.QMdiArea, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -1692,7 +1692,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -1701,7 +1701,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -1710,7 +1710,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.QMdiArea, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -1719,7 +1719,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -1728,7 +1728,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QMdiArea, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -1737,7 +1737,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QMdiArea, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -1746,7 +1746,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -1755,7 +1755,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -1764,7 +1764,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiArea, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -1773,7 +1773,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiArea, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -1782,7 +1782,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -1791,7 +1791,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -1800,7 +1800,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QMdiArea, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -1809,7 +1809,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QMdiArea, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1818,7 +1818,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.QMdiArea, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1827,7 +1827,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QMdiArea, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -1840,7 +1840,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.QMdiArea, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -1853,7 +1853,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1866,7 +1866,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1879,7 +1879,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.QMdiArea, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -1888,7 +1888,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -1897,7 +1897,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.QMdiArea, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -1910,7 +1910,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1923,7 +1923,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.QMdiArea, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -1936,7 +1936,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1949,7 +1949,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.QMdiArea, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -1962,7 +1962,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1975,7 +1975,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.QMdiArea, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -1984,7 +1984,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -1993,7 +1993,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -2002,7 +2002,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.QMdiArea, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -2015,7 +2015,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2028,7 +2028,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.QMdiArea, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -2037,7 +2037,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -2046,7 +2046,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.QMdiArea, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -2059,7 +2059,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2072,7 +2072,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.QMdiArea, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -2085,7 +2085,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2098,7 +2098,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2111,7 +2111,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.QMdiArea, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -2124,7 +2124,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2137,7 +2137,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.QMdiArea, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -2150,7 +2150,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QMdiArea, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -2159,7 +2159,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -2170,7 +2170,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -2179,7 +2179,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.QMdiArea, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -2188,7 +2188,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -2197,7 +2197,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -2206,7 +2206,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -2215,7 +2215,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -2224,7 +2224,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -2233,7 +2233,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -2242,7 +2242,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -2251,7 +2251,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -2260,7 +2260,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QMdiArea, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -2269,7 +2269,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -2280,7 +2280,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QMdiArea, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2289,7 +2289,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -2298,7 +2298,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -2307,7 +2307,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.QMdiArea, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -2316,7 +2316,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -2325,7 +2325,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -2336,7 +2336,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QMdiArea, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2345,7 +2345,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -2354,7 +2354,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2363,7 +2363,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -2372,7 +2372,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -2381,7 +2381,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -2390,7 +2390,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QMdiArea, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -2399,7 +2399,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QMdiArea, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -2408,7 +2408,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QMdiArea, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -2417,7 +2417,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QMdiArea, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -2426,7 +2426,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -2435,7 +2435,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -2444,7 +2444,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -2453,7 +2453,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.QMdiArea, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -2462,7 +2462,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -2471,7 +2471,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Update(self: ?*anyopaque) void {
@@ -2480,7 +2480,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -2489,7 +2489,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMdiArea, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2498,7 +2498,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2507,7 +2507,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2516,7 +2516,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMdiArea, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2525,7 +2525,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2534,7 +2534,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2543,7 +2543,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.QMdiArea, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -2552,7 +2552,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Show(self: ?*anyopaque) void {
@@ -2561,7 +2561,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -2570,7 +2570,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -2579,7 +2579,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -2588,7 +2588,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -2597,7 +2597,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -2606,7 +2606,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -2615,7 +2615,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -2624,7 +2624,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -2633,7 +2633,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2642,7 +2642,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QMdiArea, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -2651,7 +2651,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2660,7 +2660,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QMdiArea, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2669,7 +2669,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2678,7 +2678,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QMdiArea, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2687,7 +2687,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QMdiArea, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -2696,7 +2696,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -2709,7 +2709,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.QMdiArea, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -2722,7 +2722,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -2731,7 +2731,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -2740,7 +2740,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2749,7 +2749,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -2758,7 +2758,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -2767,7 +2767,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -2776,7 +2776,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -2785,7 +2785,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -2796,7 +2796,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QMdiArea, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -2805,7 +2805,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QMdiArea, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -2814,7 +2814,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -2823,7 +2823,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QMdiArea, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -2832,7 +2832,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QMdiArea, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -2841,7 +2841,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2850,7 +2850,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QMdiArea, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -2859,7 +2859,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QMdiArea, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -2868,7 +2868,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -2877,7 +2877,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -2886,7 +2886,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -2895,7 +2895,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.QMdiArea, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -2904,7 +2904,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -2913,7 +2913,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QMdiArea, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2922,7 +2922,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QMdiArea, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -2931,7 +2931,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QMdiArea, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -2940,7 +2940,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QMdiArea, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -2949,7 +2949,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2958,7 +2958,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -2967,7 +2967,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -2976,7 +2976,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -2985,7 +2985,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QMdiArea, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -2994,7 +2994,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiArea, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3003,7 +3003,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.QMdiArea, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3016,7 +3016,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.QMdiArea, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3029,7 +3029,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.QMdiArea, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -3038,7 +3038,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.QMdiArea, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3047,7 +3047,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -3061,7 +3061,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiArea, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3074,7 +3074,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiArea, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3087,7 +3087,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiArea, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3100,7 +3100,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMdiArea, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3113,7 +3113,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3122,7 +3122,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QMdiArea, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3131,7 +3131,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -3142,7 +3142,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QMdiArea, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -3151,7 +3151,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.QMdiArea, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3160,7 +3160,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -3171,7 +3171,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -3180,7 +3180,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMdiArea, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -3189,7 +3189,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMdiArea, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3198,7 +3198,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMdiArea, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3207,7 +3207,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMdiArea, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -3216,7 +3216,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QMdiArea, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -3225,7 +3225,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -3234,7 +3234,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.QMdiArea, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -3243,7 +3243,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -3252,7 +3252,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QMdiArea, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -3261,7 +3261,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -3270,7 +3270,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -3279,7 +3279,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -3288,7 +3288,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.QMdiArea, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -3297,7 +3297,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -3306,7 +3306,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QMdiArea, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -3319,7 +3319,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QMdiArea, callback: *const fn (self: QtC.QMdiArea, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3328,7 +3328,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QMdiArea, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3337,7 +3337,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QMdiArea, callback: *const fn (self: QtC.QMdiArea, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3346,7 +3346,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QMdiArea, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -3359,7 +3359,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QMdiArea, callback: *const fn (self: QtC.QMdiArea, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3368,7 +3368,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QMdiArea, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -3377,7 +3377,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QMdiArea, callback: *const fn (self: QtC.QMdiArea, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3386,7 +3386,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QMdiArea ```
     ///
@@ -3397,7 +3397,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QMdiArea, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -3406,7 +3406,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiArea, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3415,7 +3415,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiArea, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3424,7 +3424,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiArea, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3433,7 +3433,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiArea, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3442,7 +3442,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiArea, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3451,7 +3451,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMdiArea, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3460,7 +3460,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QMdiArea, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -3469,7 +3469,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QMdiArea, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -3478,7 +3478,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QMdiArea, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -3487,7 +3487,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QMdiArea, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3496,7 +3496,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QMdiArea, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3505,7 +3505,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QMdiArea, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -3514,7 +3514,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMdiArea, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -3523,7 +3523,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -3532,7 +3532,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -3541,7 +3541,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3554,7 +3554,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QMdiArea, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3567,7 +3567,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3576,7 +3576,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3585,7 +3585,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3594,7 +3594,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3603,7 +3603,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QMdiArea, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3612,7 +3612,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3621,7 +3621,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMdiArea, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3630,7 +3630,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMdiArea, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3639,7 +3639,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMdiArea, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3648,7 +3648,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMdiArea, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3657,7 +3657,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3671,7 +3671,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QMdiArea, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3680,7 +3680,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QMdiArea, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3689,7 +3689,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3698,7 +3698,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMdiArea, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -3709,7 +3709,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -3718,7 +3718,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -3727,7 +3727,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -3736,7 +3736,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -3745,7 +3745,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QMdiArea, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -3755,7 +3755,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QMdiArea, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -3765,7 +3765,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -3789,7 +3789,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3798,7 +3798,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3807,7 +3807,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -3816,7 +3816,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMdiArea, callback: *const fn (self: QtC.QMdiArea) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3825,7 +3825,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3834,7 +3834,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QMdiArea, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3844,7 +3844,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3853,7 +3853,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMdiArea, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3862,7 +3862,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMdiArea, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3871,7 +3871,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3880,7 +3880,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMdiArea, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3891,7 +3891,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMdiArea, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3900,7 +3900,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMdiArea, callback: *const fn (self: QtC.QMdiArea, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3909,7 +3909,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -3918,7 +3918,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -3927,7 +3927,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -3936,7 +3936,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -3945,7 +3945,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -3954,7 +3954,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -3963,7 +3963,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -3972,7 +3972,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -3981,7 +3981,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -3990,7 +3990,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -3999,7 +3999,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QMdiArea ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -4008,7 +4008,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -4017,7 +4017,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -4026,7 +4026,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4037,7 +4037,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4048,7 +4048,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4059,7 +4059,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4070,7 +4070,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4081,7 +4081,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4092,7 +4092,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4103,7 +4103,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4114,7 +4114,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4125,7 +4125,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4136,7 +4136,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4147,7 +4147,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4158,7 +4158,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4169,7 +4169,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4180,7 +4180,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4191,7 +4191,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4202,7 +4202,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4213,7 +4213,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4224,7 +4224,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4235,7 +4235,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4246,7 +4246,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4257,7 +4257,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4268,7 +4268,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4279,7 +4279,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4290,7 +4290,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4301,7 +4301,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4312,7 +4312,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4323,7 +4323,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4334,7 +4334,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4345,7 +4345,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4356,7 +4356,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4367,7 +4367,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4378,7 +4378,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4389,7 +4389,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4400,7 +4400,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4411,7 +4411,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4422,7 +4422,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4433,7 +4433,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4444,7 +4444,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4455,7 +4455,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4466,7 +4466,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4477,7 +4477,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4488,7 +4488,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4499,7 +4499,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4510,7 +4510,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4521,7 +4521,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4532,7 +4532,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4543,7 +4543,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4554,7 +4554,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4565,7 +4565,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4576,7 +4576,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4587,7 +4587,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4598,7 +4598,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4609,7 +4609,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4620,7 +4620,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4631,7 +4631,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4642,7 +4642,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4653,7 +4653,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4664,7 +4664,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4675,7 +4675,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4686,7 +4686,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4697,7 +4697,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4708,7 +4708,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4719,7 +4719,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4730,7 +4730,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4741,7 +4741,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4752,7 +4752,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4763,7 +4763,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4774,7 +4774,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4785,7 +4785,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4796,7 +4796,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4807,7 +4807,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4818,7 +4818,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4829,7 +4829,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4840,7 +4840,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4851,7 +4851,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4862,7 +4862,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4873,7 +4873,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4884,7 +4884,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4895,7 +4895,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4906,7 +4906,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4917,7 +4917,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4928,7 +4928,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4939,7 +4939,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4950,7 +4950,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4961,7 +4961,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4972,7 +4972,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4983,7 +4983,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4998,7 +4998,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5013,7 +5013,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5024,7 +5024,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5035,7 +5035,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5046,7 +5046,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5057,7 +5057,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5068,7 +5068,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5079,7 +5079,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5090,7 +5090,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5101,7 +5101,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5112,7 +5112,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5123,7 +5123,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5134,7 +5134,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5145,7 +5145,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5156,7 +5156,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5167,7 +5167,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5178,7 +5178,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5189,7 +5189,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5200,7 +5200,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5211,7 +5211,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5222,7 +5222,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5233,7 +5233,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5244,7 +5244,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5255,7 +5255,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5266,7 +5266,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5277,7 +5277,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5288,7 +5288,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5299,7 +5299,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5310,7 +5310,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5321,7 +5321,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5332,7 +5332,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5343,7 +5343,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5354,7 +5354,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5365,7 +5365,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5376,7 +5376,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5387,7 +5387,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5398,7 +5398,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5409,7 +5409,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5420,7 +5420,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5431,7 +5431,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5442,7 +5442,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5453,7 +5453,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5464,7 +5464,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5475,7 +5475,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5486,7 +5486,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5497,7 +5497,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5508,7 +5508,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5519,7 +5519,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5530,7 +5530,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5541,7 +5541,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5552,7 +5552,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5563,7 +5563,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5574,7 +5574,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5585,7 +5585,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5596,7 +5596,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5607,7 +5607,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5618,7 +5618,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5629,7 +5629,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5640,7 +5640,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5651,7 +5651,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5662,7 +5662,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5673,7 +5673,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5684,7 +5684,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5696,7 +5696,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5708,7 +5708,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5719,7 +5719,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5730,7 +5730,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5741,7 +5741,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5752,7 +5752,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5763,7 +5763,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5774,7 +5774,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5785,7 +5785,7 @@ pub const qmdiarea = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -5794,7 +5794,7 @@ pub const qmdiarea = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#dtor.QMdiArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmdiarea.html#dtor.QMdiArea)
     ///
     /// Delete this object from C++ memory.
     ///

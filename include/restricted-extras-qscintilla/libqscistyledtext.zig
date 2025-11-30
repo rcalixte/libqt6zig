@@ -35,14 +35,14 @@ pub const qscistyledtext = struct {
         return qtc.QsciStyledText_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
     /// ``` self: QtC.QsciStyledText, sci: QtC.QsciScintillaBase ```
     pub fn Apply(self: ?*anyopaque, sci: ?*anyopaque) void {
         qtc.QsciStyledText_Apply(@ptrCast(self), @ptrCast(sci));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
     /// ``` self: QtC.QsciStyledText, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -53,14 +53,14 @@ pub const qscistyledtext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
     /// ``` self: QtC.QsciStyledText ```
     pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QsciStyledText_Style(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
     /// Delete this object from C++ memory.
     ///

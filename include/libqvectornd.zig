@@ -88,182 +88,182 @@ pub const qvector2d = struct {
         qtc.QVector2D_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#isNull)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QVector2D_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#x)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn X(self: ?*anyopaque) f32 {
         return qtc.QVector2D_X(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#y)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn Y(self: ?*anyopaque) f32 {
         return qtc.QVector2D_Y(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#setX)
     ///
     /// ``` self: QtC.QVector2D, x: f32 ```
     pub fn SetX(self: ?*anyopaque, x: f32) void {
         qtc.QVector2D_SetX(@ptrCast(self), @floatCast(x));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#setY)
     ///
     /// ``` self: QtC.QVector2D, y: f32 ```
     pub fn SetY(self: ?*anyopaque, y: f32) void {
         qtc.QVector2D_SetY(@ptrCast(self), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector2D, i: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
         return @ptrCast(qtc.QVector2D_OperatorSubscript(@ptrCast(self), @intCast(i)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector2D, i: i32 ```
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
         return qtc.QVector2D_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#length)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn Length(self: ?*anyopaque) f32 {
         return qtc.QVector2D_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#lengthSquared)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#lengthSquared)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn LengthSquared(self: ?*anyopaque) f32 {
         return qtc.QVector2D_LengthSquared(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#normalized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#normalized)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn Normalized(self: ?*anyopaque) QtC.QVector2D {
         return qtc.QVector2D_Normalized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#normalize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#normalize)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn Normalize(self: ?*anyopaque) void {
         qtc.QVector2D_Normalize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#distanceToPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#distanceToPoint)
     ///
     /// ``` self: QtC.QVector2D, point: QtC.QVector2D ```
     pub fn DistanceToPoint(self: ?*anyopaque, point: QtC.QVector2D) f32 {
         return qtc.QVector2D_DistanceToPoint(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#distanceToLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#distanceToLine)
     ///
     /// ``` self: QtC.QVector2D, point: QtC.QVector2D, direction: QtC.QVector2D ```
     pub fn DistanceToLine(self: ?*anyopaque, point: QtC.QVector2D, direction: QtC.QVector2D) f32 {
         return qtc.QVector2D_DistanceToLine(@ptrCast(self), @ptrCast(point), @ptrCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2b-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QVector2D, vector: QtC.QVector2D ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, vector: QtC.QVector2D) QtC.QVector2D {
         return qtc.QVector2D_OperatorPlusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator--eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator--eq)
     ///
     /// ``` self: QtC.QVector2D, vector: QtC.QVector2D ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, vector: QtC.QVector2D) QtC.QVector2D {
         return qtc.QVector2D_OperatorMinusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2a-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector2D, factor: f32 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector2D {
         return qtc.QVector2D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2a-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector2D, vector: QtC.QVector2D ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, vector: QtC.QVector2D) QtC.QVector2D {
         return qtc.QVector2D_OperatorMultiplyAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2f-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector2D, divisor: f32 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector2D {
         return qtc.QVector2D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2f-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector2D, vector: QtC.QVector2D ```
     pub fn OperatorDivideAssign2(self: ?*anyopaque, vector: QtC.QVector2D) QtC.QVector2D {
         return qtc.QVector2D_OperatorDivideAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#dotProduct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#dotProduct)
     ///
     /// ``` v1: QtC.QVector2D, v2: QtC.QVector2D ```
     pub fn DotProduct(v1: QtC.QVector2D, v2: QtC.QVector2D) f32 {
         return qtc.QVector2D_DotProduct(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#toVector3D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#toVector3D)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn ToVector3D(self: ?*anyopaque) QtC.QVector3D {
         return qtc.QVector2D_ToVector3D(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#toVector4D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#toVector4D)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn ToVector4D(self: ?*anyopaque) QtC.QVector4D {
         return qtc.QVector2D_ToVector4D(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#toPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#toPoint)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn ToPoint(self: ?*anyopaque) QtC.QPoint {
         return qtc.QVector2D_ToPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#toPointF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#toPointF)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn ToPointF(self: ?*anyopaque) QtC.QPointF {
         return qtc.QVector2D_ToPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QVector2D_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#dtor.QVector2D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#dtor.QVector2D)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -366,245 +366,245 @@ pub const qvector3d = struct {
         qtc.QVector3D_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#isNull)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QVector3D_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#x)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn X(self: ?*anyopaque) f32 {
         return qtc.QVector3D_X(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#y)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn Y(self: ?*anyopaque) f32 {
         return qtc.QVector3D_Y(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#z)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#z)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn Z(self: ?*anyopaque) f32 {
         return qtc.QVector3D_Z(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#setX)
     ///
     /// ``` self: QtC.QVector3D, x: f32 ```
     pub fn SetX(self: ?*anyopaque, x: f32) void {
         qtc.QVector3D_SetX(@ptrCast(self), @floatCast(x));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#setY)
     ///
     /// ``` self: QtC.QVector3D, y: f32 ```
     pub fn SetY(self: ?*anyopaque, y: f32) void {
         qtc.QVector3D_SetY(@ptrCast(self), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#setZ)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#setZ)
     ///
     /// ``` self: QtC.QVector3D, z: f32 ```
     pub fn SetZ(self: ?*anyopaque, z: f32) void {
         qtc.QVector3D_SetZ(@ptrCast(self), @floatCast(z));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector3D, i: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
         return @ptrCast(qtc.QVector3D_OperatorSubscript(@ptrCast(self), @intCast(i)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector3D, i: i32 ```
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
         return qtc.QVector3D_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#length)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn Length(self: ?*anyopaque) f32 {
         return qtc.QVector3D_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#lengthSquared)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#lengthSquared)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn LengthSquared(self: ?*anyopaque) f32 {
         return qtc.QVector3D_LengthSquared(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#normalized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#normalized)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn Normalized(self: ?*anyopaque) QtC.QVector3D {
         return qtc.QVector3D_Normalized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#normalize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#normalize)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn Normalize(self: ?*anyopaque) void {
         qtc.QVector3D_Normalize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2b-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QVector3D, vector: QtC.QVector3D ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, vector: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_OperatorPlusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator--eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator--eq)
     ///
     /// ``` self: QtC.QVector3D, vector: QtC.QVector3D ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, vector: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_OperatorMinusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2a-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector3D, factor: f32 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector3D {
         return qtc.QVector3D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2a-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector3D, vector: QtC.QVector3D ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, vector: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_OperatorMultiplyAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2f-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector3D, divisor: f32 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector3D {
         return qtc.QVector3D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2f-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector3D, vector: QtC.QVector3D ```
     pub fn OperatorDivideAssign2(self: ?*anyopaque, vector: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_OperatorDivideAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#dotProduct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#dotProduct)
     ///
     /// ``` v1: QtC.QVector3D, v2: QtC.QVector3D ```
     pub fn DotProduct(v1: QtC.QVector3D, v2: QtC.QVector3D) f32 {
         return qtc.QVector3D_DotProduct(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#crossProduct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#crossProduct)
     ///
     /// ``` v1: QtC.QVector3D, v2: QtC.QVector3D ```
     pub fn CrossProduct(v1: QtC.QVector3D, v2: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_CrossProduct(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#normal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#normal)
     ///
     /// ``` v1: QtC.QVector3D, v2: QtC.QVector3D ```
     pub fn Normal(v1: QtC.QVector3D, v2: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_Normal(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#normal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#normal)
     ///
     /// ``` v1: QtC.QVector3D, v2: QtC.QVector3D, v3: QtC.QVector3D ```
     pub fn Normal2(v1: QtC.QVector3D, v2: QtC.QVector3D, v3: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_Normal2(@ptrCast(v1), @ptrCast(v2), @ptrCast(v3));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#project)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#project)
     ///
     /// ``` self: QtC.QVector3D, modelView: QtC.QMatrix4x4, projection: QtC.QMatrix4x4, viewport: QtC.QRect ```
     pub fn Project(self: ?*anyopaque, modelView: ?*anyopaque, projection: ?*anyopaque, viewport: ?*anyopaque) QtC.QVector3D {
         return qtc.QVector3D_Project(@ptrCast(self), @ptrCast(modelView), @ptrCast(projection), @ptrCast(viewport));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#unproject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#unproject)
     ///
     /// ``` self: QtC.QVector3D, modelView: QtC.QMatrix4x4, projection: QtC.QMatrix4x4, viewport: QtC.QRect ```
     pub fn Unproject(self: ?*anyopaque, modelView: ?*anyopaque, projection: ?*anyopaque, viewport: ?*anyopaque) QtC.QVector3D {
         return qtc.QVector3D_Unproject(@ptrCast(self), @ptrCast(modelView), @ptrCast(projection), @ptrCast(viewport));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#distanceToPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#distanceToPoint)
     ///
     /// ``` self: QtC.QVector3D, point: QtC.QVector3D ```
     pub fn DistanceToPoint(self: ?*anyopaque, point: QtC.QVector3D) f32 {
         return qtc.QVector3D_DistanceToPoint(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#distanceToPlane)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#distanceToPlane)
     ///
     /// ``` self: QtC.QVector3D, plane: QtC.QVector3D, normal: QtC.QVector3D ```
     pub fn DistanceToPlane(self: ?*anyopaque, plane: QtC.QVector3D, normal: QtC.QVector3D) f32 {
         return qtc.QVector3D_DistanceToPlane(@ptrCast(self), @ptrCast(plane), @ptrCast(normal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#distanceToPlane)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#distanceToPlane)
     ///
     /// ``` self: QtC.QVector3D, plane1: QtC.QVector3D, plane2: QtC.QVector3D, plane3: QtC.QVector3D ```
     pub fn DistanceToPlane2(self: ?*anyopaque, plane1: QtC.QVector3D, plane2: QtC.QVector3D, plane3: QtC.QVector3D) f32 {
         return qtc.QVector3D_DistanceToPlane2(@ptrCast(self), @ptrCast(plane1), @ptrCast(plane2), @ptrCast(plane3));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#distanceToLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#distanceToLine)
     ///
     /// ``` self: QtC.QVector3D, point: QtC.QVector3D, direction: QtC.QVector3D ```
     pub fn DistanceToLine(self: ?*anyopaque, point: QtC.QVector3D, direction: QtC.QVector3D) f32 {
         return qtc.QVector3D_DistanceToLine(@ptrCast(self), @ptrCast(point), @ptrCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#toVector2D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#toVector2D)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn ToVector2D(self: ?*anyopaque) QtC.QVector2D {
         return qtc.QVector3D_ToVector2D(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#toVector4D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#toVector4D)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn ToVector4D(self: ?*anyopaque) QtC.QVector4D {
         return qtc.QVector3D_ToVector4D(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#toPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#toPoint)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn ToPoint(self: ?*anyopaque) QtC.QPoint {
         return qtc.QVector3D_ToPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#toPointF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#toPointF)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn ToPointF(self: ?*anyopaque) QtC.QPointF {
         return qtc.QVector3D_ToPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QVector3D_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#dtor.QVector3D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#dtor.QVector3D)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -714,210 +714,210 @@ pub const qvector4d = struct {
         qtc.QVector4D_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#isNull)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QVector4D_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#x)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn X(self: ?*anyopaque) f32 {
         return qtc.QVector4D_X(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#y)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn Y(self: ?*anyopaque) f32 {
         return qtc.QVector4D_Y(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#z)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#z)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn Z(self: ?*anyopaque) f32 {
         return qtc.QVector4D_Z(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#w)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#w)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn W(self: ?*anyopaque) f32 {
         return qtc.QVector4D_W(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#setX)
     ///
     /// ``` self: QtC.QVector4D, x: f32 ```
     pub fn SetX(self: ?*anyopaque, x: f32) void {
         qtc.QVector4D_SetX(@ptrCast(self), @floatCast(x));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#setY)
     ///
     /// ``` self: QtC.QVector4D, y: f32 ```
     pub fn SetY(self: ?*anyopaque, y: f32) void {
         qtc.QVector4D_SetY(@ptrCast(self), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#setZ)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#setZ)
     ///
     /// ``` self: QtC.QVector4D, z: f32 ```
     pub fn SetZ(self: ?*anyopaque, z: f32) void {
         qtc.QVector4D_SetZ(@ptrCast(self), @floatCast(z));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#setW)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#setW)
     ///
     /// ``` self: QtC.QVector4D, w: f32 ```
     pub fn SetW(self: ?*anyopaque, w: f32) void {
         qtc.QVector4D_SetW(@ptrCast(self), @floatCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector4D, i: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
         return @ptrCast(qtc.QVector4D_OperatorSubscript(@ptrCast(self), @intCast(i)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector4D, i: i32 ```
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
         return qtc.QVector4D_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#length)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn Length(self: ?*anyopaque) f32 {
         return qtc.QVector4D_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#lengthSquared)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#lengthSquared)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn LengthSquared(self: ?*anyopaque) f32 {
         return qtc.QVector4D_LengthSquared(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#normalized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#normalized)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn Normalized(self: ?*anyopaque) QtC.QVector4D {
         return qtc.QVector4D_Normalized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#normalize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#normalize)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn Normalize(self: ?*anyopaque) void {
         qtc.QVector4D_Normalize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2b-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QVector4D, vector: QtC.QVector4D ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, vector: QtC.QVector4D) QtC.QVector4D {
         return qtc.QVector4D_OperatorPlusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator--eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator--eq)
     ///
     /// ``` self: QtC.QVector4D, vector: QtC.QVector4D ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, vector: QtC.QVector4D) QtC.QVector4D {
         return qtc.QVector4D_OperatorMinusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2a-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector4D, factor: f32 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector4D {
         return qtc.QVector4D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2a-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector4D, vector: QtC.QVector4D ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, vector: QtC.QVector4D) QtC.QVector4D {
         return qtc.QVector4D_OperatorMultiplyAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2f-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector4D, divisor: f32 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector4D {
         return qtc.QVector4D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2f-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector4D, vector: QtC.QVector4D ```
     pub fn OperatorDivideAssign2(self: ?*anyopaque, vector: QtC.QVector4D) QtC.QVector4D {
         return qtc.QVector4D_OperatorDivideAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#dotProduct)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#dotProduct)
     ///
     /// ``` v1: QtC.QVector4D, v2: QtC.QVector4D ```
     pub fn DotProduct(v1: QtC.QVector4D, v2: QtC.QVector4D) f32 {
         return qtc.QVector4D_DotProduct(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#toVector2D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#toVector2D)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn ToVector2D(self: ?*anyopaque) QtC.QVector2D {
         return qtc.QVector4D_ToVector2D(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#toVector2DAffine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#toVector2DAffine)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn ToVector2DAffine(self: ?*anyopaque) QtC.QVector2D {
         return qtc.QVector4D_ToVector2DAffine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#toVector3D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#toVector3D)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn ToVector3D(self: ?*anyopaque) QtC.QVector3D {
         return qtc.QVector4D_ToVector3D(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#toVector3DAffine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#toVector3DAffine)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn ToVector3DAffine(self: ?*anyopaque) QtC.QVector3D {
         return qtc.QVector4D_ToVector3DAffine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#toPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#toPoint)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn ToPoint(self: ?*anyopaque) QtC.QPoint {
         return qtc.QVector4D_ToPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#toPointF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#toPointF)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn ToPointF(self: ?*anyopaque) QtC.QPointF {
         return qtc.QVector4D_ToPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QVector4D_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#dtor.QVector4D)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#dtor.QVector4D)
     ///
     /// Delete this object from C++ memory.
     ///

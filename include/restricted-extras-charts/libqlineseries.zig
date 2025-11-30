@@ -25,7 +25,7 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -57,7 +57,7 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -69,7 +69,7 @@ pub const qlineseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#type)
     ///
     /// ``` self: QtC.QLineSeries ```
     ///
@@ -78,7 +78,7 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#type)
     ///
     /// Allows for overriding the related default method
     ///
@@ -87,7 +87,7 @@ pub const qlineseries = struct {
         qtc.QLineSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#type)
     ///
     /// Base class method implementation
     ///
@@ -98,7 +98,7 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_QBaseType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -111,7 +111,7 @@ pub const qlineseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -126,7 +126,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#append)
     ///
     /// ``` self: QtC.QLineSeries, x: f64, y: f64 ```
     pub fn Append(self: ?*anyopaque, x: f64, y: f64) void {
@@ -135,7 +135,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#append)
     ///
     /// ``` self: QtC.QLineSeries, point: QtC.QPointF ```
     pub fn Append2(self: ?*anyopaque, point: ?*anyopaque) void {
@@ -144,7 +144,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#append)
     ///
     /// ``` self: QtC.QLineSeries, points: []QtC.QPointF ```
     pub fn Append3(self: ?*anyopaque, points: []QtC.QPointF) void {
@@ -157,7 +157,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#replace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#replace)
     ///
     /// ``` self: QtC.QLineSeries, oldX: f64, oldY: f64, newX: f64, newY: f64 ```
     pub fn Replace(self: ?*anyopaque, oldX: f64, oldY: f64, newX: f64, newY: f64) void {
@@ -166,7 +166,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#replace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#replace)
     ///
     /// ``` self: QtC.QLineSeries, oldPoint: QtC.QPointF, newPoint: QtC.QPointF ```
     pub fn Replace2(self: ?*anyopaque, oldPoint: ?*anyopaque, newPoint: ?*anyopaque) void {
@@ -175,7 +175,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#replace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#replace)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, newX: f64, newY: f64 ```
     pub fn Replace3(self: ?*anyopaque, index: i32, newX: f64, newY: f64) void {
@@ -184,7 +184,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#replace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#replace)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, newPoint: QtC.QPointF ```
     pub fn Replace4(self: ?*anyopaque, index: i32, newPoint: ?*anyopaque) void {
@@ -193,7 +193,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#remove)
     ///
     /// ``` self: QtC.QLineSeries, x: f64, y: f64 ```
     pub fn Remove(self: ?*anyopaque, x: f64, y: f64) void {
@@ -202,7 +202,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#remove)
     ///
     /// ``` self: QtC.QLineSeries, point: QtC.QPointF ```
     pub fn Remove2(self: ?*anyopaque, point: ?*anyopaque) void {
@@ -211,7 +211,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#remove)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn Remove3(self: ?*anyopaque, index: i32) void {
@@ -220,7 +220,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#removePoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#removePoints)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, count: i32 ```
     pub fn RemovePoints(self: ?*anyopaque, index: i32, count: i32) void {
@@ -229,7 +229,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#insert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#insert)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, point: QtC.QPointF ```
     pub fn Insert(self: ?*anyopaque, index: i32, point: ?*anyopaque) void {
@@ -238,7 +238,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clear)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -247,7 +247,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#count)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Count(self: ?*anyopaque) i32 {
@@ -256,7 +256,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#points)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#points)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
@@ -270,7 +270,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsVector)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsVector)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn PointsVector(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
@@ -284,7 +284,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#at)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#at)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn At(self: ?*anyopaque, index: i32) QtC.QPointF {
@@ -293,7 +293,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#operator-lt-lt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QLineSeries, point: QtC.QPointF ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, point: ?*anyopaque) QtC.QXYSeries {
@@ -302,7 +302,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#operator-lt-lt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QLineSeries, points: []QtC.QPointF ```
     pub fn OperatorShiftLeft2(self: ?*anyopaque, points: []QtC.QPointF) QtC.QXYSeries {
@@ -315,7 +315,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pen)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
@@ -324,7 +324,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#brush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#brush)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
@@ -333,7 +333,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setSelectedColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setSelectedColor)
     ///
     /// ``` self: QtC.QLineSeries, color: QtC.QColor ```
     pub fn SetSelectedColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -342,7 +342,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedColor)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SelectedColor(self: ?*anyopaque) QtC.QColor {
@@ -351,7 +351,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointsVisible)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SetPointsVisible(self: ?*anyopaque) void {
@@ -360,7 +360,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsVisible)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn PointsVisible(self: ?*anyopaque) bool {
@@ -369,7 +369,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsFormat)
     ///
     /// ``` self: QtC.QLineSeries, format: []const u8 ```
     pub fn SetPointLabelsFormat(self: ?*anyopaque, format: []const u8) void {
@@ -382,7 +382,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFormat)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn PointLabelsFormat(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -395,7 +395,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsVisible)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SetPointLabelsVisible(self: ?*anyopaque) void {
@@ -404,7 +404,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsVisible)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn PointLabelsVisible(self: ?*anyopaque) bool {
@@ -413,7 +413,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsFont)
     ///
     /// ``` self: QtC.QLineSeries, font: QtC.QFont ```
     pub fn SetPointLabelsFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -422,7 +422,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFont)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn PointLabelsFont(self: ?*anyopaque) QtC.QFont {
@@ -431,7 +431,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsColor)
     ///
     /// ``` self: QtC.QLineSeries, color: QtC.QColor ```
     pub fn SetPointLabelsColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -440,7 +440,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsColor)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn PointLabelsColor(self: ?*anyopaque) QtC.QColor {
@@ -449,7 +449,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsClipping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsClipping)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SetPointLabelsClipping(self: ?*anyopaque) void {
@@ -458,7 +458,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsClipping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsClipping)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn PointLabelsClipping(self: ?*anyopaque) bool {
@@ -467,7 +467,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#replace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#replace)
     ///
     /// ``` self: QtC.QLineSeries, points: []QtC.QPointF ```
     pub fn Replace5(self: ?*anyopaque, points: []QtC.QPointF) void {
@@ -480,7 +480,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#isPointSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#isPointSelected)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn IsPointSelected(self: ?*anyopaque, index: i32) bool {
@@ -489,7 +489,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectPoint)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn SelectPoint(self: ?*anyopaque, index: i32) void {
@@ -498,7 +498,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#deselectPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#deselectPoint)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn DeselectPoint(self: ?*anyopaque, index: i32) void {
@@ -507,7 +507,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointSelected)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, selected: bool ```
     pub fn SetPointSelected(self: ?*anyopaque, index: i32, selected: bool) void {
@@ -516,7 +516,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectAllPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectAllPoints)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SelectAllPoints(self: ?*anyopaque) void {
@@ -525,7 +525,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#deselectAllPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#deselectAllPoints)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn DeselectAllPoints(self: ?*anyopaque) void {
@@ -534,7 +534,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectPoints)
     ///
     /// ``` self: QtC.QLineSeries, indexes: []i32 ```
     pub fn SelectPoints(self: ?*anyopaque, indexes: []i32) void {
@@ -547,7 +547,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#deselectPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#deselectPoints)
     ///
     /// ``` self: QtC.QLineSeries, indexes: []i32 ```
     pub fn DeselectPoints(self: ?*anyopaque, indexes: []i32) void {
@@ -560,7 +560,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#toggleSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#toggleSelection)
     ///
     /// ``` self: QtC.QLineSeries, indexes: []i32 ```
     pub fn ToggleSelection(self: ?*anyopaque, indexes: []i32) void {
@@ -573,7 +573,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedPoints)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn SelectedPoints(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
@@ -587,7 +587,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setLightMarker)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setLightMarker)
     ///
     /// ``` self: QtC.QLineSeries, lightMarker: QtC.QImage ```
     pub fn SetLightMarker(self: ?*anyopaque, lightMarker: ?*anyopaque) void {
@@ -596,7 +596,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#lightMarker)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#lightMarker)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn LightMarker(self: ?*anyopaque) QtC.QImage {
@@ -605,7 +605,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setSelectedLightMarker)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setSelectedLightMarker)
     ///
     /// ``` self: QtC.QLineSeries, selectedLightMarker: QtC.QImage ```
     pub fn SetSelectedLightMarker(self: ?*anyopaque, selectedLightMarker: ?*anyopaque) void {
@@ -614,7 +614,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedLightMarker)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedLightMarker)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SelectedLightMarker(self: ?*anyopaque) QtC.QImage {
@@ -623,7 +623,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setMarkerSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setMarkerSize)
     ///
     /// ``` self: QtC.QLineSeries, size: f64 ```
     pub fn SetMarkerSize(self: ?*anyopaque, size: f64) void {
@@ -632,7 +632,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#markerSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#markerSize)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn MarkerSize(self: ?*anyopaque) f64 {
@@ -641,7 +641,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setBestFitLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setBestFitLineVisible)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SetBestFitLineVisible(self: ?*anyopaque) void {
@@ -650,7 +650,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineVisible)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn BestFitLineVisible(self: ?*anyopaque) bool {
@@ -659,7 +659,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineEquation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineEquation)
     ///
     /// ``` self: QtC.QLineSeries, ok: *bool ```
     pub fn BestFitLineEquation(self: ?*anyopaque, ok: *bool) struct_f64_f64 {
@@ -672,7 +672,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setBestFitLinePen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setBestFitLinePen)
     ///
     /// ``` self: QtC.QLineSeries, pen: QtC.QPen ```
     pub fn SetBestFitLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -681,7 +681,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLinePen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLinePen)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn BestFitLinePen(self: ?*anyopaque) QtC.QPen {
@@ -690,7 +690,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setBestFitLineColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setBestFitLineColor)
     ///
     /// ``` self: QtC.QLineSeries, color: QtC.QColor ```
     pub fn SetBestFitLineColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -699,7 +699,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineColor)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn BestFitLineColor(self: ?*anyopaque) QtC.QColor {
@@ -708,7 +708,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clearPointConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clearPointConfiguration)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn ClearPointConfiguration(self: ?*anyopaque, index: i32) void {
@@ -717,7 +717,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clearPointConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clearPointConfiguration)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, key: qxyseries_enums.PointConfiguration ```
     pub fn ClearPointConfiguration2(self: ?*anyopaque, index: i32, key: i32) void {
@@ -726,7 +726,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clearPointsConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clearPointsConfiguration)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn ClearPointsConfiguration(self: ?*anyopaque) void {
@@ -735,7 +735,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clearPointsConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clearPointsConfiguration)
     ///
     /// ``` self: QtC.QLineSeries, key: qxyseries_enums.PointConfiguration ```
     pub fn ClearPointsConfiguration2(self: ?*anyopaque, key: i32) void {
@@ -744,7 +744,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointConfiguration)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, configuration: map_i32_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn SetPointConfiguration(self: ?*anyopaque, index: i32, configuration: map_i32_qtcqvariant, allocator: std.mem.Allocator) void {
@@ -770,7 +770,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointConfiguration)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, key: qxyseries_enums.PointConfiguration, value: QtC.QVariant ```
     pub fn SetPointConfiguration2(self: ?*anyopaque, index: i32, key: i32, value: ?*anyopaque) void {
@@ -779,7 +779,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointsConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointsConfiguration)
     ///
     /// ``` self: QtC.QLineSeries, pointsConfiguration: map_i32_mapi32qtcqvariant, allocator: std.mem.Allocator ```
     pub fn SetPointsConfiguration(self: ?*anyopaque, pointsConfiguration: map_i32_mapi32qtcqvariant, allocator: std.mem.Allocator) void {
@@ -805,7 +805,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointConfiguration)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, allocator: std.mem.Allocator ```
     pub fn PointConfiguration(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) map_i32_qtcqvariant {
@@ -828,7 +828,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsConfiguration)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn PointsConfiguration(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_mapi32qtcqvariant {
@@ -851,7 +851,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#sizeBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#sizeBy)
     ///
     /// ``` self: QtC.QLineSeries, sourceData: []f64, minSize: f64, maxSize: f64 ```
     pub fn SizeBy(self: ?*anyopaque, sourceData: []f64, minSize: f64, maxSize: f64) void {
@@ -864,7 +864,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#colorBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#colorBy)
     ///
     /// ``` self: QtC.QLineSeries, sourceData: []f64 ```
     pub fn ColorBy(self: ?*anyopaque, sourceData: []f64) void {
@@ -877,7 +877,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clicked)
     ///
     /// ``` self: QtC.QLineSeries, point: QtC.QPointF ```
     pub fn Clicked(self: ?*anyopaque, point: ?*anyopaque) void {
@@ -886,7 +886,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clicked)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -895,7 +895,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#hovered)
     ///
     /// ``` self: QtC.QLineSeries, point: QtC.QPointF, state: bool ```
     pub fn Hovered(self: ?*anyopaque, point: ?*anyopaque, state: bool) void {
@@ -904,7 +904,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#hovered)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF, state: bool) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
@@ -913,7 +913,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pressed)
     ///
     /// ``` self: QtC.QLineSeries, point: QtC.QPointF ```
     pub fn Pressed(self: ?*anyopaque, point: ?*anyopaque) void {
@@ -922,7 +922,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pressed)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -931,7 +931,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#released)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#released)
     ///
     /// ``` self: QtC.QLineSeries, point: QtC.QPointF ```
     pub fn Released(self: ?*anyopaque, point: ?*anyopaque) void {
@@ -940,7 +940,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#released)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#released)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF) callconv(.c) void ```
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -949,7 +949,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#doubleClicked)
     ///
     /// ``` self: QtC.QLineSeries, point: QtC.QPointF ```
     pub fn DoubleClicked(self: ?*anyopaque, point: ?*anyopaque) void {
@@ -958,7 +958,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#doubleClicked)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, point: QtC.QPointF) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -967,7 +967,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointReplaced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointReplaced)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn PointReplaced(self: ?*anyopaque, index: i32) void {
@@ -976,7 +976,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointReplaced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointReplaced)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, index: i32) callconv(.c) void ```
     pub fn OnPointReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -985,7 +985,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointRemoved)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn PointRemoved(self: ?*anyopaque, index: i32) void {
@@ -994,7 +994,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointRemoved)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, index: i32) callconv(.c) void ```
     pub fn OnPointRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1003,7 +1003,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointAdded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointAdded)
     ///
     /// ``` self: QtC.QLineSeries, index: i32 ```
     pub fn PointAdded(self: ?*anyopaque, index: i32) void {
@@ -1012,7 +1012,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointAdded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointAdded)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, index: i32) callconv(.c) void ```
     pub fn OnPointAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1021,7 +1021,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#colorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#colorChanged)
     ///
     /// ``` self: QtC.QLineSeries, color: QtC.QColor ```
     pub fn ColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
@@ -1030,7 +1030,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#colorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#colorChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, color: QtC.QColor) callconv(.c) void ```
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
@@ -1039,7 +1039,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedColorChanged)
     ///
     /// ``` self: QtC.QLineSeries, color: QtC.QColor ```
     pub fn SelectedColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -1048,7 +1048,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedColorChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, color: QtC.QColor) callconv(.c) void ```
     pub fn OnSelectedColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1057,7 +1057,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsReplaced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsReplaced)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn PointsReplaced(self: ?*anyopaque) void {
@@ -1066,7 +1066,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsReplaced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsReplaced)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries) callconv(.c) void ```
     pub fn OnPointsReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1075,7 +1075,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFormatChanged)
     ///
     /// ``` self: QtC.QLineSeries, format: []const u8 ```
     pub fn PointLabelsFormatChanged(self: ?*anyopaque, format: []const u8) void {
@@ -1088,7 +1088,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFormatChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, format: [*:0]const u8) callconv(.c) void ```
     pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -1097,7 +1097,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsVisibilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsVisibilityChanged)
     ///
     /// ``` self: QtC.QLineSeries, visible: bool ```
     pub fn PointLabelsVisibilityChanged(self: ?*anyopaque, visible: bool) void {
@@ -1106,7 +1106,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsVisibilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsVisibilityChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, visible: bool) callconv(.c) void ```
     pub fn OnPointLabelsVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1115,7 +1115,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFontChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFontChanged)
     ///
     /// ``` self: QtC.QLineSeries, font: QtC.QFont ```
     pub fn PointLabelsFontChanged(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -1124,7 +1124,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFontChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFontChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, font: QtC.QFont) callconv(.c) void ```
     pub fn OnPointLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1133,7 +1133,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsColorChanged)
     ///
     /// ``` self: QtC.QLineSeries, color: QtC.QColor ```
     pub fn PointLabelsColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -1142,7 +1142,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsColorChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, color: QtC.QColor) callconv(.c) void ```
     pub fn OnPointLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1151,7 +1151,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsClippingChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsClippingChanged)
     ///
     /// ``` self: QtC.QLineSeries, clipping: bool ```
     pub fn PointLabelsClippingChanged(self: ?*anyopaque, clipping: bool) void {
@@ -1160,7 +1160,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsClippingChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsClippingChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, clipping: bool) callconv(.c) void ```
     pub fn OnPointLabelsClippingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1169,7 +1169,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsRemoved)
     ///
     /// ``` self: QtC.QLineSeries, index: i32, count: i32 ```
     pub fn PointsRemoved(self: ?*anyopaque, index: i32, count: i32) void {
@@ -1178,7 +1178,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsRemoved)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, index: i32, count: i32) callconv(.c) void ```
     pub fn OnPointsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
@@ -1187,7 +1187,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#penChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#penChanged)
     ///
     /// ``` self: QtC.QLineSeries, pen: QtC.QPen ```
     pub fn PenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -1196,7 +1196,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#penChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#penChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, pen: QtC.QPen) callconv(.c) void ```
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1205,7 +1205,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedPointsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedPointsChanged)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SelectedPointsChanged(self: ?*anyopaque) void {
@@ -1214,7 +1214,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedPointsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedPointsChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries) callconv(.c) void ```
     pub fn OnSelectedPointsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1223,7 +1223,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#lightMarkerChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#lightMarkerChanged)
     ///
     /// ``` self: QtC.QLineSeries, lightMarker: QtC.QImage ```
     pub fn LightMarkerChanged(self: ?*anyopaque, lightMarker: ?*anyopaque) void {
@@ -1232,7 +1232,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#lightMarkerChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#lightMarkerChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, lightMarker: QtC.QImage) callconv(.c) void ```
     pub fn OnLightMarkerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1241,7 +1241,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedLightMarkerChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedLightMarkerChanged)
     ///
     /// ``` self: QtC.QLineSeries, selectedLightMarker: QtC.QImage ```
     pub fn SelectedLightMarkerChanged(self: ?*anyopaque, selectedLightMarker: ?*anyopaque) void {
@@ -1250,7 +1250,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#selectedLightMarkerChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedLightMarkerChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, selectedLightMarker: QtC.QImage) callconv(.c) void ```
     pub fn OnSelectedLightMarkerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1259,7 +1259,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineVisibilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineVisibilityChanged)
     ///
     /// ``` self: QtC.QLineSeries, visible: bool ```
     pub fn BestFitLineVisibilityChanged(self: ?*anyopaque, visible: bool) void {
@@ -1268,7 +1268,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineVisibilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineVisibilityChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, visible: bool) callconv(.c) void ```
     pub fn OnBestFitLineVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1277,7 +1277,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLinePenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLinePenChanged)
     ///
     /// ``` self: QtC.QLineSeries, pen: QtC.QPen ```
     pub fn BestFitLinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -1286,7 +1286,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLinePenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLinePenChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, pen: QtC.QPen) callconv(.c) void ```
     pub fn OnBestFitLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1295,7 +1295,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineColorChanged)
     ///
     /// ``` self: QtC.QLineSeries, color: QtC.QColor ```
     pub fn BestFitLineColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -1304,7 +1304,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineColorChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, color: QtC.QColor) callconv(.c) void ```
     pub fn OnBestFitLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1313,7 +1313,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsConfigurationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsConfigurationChanged)
     ///
     /// ``` self: QtC.QLineSeries, configuration: map_i32_mapi32qtcqvariant, allocator: std.mem.Allocator ```
     pub fn PointsConfigurationChanged(self: ?*anyopaque, configuration: map_i32_mapi32qtcqvariant, allocator: std.mem.Allocator) void {
@@ -1339,7 +1339,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointsConfigurationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsConfigurationChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, configuration: map_i32_mapi32qtcqvariant) callconv(.c) void ```
     pub fn OnPointsConfigurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_i32_mapi32qtcqvariant) callconv(.c) void) void {
@@ -1348,7 +1348,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#markerSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#markerSizeChanged)
     ///
     /// ``` self: QtC.QLineSeries, size: f64 ```
     pub fn MarkerSizeChanged(self: ?*anyopaque, size: f64) void {
@@ -1357,7 +1357,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#markerSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#markerSizeChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, size: f64) callconv(.c) void ```
     pub fn OnMarkerSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
@@ -1366,7 +1366,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointsVisible)
     ///
     /// ``` self: QtC.QLineSeries, visible: bool ```
     pub fn SetPointsVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1375,7 +1375,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsVisible)
     ///
     /// ``` self: QtC.QLineSeries, visible: bool ```
     pub fn SetPointLabelsVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1384,7 +1384,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsClipping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointLabelsClipping)
     ///
     /// ``` self: QtC.QLineSeries, enabled: bool ```
     pub fn SetPointLabelsClipping1(self: ?*anyopaque, enabled: bool) void {
@@ -1393,7 +1393,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setBestFitLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setBestFitLineVisible)
     ///
     /// ``` self: QtC.QLineSeries, visible: bool ```
     pub fn SetBestFitLineVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1402,7 +1402,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#colorBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#colorBy)
     ///
     /// ``` self: QtC.QLineSeries, sourceData: []f64, gradient: QtC.QLinearGradient ```
     pub fn ColorBy2(self: ?*anyopaque, sourceData: []f64, gradient: ?*anyopaque) void {
@@ -1415,7 +1415,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setName)
     ///
     /// ``` self: QtC.QLineSeries, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -1428,7 +1428,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#name)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1441,7 +1441,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SetVisible(self: ?*anyopaque) void {
@@ -1450,7 +1450,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#isVisible)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -1459,7 +1459,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacity)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Opacity(self: ?*anyopaque) f64 {
@@ -1468,7 +1468,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setOpacity)
     ///
     /// ``` self: QtC.QLineSeries, opacity: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
@@ -1477,7 +1477,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SetUseOpenGL(self: ?*anyopaque) void {
@@ -1486,7 +1486,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGL)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn UseOpenGL(self: ?*anyopaque) bool {
@@ -1495,7 +1495,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#chart)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#chart)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Chart(self: ?*anyopaque) QtC.QChart {
@@ -1504,7 +1504,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#attachAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#attachAxis)
     ///
     /// ``` self: QtC.QLineSeries, axis: QtC.QAbstractAxis ```
     pub fn AttachAxis(self: ?*anyopaque, axis: ?*anyopaque) bool {
@@ -1513,7 +1513,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#detachAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#detachAxis)
     ///
     /// ``` self: QtC.QLineSeries, axis: QtC.QAbstractAxis ```
     pub fn DetachAxis(self: ?*anyopaque, axis: ?*anyopaque) bool {
@@ -1522,7 +1522,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#attachedAxes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#attachedAxes)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn AttachedAxes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
@@ -1536,7 +1536,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#show)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Show(self: ?*anyopaque) void {
@@ -1545,7 +1545,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#hide)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -1554,7 +1554,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn NameChanged(self: ?*anyopaque) void {
@@ -1563,7 +1563,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries) callconv(.c) void ```
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1572,7 +1572,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -1581,7 +1581,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1590,7 +1590,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn OpacityChanged(self: ?*anyopaque) void {
@@ -1599,7 +1599,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1608,7 +1608,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn UseOpenGLChanged(self: ?*anyopaque) void {
@@ -1617,7 +1617,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries) callconv(.c) void ```
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1626,7 +1626,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
     ///
     /// ``` self: QtC.QLineSeries, visible: bool ```
     pub fn SetVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1635,7 +1635,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
     ///
     /// ``` self: QtC.QLineSeries, enable: bool ```
     pub fn SetUseOpenGL1(self: ?*anyopaque, enable: bool) void {
@@ -1644,7 +1644,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1657,7 +1657,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QLineSeries, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1670,7 +1670,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1679,7 +1679,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1688,7 +1688,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1697,7 +1697,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1706,7 +1706,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QLineSeries, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1715,7 +1715,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1724,7 +1724,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QLineSeries, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1733,7 +1733,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QLineSeries, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1742,7 +1742,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QLineSeries, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1751,7 +1751,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QLineSeries, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1760,7 +1760,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1774,7 +1774,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QLineSeries, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1783,7 +1783,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QLineSeries, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1792,7 +1792,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QLineSeries, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1801,7 +1801,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1810,7 +1810,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QLineSeries, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1821,7 +1821,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1830,7 +1830,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1839,7 +1839,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1848,7 +1848,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1857,7 +1857,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QLineSeries, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1867,7 +1867,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QLineSeries, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1877,7 +1877,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QLineSeries, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1901,7 +1901,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1910,7 +1910,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1919,7 +1919,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1928,7 +1928,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1937,7 +1937,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1946,7 +1946,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QLineSeries, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1956,7 +1956,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QLineSeries ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1965,7 +1965,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QLineSeries, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1974,7 +1974,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QLineSeries, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1983,7 +1983,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1992,7 +1992,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QLineSeries, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2003,7 +2003,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QLineSeries, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2012,7 +2012,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QLineSeries, callback: *const fn (self: QtC.QLineSeries, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2021,7 +2021,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPen)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2032,7 +2032,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPen)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2043,7 +2043,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPen)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2054,7 +2054,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setBrush)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2065,7 +2065,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setBrush)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2076,7 +2076,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setBrush)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2087,7 +2087,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setColor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2098,7 +2098,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setColor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2109,7 +2109,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setColor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2120,7 +2120,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#color)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#color)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2131,7 +2131,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#color)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#color)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2142,7 +2142,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#color)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#color)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2153,7 +2153,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2164,7 +2164,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2175,7 +2175,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2186,7 +2186,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2197,7 +2197,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2208,7 +2208,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2219,7 +2219,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2230,7 +2230,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2241,7 +2241,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2252,7 +2252,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2263,7 +2263,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2274,7 +2274,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2285,7 +2285,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2296,7 +2296,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2307,7 +2307,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2318,7 +2318,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2329,7 +2329,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2340,7 +2340,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2351,7 +2351,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2362,7 +2362,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2373,7 +2373,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2384,7 +2384,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2395,7 +2395,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2406,7 +2406,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2417,7 +2417,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2428,7 +2428,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2439,7 +2439,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2450,7 +2450,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2462,7 +2462,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2474,7 +2474,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2485,7 +2485,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2496,7 +2496,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2507,7 +2507,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2518,7 +2518,7 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2527,7 +2527,7 @@ pub const qlineseries = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#dtor.QLineSeries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#dtor.QLineSeries)
     ///
     /// Delete this object from C++ memory.
     ///

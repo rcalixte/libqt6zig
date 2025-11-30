@@ -50,28 +50,28 @@ pub const qpointingdeviceuniqueid = struct {
         qtc.QPointingDeviceUniqueId_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#fromNumericId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#fromNumericId)
     ///
     /// ``` id: i64 ```
     pub fn FromNumericId(id: i64) QtC.QPointingDeviceUniqueId {
         return qtc.QPointingDeviceUniqueId_FromNumericId(@intCast(id));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#isValid)
     ///
     /// ``` self: QtC.QPointingDeviceUniqueId ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QPointingDeviceUniqueId_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#numericId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#numericId)
     ///
     /// ``` self: QtC.QPointingDeviceUniqueId ```
     pub fn NumericId(self: ?*anyopaque) i64 {
         return qtc.QPointingDeviceUniqueId_NumericId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#dtor.QPointingDeviceUniqueId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#dtor.QPointingDeviceUniqueId)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -157,7 +157,7 @@ pub const qpointingdevice = struct {
         return qtc.QPointingDevice_new6(name_str, @intCast(systemId), @intCast(devType), @intCast(pType), @intCast(caps), @intCast(maxPoints), @intCast(buttonCount), seatName_str, @ptrCast(uniqueId), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -189,7 +189,7 @@ pub const qpointingdevice = struct {
         return qtc.QPointingDevice_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -201,28 +201,28 @@ pub const qpointingdevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#setType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#setType)
     ///
     /// ``` self: QtC.QPointingDevice, devType: qinputdevice_enums.DeviceType ```
     pub fn SetType(self: ?*anyopaque, devType: i32) void {
         qtc.QPointingDevice_SetType(@ptrCast(self), @intCast(devType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#setCapabilities)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#setCapabilities)
     ///
     /// ``` self: QtC.QPointingDevice, caps: flag of qinputdevice_enums.Capability ```
     pub fn SetCapabilities(self: ?*anyopaque, caps: i32) void {
         qtc.QPointingDevice_SetCapabilities(@ptrCast(self), @intCast(caps));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#setMaximumTouchPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#setMaximumTouchPoints)
     ///
     /// ``` self: QtC.QPointingDevice, c: i32 ```
     pub fn SetMaximumTouchPoints(self: ?*anyopaque, c: i32) void {
         qtc.QPointingDevice_SetMaximumTouchPoints(@ptrCast(self), @intCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#pointerType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#pointerType)
     ///
     /// ``` self: QtC.QPointingDevice ```
     ///
@@ -231,56 +231,56 @@ pub const qpointingdevice = struct {
         return qtc.QPointingDevice_PointerType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#maximumPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#maximumPoints)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn MaximumPoints(self: ?*anyopaque) i32 {
         return qtc.QPointingDevice_MaximumPoints(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#buttonCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#buttonCount)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn ButtonCount(self: ?*anyopaque) i32 {
         return qtc.QPointingDevice_ButtonCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#uniqueId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#uniqueId)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn UniqueId(self: ?*anyopaque) QtC.QPointingDeviceUniqueId {
         return qtc.QPointingDevice_UniqueId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#primaryPointingDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#primaryPointingDevice)
     ///
     ///
     pub fn PrimaryPointingDevice() QtC.QPointingDevice {
         return qtc.QPointingDevice_PrimaryPointingDevice();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QPointingDevice, other: QtC.QPointingDevice ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QPointingDevice_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#grabChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#grabChanged)
     ///
     /// ``` self: QtC.QPointingDevice, grabber: QtC.QObject, transition: qpointingdevice_enums.GrabTransition, event: QtC.QPointerEvent, point: QtC.QEventPoint ```
     pub fn GrabChanged(self: ?*anyopaque, grabber: ?*anyopaque, transition: i32, event: ?*anyopaque, point: ?*anyopaque) void {
         qtc.QPointingDevice_GrabChanged(@ptrCast(self), @ptrCast(grabber), @intCast(transition), @ptrCast(event), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#grabChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#grabChanged)
     ///
     /// ``` self: QtC.QPointingDevice, callback: *const fn (self: QtC.QPointingDevice, grabber: QtC.QObject, transition: qpointingdevice_enums.GrabTransition, event: QtC.QPointerEvent, point: QtC.QEventPoint) callconv(.c) void ```
     pub fn OnGrabChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPointingDevice_Connect_GrabChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -293,7 +293,7 @@ pub const qpointingdevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -306,7 +306,7 @@ pub const qpointingdevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#primaryPointingDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#primaryPointingDevice)
     ///
     /// ``` seatName: []const u8 ```
     pub fn PrimaryPointingDevice1(seatName: []const u8) QtC.QPointingDevice {
@@ -319,7 +319,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#name)
     ///
     /// ``` self: QtC.QPointingDevice, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -332,7 +332,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#type)
     ///
     /// ``` self: QtC.QPointingDevice ```
     ///
@@ -343,7 +343,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#capabilities)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#capabilities)
     ///
     /// ``` self: QtC.QPointingDevice ```
     ///
@@ -354,7 +354,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#hasCapability)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#hasCapability)
     ///
     /// ``` self: QtC.QPointingDevice, cap: qinputdevice_enums.Capability ```
     pub fn HasCapability(self: ?*anyopaque, cap: i32) bool {
@@ -363,7 +363,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#systemId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#systemId)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn SystemId(self: ?*anyopaque) i64 {
@@ -372,7 +372,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#seatName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#seatName)
     ///
     /// ``` self: QtC.QPointingDevice, allocator: std.mem.Allocator ```
     pub fn SeatName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -385,7 +385,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#availableVirtualGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#availableVirtualGeometry)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn AvailableVirtualGeometry(self: ?*anyopaque) QtC.QRect {
@@ -394,7 +394,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#seatNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#seatNames)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SeatNames(allocator: std.mem.Allocator) [][]const u8 {
@@ -418,7 +418,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#devices)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#devices)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Devices(allocator: std.mem.Allocator) []QtC.QInputDevice {
@@ -432,7 +432,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#primaryKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#primaryKeyboard)
     ///
     ///
     pub fn PrimaryKeyboard() QtC.QInputDevice {
@@ -441,7 +441,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#availableVirtualGeometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#availableVirtualGeometryChanged)
     ///
     /// ``` self: QtC.QPointingDevice, area: QtC.QRect ```
     pub fn AvailableVirtualGeometryChanged(self: ?*anyopaque, area: QtC.QRect) void {
@@ -450,7 +450,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#availableVirtualGeometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#availableVirtualGeometryChanged)
     ///
     /// ``` self: QtC.QPointingDevice, callback: *const fn (self: QtC.QPointingDevice, area: QtC.QRect) callconv(.c) void ```
     pub fn OnAvailableVirtualGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QRect) callconv(.c) void) void {
@@ -459,7 +459,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QInputDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#primaryKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#primaryKeyboard)
     ///
     /// ``` seatName: []const u8 ```
     pub fn PrimaryKeyboard1(seatName: []const u8) QtC.QInputDevice {
@@ -472,7 +472,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QPointingDevice, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -485,7 +485,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QPointingDevice, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -498,7 +498,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -507,7 +507,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -516,7 +516,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -525,7 +525,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -534,7 +534,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QPointingDevice, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -543,7 +543,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -552,7 +552,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPointingDevice, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -561,7 +561,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPointingDevice, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -570,7 +570,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPointingDevice, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -579,7 +579,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPointingDevice, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -588,7 +588,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QPointingDevice, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -602,7 +602,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QPointingDevice, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -611,7 +611,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QPointingDevice, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -620,7 +620,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QPointingDevice, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -629,7 +629,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -638,7 +638,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPointingDevice, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -649,7 +649,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -658,7 +658,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -667,7 +667,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -676,7 +676,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -685,7 +685,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QPointingDevice, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -695,7 +695,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QPointingDevice, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -705,7 +705,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QPointingDevice, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -729,7 +729,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -738,7 +738,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -747,7 +747,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -756,7 +756,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPointingDevice, callback: *const fn (self: QtC.QPointingDevice) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -765,7 +765,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -774,7 +774,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QPointingDevice, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -784,7 +784,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QPointingDevice ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -793,7 +793,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPointingDevice, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -802,7 +802,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPointingDevice, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -811,7 +811,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -820,7 +820,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPointingDevice, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -831,7 +831,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPointingDevice, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -840,7 +840,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPointingDevice, callback: *const fn (self: QtC.QPointingDevice, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -849,7 +849,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -860,7 +860,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -871,7 +871,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -882,7 +882,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -893,7 +893,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -904,7 +904,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -915,7 +915,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -926,7 +926,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -937,7 +937,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -948,7 +948,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -959,7 +959,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -970,7 +970,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -981,7 +981,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -992,7 +992,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1003,7 +1003,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1014,7 +1014,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1025,7 +1025,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1036,7 +1036,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1047,7 +1047,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1058,7 +1058,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1069,7 +1069,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1080,7 +1080,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1091,7 +1091,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1102,7 +1102,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1113,7 +1113,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1124,7 +1124,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1135,7 +1135,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1146,7 +1146,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1158,7 +1158,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1170,7 +1170,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1181,7 +1181,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1192,7 +1192,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1203,7 +1203,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1214,7 +1214,7 @@ pub const qpointingdevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1223,7 +1223,7 @@ pub const qpointingdevice = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#dtor.QPointingDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#dtor.QPointingDevice)
     ///
     /// Delete this object from C++ memory.
     ///

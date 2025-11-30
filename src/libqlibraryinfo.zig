@@ -33,7 +33,7 @@ pub const qlibraryinfo = struct {
         qtc.QLibraryInfo_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#build)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#build)
     ///
     ///
     pub fn Build() []const u8 {
@@ -41,28 +41,28 @@ pub const qlibraryinfo = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#isDebugBuild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#isDebugBuild)
     ///
     ///
     pub fn IsDebugBuild() bool {
         return qtc.QLibraryInfo_IsDebugBuild();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#isSharedBuild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#isSharedBuild)
     ///
     ///
     pub fn IsSharedBuild() bool {
         return qtc.QLibraryInfo_IsSharedBuild();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#version)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#version)
     ///
     ///
     pub fn Version() QtC.QVersionNumber {
         return qtc.QLibraryInfo_Version();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#path)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#path)
     ///
     /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
     pub fn Path(p: i32, allocator: std.mem.Allocator) []const u8 {
@@ -73,7 +73,7 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#paths)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#paths)
     ///
     /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
     pub fn Paths(p: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -95,7 +95,7 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#location)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#location)
     ///
     /// ``` location: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
     pub fn Location(location: i32, allocator: std.mem.Allocator) []const u8 {
@@ -106,7 +106,7 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#platformPluginArguments)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#platformPluginArguments)
     ///
     /// ``` platformName: []const u8, allocator: std.mem.Allocator ```
     pub fn PlatformPluginArguments(platformName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -132,7 +132,7 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#dtor.QLibraryInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#dtor.QLibraryInfo)
     ///
     /// Delete this object from C++ memory.
     ///

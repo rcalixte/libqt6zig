@@ -19,21 +19,21 @@ pub const attica__downloaddescription = struct {
         return qtc.Attica__DownloadDescription_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, other: QtC.Attica__DownloadDescription ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__DownloadDescription_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#id)
     ///
     /// ``` self: QtC.Attica__DownloadDescription ```
     pub fn Id(self: ?*anyopaque) i32 {
         return qtc.Attica__DownloadDescription_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#type)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#type)
     ///
     /// ``` self: QtC.Attica__DownloadDescription ```
     ///
@@ -42,14 +42,14 @@ pub const attica__downloaddescription = struct {
         return qtc.Attica__DownloadDescription_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#hasPrice)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#hasPrice)
     ///
     /// ``` self: QtC.Attica__DownloadDescription ```
     pub fn HasPrice(self: ?*anyopaque) bool {
         return qtc.Attica__DownloadDescription_HasPrice(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#category)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#category)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn Category(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -60,7 +60,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#name)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#name)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -71,7 +71,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#link)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#link)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn Link(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -82,7 +82,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#distributionType)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#distributionType)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn DistributionType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -93,7 +93,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#priceReason)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#priceReason)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn PriceReason(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -104,7 +104,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#priceAmount)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#priceAmount)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn PriceAmount(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -115,14 +115,14 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#size)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#size)
     ///
     /// ``` self: QtC.Attica__DownloadDescription ```
     pub fn Size(self: ?*anyopaque) u32 {
         return qtc.Attica__DownloadDescription_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#gpgFingerprint)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#gpgFingerprint)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn GpgFingerprint(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -133,7 +133,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#gpgSignature)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#gpgSignature)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn GpgSignature(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -144,7 +144,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#packageName)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#packageName)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn PackageName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -155,7 +155,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#repository)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#repository)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn Repository(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -166,7 +166,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#tags)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#tags)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -188,28 +188,28 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setId)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, id: i32 ```
     pub fn SetId(self: ?*anyopaque, id: i32) void {
         qtc.Attica__DownloadDescription_SetId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setType)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setType)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, typeVal: downloaddescription_enums.Type ```
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.Attica__DownloadDescription_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setHasPrice)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setHasPrice)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, hasPrice: bool ```
     pub fn SetHasPrice(self: ?*anyopaque, hasPrice: bool) void {
         qtc.Attica__DownloadDescription_SetHasPrice(@ptrCast(self), hasPrice);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setCategory)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setCategory)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, category: []const u8 ```
     pub fn SetCategory(self: ?*anyopaque, category: []const u8) void {
@@ -220,7 +220,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetCategory(@ptrCast(self), category_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setName)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setName)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -231,7 +231,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setLink)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setLink)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, link: []const u8 ```
     pub fn SetLink(self: ?*anyopaque, link: []const u8) void {
@@ -242,7 +242,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetLink(@ptrCast(self), link_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setDistributionType)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setDistributionType)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, distributionType: []const u8 ```
     pub fn SetDistributionType(self: ?*anyopaque, distributionType: []const u8) void {
@@ -253,7 +253,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetDistributionType(@ptrCast(self), distributionType_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setPriceReason)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setPriceReason)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, priceReason: []const u8 ```
     pub fn SetPriceReason(self: ?*anyopaque, priceReason: []const u8) void {
@@ -264,7 +264,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetPriceReason(@ptrCast(self), priceReason_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setPriceAmount)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setPriceAmount)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, priceAmount: []const u8 ```
     pub fn SetPriceAmount(self: ?*anyopaque, priceAmount: []const u8) void {
@@ -275,14 +275,14 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetPriceAmount(@ptrCast(self), priceAmount_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setSize)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setSize)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, size: u32 ```
     pub fn SetSize(self: ?*anyopaque, size: u32) void {
         qtc.Attica__DownloadDescription_SetSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setGpgFingerprint)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setGpgFingerprint)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, fingerprint: []const u8 ```
     pub fn SetGpgFingerprint(self: ?*anyopaque, fingerprint: []const u8) void {
@@ -293,7 +293,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetGpgFingerprint(@ptrCast(self), fingerprint_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setGpgSignature)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setGpgSignature)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, signature: []const u8 ```
     pub fn SetGpgSignature(self: ?*anyopaque, signature: []const u8) void {
@@ -304,7 +304,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetGpgSignature(@ptrCast(self), signature_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setPackageName)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setPackageName)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, packageName: []const u8 ```
     pub fn SetPackageName(self: ?*anyopaque, packageName: []const u8) void {
@@ -315,7 +315,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetPackageName(@ptrCast(self), packageName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setRepository)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setRepository)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, repository: []const u8 ```
     pub fn SetRepository(self: ?*anyopaque, repository: []const u8) void {
@@ -326,7 +326,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetRepository(@ptrCast(self), repository_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setTags)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setTags)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, tags: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
@@ -345,7 +345,7 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetTags(@ptrCast(self), tags_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#version)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#version)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, allocator: std.mem.Allocator ```
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -356,7 +356,7 @@ pub const attica__downloaddescription = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-downloaddescription.html#setVersion)
+    /// [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setVersion)
     ///
     /// ``` self: QtC.Attica__DownloadDescription, version: []const u8 ```
     pub fn SetVersion(self: ?*anyopaque, version: []const u8) void {

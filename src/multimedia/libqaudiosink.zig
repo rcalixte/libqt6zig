@@ -49,7 +49,7 @@ pub const qaudiosink = struct {
         return qtc.QAudioSink_new6(@ptrCast(audioDeviceInfo), @ptrCast(format), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -81,7 +81,7 @@ pub const qaudiosink = struct {
         return qtc.QAudioSink_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -93,98 +93,98 @@ pub const qaudiosink = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#isNull)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QAudioSink_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#format)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Format(self: ?*anyopaque) QtC.QAudioFormat {
         return qtc.QAudioSink_Format(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#start)
     ///
     /// ``` self: QtC.QAudioSink, device: QtC.QIODevice ```
     pub fn Start(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QAudioSink_Start(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#start)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Start2(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QAudioSink_Start2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#stop)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.QAudioSink_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#reset)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QAudioSink_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#suspend)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#suspend)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Suspend(self: ?*anyopaque) void {
         qtc.QAudioSink_Suspend(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#resume)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QAudioSink_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#setBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#setBufferSize)
     ///
     /// ``` self: QtC.QAudioSink, bytes: i64 ```
     pub fn SetBufferSize(self: ?*anyopaque, bytes: i64) void {
         qtc.QAudioSink_SetBufferSize(@ptrCast(self), @intCast(bytes));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#bufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#bufferSize)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn BufferSize(self: ?*anyopaque) i64 {
         return qtc.QAudioSink_BufferSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#bytesFree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#bytesFree)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn BytesFree(self: ?*anyopaque) i64 {
         return qtc.QAudioSink_BytesFree(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#processedUSecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#processedUSecs)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn ProcessedUSecs(self: ?*anyopaque) i64 {
         return qtc.QAudioSink_ProcessedUSecs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#elapsedUSecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#elapsedUSecs)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn ElapsedUSecs(self: ?*anyopaque) i64 {
         return qtc.QAudioSink_ElapsedUSecs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#error)
     ///
     /// ``` self: QtC.QAudioSink ```
     ///
@@ -193,7 +193,7 @@ pub const qaudiosink = struct {
         return qtc.QAudioSink_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#state)
     ///
     /// ``` self: QtC.QAudioSink ```
     ///
@@ -202,35 +202,35 @@ pub const qaudiosink = struct {
         return qtc.QAudioSink_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#setVolume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#setVolume)
     ///
     /// ``` self: QtC.QAudioSink, volume: f64 ```
     pub fn SetVolume(self: ?*anyopaque, volume: f64) void {
         qtc.QAudioSink_SetVolume(@ptrCast(self), @floatCast(volume));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#volume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#volume)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Volume(self: ?*anyopaque) f64 {
         return qtc.QAudioSink_Volume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#stateChanged)
     ///
     /// ``` self: QtC.QAudioSink, state: qaudio_enums.State ```
     pub fn StateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QAudioSink_StateChanged(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#stateChanged)
     ///
     /// ``` self: QtC.QAudioSink, callback: *const fn (self: QtC.QAudioSink, state: qaudio_enums.State) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAudioSink_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -243,7 +243,7 @@ pub const qaudiosink = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -258,7 +258,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAudioSink, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -271,7 +271,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAudioSink, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -284,7 +284,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -293,7 +293,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -302,7 +302,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -311,7 +311,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -320,7 +320,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAudioSink, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -329,7 +329,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -338,7 +338,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAudioSink, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -347,7 +347,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAudioSink, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -356,7 +356,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAudioSink, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -365,7 +365,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAudioSink, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -374,7 +374,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAudioSink, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -388,7 +388,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAudioSink, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -397,7 +397,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAudioSink, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -406,7 +406,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAudioSink, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -415,7 +415,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -424,7 +424,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAudioSink, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -435,7 +435,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -444,7 +444,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -453,7 +453,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -462,7 +462,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -471,7 +471,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAudioSink, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -481,7 +481,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAudioSink, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -491,7 +491,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAudioSink, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -515,7 +515,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -524,7 +524,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -533,7 +533,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -542,7 +542,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAudioSink, callback: *const fn (self: QtC.QAudioSink) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -551,7 +551,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -560,7 +560,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAudioSink, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -570,7 +570,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAudioSink ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -579,7 +579,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAudioSink, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -588,7 +588,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAudioSink, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -597,7 +597,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -606,7 +606,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAudioSink, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -617,7 +617,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAudioSink, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -626,7 +626,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAudioSink, callback: *const fn (self: QtC.QAudioSink, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -635,7 +635,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -646,7 +646,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -657,7 +657,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -668,7 +668,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -679,7 +679,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -690,7 +690,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -701,7 +701,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -712,7 +712,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -723,7 +723,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -734,7 +734,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -745,7 +745,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -756,7 +756,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -767,7 +767,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -778,7 +778,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -789,7 +789,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -800,7 +800,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -811,7 +811,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -822,7 +822,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -833,7 +833,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -844,7 +844,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -855,7 +855,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -866,7 +866,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -877,7 +877,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -888,7 +888,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -899,7 +899,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -910,7 +910,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -921,7 +921,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -932,7 +932,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -944,7 +944,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -956,7 +956,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -967,7 +967,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -978,7 +978,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -989,7 +989,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1000,7 +1000,7 @@ pub const qaudiosink = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1009,7 +1009,7 @@ pub const qaudiosink = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiosink.html#dtor.QAudioSink)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiosink.html#dtor.QAudioSink)
     ///
     /// Delete this object from C++ memory.
     ///

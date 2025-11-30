@@ -12,7 +12,7 @@ pub const kemailsettings = struct {
         return qtc.KEMailSettings_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -24,7 +24,7 @@ pub const kemailsettings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kemailsettings.html#profiles)
+    /// [Upstream resources](https://api.kde.org/kemailsettings.html#profiles)
     ///
     /// ``` self: QtC.KEMailSettings, allocator: std.mem.Allocator ```
     pub fn Profiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -46,7 +46,7 @@ pub const kemailsettings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kemailsettings.html#setProfile)
+    /// [Upstream resources](https://api.kde.org/kemailsettings.html#setProfile)
     ///
     /// ``` self: QtC.KEMailSettings, s: []const u8 ```
     pub fn SetProfile(self: ?*anyopaque, s: []const u8) void {
@@ -57,7 +57,7 @@ pub const kemailsettings = struct {
         qtc.KEMailSettings_SetProfile(@ptrCast(self), s_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kemailsettings.html#defaultProfileName)
+    /// [Upstream resources](https://api.kde.org/kemailsettings.html#defaultProfileName)
     ///
     /// ``` self: QtC.KEMailSettings, allocator: std.mem.Allocator ```
     pub fn DefaultProfileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -68,7 +68,7 @@ pub const kemailsettings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kemailsettings.html#setDefault)
+    /// [Upstream resources](https://api.kde.org/kemailsettings.html#setDefault)
     ///
     /// ``` self: QtC.KEMailSettings, def: []const u8 ```
     pub fn SetDefault(self: ?*anyopaque, def: []const u8) void {
@@ -79,7 +79,7 @@ pub const kemailsettings = struct {
         qtc.KEMailSettings_SetDefault(@ptrCast(self), def_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kemailsettings.html#getSetting)
+    /// [Upstream resources](https://api.kde.org/kemailsettings.html#getSetting)
     ///
     /// ``` self: QtC.KEMailSettings, s: kemailsettings_enums.Setting, allocator: std.mem.Allocator ```
     pub fn GetSetting(self: ?*anyopaque, s: i32, allocator: std.mem.Allocator) []const u8 {
@@ -90,7 +90,7 @@ pub const kemailsettings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kemailsettings.html#setSetting)
+    /// [Upstream resources](https://api.kde.org/kemailsettings.html#setSetting)
     ///
     /// ``` self: QtC.KEMailSettings, s: kemailsettings_enums.Setting, v: []const u8 ```
     pub fn SetSetting(self: ?*anyopaque, s: i32, v: []const u8) void {
@@ -101,7 +101,7 @@ pub const kemailsettings = struct {
         qtc.KEMailSettings_SetSetting(@ptrCast(self), @intCast(s), v_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -114,7 +114,7 @@ pub const kemailsettings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -127,7 +127,7 @@ pub const kemailsettings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kemailsettings.html#dtor.KEMailSettings)
+    /// [Upstream resources](https://api.kde.org/kemailsettings.html#dtor.KEMailSettings)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html
 pub const qwebengineglobalsettings__dnsmode = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
     ///
     /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode ```
     ///
@@ -14,14 +14,14 @@ pub const qwebengineglobalsettings__dnsmode = struct {
         return qtc.QWebEngineGlobalSettings__DnsMode_SecureMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
     ///
     /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode, secureMode: qwebengineglobalsettings_enums.SecureDnsMode ```
     pub fn SetSecureMode(self: ?*anyopaque, secureMode: u8) void {
         qtc.QWebEngineGlobalSettings__DnsMode_SetSecureMode(@ptrCast(self), @intCast(secureMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)
     ///
     /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode, allocator: std.mem.Allocator ```
     pub fn ServerTemplates(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -43,7 +43,7 @@ pub const qwebengineglobalsettings__dnsmode = struct {
         return serverTemplates_ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)
     ///
     /// ``` self: QtC.QWebEngineGlobalSettings__DnsMode, serverTemplates: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetServerTemplates(self: ?*anyopaque, serverTemplates: [][]const u8, allocator: std.mem.Allocator) void {
@@ -72,7 +72,7 @@ pub const qwebengineglobalsettings__dnsmode = struct {
 
 /// https://doc.qt.io/qt-6/qwebengineglobalsettings.html
 pub const qwebengineglobalsettings = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineglobalsettings.html#setDnsMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings.html#setDnsMode)
     ///
     /// ``` param1: QtC.QWebEngineGlobalSettings__DnsMode ```
     pub fn SetDnsMode(param1: QtC.QWebEngineGlobalSettings__DnsMode) bool {

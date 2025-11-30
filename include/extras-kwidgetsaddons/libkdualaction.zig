@@ -31,7 +31,7 @@ pub const kdualaction = struct {
         return qtc.KDualAction_new2(inactiveText_str, activeText_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -63,7 +63,7 @@ pub const kdualaction = struct {
         return qtc.KDualAction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -75,63 +75,63 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActiveGuiItem)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setActiveGuiItem)
     ///
     /// ``` self: QtC.KDualAction, activeGuiItem: QtC.KGuiItem ```
     pub fn SetActiveGuiItem(self: ?*anyopaque, activeGuiItem: ?*anyopaque) void {
         qtc.KDualAction_SetActiveGuiItem(@ptrCast(self), @ptrCast(activeGuiItem));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeGuiItem)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#activeGuiItem)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn ActiveGuiItem(self: ?*anyopaque) QtC.KGuiItem {
         return qtc.KDualAction_ActiveGuiItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setInactiveGuiItem)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setInactiveGuiItem)
     ///
     /// ``` self: QtC.KDualAction, inactiveGuiItem: QtC.KGuiItem ```
     pub fn SetInactiveGuiItem(self: ?*anyopaque, inactiveGuiItem: ?*anyopaque) void {
         qtc.KDualAction_SetInactiveGuiItem(@ptrCast(self), @ptrCast(inactiveGuiItem));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#inactiveGuiItem)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#inactiveGuiItem)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn InactiveGuiItem(self: ?*anyopaque) QtC.KGuiItem {
         return qtc.KDualAction_InactiveGuiItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActiveIcon)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setActiveIcon)
     ///
     /// ``` self: QtC.KDualAction, activeIcon: QtC.QIcon ```
     pub fn SetActiveIcon(self: ?*anyopaque, activeIcon: ?*anyopaque) void {
         qtc.KDualAction_SetActiveIcon(@ptrCast(self), @ptrCast(activeIcon));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeIcon)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#activeIcon)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn ActiveIcon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KDualAction_ActiveIcon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setInactiveIcon)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setInactiveIcon)
     ///
     /// ``` self: QtC.KDualAction, inactiveIcon: QtC.QIcon ```
     pub fn SetInactiveIcon(self: ?*anyopaque, inactiveIcon: ?*anyopaque) void {
         qtc.KDualAction_SetInactiveIcon(@ptrCast(self), @ptrCast(inactiveIcon));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#inactiveIcon)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#inactiveIcon)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn InactiveIcon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KDualAction_InactiveIcon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActiveText)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setActiveText)
     ///
     /// ``` self: QtC.KDualAction, activeText: []const u8 ```
     pub fn SetActiveText(self: ?*anyopaque, activeText: []const u8) void {
@@ -142,7 +142,7 @@ pub const kdualaction = struct {
         qtc.KDualAction_SetActiveText(@ptrCast(self), activeText_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeText)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#activeText)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn ActiveText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -153,7 +153,7 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setInactiveText)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setInactiveText)
     ///
     /// ``` self: QtC.KDualAction, inactiveText: []const u8 ```
     pub fn SetInactiveText(self: ?*anyopaque, inactiveText: []const u8) void {
@@ -164,7 +164,7 @@ pub const kdualaction = struct {
         qtc.KDualAction_SetInactiveText(@ptrCast(self), inactiveText_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#inactiveText)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#inactiveText)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn InactiveText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -175,7 +175,7 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActiveToolTip)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setActiveToolTip)
     ///
     /// ``` self: QtC.KDualAction, activeToolTip: []const u8 ```
     pub fn SetActiveToolTip(self: ?*anyopaque, activeToolTip: []const u8) void {
@@ -186,7 +186,7 @@ pub const kdualaction = struct {
         qtc.KDualAction_SetActiveToolTip(@ptrCast(self), activeToolTip_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeToolTip)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#activeToolTip)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn ActiveToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -197,7 +197,7 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setInactiveToolTip)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setInactiveToolTip)
     ///
     /// ``` self: QtC.KDualAction, inactiveToolTip: []const u8 ```
     pub fn SetInactiveToolTip(self: ?*anyopaque, inactiveToolTip: []const u8) void {
@@ -208,7 +208,7 @@ pub const kdualaction = struct {
         qtc.KDualAction_SetInactiveToolTip(@ptrCast(self), inactiveToolTip_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#inactiveToolTip)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#inactiveToolTip)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn InactiveToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -219,70 +219,70 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setIconForStates)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setIconForStates)
     ///
     /// ``` self: QtC.KDualAction, icon: QtC.QIcon ```
     pub fn SetIconForStates(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KDualAction_SetIconForStates(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#isActive)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#isActive)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsActive(self: ?*anyopaque) bool {
         return qtc.KDualAction_IsActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setAutoToggle)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setAutoToggle)
     ///
     /// ``` self: QtC.KDualAction, autoToggle: bool ```
     pub fn SetAutoToggle(self: ?*anyopaque, autoToggle: bool) void {
         qtc.KDualAction_SetAutoToggle(@ptrCast(self), autoToggle);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#autoToggle)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#autoToggle)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn AutoToggle(self: ?*anyopaque) bool {
         return qtc.KDualAction_AutoToggle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActive)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#setActive)
     ///
     /// ``` self: QtC.KDualAction, state: bool ```
     pub fn SetActive(self: ?*anyopaque, state: bool) void {
         qtc.KDualAction_SetActive(@ptrCast(self), state);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeChanged)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#activeChanged)
     ///
     /// ``` self: QtC.KDualAction, param1: bool ```
     pub fn ActiveChanged(self: ?*anyopaque, param1: bool) void {
         qtc.KDualAction_ActiveChanged(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeChanged)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#activeChanged)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction, param1: bool) callconv(.c) void ```
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KDualAction_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeChangedByUser)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#activeChangedByUser)
     ///
     /// ``` self: QtC.KDualAction, param1: bool ```
     pub fn ActiveChangedByUser(self: ?*anyopaque, param1: bool) void {
         qtc.KDualAction_ActiveChangedByUser(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeChangedByUser)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#activeChangedByUser)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction, param1: bool) callconv(.c) void ```
     pub fn OnActiveChangedByUser(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KDualAction_Connect_ActiveChangedByUser(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -295,7 +295,7 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -310,7 +310,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -324,7 +324,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
     ///
     /// ``` self: QtC.KDualAction, group: QtC.QActionGroup ```
     pub fn SetActionGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -333,7 +333,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#actionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#actionGroup)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn ActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -342,7 +342,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIcon)
     ///
     /// ``` self: QtC.KDualAction, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -351,7 +351,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#icon)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
@@ -360,7 +360,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setText)
     ///
     /// ``` self: QtC.KDualAction, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -373,7 +373,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#text)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -386,7 +386,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconText)
     ///
     /// ``` self: QtC.KDualAction, text: []const u8 ```
     pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
@@ -399,7 +399,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#iconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#iconText)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -412,7 +412,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setToolTip)
     ///
     /// ``` self: QtC.KDualAction, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
@@ -425,7 +425,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toolTip)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -438,7 +438,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
     ///
     /// ``` self: QtC.KDualAction, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -451,7 +451,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#statusTip)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -464,7 +464,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
     ///
     /// ``` self: QtC.KDualAction, what: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
@@ -477,7 +477,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#whatsThis)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -490,7 +490,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setPriority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setPriority)
     ///
     /// ``` self: QtC.KDualAction, priority: qaction_enums.Priority ```
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
@@ -499,7 +499,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#priority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#priority)
     ///
     /// ``` self: QtC.KDualAction ```
     ///
@@ -510,7 +510,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setSeparator)
     ///
     /// ``` self: QtC.KDualAction, b: bool ```
     pub fn SetSeparator(self: ?*anyopaque, b: bool) void {
@@ -519,7 +519,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isSeparator)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsSeparator(self: ?*anyopaque) bool {
@@ -528,7 +528,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcut)
     ///
     /// ``` self: QtC.KDualAction, shortcut: QtC.QKeySequence ```
     pub fn SetShortcut(self: ?*anyopaque, shortcut: ?*anyopaque) void {
@@ -537,7 +537,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcut)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Shortcut(self: ?*anyopaque) QtC.QKeySequence {
@@ -546,7 +546,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KDualAction, shortcuts: []QtC.QKeySequence ```
     pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
@@ -559,7 +559,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KDualAction, shortcuts: qkeysequence_enums.StandardKey ```
     pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
@@ -568,7 +568,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcuts)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -582,7 +582,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
     ///
     /// ``` self: QtC.KDualAction, context: qnamespace_enums.ShortcutContext ```
     pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
@@ -591,7 +591,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
     ///
     /// ``` self: QtC.KDualAction ```
     ///
@@ -602,7 +602,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
     ///
     /// ``` self: QtC.KDualAction, autoRepeat: bool ```
     pub fn SetAutoRepeat(self: ?*anyopaque, autoRepeat: bool) void {
@@ -611,7 +611,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn AutoRepeat(self: ?*anyopaque) bool {
@@ -620,7 +620,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setFont)
     ///
     /// ``` self: QtC.KDualAction, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -629,7 +629,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#font)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -638,7 +638,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setCheckable)
     ///
     /// ``` self: QtC.KDualAction, checkable: bool ```
     pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
@@ -647,7 +647,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isCheckable)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsCheckable(self: ?*anyopaque) bool {
@@ -656,7 +656,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#data)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
@@ -665,7 +665,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setData)
     ///
     /// ``` self: QtC.KDualAction, varVal: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, varVal: ?*anyopaque) void {
@@ -674,7 +674,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isChecked)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsChecked(self: ?*anyopaque) bool {
@@ -683,7 +683,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isEnabled)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -692,7 +692,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isVisible)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -701,7 +701,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#activate)
     ///
     /// ``` self: QtC.KDualAction, event: qaction_enums.ActionEvent ```
     pub fn Activate(self: ?*anyopaque, event: i32) void {
@@ -710,7 +710,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
     ///
     /// ``` self: QtC.KDualAction, menuRole: qaction_enums.MenuRole ```
     pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
@@ -719,7 +719,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#menuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#menuRole)
     ///
     /// ``` self: QtC.KDualAction ```
     ///
@@ -730,7 +730,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
     ///
     /// ``` self: QtC.KDualAction, visible: bool ```
     pub fn SetIconVisibleInMenu(self: ?*anyopaque, visible: bool) void {
@@ -739,7 +739,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsIconVisibleInMenu(self: ?*anyopaque) bool {
@@ -748,7 +748,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KDualAction, show: bool ```
     pub fn SetShortcutVisibleInContextMenu(self: ?*anyopaque, show: bool) void {
@@ -757,7 +757,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsShortcutVisibleInContextMenu(self: ?*anyopaque) bool {
@@ -766,7 +766,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn ShowStatusText(self: ?*anyopaque) bool {
@@ -775,7 +775,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#trigger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#trigger)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Trigger(self: ?*anyopaque) void {
@@ -784,7 +784,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hover)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hover)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Hover(self: ?*anyopaque) void {
@@ -793,7 +793,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setChecked)
     ///
     /// ``` self: QtC.KDualAction, checked: bool ```
     pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
@@ -802,7 +802,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggle)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Toggle(self: ?*anyopaque) void {
@@ -811,7 +811,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setEnabled)
     ///
     /// ``` self: QtC.KDualAction, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -820,7 +820,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn ResetEnabled(self: ?*anyopaque) void {
@@ -829,7 +829,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setDisabled)
     ///
     /// ``` self: QtC.KDualAction, b: bool ```
     pub fn SetDisabled(self: ?*anyopaque, b: bool) void {
@@ -838,7 +838,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setVisible)
     ///
     /// ``` self: QtC.KDualAction, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -847,7 +847,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -856,7 +856,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -865,7 +865,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KDualAction, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -874,7 +874,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -883,7 +883,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KDualAction, checkable: bool ```
     pub fn CheckableChanged(self: ?*anyopaque, checkable: bool) void {
@@ -892,7 +892,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction, checkable: bool) callconv(.c) void ```
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -901,7 +901,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -910,7 +910,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -919,7 +919,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Triggered(self: ?*anyopaque) void {
@@ -928,7 +928,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction) callconv(.c) void ```
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -937,7 +937,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Hovered(self: ?*anyopaque) void {
@@ -946,7 +946,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -955,7 +955,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KDualAction, param1: bool ```
     pub fn Toggled(self: ?*anyopaque, param1: bool) void {
@@ -964,7 +964,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction, param1: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -973,7 +973,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KDualAction, object: QtC.QObject ```
     pub fn ShowStatusText1(self: ?*anyopaque, object: ?*anyopaque) bool {
@@ -982,7 +982,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KDualAction, checked: bool ```
     pub fn Triggered1(self: ?*anyopaque, checked: bool) void {
@@ -991,7 +991,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction, checked: bool) callconv(.c) void ```
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1000,7 +1000,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1013,7 +1013,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KDualAction, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1026,7 +1026,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1035,7 +1035,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1044,7 +1044,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1053,7 +1053,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1062,7 +1062,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KDualAction, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1071,7 +1071,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1080,7 +1080,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KDualAction, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1089,7 +1089,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KDualAction, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1098,7 +1098,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KDualAction, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1107,7 +1107,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KDualAction, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1116,7 +1116,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1130,7 +1130,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KDualAction, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1139,7 +1139,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KDualAction, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1148,7 +1148,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KDualAction, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1157,7 +1157,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1166,7 +1166,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KDualAction, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1177,7 +1177,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1186,7 +1186,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1195,7 +1195,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1204,7 +1204,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1213,7 +1213,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KDualAction, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1223,7 +1223,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KDualAction, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1233,7 +1233,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1257,7 +1257,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1266,7 +1266,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1275,7 +1275,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1284,7 +1284,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1293,7 +1293,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1302,7 +1302,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KDualAction, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1312,7 +1312,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1321,7 +1321,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KDualAction, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1330,7 +1330,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KDualAction, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1339,7 +1339,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1348,7 +1348,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KDualAction, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1359,7 +1359,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDualAction, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1368,7 +1368,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDualAction, callback: *const fn (self: QtC.KDualAction, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1377,7 +1377,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1388,7 +1388,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1399,7 +1399,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1410,7 +1410,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1421,7 +1421,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1432,7 +1432,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1443,7 +1443,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1454,7 +1454,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1465,7 +1465,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1476,7 +1476,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1487,7 +1487,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1498,7 +1498,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1509,7 +1509,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1520,7 +1520,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1531,7 +1531,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1542,7 +1542,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1553,7 +1553,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1564,7 +1564,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1575,7 +1575,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1586,7 +1586,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1597,7 +1597,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1608,7 +1608,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1619,7 +1619,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1630,7 +1630,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1641,7 +1641,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1652,7 +1652,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1663,7 +1663,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1674,7 +1674,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1686,7 +1686,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1698,7 +1698,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1709,7 +1709,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1720,7 +1720,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1731,7 +1731,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1742,7 +1742,7 @@ pub const kdualaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1751,7 +1751,7 @@ pub const kdualaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdualaction.html#dtor.KDualAction)
+    /// [Upstream resources](https://api.kde.org/kdualaction.html#dtor.KDualAction)
     ///
     /// Delete this object from C++ memory.
     ///

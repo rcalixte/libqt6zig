@@ -31,7 +31,7 @@ pub const solid__device = struct {
         return qtc.Solid__Device_new3(udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#allDevices)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#allDevices)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllDevices(allocator: std.mem.Allocator) []QtC.Solid__Device {
@@ -43,7 +43,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#listFromType)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#listFromType)
     ///
     /// ``` typeVal: *const deviceinterface_enums.Type, allocator: std.mem.Allocator ```
     pub fn ListFromType(typeVal: *const i32, allocator: std.mem.Allocator) []QtC.Solid__Device {
@@ -55,7 +55,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#listFromQuery)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#listFromQuery)
     ///
     /// ``` predicate: QtC.Solid__Predicate, allocator: std.mem.Allocator ```
     pub fn ListFromQuery(predicate: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Solid__Device {
@@ -67,7 +67,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#listFromQuery)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#listFromQuery)
     ///
     /// ``` predicate: []const u8, allocator: std.mem.Allocator ```
     pub fn ListFromQuery2(predicate: []const u8, allocator: std.mem.Allocator) []QtC.Solid__Device {
@@ -83,7 +83,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#storageAccessFromPath)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#storageAccessFromPath)
     ///
     /// ``` path: []const u8 ```
     pub fn StorageAccessFromPath(path: []const u8) QtC.Solid__Device {
@@ -94,21 +94,21 @@ pub const solid__device = struct {
         return qtc.Solid__Device_StorageAccessFromPath(path_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#operator-eq)
     ///
     /// ``` self: QtC.Solid__Device, device: QtC.Solid__Device ```
     pub fn OperatorAssign(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.Solid__Device_OperatorAssign(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#isValid)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#isValid)
     ///
     /// ``` self: QtC.Solid__Device ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.Solid__Device_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#udi)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#udi)
     ///
     /// ``` self: QtC.Solid__Device, allocator: std.mem.Allocator ```
     pub fn Udi(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -119,7 +119,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#parentUdi)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#parentUdi)
     ///
     /// ``` self: QtC.Solid__Device, allocator: std.mem.Allocator ```
     pub fn ParentUdi(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -130,14 +130,14 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#parent)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#parent)
     ///
     /// ``` self: QtC.Solid__Device ```
     pub fn Parent(self: ?*anyopaque) QtC.Solid__Device {
         return qtc.Solid__Device_Parent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#vendor)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#vendor)
     ///
     /// ``` self: QtC.Solid__Device, allocator: std.mem.Allocator ```
     pub fn Vendor(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -148,7 +148,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#product)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#product)
     ///
     /// ``` self: QtC.Solid__Device, allocator: std.mem.Allocator ```
     pub fn Product(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -159,7 +159,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#icon)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#icon)
     ///
     /// ``` self: QtC.Solid__Device, allocator: std.mem.Allocator ```
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -170,7 +170,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#emblems)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#emblems)
     ///
     /// ``` self: QtC.Solid__Device, allocator: std.mem.Allocator ```
     pub fn Emblems(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -192,7 +192,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#displayName)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#displayName)
     ///
     /// ``` self: QtC.Solid__Device, allocator: std.mem.Allocator ```
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -203,7 +203,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#description)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#description)
     ///
     /// ``` self: QtC.Solid__Device, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -214,28 +214,28 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#isDeviceInterface)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#isDeviceInterface)
     ///
     /// ``` self: QtC.Solid__Device, typeVal: *const deviceinterface_enums.Type ```
     pub fn IsDeviceInterface(self: ?*anyopaque, typeVal: *const i32) bool {
         return qtc.Solid__Device_IsDeviceInterface(@ptrCast(self), @ptrCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#asDeviceInterface)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#asDeviceInterface)
     ///
     /// ``` self: QtC.Solid__Device, typeVal: *const deviceinterface_enums.Type ```
     pub fn AsDeviceInterface(self: ?*anyopaque, typeVal: *const i32) QtC.Solid__DeviceInterface {
         return qtc.Solid__Device_AsDeviceInterface(@ptrCast(self), @ptrCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#asDeviceInterface)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#asDeviceInterface)
     ///
     /// ``` self: QtC.Solid__Device, typeVal: *const deviceinterface_enums.Type ```
     pub fn AsDeviceInterface2(self: ?*anyopaque, typeVal: *const i32) QtC.Solid__DeviceInterface {
         return qtc.Solid__Device_AsDeviceInterface2(@ptrCast(self), @ptrCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#listFromType)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#listFromType)
     ///
     /// ``` typeVal: *const deviceinterface_enums.Type, parentUdi: []const u8, allocator: std.mem.Allocator ```
     pub fn ListFromType2(typeVal: *const i32, parentUdi: []const u8, allocator: std.mem.Allocator) []QtC.Solid__Device {
@@ -251,7 +251,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#listFromQuery)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#listFromQuery)
     ///
     /// ``` predicate: QtC.Solid__Predicate, parentUdi: []const u8, allocator: std.mem.Allocator ```
     pub fn ListFromQuery22(predicate: ?*anyopaque, parentUdi: []const u8, allocator: std.mem.Allocator) []QtC.Solid__Device {
@@ -267,7 +267,7 @@ pub const solid__device = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-device.html#listFromQuery)
+    /// [Upstream resources](https://api.kde.org/solid-device.html#listFromQuery)
     ///
     /// ``` predicate: []const u8, parentUdi: []const u8, allocator: std.mem.Allocator ```
     pub fn ListFromQuery23(predicate: []const u8, parentUdi: []const u8, allocator: std.mem.Allocator) []QtC.Solid__Device {

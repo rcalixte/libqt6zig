@@ -21,7 +21,7 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,14 +65,14 @@ pub const qgraphicseffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// ``` self: QtC.QGraphicsEffect, sourceRect: QtC.QRectF ```
     pub fn BoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_BoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -81,7 +81,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Base class method implementation
     ///
@@ -90,56 +90,56 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_BoundingRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
     /// ``` self: QtC.QGraphicsEffect, enable: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn Update(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsEffect, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
     /// ``` self: QtC.QGraphicsEffect, painter: QtC.QPainter ```
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
@@ -148,7 +148,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
     /// Base class method implementation
     ///
@@ -157,14 +157,14 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// ``` self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -173,7 +173,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Base class method implementation
     ///
@@ -182,14 +182,14 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn UpdateBoundingRect(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -198,7 +198,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Base class method implementation
     ///
@@ -207,14 +207,14 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_QBaseUpdateBoundingRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn SourceIsPixmap(self: ?*anyopaque) bool {
         return qtc.QGraphicsEffect_SourceIsPixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -223,7 +223,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Base class method implementation
     ///
@@ -232,14 +232,14 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_QBaseSourceIsPixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn SourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsEffect_SourceBoundingRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -248,7 +248,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Base class method implementation
     ///
@@ -257,14 +257,14 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_QBaseSourceBoundingRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// ``` self: QtC.QGraphicsEffect, painter: QtC.QPainter ```
     pub fn DrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Allows for overriding the related default method
     ///
@@ -273,7 +273,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Base class method implementation
     ///
@@ -282,14 +282,14 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn SourcePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsEffect_SourcePixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -298,7 +298,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
     ///
@@ -307,7 +307,7 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_QBaseSourcePixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -320,7 +320,7 @@ pub const qgraphicseffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -333,14 +333,14 @@ pub const qgraphicseffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem ```
     pub fn SourceBoundingRect1(self: ?*anyopaque, system: i32) QtC.QRectF {
         return qtc.QGraphicsEffect_SourceBoundingRect1(@ptrCast(self), @intCast(system));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -349,7 +349,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourceBoundingRect1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Base class method implementation
     ///
@@ -358,14 +358,14 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_QBaseSourceBoundingRect1(@ptrCast(self), @intCast(system));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem ```
     pub fn SourcePixmap1(self: ?*anyopaque, system: i32) QtC.QPixmap {
         return qtc.QGraphicsEffect_SourcePixmap1(@ptrCast(self), @intCast(system));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -374,7 +374,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourcePixmap1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
     ///
@@ -383,14 +383,14 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_QBaseSourcePixmap1(@ptrCast(self), @intCast(system));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint ```
     pub fn SourcePixmap2(self: ?*anyopaque, system: i32, offset: ?*anyopaque) QtC.QPixmap {
         return qtc.QGraphicsEffect_SourcePixmap2(@ptrCast(self), @intCast(system), @ptrCast(offset));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -399,7 +399,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourcePixmap2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
     ///
@@ -408,14 +408,14 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_QBaseSourcePixmap2(@ptrCast(self), @intCast(system), @ptrCast(offset));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// ``` self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint, mode: qgraphicseffect_enums.PixmapPadMode ```
     pub fn SourcePixmap3(self: ?*anyopaque, system: i32, offset: ?*anyopaque, mode: i32) QtC.QPixmap {
         return qtc.QGraphicsEffect_SourcePixmap3(@ptrCast(self), @intCast(system), @ptrCast(offset), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -424,7 +424,7 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourcePixmap3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
     ///
@@ -435,7 +435,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -448,7 +448,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QGraphicsEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -461,7 +461,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -470,7 +470,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -479,7 +479,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -488,7 +488,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -497,7 +497,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QGraphicsEffect, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -506,7 +506,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -515,7 +515,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsEffect, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -524,7 +524,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsEffect, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -533,7 +533,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsEffect, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -542,7 +542,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsEffect, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -551,7 +551,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -565,7 +565,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QGraphicsEffect, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -574,7 +574,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QGraphicsEffect, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -583,7 +583,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QGraphicsEffect, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -592,7 +592,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -601,7 +601,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -612,7 +612,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -621,7 +621,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -630,7 +630,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -639,7 +639,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -648,7 +648,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QGraphicsEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -658,7 +658,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QGraphicsEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -668,7 +668,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -692,7 +692,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -701,7 +701,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -710,7 +710,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -719,7 +719,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -728,7 +728,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -737,7 +737,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QGraphicsEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -747,7 +747,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QGraphicsEffect ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -756,7 +756,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -765,7 +765,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -774,7 +774,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -783,7 +783,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -794,7 +794,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsEffect, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -803,7 +803,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsEffect, callback: *const fn (self: QtC.QGraphicsEffect, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -812,7 +812,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -823,7 +823,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -834,7 +834,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -845,7 +845,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -856,7 +856,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -867,7 +867,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -878,7 +878,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -889,7 +889,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -900,7 +900,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -911,7 +911,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -922,7 +922,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -933,7 +933,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -944,7 +944,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -955,7 +955,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -966,7 +966,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -977,7 +977,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -988,7 +988,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -999,7 +999,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1010,7 +1010,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1021,7 +1021,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1032,7 +1032,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1043,7 +1043,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1054,7 +1054,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1065,7 +1065,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1076,7 +1076,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1087,7 +1087,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1098,7 +1098,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1109,7 +1109,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1121,7 +1121,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1133,7 +1133,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1144,7 +1144,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1155,7 +1155,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1166,7 +1166,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1177,7 +1177,7 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1186,7 +1186,7 @@ pub const qgraphicseffect = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#dtor.QGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#dtor.QGraphicsEffect)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1212,7 +1212,7 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -1244,7 +1244,7 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1256,70 +1256,70 @@ pub const qgraphicscolorizeeffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#color)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#color)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QGraphicsColorizeEffect_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strength)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn Strength(self: ?*anyopaque) f64 {
         return qtc.QGraphicsColorizeEffect_Strength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setColor)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, c: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_SetColor(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setStrength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setStrength)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, strength: f64 ```
     pub fn SetStrength(self: ?*anyopaque, strength: f64) void {
         qtc.QGraphicsColorizeEffect_SetStrength(@ptrCast(self), @floatCast(strength));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, color: QtC.QColor ```
     pub fn ColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_ColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, color: QtC.QColor) callconv(.c) void ```
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, strength: f64 ```
     pub fn StrengthChanged(self: ?*anyopaque, strength: f64) void {
         qtc.QGraphicsColorizeEffect_StrengthChanged(@ptrCast(self), @floatCast(strength));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, strength: f64) callconv(.c) void ```
     pub fn OnStrengthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_Connect_StrengthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter ```
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1328,7 +1328,7 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
     /// Base class method implementation
     ///
@@ -1337,7 +1337,7 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1350,7 +1350,7 @@ pub const qgraphicscolorizeeffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1365,7 +1365,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -1374,7 +1374,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1383,7 +1383,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, enable: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
@@ -1392,7 +1392,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn Update(self: ?*anyopaque) void {
@@ -1401,7 +1401,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -1410,7 +1410,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1419,7 +1419,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1432,7 +1432,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1445,7 +1445,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1454,7 +1454,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1463,7 +1463,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1472,7 +1472,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1481,7 +1481,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1490,7 +1490,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1499,7 +1499,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1508,7 +1508,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1517,7 +1517,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1526,7 +1526,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1535,7 +1535,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1549,7 +1549,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1558,7 +1558,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1567,7 +1567,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1576,7 +1576,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1585,7 +1585,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1596,7 +1596,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1605,7 +1605,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1614,7 +1614,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1623,7 +1623,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1632,7 +1632,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1642,7 +1642,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1652,7 +1652,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1676,7 +1676,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1685,7 +1685,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1694,7 +1694,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1703,7 +1703,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1712,7 +1712,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1721,7 +1721,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1731,7 +1731,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1740,7 +1740,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1749,7 +1749,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1758,7 +1758,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1767,7 +1767,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1778,7 +1778,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1787,7 +1787,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, callback: *const fn (self: QtC.QGraphicsColorizeEffect, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1796,7 +1796,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1807,7 +1807,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1818,7 +1818,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1829,7 +1829,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1840,7 +1840,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1851,7 +1851,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1862,7 +1862,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1873,7 +1873,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1884,7 +1884,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1895,7 +1895,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1906,7 +1906,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1917,7 +1917,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1928,7 +1928,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1939,7 +1939,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1950,7 +1950,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1961,7 +1961,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1972,7 +1972,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1983,7 +1983,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1994,7 +1994,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2005,7 +2005,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2016,7 +2016,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2027,7 +2027,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2038,7 +2038,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2049,7 +2049,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2060,7 +2060,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2071,7 +2071,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2082,7 +2082,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2093,7 +2093,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2104,7 +2104,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2115,7 +2115,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2126,7 +2126,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2137,7 +2137,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2148,7 +2148,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2159,7 +2159,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2170,7 +2170,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2181,7 +2181,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2192,7 +2192,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2203,7 +2203,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2214,7 +2214,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2225,7 +2225,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2236,7 +2236,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2247,7 +2247,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2258,7 +2258,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2269,7 +2269,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2280,7 +2280,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2291,7 +2291,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2302,7 +2302,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2313,7 +2313,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2324,7 +2324,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2336,7 +2336,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2348,7 +2348,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2359,7 +2359,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2370,7 +2370,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2381,7 +2381,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2392,7 +2392,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2401,7 +2401,7 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#dtor.QGraphicsColorizeEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#dtor.QGraphicsColorizeEffect)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2427,7 +2427,7 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -2459,7 +2459,7 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2471,14 +2471,14 @@ pub const qgraphicsblureffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, rect: QtC.QRectF ```
     pub fn BoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsBlurEffect_BoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2487,7 +2487,7 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
     /// Base class method implementation
     ///
@@ -2496,14 +2496,14 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadius)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadius)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn BlurRadius(self: ?*anyopaque) f64 {
         return qtc.QGraphicsBlurEffect_BlurRadius(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHints)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     ///
@@ -2512,56 +2512,56 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_BlurHints(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurRadius)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurRadius)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, blurRadius: f64 ```
     pub fn SetBlurRadius(self: ?*anyopaque, blurRadius: f64) void {
         qtc.QGraphicsBlurEffect_SetBlurRadius(@ptrCast(self), @floatCast(blurRadius));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurHints)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint ```
     pub fn SetBlurHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsBlurEffect_SetBlurHints(@ptrCast(self), @intCast(hints));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, blurRadius: f64 ```
     pub fn BlurRadiusChanged(self: ?*anyopaque, blurRadius: f64) void {
         qtc.QGraphicsBlurEffect_BlurRadiusChanged(@ptrCast(self), @floatCast(blurRadius));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, blurRadius: f64) callconv(.c) void ```
     pub fn OnBlurRadiusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurRadiusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint ```
     pub fn BlurHintsChanged(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsBlurEffect_BlurHintsChanged(@ptrCast(self), @intCast(hints));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void ```
     pub fn OnBlurHintsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurHintsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter ```
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2570,7 +2570,7 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
     /// Base class method implementation
     ///
@@ -2579,7 +2579,7 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2592,7 +2592,7 @@ pub const qgraphicsblureffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -2607,7 +2607,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -2616,7 +2616,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2625,7 +2625,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, enable: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
@@ -2634,7 +2634,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn Update(self: ?*anyopaque) void {
@@ -2643,7 +2643,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -2652,7 +2652,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -2661,7 +2661,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2674,7 +2674,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2687,7 +2687,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2696,7 +2696,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2705,7 +2705,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2714,7 +2714,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2723,7 +2723,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2732,7 +2732,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2741,7 +2741,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2750,7 +2750,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2759,7 +2759,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2768,7 +2768,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2777,7 +2777,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2791,7 +2791,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2800,7 +2800,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2809,7 +2809,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2818,7 +2818,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2827,7 +2827,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2838,7 +2838,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2847,7 +2847,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2856,7 +2856,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2865,7 +2865,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2874,7 +2874,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2884,7 +2884,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2894,7 +2894,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2918,7 +2918,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2927,7 +2927,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2936,7 +2936,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2945,7 +2945,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2954,7 +2954,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2963,7 +2963,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2973,7 +2973,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2982,7 +2982,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2991,7 +2991,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3000,7 +3000,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3009,7 +3009,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3020,7 +3020,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3029,7 +3029,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, callback: *const fn (self: QtC.QGraphicsBlurEffect, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3038,7 +3038,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3049,7 +3049,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3060,7 +3060,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3071,7 +3071,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3082,7 +3082,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3093,7 +3093,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3104,7 +3104,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3115,7 +3115,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3126,7 +3126,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3137,7 +3137,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3148,7 +3148,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3159,7 +3159,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3170,7 +3170,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3181,7 +3181,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3192,7 +3192,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3203,7 +3203,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3214,7 +3214,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3225,7 +3225,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3236,7 +3236,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3247,7 +3247,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3258,7 +3258,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3269,7 +3269,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3280,7 +3280,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3291,7 +3291,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3302,7 +3302,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3313,7 +3313,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3324,7 +3324,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3335,7 +3335,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3346,7 +3346,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3357,7 +3357,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3368,7 +3368,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3379,7 +3379,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3390,7 +3390,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3401,7 +3401,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3412,7 +3412,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3423,7 +3423,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3434,7 +3434,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3445,7 +3445,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3456,7 +3456,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3467,7 +3467,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3478,7 +3478,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3489,7 +3489,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3500,7 +3500,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3511,7 +3511,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3522,7 +3522,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3533,7 +3533,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3545,7 +3545,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3557,7 +3557,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3568,7 +3568,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3579,7 +3579,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3590,7 +3590,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3601,7 +3601,7 @@ pub const qgraphicsblureffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3610,7 +3610,7 @@ pub const qgraphicsblureffect = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#dtor.QGraphicsBlurEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#dtor.QGraphicsBlurEffect)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -3636,7 +3636,7 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -3668,7 +3668,7 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3680,14 +3680,14 @@ pub const qgraphicsdropshadoweffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, rect: QtC.QRectF ```
     pub fn BoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsDropShadowEffect_BoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3696,7 +3696,7 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
     /// Base class method implementation
     ///
@@ -3705,140 +3705,140 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn Offset(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsDropShadowEffect_Offset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#xOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#xOffset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn XOffset(self: ?*anyopaque) f64 {
         return qtc.QGraphicsDropShadowEffect_XOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#yOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#yOffset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn YOffset(self: ?*anyopaque) f64 {
         return qtc.QGraphicsDropShadowEffect_YOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadius)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadius)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn BlurRadius(self: ?*anyopaque) f64 {
         return qtc.QGraphicsDropShadowEffect_BlurRadius(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#color)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#color)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QGraphicsDropShadowEffect_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, ofs: QtC.QPointF ```
     pub fn SetOffset(self: ?*anyopaque, ofs: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_SetOffset(@ptrCast(self), @ptrCast(ofs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, dx: f64, dy: f64 ```
     pub fn SetOffset2(self: ?*anyopaque, dx: f64, dy: f64) void {
         qtc.QGraphicsDropShadowEffect_SetOffset2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, d: f64 ```
     pub fn SetOffset3(self: ?*anyopaque, d: f64) void {
         qtc.QGraphicsDropShadowEffect_SetOffset3(@ptrCast(self), @floatCast(d));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setXOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setXOffset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, dx: f64 ```
     pub fn SetXOffset(self: ?*anyopaque, dx: f64) void {
         qtc.QGraphicsDropShadowEffect_SetXOffset(@ptrCast(self), @floatCast(dx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setYOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setYOffset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, dy: f64 ```
     pub fn SetYOffset(self: ?*anyopaque, dy: f64) void {
         qtc.QGraphicsDropShadowEffect_SetYOffset(@ptrCast(self), @floatCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setBlurRadius)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setBlurRadius)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, blurRadius: f64 ```
     pub fn SetBlurRadius(self: ?*anyopaque, blurRadius: f64) void {
         qtc.QGraphicsDropShadowEffect_SetBlurRadius(@ptrCast(self), @floatCast(blurRadius));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setColor)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, color: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, offset: QtC.QPointF ```
     pub fn OffsetChanged(self: ?*anyopaque, offset: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_OffsetChanged(@ptrCast(self), @ptrCast(offset));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, offset: QtC.QPointF) callconv(.c) void ```
     pub fn OnOffsetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_OffsetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, blurRadius: f64 ```
     pub fn BlurRadiusChanged(self: ?*anyopaque, blurRadius: f64) void {
         qtc.QGraphicsDropShadowEffect_BlurRadiusChanged(@ptrCast(self), @floatCast(blurRadius));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, blurRadius: f64) callconv(.c) void ```
     pub fn OnBlurRadiusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_BlurRadiusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, color: QtC.QColor ```
     pub fn ColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_ColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, color: QtC.QColor) callconv(.c) void ```
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter ```
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3847,7 +3847,7 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
     /// Base class method implementation
     ///
@@ -3856,7 +3856,7 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3869,7 +3869,7 @@ pub const qgraphicsdropshadoweffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -3884,7 +3884,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -3893,7 +3893,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -3902,7 +3902,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, enable: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
@@ -3911,7 +3911,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn Update(self: ?*anyopaque) void {
@@ -3920,7 +3920,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -3929,7 +3929,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -3938,7 +3938,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3951,7 +3951,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3964,7 +3964,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3973,7 +3973,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3982,7 +3982,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3991,7 +3991,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4000,7 +4000,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4009,7 +4009,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4018,7 +4018,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4027,7 +4027,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4036,7 +4036,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4045,7 +4045,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -4054,7 +4054,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -4068,7 +4068,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -4077,7 +4077,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -4086,7 +4086,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -4095,7 +4095,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -4104,7 +4104,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4115,7 +4115,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4124,7 +4124,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4133,7 +4133,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4142,7 +4142,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4151,7 +4151,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4161,7 +4161,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4171,7 +4171,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -4195,7 +4195,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4204,7 +4204,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4213,7 +4213,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -4222,7 +4222,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -4231,7 +4231,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -4240,7 +4240,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -4250,7 +4250,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -4259,7 +4259,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -4268,7 +4268,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -4277,7 +4277,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4286,7 +4286,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4297,7 +4297,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4306,7 +4306,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, callback: *const fn (self: QtC.QGraphicsDropShadowEffect, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4315,7 +4315,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4326,7 +4326,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4337,7 +4337,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4348,7 +4348,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4359,7 +4359,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4370,7 +4370,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4381,7 +4381,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4392,7 +4392,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4403,7 +4403,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4414,7 +4414,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4425,7 +4425,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4436,7 +4436,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4447,7 +4447,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4458,7 +4458,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4469,7 +4469,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4480,7 +4480,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4491,7 +4491,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4502,7 +4502,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4513,7 +4513,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4524,7 +4524,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4535,7 +4535,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4546,7 +4546,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4557,7 +4557,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4568,7 +4568,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4579,7 +4579,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4590,7 +4590,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4601,7 +4601,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4612,7 +4612,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4623,7 +4623,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4634,7 +4634,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4645,7 +4645,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4656,7 +4656,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4667,7 +4667,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4678,7 +4678,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4689,7 +4689,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4700,7 +4700,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4711,7 +4711,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4722,7 +4722,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4733,7 +4733,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4744,7 +4744,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4755,7 +4755,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4766,7 +4766,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4777,7 +4777,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4788,7 +4788,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4799,7 +4799,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4810,7 +4810,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4822,7 +4822,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4834,7 +4834,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4845,7 +4845,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4856,7 +4856,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4867,7 +4867,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4878,7 +4878,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -4887,7 +4887,7 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#dtor.QGraphicsDropShadowEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#dtor.QGraphicsDropShadowEffect)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -4913,7 +4913,7 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -4945,7 +4945,7 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -4957,70 +4957,70 @@ pub const qgraphicsopacityeffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacity)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn Opacity(self: ?*anyopaque) f64 {
         return qtc.QGraphicsOpacityEffect_Opacity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMask)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn OpacityMask(self: ?*anyopaque) QtC.QBrush {
         return qtc.QGraphicsOpacityEffect_OpacityMask(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacity)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, opacity: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
         qtc.QGraphicsOpacityEffect_SetOpacity(@ptrCast(self), @floatCast(opacity));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacityMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacityMask)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, mask: QtC.QBrush ```
     pub fn SetOpacityMask(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_SetOpacityMask(@ptrCast(self), @ptrCast(mask));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, opacity: f64 ```
     pub fn OpacityChanged(self: ?*anyopaque, opacity: f64) void {
         qtc.QGraphicsOpacityEffect_OpacityChanged(@ptrCast(self), @floatCast(opacity));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, opacity: f64) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, mask: QtC.QBrush ```
     pub fn OpacityMaskChanged(self: ?*anyopaque, mask: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_OpacityMaskChanged(@ptrCast(self), @ptrCast(mask));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, mask: QtC.QBrush) callconv(.c) void ```
     pub fn OnOpacityMaskChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_Connect_OpacityMaskChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter ```
     pub fn Draw(self: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_Draw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
     /// Allows for overriding the related default method
     ///
@@ -5029,7 +5029,7 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
     /// Base class method implementation
     ///
@@ -5038,7 +5038,7 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -5051,7 +5051,7 @@ pub const qgraphicsopacityeffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -5066,7 +5066,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -5075,7 +5075,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -5084,7 +5084,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, enable: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
@@ -5093,7 +5093,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn Update(self: ?*anyopaque) void {
@@ -5102,7 +5102,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -5111,7 +5111,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -5120,7 +5120,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5133,7 +5133,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -5146,7 +5146,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -5155,7 +5155,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -5164,7 +5164,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -5173,7 +5173,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -5182,7 +5182,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -5191,7 +5191,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -5200,7 +5200,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -5209,7 +5209,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -5218,7 +5218,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -5227,7 +5227,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -5236,7 +5236,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -5250,7 +5250,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -5259,7 +5259,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -5268,7 +5268,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -5277,7 +5277,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -5286,7 +5286,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -5297,7 +5297,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -5306,7 +5306,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -5315,7 +5315,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -5324,7 +5324,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -5333,7 +5333,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -5343,7 +5343,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -5353,7 +5353,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -5377,7 +5377,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5386,7 +5386,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5395,7 +5395,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -5404,7 +5404,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -5413,7 +5413,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -5422,7 +5422,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -5432,7 +5432,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -5441,7 +5441,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -5450,7 +5450,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -5459,7 +5459,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5468,7 +5468,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5479,7 +5479,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5488,7 +5488,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, callback: *const fn (self: QtC.QGraphicsOpacityEffect, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5497,7 +5497,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5508,7 +5508,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5519,7 +5519,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5530,7 +5530,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5541,7 +5541,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5552,7 +5552,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5563,7 +5563,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5574,7 +5574,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5585,7 +5585,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5596,7 +5596,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5607,7 +5607,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5618,7 +5618,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5629,7 +5629,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5640,7 +5640,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5651,7 +5651,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5662,7 +5662,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5673,7 +5673,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5684,7 +5684,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5695,7 +5695,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5706,7 +5706,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5717,7 +5717,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5728,7 +5728,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5739,7 +5739,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5750,7 +5750,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5761,7 +5761,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5772,7 +5772,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5783,7 +5783,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5794,7 +5794,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5805,7 +5805,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5816,7 +5816,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5827,7 +5827,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5838,7 +5838,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5849,7 +5849,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5860,7 +5860,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5871,7 +5871,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5882,7 +5882,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5893,7 +5893,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5904,7 +5904,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5915,7 +5915,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5926,7 +5926,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5937,7 +5937,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5948,7 +5948,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QGraphicsEffect
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5959,7 +5959,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5970,7 +5970,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5981,7 +5981,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5992,7 +5992,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6003,7 +6003,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6014,7 +6014,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6025,7 +6025,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6037,7 +6037,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6049,7 +6049,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6060,7 +6060,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6071,7 +6071,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6082,7 +6082,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6093,7 +6093,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6102,7 +6102,7 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#dtor.QGraphicsOpacityEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#dtor.QGraphicsOpacityEffect)
     ///
     /// Delete this object from C++ memory.
     ///

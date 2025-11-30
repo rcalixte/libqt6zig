@@ -18,56 +18,56 @@ pub const qscrollerproperties = struct {
         return qtc.QScrollerProperties_new2(@ptrCast(sp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq)
     ///
     /// ``` self: QtC.QScrollerProperties, sp: QtC.QScrollerProperties ```
     pub fn OperatorAssign(self: ?*anyopaque, sp: ?*anyopaque) void {
         qtc.QScrollerProperties_OperatorAssign(@ptrCast(self), @ptrCast(sp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QScrollerProperties, sp: QtC.QScrollerProperties ```
     pub fn OperatorEqual(self: ?*anyopaque, sp: ?*anyopaque) bool {
         return qtc.QScrollerProperties_OperatorEqual(@ptrCast(self), @ptrCast(sp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-not-eq)
     ///
     /// ``` self: QtC.QScrollerProperties, sp: QtC.QScrollerProperties ```
     pub fn OperatorNotEqual(self: ?*anyopaque, sp: ?*anyopaque) bool {
         return qtc.QScrollerProperties_OperatorNotEqual(@ptrCast(self), @ptrCast(sp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#setDefaultScrollerProperties)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#setDefaultScrollerProperties)
     ///
     /// ``` sp: QtC.QScrollerProperties ```
     pub fn SetDefaultScrollerProperties(sp: ?*anyopaque) void {
         qtc.QScrollerProperties_SetDefaultScrollerProperties(@ptrCast(sp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#unsetDefaultScrollerProperties)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#unsetDefaultScrollerProperties)
     ///
     ///
     pub fn UnsetDefaultScrollerProperties() void {
         qtc.QScrollerProperties_UnsetDefaultScrollerProperties();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#scrollMetric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#scrollMetric)
     ///
     /// ``` self: QtC.QScrollerProperties, metric: qscrollerproperties_enums.ScrollMetric ```
     pub fn ScrollMetric(self: ?*anyopaque, metric: i32) QtC.QVariant {
         return qtc.QScrollerProperties_ScrollMetric(@ptrCast(self), @intCast(metric));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#setScrollMetric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#setScrollMetric)
     ///
     /// ``` self: QtC.QScrollerProperties, metric: qscrollerproperties_enums.ScrollMetric, value: QtC.QVariant ```
     pub fn SetScrollMetric(self: ?*anyopaque, metric: i32, value: ?*anyopaque) void {
         qtc.QScrollerProperties_SetScrollMetric(@ptrCast(self), @intCast(metric), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#dtor.QScrollerProperties)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#dtor.QScrollerProperties)
     ///
     /// Delete this object from C++ memory.
     ///

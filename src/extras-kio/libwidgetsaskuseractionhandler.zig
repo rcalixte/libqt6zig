@@ -23,7 +23,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return qtc.KIO__WidgetsAskUserActionHandler_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -55,7 +55,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return qtc.KIO__WidgetsAskUserActionHandler_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -67,7 +67,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime ```
     pub fn AskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
@@ -78,7 +78,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_AskUserRename(@ptrCast(self), @ptrCast(job), title_str, @ptrCast(src), @ptrCast(dest), @intCast(options), @intCast(sizeSrc), @intCast(sizeDest), @ptrCast(ctimeSrc), @ptrCast(ctimeDest), @ptrCast(mtimeSrc), @ptrCast(mtimeDest));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
     ///
     /// Allows for overriding the related default method
     ///
@@ -87,7 +87,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
     ///
     /// Base class method implementation
     ///
@@ -100,7 +100,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_QBaseAskUserRename(@ptrCast(self), @ptrCast(job), title_str, @ptrCast(src), @ptrCast(dest), @intCast(options), @intCast(sizeSrc), @intCast(sizeDest), @ptrCast(ctimeSrc), @ptrCast(ctimeDest), @ptrCast(mtimeSrc), @ptrCast(mtimeDest));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of jobuidelegateextension_enums.SkipDialog_Option, error_text: []const u8 ```
     pub fn AskUserSkip(self: ?*anyopaque, job: ?*anyopaque, options: i32, error_text: []const u8) void {
@@ -111,7 +111,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_AskUserSkip(@ptrCast(self), @ptrCast(job), @intCast(options), error_text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
     ///
     /// Allows for overriding the related default method
     ///
@@ -120,7 +120,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserSkip(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
     ///
     /// Base class method implementation
     ///
@@ -133,7 +133,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_QBaseAskUserSkip(@ptrCast(self), @ptrCast(job), @intCast(options), error_text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, urls: []QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, confirmationType: askuseractioninterface_enums.ConfirmationType, parent: QtC.QWidget ```
     pub fn AskUserDelete(self: ?*anyopaque, urls: []QtC.QUrl, deletionType: i32, confirmationType: i32, parent: ?*anyopaque) void {
@@ -144,7 +144,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_AskUserDelete(@ptrCast(self), urls_list, @intCast(deletionType), @intCast(confirmationType), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
     ///
     /// Allows for overriding the related default method
     ///
@@ -153,7 +153,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserDelete(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
     ///
     /// Base class method implementation
     ///
@@ -166,7 +166,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_QBaseAskUserDelete(@ptrCast(self), urls_list, @intCast(deletionType), @intCast(confirmationType), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, typeVal: askuseractioninterface_enums.MessageDialogType, text: []const u8, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8, primaryActionIconName: []const u8, secondaryActionIconName: []const u8, dontAskAgainName: []const u8, details: []const u8, parent: QtC.QWidget ```
     pub fn RequestUserMessageBox(self: ?*anyopaque, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8, primaryActionIconName: []const u8, secondaryActionIconName: []const u8, dontAskAgainName: []const u8, details: []const u8, parent: ?*anyopaque) void {
@@ -205,7 +205,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_RequestUserMessageBox(@ptrCast(self), @intCast(typeVal), text_str, title_str, primaryActionText_str, secondaryActionText_str, primaryActionIconName_str, secondaryActionIconName_str, dontAskAgainName_str, details_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
     ///
     /// Allows for overriding the related default method
     ///
@@ -214,7 +214,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnRequestUserMessageBox(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
     ///
     /// Base class method implementation
     ///
@@ -255,7 +255,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_QBaseRequestUserMessageBox(@ptrCast(self), @intCast(typeVal), text_str, title_str, primaryActionText_str, secondaryActionText_str, primaryActionIconName_str, secondaryActionIconName_str, dontAskAgainName_str, details_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, sslErrorData: map_constu8_qtcqvariant, parent: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn AskIgnoreSslErrors(self: ?*anyopaque, sslErrorData: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) void {
@@ -282,14 +282,14 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(@ptrCast(self), sslErrorData_map, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#setWindow)
+    /// [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#setWindow)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, window: QtC.QWidget ```
     pub fn SetWindow(self: ?*anyopaque, window: ?*anyopaque) void {
         qtc.KIO__WidgetsAskUserActionHandler_SetWindow(@ptrCast(self), @ptrCast(window));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -302,7 +302,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -317,7 +317,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserRenameResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserRenameResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, result: jobuidelegateextension_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob ```
     pub fn AskUserRenameResult(self: ?*anyopaque, result: i32, newUrl: ?*anyopaque, parentJob: ?*anyopaque) void {
@@ -326,7 +326,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserRenameResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserRenameResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: jobuidelegateextension_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob) callconv(.c) void ```
     pub fn OnAskUserRenameResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -335,7 +335,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, result: jobuidelegateextension_enums.RenameDialog_Result, parentJob: QtC.KJob ```
     pub fn AskUserSkipResult(self: ?*anyopaque, result: i32, parentJob: ?*anyopaque) void {
@@ -344,7 +344,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: jobuidelegateextension_enums.RenameDialog_Result, parentJob: QtC.KJob) callconv(.c) void ```
     pub fn OnAskUserSkipResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
@@ -353,7 +353,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserDeleteResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserDeleteResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, allowDelete: bool, urls: []QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget ```
     pub fn AskUserDeleteResult(self: ?*anyopaque, allowDelete: bool, urls: []QtC.QUrl, deletionType: i32, parent: ?*anyopaque) void {
@@ -366,7 +366,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserDeleteResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserDeleteResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, allowDelete: bool, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void ```
     pub fn OnAskUserDeleteResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*]QtC.QUrl, i32, ?*anyopaque) callconv(.c) void) void {
@@ -375,7 +375,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#messageBoxResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#messageBoxResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, result: i32 ```
     pub fn MessageBoxResult(self: ?*anyopaque, result: i32) void {
@@ -384,7 +384,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#messageBoxResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#messageBoxResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: i32) callconv(.c) void ```
     pub fn OnMessageBoxResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -393,7 +393,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askIgnoreSslErrorsResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askIgnoreSslErrorsResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, result: i32 ```
     pub fn AskIgnoreSslErrorsResult(self: ?*anyopaque, result: i32) void {
@@ -402,7 +402,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from KIO::AskUserActionInterface
     ///
-    /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askIgnoreSslErrorsResult)
+    /// [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askIgnoreSslErrorsResult)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: i32) callconv(.c) void ```
     pub fn OnAskIgnoreSslErrorsResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -411,7 +411,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -424,7 +424,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -437,7 +437,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -446,7 +446,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -455,7 +455,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -464,7 +464,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -473,7 +473,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -482,7 +482,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -491,7 +491,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -500,7 +500,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -509,7 +509,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -518,7 +518,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -527,7 +527,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -541,7 +541,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -550,7 +550,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -559,7 +559,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -568,7 +568,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -577,7 +577,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -588,7 +588,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -597,7 +597,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -606,7 +606,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -615,7 +615,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -624,7 +624,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -634,7 +634,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -644,7 +644,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -668,7 +668,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -677,7 +677,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -686,7 +686,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -695,7 +695,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -704,7 +704,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -713,7 +713,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -723,7 +723,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -732,7 +732,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -741,7 +741,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -750,7 +750,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -759,7 +759,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -770,7 +770,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -779,7 +779,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -788,7 +788,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -799,7 +799,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -810,7 +810,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -821,7 +821,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -832,7 +832,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -843,7 +843,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -854,7 +854,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -865,7 +865,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -876,7 +876,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -887,7 +887,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -898,7 +898,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -909,7 +909,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -920,7 +920,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -931,7 +931,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -942,7 +942,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -953,7 +953,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -964,7 +964,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -975,7 +975,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -986,7 +986,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -997,7 +997,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1008,7 +1008,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1019,7 +1019,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1030,7 +1030,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1041,7 +1041,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1052,7 +1052,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1063,7 +1063,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1074,7 +1074,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1085,7 +1085,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1097,7 +1097,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1109,7 +1109,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1120,7 +1120,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1131,7 +1131,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1142,7 +1142,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1153,7 +1153,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

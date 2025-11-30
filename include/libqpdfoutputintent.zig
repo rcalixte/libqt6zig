@@ -18,21 +18,21 @@ pub const qpdfoutputintent = struct {
         return qtc.QPdfOutputIntent_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#operator-eq)
     ///
     /// ``` self: QtC.QPdfOutputIntent, other: QtC.QPdfOutputIntent ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPdfOutputIntent_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#swap)
     ///
     /// ``` self: QtC.QPdfOutputIntent, other: QtC.QPdfOutputIntent ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPdfOutputIntent_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#outputConditionIdentifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#outputConditionIdentifier)
     ///
     /// ``` self: QtC.QPdfOutputIntent, allocator: std.mem.Allocator ```
     pub fn OutputConditionIdentifier(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -43,7 +43,7 @@ pub const qpdfoutputintent = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#setOutputConditionIdentifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#setOutputConditionIdentifier)
     ///
     /// ``` self: QtC.QPdfOutputIntent, identifier: []const u8 ```
     pub fn SetOutputConditionIdentifier(self: ?*anyopaque, identifier: []const u8) void {
@@ -54,7 +54,7 @@ pub const qpdfoutputintent = struct {
         qtc.QPdfOutputIntent_SetOutputConditionIdentifier(@ptrCast(self), identifier_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#outputCondition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#outputCondition)
     ///
     /// ``` self: QtC.QPdfOutputIntent, allocator: std.mem.Allocator ```
     pub fn OutputCondition(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -65,7 +65,7 @@ pub const qpdfoutputintent = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#setOutputCondition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#setOutputCondition)
     ///
     /// ``` self: QtC.QPdfOutputIntent, condition: []const u8 ```
     pub fn SetOutputCondition(self: ?*anyopaque, condition: []const u8) void {
@@ -76,35 +76,35 @@ pub const qpdfoutputintent = struct {
         qtc.QPdfOutputIntent_SetOutputCondition(@ptrCast(self), condition_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#registryName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#registryName)
     ///
     /// ``` self: QtC.QPdfOutputIntent ```
     pub fn RegistryName(self: ?*anyopaque) QtC.QUrl {
         return qtc.QPdfOutputIntent_RegistryName(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#setRegistryName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#setRegistryName)
     ///
     /// ``` self: QtC.QPdfOutputIntent, name: QtC.QUrl ```
     pub fn SetRegistryName(self: ?*anyopaque, name: ?*anyopaque) void {
         qtc.QPdfOutputIntent_SetRegistryName(@ptrCast(self), @ptrCast(name));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#outputProfile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#outputProfile)
     ///
     /// ``` self: QtC.QPdfOutputIntent ```
     pub fn OutputProfile(self: ?*anyopaque) QtC.QColorSpace {
         return qtc.QPdfOutputIntent_OutputProfile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#setOutputProfile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#setOutputProfile)
     ///
     /// ``` self: QtC.QPdfOutputIntent, profile: QtC.QColorSpace ```
     pub fn SetOutputProfile(self: ?*anyopaque, profile: ?*anyopaque) void {
         qtc.QPdfOutputIntent_SetOutputProfile(@ptrCast(self), @ptrCast(profile));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#dtor.QPdfOutputIntent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#dtor.QPdfOutputIntent)
     ///
     /// Delete this object from C++ memory.
     ///

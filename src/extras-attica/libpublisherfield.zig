@@ -18,14 +18,14 @@ pub const attica__publisherfield = struct {
         return qtc.Attica__PublisherField_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-publisherfield.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-publisherfield.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__PublisherField, other: QtC.Attica__PublisherField ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__PublisherField_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-publisherfield.html#setName)
+    /// [Upstream resources](https://api.kde.org/attica-publisherfield.html#setName)
     ///
     /// ``` self: QtC.Attica__PublisherField, value: []const u8 ```
     pub fn SetName(self: ?*anyopaque, value: []const u8) void {
@@ -36,7 +36,7 @@ pub const attica__publisherfield = struct {
         qtc.Attica__PublisherField_SetName(@ptrCast(self), value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-publisherfield.html#name)
+    /// [Upstream resources](https://api.kde.org/attica-publisherfield.html#name)
     ///
     /// ``` self: QtC.Attica__PublisherField, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -47,7 +47,7 @@ pub const attica__publisherfield = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-publisherfield.html#setType)
+    /// [Upstream resources](https://api.kde.org/attica-publisherfield.html#setType)
     ///
     /// ``` self: QtC.Attica__PublisherField, value: []const u8 ```
     pub fn SetType(self: ?*anyopaque, value: []const u8) void {
@@ -58,7 +58,7 @@ pub const attica__publisherfield = struct {
         qtc.Attica__PublisherField_SetType(@ptrCast(self), value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-publisherfield.html#type)
+    /// [Upstream resources](https://api.kde.org/attica-publisherfield.html#type)
     ///
     /// ``` self: QtC.Attica__PublisherField, allocator: std.mem.Allocator ```
     pub fn Type(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -69,7 +69,7 @@ pub const attica__publisherfield = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-publisherfield.html#setData)
+    /// [Upstream resources](https://api.kde.org/attica-publisherfield.html#setData)
     ///
     /// ``` self: QtC.Attica__PublisherField, value: []const u8 ```
     pub fn SetData(self: ?*anyopaque, value: []const u8) void {
@@ -80,7 +80,7 @@ pub const attica__publisherfield = struct {
         qtc.Attica__PublisherField_SetData(@ptrCast(self), value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-publisherfield.html#data)
+    /// [Upstream resources](https://api.kde.org/attica-publisherfield.html#data)
     ///
     /// ``` self: QtC.Attica__PublisherField, allocator: std.mem.Allocator ```
     pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -91,7 +91,7 @@ pub const attica__publisherfield = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-publisherfield.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-publisherfield.html#isValid)
     ///
     /// ``` self: QtC.Attica__PublisherField ```
     pub fn IsValid(self: ?*anyopaque) bool {

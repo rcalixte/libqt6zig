@@ -46,7 +46,7 @@ pub const qpdfdocumentrenderoptions = struct {
         qtc.QPdfDocumentRenderOptions_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#rotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#rotation)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions ```
     ///
@@ -55,14 +55,14 @@ pub const qpdfdocumentrenderoptions = struct {
         return qtc.QPdfDocumentRenderOptions_Rotation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRotation)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions, r: qpdfdocumentrenderoptions_enums.Rotation ```
     pub fn SetRotation(self: ?*anyopaque, r: i32) void {
         qtc.QPdfDocumentRenderOptions_SetRotation(@ptrCast(self), @intCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#renderFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#renderFlags)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions ```
     ///
@@ -71,42 +71,42 @@ pub const qpdfdocumentrenderoptions = struct {
         return qtc.QPdfDocumentRenderOptions_RenderFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRenderFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRenderFlags)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions, r: flag of qpdfdocumentrenderoptions_enums.RenderFlag ```
     pub fn SetRenderFlags(self: ?*anyopaque, r: i32) void {
         qtc.QPdfDocumentRenderOptions_SetRenderFlags(@ptrCast(self), @intCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#scaledClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#scaledClipRect)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions ```
     pub fn ScaledClipRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QPdfDocumentRenderOptions_ScaledClipRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setScaledClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setScaledClipRect)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions, r: QtC.QRect ```
     pub fn SetScaledClipRect(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QPdfDocumentRenderOptions_SetScaledClipRect(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#scaledSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#scaledSize)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions ```
     pub fn ScaledSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QPdfDocumentRenderOptions_ScaledSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setScaledSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setScaledSize)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions, s: QtC.QSize ```
     pub fn SetScaledSize(self: ?*anyopaque, s: ?*anyopaque) void {
         qtc.QPdfDocumentRenderOptions_SetScaledSize(@ptrCast(self), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#dtor.QPdfDocumentRenderOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#dtor.QPdfDocumentRenderOptions)
     ///
     /// Delete this object from C++ memory.
     ///

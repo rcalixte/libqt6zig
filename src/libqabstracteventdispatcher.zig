@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qabstracteventdispatcher.html
 pub const qabstracteventdispatcher = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qabstracteventdispatcher = struct {
         return qtc.QAbstractEventDispatcher_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,63 +37,63 @@ pub const qabstracteventdispatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#instance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#instance)
     ///
     ///
     pub fn Instance() QtC.QAbstractEventDispatcher {
         return qtc.QAbstractEventDispatcher_Instance();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, flags: flag of qeventloop_enums.ProcessEventsFlag ```
     pub fn ProcessEvents(self: ?*anyopaque, flags: i32) bool {
         return qtc.QAbstractEventDispatcher_ProcessEvents(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerSocketNotifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerSocketNotifier)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, notifier: QtC.QSocketNotifier ```
     pub fn RegisterSocketNotifier(self: ?*anyopaque, notifier: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_RegisterSocketNotifier(@ptrCast(self), @ptrCast(notifier));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterSocketNotifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterSocketNotifier)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, notifier: QtC.QSocketNotifier ```
     pub fn UnregisterSocketNotifier(self: ?*anyopaque, notifier: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_UnregisterSocketNotifier(@ptrCast(self), @ptrCast(notifier));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, interval: i64, timerType: qnamespace_enums.TimerType, object: QtC.QObject ```
     pub fn RegisterTimer(self: ?*anyopaque, interval: i64, timerType: i32, object: ?*anyopaque) i32 {
         return qtc.QAbstractEventDispatcher_RegisterTimer(@ptrCast(self), @intCast(interval), @intCast(timerType), @ptrCast(object));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, timerId: i32, interval: i64, timerType: qnamespace_enums.TimerType, object: QtC.QObject ```
     pub fn RegisterTimer2(self: ?*anyopaque, timerId: i32, interval: i64, timerType: i32, object: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_RegisterTimer2(@ptrCast(self), @intCast(timerId), @intCast(interval), @intCast(timerType), @ptrCast(object));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, timerId: i32 ```
     pub fn UnregisterTimer(self: ?*anyopaque, timerId: i32) bool {
         return qtc.QAbstractEventDispatcher_UnregisterTimer(@ptrCast(self), @intCast(timerId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimers)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, object: QtC.QObject ```
     pub fn UnregisterTimers(self: ?*anyopaque, object: ?*anyopaque) bool {
         return qtc.QAbstractEventDispatcher_UnregisterTimers(@ptrCast(self), @ptrCast(object));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registeredTimers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registeredTimers)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, object: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn RegisteredTimers(self: ?*anyopaque, object: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractEventDispatcher__TimerInfo {
@@ -105,21 +105,21 @@ pub const qabstracteventdispatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#remainingTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#remainingTime)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, timerId: i32 ```
     pub fn RemainingTime(self: ?*anyopaque, timerId: i32) i32 {
         return qtc.QAbstractEventDispatcher_RemainingTime(@ptrCast(self), @intCast(timerId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, timerId: qnamespace_enums.TimerId ```
     pub fn UnregisterTimer2(self: ?*anyopaque, timerId: i32) bool {
         return qtc.QAbstractEventDispatcher_UnregisterTimer2(@ptrCast(self), @intCast(timerId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#timersForObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#timersForObject)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, object: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn TimersForObject(self: ?*anyopaque, object: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractEventDispatcher__TimerInfoV2 {
@@ -131,49 +131,49 @@ pub const qabstracteventdispatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#wakeUp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#wakeUp)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn WakeUp(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_WakeUp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#interrupt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#interrupt)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn Interrupt(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_Interrupt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#startingUp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#startingUp)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn StartingUp(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_StartingUp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#closingDown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#closingDown)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn ClosingDown(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_ClosingDown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#installNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#installNativeEventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, filterObj: QtC.QAbstractNativeEventFilter ```
     pub fn InstallNativeEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_InstallNativeEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#removeNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#removeNativeEventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, filterObj: QtC.QAbstractNativeEventFilter ```
     pub fn RemoveNativeEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_RemoveNativeEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#filterNativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#filterNativeEvent)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn FilterNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
@@ -184,35 +184,35 @@ pub const qabstracteventdispatcher = struct {
         return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn AboutToBlock(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_AboutToBlock(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
     pub fn OnAboutToBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractEventDispatcher_Connect_AboutToBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn Awake(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_Awake(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
     pub fn OnAwake(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractEventDispatcher_Connect_Awake(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -225,7 +225,7 @@ pub const qabstracteventdispatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -238,7 +238,7 @@ pub const qabstracteventdispatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#instance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#instance)
     ///
     /// ``` thread: QtC.QThread ```
     pub fn Instance1(thread: ?*anyopaque) QtC.QAbstractEventDispatcher {
@@ -247,7 +247,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -256,7 +256,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -265,7 +265,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -278,7 +278,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -291,7 +291,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -300,7 +300,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -309,7 +309,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -318,7 +318,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -327,7 +327,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -336,7 +336,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -345,7 +345,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -354,7 +354,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -363,7 +363,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -372,7 +372,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -381,7 +381,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -395,7 +395,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -404,7 +404,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -413,7 +413,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -422,7 +422,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -431,7 +431,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -442,7 +442,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -451,7 +451,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -460,7 +460,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -469,7 +469,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -478,7 +478,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -488,7 +488,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -498,7 +498,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -522,7 +522,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -531,7 +531,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -540,7 +540,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -549,7 +549,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -558,7 +558,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -567,7 +567,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -577,7 +577,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -586,7 +586,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -595,7 +595,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -604,7 +604,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -613,7 +613,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -624,7 +624,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -633,7 +633,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -642,7 +642,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -651,7 +651,7 @@ pub const qabstracteventdispatcher = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#dtor.QAbstractEventDispatcher)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#dtor.QAbstractEventDispatcher)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -663,7 +663,7 @@ pub const qabstracteventdispatcher = struct {
 
 /// https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html
 pub const qabstracteventdispatcherv2 = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -681,7 +681,7 @@ pub const qabstracteventdispatcherv2 = struct {
         return qtc.QAbstractEventDispatcherV2_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -693,14 +693,14 @@ pub const qabstracteventdispatcherv2 = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#unregisterTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#unregisterTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, timerId: qnamespace_enums.TimerId ```
     pub fn UnregisterTimer(self: ?*anyopaque, timerId: i32) bool {
         return qtc.QAbstractEventDispatcherV2_UnregisterTimer(@ptrCast(self), @intCast(timerId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#timersForObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#timersForObject)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, object: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn TimersForObject(self: ?*anyopaque, object: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractEventDispatcher__TimerInfoV2 {
@@ -712,14 +712,14 @@ pub const qabstracteventdispatcherv2 = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#processEventsWithDeadline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#processEventsWithDeadline)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, flags: flag of qeventloop_enums.ProcessEventsFlag, deadline: QtC.QDeadlineTimer ```
     pub fn ProcessEventsWithDeadline(self: ?*anyopaque, flags: i32, deadline: QtC.QDeadlineTimer) bool {
         return qtc.QAbstractEventDispatcherV2_ProcessEventsWithDeadline(@ptrCast(self), @intCast(flags), @ptrCast(deadline));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -732,7 +732,7 @@ pub const qabstracteventdispatcherv2 = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -747,7 +747,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#instance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#instance)
     ///
     ///
     pub fn Instance() QtC.QAbstractEventDispatcher {
@@ -756,7 +756,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, flags: flag of qeventloop_enums.ProcessEventsFlag ```
     pub fn ProcessEvents(self: ?*anyopaque, flags: i32) bool {
@@ -765,7 +765,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerSocketNotifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerSocketNotifier)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, notifier: QtC.QSocketNotifier ```
     pub fn RegisterSocketNotifier(self: ?*anyopaque, notifier: ?*anyopaque) void {
@@ -774,7 +774,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterSocketNotifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterSocketNotifier)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, notifier: QtC.QSocketNotifier ```
     pub fn UnregisterSocketNotifier(self: ?*anyopaque, notifier: ?*anyopaque) void {
@@ -783,7 +783,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, interval: i64, timerType: qnamespace_enums.TimerType, object: QtC.QObject ```
     pub fn RegisterTimer(self: ?*anyopaque, interval: i64, timerType: i32, object: ?*anyopaque) i32 {
@@ -792,7 +792,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, timerId: i32, interval: i64, timerType: qnamespace_enums.TimerType, object: QtC.QObject ```
     pub fn RegisterTimer2(self: ?*anyopaque, timerId: i32, interval: i64, timerType: i32, object: ?*anyopaque) void {
@@ -801,7 +801,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimers)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, object: QtC.QObject ```
     pub fn UnregisterTimers(self: ?*anyopaque, object: ?*anyopaque) bool {
@@ -810,7 +810,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registeredTimers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registeredTimers)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, object: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn RegisteredTimers(self: ?*anyopaque, object: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractEventDispatcher__TimerInfo {
@@ -824,7 +824,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#remainingTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#remainingTime)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, timerId: i32 ```
     pub fn RemainingTime(self: ?*anyopaque, timerId: i32) i32 {
@@ -833,7 +833,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, timerId: qnamespace_enums.TimerId ```
     pub fn UnregisterTimer2(self: ?*anyopaque, timerId: i32) bool {
@@ -842,7 +842,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#wakeUp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#wakeUp)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn WakeUp(self: ?*anyopaque) void {
@@ -851,7 +851,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#interrupt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#interrupt)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn Interrupt(self: ?*anyopaque) void {
@@ -860,7 +860,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#startingUp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#startingUp)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn StartingUp(self: ?*anyopaque) void {
@@ -869,7 +869,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#closingDown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#closingDown)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn ClosingDown(self: ?*anyopaque) void {
@@ -878,7 +878,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#installNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#installNativeEventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, filterObj: QtC.QAbstractNativeEventFilter ```
     pub fn InstallNativeEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -887,7 +887,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#removeNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#removeNativeEventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, filterObj: QtC.QAbstractNativeEventFilter ```
     pub fn RemoveNativeEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -896,7 +896,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#filterNativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#filterNativeEvent)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn FilterNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
@@ -909,7 +909,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn AboutToBlock(self: ?*anyopaque) void {
@@ -918,7 +918,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
     pub fn OnAboutToBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -927,7 +927,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn Awake(self: ?*anyopaque) void {
@@ -936,7 +936,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
     pub fn OnAwake(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -945,7 +945,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QAbstractEventDispatcher
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#instance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#instance)
     ///
     /// ``` thread: QtC.QThread ```
     pub fn Instance1(thread: ?*anyopaque) QtC.QAbstractEventDispatcher {
@@ -954,7 +954,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -963,7 +963,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -972,7 +972,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -985,7 +985,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -998,7 +998,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1007,7 +1007,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1016,7 +1016,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1025,7 +1025,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1034,7 +1034,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1043,7 +1043,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1052,7 +1052,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1061,7 +1061,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1070,7 +1070,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1079,7 +1079,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1088,7 +1088,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1102,7 +1102,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1111,7 +1111,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1120,7 +1120,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1129,7 +1129,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1138,7 +1138,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1149,7 +1149,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1158,7 +1158,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1167,7 +1167,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1176,7 +1176,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1185,7 +1185,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1195,7 +1195,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1205,7 +1205,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1229,7 +1229,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1238,7 +1238,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1247,7 +1247,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1256,7 +1256,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1265,7 +1265,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1274,7 +1274,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1284,7 +1284,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2 ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1293,7 +1293,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1302,7 +1302,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1311,7 +1311,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1320,7 +1320,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1331,7 +1331,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1340,7 +1340,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1349,7 +1349,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1358,7 +1358,7 @@ pub const qabstracteventdispatcherv2 = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#dtor.QAbstractEventDispatcherV2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#dtor.QAbstractEventDispatcherV2)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1412,35 +1412,35 @@ pub const qabstracteventdispatcher__timerinfo = struct {
         qtc.QAbstractEventDispatcher__TimerInfo_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerId-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerId-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo ```
     pub fn TimerId(self: ?*anyopaque) i32 {
         return qtc.QAbstractEventDispatcher__TimerInfo_TimerId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerId-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerId-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo, timerId: i32 ```
     pub fn SetTimerId(self: ?*anyopaque, timerId: i32) void {
         qtc.QAbstractEventDispatcher__TimerInfo_SetTimerId(@ptrCast(self), @intCast(timerId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#interval-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#interval-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo ```
     pub fn Interval(self: ?*anyopaque) i32 {
         return qtc.QAbstractEventDispatcher__TimerInfo_Interval(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#interval-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#interval-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo, interval: i32 ```
     pub fn SetInterval(self: ?*anyopaque, interval: i32) void {
         qtc.QAbstractEventDispatcher__TimerInfo_SetInterval(@ptrCast(self), @intCast(interval));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerType-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerType-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo ```
     ///
@@ -1449,7 +1449,7 @@ pub const qabstracteventdispatcher__timerinfo = struct {
         return qtc.QAbstractEventDispatcher__TimerInfo_TimerType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerType-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerType-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo, timerType: qnamespace_enums.TimerType ```
     pub fn SetTimerType(self: ?*anyopaque, timerType: i32) void {
@@ -1480,7 +1480,7 @@ pub const qabstracteventdispatcher__timerinfov2 = struct {
         return qtc.QAbstractEventDispatcher__TimerInfoV2_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerId-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerId-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2 ```
     ///
@@ -1489,14 +1489,14 @@ pub const qabstracteventdispatcher__timerinfov2 = struct {
         return qtc.QAbstractEventDispatcher__TimerInfoV2_TimerId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerId-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerId-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2, timerId: qnamespace_enums.TimerId ```
     pub fn SetTimerId(self: ?*anyopaque, timerId: i32) void {
         qtc.QAbstractEventDispatcher__TimerInfoV2_SetTimerId(@ptrCast(self), @intCast(timerId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerType-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerType-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2 ```
     ///
@@ -1505,14 +1505,14 @@ pub const qabstracteventdispatcher__timerinfov2 = struct {
         return qtc.QAbstractEventDispatcher__TimerInfoV2_TimerType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerType-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerType-var)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2, timerType: qnamespace_enums.TimerType ```
     pub fn SetTimerType(self: ?*anyopaque, timerType: i32) void {
         qtc.QAbstractEventDispatcher__TimerInfoV2_SetTimerType(@ptrCast(self), @intCast(timerType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2, param1: QtC.QAbstractEventDispatcher__TimerInfoV2 ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

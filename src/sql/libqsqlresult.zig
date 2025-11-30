@@ -3,14 +3,14 @@ const qtc = @import("qt6c");
 
 /// https://doc.qt.io/qt-6/qsqlresult.html
 pub const qsqlresult = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlresult.html#handle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlresult.html#handle)
     ///
     /// ``` self: QtC.QSqlResult ```
     pub fn Handle(self: ?*anyopaque) QtC.QVariant {
         return qtc.QSqlResult_Handle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlresult.html#dtor.QSqlResult)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlresult.html#dtor.QSqlResult)
     ///
     /// Delete this object from C++ memory.
     ///

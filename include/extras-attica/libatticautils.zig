@@ -33,7 +33,7 @@ pub const attica__utils = struct {
         qtc.Attica__Utils_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-utils.html#parseQtDateTimeIso8601)
+    /// [Upstream resources](https://api.kde.org/attica-utils.html#parseQtDateTimeIso8601)
     ///
     /// ``` str: []const u8 ```
     pub fn ParseQtDateTimeIso8601(str: []const u8) QtC.QDateTime {
@@ -44,7 +44,7 @@ pub const attica__utils = struct {
         return qtc.Attica__Utils_ParseQtDateTimeIso8601(str_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-utils.html#toString)
+    /// [Upstream resources](https://api.kde.org/attica-utils.html#toString)
     ///
     /// ``` operation: qnetworkaccessmanager_enums.Operation ```
     pub fn ToString(operation: i32) []const u8 {

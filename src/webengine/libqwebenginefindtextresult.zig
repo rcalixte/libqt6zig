@@ -17,28 +17,28 @@ pub const qwebenginefindtextresult = struct {
         return qtc.QWebEngineFindTextResult_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#numberOfMatches)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#numberOfMatches)
     ///
     /// ``` self: QtC.QWebEngineFindTextResult ```
     pub fn NumberOfMatches(self: ?*anyopaque) i32 {
         return qtc.QWebEngineFindTextResult_NumberOfMatches(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#activeMatch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#activeMatch)
     ///
     /// ``` self: QtC.QWebEngineFindTextResult ```
     pub fn ActiveMatch(self: ?*anyopaque) i32 {
         return qtc.QWebEngineFindTextResult_ActiveMatch(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineFindTextResult, other: QtC.QWebEngineFindTextResult ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineFindTextResult_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#dtor.QWebEngineFindTextResult)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#dtor.QWebEngineFindTextResult)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -20,7 +20,7 @@ pub const kxmlguifactory = struct {
         return qtc.KXMLGUIFactory_new2(@ptrCast(builder), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -52,7 +52,7 @@ pub const kxmlguifactory = struct {
         return qtc.KXMLGUIFactory_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -64,7 +64,7 @@ pub const kxmlguifactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#readConfigFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#readConfigFile)
     ///
     /// ``` filename: []const u8, allocator: std.mem.Allocator ```
     pub fn ReadConfigFile(filename: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -79,7 +79,7 @@ pub const kxmlguifactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#saveConfigFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#saveConfigFile)
     ///
     /// ``` doc: QtC.QDomDocument, filename: []const u8 ```
     pub fn SaveConfigFile(doc: ?*anyopaque, filename: []const u8) bool {
@@ -90,14 +90,14 @@ pub const kxmlguifactory = struct {
         return qtc.KXMLGUIFactory_SaveConfigFile(@ptrCast(doc), filename_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#actionPropertiesElement)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#actionPropertiesElement)
     ///
     /// ``` doc: QtC.QDomDocument ```
     pub fn ActionPropertiesElement(doc: ?*anyopaque) QtC.QDomElement {
         return qtc.KXMLGUIFactory_ActionPropertiesElement(@ptrCast(doc));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#findActionByName)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#findActionByName)
     ///
     /// ``` elem: QtC.QDomElement, sName: []const u8, create: bool ```
     pub fn FindActionByName(elem: ?*anyopaque, sName: []const u8, create: bool) QtC.QDomElement {
@@ -108,21 +108,21 @@ pub const kxmlguifactory = struct {
         return qtc.KXMLGUIFactory_FindActionByName(@ptrCast(elem), sName_str, create);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#addClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#addClient)
     ///
     /// ``` self: QtC.KXMLGUIFactory, client: QtC.KXMLGUIClient ```
     pub fn AddClient(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KXMLGUIFactory_AddClient(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#removeClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#removeClient)
     ///
     /// ``` self: QtC.KXMLGUIFactory, client: QtC.KXMLGUIClient ```
     pub fn RemoveClient(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KXMLGUIFactory_RemoveClient(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#plugActionList)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#plugActionList)
     ///
     /// ``` self: QtC.KXMLGUIFactory, client: QtC.KXMLGUIClient, name: []const u8, actionList: []QtC.QAction ```
     pub fn PlugActionList(self: ?*anyopaque, client: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
@@ -137,7 +137,7 @@ pub const kxmlguifactory = struct {
         qtc.KXMLGUIFactory_PlugActionList(@ptrCast(self), @ptrCast(client), name_str, actionList_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#unplugActionList)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#unplugActionList)
     ///
     /// ``` self: QtC.KXMLGUIFactory, client: QtC.KXMLGUIClient, name: []const u8 ```
     pub fn UnplugActionList(self: ?*anyopaque, client: ?*anyopaque, name: []const u8) void {
@@ -148,7 +148,7 @@ pub const kxmlguifactory = struct {
         qtc.KXMLGUIFactory_UnplugActionList(@ptrCast(self), @ptrCast(client), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#clients)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#clients)
     ///
     /// ``` self: QtC.KXMLGUIFactory, allocator: std.mem.Allocator ```
     pub fn Clients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
@@ -160,7 +160,7 @@ pub const kxmlguifactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#container)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#container)
     ///
     /// ``` self: QtC.KXMLGUIFactory, containerName: []const u8, client: QtC.KXMLGUIClient ```
     pub fn Container(self: ?*anyopaque, containerName: []const u8, client: ?*anyopaque) QtC.QWidget {
@@ -171,7 +171,7 @@ pub const kxmlguifactory = struct {
         return qtc.KXMLGUIFactory_Container(@ptrCast(self), containerName_str, @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#containers)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#containers)
     ///
     /// ``` self: QtC.KXMLGUIFactory, tagName: []const u8, allocator: std.mem.Allocator ```
     pub fn Containers(self: ?*anyopaque, tagName: []const u8, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -187,14 +187,14 @@ pub const kxmlguifactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#reset)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#reset)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.KXMLGUIFactory_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#resetContainer)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#resetContainer)
     ///
     /// ``` self: QtC.KXMLGUIFactory, containerName: []const u8 ```
     pub fn ResetContainer(self: ?*anyopaque, containerName: []const u8) void {
@@ -205,21 +205,21 @@ pub const kxmlguifactory = struct {
         qtc.KXMLGUIFactory_ResetContainer(@ptrCast(self), containerName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#refreshActionProperties)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#refreshActionProperties)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn RefreshActionProperties(self: ?*anyopaque) void {
         qtc.KXMLGUIFactory_RefreshActionProperties(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#showConfigureShortcutsDialog)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#showConfigureShortcutsDialog)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn ShowConfigureShortcutsDialog(self: ?*anyopaque) void {
         qtc.KXMLGUIFactory_ShowConfigureShortcutsDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#changeShortcutScheme)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#changeShortcutScheme)
     ///
     /// ``` self: QtC.KXMLGUIFactory, scheme: []const u8 ```
     pub fn ChangeShortcutScheme(self: ?*anyopaque, scheme: []const u8) void {
@@ -230,63 +230,63 @@ pub const kxmlguifactory = struct {
         qtc.KXMLGUIFactory_ChangeShortcutScheme(@ptrCast(self), scheme_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#clientAdded)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#clientAdded)
     ///
     /// ``` self: QtC.KXMLGUIFactory, client: QtC.KXMLGUIClient ```
     pub fn ClientAdded(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KXMLGUIFactory_ClientAdded(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#clientAdded)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#clientAdded)
     ///
     /// ``` self: QtC.KXMLGUIFactory, callback: *const fn (self: QtC.KXMLGUIFactory, client: QtC.KXMLGUIClient) callconv(.c) void ```
     pub fn OnClientAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KXMLGUIFactory_Connect_ClientAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#clientRemoved)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#clientRemoved)
     ///
     /// ``` self: QtC.KXMLGUIFactory, client: QtC.KXMLGUIClient ```
     pub fn ClientRemoved(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KXMLGUIFactory_ClientRemoved(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#clientRemoved)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#clientRemoved)
     ///
     /// ``` self: QtC.KXMLGUIFactory, callback: *const fn (self: QtC.KXMLGUIFactory, client: QtC.KXMLGUIClient) callconv(.c) void ```
     pub fn OnClientRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KXMLGUIFactory_Connect_ClientRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#makingChanges)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#makingChanges)
     ///
     /// ``` self: QtC.KXMLGUIFactory, param1: bool ```
     pub fn MakingChanges(self: ?*anyopaque, param1: bool) void {
         qtc.KXMLGUIFactory_MakingChanges(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#makingChanges)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#makingChanges)
     ///
     /// ``` self: QtC.KXMLGUIFactory, callback: *const fn (self: QtC.KXMLGUIFactory, param1: bool) callconv(.c) void ```
     pub fn OnMakingChanges(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KXMLGUIFactory_Connect_MakingChanges(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#shortcutsSaved)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#shortcutsSaved)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn ShortcutsSaved(self: ?*anyopaque) void {
         qtc.KXMLGUIFactory_ShortcutsSaved(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#shortcutsSaved)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#shortcutsSaved)
     ///
     /// ``` self: QtC.KXMLGUIFactory, callback: *const fn (self: QtC.KXMLGUIFactory) callconv(.c) void ```
     pub fn OnShortcutsSaved(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KXMLGUIFactory_Connect_ShortcutsSaved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -299,7 +299,7 @@ pub const kxmlguifactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -312,7 +312,7 @@ pub const kxmlguifactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#readConfigFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#readConfigFile)
     ///
     /// ``` filename: []const u8, componentName: []const u8, allocator: std.mem.Allocator ```
     pub fn ReadConfigFile2(filename: []const u8, componentName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -331,7 +331,7 @@ pub const kxmlguifactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#saveConfigFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#saveConfigFile)
     ///
     /// ``` doc: QtC.QDomDocument, filename: []const u8, componentName: []const u8 ```
     pub fn SaveConfigFile3(doc: ?*anyopaque, filename: []const u8, componentName: []const u8) bool {
@@ -346,7 +346,7 @@ pub const kxmlguifactory = struct {
         return qtc.KXMLGUIFactory_SaveConfigFile3(@ptrCast(doc), filename_str, componentName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#container)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#container)
     ///
     /// ``` self: QtC.KXMLGUIFactory, containerName: []const u8, client: QtC.KXMLGUIClient, useTagName: bool ```
     pub fn Container3(self: ?*anyopaque, containerName: []const u8, client: ?*anyopaque, useTagName: bool) QtC.QWidget {
@@ -357,7 +357,7 @@ pub const kxmlguifactory = struct {
         return qtc.KXMLGUIFactory_Container3(@ptrCast(self), containerName_str, @ptrCast(client), useTagName);
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#resetContainer)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#resetContainer)
     ///
     /// ``` self: QtC.KXMLGUIFactory, containerName: []const u8, useTagName: bool ```
     pub fn ResetContainer2(self: ?*anyopaque, containerName: []const u8, useTagName: bool) void {
@@ -370,7 +370,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KXMLGUIFactory, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -383,7 +383,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KXMLGUIFactory, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -396,7 +396,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -405,7 +405,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -414,7 +414,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -423,7 +423,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -432,7 +432,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KXMLGUIFactory, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -441,7 +441,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -450,7 +450,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KXMLGUIFactory, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -459,7 +459,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KXMLGUIFactory, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -468,7 +468,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KXMLGUIFactory, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -477,7 +477,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KXMLGUIFactory, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -486,7 +486,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KXMLGUIFactory, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -500,7 +500,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KXMLGUIFactory, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -509,7 +509,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KXMLGUIFactory, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -518,7 +518,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KXMLGUIFactory, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -527,7 +527,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -536,7 +536,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KXMLGUIFactory, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -547,7 +547,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -556,7 +556,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -565,7 +565,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -574,7 +574,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -583,7 +583,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KXMLGUIFactory, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -593,7 +593,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KXMLGUIFactory, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -603,7 +603,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KXMLGUIFactory, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -627,7 +627,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -636,7 +636,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -645,7 +645,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -654,7 +654,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KXMLGUIFactory, callback: *const fn (self: QtC.KXMLGUIFactory) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -663,7 +663,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -672,7 +672,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KXMLGUIFactory, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -682,7 +682,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KXMLGUIFactory ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -691,7 +691,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KXMLGUIFactory, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -700,7 +700,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KXMLGUIFactory, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -709,7 +709,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -718,7 +718,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KXMLGUIFactory, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -729,7 +729,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KXMLGUIFactory, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -738,7 +738,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KXMLGUIFactory, callback: *const fn (self: QtC.KXMLGUIFactory, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -747,7 +747,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -758,7 +758,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -769,7 +769,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -780,7 +780,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -791,7 +791,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -802,7 +802,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -813,7 +813,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -824,7 +824,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -835,7 +835,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -846,7 +846,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -857,7 +857,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -868,7 +868,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -879,7 +879,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -890,7 +890,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -901,7 +901,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -912,7 +912,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -923,7 +923,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -934,7 +934,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -945,7 +945,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -956,7 +956,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -967,7 +967,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -978,7 +978,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -989,7 +989,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1000,7 +1000,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1011,7 +1011,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1022,7 +1022,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1033,7 +1033,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1044,7 +1044,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1056,7 +1056,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1068,7 +1068,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1079,7 +1079,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1090,7 +1090,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1101,7 +1101,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1112,7 +1112,7 @@ pub const kxmlguifactory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1121,7 +1121,7 @@ pub const kxmlguifactory = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguifactory.html#dtor.KXMLGUIFactory)
+    /// [Upstream resources](https://api.kde.org/kxmlguifactory.html#dtor.KXMLGUIFactory)
     ///
     /// Delete this object from C++ memory.
     ///

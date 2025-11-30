@@ -37,21 +37,21 @@ pub const signon__error = struct {
         return qtc.SignOn__Error_new4(@intCast(typeVal), message_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ``` self: QtC.SignOn__Error, src: QtC.SignOn__Error ```
     pub fn OperatorAssign(self: ?*anyopaque, src: ?*anyopaque) void {
         qtc.SignOn__Error_OperatorAssign(@ptrCast(self), @ptrCast(src));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ``` self: QtC.SignOn__Error, typeVal: i32 ```
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.SignOn__Error_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ``` self: QtC.SignOn__Error, message: []const u8 ```
     pub fn SetMessage(self: ?*anyopaque, message: []const u8) void {
@@ -62,14 +62,14 @@ pub const signon__error = struct {
         qtc.SignOn__Error_SetMessage(@ptrCast(self), message_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ``` self: QtC.SignOn__Error ```
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.SignOn__Error_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ``` self: QtC.SignOn__Error, allocator: std.mem.Allocator ```
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -80,7 +80,7 @@ pub const signon__error = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// Delete this object from C++ memory.
     ///

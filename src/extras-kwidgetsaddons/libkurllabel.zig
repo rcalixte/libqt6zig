@@ -69,7 +69,7 @@ pub const kurllabel = struct {
         return qtc.KUrlLabel_new5(url_str, text_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -101,7 +101,7 @@ pub const kurllabel = struct {
         return qtc.KUrlLabel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -113,7 +113,7 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#url)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#url)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -124,7 +124,7 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#tipText)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#tipText)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn TipText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -135,49 +135,49 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#useTips)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#useTips)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UseTips(self: ?*anyopaque) bool {
         return qtc.KUrlLabel_UseTips(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#useCursor)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#useCursor)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UseCursor(self: ?*anyopaque) bool {
         return qtc.KUrlLabel_UseCursor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#isGlowEnabled)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#isGlowEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsGlowEnabled(self: ?*anyopaque) bool {
         return qtc.KUrlLabel_IsGlowEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#isFloatEnabled)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#isFloatEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsFloatEnabled(self: ?*anyopaque) bool {
         return qtc.KUrlLabel_IsFloatEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#alternatePixmap)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#alternatePixmap)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn AlternatePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.KUrlLabel_AlternatePixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUnderline)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setUnderline)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetUnderline(self: ?*anyopaque) void {
         qtc.KUrlLabel_SetUnderline(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setUrl)
     ///
     /// ``` self: QtC.KUrlLabel, url: []const u8 ```
     pub fn SetUrl(self: ?*anyopaque, url: []const u8) void {
@@ -188,14 +188,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_SetUrl(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFont)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setFont)
     ///
     /// ``` self: QtC.KUrlLabel, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.KUrlLabel_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFont)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setFont)
     ///
     /// Allows for overriding the related default method
     ///
@@ -204,7 +204,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnSetFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFont)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setFont)
     ///
     /// Base class method implementation
     ///
@@ -213,14 +213,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_QBaseSetFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUseTips)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setUseTips)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetUseTips(self: ?*anyopaque) void {
         qtc.KUrlLabel_SetUseTips(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setTipText)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setTipText)
     ///
     /// ``` self: QtC.KUrlLabel, tip: []const u8 ```
     pub fn SetTipText(self: ?*anyopaque, tip: []const u8) void {
@@ -231,14 +231,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_SetTipText(@ptrCast(self), tip_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setHighlightedColor)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setHighlightedColor)
     ///
     /// ``` self: QtC.KUrlLabel, highcolor: QtC.QColor ```
     pub fn SetHighlightedColor(self: ?*anyopaque, highcolor: ?*anyopaque) void {
         qtc.KUrlLabel_SetHighlightedColor(@ptrCast(self), @ptrCast(highcolor));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setHighlightedColor)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setHighlightedColor)
     ///
     /// ``` self: QtC.KUrlLabel, highcolor: []const u8 ```
     pub fn SetHighlightedColor2(self: ?*anyopaque, highcolor: []const u8) void {
@@ -249,14 +249,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_SetHighlightedColor2(@ptrCast(self), highcolor_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setSelectedColor)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setSelectedColor)
     ///
     /// ``` self: QtC.KUrlLabel, color: QtC.QColor ```
     pub fn SetSelectedColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KUrlLabel_SetSelectedColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setSelectedColor)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setSelectedColor)
     ///
     /// ``` self: QtC.KUrlLabel, color: []const u8 ```
     pub fn SetSelectedColor2(self: ?*anyopaque, color: []const u8) void {
@@ -267,112 +267,112 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_SetSelectedColor2(@ptrCast(self), color_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUseCursor)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setUseCursor)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool ```
     pub fn SetUseCursor(self: ?*anyopaque, on: bool) void {
         qtc.KUrlLabel_SetUseCursor(@ptrCast(self), on);
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setGlowEnabled)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setGlowEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetGlowEnabled(self: ?*anyopaque) void {
         qtc.KUrlLabel_SetGlowEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFloatEnabled)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setFloatEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetFloatEnabled(self: ?*anyopaque) void {
         qtc.KUrlLabel_SetFloatEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setAlternatePixmap)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setAlternatePixmap)
     ///
     /// ``` self: QtC.KUrlLabel, pixmap: QtC.QPixmap ```
     pub fn SetAlternatePixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.KUrlLabel_SetAlternatePixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#enteredUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#enteredUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn EnteredUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_EnteredUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#enteredUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#enteredUrl)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnEnteredUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_EnteredUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#leftUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#leftUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn LeftUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_LeftUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#leftUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#leftUrl)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnLeftUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_LeftUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#leftClickedUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#leftClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn LeftClickedUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_LeftClickedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#leftClickedUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#leftClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnLeftClickedUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_LeftClickedUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#rightClickedUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#rightClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn RightClickedUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_RightClickedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#rightClickedUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#rightClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnRightClickedUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_RightClickedUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#middleClickedUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#middleClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MiddleClickedUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_MiddleClickedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#middleClickedUrl)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#middleClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnMiddleClickedUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_MiddleClickedUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KUrlLabel_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -381,7 +381,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -390,14 +390,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#enterEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#enterEvent)
     ///
     /// ``` self: QtC.KUrlLabel, event: QtC.QEnterEvent ```
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KUrlLabel_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#enterEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#enterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -406,7 +406,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#enterEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#enterEvent)
     ///
     /// Base class method implementation
     ///
@@ -415,14 +415,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#leaveEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KUrlLabel_LeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#leaveEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -431,7 +431,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#leaveEvent)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -440,14 +440,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_QBaseLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#event)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#event)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KUrlLabel_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#event)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -456,7 +456,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#event)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#event)
     ///
     /// Base class method implementation
     ///
@@ -465,7 +465,7 @@ pub const kurllabel = struct {
         return qtc.KUrlLabel_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -478,7 +478,7 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -491,35 +491,35 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUnderline)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setUnderline)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool ```
     pub fn SetUnderline1(self: ?*anyopaque, on: bool) void {
         qtc.KUrlLabel_SetUnderline1(@ptrCast(self), on);
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUseTips)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setUseTips)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool ```
     pub fn SetUseTips1(self: ?*anyopaque, on: bool) void {
         qtc.KUrlLabel_SetUseTips1(@ptrCast(self), on);
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUseCursor)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setUseCursor)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool, cursor: QtC.QCursor ```
     pub fn SetUseCursor2(self: ?*anyopaque, on: bool, cursor: ?*anyopaque) void {
         qtc.KUrlLabel_SetUseCursor2(@ptrCast(self), on, @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setGlowEnabled)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setGlowEnabled)
     ///
     /// ``` self: QtC.KUrlLabel, glow: bool ```
     pub fn SetGlowEnabled1(self: ?*anyopaque, glow: bool) void {
         qtc.KUrlLabel_SetGlowEnabled1(@ptrCast(self), glow);
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFloatEnabled)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#setFloatEnabled)
     ///
     /// ``` self: QtC.KUrlLabel, do_float: bool ```
     pub fn SetFloatEnabled1(self: ?*anyopaque, do_float: bool) void {
@@ -528,7 +528,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#text)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -541,7 +541,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#pixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#pixmap)
     ///
     /// ``` self: QtC.KUrlLabel, param1: qnamespace_enums.ReturnByValueConstant ```
     pub fn Pixmap(self: ?*anyopaque, param1: i32) QtC.QPixmap {
@@ -550,7 +550,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#pixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#pixmap)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Pixmap2(self: ?*anyopaque) QtC.QPixmap {
@@ -559,7 +559,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#picture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#picture)
     ///
     /// ``` self: QtC.KUrlLabel, param1: qnamespace_enums.ReturnByValueConstant ```
     pub fn Picture(self: ?*anyopaque, param1: i32) QtC.QPicture {
@@ -568,7 +568,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#picture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#picture)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Picture2(self: ?*anyopaque) QtC.QPicture {
@@ -577,7 +577,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#movie)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#movie)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Movie(self: ?*anyopaque) QtC.QMovie {
@@ -586,7 +586,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#textFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#textFormat)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -597,7 +597,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setTextFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setTextFormat)
     ///
     /// ``` self: QtC.KUrlLabel, textFormat: qnamespace_enums.TextFormat ```
     pub fn SetTextFormat(self: ?*anyopaque, textFormat: i32) void {
@@ -606,7 +606,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#alignment)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -617,7 +617,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setAlignment)
     ///
     /// ``` self: QtC.KUrlLabel, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
@@ -626,7 +626,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setWordWrap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setWordWrap)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool ```
     pub fn SetWordWrap(self: ?*anyopaque, on: bool) void {
@@ -635,7 +635,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#wordWrap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#wordWrap)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn WordWrap(self: ?*anyopaque) bool {
@@ -644,7 +644,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#indent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#indent)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Indent(self: ?*anyopaque) i32 {
@@ -653,7 +653,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setIndent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setIndent)
     ///
     /// ``` self: QtC.KUrlLabel, indent: i32 ```
     pub fn SetIndent(self: ?*anyopaque, indent: i32) void {
@@ -662,7 +662,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#margin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#margin)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Margin(self: ?*anyopaque) i32 {
@@ -671,7 +671,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setMargin)
     ///
     /// ``` self: QtC.KUrlLabel, margin: i32 ```
     pub fn SetMargin(self: ?*anyopaque, margin: i32) void {
@@ -680,7 +680,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#hasScaledContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#hasScaledContents)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn HasScaledContents(self: ?*anyopaque) bool {
@@ -689,7 +689,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setScaledContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setScaledContents)
     ///
     /// ``` self: QtC.KUrlLabel, scaledContents: bool ```
     pub fn SetScaledContents(self: ?*anyopaque, scaledContents: bool) void {
@@ -698,7 +698,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setBuddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setBuddy)
     ///
     /// ``` self: QtC.KUrlLabel, buddy: QtC.QWidget ```
     pub fn SetBuddy(self: ?*anyopaque, buddy: ?*anyopaque) void {
@@ -707,7 +707,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#buddy)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Buddy(self: ?*anyopaque) QtC.QWidget {
@@ -716,7 +716,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#openExternalLinks)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#openExternalLinks)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn OpenExternalLinks(self: ?*anyopaque) bool {
@@ -725,7 +725,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setOpenExternalLinks)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setOpenExternalLinks)
     ///
     /// ``` self: QtC.KUrlLabel, open: bool ```
     pub fn SetOpenExternalLinks(self: ?*anyopaque, open: bool) void {
@@ -734,7 +734,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setTextInteractionFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setTextInteractionFlags)
     ///
     /// ``` self: QtC.KUrlLabel, flags: flag of qnamespace_enums.TextInteractionFlag ```
     pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
@@ -743,7 +743,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#textInteractionFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#textInteractionFlags)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -754,7 +754,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setSelection)
     ///
     /// ``` self: QtC.KUrlLabel, param1: i32, param2: i32 ```
     pub fn SetSelection(self: ?*anyopaque, param1: i32, param2: i32) void {
@@ -763,7 +763,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#hasSelectedText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#hasSelectedText)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn HasSelectedText(self: ?*anyopaque) bool {
@@ -772,7 +772,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#selectedText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#selectedText)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -785,7 +785,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#selectionStart)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#selectionStart)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SelectionStart(self: ?*anyopaque) i32 {
@@ -794,7 +794,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setText)
     ///
     /// ``` self: QtC.KUrlLabel, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -807,7 +807,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setPixmap)
     ///
     /// ``` self: QtC.KUrlLabel, pixmap: QtC.QPixmap ```
     pub fn SetPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
@@ -816,7 +816,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setPicture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setPicture)
     ///
     /// ``` self: QtC.KUrlLabel, picture: QtC.QPicture ```
     pub fn SetPicture(self: ?*anyopaque, picture: ?*anyopaque) void {
@@ -825,7 +825,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setMovie)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setMovie)
     ///
     /// ``` self: QtC.KUrlLabel, movie: QtC.QMovie ```
     pub fn SetMovie(self: ?*anyopaque, movie: ?*anyopaque) void {
@@ -834,7 +834,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setNum)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setNum)
     ///
     /// ``` self: QtC.KUrlLabel, num: i32 ```
     pub fn SetNum(self: ?*anyopaque, num: i32) void {
@@ -843,7 +843,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setNum)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setNum)
     ///
     /// ``` self: QtC.KUrlLabel, num: f64 ```
     pub fn SetNum2(self: ?*anyopaque, num: f64) void {
@@ -852,7 +852,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#clear)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -861,7 +861,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
     ///
     /// ``` self: QtC.KUrlLabel, link: []const u8 ```
     pub fn LinkActivated(self: ?*anyopaque, link: []const u8) void {
@@ -874,7 +874,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel, link: [*:0]const u8) callconv(.c) void ```
     pub fn OnLinkActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -883,7 +883,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#linkHovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkHovered)
     ///
     /// ``` self: QtC.KUrlLabel, link: []const u8 ```
     pub fn LinkHovered(self: ?*anyopaque, link: []const u8) void {
@@ -896,7 +896,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#linkHovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkHovered)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel, link: [*:0]const u8) callconv(.c) void ```
     pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -905,7 +905,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -914,7 +914,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.KUrlLabel, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -923,7 +923,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -932,7 +932,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -943,7 +943,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.KUrlLabel, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -952,7 +952,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -963,7 +963,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.KUrlLabel, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -972,7 +972,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -981,7 +981,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.KUrlLabel, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -990,7 +990,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -999,7 +999,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.KUrlLabel, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -1008,7 +1008,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -1017,7 +1017,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.KUrlLabel, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -1026,7 +1026,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -1035,7 +1035,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -1044,7 +1044,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -1053,7 +1053,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -1062,7 +1062,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -1071,7 +1071,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.KUrlLabel, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -1080,7 +1080,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -1089,7 +1089,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -1098,7 +1098,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -1107,7 +1107,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -1118,7 +1118,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.KUrlLabel, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -1127,7 +1127,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1136,7 +1136,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -1145,7 +1145,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.KUrlLabel, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1154,7 +1154,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.KUrlLabel, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -1163,7 +1163,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.KUrlLabel, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -1172,7 +1172,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1181,7 +1181,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -1190,7 +1190,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1199,7 +1199,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -1208,7 +1208,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -1217,7 +1217,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -1226,7 +1226,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -1235,7 +1235,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -1244,7 +1244,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -1253,7 +1253,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -1262,7 +1262,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -1271,7 +1271,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -1280,7 +1280,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -1289,7 +1289,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -1298,7 +1298,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -1307,7 +1307,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -1316,7 +1316,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -1325,7 +1325,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -1334,7 +1334,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -1343,7 +1343,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KUrlLabel, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -1352,7 +1352,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KUrlLabel, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -1361,7 +1361,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KUrlLabel, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -1370,7 +1370,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KUrlLabel, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -1379,7 +1379,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.KUrlLabel, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -1388,7 +1388,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.KUrlLabel, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -1397,7 +1397,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.KUrlLabel, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -1406,7 +1406,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.KUrlLabel, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -1415,7 +1415,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -1424,7 +1424,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KUrlLabel, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -1433,7 +1433,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KUrlLabel, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1442,7 +1442,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -1451,7 +1451,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KUrlLabel, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -1460,7 +1460,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KUrlLabel, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -1469,7 +1469,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KUrlLabel, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -1478,7 +1478,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KUrlLabel, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1487,7 +1487,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.KUrlLabel, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -1496,7 +1496,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.KUrlLabel, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -1505,7 +1505,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1514,7 +1514,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1523,7 +1523,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1532,7 +1532,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1541,7 +1541,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1550,7 +1550,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1559,7 +1559,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1568,7 +1568,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1577,7 +1577,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1586,7 +1586,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1595,7 +1595,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1604,7 +1604,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1613,7 +1613,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -1622,7 +1622,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1631,7 +1631,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1640,7 +1640,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -1649,7 +1649,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.KUrlLabel, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -1658,7 +1658,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.KUrlLabel, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -1667,7 +1667,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -1678,7 +1678,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.KUrlLabel, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -1687,7 +1687,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -1698,7 +1698,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -1707,7 +1707,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -1716,7 +1716,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -1725,7 +1725,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -1734,7 +1734,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.KUrlLabel, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -1743,7 +1743,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -1752,7 +1752,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.KUrlLabel, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -1761,7 +1761,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -1770,7 +1770,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -1779,7 +1779,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.KUrlLabel, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -1788,7 +1788,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -1797,7 +1797,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KUrlLabel, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -1806,7 +1806,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KUrlLabel, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -1815,7 +1815,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -1824,7 +1824,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -1833,7 +1833,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KUrlLabel, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -1842,7 +1842,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KUrlLabel, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -1851,7 +1851,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -1860,7 +1860,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -1869,7 +1869,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.KUrlLabel, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -1878,7 +1878,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KUrlLabel, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1887,7 +1887,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.KUrlLabel, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1896,7 +1896,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.KUrlLabel, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -1909,7 +1909,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.KUrlLabel, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -1922,7 +1922,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1935,7 +1935,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1948,7 +1948,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.KUrlLabel, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -1957,7 +1957,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -1966,7 +1966,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.KUrlLabel, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -1979,7 +1979,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1992,7 +1992,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.KUrlLabel, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -2005,7 +2005,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2018,7 +2018,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.KUrlLabel, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -2031,7 +2031,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2044,7 +2044,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.KUrlLabel, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -2053,7 +2053,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -2062,7 +2062,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -2071,7 +2071,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.KUrlLabel, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -2084,7 +2084,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2097,7 +2097,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.KUrlLabel, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -2106,7 +2106,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -2115,7 +2115,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.KUrlLabel, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -2128,7 +2128,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2141,7 +2141,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.KUrlLabel, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -2154,7 +2154,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2167,7 +2167,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2180,7 +2180,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.KUrlLabel, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -2193,7 +2193,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2206,7 +2206,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.KUrlLabel, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -2219,7 +2219,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KUrlLabel, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -2228,7 +2228,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -2239,7 +2239,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -2248,7 +2248,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.KUrlLabel, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -2257,7 +2257,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -2266,7 +2266,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -2275,7 +2275,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -2284,7 +2284,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -2293,7 +2293,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -2302,7 +2302,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -2311,7 +2311,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -2320,7 +2320,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -2329,7 +2329,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KUrlLabel, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -2338,7 +2338,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -2349,7 +2349,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.KUrlLabel, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2358,7 +2358,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -2367,7 +2367,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -2376,7 +2376,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.KUrlLabel, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -2385,7 +2385,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -2394,7 +2394,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -2405,7 +2405,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.KUrlLabel, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2414,7 +2414,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -2423,7 +2423,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2432,7 +2432,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -2441,7 +2441,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -2450,7 +2450,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -2459,7 +2459,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KUrlLabel, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -2468,7 +2468,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.KUrlLabel, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -2477,7 +2477,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KUrlLabel, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -2486,7 +2486,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KUrlLabel, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -2495,7 +2495,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -2504,7 +2504,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -2513,7 +2513,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -2522,7 +2522,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.KUrlLabel, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -2531,7 +2531,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -2540,7 +2540,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Update(self: ?*anyopaque) void {
@@ -2549,7 +2549,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -2558,7 +2558,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KUrlLabel, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2567,7 +2567,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2576,7 +2576,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2585,7 +2585,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KUrlLabel, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2594,7 +2594,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2603,7 +2603,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2612,7 +2612,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.KUrlLabel, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -2621,7 +2621,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Show(self: ?*anyopaque) void {
@@ -2630,7 +2630,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -2639,7 +2639,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -2648,7 +2648,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -2657,7 +2657,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -2666,7 +2666,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -2675,7 +2675,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -2684,7 +2684,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -2693,7 +2693,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -2702,7 +2702,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2711,7 +2711,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KUrlLabel, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -2720,7 +2720,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2729,7 +2729,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KUrlLabel, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2738,7 +2738,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2747,7 +2747,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KUrlLabel, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2756,7 +2756,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KUrlLabel, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -2765,7 +2765,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -2778,7 +2778,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.KUrlLabel, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -2791,7 +2791,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -2800,7 +2800,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -2809,7 +2809,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2818,7 +2818,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -2827,7 +2827,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -2836,7 +2836,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -2845,7 +2845,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -2854,7 +2854,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -2865,7 +2865,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KUrlLabel, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -2874,7 +2874,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KUrlLabel, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -2883,7 +2883,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -2892,7 +2892,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KUrlLabel, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -2901,7 +2901,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KUrlLabel, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -2910,7 +2910,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2919,7 +2919,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KUrlLabel, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -2928,7 +2928,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KUrlLabel, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -2937,7 +2937,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -2946,7 +2946,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -2955,7 +2955,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -2964,7 +2964,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.KUrlLabel, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -2973,7 +2973,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -2982,7 +2982,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KUrlLabel, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2991,7 +2991,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KUrlLabel, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -3000,7 +3000,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KUrlLabel, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -3009,7 +3009,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KUrlLabel, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -3018,7 +3018,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3027,7 +3027,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -3036,7 +3036,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -3045,7 +3045,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -3054,7 +3054,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -3063,7 +3063,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KUrlLabel, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3072,7 +3072,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.KUrlLabel, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3085,7 +3085,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.KUrlLabel, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3098,7 +3098,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.KUrlLabel, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -3107,7 +3107,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.KUrlLabel, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3116,7 +3116,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -3130,7 +3130,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KUrlLabel, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3143,7 +3143,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KUrlLabel, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3156,7 +3156,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KUrlLabel, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3169,7 +3169,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KUrlLabel, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3182,7 +3182,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3191,7 +3191,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.KUrlLabel, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3200,7 +3200,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -3211,7 +3211,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KUrlLabel, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -3220,7 +3220,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.KUrlLabel, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3229,7 +3229,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -3240,7 +3240,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -3249,7 +3249,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KUrlLabel, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -3258,7 +3258,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KUrlLabel, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3267,7 +3267,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KUrlLabel, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3276,7 +3276,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KUrlLabel, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -3285,7 +3285,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.KUrlLabel, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -3294,7 +3294,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -3303,7 +3303,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.KUrlLabel, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -3312,7 +3312,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -3321,7 +3321,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.KUrlLabel, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -3330,7 +3330,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -3339,7 +3339,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -3348,7 +3348,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -3357,7 +3357,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.KUrlLabel, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -3366,7 +3366,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -3375,7 +3375,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KUrlLabel, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -3388,7 +3388,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3397,7 +3397,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KUrlLabel, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3406,7 +3406,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3415,7 +3415,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KUrlLabel, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -3428,7 +3428,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3437,7 +3437,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KUrlLabel, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -3446,7 +3446,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3455,7 +3455,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.KUrlLabel ```
     ///
@@ -3466,7 +3466,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.KUrlLabel, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -3475,7 +3475,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KUrlLabel, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3484,7 +3484,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KUrlLabel, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3493,7 +3493,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KUrlLabel, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3502,7 +3502,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KUrlLabel, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3511,7 +3511,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KUrlLabel, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3520,7 +3520,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KUrlLabel, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3529,7 +3529,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KUrlLabel, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -3538,7 +3538,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KUrlLabel, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -3547,7 +3547,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KUrlLabel, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -3556,7 +3556,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KUrlLabel, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3565,7 +3565,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KUrlLabel, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3574,7 +3574,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KUrlLabel, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -3583,7 +3583,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KUrlLabel, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -3592,7 +3592,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -3601,7 +3601,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -3610,7 +3610,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3623,7 +3623,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KUrlLabel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3636,7 +3636,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3645,7 +3645,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3654,7 +3654,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3663,7 +3663,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3672,7 +3672,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KUrlLabel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3681,7 +3681,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3690,7 +3690,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KUrlLabel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3699,7 +3699,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KUrlLabel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3708,7 +3708,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KUrlLabel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3717,7 +3717,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KUrlLabel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3726,7 +3726,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3740,7 +3740,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KUrlLabel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3749,7 +3749,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KUrlLabel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3758,7 +3758,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3767,7 +3767,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KUrlLabel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -3778,7 +3778,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -3787,7 +3787,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -3796,7 +3796,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -3805,7 +3805,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -3814,7 +3814,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KUrlLabel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -3824,7 +3824,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KUrlLabel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -3834,7 +3834,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -3858,7 +3858,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3867,7 +3867,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3876,7 +3876,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -3885,7 +3885,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3894,7 +3894,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3903,7 +3903,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KUrlLabel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3913,7 +3913,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3922,7 +3922,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KUrlLabel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3931,7 +3931,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KUrlLabel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3940,7 +3940,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3949,7 +3949,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KUrlLabel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3960,7 +3960,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3969,7 +3969,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KUrlLabel, callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3978,7 +3978,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -3987,7 +3987,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -3996,7 +3996,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -4005,7 +4005,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -4014,7 +4014,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -4023,7 +4023,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -4032,7 +4032,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -4041,7 +4041,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -4050,7 +4050,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -4059,7 +4059,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -4068,7 +4068,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -4077,7 +4077,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -4086,7 +4086,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -4095,7 +4095,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4106,7 +4106,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4117,7 +4117,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4128,7 +4128,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4139,7 +4139,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4150,7 +4150,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4161,7 +4161,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4172,7 +4172,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4183,7 +4183,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4194,7 +4194,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4205,7 +4205,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4216,7 +4216,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4227,7 +4227,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4238,7 +4238,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4249,7 +4249,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4260,7 +4260,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4271,7 +4271,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4282,7 +4282,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4293,7 +4293,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4304,7 +4304,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4315,7 +4315,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4326,7 +4326,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4337,7 +4337,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4348,7 +4348,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4359,7 +4359,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4370,7 +4370,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4381,7 +4381,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4392,7 +4392,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4403,7 +4403,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4414,7 +4414,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4425,7 +4425,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4436,7 +4436,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4447,7 +4447,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4458,7 +4458,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4469,7 +4469,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4480,7 +4480,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4491,7 +4491,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4502,7 +4502,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4513,7 +4513,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4524,7 +4524,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4535,7 +4535,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4546,7 +4546,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4557,7 +4557,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4568,7 +4568,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4579,7 +4579,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4590,7 +4590,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4601,7 +4601,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4612,7 +4612,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4623,7 +4623,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4634,7 +4634,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4645,7 +4645,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4656,7 +4656,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4667,7 +4667,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4678,7 +4678,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4689,7 +4689,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4700,7 +4700,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4711,7 +4711,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4722,7 +4722,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4733,7 +4733,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4744,7 +4744,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4755,7 +4755,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4766,7 +4766,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4777,7 +4777,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4788,7 +4788,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4799,7 +4799,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4810,7 +4810,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4821,7 +4821,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4832,7 +4832,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4843,7 +4843,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4854,7 +4854,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4865,7 +4865,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4876,7 +4876,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4887,7 +4887,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4898,7 +4898,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4909,7 +4909,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4920,7 +4920,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4931,7 +4931,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4942,7 +4942,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4953,7 +4953,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4964,7 +4964,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4975,7 +4975,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4986,7 +4986,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4997,7 +4997,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5008,7 +5008,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5019,7 +5019,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5030,7 +5030,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5041,7 +5041,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5052,7 +5052,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5063,7 +5063,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5074,7 +5074,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5085,7 +5085,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5096,7 +5096,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5107,7 +5107,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5118,7 +5118,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5133,7 +5133,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5148,7 +5148,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5159,7 +5159,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5170,7 +5170,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5181,7 +5181,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5192,7 +5192,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5203,7 +5203,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5214,7 +5214,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5225,7 +5225,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5236,7 +5236,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5247,7 +5247,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5258,7 +5258,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5269,7 +5269,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5280,7 +5280,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5291,7 +5291,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5302,7 +5302,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5313,7 +5313,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5324,7 +5324,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5335,7 +5335,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5346,7 +5346,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5357,7 +5357,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5368,7 +5368,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5379,7 +5379,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5390,7 +5390,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5401,7 +5401,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5412,7 +5412,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5423,7 +5423,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5434,7 +5434,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5445,7 +5445,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5456,7 +5456,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5467,7 +5467,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5478,7 +5478,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5489,7 +5489,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5500,7 +5500,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5511,7 +5511,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5522,7 +5522,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5533,7 +5533,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5544,7 +5544,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5555,7 +5555,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5566,7 +5566,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5577,7 +5577,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5588,7 +5588,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5599,7 +5599,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5610,7 +5610,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5621,7 +5621,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5632,7 +5632,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5643,7 +5643,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5654,7 +5654,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5665,7 +5665,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5676,7 +5676,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5687,7 +5687,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5698,7 +5698,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5709,7 +5709,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5720,7 +5720,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5731,7 +5731,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5742,7 +5742,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5753,7 +5753,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5764,7 +5764,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5775,7 +5775,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5786,7 +5786,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5797,7 +5797,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5808,7 +5808,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5819,7 +5819,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5831,7 +5831,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5843,7 +5843,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5854,7 +5854,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5865,7 +5865,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5876,7 +5876,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5887,7 +5887,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5898,7 +5898,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5909,7 +5909,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5920,7 +5920,7 @@ pub const kurllabel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -5929,7 +5929,7 @@ pub const kurllabel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kurllabel.html#dtor.KUrlLabel)
+    /// [Upstream resources](https://api.kde.org/kurllabel.html#dtor.KUrlLabel)
     ///
     /// Delete this object from C++ memory.
     ///

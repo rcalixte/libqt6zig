@@ -18,14 +18,14 @@ pub const attica__privatedata = struct {
         return qtc.Attica__PrivateData_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-privatedata.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__PrivateData, other: QtC.Attica__PrivateData ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__PrivateData_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-privatedata.html#setAttribute)
+    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#setAttribute)
     ///
     /// ``` self: QtC.Attica__PrivateData, key: []const u8, value: []const u8 ```
     pub fn SetAttribute(self: ?*anyopaque, key: []const u8, value: []const u8) void {
@@ -40,7 +40,7 @@ pub const attica__privatedata = struct {
         qtc.Attica__PrivateData_SetAttribute(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-privatedata.html#attribute)
+    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#attribute)
     ///
     /// ``` self: QtC.Attica__PrivateData, key: []const u8, allocator: std.mem.Allocator ```
     pub fn Attribute(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -55,7 +55,7 @@ pub const attica__privatedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-privatedata.html#setTimestamp)
+    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#setTimestamp)
     ///
     /// ``` self: QtC.Attica__PrivateData, key: []const u8, when: QtC.QDateTime ```
     pub fn SetTimestamp(self: ?*anyopaque, key: []const u8, when: ?*anyopaque) void {
@@ -66,7 +66,7 @@ pub const attica__privatedata = struct {
         qtc.Attica__PrivateData_SetTimestamp(@ptrCast(self), key_str, @ptrCast(when));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-privatedata.html#timestamp)
+    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#timestamp)
     ///
     /// ``` self: QtC.Attica__PrivateData, key: []const u8 ```
     pub fn Timestamp(self: ?*anyopaque, key: []const u8) QtC.QDateTime {
@@ -77,7 +77,7 @@ pub const attica__privatedata = struct {
         return qtc.Attica__PrivateData_Timestamp(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-privatedata.html#keys)
+    /// [Upstream resources](https://api.kde.org/attica-privatedata.html#keys)
     ///
     /// ``` self: QtC.Attica__PrivateData, allocator: std.mem.Allocator ```
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {

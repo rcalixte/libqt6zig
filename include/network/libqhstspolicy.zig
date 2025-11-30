@@ -44,21 +44,21 @@ pub const qhstspolicy = struct {
         return qtc.QHstsPolicy_new4(@ptrCast(expiry), @intCast(flags), host_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#operator-eq)
     ///
     /// ``` self: QtC.QHstsPolicy, rhs: QtC.QHstsPolicy ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
         qtc.QHstsPolicy_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#swap)
     ///
     /// ``` self: QtC.QHstsPolicy, other: QtC.QHstsPolicy ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QHstsPolicy_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#setHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#setHost)
     ///
     /// ``` self: QtC.QHstsPolicy, host: []const u8 ```
     pub fn SetHost(self: ?*anyopaque, host: []const u8) void {
@@ -69,7 +69,7 @@ pub const qhstspolicy = struct {
         qtc.QHstsPolicy_SetHost(@ptrCast(self), host_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#host)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#host)
     ///
     /// ``` self: QtC.QHstsPolicy, allocator: std.mem.Allocator ```
     pub fn Host(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -80,42 +80,42 @@ pub const qhstspolicy = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#setExpiry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#setExpiry)
     ///
     /// ``` self: QtC.QHstsPolicy, expiry: QtC.QDateTime ```
     pub fn SetExpiry(self: ?*anyopaque, expiry: ?*anyopaque) void {
         qtc.QHstsPolicy_SetExpiry(@ptrCast(self), @ptrCast(expiry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#expiry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#expiry)
     ///
     /// ``` self: QtC.QHstsPolicy ```
     pub fn Expiry(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QHstsPolicy_Expiry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#setIncludesSubDomains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#setIncludesSubDomains)
     ///
     /// ``` self: QtC.QHstsPolicy, include: bool ```
     pub fn SetIncludesSubDomains(self: ?*anyopaque, include: bool) void {
         qtc.QHstsPolicy_SetIncludesSubDomains(@ptrCast(self), include);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#includesSubDomains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#includesSubDomains)
     ///
     /// ``` self: QtC.QHstsPolicy ```
     pub fn IncludesSubDomains(self: ?*anyopaque) bool {
         return qtc.QHstsPolicy_IncludesSubDomains(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#isExpired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#isExpired)
     ///
     /// ``` self: QtC.QHstsPolicy ```
     pub fn IsExpired(self: ?*anyopaque) bool {
         return qtc.QHstsPolicy_IsExpired(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#setHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#setHost)
     ///
     /// ``` self: QtC.QHstsPolicy, host: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i32) void {
@@ -126,7 +126,7 @@ pub const qhstspolicy = struct {
         qtc.QHstsPolicy_SetHost2(@ptrCast(self), host_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#host)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#host)
     ///
     /// ``` self: QtC.QHstsPolicy, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Host1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
@@ -137,7 +137,7 @@ pub const qhstspolicy = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#dtor.QHstsPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#dtor.QHstsPolicy)
     ///
     /// Delete this object from C++ memory.
     ///

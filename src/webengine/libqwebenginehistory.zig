@@ -16,28 +16,28 @@ pub const qwebenginehistoryitem = struct {
         return qtc.QWebEngineHistoryItem_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem, other: QtC.QWebEngineHistoryItem ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineHistoryItem_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#originalUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#originalUrl)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem ```
     pub fn OriginalUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineHistoryItem_OriginalUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#url)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#url)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineHistoryItem_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#title)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#title)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -48,35 +48,35 @@ pub const qwebenginehistoryitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#lastVisited)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#lastVisited)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem ```
     pub fn LastVisited(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QWebEngineHistoryItem_LastVisited(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#iconUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#iconUrl)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem ```
     pub fn IconUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineHistoryItem_IconUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#isValid)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QWebEngineHistoryItem_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#swap)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem, other: QtC.QWebEngineHistoryItem ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineHistoryItem_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#dtor.QWebEngineHistoryItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#dtor.QWebEngineHistoryItem)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -88,7 +88,7 @@ pub const qwebenginehistoryitem = struct {
 
 /// https://doc.qt.io/qt-6/qwebenginehistorymodel.html
 pub const qwebenginehistorymodel = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -106,7 +106,7 @@ pub const qwebenginehistorymodel = struct {
         return qtc.QWebEngineHistoryModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -118,21 +118,21 @@ pub const qwebenginehistorymodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#rowCount)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex ```
     pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.QWebEngineHistoryModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#data)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, role: i32 ```
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QWebEngineHistoryModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#roleNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#roleNames)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
@@ -153,14 +153,14 @@ pub const qwebenginehistorymodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#reset)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QWebEngineHistoryModel_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -173,7 +173,7 @@ pub const qwebenginehistorymodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractListModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
@@ -197,7 +197,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractListModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32, column: i32, idx: QtC.QModelIndex ```
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
@@ -206,7 +206,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractListModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -215,7 +215,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractListModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex ```
     ///
@@ -226,7 +226,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32, column: i32 ```
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
@@ -235,7 +235,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, child: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
@@ -244,7 +244,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex ```
     pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
@@ -253,7 +253,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex ```
     pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
@@ -262,7 +262,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32 ```
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
@@ -271,7 +271,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32 ```
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
@@ -280,7 +280,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32 ```
     pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
@@ -289,7 +289,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
@@ -312,7 +312,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
@@ -338,7 +338,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex ```
     pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -347,7 +347,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -371,7 +371,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
@@ -384,7 +384,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -393,7 +393,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     ///
@@ -404,7 +404,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     ///
@@ -415,7 +415,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
@@ -424,7 +424,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, column: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
@@ -433,7 +433,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
@@ -442,7 +442,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, column: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
@@ -451,7 +451,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -460,7 +460,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -469,7 +469,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
@@ -478,7 +478,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
@@ -487,7 +487,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
@@ -496,7 +496,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
@@ -505,7 +505,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, sourceParent: QtC.QModelIndex, sourceRow: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -514,7 +514,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -523,7 +523,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex ```
     pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -532,7 +532,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex ```
     pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
@@ -541,7 +541,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
@@ -550,7 +550,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex ```
     pub fn Buddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
@@ -559,7 +559,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -573,7 +573,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex ```
     pub fn Span(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
@@ -582,7 +582,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex ```
     pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -591,7 +591,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan ```
     pub fn MultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
@@ -600,7 +600,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
@@ -609,7 +609,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -618,7 +618,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
@@ -627,7 +627,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
@@ -636,7 +636,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -645,7 +645,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -654,7 +654,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
@@ -663,7 +663,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -672,7 +672,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn Submit(self: ?*anyopaque) bool {
@@ -681,7 +681,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn Revert(self: ?*anyopaque) void {
@@ -690,7 +690,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -699,7 +699,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32, parent: QtC.QModelIndex ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -708,7 +708,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, column: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -717,7 +717,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -726,7 +726,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, column: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -735,7 +735,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
@@ -744,7 +744,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -757,7 +757,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
@@ -766,7 +766,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -779,7 +779,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -788,7 +788,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -801,7 +801,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -810,7 +810,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -823,7 +823,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -832,7 +832,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -845,7 +845,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -854,7 +854,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -863,7 +863,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -872,7 +872,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -885,7 +885,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -898,7 +898,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -907,7 +907,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -916,7 +916,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -925,7 +925,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -934,7 +934,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -943,7 +943,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -952,7 +952,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -961,7 +961,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -970,7 +970,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -979,7 +979,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -988,7 +988,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1002,7 +1002,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1011,7 +1011,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1020,7 +1020,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1029,7 +1029,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1038,7 +1038,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1049,7 +1049,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1058,7 +1058,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1067,7 +1067,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1076,7 +1076,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1085,7 +1085,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1095,7 +1095,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1105,7 +1105,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1129,7 +1129,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1138,7 +1138,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1147,7 +1147,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1156,7 +1156,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1165,7 +1165,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1175,7 +1175,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1184,7 +1184,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1193,7 +1193,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1202,7 +1202,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1211,7 +1211,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1222,7 +1222,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1231,7 +1231,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, callback: *const fn (self: QtC.QWebEngineHistoryModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1240,7 +1240,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1251,7 +1251,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1262,7 +1262,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1273,7 +1273,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1284,7 +1284,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1295,7 +1295,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1306,7 +1306,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1317,7 +1317,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1328,7 +1328,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1339,7 +1339,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1350,7 +1350,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1361,7 +1361,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1372,7 +1372,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1383,7 +1383,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1394,7 +1394,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1406,7 +1406,7 @@ pub const qwebenginehistorymodel = struct {
 
 /// https://doc.qt.io/qt-6/qwebenginehistory.html
 pub const qwebenginehistory = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -1424,7 +1424,7 @@ pub const qwebenginehistory = struct {
         return qtc.QWebEngineHistory_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1436,14 +1436,14 @@ pub const qwebenginehistory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#clear)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QWebEngineHistory_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#items)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#items)
     ///
     /// ``` self: QtC.QWebEngineHistory, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEngineHistoryItem {
@@ -1455,7 +1455,7 @@ pub const qwebenginehistory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#backItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#backItems)
     ///
     /// ``` self: QtC.QWebEngineHistory, maxItems: i32, allocator: std.mem.Allocator ```
     pub fn BackItems(self: ?*anyopaque, maxItems: i32, allocator: std.mem.Allocator) []QtC.QWebEngineHistoryItem {
@@ -1467,7 +1467,7 @@ pub const qwebenginehistory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#forwardItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#forwardItems)
     ///
     /// ``` self: QtC.QWebEngineHistory, maxItems: i32, allocator: std.mem.Allocator ```
     pub fn ForwardItems(self: ?*anyopaque, maxItems: i32, allocator: std.mem.Allocator) []QtC.QWebEngineHistoryItem {
@@ -1479,105 +1479,105 @@ pub const qwebenginehistory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#canGoBack)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#canGoBack)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn CanGoBack(self: ?*anyopaque) bool {
         return qtc.QWebEngineHistory_CanGoBack(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#canGoForward)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#canGoForward)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn CanGoForward(self: ?*anyopaque) bool {
         return qtc.QWebEngineHistory_CanGoForward(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#back)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#back)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn Back(self: ?*anyopaque) void {
         qtc.QWebEngineHistory_Back(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#forward)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#forward)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn Forward(self: ?*anyopaque) void {
         qtc.QWebEngineHistory_Forward(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#goToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#goToItem)
     ///
     /// ``` self: QtC.QWebEngineHistory, item: QtC.QWebEngineHistoryItem ```
     pub fn GoToItem(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QWebEngineHistory_GoToItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#backItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#backItem)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn BackItem(self: ?*anyopaque) QtC.QWebEngineHistoryItem {
         return qtc.QWebEngineHistory_BackItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#currentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#currentItem)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn CurrentItem(self: ?*anyopaque) QtC.QWebEngineHistoryItem {
         return qtc.QWebEngineHistory_CurrentItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#forwardItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#forwardItem)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn ForwardItem(self: ?*anyopaque) QtC.QWebEngineHistoryItem {
         return qtc.QWebEngineHistory_ForwardItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#itemAt)
     ///
     /// ``` self: QtC.QWebEngineHistory, i: i32 ```
     pub fn ItemAt(self: ?*anyopaque, i: i32) QtC.QWebEngineHistoryItem {
         return qtc.QWebEngineHistory_ItemAt(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#currentItemIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#currentItemIndex)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn CurrentItemIndex(self: ?*anyopaque) i32 {
         return qtc.QWebEngineHistory_CurrentItemIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#count)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QWebEngineHistory_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#itemsModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#itemsModel)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn ItemsModel(self: ?*anyopaque) QtC.QWebEngineHistoryModel {
         return qtc.QWebEngineHistory_ItemsModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#backItemsModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#backItemsModel)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn BackItemsModel(self: ?*anyopaque) QtC.QWebEngineHistoryModel {
         return qtc.QWebEngineHistory_BackItemsModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistory.html#forwardItemsModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#forwardItemsModel)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn ForwardItemsModel(self: ?*anyopaque) QtC.QWebEngineHistoryModel {
         return qtc.QWebEngineHistory_ForwardItemsModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1590,7 +1590,7 @@ pub const qwebenginehistory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1605,7 +1605,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QWebEngineHistory, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -1614,7 +1614,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QWebEngineHistory, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -1623,7 +1623,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QWebEngineHistory, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1636,7 +1636,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QWebEngineHistory, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1649,7 +1649,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1658,7 +1658,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1667,7 +1667,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1676,7 +1676,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1685,7 +1685,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QWebEngineHistory, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1694,7 +1694,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1703,7 +1703,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineHistory, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1712,7 +1712,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineHistory, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1721,7 +1721,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineHistory, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1730,7 +1730,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineHistory, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1739,7 +1739,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QWebEngineHistory, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1753,7 +1753,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QWebEngineHistory, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1762,7 +1762,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QWebEngineHistory, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1771,7 +1771,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QWebEngineHistory, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1780,7 +1780,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1789,7 +1789,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineHistory, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1800,7 +1800,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1809,7 +1809,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1818,7 +1818,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1827,7 +1827,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1836,7 +1836,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QWebEngineHistory, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1846,7 +1846,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QWebEngineHistory, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1856,7 +1856,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QWebEngineHistory, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1880,7 +1880,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1889,7 +1889,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1898,7 +1898,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1907,7 +1907,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineHistory, callback: *const fn (self: QtC.QWebEngineHistory) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1916,7 +1916,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1925,7 +1925,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QWebEngineHistory, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1935,7 +1935,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QWebEngineHistory ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1944,7 +1944,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineHistory, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1953,7 +1953,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineHistory, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1962,7 +1962,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1971,7 +1971,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineHistory, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1982,7 +1982,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineHistory, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1991,7 +1991,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineHistory, callback: *const fn (self: QtC.QWebEngineHistory, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2000,7 +2000,7 @@ pub const qwebenginehistory = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

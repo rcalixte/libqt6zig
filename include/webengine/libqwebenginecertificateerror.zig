@@ -12,14 +12,14 @@ pub const qwebenginecertificateerror = struct {
         return qtc.QWebEngineCertificateError_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineCertificateError, other: QtC.QWebEngineCertificateError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#type)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```
     ///
@@ -28,21 +28,21 @@ pub const qwebenginecertificateerror = struct {
         return qtc.QWebEngineCertificateError_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#url)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#url)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineCertificateError_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isOverridable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isOverridable)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn IsOverridable(self: ?*anyopaque) bool {
         return qtc.QWebEngineCertificateError_IsOverridable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#description)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#description)
     ///
     /// ``` self: QtC.QWebEngineCertificateError, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -53,35 +53,35 @@ pub const qwebenginecertificateerror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isMainFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isMainFrame)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn IsMainFrame(self: ?*anyopaque) bool {
         return qtc.QWebEngineCertificateError_IsMainFrame(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#defer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#defer)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn Defer(self: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_Defer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#rejectCertificate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#rejectCertificate)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn RejectCertificate(self: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_RejectCertificate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#acceptCertificate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#acceptCertificate)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn AcceptCertificate(self: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_AcceptCertificate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#certificateChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#certificateChain)
     ///
     /// ``` self: QtC.QWebEngineCertificateError, allocator: std.mem.Allocator ```
     pub fn CertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
@@ -93,7 +93,7 @@ pub const qwebenginecertificateerror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#dtor.QWebEngineCertificateError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#dtor.QWebEngineCertificateError)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -83,35 +83,35 @@ pub const qsqlerror = struct {
         return qtc.QSqlError_new6(driverText_str, databaseText_str, @intCast(typeVal), errorCode_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#operator-eq)
     ///
     /// ``` self: QtC.QSqlError, other: QtC.QSqlError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSqlError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSqlError, other: QtC.QSqlError ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSqlError_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSqlError, other: QtC.QSqlError ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSqlError_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#swap)
     ///
     /// ``` self: QtC.QSqlError, other: QtC.QSqlError ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSqlError_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#driverText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#driverText)
     ///
     /// ``` self: QtC.QSqlError, allocator: std.mem.Allocator ```
     pub fn DriverText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const qsqlerror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#databaseText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#databaseText)
     ///
     /// ``` self: QtC.QSqlError, allocator: std.mem.Allocator ```
     pub fn DatabaseText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -133,7 +133,7 @@ pub const qsqlerror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#type)
     ///
     /// ``` self: QtC.QSqlError ```
     ///
@@ -142,7 +142,7 @@ pub const qsqlerror = struct {
         return qtc.QSqlError_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#nativeErrorCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#nativeErrorCode)
     ///
     /// ``` self: QtC.QSqlError, allocator: std.mem.Allocator ```
     pub fn NativeErrorCode(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -153,7 +153,7 @@ pub const qsqlerror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#text)
     ///
     /// ``` self: QtC.QSqlError, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -164,14 +164,14 @@ pub const qsqlerror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#isValid)
     ///
     /// ``` self: QtC.QSqlError ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QSqlError_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlerror.html#dtor.QSqlError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#dtor.QSqlError)
     ///
     /// Delete this object from C++ memory.
     ///

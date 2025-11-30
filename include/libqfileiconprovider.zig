@@ -12,14 +12,14 @@ pub const qfileiconprovider = struct {
         return qtc.QFileIconProvider_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// ``` self: QtC.QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType ```
     pub fn Icon(self: ?*anyopaque, typeVal: i32) QtC.QIcon {
         return qtc.QFileIconProvider_Icon(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// Allows for overriding the related default method
     ///
@@ -28,7 +28,7 @@ pub const qfileiconprovider = struct {
         qtc.QFileIconProvider_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// Base class method implementation
     ///
@@ -37,14 +37,14 @@ pub const qfileiconprovider = struct {
         return qtc.QFileIconProvider_QBaseIcon(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// ``` self: QtC.QFileIconProvider, info: QtC.QFileInfo ```
     pub fn Icon2(self: ?*anyopaque, info: ?*anyopaque) QtC.QIcon {
         return qtc.QFileIconProvider_Icon2(@ptrCast(self), @ptrCast(info));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// Allows for overriding the related default method
     ///
@@ -53,7 +53,7 @@ pub const qfileiconprovider = struct {
         qtc.QFileIconProvider_OnIcon2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// Base class method implementation
     ///
@@ -64,7 +64,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -79,7 +79,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -94,7 +94,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -105,7 +105,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -116,7 +116,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -127,7 +127,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -138,7 +138,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -151,7 +151,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -164,7 +164,7 @@ pub const qfileiconprovider = struct {
 
     /// Inherited from QAbstractFileIconProvider
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -173,7 +173,7 @@ pub const qfileiconprovider = struct {
         qtc.QFileIconProvider_OnOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#dtor.QFileIconProvider)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#dtor.QFileIconProvider)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -17,7 +17,7 @@ pub const qshareddata = struct {
         return qtc.QSharedData_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qshareddata.html#dtor.QSharedData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qshareddata.html#dtor.QSharedData)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -64,7 +64,7 @@ pub const qadoptshareddatatag = struct {
         qtc.QAdoptSharedDataTag_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qadoptshareddatatag.html#dtor.QAdoptSharedDataTag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qadoptshareddatatag.html#dtor.QAdoptSharedDataTag)
     ///
     /// Delete this object from C++ memory.
     ///

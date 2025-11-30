@@ -31,140 +31,140 @@ pub const kiconcolors = struct {
         return qtc.KIconColors_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#operator-eq)
     ///
     /// ``` self: QtC.KIconColors, other: QtC.KIconColors ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KIconColors_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#text)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#text)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn Text(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_Text(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#highlight)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#highlight)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn Highlight(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_Highlight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#highlightedText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#highlightedText)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn HighlightedText(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_HighlightedText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#accent)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#accent)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn Accent(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_Accent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#background)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#background)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn Background(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_Background(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#neutralText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#neutralText)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn NeutralText(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_NeutralText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#positiveText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#positiveText)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn PositiveText(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_PositiveText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#negativeText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#negativeText)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn NegativeText(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_NegativeText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#activeText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#activeText)
     ///
     /// ``` self: QtC.KIconColors ```
     pub fn ActiveText(self: ?*anyopaque) QtC.QColor {
         return qtc.KIconColors_ActiveText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setText)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetText(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetText(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setHighlight)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setHighlight)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetHighlight(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetHighlight(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setHighlightedText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setHighlightedText)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetHighlightedText(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetHighlightedText(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setAccent)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setAccent)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetAccent(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetAccent(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setBackground)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setBackground)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetBackground(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetBackground(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setNeutralText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setNeutralText)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetNeutralText(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetNeutralText(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setPositiveText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setPositiveText)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetPositiveText(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetPositiveText(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setNegativeText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setNegativeText)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetNegativeText(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetNegativeText(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#setActiveText)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#setActiveText)
     ///
     /// ``` self: QtC.KIconColors, color: QtC.QColor ```
     pub fn SetActiveText(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KIconColors_SetActiveText(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconcolors.html#dtor.KIconColors)
+    /// [Upstream resources](https://api.kde.org/kiconcolors.html#dtor.KIconColors)
     ///
     /// Delete this object from C++ memory.
     ///

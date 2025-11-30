@@ -26,21 +26,21 @@ pub const qpicture = struct {
         return qtc.QPicture_new3(@intCast(formatVersion));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#isNull)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QPicture_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#devType)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn DevType(self: ?*anyopaque) i32 {
         return qtc.QPicture_DevType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#devType)
     ///
     /// Allows for overriding the related default method
     ///
@@ -49,7 +49,7 @@ pub const qpicture = struct {
         qtc.QPicture_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#devType)
     ///
     /// Base class method implementation
     ///
@@ -58,14 +58,14 @@ pub const qpicture = struct {
         return qtc.QPicture_QBaseDevType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#size)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn Size(self: ?*anyopaque) u32 {
         return qtc.QPicture_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#data)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn Data(self: ?*anyopaque) []const u8 {
@@ -73,7 +73,7 @@ pub const qpicture = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setData)
     ///
     /// ``` self: QtC.QPicture, data: []const u8, size: u32 ```
     pub fn SetData(self: ?*anyopaque, data: []const u8, size: u32) void {
@@ -81,7 +81,7 @@ pub const qpicture = struct {
         qtc.QPicture_SetData(@ptrCast(self), data_Cstring, @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -90,7 +90,7 @@ pub const qpicture = struct {
         qtc.QPicture_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setData)
     ///
     /// Base class method implementation
     ///
@@ -100,21 +100,21 @@ pub const qpicture = struct {
         qtc.QPicture_QBaseSetData(@ptrCast(self), data_Cstring, @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#play)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#play)
     ///
     /// ``` self: QtC.QPicture, p: QtC.QPainter ```
     pub fn Play(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.QPicture_Play(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#load)
     ///
     /// ``` self: QtC.QPicture, dev: QtC.QIODevice ```
     pub fn Load(self: ?*anyopaque, dev: ?*anyopaque) bool {
         return qtc.QPicture_Load(@ptrCast(self), @ptrCast(dev));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#load)
     ///
     /// ``` self: QtC.QPicture, fileName: []const u8 ```
     pub fn Load2(self: ?*anyopaque, fileName: []const u8) bool {
@@ -125,14 +125,14 @@ pub const qpicture = struct {
         return qtc.QPicture_Load2(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#save)
     ///
     /// ``` self: QtC.QPicture, dev: QtC.QIODevice ```
     pub fn Save(self: ?*anyopaque, dev: ?*anyopaque) bool {
         return qtc.QPicture_Save(@ptrCast(self), @ptrCast(dev));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#save)
     ///
     /// ``` self: QtC.QPicture, fileName: []const u8 ```
     pub fn Save2(self: ?*anyopaque, fileName: []const u8) bool {
@@ -143,56 +143,56 @@ pub const qpicture = struct {
         return qtc.QPicture_Save2(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#boundingRect)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QPicture_BoundingRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#setBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setBoundingRect)
     ///
     /// ``` self: QtC.QPicture, r: QtC.QRect ```
     pub fn SetBoundingRect(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QPicture_SetBoundingRect(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#operator-eq)
     ///
     /// ``` self: QtC.QPicture, p: QtC.QPicture ```
     pub fn OperatorAssign(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QPicture_OperatorAssign(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#swap)
     ///
     /// ``` self: QtC.QPicture, other: QtC.QPicture ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPicture_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#detach)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#detach)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn Detach(self: ?*anyopaque) void {
         qtc.QPicture_Detach(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#isDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#isDetached)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn IsDetached(self: ?*anyopaque) bool {
         return qtc.QPicture_IsDetached(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.QPicture_PaintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
     ///
     /// Allows for overriding the related default method
     ///
@@ -201,7 +201,7 @@ pub const qpicture = struct {
         qtc.QPicture_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
     ///
     /// Base class method implementation
     ///
@@ -210,14 +210,14 @@ pub const qpicture = struct {
         return qtc.QPicture_QBasePaintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
     ///
     /// ``` self: QtC.QPicture, m: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, m: i32) i32 {
         return qtc.QPicture_Metric(@ptrCast(self), @intCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
     ///
     /// Allows for overriding the related default method
     ///
@@ -226,7 +226,7 @@ pub const qpicture = struct {
         qtc.QPicture_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
     ///
     /// Base class method implementation
     ///
@@ -237,7 +237,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -246,7 +246,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#width)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -255,7 +255,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#height)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -264,7 +264,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -273,7 +273,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -282,7 +282,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -291,7 +291,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -300,7 +300,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -309,7 +309,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -318,7 +318,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -327,7 +327,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -336,7 +336,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -345,7 +345,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QPicture ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -354,7 +354,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -363,7 +363,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -372,7 +372,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -383,7 +383,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -394,7 +394,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -405,7 +405,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -416,7 +416,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -427,7 +427,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -438,7 +438,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -449,7 +449,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -460,7 +460,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -471,7 +471,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -482,7 +482,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -493,7 +493,7 @@ pub const qpicture = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -502,7 +502,7 @@ pub const qpicture = struct {
         qtc.QPicture_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#dtor.QPicture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#dtor.QPicture)
     ///
     /// Delete this object from C++ memory.
     ///

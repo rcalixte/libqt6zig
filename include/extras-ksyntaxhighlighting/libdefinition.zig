@@ -21,35 +21,35 @@ pub const ksyntaxhighlighting__definition = struct {
         return qtc.KSyntaxHighlighting__Definition_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-eq)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, rhs: QtC.KSyntaxHighlighting__Definition ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__Definition_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, other: QtC.KSyntaxHighlighting__Definition ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Definition_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-not-eq)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-not-eq)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, other: QtC.KSyntaxHighlighting__Definition ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Definition_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#isValid)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#isValid)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Definition_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#filePath)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#filePath)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -60,7 +60,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#name)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#name)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -71,7 +71,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#alternativeNames)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#alternativeNames)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn AlternativeNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -93,7 +93,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#translatedName)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#translatedName)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn TranslatedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -104,7 +104,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#section)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#section)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn Section(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -115,7 +115,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#translatedSection)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#translatedSection)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn TranslatedSection(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -126,7 +126,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#mimeTypes)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#mimeTypes)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -148,7 +148,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#extensions)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#extensions)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn Extensions(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -170,28 +170,28 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#version)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#version)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition ```
     pub fn Version(self: ?*anyopaque) i32 {
         return qtc.KSyntaxHighlighting__Definition_Version(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#priority)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#priority)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition ```
     pub fn Priority(self: ?*anyopaque) i32 {
         return qtc.KSyntaxHighlighting__Definition_Priority(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#isHidden)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#isHidden)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition ```
     pub fn IsHidden(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Definition_IsHidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#style)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#style)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn Style(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -202,7 +202,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#indenter)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#indenter)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn Indenter(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -213,7 +213,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#author)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#author)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn Author(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -224,7 +224,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#license)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#license)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -235,35 +235,35 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#isWordDelimiter)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#isWordDelimiter)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, c: QtC.QChar ```
     pub fn IsWordDelimiter(self: ?*anyopaque, c: QtC.QChar) bool {
         return qtc.KSyntaxHighlighting__Definition_IsWordDelimiter(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#isWordWrapDelimiter)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#isWordWrapDelimiter)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, c: QtC.QChar ```
     pub fn IsWordWrapDelimiter(self: ?*anyopaque, c: QtC.QChar) bool {
         return qtc.KSyntaxHighlighting__Definition_IsWordWrapDelimiter(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#foldingEnabled)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#foldingEnabled)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition ```
     pub fn FoldingEnabled(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Definition_FoldingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#indentationBasedFoldingEnabled)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#indentationBasedFoldingEnabled)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition ```
     pub fn IndentationBasedFoldingEnabled(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Definition_IndentationBasedFoldingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#foldingIgnoreList)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#foldingIgnoreList)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn FoldingIgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -285,7 +285,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#keywordLists)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#keywordLists)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn KeywordLists(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -307,7 +307,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#keywordList)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#keywordList)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, name: []const u8, allocator: std.mem.Allocator ```
     pub fn KeywordList(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -333,7 +333,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#setKeywordList)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#setKeywordList)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, name: []const u8, content: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetKeywordList(self: ?*anyopaque, name: []const u8, content: [][]const u8, allocator: std.mem.Allocator) bool {
@@ -356,7 +356,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return qtc.KSyntaxHighlighting__Definition_SetKeywordList(@ptrCast(self), name_str, content_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#formats)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#formats)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn Formats(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KSyntaxHighlighting__Format {
@@ -368,7 +368,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#includedDefinitions)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#includedDefinitions)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn IncludedDefinitions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KSyntaxHighlighting__Definition {
@@ -380,7 +380,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#singleLineCommentMarker)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#singleLineCommentMarker)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn SingleLineCommentMarker(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -391,7 +391,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#singleLineCommentPosition)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#singleLineCommentPosition)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition ```
     ///
@@ -400,7 +400,7 @@ pub const ksyntaxhighlighting__definition = struct {
         return qtc.KSyntaxHighlighting__Definition_SingleLineCommentPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#multiLineCommentMarker)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#multiLineCommentMarker)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition ```
     pub fn MultiLineCommentMarker(self: ?*anyopaque) struct_constu8_constu8 {
@@ -411,7 +411,7 @@ pub const ksyntaxhighlighting__definition = struct {
         };
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-definition.html#characterEncodings)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#characterEncodings)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Definition, allocator: std.mem.Allocator ```
     pub fn CharacterEncodings(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_qtcqchar_constu8 {

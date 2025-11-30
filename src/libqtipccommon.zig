@@ -50,7 +50,7 @@ pub const qnativeipckey = struct {
         return qtc.QNativeIpcKey_new5(k_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#legacyDefaultTypeForOs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#legacyDefaultTypeForOs)
     ///
     ///
     ///
@@ -59,35 +59,35 @@ pub const qnativeipckey = struct {
         return qtc.QNativeIpcKey_LegacyDefaultTypeForOs();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#operator-eq)
     ///
     /// ``` self: QtC.QNativeIpcKey, other: QtC.QNativeIpcKey ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNativeIpcKey_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#swap)
     ///
     /// ``` self: QtC.QNativeIpcKey, other: QtC.QNativeIpcKey ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNativeIpcKey_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#isEmpty)
     ///
     /// ``` self: QtC.QNativeIpcKey ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QNativeIpcKey_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#isValid)
     ///
     /// ``` self: QtC.QNativeIpcKey ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QNativeIpcKey_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#type)
     ///
     /// ``` self: QtC.QNativeIpcKey ```
     ///
@@ -96,14 +96,14 @@ pub const qnativeipckey = struct {
         return qtc.QNativeIpcKey_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#setType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#setType)
     ///
     /// ``` self: QtC.QNativeIpcKey, typeVal: qtipccommon_enums.Type ```
     pub fn SetType(self: ?*anyopaque, typeVal: u16) void {
         qtc.QNativeIpcKey_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#nativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#nativeKey)
     ///
     /// ``` self: QtC.QNativeIpcKey, allocator: std.mem.Allocator ```
     pub fn NativeKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -114,7 +114,7 @@ pub const qnativeipckey = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#setNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#setNativeKey)
     ///
     /// ``` self: QtC.QNativeIpcKey, newKey: []const u8 ```
     pub fn SetNativeKey(self: ?*anyopaque, newKey: []const u8) void {
@@ -125,7 +125,7 @@ pub const qnativeipckey = struct {
         qtc.QNativeIpcKey_SetNativeKey(@ptrCast(self), newKey_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#toString)
     ///
     /// ``` self: QtC.QNativeIpcKey, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -136,7 +136,7 @@ pub const qnativeipckey = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#fromString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#fromString)
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) QtC.QNativeIpcKey {
@@ -147,7 +147,7 @@ pub const qnativeipckey = struct {
         return qtc.QNativeIpcKey_FromString(stringVal_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#dtor.QNativeIpcKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#dtor.QNativeIpcKey)
     ///
     /// Delete this object from C++ memory.
     ///

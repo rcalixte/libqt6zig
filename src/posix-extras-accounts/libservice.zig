@@ -19,21 +19,21 @@ pub const accounts__service = struct {
         return qtc.Accounts__Service_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, other: QtC.Accounts__Service ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Accounts__Service_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.Accounts__Service_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -44,7 +44,7 @@ pub const accounts__service = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -55,7 +55,7 @@ pub const accounts__service = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, allocator: std.mem.Allocator ```
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -66,7 +66,7 @@ pub const accounts__service = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, allocator: std.mem.Allocator ```
     pub fn TrCatalog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -77,7 +77,7 @@ pub const accounts__service = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, allocator: std.mem.Allocator ```
     pub fn ServiceType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -88,7 +88,7 @@ pub const accounts__service = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, allocator: std.mem.Allocator ```
     pub fn Provider(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -99,7 +99,7 @@ pub const accounts__service = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -110,7 +110,7 @@ pub const accounts__service = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, tag: []const u8 ```
     pub fn HasTag(self: ?*anyopaque, tag: []const u8) bool {
@@ -121,7 +121,7 @@ pub const accounts__service = struct {
         return qtc.Accounts__Service_HasTag(@ptrCast(self), tag_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service, allocator: std.mem.Allocator ```
     pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) set_constu8 {
@@ -134,14 +134,14 @@ pub const accounts__service = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ``` self: QtC.Accounts__Service ```
     pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.Accounts__Service_DomDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// Delete this object from C++ memory.
     ///

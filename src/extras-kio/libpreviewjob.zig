@@ -36,7 +36,7 @@ pub const kio__previewjob = struct {
         return qtc.KIO__PreviewJob_new2(@ptrCast(items), @ptrCast(size), enabledPlugins_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -68,7 +68,7 @@ pub const kio__previewjob = struct {
         return qtc.KIO__PreviewJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -80,14 +80,14 @@ pub const kio__previewjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#setScaleType)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#setScaleType)
     ///
     /// ``` self: QtC.KIO__PreviewJob, typeVal: previewjob_enums.ScaleType ```
     pub fn SetScaleType(self: ?*anyopaque, typeVal: i32) void {
         qtc.KIO__PreviewJob_SetScaleType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#scaleType)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#scaleType)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     ///
@@ -96,56 +96,56 @@ pub const kio__previewjob = struct {
         return qtc.KIO__PreviewJob_ScaleType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#removeItem)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#removeItem)
     ///
     /// ``` self: QtC.KIO__PreviewJob, url: QtC.QUrl ```
     pub fn RemoveItem(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KIO__PreviewJob_RemoveItem(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#setIgnoreMaximumSize)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#setIgnoreMaximumSize)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn SetIgnoreMaximumSize(self: ?*anyopaque) void {
         qtc.KIO__PreviewJob_SetIgnoreMaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#setSequenceIndex)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#setSequenceIndex)
     ///
     /// ``` self: QtC.KIO__PreviewJob, index: i32 ```
     pub fn SetSequenceIndex(self: ?*anyopaque, index: i32) void {
         qtc.KIO__PreviewJob_SetSequenceIndex(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#sequenceIndex)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#sequenceIndex)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn SequenceIndex(self: ?*anyopaque) i32 {
         return qtc.KIO__PreviewJob_SequenceIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#sequenceIndexWraparoundPoint)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#sequenceIndexWraparoundPoint)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn SequenceIndexWraparoundPoint(self: ?*anyopaque) f32 {
         return qtc.KIO__PreviewJob_SequenceIndexWraparoundPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#handlesSequences)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#handlesSequences)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn HandlesSequences(self: ?*anyopaque) bool {
         return qtc.KIO__PreviewJob_HandlesSequences(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#setDevicePixelRatio)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#setDevicePixelRatio)
     ///
     /// ``` self: QtC.KIO__PreviewJob, dpr: f64 ```
     pub fn SetDevicePixelRatio(self: ?*anyopaque, dpr: f64) void {
         qtc.KIO__PreviewJob_SetDevicePixelRatio(@ptrCast(self), @floatCast(dpr));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#availablePlugins)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#availablePlugins)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailablePlugins(allocator: std.mem.Allocator) [][]const u8 {
@@ -167,7 +167,7 @@ pub const kio__previewjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#availableThumbnailerPlugins)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#availableThumbnailerPlugins)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableThumbnailerPlugins(allocator: std.mem.Allocator) []QtC.KPluginMetaData {
@@ -179,7 +179,7 @@ pub const kio__previewjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#defaultPlugins)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#defaultPlugins)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultPlugins(allocator: std.mem.Allocator) [][]const u8 {
@@ -201,7 +201,7 @@ pub const kio__previewjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#supportedMimeTypes)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#supportedMimeTypes)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedMimeTypes(allocator: std.mem.Allocator) [][]const u8 {
@@ -223,42 +223,42 @@ pub const kio__previewjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#gotPreview)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#gotPreview)
     ///
     /// ``` self: QtC.KIO__PreviewJob, item: QtC.KFileItem, preview: QtC.QPixmap ```
     pub fn GotPreview(self: ?*anyopaque, item: ?*anyopaque, preview: ?*anyopaque) void {
         qtc.KIO__PreviewJob_GotPreview(@ptrCast(self), @ptrCast(item), @ptrCast(preview));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#gotPreview)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#gotPreview)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, item: QtC.KFileItem, preview: QtC.QPixmap) callconv(.c) void ```
     pub fn OnGotPreview(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__PreviewJob_Connect_GotPreview(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#failed)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#failed)
     ///
     /// ``` self: QtC.KIO__PreviewJob, item: QtC.KFileItem ```
     pub fn Failed(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KIO__PreviewJob_Failed(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#failed)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#failed)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, item: QtC.KFileItem) callconv(.c) void ```
     pub fn OnFailed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__PreviewJob_Connect_Failed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#slotResult)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#slotResult)
     ///
     /// ``` self: QtC.KIO__PreviewJob, job: QtC.KJob ```
     pub fn SlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KIO__PreviewJob_SlotResult(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#slotResult)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#slotResult)
     ///
     /// Allows for overriding the related default method
     ///
@@ -267,7 +267,7 @@ pub const kio__previewjob = struct {
         qtc.KIO__PreviewJob_OnSlotResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#slotResult)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#slotResult)
     ///
     /// Base class method implementation
     ///
@@ -276,14 +276,14 @@ pub const kio__previewjob = struct {
         qtc.KIO__PreviewJob_QBaseSlotResult(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#setDefaultDevicePixelRatio)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#setDefaultDevicePixelRatio)
     ///
     /// ``` devicePixelRatio: f64 ```
     pub fn SetDefaultDevicePixelRatio(devicePixelRatio: f64) void {
         qtc.KIO__PreviewJob_SetDefaultDevicePixelRatio(@floatCast(devicePixelRatio));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -296,7 +296,7 @@ pub const kio__previewjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -309,7 +309,7 @@ pub const kio__previewjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-previewjob.html#setIgnoreMaximumSize)
+    /// [Upstream resources](https://api.kde.org/kio-previewjob.html#setIgnoreMaximumSize)
     ///
     /// ``` self: QtC.KIO__PreviewJob, ignoreSize: bool ```
     pub fn SetIgnoreMaximumSize1(self: ?*anyopaque, ignoreSize: bool) void {
@@ -318,7 +318,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#uiDelegateExtension)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#uiDelegateExtension)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn UiDelegateExtension(self: ?*anyopaque) QtC.KIO__JobUiDelegateExtension {
@@ -327,7 +327,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#setUiDelegateExtension)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#setUiDelegateExtension)
     ///
     /// ``` self: QtC.KIO__PreviewJob, extension: QtC.KIO__JobUiDelegateExtension ```
     pub fn SetUiDelegateExtension(self: ?*anyopaque, extension: ?*anyopaque) void {
@@ -336,7 +336,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
     /// ``` self: QtC.KIO__PreviewJob, allocator: std.mem.Allocator ```
     pub fn DetailedErrorStrings(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -360,7 +360,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#setParentJob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#setParentJob)
     ///
     /// ``` self: QtC.KIO__PreviewJob, parentJob: QtC.KIO__Job ```
     pub fn SetParentJob(self: ?*anyopaque, parentJob: ?*anyopaque) void {
@@ -369,7 +369,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#parentJob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#parentJob)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn ParentJob(self: ?*anyopaque) QtC.KIO__Job {
@@ -378,7 +378,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#setMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#setMetaData)
     ///
     /// ``` self: QtC.KIO__PreviewJob, metaData: QtC.KIO__MetaData ```
     pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
@@ -387,7 +387,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#addMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#addMetaData)
     ///
     /// ``` self: QtC.KIO__PreviewJob, key: []const u8, value: []const u8 ```
     pub fn AddMetaData(self: ?*anyopaque, key: []const u8, value: []const u8) void {
@@ -404,7 +404,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#addMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#addMetaData)
     ///
     /// ``` self: QtC.KIO__PreviewJob, values: map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn AddMetaData2(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
@@ -433,7 +433,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#mergeMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#mergeMetaData)
     ///
     /// ``` self: QtC.KIO__PreviewJob, values: map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn MergeMetaData(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
@@ -462,7 +462,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#outgoingMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#outgoingMetaData)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn OutgoingMetaData(self: ?*anyopaque) QtC.KIO__MetaData {
@@ -471,7 +471,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#metaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#metaData)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn MetaData(self: ?*anyopaque) QtC.KIO__MetaData {
@@ -480,7 +480,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#queryMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#queryMetaData)
     ///
     /// ``` self: QtC.KIO__PreviewJob, key: []const u8, allocator: std.mem.Allocator ```
     pub fn QueryMetaData(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -497,7 +497,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#connected)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#connected)
     ///
     /// ``` self: QtC.KIO__PreviewJob, job: QtC.KIO__Job ```
     pub fn Connected(self: ?*anyopaque, job: ?*anyopaque) void {
@@ -506,7 +506,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#connected)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#connected)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, job: QtC.KIO__Job) callconv(.c) void ```
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -515,7 +515,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
     /// ``` self: QtC.KIO__PreviewJob, reqUrl: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn DetailedErrorStrings1(self: ?*anyopaque, reqUrl: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -539,7 +539,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
     /// ``` self: QtC.KIO__PreviewJob, reqUrl: QtC.QUrl, method: i32, allocator: std.mem.Allocator ```
     pub fn DetailedErrorStrings2(self: ?*anyopaque, reqUrl: ?*anyopaque, method: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -563,7 +563,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setUiDelegate)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setUiDelegate)
     ///
     /// ``` self: QtC.KIO__PreviewJob, delegate: QtC.KJobUiDelegate ```
     pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -572,7 +572,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#uiDelegate)
+    /// [Upstream resources](https://api.kde.org/kjob.html#uiDelegate)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
@@ -581,7 +581,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#capabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#capabilities)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     ///
@@ -592,7 +592,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isSuspended)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isSuspended)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn IsSuspended(self: ?*anyopaque) bool {
@@ -601,7 +601,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Kill(self: ?*anyopaque) bool {
@@ -610,7 +610,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#suspend)
+    /// [Upstream resources](https://api.kde.org/kjob.html#suspend)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Suspend(self: ?*anyopaque) bool {
@@ -619,7 +619,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#resume)
+    /// [Upstream resources](https://api.kde.org/kjob.html#resume)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Resume(self: ?*anyopaque) bool {
@@ -628,7 +628,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#exec)
+    /// [Upstream resources](https://api.kde.org/kjob.html#exec)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Exec(self: ?*anyopaque) bool {
@@ -637,7 +637,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#error)
+    /// [Upstream resources](https://api.kde.org/kjob.html#error)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Error(self: ?*anyopaque) i32 {
@@ -646,7 +646,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#errorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#errorText)
     ///
     /// ``` self: QtC.KIO__PreviewJob, allocator: std.mem.Allocator ```
     pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -659,7 +659,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedAmount)
     ///
     /// ``` self: QtC.KIO__PreviewJob, unit: kjob_enums.Unit ```
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
@@ -668,7 +668,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalAmount)
     ///
     /// ``` self: QtC.KIO__PreviewJob, unit: kjob_enums.Unit ```
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
@@ -677,7 +677,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#percent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#percent)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Percent(self: ?*anyopaque) u64 {
@@ -686,7 +686,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setAutoDelete)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setAutoDelete)
     ///
     /// ``` self: QtC.KIO__PreviewJob, autodelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
@@ -695,7 +695,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isAutoDelete)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isAutoDelete)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn IsAutoDelete(self: ?*anyopaque) bool {
@@ -704,7 +704,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
@@ -713,7 +713,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
@@ -722,7 +722,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isStartedWithExec)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isStartedWithExec)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn IsStartedWithExec(self: ?*anyopaque) bool {
@@ -731,7 +731,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#elapsedTime)
+    /// [Upstream resources](https://api.kde.org/kjob.html#elapsedTime)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn ElapsedTime(self: ?*anyopaque) i64 {
@@ -740,7 +740,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
+    /// [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KIO__PreviewJob, job: QtC.KJob, message: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -753,7 +753,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
+    /// [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -762,7 +762,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
+    /// [Upstream resources](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KIO__PreviewJob, job: QtC.KJob, message: []const u8 ```
     pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -775,7 +775,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
+    /// [Upstream resources](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -784,7 +784,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KIO__PreviewJob, job: QtC.KJob, size: u64 ```
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
@@ -793,7 +793,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -802,7 +802,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KIO__PreviewJob, job: QtC.KJob, size: u64 ```
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
@@ -811,7 +811,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -820,7 +820,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KIO__PreviewJob, job: QtC.KJob, speed: u64 ```
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
@@ -829,7 +829,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -838,7 +838,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KIO__PreviewJob, verbosity: kjob_enums.KillVerbosity ```
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
@@ -847,7 +847,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KIO__PreviewJob, hide: bool ```
     pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
@@ -856,7 +856,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KIO__PreviewJob, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -869,7 +869,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KIO__PreviewJob, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -882,7 +882,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -891,7 +891,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -900,7 +900,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -909,7 +909,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -918,7 +918,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KIO__PreviewJob, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -927,7 +927,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -936,7 +936,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KIO__PreviewJob, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -945,7 +945,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KIO__PreviewJob, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -954,7 +954,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KIO__PreviewJob, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -963,7 +963,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KIO__PreviewJob, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -972,7 +972,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KIO__PreviewJob, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -986,7 +986,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KIO__PreviewJob, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -995,7 +995,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KIO__PreviewJob, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1004,7 +1004,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KIO__PreviewJob, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1013,7 +1013,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1022,7 +1022,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KIO__PreviewJob, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1033,7 +1033,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1042,7 +1042,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1051,7 +1051,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1060,7 +1060,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1069,7 +1069,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KIO__PreviewJob, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1079,7 +1079,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KIO__PreviewJob, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1089,7 +1089,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KIO__PreviewJob, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1113,7 +1113,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1122,7 +1122,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1131,7 +1131,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1140,7 +1140,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1149,7 +1149,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1158,7 +1158,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KIO__PreviewJob, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1168,7 +1168,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KIO__PreviewJob ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1177,7 +1177,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KIO__PreviewJob, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1186,7 +1186,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KIO__PreviewJob, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1195,7 +1195,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1204,7 +1204,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KIO__PreviewJob, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1215,7 +1215,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__PreviewJob, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1224,7 +1224,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__PreviewJob, callback: *const fn (self: QtC.KIO__PreviewJob, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1233,7 +1233,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#start)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#start)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1244,7 +1244,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#start)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#start)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1255,7 +1255,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#start)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#start)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1266,7 +1266,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doKill)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doKill)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1277,7 +1277,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doKill)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doKill)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1288,7 +1288,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doKill)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doKill)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1299,7 +1299,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doSuspend)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doSuspend)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1310,7 +1310,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doSuspend)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doSuspend)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1321,7 +1321,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doSuspend)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doSuspend)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1332,7 +1332,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doResume)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doResume)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1343,7 +1343,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doResume)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doResume)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1354,7 +1354,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#doResume)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#doResume)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1365,7 +1365,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#errorString)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#errorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1380,7 +1380,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#errorString)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#errorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1395,7 +1395,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#errorString)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#errorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1406,7 +1406,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#addSubjob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#addSubjob)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1417,7 +1417,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#addSubjob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#addSubjob)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1428,7 +1428,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#addSubjob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#addSubjob)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1439,7 +1439,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#removeSubjob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#removeSubjob)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1450,7 +1450,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#removeSubjob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#removeSubjob)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1461,7 +1461,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#removeSubjob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#removeSubjob)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1472,7 +1472,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotInfoMessage)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#slotInfoMessage)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1487,7 +1487,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotInfoMessage)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#slotInfoMessage)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1502,7 +1502,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotInfoMessage)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#slotInfoMessage)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1513,7 +1513,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1524,7 +1524,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1535,7 +1535,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1546,7 +1546,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1557,7 +1557,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1568,7 +1568,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1579,7 +1579,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1590,7 +1590,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1601,7 +1601,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1612,7 +1612,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1623,7 +1623,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1634,7 +1634,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1645,7 +1645,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1656,7 +1656,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1667,7 +1667,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1678,7 +1678,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1689,7 +1689,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1700,7 +1700,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1711,7 +1711,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1722,7 +1722,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1733,7 +1733,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1744,7 +1744,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#hasSubjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#hasSubjobs)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1755,7 +1755,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#hasSubjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#hasSubjobs)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1766,7 +1766,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#hasSubjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#hasSubjobs)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1777,7 +1777,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#subjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#subjobs)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1793,7 +1793,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#subjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#subjobs)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1809,7 +1809,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#subjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#subjobs)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1820,7 +1820,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#clearSubjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#clearSubjobs)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1831,7 +1831,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#clearSubjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#clearSubjobs)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1842,7 +1842,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KCompositeJob
     ///
-    /// [Qt documentation](https://api.kde.org/kcompositejob.html#clearSubjobs)
+    /// [Upstream resources](https://api.kde.org/kcompositejob.html#clearSubjobs)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1853,7 +1853,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1864,7 +1864,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1875,7 +1875,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1886,7 +1886,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1897,7 +1897,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1908,7 +1908,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1919,7 +1919,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1930,7 +1930,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1941,7 +1941,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1952,7 +1952,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1967,7 +1967,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1982,7 +1982,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1993,7 +1993,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2004,7 +2004,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2015,7 +2015,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2026,7 +2026,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2037,7 +2037,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2048,7 +2048,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2059,7 +2059,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2070,7 +2070,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2081,7 +2081,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2092,7 +2092,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2103,7 +2103,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2114,7 +2114,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2125,7 +2125,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2136,7 +2136,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2147,7 +2147,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2158,7 +2158,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2169,7 +2169,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2180,7 +2180,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2191,7 +2191,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2202,7 +2202,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2213,7 +2213,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2224,7 +2224,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
+    /// [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2235,7 +2235,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
+    /// [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2246,7 +2246,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
+    /// [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2257,7 +2257,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2268,7 +2268,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2279,7 +2279,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2290,7 +2290,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2301,7 +2301,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2312,7 +2312,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2323,7 +2323,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2335,7 +2335,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2347,7 +2347,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2358,7 +2358,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2369,7 +2369,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2380,7 +2380,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2391,7 +2391,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#finished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#finished)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2402,7 +2402,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#suspended)
+    /// [Upstream resources](https://api.kde.org/kjob.html#suspended)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2413,7 +2413,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#resumed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#resumed)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2424,7 +2424,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#result)
+    /// [Upstream resources](https://api.kde.org/kjob.html#result)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2435,7 +2435,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmountChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2446,7 +2446,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmountChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2457,7 +2457,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#percentChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#percentChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2468,7 +2468,7 @@ pub const kio__previewjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2487,7 +2487,7 @@ pub const kio__previewjob = struct {
 
 /// https://api.kde.org/kio.html
 pub const kio = struct {
-    /// [Qt documentation](https://api.kde.org/kio.html#filePreview)
+    /// [Upstream resources](https://api.kde.org/kio.html#filePreview)
     ///
     /// ``` param1: QtC.KFileItemList, param2: QtC.QSize, param3: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FilePreview(param1: ?*anyopaque, param2: ?*anyopaque, param3: [][]const u8, allocator: std.mem.Allocator) QtC.KIO__PreviewJob {

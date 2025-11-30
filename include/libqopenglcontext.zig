@@ -8,7 +8,7 @@ const set_u8 = std.StringHashMapUnmanaged(void);
 
 /// https://doc.qt.io/qt-6/qopenglcontextgroup.html
 pub const qopenglcontextgroup = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -26,7 +26,7 @@ pub const qopenglcontextgroup = struct {
         return qtc.QOpenGLContextGroup_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -38,7 +38,7 @@ pub const qopenglcontextgroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontextgroup.html#shares)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontextgroup.html#shares)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, allocator: std.mem.Allocator ```
     pub fn Shares(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QOpenGLContext {
@@ -50,14 +50,14 @@ pub const qopenglcontextgroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontextgroup.html#currentContextGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontextgroup.html#currentContextGroup)
     ///
     ///
     pub fn CurrentContextGroup() QtC.QOpenGLContextGroup {
         return qtc.QOpenGLContextGroup_CurrentContextGroup();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -70,7 +70,7 @@ pub const qopenglcontextgroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -85,7 +85,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -94,7 +94,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -103,7 +103,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -116,7 +116,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -129,7 +129,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -138,7 +138,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -147,7 +147,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -156,7 +156,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -165,7 +165,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -174,7 +174,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -183,7 +183,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -192,7 +192,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -201,7 +201,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -210,7 +210,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -219,7 +219,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -233,7 +233,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -242,7 +242,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -251,7 +251,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -260,7 +260,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -269,7 +269,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -280,7 +280,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -289,7 +289,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -298,7 +298,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -307,7 +307,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -316,7 +316,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -326,7 +326,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -336,7 +336,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -360,7 +360,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -369,7 +369,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -378,7 +378,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -387,7 +387,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, callback: *const fn (self: QtC.QOpenGLContextGroup) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -396,7 +396,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -405,7 +405,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -415,7 +415,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QOpenGLContextGroup ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -424,7 +424,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -433,7 +433,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -442,7 +442,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -451,7 +451,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -462,7 +462,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -471,7 +471,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLContextGroup, callback: *const fn (self: QtC.QOpenGLContextGroup, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -480,7 +480,7 @@ pub const qopenglcontextgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -489,7 +489,7 @@ pub const qopenglcontextgroup = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontextgroup.html#dtor.QOpenGLContextGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontextgroup.html#dtor.QOpenGLContextGroup)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -515,7 +515,7 @@ pub const qopenglcontext = struct {
         return qtc.QOpenGLContext_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -547,7 +547,7 @@ pub const qopenglcontext = struct {
         return qtc.QOpenGLContext_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -559,133 +559,133 @@ pub const qopenglcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#setFormat)
     ///
     /// ``` self: QtC.QOpenGLContext, format: QtC.QSurfaceFormat ```
     pub fn SetFormat(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QOpenGLContext_SetFormat(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#setShareContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#setShareContext)
     ///
     /// ``` self: QtC.QOpenGLContext, shareContext: QtC.QOpenGLContext ```
     pub fn SetShareContext(self: ?*anyopaque, shareContext: ?*anyopaque) void {
         qtc.QOpenGLContext_SetShareContext(@ptrCast(self), @ptrCast(shareContext));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#setScreen)
     ///
     /// ``` self: QtC.QOpenGLContext, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
         qtc.QOpenGLContext_SetScreen(@ptrCast(self), @ptrCast(screen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#create)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn Create(self: ?*anyopaque) bool {
         return qtc.QOpenGLContext_Create(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#isValid)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QOpenGLContext_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#format)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn Format(self: ?*anyopaque) QtC.QSurfaceFormat {
         return qtc.QOpenGLContext_Format(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#shareContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#shareContext)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn ShareContext(self: ?*anyopaque) QtC.QOpenGLContext {
         return qtc.QOpenGLContext_ShareContext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#shareGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#shareGroup)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn ShareGroup(self: ?*anyopaque) QtC.QOpenGLContextGroup {
         return qtc.QOpenGLContext_ShareGroup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#screen)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
         return qtc.QOpenGLContext_Screen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#defaultFramebufferObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#defaultFramebufferObject)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn DefaultFramebufferObject(self: ?*anyopaque) u32 {
         return qtc.QOpenGLContext_DefaultFramebufferObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#makeCurrent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#makeCurrent)
     ///
     /// ``` self: QtC.QOpenGLContext, surface: QtC.QSurface ```
     pub fn MakeCurrent(self: ?*anyopaque, surface: ?*anyopaque) bool {
         return qtc.QOpenGLContext_MakeCurrent(@ptrCast(self), @ptrCast(surface));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#doneCurrent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#doneCurrent)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn DoneCurrent(self: ?*anyopaque) void {
         qtc.QOpenGLContext_DoneCurrent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#swapBuffers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#swapBuffers)
     ///
     /// ``` self: QtC.QOpenGLContext, surface: QtC.QSurface ```
     pub fn SwapBuffers(self: ?*anyopaque, surface: ?*anyopaque) void {
         qtc.QOpenGLContext_SwapBuffers(@ptrCast(self), @ptrCast(surface));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#surface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#surface)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn Surface(self: ?*anyopaque) QtC.QSurface {
         return qtc.QOpenGLContext_Surface(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#currentContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#currentContext)
     ///
     ///
     pub fn CurrentContext() QtC.QOpenGLContext {
         return qtc.QOpenGLContext_CurrentContext();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#areSharing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#areSharing)
     ///
     /// ``` first: QtC.QOpenGLContext, second: QtC.QOpenGLContext ```
     pub fn AreSharing(first: ?*anyopaque, second: ?*anyopaque) bool {
         return qtc.QOpenGLContext_AreSharing(@ptrCast(first), @ptrCast(second));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#functions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#functions)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn Functions(self: ?*anyopaque) QtC.QOpenGLFunctions {
         return qtc.QOpenGLContext_Functions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#extraFunctions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#extraFunctions)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn ExtraFunctions(self: ?*anyopaque) QtC.QOpenGLExtraFunctions {
         return qtc.QOpenGLContext_ExtraFunctions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#extensions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#extensions)
     ///
     /// ``` self: QtC.QOpenGLContext, allocator: std.mem.Allocator ```
     pub fn Extensions(self: ?*anyopaque, allocator: std.mem.Allocator) set_u8 {
@@ -698,7 +698,7 @@ pub const qopenglcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#hasExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#hasExtension)
     ///
     /// ``` self: QtC.QOpenGLContext, extension: []u8 ```
     pub fn HasExtension(self: ?*anyopaque, extension: []u8) bool {
@@ -709,7 +709,7 @@ pub const qopenglcontext = struct {
         return qtc.QOpenGLContext_HasExtension(@ptrCast(self), extension_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#openGLModuleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#openGLModuleType)
     ///
     ///
     ///
@@ -718,28 +718,28 @@ pub const qopenglcontext = struct {
         return qtc.QOpenGLContext_OpenGLModuleType();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#isOpenGLES)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#isOpenGLES)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn IsOpenGLES(self: ?*anyopaque) bool {
         return qtc.QOpenGLContext_IsOpenGLES(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#supportsThreadedOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#supportsThreadedOpenGL)
     ///
     ///
     pub fn SupportsThreadedOpenGL() bool {
         return qtc.QOpenGLContext_SupportsThreadedOpenGL();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#globalShareContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#globalShareContext)
     ///
     ///
     pub fn GlobalShareContext() QtC.QOpenGLContext {
         return qtc.QOpenGLContext_GlobalShareContext();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#resolveInterface)
     ///
     /// ``` self: QtC.QOpenGLContext, name: []const u8, revision: i32 ```
     pub fn ResolveInterface(self: ?*anyopaque, name: []const u8, revision: i32) ?*anyopaque {
@@ -747,7 +747,7 @@ pub const qopenglcontext = struct {
         return qtc.QOpenGLContext_ResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#resolveInterface)
     ///
     /// Allows for overriding the related default method
     ///
@@ -756,7 +756,7 @@ pub const qopenglcontext = struct {
         qtc.QOpenGLContext_OnResolveInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#resolveInterface)
     ///
     /// Base class method implementation
     ///
@@ -766,21 +766,21 @@ pub const qopenglcontext = struct {
         return qtc.QOpenGLContext_QBaseResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#aboutToBeDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#aboutToBeDestroyed)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn AboutToBeDestroyed(self: ?*anyopaque) void {
         qtc.QOpenGLContext_AboutToBeDestroyed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#aboutToBeDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#aboutToBeDestroyed)
     ///
     /// ``` self: QtC.QOpenGLContext, callback: *const fn (self: QtC.QOpenGLContext) callconv(.c) void ```
     pub fn OnAboutToBeDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QOpenGLContext_Connect_AboutToBeDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -793,7 +793,7 @@ pub const qopenglcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -808,7 +808,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QOpenGLContext, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -821,7 +821,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QOpenGLContext, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -834,7 +834,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -843,7 +843,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -852,7 +852,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -861,7 +861,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -870,7 +870,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QOpenGLContext, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -879,7 +879,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -888,7 +888,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QOpenGLContext, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -897,7 +897,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QOpenGLContext, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -906,7 +906,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QOpenGLContext, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -915,7 +915,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QOpenGLContext, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -924,7 +924,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QOpenGLContext, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -938,7 +938,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QOpenGLContext, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -947,7 +947,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QOpenGLContext, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -956,7 +956,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QOpenGLContext, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -965,7 +965,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -974,7 +974,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QOpenGLContext, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -985,7 +985,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -994,7 +994,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1003,7 +1003,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1012,7 +1012,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1021,7 +1021,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QOpenGLContext, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1031,7 +1031,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QOpenGLContext, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1041,7 +1041,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QOpenGLContext, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1065,7 +1065,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1074,7 +1074,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1083,7 +1083,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1092,7 +1092,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLContext, callback: *const fn (self: QtC.QOpenGLContext) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1101,7 +1101,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1110,7 +1110,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QOpenGLContext, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1120,7 +1120,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QOpenGLContext ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1129,7 +1129,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QOpenGLContext, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1138,7 +1138,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QOpenGLContext, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1147,7 +1147,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1156,7 +1156,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QOpenGLContext, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1167,7 +1167,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLContext, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1176,7 +1176,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLContext, callback: *const fn (self: QtC.QOpenGLContext, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1185,7 +1185,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1196,7 +1196,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1207,7 +1207,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1218,7 +1218,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1229,7 +1229,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1240,7 +1240,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1251,7 +1251,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1262,7 +1262,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1273,7 +1273,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1284,7 +1284,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1295,7 +1295,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1306,7 +1306,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1317,7 +1317,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1328,7 +1328,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1339,7 +1339,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1350,7 +1350,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1361,7 +1361,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1372,7 +1372,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1383,7 +1383,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1394,7 +1394,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1405,7 +1405,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1416,7 +1416,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1427,7 +1427,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1438,7 +1438,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1449,7 +1449,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1460,7 +1460,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1471,7 +1471,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1482,7 +1482,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1494,7 +1494,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1506,7 +1506,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1517,7 +1517,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1528,7 +1528,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1539,7 +1539,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1550,7 +1550,7 @@ pub const qopenglcontext = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1559,7 +1559,7 @@ pub const qopenglcontext = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglcontext.html#dtor.QOpenGLContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#dtor.QOpenGLContext)
     ///
     /// Delete this object from C++ memory.
     ///

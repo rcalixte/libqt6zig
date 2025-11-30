@@ -6,7 +6,7 @@ const std = @import("std");
 
 /// https://api.kde.org/knscore-resultsstream.html
 pub const knscore__resultsstream = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -24,7 +24,7 @@ pub const knscore__resultsstream = struct {
         return qtc.KNSCore__ResultsStream_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -36,21 +36,21 @@ pub const knscore__resultsstream = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-resultsstream.html#fetch)
+    /// [Upstream resources](https://api.kde.org/knscore-resultsstream.html#fetch)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn Fetch(self: ?*anyopaque) void {
         qtc.KNSCore__ResultsStream_Fetch(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-resultsstream.html#fetchMore)
+    /// [Upstream resources](https://api.kde.org/knscore-resultsstream.html#fetchMore)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn FetchMore(self: ?*anyopaque) void {
         qtc.KNSCore__ResultsStream_FetchMore(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-resultsstream.html#entriesFound)
+    /// [Upstream resources](https://api.kde.org/knscore-resultsstream.html#entriesFound)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, entries: []QtC.KNSCore__Entry ```
     pub fn EntriesFound(self: ?*anyopaque, entries: []QtC.KNSCore__Entry) void {
@@ -61,28 +61,28 @@ pub const knscore__resultsstream = struct {
         qtc.KNSCore__ResultsStream_EntriesFound(@ptrCast(self), entries_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-resultsstream.html#entriesFound)
+    /// [Upstream resources](https://api.kde.org/knscore-resultsstream.html#entriesFound)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, callback: *const fn (self: QtC.KNSCore__ResultsStream, entries: [*]QtC.KNSCore__Entry) callconv(.c) void ```
     pub fn OnEntriesFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
         qtc.KNSCore__ResultsStream_Connect_EntriesFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-resultsstream.html#finished)
+    /// [Upstream resources](https://api.kde.org/knscore-resultsstream.html#finished)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn Finished(self: ?*anyopaque) void {
         qtc.KNSCore__ResultsStream_Finished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-resultsstream.html#finished)
+    /// [Upstream resources](https://api.kde.org/knscore-resultsstream.html#finished)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, callback: *const fn (self: QtC.KNSCore__ResultsStream) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KNSCore__ResultsStream_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -95,7 +95,7 @@ pub const knscore__resultsstream = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -110,7 +110,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -119,7 +119,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -128,7 +128,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -141,7 +141,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -154,7 +154,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -163,7 +163,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -172,7 +172,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -181,7 +181,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -190,7 +190,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -199,7 +199,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -208,7 +208,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -217,7 +217,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -226,7 +226,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -235,7 +235,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -244,7 +244,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -258,7 +258,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -267,7 +267,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -276,7 +276,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -285,7 +285,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -294,7 +294,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -305,7 +305,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -314,7 +314,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -323,7 +323,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -332,7 +332,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -341,7 +341,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -351,7 +351,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -361,7 +361,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -385,7 +385,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -394,7 +394,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -403,7 +403,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -412,7 +412,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, callback: *const fn (self: QtC.KNSCore__ResultsStream) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -421,7 +421,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -430,7 +430,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -440,7 +440,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -449,7 +449,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -458,7 +458,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -467,7 +467,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -476,7 +476,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -487,7 +487,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -496,7 +496,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNSCore__ResultsStream, callback: *const fn (self: QtC.KNSCore__ResultsStream, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -505,7 +505,7 @@ pub const knscore__resultsstream = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

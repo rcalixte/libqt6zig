@@ -26,14 +26,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_new3(@intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -42,7 +42,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -51,14 +51,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_MinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -67,7 +67,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
     /// Base class method implementation
     ///
@@ -76,14 +76,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QLayoutItem_MaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -92,7 +92,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
     /// Base class method implementation
     ///
@@ -101,7 +101,7 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
     /// ``` self: QtC.QLayoutItem ```
     ///
@@ -110,7 +110,7 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -119,7 +119,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
@@ -130,14 +130,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
     /// ``` self: QtC.QLayoutItem, geometry: QtC.QRect ```
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QLayoutItem_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -146,7 +146,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
     /// Base class method implementation
     ///
@@ -155,14 +155,14 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QLayoutItem_Geometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -171,7 +171,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
     /// Base class method implementation
     ///
@@ -180,14 +180,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QLayoutItem_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -196,7 +196,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
     /// Base class method implementation
     ///
@@ -205,14 +205,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseIsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QLayoutItem_HasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -221,7 +221,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -230,14 +230,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// ``` self: QtC.QLayoutItem, param1: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QLayoutItem_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -246,7 +246,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -255,14 +255,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// ``` self: QtC.QLayoutItem, param1: i32 ```
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QLayoutItem_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -271,7 +271,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -280,14 +280,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QLayoutItem_Invalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -296,7 +296,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Base class method implementation
     ///
@@ -305,14 +305,14 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_QBaseInvalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QLayoutItem_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -321,7 +321,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Base class method implementation
     ///
@@ -330,14 +330,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
         return qtc.QLayoutItem_Layout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Allows for overriding the related default method
     ///
@@ -346,7 +346,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Base class method implementation
     ///
@@ -355,14 +355,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// ``` self: QtC.QLayoutItem ```
     pub fn SpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QLayoutItem_SpacerItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Allows for overriding the related default method
     ///
@@ -371,7 +371,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Base class method implementation
     ///
@@ -380,7 +380,7 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseSpacerItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QLayoutItem ```
     ///
@@ -389,14 +389,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
     /// ``` self: QtC.QLayoutItem, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// ``` self: QtC.QLayoutItem ```
     ///
@@ -405,7 +405,7 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_ControlTypes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -414,7 +414,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Base class method implementation
     ///
@@ -425,14 +425,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseControlTypes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// ``` self: QtC.QLayoutItem, param1: QtC.QLayoutItem ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QLayoutItem_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// Allows for overriding the related default method
     ///
@@ -441,7 +441,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnOperatorAssign(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// Base class method implementation
     ///
@@ -450,7 +450,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_QBaseOperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#dtor.QLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#dtor.QLayoutItem)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -490,21 +490,21 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_new4(@intCast(w), @intCast(h), @intCast(hData), @intCast(vData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
     /// ``` self: QtC.QSpacerItem, w: i32, h: i32 ```
     pub fn ChangeSize(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QSpacerItem_ChangeSize(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
     /// ``` self: QtC.QSpacerItem ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -513,7 +513,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -522,14 +522,14 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
     /// ``` self: QtC.QSpacerItem ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_MinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -538,7 +538,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
     /// Base class method implementation
     ///
@@ -547,14 +547,14 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
     /// ``` self: QtC.QSpacerItem ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QSpacerItem_MaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -563,7 +563,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
     /// Base class method implementation
     ///
@@ -572,7 +572,7 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
     /// ``` self: QtC.QSpacerItem ```
     ///
@@ -581,7 +581,7 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -590,7 +590,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
@@ -601,14 +601,14 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
     /// ``` self: QtC.QSpacerItem ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QSpacerItem_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -617,7 +617,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
     /// Base class method implementation
     ///
@@ -626,14 +626,14 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_QBaseIsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
     /// ``` self: QtC.QSpacerItem, geometry: QtC.QRect ```
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QSpacerItem_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -642,7 +642,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
     /// Base class method implementation
     ///
@@ -651,14 +651,14 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
     /// ``` self: QtC.QSpacerItem ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QSpacerItem_Geometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -667,7 +667,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
     /// Base class method implementation
     ///
@@ -676,14 +676,14 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_QBaseGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
     /// ``` self: QtC.QSpacerItem ```
     pub fn SpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
         return qtc.QSpacerItem_SpacerItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
     /// Allows for overriding the related default method
     ///
@@ -692,7 +692,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
     /// Base class method implementation
     ///
@@ -701,21 +701,21 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_QBaseSpacerItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizePolicy)
     ///
     /// ``` self: QtC.QSpacerItem ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
         return qtc.QSpacerItem_SizePolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
     /// ``` self: QtC.QSpacerItem, w: i32, h: i32, hData: qsizepolicy_enums.Policy ```
     pub fn ChangeSize3(self: ?*anyopaque, w: i32, h: i32, hData: i32) void {
         qtc.QSpacerItem_ChangeSize3(@ptrCast(self), @intCast(w), @intCast(h), @intCast(hData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
     /// ``` self: QtC.QSpacerItem, w: i32, h: i32, hData: qsizepolicy_enums.Policy, vData: qsizepolicy_enums.Policy ```
     pub fn ChangeSize4(self: ?*anyopaque, w: i32, h: i32, hData: i32, vData: i32) void {
@@ -724,7 +724,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QSpacerItem ```
     ///
@@ -735,7 +735,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
     /// ``` self: QtC.QSpacerItem, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
@@ -744,7 +744,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -755,7 +755,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -766,7 +766,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -777,7 +777,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -788,7 +788,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -799,7 +799,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -810,7 +810,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -821,7 +821,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -832,7 +832,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -843,7 +843,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -854,7 +854,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -865,7 +865,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -876,7 +876,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -887,7 +887,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -898,7 +898,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -909,7 +909,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -920,7 +920,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -931,7 +931,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -942,7 +942,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -955,7 +955,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -968,7 +968,7 @@ pub const qspaceritem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -977,7 +977,7 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#dtor.QSpacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#dtor.QSpacerItem)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -996,14 +996,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_new(@ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
     /// ``` self: QtC.QWidgetItem ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1012,7 +1012,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -1021,14 +1021,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
     /// ``` self: QtC.QWidgetItem ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_MinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1037,7 +1037,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
     /// Base class method implementation
     ///
@@ -1046,14 +1046,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
     /// ``` self: QtC.QWidgetItem ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItem_MaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1062,7 +1062,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
     /// Base class method implementation
     ///
@@ -1071,7 +1071,7 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// ``` self: QtC.QWidgetItem ```
     ///
@@ -1080,7 +1080,7 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1089,7 +1089,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
@@ -1100,14 +1100,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// ``` self: QtC.QWidgetItem ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QWidgetItem_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1116,7 +1116,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Base class method implementation
     ///
@@ -1125,14 +1125,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseIsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// ``` self: QtC.QWidgetItem, geometry: QtC.QRect ```
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QWidgetItem_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1141,7 +1141,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Base class method implementation
     ///
@@ -1150,14 +1150,14 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// ``` self: QtC.QWidgetItem ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWidgetItem_Geometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1166,7 +1166,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Base class method implementation
     ///
@@ -1175,14 +1175,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// ``` self: QtC.QWidgetItem ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QWidgetItem_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1191,7 +1191,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Base class method implementation
     ///
@@ -1200,14 +1200,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// ``` self: QtC.QWidgetItem ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QWidgetItem_HasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1216,7 +1216,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -1225,14 +1225,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
     /// ``` self: QtC.QWidgetItem, param1: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidgetItem_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1241,7 +1241,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -1250,14 +1250,14 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// ``` self: QtC.QWidgetItem, param1: i32 ```
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWidgetItem_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1266,7 +1266,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -1275,7 +1275,7 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// ``` self: QtC.QWidgetItem ```
     ///
@@ -1284,7 +1284,7 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_ControlTypes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1293,7 +1293,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Base class method implementation
     ///
@@ -1306,7 +1306,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QWidgetItem ```
     ///
@@ -1317,7 +1317,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
     /// ``` self: QtC.QWidgetItem, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
@@ -1326,7 +1326,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1337,7 +1337,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1348,7 +1348,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1359,7 +1359,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1370,7 +1370,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1381,7 +1381,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1392,7 +1392,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1403,7 +1403,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1414,7 +1414,7 @@ pub const qwidgetitem = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1423,7 +1423,7 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#dtor.QWidgetItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#dtor.QWidgetItem)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1442,14 +1442,14 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_new(@ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1458,7 +1458,7 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -1467,14 +1467,14 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_MinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1483,7 +1483,7 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
     /// Base class method implementation
     ///
@@ -1492,14 +1492,14 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWidgetItemV2_MaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1508,7 +1508,7 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
     /// Base class method implementation
     ///
@@ -1517,14 +1517,14 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
     /// ``` self: QtC.QWidgetItemV2, width: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, width: i32) i32 {
         return qtc.QWidgetItemV2_HeightForWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1533,7 +1533,7 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -1544,7 +1544,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
     ///
@@ -1555,7 +1555,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
     /// ``` self: QtC.QWidgetItemV2, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
@@ -1564,7 +1564,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1577,7 +1577,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1590,7 +1590,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1601,7 +1601,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1612,7 +1612,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1623,7 +1623,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1634,7 +1634,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1645,7 +1645,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1656,7 +1656,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1667,7 +1667,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1678,7 +1678,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1689,7 +1689,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1700,7 +1700,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1711,7 +1711,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1722,7 +1722,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1733,7 +1733,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1744,7 +1744,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1755,7 +1755,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1766,7 +1766,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1777,7 +1777,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1788,7 +1788,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1799,7 +1799,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1812,7 +1812,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1825,7 +1825,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QWidgetItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1836,7 +1836,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1847,7 +1847,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1858,7 +1858,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1869,7 +1869,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1880,7 +1880,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1891,7 +1891,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1902,7 +1902,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1913,7 +1913,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1924,7 +1924,7 @@ pub const qwidgetitemv2 = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1933,7 +1933,7 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#dtor.QWidgetItemV2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#dtor.QWidgetItemV2)
     ///
     /// Delete this object from C++ memory.
     ///

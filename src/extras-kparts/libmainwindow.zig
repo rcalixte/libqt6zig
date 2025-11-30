@@ -35,7 +35,7 @@ pub const kparts__mainwindow = struct {
         return qtc.KParts__MainWindow_new3(@ptrCast(parent), @intCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -67,7 +67,7 @@ pub const kparts__mainwindow = struct {
         return qtc.KParts__MainWindow_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -79,14 +79,14 @@ pub const kparts__mainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#configureToolbars)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#configureToolbars)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ConfigureToolbars(self: ?*anyopaque) void {
         qtc.KParts__MainWindow_ConfigureToolbars(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#configureToolbars)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#configureToolbars)
     ///
     /// Allows for overriding the related default method
     ///
@@ -95,7 +95,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_OnConfigureToolbars(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#configureToolbars)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#configureToolbars)
     ///
     /// Base class method implementation
     ///
@@ -104,14 +104,14 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_QBaseConfigureToolbars(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#createGUI)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow, part: QtC.KParts__Part ```
     pub fn CreateGUI(self: ?*anyopaque, part: ?*anyopaque) void {
         qtc.KParts__MainWindow_CreateGUI(@ptrCast(self), @ptrCast(part));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#createGUI)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createGUI)
     ///
     /// Allows for overriding the related default method
     ///
@@ -120,7 +120,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_OnCreateGUI(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#createGUI)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createGUI)
     ///
     /// Base class method implementation
     ///
@@ -129,14 +129,14 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_QBaseCreateGUI(@ptrCast(self), @ptrCast(part));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
     ///
     /// ``` self: QtC.KParts__MainWindow, enabled: bool ```
     pub fn SetWindowTitleHandling(self: ?*anyopaque, enabled: bool) void {
         qtc.KParts__MainWindow_SetWindowTitleHandling(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
     ///
     /// Allows for overriding the related default method
     ///
@@ -145,7 +145,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_OnSetWindowTitleHandling(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
     ///
     /// Base class method implementation
     ///
@@ -154,7 +154,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_QBaseSetWindowTitleHandling(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#slotSetStatusBarText)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#slotSetStatusBarText)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: []const u8 ```
     pub fn SlotSetStatusBarText(self: ?*anyopaque, param1: []const u8) void {
@@ -165,7 +165,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_SlotSetStatusBarText(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#slotSetStatusBarText)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#slotSetStatusBarText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -174,7 +174,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_OnSlotSetStatusBarText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#slotSetStatusBarText)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#slotSetStatusBarText)
     ///
     /// Base class method implementation
     ///
@@ -187,14 +187,14 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_QBaseSlotSetStatusBarText(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#saveNewToolbarConfig)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#saveNewToolbarConfig)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SaveNewToolbarConfig(self: ?*anyopaque) void {
         qtc.KParts__MainWindow_SaveNewToolbarConfig(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#saveNewToolbarConfig)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#saveNewToolbarConfig)
     ///
     /// Allows for overriding the related default method
     ///
@@ -203,7 +203,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_OnSaveNewToolbarConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#saveNewToolbarConfig)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#saveNewToolbarConfig)
     ///
     /// Base class method implementation
     ///
@@ -212,14 +212,14 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_QBaseSaveNewToolbarConfig(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#createShellGUI)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createShellGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow, create: bool ```
     pub fn CreateShellGUI(self: ?*anyopaque, create: bool) void {
         qtc.KParts__MainWindow_CreateShellGUI(@ptrCast(self), create);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#createShellGUI)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createShellGUI)
     ///
     /// Allows for overriding the related default method
     ///
@@ -228,7 +228,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_OnCreateShellGUI(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-mainwindow.html#createShellGUI)
+    /// [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createShellGUI)
     ///
     /// Base class method implementation
     ///
@@ -237,7 +237,7 @@ pub const kparts__mainwindow = struct {
         qtc.KParts__MainWindow_QBaseCreateShellGUI(@ptrCast(self), create);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -250,7 +250,7 @@ pub const kparts__mainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -265,7 +265,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setHelpMenuEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setHelpMenuEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SetHelpMenuEnabled(self: ?*anyopaque) void {
@@ -274,7 +274,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#isHelpMenuEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#isHelpMenuEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsHelpMenuEnabled(self: ?*anyopaque) bool {
@@ -283,7 +283,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setStandardToolBarMenuEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setStandardToolBarMenuEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, showToolBarMenu: bool ```
     pub fn SetStandardToolBarMenuEnabled(self: ?*anyopaque, showToolBarMenu: bool) void {
@@ -292,7 +292,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#isStandardToolBarMenuEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#isStandardToolBarMenuEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsStandardToolBarMenuEnabled(self: ?*anyopaque) bool {
@@ -301,7 +301,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#createStandardStatusBarAction)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#createStandardStatusBarAction)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn CreateStandardStatusBarAction(self: ?*anyopaque) void {
@@ -310,7 +310,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setupGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SetupGUI(self: ?*anyopaque) void {
@@ -319,7 +319,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setupGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow, defaultSize: QtC.QSize ```
     pub fn SetupGUI2(self: ?*anyopaque, defaultSize: ?*anyopaque) void {
@@ -328,7 +328,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#toolBarMenuAction)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#toolBarMenuAction)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ToolBarMenuAction(self: ?*anyopaque) QtC.QAction {
@@ -337,7 +337,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setupToolbarMenuActions)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupToolbarMenuActions)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SetupToolbarMenuActions(self: ?*anyopaque) void {
@@ -346,7 +346,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#toolBarNames)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#toolBarNames)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn ToolBarNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -370,7 +370,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setCommandBarEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setCommandBarEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, showCommandBar: bool ```
     pub fn SetCommandBarEnabled(self: ?*anyopaque, showCommandBar: bool) void {
@@ -379,7 +379,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#isCommandBarEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#isCommandBarEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsCommandBarEnabled(self: ?*anyopaque) bool {
@@ -388,7 +388,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, newstate: []const u8, reverse: bool ```
     pub fn SlotStateChanged2(self: ?*anyopaque, newstate: []const u8, reverse: bool) void {
@@ -401,7 +401,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#isToolBarVisible)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#isToolBarVisible)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8 ```
     pub fn IsToolBarVisible(self: ?*anyopaque, name: []const u8) bool {
@@ -414,7 +414,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setToolBarVisible)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setToolBarVisible)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8, visible: bool ```
     pub fn SetToolBarVisible(self: ?*anyopaque, name: []const u8, visible: bool) void {
@@ -427,7 +427,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setHelpMenuEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setHelpMenuEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, showHelpMenu: bool ```
     pub fn SetHelpMenuEnabled1(self: ?*anyopaque, showHelpMenu: bool) void {
@@ -436,7 +436,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#createGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#createGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow, xmlfile: []const u8 ```
     pub fn CreateGUI1(self: ?*anyopaque, xmlfile: []const u8) void {
@@ -449,7 +449,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setupGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow, options: flag of kxmlguiwindow_enums.StandardWindowOption ```
     pub fn SetupGUI1(self: ?*anyopaque, options: i32) void {
@@ -458,7 +458,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setupGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow, options: flag of kxmlguiwindow_enums.StandardWindowOption, xmlfile: []const u8 ```
     pub fn SetupGUI22(self: ?*anyopaque, options: i32, xmlfile: []const u8) void {
@@ -471,7 +471,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setupGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow, defaultSize: QtC.QSize, options: flag of kxmlguiwindow_enums.StandardWindowOption ```
     pub fn SetupGUI23(self: ?*anyopaque, defaultSize: ?*anyopaque, options: i32) void {
@@ -480,7 +480,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#setupGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
     /// ``` self: QtC.KParts__MainWindow, defaultSize: QtC.QSize, options: flag of kxmlguiwindow_enums.StandardWindowOption, xmlfile: []const u8 ```
     pub fn SetupGUI3(self: ?*anyopaque, defaultSize: ?*anyopaque, options: i32, xmlfile: []const u8) void {
@@ -493,7 +493,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#canBeRestored)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#canBeRestored)
     ///
     /// ``` numberOfInstances: i32 ```
     pub fn CanBeRestored(numberOfInstances: i32) bool {
@@ -502,7 +502,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#classNameOfToplevel)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#classNameOfToplevel)
     ///
     /// ``` instanceNumber: i32, allocator: std.mem.Allocator ```
     pub fn ClassNameOfToplevel(instanceNumber: i32, allocator: std.mem.Allocator) []const u8 {
@@ -515,7 +515,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#restore)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#restore)
     ///
     /// ``` self: QtC.KParts__MainWindow, numberOfInstances: i32 ```
     pub fn Restore(self: ?*anyopaque, numberOfInstances: i32) bool {
@@ -524,7 +524,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#hasMenuBar)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#hasMenuBar)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn HasMenuBar(self: ?*anyopaque) bool {
@@ -533,7 +533,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#memberList)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#memberList)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MemberList(allocator: std.mem.Allocator) []QtC.KMainWindow {
@@ -547,7 +547,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#toolBar)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#toolBar)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ToolBar(self: ?*anyopaque) QtC.KToolBar {
@@ -556,7 +556,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#toolBars)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#toolBars)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn ToolBars(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KToolBar {
@@ -570,7 +570,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SetAutoSaveSettings(self: ?*anyopaque) void {
@@ -579,7 +579,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KParts__MainWindow, group: QtC.KConfigGroup ```
     pub fn SetAutoSaveSettings2(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -588,7 +588,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#resetAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#resetAutoSaveSettings)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ResetAutoSaveSettings(self: ?*anyopaque) void {
@@ -597,7 +597,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#autoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#autoSaveSettings)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn AutoSaveSettings(self: ?*anyopaque) bool {
@@ -606,7 +606,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#autoSaveGroup)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#autoSaveGroup)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn AutoSaveGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -619,7 +619,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#autoSaveConfigGroup)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#autoSaveConfigGroup)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn AutoSaveConfigGroup(self: ?*anyopaque) QtC.KConfigGroup {
@@ -628,7 +628,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setStateConfigGroup)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setStateConfigGroup)
     ///
     /// ``` self: QtC.KParts__MainWindow, configGroup: []const u8 ```
     pub fn SetStateConfigGroup(self: ?*anyopaque, configGroup: []const u8) void {
@@ -641,7 +641,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#stateConfigGroup)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#stateConfigGroup)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn StateConfigGroup(self: ?*anyopaque) QtC.KConfigGroup {
@@ -650,7 +650,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveMainWindowSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveMainWindowSettings)
     ///
     /// ``` self: QtC.KParts__MainWindow, config: QtC.KConfigGroup ```
     pub fn SaveMainWindowSettings(self: ?*anyopaque, config: ?*anyopaque) void {
@@ -659,7 +659,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#dbusName)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#dbusName)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn DbusName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -672,7 +672,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// ``` self: QtC.KParts__MainWindow, caption: []const u8, modified: bool ```
     pub fn SetCaption2(self: ?*anyopaque, caption: []const u8, modified: bool) void {
@@ -685,7 +685,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -696,7 +696,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Base class method implementation
     ///
@@ -711,7 +711,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#appHelpActivated)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#appHelpActivated)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn AppHelpActivated(self: ?*anyopaque) void {
@@ -720,7 +720,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setSettingsDirty)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setSettingsDirty)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SetSettingsDirty(self: ?*anyopaque) void {
@@ -729,7 +729,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#restore)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#restore)
     ///
     /// ``` self: QtC.KParts__MainWindow, numberOfInstances: i32, show: bool ```
     pub fn Restore2(self: ?*anyopaque, numberOfInstances: i32, show: bool) bool {
@@ -738,7 +738,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#toolBar)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#toolBar)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8 ```
     pub fn ToolBar1(self: ?*anyopaque, name: []const u8) QtC.KToolBar {
@@ -751,7 +751,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KParts__MainWindow, groupName: []const u8 ```
     pub fn SetAutoSaveSettings1(self: ?*anyopaque, groupName: []const u8) void {
@@ -764,7 +764,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KParts__MainWindow, groupName: []const u8, saveWindowSize: bool ```
     pub fn SetAutoSaveSettings22(self: ?*anyopaque, groupName: []const u8, saveWindowSize: bool) void {
@@ -777,7 +777,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KParts__MainWindow, group: QtC.KConfigGroup, saveWindowSize: bool ```
     pub fn SetAutoSaveSettings23(self: ?*anyopaque, group: ?*anyopaque, saveWindowSize: bool) void {
@@ -786,7 +786,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#iconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#iconSize)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IconSize(self: ?*anyopaque) QtC.QSize {
@@ -795,7 +795,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setIconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setIconSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, iconSize: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, iconSize: ?*anyopaque) void {
@@ -804,7 +804,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#toolButtonStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#toolButtonStyle)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -815,7 +815,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setToolButtonStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setToolButtonStyle)
     ///
     /// ``` self: QtC.KParts__MainWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle ```
     pub fn SetToolButtonStyle(self: ?*anyopaque, toolButtonStyle: i32) void {
@@ -824,7 +824,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#isAnimated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#isAnimated)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsAnimated(self: ?*anyopaque) bool {
@@ -833,7 +833,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#isDockNestingEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#isDockNestingEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsDockNestingEnabled(self: ?*anyopaque) bool {
@@ -842,7 +842,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#documentMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#documentMode)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn DocumentMode(self: ?*anyopaque) bool {
@@ -851,7 +851,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setDocumentMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setDocumentMode)
     ///
     /// ``` self: QtC.KParts__MainWindow, enabled: bool ```
     pub fn SetDocumentMode(self: ?*anyopaque, enabled: bool) void {
@@ -860,7 +860,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#tabShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#tabShape)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -871,7 +871,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setTabShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setTabShape)
     ///
     /// ``` self: QtC.KParts__MainWindow, tabShape: qtabwidget_enums.TabShape ```
     pub fn SetTabShape(self: ?*anyopaque, tabShape: i32) void {
@@ -880,7 +880,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#tabPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#tabPosition)
     ///
     /// ``` self: QtC.KParts__MainWindow, area: qnamespace_enums.DockWidgetArea ```
     ///
@@ -891,7 +891,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setTabPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setTabPosition)
     ///
     /// ``` self: QtC.KParts__MainWindow, areas: flag of qnamespace_enums.DockWidgetArea, tabPosition: qtabwidget_enums.TabPosition ```
     pub fn SetTabPosition(self: ?*anyopaque, areas: i32, tabPosition: i32) void {
@@ -900,7 +900,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setDockOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setDockOptions)
     ///
     /// ``` self: QtC.KParts__MainWindow, options: flag of qmainwindow_enums.DockOption ```
     pub fn SetDockOptions(self: ?*anyopaque, options: i32) void {
@@ -909,7 +909,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#dockOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#dockOptions)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -920,7 +920,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#isSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#isSeparator)
     ///
     /// ``` self: QtC.KParts__MainWindow, pos: QtC.QPoint ```
     pub fn IsSeparator(self: ?*anyopaque, pos: ?*anyopaque) bool {
@@ -929,7 +929,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#menuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#menuBar)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MenuBar(self: ?*anyopaque) QtC.QMenuBar {
@@ -938,7 +938,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setMenuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setMenuBar)
     ///
     /// ``` self: QtC.KParts__MainWindow, menubar: QtC.QMenuBar ```
     pub fn SetMenuBar(self: ?*anyopaque, menubar: ?*anyopaque) void {
@@ -947,7 +947,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#menuWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#menuWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MenuWidget(self: ?*anyopaque) QtC.QWidget {
@@ -956,7 +956,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setMenuWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setMenuWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow, menubar: QtC.QWidget ```
     pub fn SetMenuWidget(self: ?*anyopaque, menubar: ?*anyopaque) void {
@@ -965,7 +965,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#statusBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#statusBar)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn StatusBar(self: ?*anyopaque) QtC.QStatusBar {
@@ -974,7 +974,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setStatusBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setStatusBar)
     ///
     /// ``` self: QtC.KParts__MainWindow, statusbar: QtC.QStatusBar ```
     pub fn SetStatusBar(self: ?*anyopaque, statusbar: ?*anyopaque) void {
@@ -983,7 +983,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#centralWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#centralWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn CentralWidget(self: ?*anyopaque) QtC.QWidget {
@@ -992,7 +992,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setCentralWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setCentralWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow, widget: QtC.QWidget ```
     pub fn SetCentralWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1001,7 +1001,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#takeCentralWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#takeCentralWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn TakeCentralWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1010,7 +1010,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setCorner)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setCorner)
     ///
     /// ``` self: QtC.KParts__MainWindow, corner: qnamespace_enums.Corner, area: qnamespace_enums.DockWidgetArea ```
     pub fn SetCorner(self: ?*anyopaque, corner: i32, area: i32) void {
@@ -1019,7 +1019,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#corner)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#corner)
     ///
     /// ``` self: QtC.KParts__MainWindow, corner: qnamespace_enums.Corner ```
     ///
@@ -1030,7 +1030,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#addToolBarBreak)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#addToolBarBreak)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn AddToolBarBreak(self: ?*anyopaque) void {
@@ -1039,7 +1039,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#insertToolBarBreak)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#insertToolBarBreak)
     ///
     /// ``` self: QtC.KParts__MainWindow, before: QtC.QToolBar ```
     pub fn InsertToolBarBreak(self: ?*anyopaque, before: ?*anyopaque) void {
@@ -1048,7 +1048,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#addToolBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#addToolBar)
     ///
     /// ``` self: QtC.KParts__MainWindow, area: qnamespace_enums.ToolBarArea, toolbar: QtC.QToolBar ```
     pub fn AddToolBar(self: ?*anyopaque, area: i32, toolbar: ?*anyopaque) void {
@@ -1057,7 +1057,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#addToolBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#addToolBar)
     ///
     /// ``` self: QtC.KParts__MainWindow, toolbar: QtC.QToolBar ```
     pub fn AddToolBar2(self: ?*anyopaque, toolbar: ?*anyopaque) void {
@@ -1066,7 +1066,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#addToolBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#addToolBar)
     ///
     /// ``` self: QtC.KParts__MainWindow, title: []const u8 ```
     pub fn AddToolBar3(self: ?*anyopaque, title: []const u8) QtC.QToolBar {
@@ -1079,7 +1079,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#insertToolBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#insertToolBar)
     ///
     /// ``` self: QtC.KParts__MainWindow, before: QtC.QToolBar, toolbar: QtC.QToolBar ```
     pub fn InsertToolBar(self: ?*anyopaque, before: ?*anyopaque, toolbar: ?*anyopaque) void {
@@ -1088,7 +1088,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#removeToolBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#removeToolBar)
     ///
     /// ``` self: QtC.KParts__MainWindow, toolbar: QtC.QToolBar ```
     pub fn RemoveToolBar(self: ?*anyopaque, toolbar: ?*anyopaque) void {
@@ -1097,7 +1097,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#removeToolBarBreak)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#removeToolBarBreak)
     ///
     /// ``` self: QtC.KParts__MainWindow, before: QtC.QToolBar ```
     pub fn RemoveToolBarBreak(self: ?*anyopaque, before: ?*anyopaque) void {
@@ -1106,7 +1106,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#unifiedTitleAndToolBarOnMac)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#unifiedTitleAndToolBarOnMac)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn UnifiedTitleAndToolBarOnMac(self: ?*anyopaque) bool {
@@ -1115,7 +1115,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#toolBarArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#toolBarArea)
     ///
     /// ``` self: QtC.KParts__MainWindow, toolbar: QtC.QToolBar ```
     ///
@@ -1126,7 +1126,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#toolBarBreak)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#toolBarBreak)
     ///
     /// ``` self: QtC.KParts__MainWindow, toolbar: QtC.QToolBar ```
     pub fn ToolBarBreak(self: ?*anyopaque, toolbar: ?*anyopaque) bool {
@@ -1135,7 +1135,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#addDockWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#addDockWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow, area: qnamespace_enums.DockWidgetArea, dockwidget: QtC.QDockWidget ```
     pub fn AddDockWidget(self: ?*anyopaque, area: i32, dockwidget: ?*anyopaque) void {
@@ -1144,7 +1144,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#addDockWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#addDockWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow, area: qnamespace_enums.DockWidgetArea, dockwidget: QtC.QDockWidget, orientation: qnamespace_enums.Orientation ```
     pub fn AddDockWidget2(self: ?*anyopaque, area: i32, dockwidget: ?*anyopaque, orientation: i32) void {
@@ -1153,7 +1153,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#splitDockWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#splitDockWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow, after: QtC.QDockWidget, dockwidget: QtC.QDockWidget, orientation: qnamespace_enums.Orientation ```
     pub fn SplitDockWidget(self: ?*anyopaque, after: ?*anyopaque, dockwidget: ?*anyopaque, orientation: i32) void {
@@ -1162,7 +1162,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#tabifyDockWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#tabifyDockWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow, first: QtC.QDockWidget, second: QtC.QDockWidget ```
     pub fn TabifyDockWidget(self: ?*anyopaque, first: ?*anyopaque, second: ?*anyopaque) void {
@@ -1171,7 +1171,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgets)
     ///
     /// ``` self: QtC.KParts__MainWindow, dockwidget: QtC.QDockWidget, allocator: std.mem.Allocator ```
     pub fn TabifiedDockWidgets(self: ?*anyopaque, dockwidget: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDockWidget {
@@ -1185,7 +1185,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#removeDockWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#removeDockWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow, dockwidget: QtC.QDockWidget ```
     pub fn RemoveDockWidget(self: ?*anyopaque, dockwidget: ?*anyopaque) void {
@@ -1194,7 +1194,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#restoreDockWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#restoreDockWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow, dockwidget: QtC.QDockWidget ```
     pub fn RestoreDockWidget(self: ?*anyopaque, dockwidget: ?*anyopaque) bool {
@@ -1203,7 +1203,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#dockWidgetArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#dockWidgetArea)
     ///
     /// ``` self: QtC.KParts__MainWindow, dockwidget: QtC.QDockWidget ```
     ///
@@ -1214,7 +1214,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#resizeDocks)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#resizeDocks)
     ///
     /// ``` self: QtC.KParts__MainWindow, docks: []QtC.QDockWidget, sizes: []i32, orientation: qnamespace_enums.Orientation ```
     pub fn ResizeDocks(self: ?*anyopaque, docks: []?*anyopaque, sizes: []i32, orientation: i32) void {
@@ -1231,7 +1231,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#saveState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#saveState)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn SaveState(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1244,7 +1244,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#restoreState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#restoreState)
     ///
     /// ``` self: QtC.KParts__MainWindow, state: []u8 ```
     pub fn RestoreState(self: ?*anyopaque, state: []u8) bool {
@@ -1257,7 +1257,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setAnimated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setAnimated)
     ///
     /// ``` self: QtC.KParts__MainWindow, enabled: bool ```
     pub fn SetAnimated(self: ?*anyopaque, enabled: bool) void {
@@ -1266,7 +1266,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setDockNestingEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setDockNestingEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, enabled: bool ```
     pub fn SetDockNestingEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1275,7 +1275,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setUnifiedTitleAndToolBarOnMac)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#setUnifiedTitleAndToolBarOnMac)
     ///
     /// ``` self: QtC.KParts__MainWindow, set: bool ```
     pub fn SetUnifiedTitleAndToolBarOnMac(self: ?*anyopaque, set: bool) void {
@@ -1284,7 +1284,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#iconSizeChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, iconSize: QtC.QSize ```
     pub fn IconSizeChanged(self: ?*anyopaque, iconSize: ?*anyopaque) void {
@@ -1293,7 +1293,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#iconSizeChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow, iconSize: QtC.QSize) callconv(.c) void ```
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1302,7 +1302,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#toolButtonStyleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#toolButtonStyleChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle ```
     pub fn ToolButtonStyleChanged(self: ?*anyopaque, toolButtonStyle: i32) void {
@@ -1311,7 +1311,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#toolButtonStyleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#toolButtonStyleChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void ```
     pub fn OnToolButtonStyleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1320,7 +1320,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgetActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgetActivated)
     ///
     /// ``` self: QtC.KParts__MainWindow, dockWidget: QtC.QDockWidget ```
     pub fn TabifiedDockWidgetActivated(self: ?*anyopaque, dockWidget: ?*anyopaque) void {
@@ -1329,7 +1329,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgetActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgetActivated)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow, dockWidget: QtC.QDockWidget) callconv(.c) void ```
     pub fn OnTabifiedDockWidgetActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1338,7 +1338,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#addToolBarBreak)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#addToolBarBreak)
     ///
     /// ``` self: QtC.KParts__MainWindow, area: qnamespace_enums.ToolBarArea ```
     pub fn AddToolBarBreak1(self: ?*anyopaque, area: i32) void {
@@ -1347,7 +1347,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#saveState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#saveState)
     ///
     /// ``` self: QtC.KParts__MainWindow, version: i32, allocator: std.mem.Allocator ```
     pub fn SaveState1(self: ?*anyopaque, version: i32, allocator: std.mem.Allocator) []u8 {
@@ -1360,7 +1360,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#restoreState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#restoreState)
     ///
     /// ``` self: QtC.KParts__MainWindow, state: []u8, version: i32 ```
     pub fn RestoreState2(self: ?*anyopaque, state: []u8, version: i32) bool {
@@ -1373,7 +1373,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -1382,7 +1382,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -1391,7 +1391,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -1400,7 +1400,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -1409,7 +1409,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -1418,7 +1418,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.KParts__MainWindow, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -1427,7 +1427,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -1436,7 +1436,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -1445,7 +1445,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -1454,7 +1454,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -1465,7 +1465,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.KParts__MainWindow, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -1474,7 +1474,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1483,7 +1483,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -1492,7 +1492,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1501,7 +1501,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -1510,7 +1510,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.KParts__MainWindow, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -1519,7 +1519,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1528,7 +1528,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -1537,7 +1537,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1546,7 +1546,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -1555,7 +1555,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -1564,7 +1564,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -1573,7 +1573,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -1582,7 +1582,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -1591,7 +1591,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -1600,7 +1600,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -1609,7 +1609,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -1618,7 +1618,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -1627,7 +1627,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -1636,7 +1636,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -1645,7 +1645,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -1654,7 +1654,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -1663,7 +1663,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -1672,7 +1672,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -1681,7 +1681,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -1690,7 +1690,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -1699,7 +1699,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -1708,7 +1708,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -1717,7 +1717,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -1726,7 +1726,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.KParts__MainWindow, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -1735,7 +1735,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.KParts__MainWindow, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -1744,7 +1744,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.KParts__MainWindow, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -1753,7 +1753,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.KParts__MainWindow, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -1762,7 +1762,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -1771,7 +1771,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KParts__MainWindow, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -1780,7 +1780,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KParts__MainWindow, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1789,7 +1789,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -1798,7 +1798,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -1807,7 +1807,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -1816,7 +1816,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -1825,7 +1825,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KParts__MainWindow, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1834,7 +1834,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.KParts__MainWindow, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -1843,7 +1843,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.KParts__MainWindow, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -1852,7 +1852,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1861,7 +1861,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1870,7 +1870,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1879,7 +1879,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1888,7 +1888,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1897,7 +1897,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1906,7 +1906,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1915,7 +1915,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1924,7 +1924,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1933,7 +1933,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1942,7 +1942,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1951,7 +1951,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1960,7 +1960,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -1969,7 +1969,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1978,7 +1978,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1987,7 +1987,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -1996,7 +1996,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.KParts__MainWindow, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -2005,7 +2005,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.KParts__MainWindow, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -2014,7 +2014,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -2025,7 +2025,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.KParts__MainWindow, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -2034,7 +2034,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -2045,7 +2045,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -2054,7 +2054,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.KParts__MainWindow, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -2063,7 +2063,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -2072,7 +2072,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -2081,7 +2081,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -2090,7 +2090,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.KParts__MainWindow, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -2099,7 +2099,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -2108,7 +2108,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.KParts__MainWindow, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -2117,7 +2117,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -2126,7 +2126,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -2135,7 +2135,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.KParts__MainWindow, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -2144,7 +2144,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -2153,7 +2153,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KParts__MainWindow, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2162,7 +2162,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KParts__MainWindow, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2171,7 +2171,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -2180,7 +2180,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -2189,7 +2189,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KParts__MainWindow, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -2198,7 +2198,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KParts__MainWindow, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -2207,7 +2207,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -2216,7 +2216,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -2225,7 +2225,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.KParts__MainWindow, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -2234,7 +2234,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KParts__MainWindow, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2243,7 +2243,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.KParts__MainWindow, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2252,7 +2252,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.KParts__MainWindow, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -2265,7 +2265,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.KParts__MainWindow, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -2278,7 +2278,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2291,7 +2291,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2304,7 +2304,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.KParts__MainWindow, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -2313,7 +2313,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -2322,7 +2322,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.KParts__MainWindow, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -2335,7 +2335,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2348,7 +2348,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.KParts__MainWindow, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -2361,7 +2361,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2374,7 +2374,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.KParts__MainWindow, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -2387,7 +2387,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2400,7 +2400,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.KParts__MainWindow, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -2409,7 +2409,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -2418,7 +2418,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -2427,7 +2427,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.KParts__MainWindow, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -2440,7 +2440,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2453,7 +2453,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.KParts__MainWindow, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -2462,7 +2462,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -2471,7 +2471,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.KParts__MainWindow, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -2484,7 +2484,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2497,7 +2497,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.KParts__MainWindow, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -2510,7 +2510,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2523,7 +2523,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2536,7 +2536,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -2549,7 +2549,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2562,7 +2562,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.KParts__MainWindow, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -2575,7 +2575,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KParts__MainWindow, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -2584,7 +2584,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -2595,7 +2595,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -2604,7 +2604,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.KParts__MainWindow, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -2613,7 +2613,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -2622,7 +2622,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -2631,7 +2631,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -2640,7 +2640,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -2649,7 +2649,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -2658,7 +2658,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -2667,7 +2667,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -2676,7 +2676,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -2685,7 +2685,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KParts__MainWindow, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -2694,7 +2694,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -2705,7 +2705,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.KParts__MainWindow, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2714,7 +2714,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -2723,7 +2723,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -2732,7 +2732,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.KParts__MainWindow, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -2741,7 +2741,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -2750,7 +2750,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -2761,7 +2761,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.KParts__MainWindow, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2770,7 +2770,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -2779,7 +2779,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2788,7 +2788,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -2797,7 +2797,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -2806,7 +2806,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -2815,7 +2815,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KParts__MainWindow, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -2824,7 +2824,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.KParts__MainWindow, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -2833,7 +2833,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -2842,7 +2842,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KParts__MainWindow, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -2851,7 +2851,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -2860,7 +2860,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -2869,7 +2869,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -2878,7 +2878,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -2887,7 +2887,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -2896,7 +2896,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Update(self: ?*anyopaque) void {
@@ -2905,7 +2905,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -2914,7 +2914,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KParts__MainWindow, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2923,7 +2923,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2932,7 +2932,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2941,7 +2941,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KParts__MainWindow, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2950,7 +2950,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2959,7 +2959,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2968,7 +2968,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.KParts__MainWindow, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -2977,7 +2977,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Show(self: ?*anyopaque) void {
@@ -2986,7 +2986,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -2995,7 +2995,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -3004,7 +3004,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -3013,7 +3013,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -3022,7 +3022,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -3031,7 +3031,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -3040,7 +3040,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -3049,7 +3049,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -3058,7 +3058,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3067,7 +3067,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KParts__MainWindow, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -3076,7 +3076,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3085,7 +3085,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KParts__MainWindow, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3094,7 +3094,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3103,7 +3103,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KParts__MainWindow, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3112,7 +3112,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KParts__MainWindow, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -3121,7 +3121,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -3134,7 +3134,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.KParts__MainWindow, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -3147,7 +3147,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -3156,7 +3156,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -3165,7 +3165,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -3174,7 +3174,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -3183,7 +3183,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -3192,7 +3192,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -3201,7 +3201,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -3210,7 +3210,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -3221,7 +3221,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KParts__MainWindow, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -3230,7 +3230,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KParts__MainWindow, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -3239,7 +3239,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -3248,7 +3248,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KParts__MainWindow, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -3257,7 +3257,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KParts__MainWindow, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -3266,7 +3266,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -3275,7 +3275,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KParts__MainWindow, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -3284,7 +3284,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KParts__MainWindow, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -3293,7 +3293,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -3302,7 +3302,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -3311,7 +3311,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -3320,7 +3320,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.KParts__MainWindow, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -3329,7 +3329,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -3338,7 +3338,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KParts__MainWindow, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3347,7 +3347,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KParts__MainWindow, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -3356,7 +3356,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KParts__MainWindow, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -3365,7 +3365,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KParts__MainWindow, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -3374,7 +3374,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3383,7 +3383,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -3392,7 +3392,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -3401,7 +3401,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -3410,7 +3410,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.KParts__MainWindow, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -3419,7 +3419,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KParts__MainWindow, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3428,7 +3428,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.KParts__MainWindow, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3441,7 +3441,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.KParts__MainWindow, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3454,7 +3454,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.KParts__MainWindow, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -3463,7 +3463,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.KParts__MainWindow, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3472,7 +3472,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -3486,7 +3486,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KParts__MainWindow, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3499,7 +3499,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KParts__MainWindow, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3512,7 +3512,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KParts__MainWindow, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3525,7 +3525,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KParts__MainWindow, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3538,7 +3538,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3547,7 +3547,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.KParts__MainWindow, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3556,7 +3556,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -3567,7 +3567,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -3576,7 +3576,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.KParts__MainWindow, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3585,7 +3585,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -3596,7 +3596,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -3605,7 +3605,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KParts__MainWindow, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -3614,7 +3614,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KParts__MainWindow, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3623,7 +3623,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KParts__MainWindow, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -3632,7 +3632,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -3641,7 +3641,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -3650,7 +3650,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -3659,7 +3659,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.KParts__MainWindow, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -3668,7 +3668,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -3677,7 +3677,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.KParts__MainWindow, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -3686,7 +3686,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -3695,7 +3695,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -3704,7 +3704,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -3713,7 +3713,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.KParts__MainWindow, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -3722,7 +3722,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -3731,7 +3731,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -3744,7 +3744,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3753,7 +3753,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3762,7 +3762,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3771,7 +3771,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -3784,7 +3784,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3793,7 +3793,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KParts__MainWindow, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -3802,7 +3802,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3811,7 +3811,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     ///
@@ -3822,7 +3822,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.KParts__MainWindow, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -3831,7 +3831,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KParts__MainWindow, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3840,7 +3840,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KParts__MainWindow, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3849,7 +3849,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KParts__MainWindow, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3858,7 +3858,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KParts__MainWindow, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3867,7 +3867,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KParts__MainWindow, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3876,7 +3876,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KParts__MainWindow, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3885,7 +3885,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KParts__MainWindow, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -3894,7 +3894,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KParts__MainWindow, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -3903,7 +3903,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KParts__MainWindow, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -3912,7 +3912,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3921,7 +3921,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KParts__MainWindow, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3930,7 +3930,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -3939,7 +3939,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -3948,7 +3948,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -3957,7 +3957,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -3966,7 +3966,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3979,7 +3979,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3992,7 +3992,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -4001,7 +4001,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -4010,7 +4010,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -4019,7 +4019,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4028,7 +4028,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KParts__MainWindow, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4037,7 +4037,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4046,7 +4046,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KParts__MainWindow, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4055,7 +4055,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KParts__MainWindow, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4064,7 +4064,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KParts__MainWindow, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4073,7 +4073,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KParts__MainWindow, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -4082,7 +4082,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -4096,7 +4096,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KParts__MainWindow, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -4105,7 +4105,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KParts__MainWindow, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -4114,7 +4114,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -4123,7 +4123,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KParts__MainWindow, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4134,7 +4134,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4143,7 +4143,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4152,7 +4152,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4161,7 +4161,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4170,7 +4170,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4180,7 +4180,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4190,7 +4190,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -4214,7 +4214,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4223,7 +4223,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4232,7 +4232,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -4241,7 +4241,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -4250,7 +4250,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -4259,7 +4259,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KParts__MainWindow, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -4269,7 +4269,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -4278,7 +4278,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KParts__MainWindow, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -4287,7 +4287,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KParts__MainWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -4296,7 +4296,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4305,7 +4305,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KParts__MainWindow, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4316,7 +4316,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4325,7 +4325,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__MainWindow, callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4334,7 +4334,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -4343,7 +4343,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -4352,7 +4352,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -4361,7 +4361,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -4370,7 +4370,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -4379,7 +4379,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -4388,7 +4388,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -4397,7 +4397,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -4406,7 +4406,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -4415,7 +4415,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -4424,7 +4424,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -4433,7 +4433,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -4442,7 +4442,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -4451,7 +4451,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#builderClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#builderClient)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn BuilderClient(self: ?*anyopaque) QtC.KXMLGUIClient {
@@ -4460,7 +4460,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#setBuilderClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#setBuilderClient)
     ///
     /// ``` self: QtC.KParts__MainWindow, client: QtC.KXMLGUIClient ```
     pub fn SetBuilderClient(self: ?*anyopaque, client: ?*anyopaque) void {
@@ -4469,7 +4469,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#widget)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#widget)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -4478,7 +4478,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8 ```
     pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
@@ -4491,7 +4491,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
     ///
     /// ``` self: QtC.KParts__MainWindow, doc: QtC.QDomDocument ```
     pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
@@ -4500,7 +4500,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
@@ -4509,7 +4509,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setFactory)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
     ///
     /// ``` self: QtC.KParts__MainWindow, factory: QtC.KXMLGUIFactory ```
     pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
@@ -4518,7 +4518,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#factory)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
@@ -4527,7 +4527,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#parentClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
@@ -4536,7 +4536,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#insertChildClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
     ///
     /// ``` self: QtC.KParts__MainWindow, child: QtC.KXMLGUIClient ```
     pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
@@ -4545,7 +4545,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#removeChildClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
     ///
     /// ``` self: QtC.KParts__MainWindow, child: QtC.KXMLGUIClient ```
     pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
@@ -4554,7 +4554,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#childClients)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
     ///
     /// ``` self: QtC.KParts__MainWindow, allocator: std.mem.Allocator ```
     pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
@@ -4568,7 +4568,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
     ///
     /// ``` self: QtC.KParts__MainWindow, builder: QtC.KXMLGUIBuilder ```
     pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
@@ -4577,7 +4577,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#clientBuilder)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
@@ -4586,7 +4586,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#reloadXML)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn ReloadXML(self: ?*anyopaque) void {
@@ -4595,7 +4595,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#plugActionList)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8, actionList: []QtC.QAction ```
     pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
@@ -4612,7 +4612,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#unplugActionList)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
     ///
     /// ``` self: QtC.KParts__MainWindow, name: []const u8 ```
     pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
@@ -4625,7 +4625,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
     ///
     /// ``` files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator ```
     pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -4654,7 +4654,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, state: []const u8, action: []const u8 ```
     pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
@@ -4671,7 +4671,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
     ///
     /// ``` self: QtC.KParts__MainWindow, state: []const u8, action: []const u8 ```
     pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
@@ -4688,7 +4688,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
     ///
     /// ``` self: QtC.KParts__MainWindow, state: []const u8 ```
     pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
@@ -4701,7 +4701,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget ```
     pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4710,7 +4710,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn EndXMLPlug(self: ?*anyopaque) void {
@@ -4719,7 +4719,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
     ///
     /// ``` self: QtC.KParts__MainWindow, param1: QtC.QWidget ```
     pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4728,7 +4728,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
     /// ``` self: QtC.KParts__MainWindow, xmlfile: []const u8, localxmlfile: []const u8 ```
     pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
@@ -4745,7 +4745,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
     ///
     /// ``` xml: []const u8, allocator: std.mem.Allocator ```
     pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -4762,7 +4762,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
     /// ``` self: QtC.KParts__MainWindow, xmlfile: []const u8, localxmlfile: []const u8, merge: bool ```
     pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
@@ -4779,7 +4779,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KParts::PartBase
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-partbase.html#setPartObject)
+    /// [Upstream resources](https://api.kde.org/kparts-partbase.html#setPartObject)
     ///
     /// ``` self: QtC.KParts__MainWindow, object: QtC.QObject ```
     pub fn SetPartObject(self: ?*anyopaque, object: ?*anyopaque) void {
@@ -4788,7 +4788,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KParts::PartBase
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-partbase.html#partObject)
+    /// [Upstream resources](https://api.kde.org/kparts-partbase.html#partObject)
     ///
     /// ``` self: QtC.KParts__MainWindow ```
     pub fn PartObject(self: ?*anyopaque) QtC.QObject {
@@ -4797,7 +4797,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#guiFactory)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#guiFactory)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4808,7 +4808,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#guiFactory)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#guiFactory)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4819,7 +4819,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#guiFactory)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#guiFactory)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4830,7 +4830,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4841,7 +4841,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4852,7 +4852,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4863,7 +4863,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4878,7 +4878,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4893,7 +4893,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4904,7 +4904,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#event)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4915,7 +4915,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#event)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4926,7 +4926,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#event)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4937,7 +4937,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4952,7 +4952,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4967,7 +4967,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4978,7 +4978,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setPlainCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setPlainCaption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4993,7 +4993,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setPlainCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setPlainCaption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5008,7 +5008,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setPlainCaption)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#setPlainCaption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5019,7 +5019,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5030,7 +5030,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5041,7 +5041,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5052,7 +5052,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#closeEvent)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5063,7 +5063,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#closeEvent)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5074,7 +5074,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#closeEvent)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5085,7 +5085,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#queryClose)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#queryClose)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5096,7 +5096,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#queryClose)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#queryClose)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5107,7 +5107,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#queryClose)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#queryClose)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5118,7 +5118,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveProperties)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5129,7 +5129,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveProperties)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5140,7 +5140,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveProperties)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5151,7 +5151,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readProperties)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5162,7 +5162,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readProperties)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5173,7 +5173,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readProperties)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5184,7 +5184,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5195,7 +5195,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5206,7 +5206,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5217,7 +5217,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readGlobalProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readGlobalProperties)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5228,7 +5228,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readGlobalProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readGlobalProperties)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5239,7 +5239,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readGlobalProperties)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readGlobalProperties)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5250,7 +5250,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#createPopupMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#createPopupMenu)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5261,7 +5261,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#createPopupMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#createPopupMenu)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5272,7 +5272,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#createPopupMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#createPopupMenu)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5283,7 +5283,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5294,7 +5294,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5305,7 +5305,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QMainWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5316,7 +5316,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5327,7 +5327,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5338,7 +5338,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5349,7 +5349,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5360,7 +5360,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5371,7 +5371,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5382,7 +5382,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5393,7 +5393,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5404,7 +5404,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5415,7 +5415,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5426,7 +5426,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5437,7 +5437,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5448,7 +5448,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5459,7 +5459,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5470,7 +5470,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5481,7 +5481,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5492,7 +5492,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5503,7 +5503,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5514,7 +5514,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5525,7 +5525,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5536,7 +5536,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5547,7 +5547,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5558,7 +5558,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5569,7 +5569,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5580,7 +5580,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5591,7 +5591,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5602,7 +5602,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5613,7 +5613,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5624,7 +5624,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5635,7 +5635,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5646,7 +5646,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5657,7 +5657,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5668,7 +5668,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5679,7 +5679,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5690,7 +5690,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5701,7 +5701,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5712,7 +5712,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5723,7 +5723,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5734,7 +5734,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5745,7 +5745,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5756,7 +5756,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5767,7 +5767,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5778,7 +5778,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5789,7 +5789,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5800,7 +5800,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5811,7 +5811,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5822,7 +5822,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5833,7 +5833,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5844,7 +5844,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5855,7 +5855,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5866,7 +5866,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5877,7 +5877,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5888,7 +5888,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5899,7 +5899,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5910,7 +5910,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5921,7 +5921,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5932,7 +5932,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5943,7 +5943,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5954,7 +5954,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5965,7 +5965,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5976,7 +5976,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5987,7 +5987,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5998,7 +5998,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6009,7 +6009,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6020,7 +6020,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6031,7 +6031,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6042,7 +6042,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6053,7 +6053,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6064,7 +6064,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6075,7 +6075,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6086,7 +6086,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6097,7 +6097,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6108,7 +6108,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6119,7 +6119,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6130,7 +6130,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6141,7 +6141,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6152,7 +6152,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6163,7 +6163,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6174,7 +6174,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6185,7 +6185,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6196,7 +6196,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6207,7 +6207,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6218,7 +6218,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6229,7 +6229,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6240,7 +6240,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6255,7 +6255,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6270,7 +6270,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6281,7 +6281,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6292,7 +6292,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6303,7 +6303,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6314,7 +6314,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6325,7 +6325,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6336,7 +6336,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6347,7 +6347,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6358,7 +6358,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6369,7 +6369,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6380,7 +6380,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6391,7 +6391,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6402,7 +6402,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6413,7 +6413,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6424,7 +6424,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6435,7 +6435,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6446,7 +6446,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6457,7 +6457,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6468,7 +6468,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6479,7 +6479,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6490,7 +6490,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6501,7 +6501,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6512,7 +6512,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6523,7 +6523,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6534,7 +6534,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6545,7 +6545,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6556,7 +6556,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6567,7 +6567,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6578,7 +6578,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6589,7 +6589,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6600,7 +6600,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6611,7 +6611,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6622,7 +6622,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6633,7 +6633,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6644,7 +6644,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6655,7 +6655,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6666,7 +6666,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6677,7 +6677,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6688,7 +6688,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6699,7 +6699,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6710,7 +6710,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6721,7 +6721,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6732,7 +6732,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6743,7 +6743,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#containerTags)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#containerTags)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6769,7 +6769,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#containerTags)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#containerTags)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6795,7 +6795,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#containerTags)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#containerTags)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6806,7 +6806,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createContainer)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createContainer)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6817,7 +6817,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createContainer)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createContainer)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6828,7 +6828,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createContainer)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createContainer)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6839,7 +6839,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#removeContainer)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#removeContainer)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6850,7 +6850,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#removeContainer)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#removeContainer)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6861,7 +6861,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#removeContainer)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#removeContainer)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6872,7 +6872,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#customTags)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#customTags)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6898,7 +6898,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#customTags)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#customTags)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6924,7 +6924,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#customTags)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#customTags)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6935,7 +6935,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6946,7 +6946,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6957,7 +6957,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6968,7 +6968,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6979,7 +6979,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6990,7 +6990,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIBuilder
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
+    /// [Upstream resources](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7001,7 +7001,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7012,7 +7012,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7023,7 +7023,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7034,7 +7034,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7045,7 +7045,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7056,7 +7056,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7067,7 +7067,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7082,7 +7082,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7097,7 +7097,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7108,7 +7108,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7119,7 +7119,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7130,7 +7130,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7141,7 +7141,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7156,7 +7156,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7171,7 +7171,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7182,7 +7182,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7197,7 +7197,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7212,7 +7212,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7223,7 +7223,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7242,7 +7242,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7261,7 +7261,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7272,7 +7272,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7287,7 +7287,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7302,7 +7302,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7313,7 +7313,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7328,7 +7328,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7343,7 +7343,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7354,7 +7354,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7369,7 +7369,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7384,7 +7384,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7395,7 +7395,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7406,7 +7406,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7417,7 +7417,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7428,7 +7428,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7443,7 +7443,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7458,7 +7458,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7469,7 +7469,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7480,7 +7480,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7491,7 +7491,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXmlGuiWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
+    /// [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7502,7 +7502,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7513,7 +7513,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7524,7 +7524,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7535,7 +7535,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7546,7 +7546,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7557,7 +7557,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7568,7 +7568,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#settingsDirty)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7579,7 +7579,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#settingsDirty)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7590,7 +7590,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#settingsDirty)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7601,7 +7601,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7612,7 +7612,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7623,7 +7623,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KMainWindow
     ///
-    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
+    /// [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7634,7 +7634,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7645,7 +7645,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7656,7 +7656,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7667,7 +7667,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7678,7 +7678,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7689,7 +7689,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7700,7 +7700,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7711,7 +7711,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7722,7 +7722,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7733,7 +7733,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7744,7 +7744,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7755,7 +7755,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7766,7 +7766,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7777,7 +7777,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7788,7 +7788,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7799,7 +7799,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7810,7 +7810,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7821,7 +7821,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7832,7 +7832,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7843,7 +7843,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7854,7 +7854,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7865,7 +7865,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7877,7 +7877,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7889,7 +7889,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7900,7 +7900,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7911,7 +7911,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7922,7 +7922,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7933,7 +7933,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7944,7 +7944,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7955,7 +7955,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7966,7 +7966,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7981,7 +7981,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7996,7 +7996,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8007,7 +8007,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8018,7 +8018,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8029,7 +8029,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8040,7 +8040,7 @@ pub const kparts__mainwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

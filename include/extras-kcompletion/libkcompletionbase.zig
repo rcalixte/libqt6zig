@@ -14,21 +14,21 @@ pub const kcompletionbase = struct {
         return qtc.KCompletionBase_new();
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionObject)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#completionObject)
     ///
     /// ``` self: QtC.KCompletionBase ```
     pub fn CompletionObject(self: ?*anyopaque) QtC.KCompletion {
         return qtc.KCompletionBase_CompletionObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionObject)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionObject)
     ///
     /// ``` self: QtC.KCompletionBase, completionObject: QtC.KCompletion, handleSignals: bool ```
     pub fn SetCompletionObject(self: ?*anyopaque, completionObject: ?*anyopaque, handleSignals: bool) void {
         qtc.KCompletionBase_SetCompletionObject(@ptrCast(self), @ptrCast(completionObject), handleSignals);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionObject)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionObject)
     ///
     /// Allows for overriding the related default method
     ///
@@ -37,7 +37,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetCompletionObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionObject)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionObject)
     ///
     /// Base class method implementation
     ///
@@ -46,14 +46,14 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_QBaseSetCompletionObject(@ptrCast(self), @ptrCast(completionObject), handleSignals);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// ``` self: QtC.KCompletionBase, handle: bool ```
     pub fn SetHandleSignals(self: ?*anyopaque, handle: bool) void {
         qtc.KCompletionBase_SetHandleSignals(@ptrCast(self), handle);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Allows for overriding the related default method
     ///
@@ -62,7 +62,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetHandleSignals(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Base class method implementation
     ///
@@ -71,56 +71,56 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_QBaseSetHandleSignals(@ptrCast(self), handle);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#isCompletionObjectAutoDeleted)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#isCompletionObjectAutoDeleted)
     ///
     /// ``` self: QtC.KCompletionBase ```
     pub fn IsCompletionObjectAutoDeleted(self: ?*anyopaque) bool {
         return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setAutoDeleteCompletionObject)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setAutoDeleteCompletionObject)
     ///
     /// ``` self: QtC.KCompletionBase, autoDelete: bool ```
     pub fn SetAutoDeleteCompletionObject(self: ?*anyopaque, autoDelete: bool) void {
         qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self), autoDelete);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setEnableSignals)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setEnableSignals)
     ///
     /// ``` self: QtC.KCompletionBase, enable: bool ```
     pub fn SetEnableSignals(self: ?*anyopaque, enable: bool) void {
         qtc.KCompletionBase_SetEnableSignals(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#handleSignals)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#handleSignals)
     ///
     /// ``` self: QtC.KCompletionBase ```
     pub fn HandleSignals(self: ?*anyopaque) bool {
         return qtc.KCompletionBase_HandleSignals(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#emitSignals)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#emitSignals)
     ///
     /// ``` self: QtC.KCompletionBase ```
     pub fn EmitSignals(self: ?*anyopaque) bool {
         return qtc.KCompletionBase_EmitSignals(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setEmitSignals)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setEmitSignals)
     ///
     /// ``` self: QtC.KCompletionBase, emitRotationSignals: bool ```
     pub fn SetEmitSignals(self: ?*anyopaque, emitRotationSignals: bool) void {
         qtc.KCompletionBase_SetEmitSignals(@ptrCast(self), emitRotationSignals);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionMode)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionMode)
     ///
     /// ``` self: QtC.KCompletionBase, mode: kcompletion_enums.CompletionMode ```
     pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
         qtc.KCompletionBase_SetCompletionMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionMode)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionMode)
     ///
     /// Allows for overriding the related default method
     ///
@@ -129,7 +129,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetCompletionMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionMode)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionMode)
     ///
     /// Base class method implementation
     ///
@@ -138,7 +138,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_QBaseSetCompletionMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionMode)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#completionMode)
     ///
     /// ``` self: QtC.KCompletionBase ```
     ///
@@ -147,7 +147,7 @@ pub const kcompletionbase = struct {
         return qtc.KCompletionBase_CompletionMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBinding)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBinding)
     ///
     /// ``` self: QtC.KCompletionBase, item: kcompletionbase_enums.KeyBindingType, key: []QtC.QKeySequence ```
     pub fn SetKeyBinding(self: ?*anyopaque, item: i32, key: []QtC.QKeySequence) bool {
@@ -158,7 +158,7 @@ pub const kcompletionbase = struct {
         return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self), @intCast(item), key_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBinding)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBinding)
     ///
     /// ``` self: QtC.KCompletionBase, item: kcompletionbase_enums.KeyBindingType, allocator: std.mem.Allocator ```
     pub fn KeyBinding(self: ?*anyopaque, item: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -170,14 +170,14 @@ pub const kcompletionbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#useGlobalKeyBindings)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#useGlobalKeyBindings)
     ///
     /// ``` self: QtC.KCompletionBase ```
     pub fn UseGlobalKeyBindings(self: ?*anyopaque) void {
         qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletedText)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedText)
     ///
     /// ``` self: QtC.KCompletionBase, text: []const u8 ```
     pub fn SetCompletedText(self: ?*anyopaque, text: []const u8) void {
@@ -188,7 +188,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_SetCompletedText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletedText)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -197,7 +197,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetCompletedText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletedText)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedText)
     ///
     /// Base class method implementation
     ///
@@ -210,7 +210,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_QBaseSetCompletedText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletedItems)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedItems)
     ///
     /// ``` self: QtC.KCompletionBase, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator ```
     pub fn SetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
@@ -229,7 +229,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_SetCompletedItems(@ptrCast(self), items_list, autoSuggest);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletedItems)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedItems)
     ///
     /// Allows for overriding the related default method
     ///
@@ -238,7 +238,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetCompletedItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletedItems)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedItems)
     ///
     /// Base class method implementation
     ///
@@ -259,14 +259,14 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_QBaseSetCompletedItems(@ptrCast(self), items_list, autoSuggest);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#compObj)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#compObj)
     ///
     /// ``` self: QtC.KCompletionBase ```
     pub fn CompObj(self: ?*anyopaque) QtC.KCompletion {
         return qtc.KCompletionBase_CompObj(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
     ///
     /// ``` self: QtC.KCompletionBase, allocator: std.mem.Allocator ```
     pub fn KeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqkeysequence {
@@ -287,7 +287,7 @@ pub const kcompletionbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// ``` self: QtC.KCompletionBase, keyBindingMap: map_i32_qtcqkeysequence, allocator: std.mem.Allocator ```
     pub fn SetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_qtcqkeysequence, allocator: std.mem.Allocator) void {
@@ -311,14 +311,14 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_SetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// ``` self: QtC.KCompletionBase, delegate: QtC.KCompletionBase ```
     pub fn SetDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.KCompletionBase_SetDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -327,7 +327,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetDelegate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Base class method implementation
     ///
@@ -336,14 +336,14 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_QBaseSetDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// ``` self: QtC.KCompletionBase ```
     pub fn Delegate(self: ?*anyopaque) QtC.KCompletionBase {
         return qtc.KCompletionBase_Delegate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -352,7 +352,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnDelegate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Base class method implementation
     ///
@@ -361,14 +361,14 @@ pub const kcompletionbase = struct {
         return qtc.KCompletionBase_QBaseDelegate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// ``` self: QtC.KCompletionBase, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.KCompletionBase_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Allows for overriding the related default method
     ///
@@ -377,7 +377,7 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Base class method implementation
     ///
@@ -386,14 +386,14 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionObject)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#completionObject)
     ///
     /// ``` self: QtC.KCompletionBase, handleSignals: bool ```
     pub fn CompletionObject1(self: ?*anyopaque, handleSignals: bool) QtC.KCompletion {
         return qtc.KCompletionBase_CompletionObject1(@ptrCast(self), handleSignals);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#dtor.KCompletionBase)
+    /// [Upstream resources](https://api.kde.org/kcompletionbase.html#dtor.KCompletionBase)
     ///
     /// Delete this object from C++ memory.
     ///

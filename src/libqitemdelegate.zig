@@ -21,7 +21,7 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,28 +65,28 @@ pub const qitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#hasClipping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#hasClipping)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn HasClipping(self: ?*anyopaque) bool {
         return qtc.QItemDelegate_HasClipping(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setClipping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setClipping)
     ///
     /// ``` self: QtC.QItemDelegate, clip: bool ```
     pub fn SetClipping(self: ?*anyopaque, clip: bool) void {
         qtc.QItemDelegate_SetClipping(@ptrCast(self), clip);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
     ///
     /// ``` self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QItemDelegate_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -95,7 +95,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
     ///
     /// Base class method implementation
     ///
@@ -104,14 +104,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
     ///
     /// ``` self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn SizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
         return qtc.QItemDelegate_SizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -120,7 +120,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -129,14 +129,14 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
     ///
     /// ``` self: QtC.QItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn CreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
         return qtc.QItemDelegate_CreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -145,7 +145,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
     ///
     /// Base class method implementation
     ///
@@ -154,14 +154,14 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
     ///
     /// ``` self: QtC.QItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex ```
     pub fn SetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QItemDelegate_SetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -170,7 +170,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnSetEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
     ///
     /// Base class method implementation
     ///
@@ -179,14 +179,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
     ///
     /// ``` self: QtC.QItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     pub fn SetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QItemDelegate_SetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -195,7 +195,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnSetModelData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
     ///
     /// Base class method implementation
     ///
@@ -204,14 +204,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
     ///
     /// ``` self: QtC.QItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn UpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QItemDelegate_UpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -220,7 +220,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
     ///
     /// Base class method implementation
     ///
@@ -229,21 +229,21 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#itemEditorFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#itemEditorFactory)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn ItemEditorFactory(self: ?*anyopaque) QtC.QItemEditorFactory {
         return qtc.QItemDelegate_ItemEditorFactory(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setItemEditorFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setItemEditorFactory)
     ///
     /// ``` self: QtC.QItemDelegate, factory: QtC.QItemEditorFactory ```
     pub fn SetItemEditorFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
         qtc.QItemDelegate_SetItemEditorFactory(@ptrCast(self), @ptrCast(factory));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
     ///
     /// ``` self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, text: []const u8 ```
     pub fn DrawDisplay(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, rect: ?*anyopaque, text: []const u8) void {
@@ -254,7 +254,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_DrawDisplay(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
     ///
     /// Allows for overriding the related default method
     ///
@@ -263,7 +263,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnDrawDisplay(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
     ///
     /// Base class method implementation
     ///
@@ -276,14 +276,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseDrawDisplay(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
     ///
     /// ``` self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, pixmap: QtC.QPixmap ```
     pub fn DrawDecoration(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, rect: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.QItemDelegate_DrawDecoration(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
     ///
     /// Allows for overriding the related default method
     ///
@@ -292,7 +292,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnDrawDecoration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
     ///
     /// Base class method implementation
     ///
@@ -301,14 +301,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseDrawDecoration(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
     ///
     /// ``` self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect ```
     pub fn DrawFocus(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QItemDelegate_DrawFocus(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
     ///
     /// Allows for overriding the related default method
     ///
@@ -317,7 +317,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnDrawFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
     ///
     /// Base class method implementation
     ///
@@ -326,14 +326,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseDrawFocus(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
     ///
     /// ``` self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, state: qnamespace_enums.CheckState ```
     pub fn DrawCheck(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, rect: ?*anyopaque, state: i32) void {
         qtc.QItemDelegate_DrawCheck(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
     ///
     /// Allows for overriding the related default method
     ///
@@ -342,7 +342,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnDrawCheck(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
     ///
     /// Base class method implementation
     ///
@@ -351,14 +351,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseDrawCheck(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
     ///
     /// ``` self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn DrawBackground(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QItemDelegate_DrawBackground(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
     ///
     /// Allows for overriding the related default method
     ///
@@ -367,7 +367,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnDrawBackground(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
     ///
     /// Base class method implementation
     ///
@@ -376,14 +376,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseDrawBackground(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
     ///
     /// ``` self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, checkRect: QtC.QRect, iconRect: QtC.QRect, textRect: QtC.QRect, hint: bool ```
     pub fn DoLayout(self: ?*anyopaque, option: ?*anyopaque, checkRect: ?*anyopaque, iconRect: ?*anyopaque, textRect: ?*anyopaque, hint: bool) void {
         qtc.QItemDelegate_DoLayout(@ptrCast(self), @ptrCast(option), @ptrCast(checkRect), @ptrCast(iconRect), @ptrCast(textRect), hint);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
     ///
     /// Allows for overriding the related default method
     ///
@@ -392,7 +392,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnDoLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
     ///
     /// Base class method implementation
     ///
@@ -401,14 +401,14 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_QBaseDoLayout(@ptrCast(self), @ptrCast(option), @ptrCast(checkRect), @ptrCast(iconRect), @ptrCast(textRect), hint);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
     ///
     /// ``` self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex, role: i32 ```
     pub fn Rect(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QRect {
         return qtc.QItemDelegate_Rect(@ptrCast(self), @ptrCast(option), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -417,7 +417,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
     ///
     /// Base class method implementation
     ///
@@ -426,14 +426,14 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseRect(@ptrCast(self), @ptrCast(option), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
     ///
     /// ``` self: QtC.QItemDelegate, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QItemDelegate_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -442,7 +442,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -451,14 +451,14 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
     ///
     /// ``` self: QtC.QItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn EditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QItemDelegate_EditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -467,7 +467,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnEditorEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
     ///
     /// Base class method implementation
     ///
@@ -476,14 +476,14 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
     ///
     /// ``` self: QtC.QItemDelegate, index: QtC.QModelIndex, option: QtC.QStyleOptionViewItem ```
     pub fn SetOptions(self: ?*anyopaque, index: ?*anyopaque, option: ?*anyopaque) QtC.QStyleOptionViewItem {
         return qtc.QItemDelegate_SetOptions(@ptrCast(self), @ptrCast(index), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -492,7 +492,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
     ///
     /// Base class method implementation
     ///
@@ -501,14 +501,14 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseSetOptions(@ptrCast(self), @ptrCast(index), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
     ///
     /// ``` self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, variant: QtC.QVariant ```
     pub fn Decoration(self: ?*anyopaque, option: ?*anyopaque, variant: ?*anyopaque) QtC.QPixmap {
         return qtc.QItemDelegate_Decoration(@ptrCast(self), @ptrCast(option), @ptrCast(variant));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
     ///
     /// Allows for overriding the related default method
     ///
@@ -517,7 +517,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnDecoration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
     ///
     /// Base class method implementation
     ///
@@ -526,14 +526,14 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseDecoration(@ptrCast(self), @ptrCast(option), @ptrCast(variant));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
     ///
     /// ``` self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, bounding: QtC.QRect, variant: QtC.QVariant ```
     pub fn DoCheck(self: ?*anyopaque, option: ?*anyopaque, bounding: ?*anyopaque, variant: ?*anyopaque) QtC.QRect {
         return qtc.QItemDelegate_DoCheck(@ptrCast(self), @ptrCast(option), @ptrCast(bounding), @ptrCast(variant));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
     ///
     /// Allows for overriding the related default method
     ///
@@ -542,7 +542,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnDoCheck(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
     ///
     /// Base class method implementation
     ///
@@ -551,7 +551,7 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseDoCheck(@ptrCast(self), @ptrCast(option), @ptrCast(bounding), @ptrCast(variant));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
     ///
     /// ``` self: QtC.QItemDelegate, painter: QtC.QPainter, rect: QtC.QRect, font: QtC.QFont, text: []const u8 ```
     pub fn TextRectangle(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, font: ?*anyopaque, text: []const u8) QtC.QRect {
@@ -562,7 +562,7 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_TextRectangle(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(font), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
     ///
     /// Allows for overriding the related default method
     ///
@@ -571,7 +571,7 @@ pub const qitemdelegate = struct {
         qtc.QItemDelegate_OnTextRectangle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
     ///
     /// Base class method implementation
     ///
@@ -584,7 +584,7 @@ pub const qitemdelegate = struct {
         return qtc.QItemDelegate_QBaseTextRectangle(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(font), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -597,7 +597,7 @@ pub const qitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -612,7 +612,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
     /// ``` self: QtC.QItemDelegate, editor: QtC.QWidget ```
     pub fn CommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
@@ -621,7 +621,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
     /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -630,7 +630,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
     /// ``` self: QtC.QItemDelegate, editor: QtC.QWidget ```
     pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
@@ -639,7 +639,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
     /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -648,7 +648,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
     /// ``` self: QtC.QItemDelegate, param1: QtC.QModelIndex ```
     pub fn SizeHintChanged(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -657,7 +657,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
     /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -666,7 +666,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
     /// ``` self: QtC.QItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
     pub fn CloseEditor2(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
@@ -675,7 +675,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
     /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
     pub fn OnCloseEditor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
@@ -684,7 +684,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QItemDelegate, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -697,7 +697,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QItemDelegate, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -710,7 +710,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -719,7 +719,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -728,7 +728,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -737,7 +737,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -746,7 +746,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QItemDelegate, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -755,7 +755,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -764,7 +764,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QItemDelegate, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -773,7 +773,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QItemDelegate, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -782,7 +782,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QItemDelegate, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -791,7 +791,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QItemDelegate, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -800,7 +800,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QItemDelegate, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -814,7 +814,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QItemDelegate, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -823,7 +823,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QItemDelegate, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -832,7 +832,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QItemDelegate, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -841,7 +841,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -850,7 +850,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QItemDelegate, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -861,7 +861,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -870,7 +870,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -879,7 +879,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -888,7 +888,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -897,7 +897,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QItemDelegate, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -907,7 +907,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QItemDelegate, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -917,7 +917,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QItemDelegate, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -941,7 +941,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -950,7 +950,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -959,7 +959,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -968,7 +968,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -977,7 +977,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -986,7 +986,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QItemDelegate, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -996,7 +996,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QItemDelegate ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1005,7 +1005,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QItemDelegate, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1014,7 +1014,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QItemDelegate, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1023,7 +1023,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1032,7 +1032,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QItemDelegate, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1043,7 +1043,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QItemDelegate, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1052,7 +1052,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1061,7 +1061,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1072,7 +1072,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1083,7 +1083,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1094,7 +1094,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1105,7 +1105,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1116,7 +1116,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1127,7 +1127,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1143,7 +1143,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1159,7 +1159,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1170,7 +1170,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1181,7 +1181,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1192,7 +1192,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1203,7 +1203,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1214,7 +1214,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1225,7 +1225,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1236,7 +1236,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1247,7 +1247,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1258,7 +1258,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1269,7 +1269,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1280,7 +1280,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1291,7 +1291,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1302,7 +1302,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1313,7 +1313,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1324,7 +1324,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1335,7 +1335,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1346,7 +1346,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1357,7 +1357,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1368,7 +1368,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1379,7 +1379,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1390,7 +1390,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1401,7 +1401,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1412,7 +1412,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1423,7 +1423,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1434,7 +1434,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1446,7 +1446,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1458,7 +1458,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1469,7 +1469,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1480,7 +1480,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1491,7 +1491,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1502,7 +1502,7 @@ pub const qitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1511,7 +1511,7 @@ pub const qitemdelegate = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#dtor.QItemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#dtor.QItemDelegate)
     ///
     /// Delete this object from C++ memory.
     ///

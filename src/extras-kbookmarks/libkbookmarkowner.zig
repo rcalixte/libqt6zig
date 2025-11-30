@@ -13,7 +13,7 @@ pub const kbookmarkowner = struct {
         return qtc.KBookmarkOwner_new();
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentTitle)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentTitle)
     ///
     /// ``` self: QtC.KBookmarkOwner, allocator: std.mem.Allocator ```
     pub fn CurrentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -24,7 +24,7 @@ pub const kbookmarkowner = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentTitle)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentTitle)
     ///
     /// Allows for overriding the related default method
     ///
@@ -33,7 +33,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnCurrentTitle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentTitle)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentTitle)
     ///
     /// Base class method implementation
     ///
@@ -46,14 +46,14 @@ pub const kbookmarkowner = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentUrl)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentUrl)
     ///
     /// ``` self: QtC.KBookmarkOwner ```
     pub fn CurrentUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.KBookmarkOwner_CurrentUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentUrl)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentUrl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -62,7 +62,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnCurrentUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentUrl)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentUrl)
     ///
     /// Base class method implementation
     ///
@@ -71,7 +71,7 @@ pub const kbookmarkowner = struct {
         return qtc.KBookmarkOwner_QBaseCurrentUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentIcon)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentIcon)
     ///
     /// ``` self: QtC.KBookmarkOwner, allocator: std.mem.Allocator ```
     pub fn CurrentIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -82,7 +82,7 @@ pub const kbookmarkowner = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentIcon)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentIcon)
     ///
     /// Allows for overriding the related default method
     ///
@@ -91,7 +91,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnCurrentIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentIcon)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentIcon)
     ///
     /// Base class method implementation
     ///
@@ -104,14 +104,14 @@ pub const kbookmarkowner = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#supportsTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#supportsTabs)
     ///
     /// ``` self: QtC.KBookmarkOwner ```
     pub fn SupportsTabs(self: ?*anyopaque) bool {
         return qtc.KBookmarkOwner_SupportsTabs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#supportsTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#supportsTabs)
     ///
     /// Allows for overriding the related default method
     ///
@@ -120,7 +120,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnSupportsTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#supportsTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#supportsTabs)
     ///
     /// Base class method implementation
     ///
@@ -129,7 +129,7 @@ pub const kbookmarkowner = struct {
         return qtc.KBookmarkOwner_QBaseSupportsTabs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
     ///
     /// ``` self: QtC.KBookmarkOwner, allocator: std.mem.Allocator ```
     pub fn CurrentBookmarkList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KBookmarkOwner__FutureBookmark {
@@ -141,7 +141,7 @@ pub const kbookmarkowner = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
     ///
     /// Allows for overriding the related default method
     ///
@@ -150,7 +150,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnCurrentBookmarkList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
     ///
     /// Base class method implementation
     ///
@@ -164,14 +164,14 @@ pub const kbookmarkowner = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#enableOption)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#enableOption)
     ///
     /// ``` self: QtC.KBookmarkOwner, option: kbookmarkowner_enums.BookmarkOption ```
     pub fn EnableOption(self: ?*anyopaque, option: i32) bool {
         return qtc.KBookmarkOwner_EnableOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#enableOption)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#enableOption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -180,7 +180,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnEnableOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#enableOption)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#enableOption)
     ///
     /// Base class method implementation
     ///
@@ -189,14 +189,14 @@ pub const kbookmarkowner = struct {
         return qtc.KBookmarkOwner_QBaseEnableOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openBookmark)
     ///
     /// ``` self: QtC.KBookmarkOwner, bm: QtC.KBookmark, mb: flag of qnamespace_enums.MouseButton, km: flag of qnamespace_enums.KeyboardModifier ```
     pub fn OpenBookmark(self: ?*anyopaque, bm: ?*anyopaque, mb: i64, km: i64) void {
         qtc.KBookmarkOwner_OpenBookmark(@ptrCast(self), @ptrCast(bm), @intCast(mb), @intCast(km));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openBookmark)
     ///
     /// Allows for overriding the related default method
     ///
@@ -205,7 +205,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnOpenBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openBookmark)
     ///
     /// Base class method implementation
     ///
@@ -214,14 +214,14 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_QBaseOpenBookmark(@ptrCast(self), @ptrCast(bm), @intCast(mb), @intCast(km));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
     ///
     /// ``` self: QtC.KBookmarkOwner, bm: QtC.KBookmarkGroup ```
     pub fn OpenFolderinTabs(self: ?*anyopaque, bm: ?*anyopaque) void {
         qtc.KBookmarkOwner_OpenFolderinTabs(@ptrCast(self), @ptrCast(bm));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
     ///
     /// Allows for overriding the related default method
     ///
@@ -230,7 +230,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnOpenFolderinTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
     ///
     /// Base class method implementation
     ///
@@ -239,14 +239,14 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_QBaseOpenFolderinTabs(@ptrCast(self), @ptrCast(bm));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openInNewTab)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewTab)
     ///
     /// ``` self: QtC.KBookmarkOwner, bm: QtC.KBookmark ```
     pub fn OpenInNewTab(self: ?*anyopaque, bm: ?*anyopaque) void {
         qtc.KBookmarkOwner_OpenInNewTab(@ptrCast(self), @ptrCast(bm));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openInNewTab)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewTab)
     ///
     /// Allows for overriding the related default method
     ///
@@ -255,7 +255,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnOpenInNewTab(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openInNewTab)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewTab)
     ///
     /// Base class method implementation
     ///
@@ -264,14 +264,14 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_QBaseOpenInNewTab(@ptrCast(self), @ptrCast(bm));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openInNewWindow)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewWindow)
     ///
     /// ``` self: QtC.KBookmarkOwner, bm: QtC.KBookmark ```
     pub fn OpenInNewWindow(self: ?*anyopaque, bm: ?*anyopaque) void {
         qtc.KBookmarkOwner_OpenInNewWindow(@ptrCast(self), @ptrCast(bm));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openInNewWindow)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewWindow)
     ///
     /// Allows for overriding the related default method
     ///
@@ -280,7 +280,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnOpenInNewWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openInNewWindow)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewWindow)
     ///
     /// Base class method implementation
     ///
@@ -289,7 +289,7 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_QBaseOpenInNewWindow(@ptrCast(self), @ptrCast(bm));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#dtor.KBookmarkOwner)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner.html#dtor.KBookmarkOwner)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -324,14 +324,14 @@ pub const kbookmarkowner__futurebookmark = struct {
         return qtc.KBookmarkOwner__FutureBookmark_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner-futurebookmark.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner-futurebookmark.html#operator-eq)
     ///
     /// ``` self: QtC.KBookmarkOwner__FutureBookmark, other: QtC.KBookmarkOwner__FutureBookmark ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KBookmarkOwner__FutureBookmark_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner-futurebookmark.html#title)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner-futurebookmark.html#title)
     ///
     /// ``` self: QtC.KBookmarkOwner__FutureBookmark, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -342,14 +342,14 @@ pub const kbookmarkowner__futurebookmark = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner-futurebookmark.html#url)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner-futurebookmark.html#url)
     ///
     /// ``` self: QtC.KBookmarkOwner__FutureBookmark ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KBookmarkOwner__FutureBookmark_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkowner-futurebookmark.html#icon)
+    /// [Upstream resources](https://api.kde.org/kbookmarkowner-futurebookmark.html#icon)
     ///
     /// ``` self: QtC.KBookmarkOwner__FutureBookmark, allocator: std.mem.Allocator ```
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {

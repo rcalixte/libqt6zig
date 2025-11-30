@@ -13,7 +13,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -45,7 +45,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -57,7 +57,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, line: i32, allocator: std.mem.Allocator ```
     pub fn InlineNotes(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []i32 {
@@ -69,7 +69,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -78,7 +78,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNotes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
     ///
     /// Base class method implementation
     ///
@@ -92,14 +92,14 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote ```
     pub fn InlineNoteSize(self: ?*anyopaque, note: ?*anyopaque) QtC.QSize {
         return qtc.KTextEditor__InlineNoteProvider_InlineNoteSize(@ptrCast(self), @ptrCast(note));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -108,7 +108,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
     ///
     /// Base class method implementation
     ///
@@ -117,14 +117,14 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteSize(@ptrCast(self), @ptrCast(note));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote, painter: QtC.QPainter, direction: qnamespace_enums.LayoutDirection ```
     pub fn PaintInlineNote(self: ?*anyopaque, note: ?*anyopaque, painter: ?*anyopaque, direction: i32) void {
         qtc.KTextEditor__InlineNoteProvider_PaintInlineNote(@ptrCast(self), @ptrCast(note), @ptrCast(painter), @intCast(direction));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
     ///
     /// Allows for overriding the related default method
     ///
@@ -133,7 +133,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnPaintInlineNote(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
     ///
     /// Base class method implementation
     ///
@@ -142,14 +142,14 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_QBasePaintInlineNote(@ptrCast(self), @ptrCast(note), @ptrCast(painter), @intCast(direction));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote, buttons: flag of qnamespace_enums.MouseButton, globalPos: QtC.QPoint ```
     pub fn InlineNoteActivated(self: ?*anyopaque, note: ?*anyopaque, buttons: i64, globalPos: ?*anyopaque) void {
         qtc.KTextEditor__InlineNoteProvider_InlineNoteActivated(@ptrCast(self), @ptrCast(note), @intCast(buttons), @ptrCast(globalPos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
     ///
     /// Allows for overriding the related default method
     ///
@@ -158,7 +158,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
     ///
     /// Base class method implementation
     ///
@@ -167,14 +167,14 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteActivated(@ptrCast(self), @ptrCast(note), @intCast(buttons), @ptrCast(globalPos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote, globalPos: QtC.QPoint ```
     pub fn InlineNoteFocusInEvent(self: ?*anyopaque, note: ?*anyopaque, globalPos: ?*anyopaque) void {
         qtc.KTextEditor__InlineNoteProvider_InlineNoteFocusInEvent(@ptrCast(self), @ptrCast(note), @ptrCast(globalPos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -183,7 +183,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -192,14 +192,14 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteFocusInEvent(@ptrCast(self), @ptrCast(note), @ptrCast(globalPos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote ```
     pub fn InlineNoteFocusOutEvent(self: ?*anyopaque, note: ?*anyopaque) void {
         qtc.KTextEditor__InlineNoteProvider_InlineNoteFocusOutEvent(@ptrCast(self), @ptrCast(note));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -208,7 +208,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -217,14 +217,14 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteFocusOutEvent(@ptrCast(self), @ptrCast(note));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote, globalPos: QtC.QPoint ```
     pub fn InlineNoteMouseMoveEvent(self: ?*anyopaque, note: ?*anyopaque, globalPos: ?*anyopaque) void {
         qtc.KTextEditor__InlineNoteProvider_InlineNoteMouseMoveEvent(@ptrCast(self), @ptrCast(note), @ptrCast(globalPos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -233,7 +233,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -242,35 +242,35 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteMouseMoveEvent(@ptrCast(self), @ptrCast(note), @ptrCast(globalPos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesReset)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesReset)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn InlineNotesReset(self: ?*anyopaque) void {
         qtc.KTextEditor__InlineNoteProvider_InlineNotesReset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesReset)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesReset)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider) callconv(.c) void ```
     pub fn OnInlineNotesReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KTextEditor__InlineNoteProvider_Connect_InlineNotesReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesChanged)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesChanged)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, line: i32 ```
     pub fn InlineNotesChanged(self: ?*anyopaque, line: i32) void {
         qtc.KTextEditor__InlineNoteProvider_InlineNotesChanged(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesChanged)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesChanged)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, line: i32) callconv(.c) void ```
     pub fn OnInlineNotesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -283,7 +283,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -298,7 +298,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -311,7 +311,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -324,7 +324,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -333,7 +333,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -342,7 +342,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -351,7 +351,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -360,7 +360,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -369,7 +369,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -378,7 +378,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -387,7 +387,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -396,7 +396,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -405,7 +405,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -414,7 +414,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -428,7 +428,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -437,7 +437,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -446,7 +446,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -455,7 +455,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -464,7 +464,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -475,7 +475,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -484,7 +484,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -493,7 +493,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -502,7 +502,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -511,7 +511,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -521,7 +521,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -531,7 +531,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -555,7 +555,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -564,7 +564,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -573,7 +573,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -582,7 +582,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -591,7 +591,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -600,7 +600,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -610,7 +610,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -619,7 +619,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -628,7 +628,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -637,7 +637,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -646,7 +646,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -657,7 +657,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -666,7 +666,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KTextEditor__InlineNoteProvider, callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -675,7 +675,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -686,7 +686,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -697,7 +697,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -708,7 +708,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -719,7 +719,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -730,7 +730,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -741,7 +741,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -752,7 +752,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -763,7 +763,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -774,7 +774,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -785,7 +785,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -796,7 +796,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -807,7 +807,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -818,7 +818,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -829,7 +829,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -840,7 +840,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -851,7 +851,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -862,7 +862,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -873,7 +873,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -884,7 +884,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -895,7 +895,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -906,7 +906,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -917,7 +917,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -928,7 +928,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -939,7 +939,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -950,7 +950,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -961,7 +961,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -972,7 +972,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -984,7 +984,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -996,7 +996,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1007,7 +1007,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1018,7 +1018,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1029,7 +1029,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1040,7 +1040,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

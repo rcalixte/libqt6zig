@@ -7,7 +7,7 @@ pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// https://doc.qt.io/qt-6/qwebengineclienthints.html
 pub const qwebengineclienthints = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qwebengineclienthints = struct {
         return qtc.QWebEngineClientHints_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,7 +37,7 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#arch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#arch)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn Arch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -48,7 +48,7 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#platform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#platform)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn Platform(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -59,7 +59,7 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#model)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn Model(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -70,14 +70,14 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#isMobile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#isMobile)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn IsMobile(self: ?*anyopaque) bool {
         return qtc.QWebEngineClientHints_IsMobile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#fullVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#fullVersion)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn FullVersion(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -88,7 +88,7 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#platformVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#platformVersion)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn PlatformVersion(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -99,7 +99,7 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#bitness)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#bitness)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn Bitness(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -110,7 +110,7 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#fullVersionList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#fullVersionList)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn FullVersionList(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
@@ -136,14 +136,14 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#isWow64)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#isWow64)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn IsWow64(self: ?*anyopaque) bool {
         return qtc.QWebEngineClientHints_IsWow64(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setArch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setArch)
     ///
     /// ``` self: QtC.QWebEngineClientHints, arch: []const u8 ```
     pub fn SetArch(self: ?*anyopaque, arch: []const u8) void {
@@ -154,7 +154,7 @@ pub const qwebengineclienthints = struct {
         qtc.QWebEngineClientHints_SetArch(@ptrCast(self), arch_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setPlatform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setPlatform)
     ///
     /// ``` self: QtC.QWebEngineClientHints, platform: []const u8 ```
     pub fn SetPlatform(self: ?*anyopaque, platform: []const u8) void {
@@ -165,7 +165,7 @@ pub const qwebengineclienthints = struct {
         qtc.QWebEngineClientHints_SetPlatform(@ptrCast(self), platform_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setModel)
     ///
     /// ``` self: QtC.QWebEngineClientHints, model: []const u8 ```
     pub fn SetModel(self: ?*anyopaque, model: []const u8) void {
@@ -176,14 +176,14 @@ pub const qwebengineclienthints = struct {
         qtc.QWebEngineClientHints_SetModel(@ptrCast(self), model_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setIsMobile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setIsMobile)
     ///
     /// ``` self: QtC.QWebEngineClientHints, isMobile: bool ```
     pub fn SetIsMobile(self: ?*anyopaque, isMobile: bool) void {
         qtc.QWebEngineClientHints_SetIsMobile(@ptrCast(self), isMobile);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setFullVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setFullVersion)
     ///
     /// ``` self: QtC.QWebEngineClientHints, fullVersion: []const u8 ```
     pub fn SetFullVersion(self: ?*anyopaque, fullVersion: []const u8) void {
@@ -194,7 +194,7 @@ pub const qwebengineclienthints = struct {
         qtc.QWebEngineClientHints_SetFullVersion(@ptrCast(self), fullVersion_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setPlatformVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setPlatformVersion)
     ///
     /// ``` self: QtC.QWebEngineClientHints, platformVersion: []const u8 ```
     pub fn SetPlatformVersion(self: ?*anyopaque, platformVersion: []const u8) void {
@@ -205,7 +205,7 @@ pub const qwebengineclienthints = struct {
         qtc.QWebEngineClientHints_SetPlatformVersion(@ptrCast(self), platformVersion_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setBitness)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setBitness)
     ///
     /// ``` self: QtC.QWebEngineClientHints, bitness: []const u8 ```
     pub fn SetBitness(self: ?*anyopaque, bitness: []const u8) void {
@@ -216,7 +216,7 @@ pub const qwebengineclienthints = struct {
         qtc.QWebEngineClientHints_SetBitness(@ptrCast(self), bitness_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setFullVersionList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setFullVersionList)
     ///
     /// ``` self: QtC.QWebEngineClientHints, fullVersionList: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn SetFullVersionList(self: ?*anyopaque, fullVersionList: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
@@ -243,35 +243,35 @@ pub const qwebengineclienthints = struct {
         qtc.QWebEngineClientHints_SetFullVersionList(@ptrCast(self), fullVersionList_map);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setIsWow64)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setIsWow64)
     ///
     /// ``` self: QtC.QWebEngineClientHints, isWow64: bool ```
     pub fn SetIsWow64(self: ?*anyopaque, isWow64: bool) void {
         qtc.QWebEngineClientHints_SetIsWow64(@ptrCast(self), isWow64);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#isAllClientHintsEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#isAllClientHintsEnabled)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn IsAllClientHintsEnabled(self: ?*anyopaque) bool {
         return qtc.QWebEngineClientHints_IsAllClientHintsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#setAllClientHintsEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setAllClientHintsEnabled)
     ///
     /// ``` self: QtC.QWebEngineClientHints, enabled: bool ```
     pub fn SetAllClientHintsEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QWebEngineClientHints_SetAllClientHintsEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#resetAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#resetAll)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn ResetAll(self: ?*anyopaque) void {
         qtc.QWebEngineClientHints_ResetAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -284,7 +284,7 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -299,7 +299,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QWebEngineClientHints, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -308,7 +308,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QWebEngineClientHints, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -317,7 +317,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -330,7 +330,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QWebEngineClientHints, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -343,7 +343,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -352,7 +352,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -361,7 +361,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -370,7 +370,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -379,7 +379,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QWebEngineClientHints, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -388,7 +388,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -397,7 +397,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineClientHints, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -406,7 +406,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineClientHints, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -415,7 +415,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineClientHints, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -424,7 +424,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineClientHints, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -433,7 +433,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -447,7 +447,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QWebEngineClientHints, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -456,7 +456,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QWebEngineClientHints, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -465,7 +465,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QWebEngineClientHints, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -474,7 +474,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -483,7 +483,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineClientHints, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -494,7 +494,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -503,7 +503,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -512,7 +512,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -521,7 +521,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -530,7 +530,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QWebEngineClientHints, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -540,7 +540,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QWebEngineClientHints, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -550,7 +550,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -574,7 +574,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -583,7 +583,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -592,7 +592,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -601,7 +601,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineClientHints, callback: *const fn (self: QtC.QWebEngineClientHints) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -610,7 +610,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -619,7 +619,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QWebEngineClientHints, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -629,7 +629,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QWebEngineClientHints ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -638,7 +638,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineClientHints, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -647,7 +647,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineClientHints, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -656,7 +656,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -665,7 +665,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineClientHints, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -676,7 +676,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineClientHints, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -685,7 +685,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineClientHints, callback: *const fn (self: QtC.QWebEngineClientHints, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -694,7 +694,7 @@ pub const qwebengineclienthints = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -703,7 +703,7 @@ pub const qwebengineclienthints = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#dtor.QWebEngineClientHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#dtor.QWebEngineClientHints)
     ///
     /// Delete this object from C++ memory.
     ///

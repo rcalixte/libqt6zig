@@ -20,7 +20,7 @@ pub const kremoteencoding = struct {
         return qtc.KRemoteEncoding_new2(name_Cstring);
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#decode)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#decode)
     ///
     /// ``` self: QtC.KRemoteEncoding, name: []u8, allocator: std.mem.Allocator ```
     pub fn Decode(self: ?*anyopaque, name: []u8, allocator: std.mem.Allocator) []const u8 {
@@ -35,7 +35,7 @@ pub const kremoteencoding = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#encode)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#encode)
     ///
     /// ``` self: QtC.KRemoteEncoding, name: []const u8, allocator: std.mem.Allocator ```
     pub fn Encode(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []u8 {
@@ -50,7 +50,7 @@ pub const kremoteencoding = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#encode)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#encode)
     ///
     /// ``` self: QtC.KRemoteEncoding, url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Encode2(self: ?*anyopaque, url: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -61,7 +61,7 @@ pub const kremoteencoding = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#directory)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#directory)
     ///
     /// ``` self: QtC.KRemoteEncoding, url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Directory(self: ?*anyopaque, url: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -72,7 +72,7 @@ pub const kremoteencoding = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#fileName)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#fileName)
     ///
     /// ``` self: QtC.KRemoteEncoding, url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, url: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -83,7 +83,7 @@ pub const kremoteencoding = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#encoding)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#encoding)
     ///
     /// ``` self: QtC.KRemoteEncoding ```
     pub fn Encoding(self: ?*anyopaque) []const u8 {
@@ -91,7 +91,7 @@ pub const kremoteencoding = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#setEncoding)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#setEncoding)
     ///
     /// ``` self: QtC.KRemoteEncoding, name: []const u8 ```
     pub fn SetEncoding(self: ?*anyopaque, name: []const u8) void {
@@ -99,14 +99,14 @@ pub const kremoteencoding = struct {
         qtc.KRemoteEncoding_SetEncoding(@ptrCast(self), name_Cstring);
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#virtual_hook)
     ///
     /// ``` self: QtC.KRemoteEncoding, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.KRemoteEncoding_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#virtual_hook)
     ///
     /// Allows for overriding the related default method
     ///
@@ -115,7 +115,7 @@ pub const kremoteencoding = struct {
         qtc.KRemoteEncoding_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#virtual_hook)
     ///
     /// Base class method implementation
     ///
@@ -124,7 +124,7 @@ pub const kremoteencoding = struct {
         qtc.KRemoteEncoding_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#directory)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#directory)
     ///
     /// ``` self: QtC.KRemoteEncoding, url: QtC.QUrl, ignore_trailing_slash: bool, allocator: std.mem.Allocator ```
     pub fn Directory2(self: ?*anyopaque, url: ?*anyopaque, ignore_trailing_slash: bool, allocator: std.mem.Allocator) []u8 {
@@ -135,7 +135,7 @@ pub const kremoteencoding = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kremoteencoding.html#dtor.KRemoteEncoding)
+    /// [Upstream resources](https://api.kde.org/kremoteencoding.html#dtor.KRemoteEncoding)
     ///
     /// Delete this object from C++ memory.
     ///

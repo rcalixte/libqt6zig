@@ -81,7 +81,7 @@ pub const quuid = struct {
         qtc.QUuid_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#fromString)
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) QtC.QUuid {
@@ -92,7 +92,7 @@ pub const quuid = struct {
         return qtc.QUuid_FromString(stringVal_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toString)
     ///
     /// ``` self: QtC.QUuid, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -103,7 +103,7 @@ pub const quuid = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toByteArray)
     ///
     /// ``` self: QtC.QUuid, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -114,14 +114,14 @@ pub const quuid = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toBytes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toBytes)
     ///
     /// ``` self: QtC.QUuid ```
     pub fn ToBytes(self: ?*anyopaque) QtC.QUuid__Id128Bytes {
         return qtc.QUuid_ToBytes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toRfc4122)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toRfc4122)
     ///
     /// ``` self: QtC.QUuid, allocator: std.mem.Allocator ```
     pub fn ToRfc4122(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -132,14 +132,14 @@ pub const quuid = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromBytes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#fromBytes)
     ///
     /// ``` bytes: ?*anyopaque ```
     pub fn FromBytes(bytes: ?*anyopaque) QtC.QUuid {
         return qtc.QUuid_FromBytes(@ptrCast(bytes));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromRfc4122)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#fromRfc4122)
     ///
     /// ``` param1: []const u8 ```
     pub fn FromRfc4122(param1: []const u8) QtC.QUuid {
@@ -150,21 +150,21 @@ pub const quuid = struct {
         return qtc.QUuid_FromRfc4122(param1_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#isNull)
     ///
     /// ``` self: QtC.QUuid ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QUuid_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#createUuid)
     ///
     ///
     pub fn CreateUuid() QtC.QUuid {
         return qtc.QUuid_CreateUuid();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuidV5)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#createUuidV5)
     ///
     /// ``` ns: QtC.QUuid, baseData: []const u8 ```
     pub fn CreateUuidV5(ns: QtC.QUuid, baseData: []const u8) QtC.QUuid {
@@ -175,7 +175,7 @@ pub const quuid = struct {
         return qtc.QUuid_CreateUuidV5(@ptrCast(ns), baseData_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuidV3)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#createUuidV3)
     ///
     /// ``` ns: QtC.QUuid, baseData: []const u8 ```
     pub fn CreateUuidV3(ns: QtC.QUuid, baseData: []const u8) QtC.QUuid {
@@ -186,7 +186,7 @@ pub const quuid = struct {
         return qtc.QUuid_CreateUuidV3(@ptrCast(ns), baseData_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#variant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#variant)
     ///
     /// ``` self: QtC.QUuid ```
     ///
@@ -195,7 +195,7 @@ pub const quuid = struct {
         return qtc.QUuid_Variant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#version)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#version)
     ///
     /// ``` self: QtC.QUuid ```
     ///
@@ -204,49 +204,49 @@ pub const quuid = struct {
         return qtc.QUuid_Version(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data1-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data1-var)
     ///
     /// ``` self: QtC.QUuid ```
     pub fn Data1(self: ?*anyopaque) u32 {
         return qtc.QUuid_Data1(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data1-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data1-var)
     ///
     /// ``` self: QtC.QUuid, data1: u32 ```
     pub fn SetData1(self: ?*anyopaque, data1: u32) void {
         qtc.QUuid_SetData1(@ptrCast(self), @intCast(data1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data2-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data2-var)
     ///
     /// ``` self: QtC.QUuid ```
     pub fn Data2(self: ?*anyopaque) u16 {
         return qtc.QUuid_Data2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data2-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data2-var)
     ///
     /// ``` self: QtC.QUuid, data2: u16 ```
     pub fn SetData2(self: ?*anyopaque, data2: u16) void {
         qtc.QUuid_SetData2(@ptrCast(self), @intCast(data2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data3-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data3-var)
     ///
     /// ``` self: QtC.QUuid ```
     pub fn Data3(self: ?*anyopaque) u16 {
         return qtc.QUuid_Data3(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data3-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data3-var)
     ///
     /// ``` self: QtC.QUuid, data3: u16 ```
     pub fn SetData3(self: ?*anyopaque, data3: u16) void {
         qtc.QUuid_SetData3(@ptrCast(self), @intCast(data3));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toString)
     ///
     /// ``` self: QtC.QUuid, mode: quuid_enums.StringFormat, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []const u8 {
@@ -257,7 +257,7 @@ pub const quuid = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toByteArray)
     ///
     /// ``` self: QtC.QUuid, mode: quuid_enums.StringFormat, allocator: std.mem.Allocator ```
     pub fn ToByteArray1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []u8 {
@@ -268,21 +268,21 @@ pub const quuid = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toBytes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toBytes)
     ///
     /// ``` self: QtC.QUuid, order: qsysinfo_enums.Endian ```
     pub fn ToBytes1(self: ?*anyopaque, order: i32) QtC.QUuid__Id128Bytes {
         return qtc.QUuid_ToBytes1(@ptrCast(self), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromBytes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#fromBytes)
     ///
     /// ``` bytes: ?*anyopaque, order: qsysinfo_enums.Endian ```
     pub fn FromBytes2(bytes: ?*anyopaque, order: i32) QtC.QUuid {
         return qtc.QUuid_FromBytes2(@ptrCast(bytes), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#dtor.QUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid.html#dtor.QUuid)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -308,7 +308,7 @@ pub const quuid__id128bytes = struct {
         return qtc.QUuid__Id128Bytes_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid-id128bytes.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/quuid-id128bytes.html#operator)
     ///
     /// ``` self: QtC.QUuid__Id128Bytes, allocator: std.mem.Allocator ```
     pub fn ToQByteArrayView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {

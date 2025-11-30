@@ -18,28 +18,28 @@ pub const attica__homepagetype = struct {
         return qtc.Attica__HomePageType_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepagetype.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-homepagetype.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__HomePageType, other: QtC.Attica__HomePageType ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__HomePageType_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepagetype.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-homepagetype.html#id)
     ///
     /// ``` self: QtC.Attica__HomePageType ```
     pub fn Id(self: ?*anyopaque) u32 {
         return qtc.Attica__HomePageType_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepagetype.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-homepagetype.html#setId)
     ///
     /// ``` self: QtC.Attica__HomePageType, id: u32 ```
     pub fn SetId(self: ?*anyopaque, id: u32) void {
         qtc.Attica__HomePageType_SetId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepagetype.html#name)
+    /// [Upstream resources](https://api.kde.org/attica-homepagetype.html#name)
     ///
     /// ``` self: QtC.Attica__HomePageType, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -50,7 +50,7 @@ pub const attica__homepagetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepagetype.html#setName)
+    /// [Upstream resources](https://api.kde.org/attica-homepagetype.html#setName)
     ///
     /// ``` self: QtC.Attica__HomePageType, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {

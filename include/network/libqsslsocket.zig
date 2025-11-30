@@ -25,7 +25,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -57,7 +57,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -69,14 +69,14 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#resume)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QSslSocket_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#resume)
     ///
     /// Allows for overriding the related default method
     ///
@@ -85,7 +85,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#resume)
     ///
     /// Base class method implementation
     ///
@@ -94,7 +94,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_QBaseResume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16 ```
     pub fn ConnectToHostEncrypted(self: ?*anyopaque, hostName: []const u8, port: u16) void {
@@ -105,7 +105,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_ConnectToHostEncrypted(@ptrCast(self), hostName_str, @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, sslPeerName: []const u8 ```
     pub fn ConnectToHostEncrypted2(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8) void {
@@ -120,14 +120,14 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_ConnectToHostEncrypted2(@ptrCast(self), hostName_str, @intCast(port), sslPeerName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
     ///
     /// ``` self: QtC.QSslSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
         return qtc.QSslSocket_SetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -136,7 +136,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnSetSocketDescriptor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
     ///
     /// Base class method implementation
     ///
@@ -145,7 +145,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseSetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, openMode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
     pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, openMode: i32, protocol: i32) void {
@@ -156,7 +156,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_ConnectToHost(@ptrCast(self), hostName_str, @intCast(port), @intCast(openMode), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
     ///
     /// Allows for overriding the related default method
     ///
@@ -165,7 +165,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnConnectToHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
     ///
     /// Base class method implementation
     ///
@@ -178,14 +178,14 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_QBaseConnectToHost(@ptrCast(self), hostName_str, @intCast(port), @intCast(openMode), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#disconnectFromHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#disconnectFromHost)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn DisconnectFromHost(self: ?*anyopaque) void {
         qtc.QSslSocket_DisconnectFromHost(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#disconnectFromHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#disconnectFromHost)
     ///
     /// Allows for overriding the related default method
     ///
@@ -194,7 +194,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnDisconnectFromHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#disconnectFromHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#disconnectFromHost)
     ///
     /// Base class method implementation
     ///
@@ -203,14 +203,14 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_QBaseDisconnectFromHost(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setSocketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketOption)
     ///
     /// ``` self: QtC.QSslSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant ```
     pub fn SetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QSslSocket_SetSocketOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setSocketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketOption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -219,7 +219,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnSetSocketOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setSocketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketOption)
     ///
     /// Base class method implementation
     ///
@@ -228,14 +228,14 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_QBaseSetSocketOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#socketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#socketOption)
     ///
     /// ``` self: QtC.QSslSocket, option: qabstractsocket_enums.SocketOption ```
     pub fn SocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QSslSocket_SocketOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#socketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#socketOption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -244,7 +244,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnSocketOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#socketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#socketOption)
     ///
     /// Base class method implementation
     ///
@@ -253,7 +253,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseSocketOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#mode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#mode)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -262,14 +262,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_Mode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#isEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#isEncrypted)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsEncrypted(self: ?*anyopaque) bool {
         return qtc.QSslSocket_IsEncrypted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#protocol)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#protocol)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -278,14 +278,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_Protocol(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setProtocol)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setProtocol)
     ///
     /// ``` self: QtC.QSslSocket, protocol: qssl_enums.SslProtocol ```
     pub fn SetProtocol(self: ?*anyopaque, protocol: i32) void {
         qtc.QSslSocket_SetProtocol(@ptrCast(self), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyMode)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -294,28 +294,28 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_PeerVerifyMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setPeerVerifyMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPeerVerifyMode)
     ///
     /// ``` self: QtC.QSslSocket, mode: qsslsocket_enums.PeerVerifyMode ```
     pub fn SetPeerVerifyMode(self: ?*anyopaque, mode: i32) void {
         qtc.QSslSocket_SetPeerVerifyMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyDepth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyDepth)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn PeerVerifyDepth(self: ?*anyopaque) i32 {
         return qtc.QSslSocket_PeerVerifyDepth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setPeerVerifyDepth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPeerVerifyDepth)
     ///
     /// ``` self: QtC.QSslSocket, depth: i32 ```
     pub fn SetPeerVerifyDepth(self: ?*anyopaque, depth: i32) void {
         qtc.QSslSocket_SetPeerVerifyDepth(@ptrCast(self), @intCast(depth));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyName)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn PeerVerifyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -326,7 +326,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setPeerVerifyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPeerVerifyName)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8 ```
     pub fn SetPeerVerifyName(self: ?*anyopaque, hostName: []const u8) void {
@@ -337,14 +337,14 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SetPeerVerifyName(@ptrCast(self), hostName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesAvailable)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn BytesAvailable(self: ?*anyopaque) i64 {
         return qtc.QSslSocket_BytesAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesAvailable)
     ///
     /// Allows for overriding the related default method
     ///
@@ -353,7 +353,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesAvailable)
     ///
     /// Base class method implementation
     ///
@@ -362,14 +362,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseBytesAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesToWrite)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn BytesToWrite(self: ?*anyopaque) i64 {
         return qtc.QSslSocket_BytesToWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesToWrite)
     ///
     /// Allows for overriding the related default method
     ///
@@ -378,7 +378,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesToWrite)
     ///
     /// Base class method implementation
     ///
@@ -387,14 +387,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseBytesToWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#canReadLine)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn CanReadLine(self: ?*anyopaque) bool {
         return qtc.QSslSocket_CanReadLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#canReadLine)
     ///
     /// Allows for overriding the related default method
     ///
@@ -403,7 +403,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#canReadLine)
     ///
     /// Base class method implementation
     ///
@@ -412,14 +412,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseCanReadLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#close)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Close(self: ?*anyopaque) void {
         qtc.QSslSocket_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#close)
     ///
     /// Allows for overriding the related default method
     ///
@@ -428,7 +428,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#close)
     ///
     /// Base class method implementation
     ///
@@ -437,14 +437,14 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_QBaseClose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#atEnd)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn AtEnd(self: ?*anyopaque) bool {
         return qtc.QSslSocket_AtEnd(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#atEnd)
     ///
     /// Allows for overriding the related default method
     ///
@@ -453,7 +453,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#atEnd)
     ///
     /// Base class method implementation
     ///
@@ -462,14 +462,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseAtEnd(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setReadBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setReadBufferSize)
     ///
     /// ``` self: QtC.QSslSocket, size: i64 ```
     pub fn SetReadBufferSize(self: ?*anyopaque, size: i64) void {
         qtc.QSslSocket_SetReadBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setReadBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setReadBufferSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -478,7 +478,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnSetReadBufferSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setReadBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setReadBufferSize)
     ///
     /// Base class method implementation
     ///
@@ -487,35 +487,35 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_QBaseSetReadBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesAvailable)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn EncryptedBytesAvailable(self: ?*anyopaque) i64 {
         return qtc.QSslSocket_EncryptedBytesAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesToWrite)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn EncryptedBytesToWrite(self: ?*anyopaque) i64 {
         return qtc.QSslSocket_EncryptedBytesToWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslConfiguration)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn SslConfiguration(self: ?*anyopaque) QtC.QSslConfiguration {
         return qtc.QSslSocket_SslConfiguration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setSslConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSslConfiguration)
     ///
     /// ``` self: QtC.QSslSocket, config: QtC.QSslConfiguration ```
     pub fn SetSslConfiguration(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.QSslSocket_SetSslConfiguration(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificateChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificateChain)
     ///
     /// ``` self: QtC.QSslSocket, localChain: []QtC.QSslCertificate ```
     pub fn SetLocalCertificateChain(self: ?*anyopaque, localChain: []QtC.QSslCertificate) void {
@@ -526,7 +526,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SetLocalCertificateChain(@ptrCast(self), localChain_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#localCertificateChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#localCertificateChain)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn LocalCertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
@@ -538,14 +538,14 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificate)
     ///
     /// ``` self: QtC.QSslSocket, certificate: QtC.QSslCertificate ```
     pub fn SetLocalCertificate(self: ?*anyopaque, certificate: ?*anyopaque) void {
         qtc.QSslSocket_SetLocalCertificate(@ptrCast(self), @ptrCast(certificate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificate)
     ///
     /// ``` self: QtC.QSslSocket, fileName: []const u8 ```
     pub fn SetLocalCertificate2(self: ?*anyopaque, fileName: []const u8) void {
@@ -556,21 +556,21 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SetLocalCertificate2(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#localCertificate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#localCertificate)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn LocalCertificate(self: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QSslSocket_LocalCertificate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#peerCertificate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerCertificate)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn PeerCertificate(self: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QSslSocket_PeerCertificate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#peerCertificateChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerCertificateChain)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn PeerCertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
@@ -582,14 +582,14 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sessionCipher)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sessionCipher)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn SessionCipher(self: ?*anyopaque) QtC.QSslCipher {
         return qtc.QSslSocket_SessionCipher(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sessionProtocol)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sessionProtocol)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -598,7 +598,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_SessionProtocol(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#ocspResponses)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#ocspResponses)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn OcspResponses(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QOcspResponse {
@@ -610,14 +610,14 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ``` self: QtC.QSslSocket, key: QtC.QSslKey ```
     pub fn SetPrivateKey(self: ?*anyopaque, key: ?*anyopaque) void {
         qtc.QSslSocket_SetPrivateKey(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ``` self: QtC.QSslSocket, fileName: []const u8 ```
     pub fn SetPrivateKey2(self: ?*anyopaque, fileName: []const u8) void {
@@ -628,21 +628,21 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SetPrivateKey2(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#privateKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#privateKey)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn PrivateKey(self: ?*anyopaque) QtC.QSslKey {
         return qtc.QSslSocket_PrivateKey(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForConnected)
     ///
     /// ``` self: QtC.QSslSocket, msecs: i32 ```
     pub fn WaitForConnected(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QSslSocket_WaitForConnected(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForConnected)
     ///
     /// Allows for overriding the related default method
     ///
@@ -651,7 +651,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnWaitForConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForConnected)
     ///
     /// Base class method implementation
     ///
@@ -660,21 +660,21 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseWaitForConnected(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForEncrypted)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn WaitForEncrypted(self: ?*anyopaque) bool {
         return qtc.QSslSocket_WaitForEncrypted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForReadyRead)
     ///
     /// ``` self: QtC.QSslSocket, msecs: i32 ```
     pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QSslSocket_WaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForReadyRead)
     ///
     /// Allows for overriding the related default method
     ///
@@ -683,7 +683,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForReadyRead)
     ///
     /// Base class method implementation
     ///
@@ -692,14 +692,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseWaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForBytesWritten)
     ///
     /// ``` self: QtC.QSslSocket, msecs: i32 ```
     pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QSslSocket_WaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForBytesWritten)
     ///
     /// Allows for overriding the related default method
     ///
@@ -708,7 +708,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForBytesWritten)
     ///
     /// Base class method implementation
     ///
@@ -717,14 +717,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseWaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForDisconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForDisconnected)
     ///
     /// ``` self: QtC.QSslSocket, msecs: i32 ```
     pub fn WaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QSslSocket_WaitForDisconnected(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForDisconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForDisconnected)
     ///
     /// Allows for overriding the related default method
     ///
@@ -733,7 +733,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnWaitForDisconnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForDisconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForDisconnected)
     ///
     /// Base class method implementation
     ///
@@ -742,7 +742,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseWaitForDisconnected(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslHandshakeErrors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslHandshakeErrors)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn SslHandshakeErrors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslError {
@@ -754,21 +754,21 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#supportsSsl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#supportsSsl)
     ///
     ///
     pub fn SupportsSsl() bool {
         return qtc.QSslSocket_SupportsSsl();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryVersionNumber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryVersionNumber)
     ///
     ///
     pub fn SslLibraryVersionNumber() i64 {
         return qtc.QSslSocket_SslLibraryVersionNumber();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryVersionString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryVersionString)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SslLibraryVersionString(allocator: std.mem.Allocator) []const u8 {
@@ -779,14 +779,14 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryBuildVersionNumber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryBuildVersionNumber)
     ///
     ///
     pub fn SslLibraryBuildVersionNumber() i64 {
         return qtc.QSslSocket_SslLibraryBuildVersionNumber();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryBuildVersionString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryBuildVersionString)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SslLibraryBuildVersionString(allocator: std.mem.Allocator) []const u8 {
@@ -797,7 +797,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#availableBackends)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#availableBackends)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableBackends(allocator: std.mem.Allocator) [][]const u8 {
@@ -819,7 +819,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#activeBackend)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#activeBackend)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ActiveBackend(allocator: std.mem.Allocator) []const u8 {
@@ -830,7 +830,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setActiveBackend)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setActiveBackend)
     ///
     /// ``` backendName: []const u8 ```
     pub fn SetActiveBackend(backendName: []const u8) bool {
@@ -841,7 +841,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_SetActiveBackend(backendName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#supportedProtocols)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#supportedProtocols)
     ///
     /// ``` allocator: std.mem.Allocator ```
     ///
@@ -855,14 +855,14 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#isProtocolSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#isProtocolSupported)
     ///
     /// ``` protocol: qssl_enums.SslProtocol ```
     pub fn IsProtocolSupported(protocol: i32) bool {
         return qtc.QSslSocket_IsProtocolSupported(@intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#implementedClasses)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#implementedClasses)
     ///
     /// ``` allocator: std.mem.Allocator ```
     ///
@@ -876,14 +876,14 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#isClassImplemented)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#isClassImplemented)
     ///
     /// ``` cl: qssl_enums.ImplementedClass ```
     pub fn IsClassImplemented(cl: i32) bool {
         return qtc.QSslSocket_IsClassImplemented(@intCast(cl));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#supportedFeatures)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#supportedFeatures)
     ///
     /// ``` allocator: std.mem.Allocator ```
     ///
@@ -897,14 +897,14 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#isFeatureSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#isFeatureSupported)
     ///
     /// ``` feat: qssl_enums.SupportedFeature ```
     pub fn IsFeatureSupported(feat: i32) bool {
         return qtc.QSslSocket_IsFeatureSupported(@intCast(feat));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#ignoreSslErrors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#ignoreSslErrors)
     ///
     /// ``` self: QtC.QSslSocket, errors: []QtC.QSslError ```
     pub fn IgnoreSslErrors(self: ?*anyopaque, errors: []QtC.QSslError) void {
@@ -915,63 +915,63 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_IgnoreSslErrors(@ptrCast(self), errors_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#continueInterruptedHandshake)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#continueInterruptedHandshake)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn ContinueInterruptedHandshake(self: ?*anyopaque) void {
         qtc.QSslSocket_ContinueInterruptedHandshake(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#startClientEncryption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#startClientEncryption)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn StartClientEncryption(self: ?*anyopaque) void {
         qtc.QSslSocket_StartClientEncryption(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#startServerEncryption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#startServerEncryption)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn StartServerEncryption(self: ?*anyopaque) void {
         qtc.QSslSocket_StartServerEncryption(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#ignoreSslErrors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#ignoreSslErrors)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IgnoreSslErrors2(self: ?*anyopaque) void {
         qtc.QSslSocket_IgnoreSslErrors2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#encrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encrypted)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Encrypted(self: ?*anyopaque) void {
         qtc.QSslSocket_Encrypted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#encrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encrypted)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnEncrypted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QSslSocket_Connect_Encrypted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyError)
     ///
     /// ``` self: QtC.QSslSocket, errorVal: QtC.QSslError ```
     pub fn PeerVerifyError(self: ?*anyopaque, errorVal: ?*anyopaque) void {
         qtc.QSslSocket_PeerVerifyError(@ptrCast(self), @ptrCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyError)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void ```
     pub fn OnPeerVerifyError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslSocket_Connect_PeerVerifyError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslErrors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslErrors)
     ///
     /// ``` self: QtC.QSslSocket, errors: []QtC.QSslError ```
     pub fn SslErrors(self: ?*anyopaque, errors: []QtC.QSslError) void {
@@ -982,70 +982,70 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SslErrors(@ptrCast(self), errors_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslErrors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslErrors)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void ```
     pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QSslSocket_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#modeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#modeChanged)
     ///
     /// ``` self: QtC.QSslSocket, newMode: qsslsocket_enums.SslMode ```
     pub fn ModeChanged(self: ?*anyopaque, newMode: i32) void {
         qtc.QSslSocket_ModeChanged(@ptrCast(self), @intCast(newMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#modeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#modeChanged)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, newMode: qsslsocket_enums.SslMode) callconv(.c) void ```
     pub fn OnModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSslSocket_Connect_ModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesWritten)
     ///
     /// ``` self: QtC.QSslSocket, totalBytes: i64 ```
     pub fn EncryptedBytesWritten(self: ?*anyopaque, totalBytes: i64) void {
         qtc.QSslSocket_EncryptedBytesWritten(@ptrCast(self), @intCast(totalBytes));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesWritten)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, totalBytes: i64) callconv(.c) void ```
     pub fn OnEncryptedBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QSslSocket_Connect_EncryptedBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#preSharedKeyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#preSharedKeyAuthenticationRequired)
     ///
     /// ``` self: QtC.QSslSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator ```
     pub fn PreSharedKeyAuthenticationRequired(self: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QSslSocket_PreSharedKeyAuthenticationRequired(@ptrCast(self), @ptrCast(authenticator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#preSharedKeyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#preSharedKeyAuthenticationRequired)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void ```
     pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslSocket_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#newSessionTicketReceived)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#newSessionTicketReceived)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn NewSessionTicketReceived(self: ?*anyopaque) void {
         qtc.QSslSocket_NewSessionTicketReceived(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#newSessionTicketReceived)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#newSessionTicketReceived)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnNewSessionTicketReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QSslSocket_Connect_NewSessionTicketReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#alertSent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#alertSent)
     ///
     /// ``` self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: []const u8 ```
     pub fn AlertSent(self: ?*anyopaque, level: i32, typeVal: i32, description: []const u8) void {
@@ -1056,14 +1056,14 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_AlertSent(@ptrCast(self), @intCast(level), @intCast(typeVal), description_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#alertSent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#alertSent)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void ```
     pub fn OnAlertSent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslSocket_Connect_AlertSent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#alertReceived)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#alertReceived)
     ///
     /// ``` self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: []const u8 ```
     pub fn AlertReceived(self: ?*anyopaque, level: i32, typeVal: i32, description: []const u8) void {
@@ -1074,28 +1074,28 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_AlertReceived(@ptrCast(self), @intCast(level), @intCast(typeVal), description_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#alertReceived)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#alertReceived)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void ```
     pub fn OnAlertReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslSocket_Connect_AlertReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#handshakeInterruptedOnError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#handshakeInterruptedOnError)
     ///
     /// ``` self: QtC.QSslSocket, errorVal: QtC.QSslError ```
     pub fn HandshakeInterruptedOnError(self: ?*anyopaque, errorVal: ?*anyopaque) void {
         qtc.QSslSocket_HandshakeInterruptedOnError(@ptrCast(self), @ptrCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#handshakeInterruptedOnError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#handshakeInterruptedOnError)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void ```
     pub fn OnHandshakeInterruptedOnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSslSocket_Connect_HandshakeInterruptedOnError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#readData)
     ///
     /// ``` self: QtC.QSslSocket, data: []u8, maxlen: i64 ```
     pub fn ReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1103,7 +1103,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#readData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1112,7 +1112,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#readData)
     ///
     /// Base class method implementation
     ///
@@ -1122,14 +1122,14 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#skipData)
     ///
     /// ``` self: QtC.QSslSocket, maxSize: i64 ```
     pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
         return qtc.QSslSocket_SkipData(@ptrCast(self), @intCast(maxSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#skipData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1138,7 +1138,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#skipData)
     ///
     /// Base class method implementation
     ///
@@ -1147,7 +1147,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseSkipData(@ptrCast(self), @intCast(maxSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#writeData)
     ///
     /// ``` self: QtC.QSslSocket, data: []const u8, lenVal: i64 ```
     pub fn WriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -1155,7 +1155,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_WriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#writeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1164,7 +1164,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#writeData)
     ///
     /// Base class method implementation
     ///
@@ -1174,7 +1174,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_QBaseWriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1187,7 +1187,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1200,7 +1200,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn ConnectToHostEncrypted3(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32) void {
@@ -1211,7 +1211,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_ConnectToHostEncrypted3(@ptrCast(self), hostName_str, @intCast(port), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
     pub fn ConnectToHostEncrypted4(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
@@ -1222,7 +1222,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_ConnectToHostEncrypted4(@ptrCast(self), hostName_str, @intCast(port), @intCast(mode), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn ConnectToHostEncrypted42(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i32) void {
@@ -1237,7 +1237,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_ConnectToHostEncrypted42(@ptrCast(self), hostName_str, @intCast(port), sslPeerName_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
     pub fn ConnectToHostEncrypted5(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i32, protocol: i32) void {
@@ -1252,7 +1252,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_ConnectToHostEncrypted5(@ptrCast(self), hostName_str, @intCast(port), sslPeerName_str, @intCast(mode), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificate)
     ///
     /// ``` self: QtC.QSslSocket, fileName: []const u8, format: qssl_enums.EncodingFormat ```
     pub fn SetLocalCertificate22(self: ?*anyopaque, fileName: []const u8, format: i32) void {
@@ -1263,7 +1263,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SetLocalCertificate22(@ptrCast(self), fileName_str, @intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ``` self: QtC.QSslSocket, fileName: []const u8, algorithm: qssl_enums.KeyAlgorithm ```
     pub fn SetPrivateKey22(self: ?*anyopaque, fileName: []const u8, algorithm: i32) void {
@@ -1274,7 +1274,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SetPrivateKey22(@ptrCast(self), fileName_str, @intCast(algorithm));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ``` self: QtC.QSslSocket, fileName: []const u8, algorithm: qssl_enums.KeyAlgorithm, format: qssl_enums.EncodingFormat ```
     pub fn SetPrivateKey3(self: ?*anyopaque, fileName: []const u8, algorithm: i32, format: i32) void {
@@ -1285,7 +1285,7 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SetPrivateKey3(@ptrCast(self), fileName_str, @intCast(algorithm), @intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ``` self: QtC.QSslSocket, fileName: []const u8, algorithm: qssl_enums.KeyAlgorithm, format: qssl_enums.EncodingFormat, passPhrase: []u8 ```
     pub fn SetPrivateKey4(self: ?*anyopaque, fileName: []const u8, algorithm: i32, format: i32, passPhrase: []u8) void {
@@ -1300,14 +1300,14 @@ pub const qsslsocket = struct {
         qtc.QSslSocket_SetPrivateKey4(@ptrCast(self), fileName_str, @intCast(algorithm), @intCast(format), passPhrase_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#waitForEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, msecs: i32 ```
     pub fn WaitForEncrypted1(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QSslSocket_WaitForEncrypted1(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#supportedProtocols)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#supportedProtocols)
     ///
     /// ``` backendName: []const u8, allocator: std.mem.Allocator ```
     ///
@@ -1325,7 +1325,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#isProtocolSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#isProtocolSupported)
     ///
     /// ``` protocol: qssl_enums.SslProtocol, backendName: []const u8 ```
     pub fn IsProtocolSupported2(protocol: i32, backendName: []const u8) bool {
@@ -1336,7 +1336,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_IsProtocolSupported2(@intCast(protocol), backendName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#implementedClasses)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#implementedClasses)
     ///
     /// ``` backendName: []const u8, allocator: std.mem.Allocator ```
     ///
@@ -1354,7 +1354,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#isClassImplemented)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#isClassImplemented)
     ///
     /// ``` cl: qssl_enums.ImplementedClass, backendName: []const u8 ```
     pub fn IsClassImplemented2(cl: i32, backendName: []const u8) bool {
@@ -1365,7 +1365,7 @@ pub const qsslsocket = struct {
         return qtc.QSslSocket_IsClassImplemented2(@intCast(cl), backendName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#supportedFeatures)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#supportedFeatures)
     ///
     /// ``` backendName: []const u8, allocator: std.mem.Allocator ```
     ///
@@ -1383,7 +1383,7 @@ pub const qsslsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#isFeatureSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#isFeatureSupported)
     ///
     /// ``` feat: qssl_enums.SupportedFeature, backendName: []const u8 ```
     pub fn IsFeatureSupported2(feat: i32, backendName: []const u8) bool {
@@ -1396,7 +1396,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QTcpSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
     ///
     /// ``` self: QtC.QSslSocket, addr: qhostaddress_enums.SpecialAddress, port: u16 ```
     pub fn Bind2(self: ?*anyopaque, addr: i32, port: u16) bool {
@@ -1405,7 +1405,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QTcpSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
     ///
     /// ``` self: QtC.QSslSocket, addr: qhostaddress_enums.SpecialAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
     pub fn Bind3(self: ?*anyopaque, addr: i32, port: u16, mode: i32) bool {
@@ -1414,7 +1414,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#pauseMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#pauseMode)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -1425,7 +1425,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPauseMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPauseMode)
     ///
     /// ``` self: QtC.QSslSocket, pauseMode: flag of qabstractsocket_enums.PauseMode ```
     pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i32) void {
@@ -1434,7 +1434,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QSslSocket, address: QtC.QHostAddress, port: u16 ```
     pub fn ConnectToHost2(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
@@ -1443,7 +1443,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isValid)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -1452,7 +1452,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#localPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localPort)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn LocalPort(self: ?*anyopaque) u16 {
@@ -1461,7 +1461,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#localAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localAddress)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn LocalAddress(self: ?*anyopaque) QtC.QHostAddress {
@@ -1470,7 +1470,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#peerPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerPort)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn PeerPort(self: ?*anyopaque) u16 {
@@ -1479,7 +1479,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#peerAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerAddress)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn PeerAddress(self: ?*anyopaque) QtC.QHostAddress {
@@ -1488,7 +1488,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#peerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerName)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn PeerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1501,7 +1501,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readBufferSize)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn ReadBufferSize(self: ?*anyopaque) i64 {
@@ -1510,7 +1510,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#abort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#abort)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Abort(self: ?*anyopaque) void {
@@ -1519,7 +1519,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketType)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -1530,7 +1530,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#state)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -1541,7 +1541,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#error)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -1552,7 +1552,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#flush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#flush)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Flush(self: ?*anyopaque) bool {
@@ -1561,7 +1561,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProxy)
     ///
     /// ``` self: QtC.QSslSocket, networkProxy: QtC.QNetworkProxy ```
     pub fn SetProxy(self: ?*anyopaque, networkProxy: ?*anyopaque) void {
@@ -1570,7 +1570,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#proxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxy)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Proxy(self: ?*anyopaque) QtC.QNetworkProxy {
@@ -1579,7 +1579,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#protocolTag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#protocolTag)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn ProtocolTag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1592,7 +1592,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setProtocolTag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProtocolTag)
     ///
     /// ``` self: QtC.QSslSocket, tag: []const u8 ```
     pub fn SetProtocolTag(self: ?*anyopaque, tag: []const u8) void {
@@ -1605,7 +1605,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn HostFound(self: ?*anyopaque) void {
@@ -1614,7 +1614,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnHostFound(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1623,7 +1623,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Connected(self: ?*anyopaque) void {
@@ -1632,7 +1632,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1641,7 +1641,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Disconnected(self: ?*anyopaque) void {
@@ -1650,7 +1650,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1659,7 +1659,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
     /// ``` self: QtC.QSslSocket, param1: qabstractsocket_enums.SocketState ```
     pub fn StateChanged(self: ?*anyopaque, param1: i32) void {
@@ -1668,7 +1668,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1677,7 +1677,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
     /// ``` self: QtC.QSslSocket, param1: qabstractsocket_enums.SocketError ```
     pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
@@ -1686,7 +1686,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void ```
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1695,7 +1695,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
     ///
     /// ``` self: QtC.QSslSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator ```
     pub fn ProxyAuthenticationRequired(self: ?*anyopaque, proxy: ?*anyopaque, authenticator: ?*anyopaque) void {
@@ -1704,7 +1704,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void ```
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1713,7 +1713,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// ``` self: QtC.QSslSocket, port: u16 ```
     pub fn Bind1(self: ?*anyopaque, port: u16) bool {
@@ -1722,7 +1722,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// ``` self: QtC.QSslSocket, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
     pub fn Bind22(self: ?*anyopaque, port: u16, mode: i32) bool {
@@ -1731,7 +1731,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QSslSocket, address: QtC.QHostAddress, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn ConnectToHost3(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) void {
@@ -1740,7 +1740,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QSslSocket ```
     ///
@@ -1751,7 +1751,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
     ///
     /// ``` self: QtC.QSslSocket, enabled: bool ```
     pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1760,7 +1760,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
@@ -1769,7 +1769,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsOpen(self: ?*anyopaque) bool {
@@ -1778,7 +1778,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsReadable(self: ?*anyopaque) bool {
@@ -1787,7 +1787,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsWritable(self: ?*anyopaque) bool {
@@ -1796,7 +1796,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn ReadChannelCount(self: ?*anyopaque) i32 {
@@ -1805,7 +1805,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn WriteChannelCount(self: ?*anyopaque) i32 {
@@ -1814,7 +1814,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
@@ -1823,7 +1823,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
     ///
     /// ``` self: QtC.QSslSocket, channel: i32 ```
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
@@ -1832,7 +1832,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
@@ -1841,7 +1841,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
     ///
     /// ``` self: QtC.QSslSocket, channel: i32 ```
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
@@ -1850,7 +1850,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QSslSocket, data: []u8, maxlen: i64 ```
     pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1860,7 +1860,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QSslSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -1873,7 +1873,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1886,7 +1886,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QSslSocket, data: []u8, maxlen: i64 ```
     pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1896,7 +1896,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1909,7 +1909,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn StartTransaction(self: ?*anyopaque) void {
@@ -1918,7 +1918,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn CommitTransaction(self: ?*anyopaque) void {
@@ -1927,7 +1927,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn RollbackTransaction(self: ?*anyopaque) void {
@@ -1936,7 +1936,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsTransactionStarted(self: ?*anyopaque) bool {
@@ -1945,7 +1945,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QSslSocket, data: []const u8, lenVal: i64 ```
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -1955,7 +1955,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QSslSocket, data: []const u8 ```
     pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
@@ -1965,7 +1965,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QSslSocket, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
@@ -1978,7 +1978,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QSslSocket, data: []u8, maxlen: i64 ```
     pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1988,7 +1988,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QSslSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -2001,7 +2001,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
     ///
     /// ``` self: QtC.QSslSocket, maxSize: i64 ```
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
@@ -2010,7 +2010,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
     /// ``` self: QtC.QSslSocket, c: u8 ```
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
@@ -2019,7 +2019,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#putChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
     /// ``` self: QtC.QSslSocket, c: u8 ```
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
@@ -2028,7 +2028,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#getChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
     /// ``` self: QtC.QSslSocket, c: []u8 ```
     pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
@@ -2038,7 +2038,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2051,7 +2051,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn ReadyRead(self: ?*anyopaque) void {
@@ -2060,7 +2060,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2069,7 +2069,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QSslSocket, channel: i32 ```
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
@@ -2078,7 +2078,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, channel: i32) callconv(.c) void ```
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -2087,7 +2087,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QSslSocket, bytes: i64 ```
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
@@ -2096,7 +2096,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, bytes: i64) callconv(.c) void ```
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
@@ -2105,7 +2105,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QSslSocket, channel: i32, bytes: i64 ```
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
@@ -2114,7 +2114,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, channel: i32, bytes: i64) callconv(.c) void ```
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
@@ -2123,7 +2123,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn AboutToClose(self: ?*anyopaque) void {
@@ -2132,7 +2132,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2141,7 +2141,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn ReadChannelFinished(self: ?*anyopaque) void {
@@ -2150,7 +2150,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2159,7 +2159,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QSslSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -2172,7 +2172,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2185,7 +2185,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSslSocket, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2198,7 +2198,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2207,7 +2207,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2216,7 +2216,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2225,7 +2225,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2234,7 +2234,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSslSocket, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2243,7 +2243,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2252,7 +2252,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSslSocket, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2261,7 +2261,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSslSocket, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2270,7 +2270,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSslSocket, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2279,7 +2279,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSslSocket, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2288,7 +2288,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2302,7 +2302,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSslSocket, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2311,7 +2311,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSslSocket, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2320,7 +2320,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSslSocket, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2329,7 +2329,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2338,7 +2338,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSslSocket, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2349,7 +2349,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2358,7 +2358,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2367,7 +2367,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2376,7 +2376,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2385,7 +2385,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSslSocket, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2395,7 +2395,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSslSocket, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2405,7 +2405,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSslSocket, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2429,7 +2429,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2438,7 +2438,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2447,7 +2447,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2456,7 +2456,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2465,7 +2465,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2474,7 +2474,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSslSocket, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2484,7 +2484,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSslSocket ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2493,7 +2493,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSslSocket, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2502,7 +2502,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSslSocket, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2511,7 +2511,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2520,7 +2520,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSslSocket, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2531,7 +2531,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSslSocket, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2540,7 +2540,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSslSocket, callback: *const fn (self: QtC.QSslSocket, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2549,7 +2549,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2560,7 +2560,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2571,7 +2571,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2582,7 +2582,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2593,7 +2593,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2604,7 +2604,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2615,7 +2615,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2626,7 +2626,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2637,7 +2637,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2648,7 +2648,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2660,7 +2660,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2672,7 +2672,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2683,7 +2683,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2694,7 +2694,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2705,7 +2705,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2716,7 +2716,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2727,7 +2727,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2738,7 +2738,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2749,7 +2749,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2760,7 +2760,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2771,7 +2771,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2782,7 +2782,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2793,7 +2793,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2804,7 +2804,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2815,7 +2815,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2826,7 +2826,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2837,7 +2837,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2848,7 +2848,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2859,7 +2859,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2870,7 +2870,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2881,7 +2881,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2892,7 +2892,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2903,7 +2903,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2914,7 +2914,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2925,7 +2925,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2936,7 +2936,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2947,7 +2947,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2958,7 +2958,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2969,7 +2969,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2980,7 +2980,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2991,7 +2991,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3002,7 +3002,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3013,7 +3013,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3024,7 +3024,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3035,7 +3035,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3046,7 +3046,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3057,7 +3057,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3068,7 +3068,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3079,7 +3079,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3090,7 +3090,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3101,7 +3101,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3112,7 +3112,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3123,7 +3123,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3134,7 +3134,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3145,7 +3145,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3156,7 +3156,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3167,7 +3167,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3178,7 +3178,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3189,7 +3189,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3200,7 +3200,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3211,7 +3211,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3222,7 +3222,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3233,7 +3233,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3244,7 +3244,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3255,7 +3255,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3266,7 +3266,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3277,7 +3277,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3292,7 +3292,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3307,7 +3307,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QAbstractSocket
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3318,7 +3318,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3329,7 +3329,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3340,7 +3340,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3351,7 +3351,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3366,7 +3366,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3381,7 +3381,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3392,7 +3392,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3403,7 +3403,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3414,7 +3414,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3425,7 +3425,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3436,7 +3436,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3447,7 +3447,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3458,7 +3458,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3470,7 +3470,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3482,7 +3482,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3493,7 +3493,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3504,7 +3504,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3515,7 +3515,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3526,7 +3526,7 @@ pub const qsslsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3535,7 +3535,7 @@ pub const qsslsocket = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#dtor.QSslSocket)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#dtor.QSslSocket)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -26,21 +26,21 @@ pub const qmediaformat = struct {
         return qtc.QMediaFormat_new3(@intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#operator-eq)
     ///
     /// ``` self: QtC.QMediaFormat, other: QtC.QMediaFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMediaFormat_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#swap)
     ///
     /// ``` self: QtC.QMediaFormat, other: QtC.QMediaFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMediaFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#fileFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#fileFormat)
     ///
     /// ``` self: QtC.QMediaFormat ```
     ///
@@ -49,21 +49,21 @@ pub const qmediaformat = struct {
         return qtc.QMediaFormat_FileFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#setFileFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#setFileFormat)
     ///
     /// ``` self: QtC.QMediaFormat, f: qmediaformat_enums.FileFormat ```
     pub fn SetFileFormat(self: ?*anyopaque, f: i32) void {
         qtc.QMediaFormat_SetFileFormat(@ptrCast(self), @intCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#setVideoCodec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#setVideoCodec)
     ///
     /// ``` self: QtC.QMediaFormat, codec: qmediaformat_enums.VideoCodec ```
     pub fn SetVideoCodec(self: ?*anyopaque, codec: i32) void {
         qtc.QMediaFormat_SetVideoCodec(@ptrCast(self), @intCast(codec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#videoCodec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#videoCodec)
     ///
     /// ``` self: QtC.QMediaFormat ```
     ///
@@ -72,14 +72,14 @@ pub const qmediaformat = struct {
         return qtc.QMediaFormat_VideoCodec(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#setAudioCodec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#setAudioCodec)
     ///
     /// ``` self: QtC.QMediaFormat, codec: qmediaformat_enums.AudioCodec ```
     pub fn SetAudioCodec(self: ?*anyopaque, codec: i32) void {
         qtc.QMediaFormat_SetAudioCodec(@ptrCast(self), @intCast(codec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#audioCodec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#audioCodec)
     ///
     /// ``` self: QtC.QMediaFormat ```
     ///
@@ -88,21 +88,21 @@ pub const qmediaformat = struct {
         return qtc.QMediaFormat_AudioCodec(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#isSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#isSupported)
     ///
     /// ``` self: QtC.QMediaFormat, mode: qmediaformat_enums.ConversionMode ```
     pub fn IsSupported(self: ?*anyopaque, mode: i32) bool {
         return qtc.QMediaFormat_IsSupported(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#mimeType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#mimeType)
     ///
     /// ``` self: QtC.QMediaFormat ```
     pub fn MimeType(self: ?*anyopaque) QtC.QMimeType {
         return qtc.QMediaFormat_MimeType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#supportedFileFormats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#supportedFileFormats)
     ///
     /// ``` self: QtC.QMediaFormat, m: qmediaformat_enums.ConversionMode, allocator: std.mem.Allocator ```
     ///
@@ -116,7 +116,7 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#supportedVideoCodecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#supportedVideoCodecs)
     ///
     /// ``` self: QtC.QMediaFormat, m: qmediaformat_enums.ConversionMode, allocator: std.mem.Allocator ```
     ///
@@ -130,7 +130,7 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#supportedAudioCodecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#supportedAudioCodecs)
     ///
     /// ``` self: QtC.QMediaFormat, m: qmediaformat_enums.ConversionMode, allocator: std.mem.Allocator ```
     ///
@@ -144,7 +144,7 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#fileFormatName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#fileFormatName)
     ///
     /// ``` fileFormat: qmediaformat_enums.FileFormat, allocator: std.mem.Allocator ```
     pub fn FileFormatName(fileFormat: i32, allocator: std.mem.Allocator) []const u8 {
@@ -155,7 +155,7 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#audioCodecName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#audioCodecName)
     ///
     /// ``` codec: qmediaformat_enums.AudioCodec, allocator: std.mem.Allocator ```
     pub fn AudioCodecName(codec: i32, allocator: std.mem.Allocator) []const u8 {
@@ -166,7 +166,7 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#videoCodecName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#videoCodecName)
     ///
     /// ``` codec: qmediaformat_enums.VideoCodec, allocator: std.mem.Allocator ```
     pub fn VideoCodecName(codec: i32, allocator: std.mem.Allocator) []const u8 {
@@ -177,7 +177,7 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#fileFormatDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#fileFormatDescription)
     ///
     /// ``` fileFormat: qmediaformat_enums.FileFormat, allocator: std.mem.Allocator ```
     pub fn FileFormatDescription(fileFormat: i32, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#audioCodecDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#audioCodecDescription)
     ///
     /// ``` codec: qmediaformat_enums.AudioCodec, allocator: std.mem.Allocator ```
     pub fn AudioCodecDescription(codec: i32, allocator: std.mem.Allocator) []const u8 {
@@ -199,7 +199,7 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#videoCodecDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#videoCodecDescription)
     ///
     /// ``` codec: qmediaformat_enums.VideoCodec, allocator: std.mem.Allocator ```
     pub fn VideoCodecDescription(codec: i32, allocator: std.mem.Allocator) []const u8 {
@@ -210,28 +210,28 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QMediaFormat, other: QtC.QMediaFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QMediaFormat_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QMediaFormat, other: QtC.QMediaFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QMediaFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#resolveForEncoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#resolveForEncoding)
     ///
     /// ``` self: QtC.QMediaFormat, flags: qmediaformat_enums.ResolveFlags ```
     pub fn ResolveForEncoding(self: ?*anyopaque, flags: i32) void {
         qtc.QMediaFormat_ResolveForEncoding(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#dtor.QMediaFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#dtor.QMediaFormat)
     ///
     /// Delete this object from C++ memory.
     ///

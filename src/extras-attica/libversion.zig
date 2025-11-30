@@ -4,28 +4,28 @@ const std = @import("std");
 
 /// https://api.kde.org/attica.html
 pub const attica = struct {
-    /// [Qt documentation](https://api.kde.org/attica.html#versionMajor)
+    /// [Upstream resources](https://api.kde.org/attica.html#versionMajor)
     ///
     ///
     pub fn VersionMajor() u32 {
         return qtc.Attica_VersionMajor();
     }
 
-    /// [Qt documentation](https://api.kde.org/attica.html#versionMinor)
+    /// [Upstream resources](https://api.kde.org/attica.html#versionMinor)
     ///
     ///
     pub fn VersionMinor() u32 {
         return qtc.Attica_VersionMinor();
     }
 
-    /// [Qt documentation](https://api.kde.org/attica.html#versionRelease)
+    /// [Upstream resources](https://api.kde.org/attica.html#versionRelease)
     ///
     ///
     pub fn VersionRelease() u32 {
         return qtc.Attica_VersionRelease();
     }
 
-    /// [Qt documentation](https://api.kde.org/attica.html#versionString)
+    /// [Upstream resources](https://api.kde.org/attica.html#versionString)
     ///
     ///
     pub fn VersionString() []const u8 {

@@ -11,28 +11,28 @@ pub const kparts__partactivateevent = struct {
         return qtc.KParts__PartActivateEvent_new(activated, @ptrCast(part), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partactivateevent.html#activated)
+    /// [Upstream resources](https://api.kde.org/kparts-partactivateevent.html#activated)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn Activated(self: ?*anyopaque) bool {
         return qtc.KParts__PartActivateEvent_Activated(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partactivateevent.html#part)
+    /// [Upstream resources](https://api.kde.org/kparts-partactivateevent.html#part)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn Part(self: ?*anyopaque) QtC.KParts__Part {
         return qtc.KParts__PartActivateEvent_Part(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partactivateevent.html#widget)
+    /// [Upstream resources](https://api.kde.org/kparts-partactivateevent.html#widget)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KParts__PartActivateEvent_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partactivateevent.html#test)
+    /// [Upstream resources](https://api.kde.org/kparts-partactivateevent.html#test)
     ///
     /// ``` event: QtC.QEvent ```
     pub fn Test(event: ?*anyopaque) bool {
@@ -41,7 +41,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     ///
@@ -52,7 +52,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -61,7 +61,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -70,7 +70,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -79,7 +79,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -88,7 +88,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -97,7 +97,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -106,7 +106,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.KParts__PartActivateEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -115,7 +115,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -124,7 +124,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -133,7 +133,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -144,7 +144,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -155,7 +155,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -166,7 +166,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -177,7 +177,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -188,7 +188,7 @@ pub const kparts__partactivateevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///

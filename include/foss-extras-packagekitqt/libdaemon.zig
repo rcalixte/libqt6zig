@@ -8,7 +8,7 @@ const transaction_enums = @import("libtransaction_1.zig").enums;
 
 /// https://github.com/PackageKit/PackageKit-Qt
 pub const packagekit__daemon = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -26,7 +26,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -38,28 +38,28 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn Global() QtC.PackageKit__Daemon {
         return qtc.PackageKit__Daemon_Global();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn IsRunning() bool {
         return qtc.PackageKit__Daemon_IsRunning();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn Roles() QtC.PackageKit__Bitfield {
         return qtc.PackageKit__Daemon_Roles();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn BackendName(allocator: std.mem.Allocator) []const u8 {
@@ -70,7 +70,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn BackendDescription(allocator: std.mem.Allocator) []const u8 {
@@ -81,7 +81,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn BackendAuthor(allocator: std.mem.Allocator) []const u8 {
@@ -92,7 +92,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     ///
@@ -101,21 +101,21 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_Filters();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn Groups() QtC.PackageKit__Bitfield {
         return qtc.PackageKit__Daemon_Groups();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn Locked() bool {
         return qtc.PackageKit__Daemon_Locked();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MimeTypes(allocator: std.mem.Allocator) [][]const u8 {
@@ -137,7 +137,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     ///
@@ -146,7 +146,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_NetworkState();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DistroID(allocator: std.mem.Allocator) []const u8 {
@@ -157,28 +157,28 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn VersionMajor() u32 {
         return qtc.PackageKit__Daemon_VersionMajor();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn VersionMinor() u32 {
         return qtc.PackageKit__Daemon_VersionMinor();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn VersionMicro() u32 {
         return qtc.PackageKit__Daemon_VersionMicro();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` hints: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetHints(hints: [][]const u8, allocator: std.mem.Allocator) void {
@@ -197,7 +197,7 @@ pub const packagekit__daemon = struct {
         qtc.PackageKit__Daemon_SetHints(hints_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` hints: []const u8 ```
     pub fn SetHints2(hints: []const u8) void {
@@ -208,7 +208,7 @@ pub const packagekit__daemon = struct {
         qtc.PackageKit__Daemon_SetHints2(hints_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Hints(allocator: std.mem.Allocator) [][]const u8 {
@@ -230,14 +230,14 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn Offline(self: ?*anyopaque) QtC.PackageKit__Offline {
         return qtc.PackageKit__Daemon_Offline(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allocator: std.mem.Allocator ```
     pub fn PackageName(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -252,7 +252,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allocator: std.mem.Allocator ```
     pub fn PackageVersion(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -267,7 +267,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allocator: std.mem.Allocator ```
     pub fn PackageArch(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -282,7 +282,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allocator: std.mem.Allocator ```
     pub fn PackageData(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -297,7 +297,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` metaObject: QtC.QMetaObject, value: i32, enumName: []const u8, allocator: std.mem.Allocator ```
     pub fn EnumToString(metaObject: ?*anyopaque, value: i32, enumName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -309,7 +309,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` metaObject: QtC.QMetaObject, str: []const u8, enumName: []const u8 ```
     pub fn EnumFromString(metaObject: ?*anyopaque, str: []const u8, enumName: []const u8) i32 {
@@ -321,7 +321,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_EnumFromString(@ptrCast(metaObject), str_str, enumName_Cstring);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` eulaID: []const u8 ```
     pub fn AcceptEula(eulaID: []const u8) QtC.PackageKit__Transaction {
@@ -332,7 +332,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_AcceptEula(eulaID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn DownloadPackages(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -351,7 +351,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DownloadPackages(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8 ```
     pub fn DownloadPackage(packageID: []const u8) QtC.PackageKit__Transaction {
@@ -362,14 +362,14 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DownloadPackage(packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn GetCategories() QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetCategories();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn DependsOn(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -388,7 +388,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DependsOn(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8 ```
     pub fn DependsOn2(packageID: []const u8) QtC.PackageKit__Transaction {
@@ -399,7 +399,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DependsOn2(packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn GetDetails(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -418,7 +418,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetDetails(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8 ```
     pub fn GetDetails2(packageID: []const u8) QtC.PackageKit__Transaction {
@@ -429,7 +429,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetDetails2(packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` files: [][]const u8, allocator: std.mem.Allocator ```
     pub fn GetDetailsLocal(files: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -448,7 +448,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetDetailsLocal(files_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` file: []const u8 ```
     pub fn GetDetailsLocal2(file: []const u8) QtC.PackageKit__Transaction {
@@ -459,7 +459,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetDetailsLocal2(file_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn GetFiles(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -478,7 +478,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetFiles(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: []const u8 ```
     pub fn GetFiles2(packageIDs: []const u8) QtC.PackageKit__Transaction {
@@ -489,7 +489,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetFiles2(packageIDs_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` files: [][]const u8, allocator: std.mem.Allocator ```
     pub fn GetFilesLocal(files: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -508,7 +508,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetFilesLocal(files_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` file: []const u8 ```
     pub fn GetFilesLocal2(file: []const u8) QtC.PackageKit__Transaction {
@@ -519,28 +519,28 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetFilesLocal2(file_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` number: u32 ```
     pub fn GetOldTransactions(number: u32) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetOldTransactions(@intCast(number));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn GetPackages() QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetPackages();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn GetRepoList() QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetRepoList();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn RequiredBy(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -559,7 +559,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RequiredBy(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8 ```
     pub fn RequiredBy2(packageID: []const u8) QtC.PackageKit__Transaction {
@@ -570,7 +570,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RequiredBy2(packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn GetUpdatesDetails(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -589,7 +589,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetUpdatesDetails(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8 ```
     pub fn GetUpdateDetail(packageID: []const u8) QtC.PackageKit__Transaction {
@@ -600,21 +600,21 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_GetUpdateDetail(packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn GetUpdates() QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetUpdates();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn GetDistroUpgrades() QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetDistroUpgrades();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` distroId: []const u8, kind: transaction_enums.UpgradeKind ```
     pub fn UpgradeSystem(distroId: []const u8, kind: i32) QtC.PackageKit__Transaction {
@@ -625,7 +625,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_UpgradeSystem(distroId_str, @intCast(kind));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` files: [][]const u8, allocator: std.mem.Allocator ```
     pub fn InstallFiles(files: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -644,7 +644,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallFiles(files_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` file: []const u8 ```
     pub fn InstallFile(file: []const u8) QtC.PackageKit__Transaction {
@@ -655,7 +655,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallFile(file_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn InstallPackages(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -674,7 +674,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallPackages(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8 ```
     pub fn InstallPackage(packageID: []const u8) QtC.PackageKit__Transaction {
@@ -685,7 +685,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallPackage(packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` typeVal: transaction_enums.SigType, keyID: []const u8, packageID: []const u8 ```
     pub fn InstallSignature(typeVal: i32, keyID: []const u8, packageID: []const u8) QtC.PackageKit__Transaction {
@@ -700,14 +700,14 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallSignature(@intCast(typeVal), keyID_str, packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` force: bool ```
     pub fn RefreshCache(force: bool) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_RefreshCache(force);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn RemovePackages(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -726,7 +726,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RemovePackages(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8 ```
     pub fn RemovePackage(packageID: []const u8) QtC.PackageKit__Transaction {
@@ -737,14 +737,14 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RemovePackage(packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     ///
     pub fn RepairSystem() QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_RepairSystem();
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` repoId: []const u8 ```
     pub fn RepoEnable(repoId: []const u8) QtC.PackageKit__Transaction {
@@ -755,7 +755,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RepoEnable(repoId_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` repoId: []const u8, autoremove: bool ```
     pub fn RepoRemove(repoId: []const u8, autoremove: bool) QtC.PackageKit__Transaction {
@@ -766,7 +766,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RepoRemove(repoId_str, autoremove);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` repoId: []const u8, parameter: []const u8, value: []const u8 ```
     pub fn RepoSetData(repoId: []const u8, parameter: []const u8, value: []const u8) QtC.PackageKit__Transaction {
@@ -785,7 +785,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RepoSetData(repoId_str, parameter_str, value_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageNames: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Resolve(packageNames: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -804,7 +804,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_Resolve(packageNames_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageName: []const u8 ```
     pub fn Resolve2(packageName: []const u8) QtC.PackageKit__Transaction {
@@ -815,7 +815,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_Resolve2(packageName_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SearchFiles(search: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -834,7 +834,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchFiles(search_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: []const u8 ```
     pub fn SearchFiles2(search: []const u8) QtC.PackageKit__Transaction {
@@ -845,7 +845,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchFiles2(search_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SearchDetails(search: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -864,7 +864,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchDetails(search_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: []const u8 ```
     pub fn SearchDetails2(search: []const u8) QtC.PackageKit__Transaction {
@@ -875,7 +875,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchDetails2(search_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` groups: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SearchGroups(groups: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -894,7 +894,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchGroups(groups_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` group: []const u8 ```
     pub fn SearchGroup(group: []const u8) QtC.PackageKit__Transaction {
@@ -905,21 +905,21 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchGroup(group_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` group: transaction_enums.Group ```
     pub fn SearchGroup2(group: i32) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_SearchGroup2(@intCast(group));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` group: QtC.PackageKit__Bitfield ```
     pub fn SearchGroups2(group: QtC.PackageKit__Bitfield) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_SearchGroups2(@ptrCast(group));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SearchNames(search: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -938,7 +938,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchNames(search_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: []const u8 ```
     pub fn SearchNames2(search: []const u8) QtC.PackageKit__Transaction {
@@ -949,7 +949,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchNames2(search_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allocator: std.mem.Allocator ```
     pub fn UpdatePackages(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -968,7 +968,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_UpdatePackages(packageIDs_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8 ```
     pub fn UpdatePackage(packageID: []const u8) QtC.PackageKit__Transaction {
@@ -979,7 +979,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_UpdatePackage(packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: [][]const u8, allocator: std.mem.Allocator ```
     pub fn WhatProvides(search: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -998,7 +998,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_WhatProvides(search_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: []const u8 ```
     pub fn WhatProvides2(search: []const u8) QtC.PackageKit__Transaction {
@@ -1009,77 +1009,77 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_WhatProvides2(search_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn IsRunningChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Daemon_IsRunningChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void ```
     pub fn OnIsRunningChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_IsRunningChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn NetworkStateChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Daemon_NetworkStateChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void ```
     pub fn OnNetworkStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_NetworkStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn Changed(self: ?*anyopaque) void {
         qtc.PackageKit__Daemon_Changed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn RepoListChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Daemon_RepoListChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void ```
     pub fn OnRepoListChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_RepoListChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn RestartScheduled(self: ?*anyopaque) void {
         qtc.PackageKit__Daemon_RestartScheduled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void ```
     pub fn OnRestartScheduled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_RestartScheduled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, tids: [][]const u8, allocator: std.mem.Allocator ```
     pub fn TransactionListChanged(self: ?*anyopaque, tids: [][]const u8, allocator: std.mem.Allocator) void {
@@ -1098,42 +1098,42 @@ pub const packagekit__daemon = struct {
         qtc.PackageKit__Daemon_TransactionListChanged(@ptrCast(self), tids_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon, tids: [*][*:0]const u8) callconv(.c) void ```
     pub fn OnTransactionListChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_TransactionListChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn UpdatesChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Daemon_UpdatesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void ```
     pub fn OnUpdatesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_UpdatesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn DaemonQuit(self: ?*anyopaque) void {
         qtc.PackageKit__Daemon_DaemonQuit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void ```
     pub fn OnDaemonQuit(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_DaemonQuit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1146,7 +1146,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1159,7 +1159,7 @@ pub const packagekit__daemon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, storeInCache: bool, allocator: std.mem.Allocator ```
     pub fn DownloadPackages2(packageIDs: [][]const u8, storeInCache: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1178,7 +1178,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DownloadPackages2(packageIDs_list, storeInCache);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, storeInCache: bool ```
     pub fn DownloadPackage2(packageID: []const u8, storeInCache: bool) QtC.PackageKit__Transaction {
@@ -1189,7 +1189,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DownloadPackage2(packageID_str, storeInCache);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, filters: flag of transaction_enums.Filter, allocator: std.mem.Allocator ```
     pub fn DependsOn22(packageIDs: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1208,7 +1208,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DependsOn22(packageIDs_list, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, filters: flag of transaction_enums.Filter, recursive: bool, allocator: std.mem.Allocator ```
     pub fn DependsOn3(packageIDs: [][]const u8, filters: i32, recursive: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1227,7 +1227,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DependsOn3(packageIDs_list, @intCast(filters), recursive);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, filters: flag of transaction_enums.Filter ```
     pub fn DependsOn23(packageID: []const u8, filters: i32) QtC.PackageKit__Transaction {
@@ -1238,7 +1238,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DependsOn23(packageID_str, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, filters: flag of transaction_enums.Filter, recursive: bool ```
     pub fn DependsOn32(packageID: []const u8, filters: i32, recursive: bool) QtC.PackageKit__Transaction {
@@ -1249,21 +1249,21 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_DependsOn32(packageID_str, @intCast(filters), recursive);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` filters: flag of transaction_enums.Filter ```
     pub fn GetPackages1(filters: i32) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetPackages1(@intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` filters: flag of transaction_enums.Filter ```
     pub fn GetRepoList1(filters: i32) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetRepoList1(@intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, filters: flag of transaction_enums.Filter, allocator: std.mem.Allocator ```
     pub fn RequiredBy22(packageIDs: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1282,7 +1282,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RequiredBy22(packageIDs_list, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, filters: flag of transaction_enums.Filter, recursive: bool, allocator: std.mem.Allocator ```
     pub fn RequiredBy3(packageIDs: [][]const u8, filters: i32, recursive: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1301,7 +1301,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RequiredBy3(packageIDs_list, @intCast(filters), recursive);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, filters: flag of transaction_enums.Filter ```
     pub fn RequiredBy23(packageID: []const u8, filters: i32) QtC.PackageKit__Transaction {
@@ -1312,7 +1312,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RequiredBy23(packageID_str, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, filters: flag of transaction_enums.Filter, recursive: bool ```
     pub fn RequiredBy32(packageID: []const u8, filters: i32, recursive: bool) QtC.PackageKit__Transaction {
@@ -1323,14 +1323,14 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RequiredBy32(packageID_str, @intCast(filters), recursive);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` filters: flag of transaction_enums.Filter ```
     pub fn GetUpdates1(filters: i32) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_GetUpdates1(@intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` distroId: []const u8, kind: transaction_enums.UpgradeKind, flags: flag of transaction_enums.TransactionFlag ```
     pub fn UpgradeSystem3(distroId: []const u8, kind: i32, flags: i32) QtC.PackageKit__Transaction {
@@ -1341,7 +1341,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_UpgradeSystem3(distroId_str, @intCast(kind), @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` files: [][]const u8, flags: flag of transaction_enums.TransactionFlag, allocator: std.mem.Allocator ```
     pub fn InstallFiles2(files: [][]const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1360,7 +1360,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallFiles2(files_list, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` file: []const u8, flags: flag of transaction_enums.TransactionFlag ```
     pub fn InstallFile2(file: []const u8, flags: i32) QtC.PackageKit__Transaction {
@@ -1371,7 +1371,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallFile2(file_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, flags: flag of transaction_enums.TransactionFlag, allocator: std.mem.Allocator ```
     pub fn InstallPackages2(packageIDs: [][]const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1390,7 +1390,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallPackages2(packageIDs_list, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, flags: flag of transaction_enums.TransactionFlag ```
     pub fn InstallPackage2(packageID: []const u8, flags: i32) QtC.PackageKit__Transaction {
@@ -1401,7 +1401,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_InstallPackage2(packageID_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allowDeps: bool, allocator: std.mem.Allocator ```
     pub fn RemovePackages2(packageIDs: [][]const u8, allowDeps: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1420,7 +1420,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RemovePackages2(packageIDs_list, allowDeps);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allowDeps: bool, autoRemove: bool, allocator: std.mem.Allocator ```
     pub fn RemovePackages3(packageIDs: [][]const u8, allowDeps: bool, autoRemove: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1439,7 +1439,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RemovePackages3(packageIDs_list, allowDeps, autoRemove);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, allowDeps: bool, autoRemove: bool, flags: flag of transaction_enums.TransactionFlag, allocator: std.mem.Allocator ```
     pub fn RemovePackages4(packageIDs: [][]const u8, allowDeps: bool, autoRemove: bool, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1458,7 +1458,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RemovePackages4(packageIDs_list, allowDeps, autoRemove, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allowDeps: bool ```
     pub fn RemovePackage2(packageID: []const u8, allowDeps: bool) QtC.PackageKit__Transaction {
@@ -1469,7 +1469,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RemovePackage2(packageID_str, allowDeps);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allowDeps: bool, autoRemove: bool ```
     pub fn RemovePackage3(packageID: []const u8, allowDeps: bool, autoRemove: bool) QtC.PackageKit__Transaction {
@@ -1480,7 +1480,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RemovePackage3(packageID_str, allowDeps, autoRemove);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allowDeps: bool, autoRemove: bool, flags: flag of transaction_enums.TransactionFlag ```
     pub fn RemovePackage4(packageID: []const u8, allowDeps: bool, autoRemove: bool, flags: i32) QtC.PackageKit__Transaction {
@@ -1491,14 +1491,14 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RemovePackage4(packageID_str, allowDeps, autoRemove, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` flags: flag of transaction_enums.TransactionFlag ```
     pub fn RepairSystem1(flags: i32) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_RepairSystem1(@intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` repoId: []const u8, enable: bool ```
     pub fn RepoEnable2(repoId: []const u8, enable: bool) QtC.PackageKit__Transaction {
@@ -1509,7 +1509,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RepoEnable2(repoId_str, enable);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` repoId: []const u8, autoremove: bool, flags: flag of transaction_enums.TransactionFlag ```
     pub fn RepoRemove3(repoId: []const u8, autoremove: bool, flags: i32) QtC.PackageKit__Transaction {
@@ -1520,7 +1520,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_RepoRemove3(repoId_str, autoremove, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageNames: [][]const u8, filters: flag of transaction_enums.Filter, allocator: std.mem.Allocator ```
     pub fn Resolve22(packageNames: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1539,7 +1539,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_Resolve22(packageNames_list, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageName: []const u8, filters: flag of transaction_enums.Filter ```
     pub fn Resolve23(packageName: []const u8, filters: i32) QtC.PackageKit__Transaction {
@@ -1550,7 +1550,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_Resolve23(packageName_str, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: [][]const u8, filters: flag of transaction_enums.Filter, allocator: std.mem.Allocator ```
     pub fn SearchFiles22(search: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1569,7 +1569,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchFiles22(search_list, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: []const u8, filters: flag of transaction_enums.Filter ```
     pub fn SearchFiles23(search: []const u8, filters: i32) QtC.PackageKit__Transaction {
@@ -1580,7 +1580,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchFiles23(search_str, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: [][]const u8, filters: flag of transaction_enums.Filter, allocator: std.mem.Allocator ```
     pub fn SearchDetails22(search: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1599,7 +1599,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchDetails22(search_list, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: []const u8, filters: flag of transaction_enums.Filter ```
     pub fn SearchDetails23(search: []const u8, filters: i32) QtC.PackageKit__Transaction {
@@ -1610,7 +1610,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchDetails23(search_str, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` groups: [][]const u8, filters: flag of transaction_enums.Filter, allocator: std.mem.Allocator ```
     pub fn SearchGroups22(groups: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1629,7 +1629,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchGroups22(groups_list, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` group: []const u8, filters: flag of transaction_enums.Filter ```
     pub fn SearchGroup22(group: []const u8, filters: i32) QtC.PackageKit__Transaction {
@@ -1640,21 +1640,21 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchGroup22(group_str, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` group: transaction_enums.Group, filters: flag of transaction_enums.Filter ```
     pub fn SearchGroup23(group: i32, filters: i32) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_SearchGroup23(@intCast(group), @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` group: QtC.PackageKit__Bitfield, filters: flag of transaction_enums.Filter ```
     pub fn SearchGroups23(group: QtC.PackageKit__Bitfield, filters: i32) QtC.PackageKit__Transaction {
         return qtc.PackageKit__Daemon_SearchGroups23(@ptrCast(group), @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: [][]const u8, filters: flag of transaction_enums.Filter, allocator: std.mem.Allocator ```
     pub fn SearchNames22(search: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1673,7 +1673,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchNames22(search_list, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: []const u8, filters: flag of transaction_enums.Filter ```
     pub fn SearchNames23(search: []const u8, filters: i32) QtC.PackageKit__Transaction {
@@ -1684,7 +1684,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_SearchNames23(search_str, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageIDs: [][]const u8, flags: flag of transaction_enums.TransactionFlag, allocator: std.mem.Allocator ```
     pub fn UpdatePackages2(packageIDs: [][]const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1703,7 +1703,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_UpdatePackages2(packageIDs_list, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, flags: flag of transaction_enums.TransactionFlag ```
     pub fn UpdatePackage2(packageID: []const u8, flags: i32) QtC.PackageKit__Transaction {
@@ -1714,7 +1714,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_UpdatePackage2(packageID_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: [][]const u8, filters: flag of transaction_enums.Filter, allocator: std.mem.Allocator ```
     pub fn WhatProvides22(search: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
@@ -1733,7 +1733,7 @@ pub const packagekit__daemon = struct {
         return qtc.PackageKit__Daemon_WhatProvides22(search_list, @intCast(filters));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` search: []const u8, filters: flag of transaction_enums.Filter ```
     pub fn WhatProvides23(search: []const u8, filters: i32) QtC.PackageKit__Transaction {
@@ -1746,7 +1746,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.PackageKit__Daemon, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -1755,7 +1755,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.PackageKit__Daemon, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -1764,7 +1764,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.PackageKit__Daemon, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1777,7 +1777,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.PackageKit__Daemon, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1790,7 +1790,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1799,7 +1799,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1808,7 +1808,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1817,7 +1817,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1826,7 +1826,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.PackageKit__Daemon, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1835,7 +1835,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1844,7 +1844,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.PackageKit__Daemon, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1853,7 +1853,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.PackageKit__Daemon, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1862,7 +1862,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.PackageKit__Daemon, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1871,7 +1871,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.PackageKit__Daemon, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1880,7 +1880,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.PackageKit__Daemon, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1894,7 +1894,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.PackageKit__Daemon, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1903,7 +1903,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.PackageKit__Daemon, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1912,7 +1912,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.PackageKit__Daemon, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1921,7 +1921,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1930,7 +1930,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.PackageKit__Daemon, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1941,7 +1941,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1950,7 +1950,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1959,7 +1959,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1968,7 +1968,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1977,7 +1977,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.PackageKit__Daemon, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1987,7 +1987,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.PackageKit__Daemon, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1997,7 +1997,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.PackageKit__Daemon, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2021,7 +2021,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2030,7 +2030,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2039,7 +2039,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2048,7 +2048,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2057,7 +2057,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2066,7 +2066,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.PackageKit__Daemon, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2076,7 +2076,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.PackageKit__Daemon ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2085,7 +2085,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.PackageKit__Daemon, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2094,7 +2094,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.PackageKit__Daemon, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2103,7 +2103,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2112,7 +2112,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.PackageKit__Daemon, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2123,7 +2123,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.PackageKit__Daemon, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2132,7 +2132,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.PackageKit__Daemon, callback: *const fn (self: QtC.PackageKit__Daemon, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2141,7 +2141,7 @@ pub const packagekit__daemon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2150,7 +2150,7 @@ pub const packagekit__daemon = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Delete this object from C++ memory.
     ///

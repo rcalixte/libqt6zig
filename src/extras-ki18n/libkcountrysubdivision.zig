@@ -18,35 +18,35 @@ pub const kcountrysubdivision = struct {
         return qtc.KCountrySubdivision_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#operator-eq)
     ///
     /// ``` self: QtC.KCountrySubdivision, param1: QtC.KCountrySubdivision ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCountrySubdivision_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KCountrySubdivision, other: QtC.KCountrySubdivision ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KCountrySubdivision_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#operator-not-eq)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#operator-not-eq)
     ///
     /// ``` self: QtC.KCountrySubdivision, other: QtC.KCountrySubdivision ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KCountrySubdivision_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#isValid)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#isValid)
     ///
     /// ``` self: QtC.KCountrySubdivision ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KCountrySubdivision_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#code)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#code)
     ///
     /// ``` self: QtC.KCountrySubdivision, allocator: std.mem.Allocator ```
     pub fn Code(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -57,7 +57,7 @@ pub const kcountrysubdivision = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#name)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#name)
     ///
     /// ``` self: QtC.KCountrySubdivision, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -68,21 +68,21 @@ pub const kcountrysubdivision = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#country)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#country)
     ///
     /// ``` self: QtC.KCountrySubdivision ```
     pub fn Country(self: ?*anyopaque) QtC.KCountry {
         return qtc.KCountrySubdivision_Country(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#parent)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#parent)
     ///
     /// ``` self: QtC.KCountrySubdivision ```
     pub fn Parent(self: ?*anyopaque) QtC.KCountrySubdivision {
         return qtc.KCountrySubdivision_Parent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#timeZoneIds)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#timeZoneIds)
     ///
     /// ``` self: QtC.KCountrySubdivision, allocator: std.mem.Allocator ```
     pub fn TimeZoneIds(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -104,7 +104,7 @@ pub const kcountrysubdivision = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#subdivisions)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#subdivisions)
     ///
     /// ``` self: QtC.KCountrySubdivision, allocator: std.mem.Allocator ```
     pub fn Subdivisions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KCountrySubdivision {
@@ -116,7 +116,7 @@ pub const kcountrysubdivision = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#fromCode)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#fromCode)
     ///
     /// ``` code: []const u8 ```
     pub fn FromCode2(code: []const u8) QtC.KCountrySubdivision {
@@ -124,14 +124,14 @@ pub const kcountrysubdivision = struct {
         return qtc.KCountrySubdivision_FromCode2(code_Cstring);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#fromLocation)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#fromLocation)
     ///
     /// ``` latitude: f32, longitude: f32 ```
     pub fn FromLocation(latitude: f32, longitude: f32) QtC.KCountrySubdivision {
         return qtc.KCountrySubdivision_FromLocation(@floatCast(latitude), @floatCast(longitude));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountrysubdivision.html#dtor.KCountrySubdivision)
+    /// [Upstream resources](https://api.kde.org/kcountrysubdivision.html#dtor.KCountrySubdivision)
     ///
     /// Delete this object from C++ memory.
     ///

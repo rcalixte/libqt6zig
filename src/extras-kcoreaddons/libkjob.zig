@@ -21,7 +21,7 @@ pub const kjob = struct {
         return qtc.KJob_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KJob ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const kjob = struct {
         return qtc.KJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,21 +65,21 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setUiDelegate)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setUiDelegate)
     ///
     /// ``` self: QtC.KJob, delegate: QtC.KJobUiDelegate ```
     pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.KJob_SetUiDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#uiDelegate)
+    /// [Upstream resources](https://api.kde.org/kjob.html#uiDelegate)
     ///
     /// ``` self: QtC.KJob ```
     pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
         return qtc.KJob_UiDelegate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#capabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#capabilities)
     ///
     /// ``` self: QtC.KJob ```
     ///
@@ -88,21 +88,21 @@ pub const kjob = struct {
         return qtc.KJob_Capabilities(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#isSuspended)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isSuspended)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsSuspended(self: ?*anyopaque) bool {
         return qtc.KJob_IsSuspended(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#start)
+    /// [Upstream resources](https://api.kde.org/kjob.html#start)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.KJob_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#start)
+    /// [Upstream resources](https://api.kde.org/kjob.html#start)
     ///
     /// Allows for overriding the related default method
     ///
@@ -111,7 +111,7 @@ pub const kjob = struct {
         qtc.KJob_OnStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#start)
+    /// [Upstream resources](https://api.kde.org/kjob.html#start)
     ///
     /// Base class method implementation
     ///
@@ -120,35 +120,35 @@ pub const kjob = struct {
         qtc.KJob_QBaseStart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Kill(self: ?*anyopaque) bool {
         return qtc.KJob_Kill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#suspend)
+    /// [Upstream resources](https://api.kde.org/kjob.html#suspend)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Suspend(self: ?*anyopaque) bool {
         return qtc.KJob_Suspend(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#resume)
+    /// [Upstream resources](https://api.kde.org/kjob.html#resume)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Resume(self: ?*anyopaque) bool {
         return qtc.KJob_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doKill)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DoKill(self: ?*anyopaque) bool {
         return qtc.KJob_DoKill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doKill)
     ///
     /// Allows for overriding the related default method
     ///
@@ -157,7 +157,7 @@ pub const kjob = struct {
         qtc.KJob_OnDoKill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doKill)
     ///
     /// Base class method implementation
     ///
@@ -166,14 +166,14 @@ pub const kjob = struct {
         return qtc.KJob_QBaseDoKill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DoSuspend(self: ?*anyopaque) bool {
         return qtc.KJob_DoSuspend(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Allows for overriding the related default method
     ///
@@ -182,7 +182,7 @@ pub const kjob = struct {
         qtc.KJob_OnDoSuspend(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Base class method implementation
     ///
@@ -191,14 +191,14 @@ pub const kjob = struct {
         return qtc.KJob_QBaseDoSuspend(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doResume)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DoResume(self: ?*anyopaque) bool {
         return qtc.KJob_DoResume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doResume)
     ///
     /// Allows for overriding the related default method
     ///
@@ -207,7 +207,7 @@ pub const kjob = struct {
         qtc.KJob_OnDoResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
+    /// [Upstream resources](https://api.kde.org/kjob.html#doResume)
     ///
     /// Base class method implementation
     ///
@@ -216,14 +216,14 @@ pub const kjob = struct {
         return qtc.KJob_QBaseDoResume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// ``` self: QtC.KJob, capabilities: flag of kjob_enums.Capability ```
     pub fn SetCapabilities(self: ?*anyopaque, capabilities: i32) void {
         qtc.KJob_SetCapabilities(@ptrCast(self), @intCast(capabilities));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Allows for overriding the related default method
     ///
@@ -232,7 +232,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Base class method implementation
     ///
@@ -241,21 +241,21 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetCapabilities(@ptrCast(self), @intCast(capabilities));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#exec)
+    /// [Upstream resources](https://api.kde.org/kjob.html#exec)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Exec(self: ?*anyopaque) bool {
         return qtc.KJob_Exec(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#error)
+    /// [Upstream resources](https://api.kde.org/kjob.html#error)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.KJob_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#errorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#errorText)
     ///
     /// ``` self: QtC.KJob, allocator: std.mem.Allocator ```
     pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -266,7 +266,7 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
+    /// [Upstream resources](https://api.kde.org/kjob.html#errorString)
     ///
     /// ``` self: QtC.KJob, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -277,7 +277,7 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
+    /// [Upstream resources](https://api.kde.org/kjob.html#errorString)
     ///
     /// Allows for overriding the related default method
     ///
@@ -286,7 +286,7 @@ pub const kjob = struct {
         qtc.KJob_OnErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
+    /// [Upstream resources](https://api.kde.org/kjob.html#errorString)
     ///
     /// Base class method implementation
     ///
@@ -299,70 +299,70 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedAmount)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit ```
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
         return qtc.KJob_ProcessedAmount(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalAmount)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit ```
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
         return qtc.KJob_TotalAmount(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#percent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#percent)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Percent(self: ?*anyopaque) u64 {
         return qtc.KJob_Percent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setAutoDelete)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setAutoDelete)
     ///
     /// ``` self: QtC.KJob, autodelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
         qtc.KJob_SetAutoDelete(@ptrCast(self), autodelete);
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#isAutoDelete)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isAutoDelete)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsAutoDelete(self: ?*anyopaque) bool {
         return qtc.KJob_IsAutoDelete(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KJob ```
     pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
         qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
         return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#isStartedWithExec)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isStartedWithExec)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsStartedWithExec(self: ?*anyopaque) bool {
         return qtc.KJob_IsStartedWithExec(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#elapsedTime)
+    /// [Upstream resources](https://api.kde.org/kjob.html#elapsedTime)
     ///
     /// ``` self: QtC.KJob ```
     pub fn ElapsedTime(self: ?*anyopaque) i64 {
         return qtc.KJob_ElapsedTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
+    /// [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, message: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -373,14 +373,14 @@ pub const kjob = struct {
         qtc.KJob_InfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
+    /// [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
+    /// [Upstream resources](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, message: []const u8 ```
     pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -391,63 +391,63 @@ pub const kjob = struct {
         qtc.KJob_Warning(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
+    /// [Upstream resources](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, size: u64 ```
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
         qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @intCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, size: u64 ```
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
         qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @intCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, speed: u64 ```
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
         qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @intCast(speed));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinished)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsFinished(self: ?*anyopaque) bool {
         return qtc.KJob_IsFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Allows for overriding the related default method
     ///
@@ -456,7 +456,7 @@ pub const kjob = struct {
         qtc.KJob_OnIsFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Base class method implementation
     ///
@@ -465,14 +465,14 @@ pub const kjob = struct {
         return qtc.KJob_QBaseIsFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setError)
     ///
     /// ``` self: QtC.KJob, errorCode: i32 ```
     pub fn SetError(self: ?*anyopaque, errorCode: i32) void {
         qtc.KJob_SetError(@ptrCast(self), @intCast(errorCode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setError)
     ///
     /// Allows for overriding the related default method
     ///
@@ -481,7 +481,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setError)
     ///
     /// Base class method implementation
     ///
@@ -490,7 +490,7 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetError(@ptrCast(self), @intCast(errorCode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// ``` self: QtC.KJob, errorText: []const u8 ```
     pub fn SetErrorText(self: ?*anyopaque, errorText: []const u8) void {
@@ -501,7 +501,7 @@ pub const kjob = struct {
         qtc.KJob_SetErrorText(@ptrCast(self), errorText_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -510,7 +510,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetErrorText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Base class method implementation
     ///
@@ -523,14 +523,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetErrorText(@ptrCast(self), errorText_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit, amount: u64 ```
     pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
         qtc.KJob_SetProcessedAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -539,7 +539,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetProcessedAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Base class method implementation
     ///
@@ -548,14 +548,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetProcessedAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit, amount: u64 ```
     pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
         qtc.KJob_SetTotalAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -564,7 +564,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetTotalAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Base class method implementation
     ///
@@ -573,14 +573,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetTotalAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit ```
     pub fn SetProgressUnit(self: ?*anyopaque, unit: i32) void {
         qtc.KJob_SetProgressUnit(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Allows for overriding the related default method
     ///
@@ -589,7 +589,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetProgressUnit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Base class method implementation
     ///
@@ -598,14 +598,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetProgressUnit(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setPercent)
     ///
     /// ``` self: QtC.KJob, percentage: u64 ```
     pub fn SetPercent(self: ?*anyopaque, percentage: u64) void {
         qtc.KJob_SetPercent(@ptrCast(self), @intCast(percentage));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -614,7 +614,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Base class method implementation
     ///
@@ -623,14 +623,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetPercent(@ptrCast(self), @intCast(percentage));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitResult)
     ///
     /// ``` self: QtC.KJob ```
     pub fn EmitResult(self: ?*anyopaque) void {
         qtc.KJob_EmitResult(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Allows for overriding the related default method
     ///
@@ -639,7 +639,7 @@ pub const kjob = struct {
         qtc.KJob_OnEmitResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Base class method implementation
     ///
@@ -648,14 +648,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseEmitResult(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// ``` self: QtC.KJob, processedAmount: u64, totalAmount: u64 ```
     pub fn EmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
         qtc.KJob_EmitPercent(@ptrCast(self), @intCast(processedAmount), @intCast(totalAmount));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -664,7 +664,7 @@ pub const kjob = struct {
         qtc.KJob_OnEmitPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Base class method implementation
     ///
@@ -673,14 +673,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseEmitPercent(@ptrCast(self), @intCast(processedAmount), @intCast(totalAmount));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// ``` self: QtC.KJob, speed: u64 ```
     pub fn EmitSpeed(self: ?*anyopaque, speed: u64) void {
         qtc.KJob_EmitSpeed(@ptrCast(self), @intCast(speed));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -689,7 +689,7 @@ pub const kjob = struct {
         qtc.KJob_OnEmitSpeed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Base class method implementation
     ///
@@ -698,14 +698,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseEmitSpeed(@ptrCast(self), @intCast(speed));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
+    /// [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// ``` self: QtC.KJob ```
     pub fn StartElapsedTimer(self: ?*anyopaque) void {
         qtc.KJob_StartElapsedTimer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
+    /// [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Allows for overriding the related default method
     ///
@@ -714,7 +714,7 @@ pub const kjob = struct {
         qtc.KJob_OnStartElapsedTimer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
+    /// [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Base class method implementation
     ///
@@ -723,7 +723,7 @@ pub const kjob = struct {
         qtc.KJob_QBaseStartElapsedTimer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -736,7 +736,7 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -749,14 +749,14 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KJob, verbosity: kjob_enums.KillVerbosity ```
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
         return qtc.KJob_Kill1(@ptrCast(self), @intCast(verbosity));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KJob, hide: bool ```
     pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
@@ -765,7 +765,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KJob, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -778,7 +778,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KJob, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -791,7 +791,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -800,7 +800,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -809,7 +809,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -818,7 +818,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KJob ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -827,7 +827,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KJob, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -836,7 +836,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -845,7 +845,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KJob, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -854,7 +854,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KJob, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -863,7 +863,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KJob, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -872,7 +872,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KJob, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -881,7 +881,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KJob, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -895,7 +895,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KJob, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -904,7 +904,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KJob, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -913,7 +913,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KJob, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -922,7 +922,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -931,7 +931,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KJob, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -942,7 +942,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -951,7 +951,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -960,7 +960,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -969,7 +969,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -978,7 +978,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KJob, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -988,7 +988,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KJob, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -998,7 +998,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KJob, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1022,7 +1022,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KJob ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1031,7 +1031,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KJob ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1040,7 +1040,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1049,7 +1049,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1058,7 +1058,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1067,7 +1067,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KJob, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1077,7 +1077,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1086,7 +1086,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KJob, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1095,7 +1095,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KJob, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1104,7 +1104,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1113,7 +1113,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KJob, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1124,7 +1124,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KJob, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1133,7 +1133,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1142,7 +1142,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1153,7 +1153,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1164,7 +1164,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1175,7 +1175,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1186,7 +1186,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1197,7 +1197,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1208,7 +1208,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1219,7 +1219,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1230,7 +1230,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1241,7 +1241,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1252,7 +1252,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1263,7 +1263,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1274,7 +1274,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1285,7 +1285,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1296,7 +1296,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1307,7 +1307,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1318,7 +1318,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1329,7 +1329,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1340,7 +1340,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1351,7 +1351,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1362,7 +1362,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1373,7 +1373,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1384,7 +1384,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1395,7 +1395,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1406,7 +1406,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1417,7 +1417,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1428,7 +1428,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1439,7 +1439,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1451,7 +1451,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1463,7 +1463,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1474,7 +1474,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1485,7 +1485,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1496,7 +1496,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1505,7 +1505,7 @@ pub const kjob = struct {
         qtc.KJob_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#finished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#finished)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1514,7 +1514,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#suspended)
+    /// [Upstream resources](https://api.kde.org/kjob.html#suspended)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1523,7 +1523,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#resumed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#resumed)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1532,7 +1532,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#result)
+    /// [Upstream resources](https://api.kde.org/kjob.html#result)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1541,7 +1541,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmountChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1550,7 +1550,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmountChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1559,7 +1559,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#percentChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#percentChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1570,7 +1570,7 @@ pub const kjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1579,7 +1579,7 @@ pub const kjob = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjob.html#dtor.KJob)
+    /// [Upstream resources](https://api.kde.org/kjob.html#dtor.KJob)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -22,35 +22,35 @@ pub const qmessagelogcontext = struct {
         return qtc.QMessageLogContext_new2(fileName_Cstring, @intCast(lineNumber), functionName_Cstring, categoryName_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#version-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#version-var)
     ///
     /// ``` self: QtC.QMessageLogContext ```
     pub fn Version(self: ?*anyopaque) i32 {
         return qtc.QMessageLogContext_Version(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#version-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#version-var)
     ///
     /// ``` self: QtC.QMessageLogContext, version: i32 ```
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
         qtc.QMessageLogContext_SetVersion(@ptrCast(self), @intCast(version));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#line-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#line-var)
     ///
     /// ``` self: QtC.QMessageLogContext ```
     pub fn Line(self: ?*anyopaque) i32 {
         return qtc.QMessageLogContext_Line(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#line-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#line-var)
     ///
     /// ``` self: QtC.QMessageLogContext, line: i32 ```
     pub fn SetLine(self: ?*anyopaque, line: i32) void {
         qtc.QMessageLogContext_SetLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#file-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#file-var)
     ///
     /// ``` self: QtC.QMessageLogContext ```
     pub fn File(self: ?*anyopaque) []const u8 {
@@ -58,7 +58,7 @@ pub const qmessagelogcontext = struct {
         return std.mem.span(file_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#file-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#file-var)
     ///
     /// ``` self: QtC.QMessageLogContext, file: []const u8 ```
     pub fn SetFile(self: ?*anyopaque, file: []const u8) void {
@@ -66,7 +66,7 @@ pub const qmessagelogcontext = struct {
         qtc.QMessageLogContext_SetFile(@ptrCast(self), file_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#function-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#function-var)
     ///
     /// ``` self: QtC.QMessageLogContext ```
     pub fn Function(self: ?*anyopaque) []const u8 {
@@ -74,7 +74,7 @@ pub const qmessagelogcontext = struct {
         return std.mem.span(function_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#function-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#function-var)
     ///
     /// ``` self: QtC.QMessageLogContext, function: []const u8 ```
     pub fn SetFunction(self: ?*anyopaque, function: []const u8) void {
@@ -82,7 +82,7 @@ pub const qmessagelogcontext = struct {
         qtc.QMessageLogContext_SetFunction(@ptrCast(self), function_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#category-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#category-var)
     ///
     /// ``` self: QtC.QMessageLogContext ```
     pub fn Category(self: ?*anyopaque) []const u8 {
@@ -90,7 +90,7 @@ pub const qmessagelogcontext = struct {
         return std.mem.span(category_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#category-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#category-var)
     ///
     /// ``` self: QtC.QMessageLogContext, category: []const u8 ```
     pub fn SetCategory(self: ?*anyopaque, category: []const u8) void {
@@ -98,7 +98,7 @@ pub const qmessagelogcontext = struct {
         qtc.QMessageLogContext_SetCategory(@ptrCast(self), category_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogcontext.html#dtor.QMessageLogContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#dtor.QMessageLogContext)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -138,84 +138,84 @@ pub const qmessagelogger = struct {
         return qtc.QMessageLogger_new3(file_Cstring, @intCast(line), function_Cstring, category_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#debug)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#debug)
     ///
     /// ``` self: QtC.QMessageLogger ```
     pub fn Debug(self: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Debug(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#debug)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#debug)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
     pub fn Debug2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Debug2(@ptrCast(self), @ptrCast(cat));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#info)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#info)
     ///
     /// ``` self: QtC.QMessageLogger ```
     pub fn Info(self: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Info(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#info)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#info)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
     pub fn Info2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Info2(@ptrCast(self), @ptrCast(cat));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#warning)
     ///
     /// ``` self: QtC.QMessageLogger ```
     pub fn Warning(self: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Warning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#warning)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
     pub fn Warning2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Warning2(@ptrCast(self), @ptrCast(cat));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#critical)
     ///
     /// ``` self: QtC.QMessageLogger ```
     pub fn Critical(self: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Critical(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#critical)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
     pub fn Critical2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Critical2(@ptrCast(self), @ptrCast(cat));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#fatal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#fatal)
     ///
     /// ``` self: QtC.QMessageLogger ```
     pub fn Fatal(self: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Fatal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#fatal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#fatal)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
     pub fn Fatal2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Fatal2(@ptrCast(self), @ptrCast(cat));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#noDebug)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#noDebug)
     ///
     /// ``` self: QtC.QMessageLogger ```
     pub fn NoDebug(self: ?*anyopaque) QtC.QNoDebug {
         return qtc.QMessageLogger_NoDebug(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#dtor.QMessageLogger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#dtor.QMessageLogger)
     ///
     /// Delete this object from C++ memory.
     ///

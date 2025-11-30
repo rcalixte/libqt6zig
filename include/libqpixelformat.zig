@@ -67,7 +67,7 @@ pub const qpixelformat = struct {
         qtc.QPixelFormat_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#colorModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#colorModel)
     ///
     /// ``` self: QtC.QPixelFormat ```
     ///
@@ -76,105 +76,105 @@ pub const qpixelformat = struct {
         return qtc.QPixelFormat_ColorModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#channelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#channelCount)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn ChannelCount(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_ChannelCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#redSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#redSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn RedSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_RedSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#greenSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#greenSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn GreenSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_GreenSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#blueSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#blueSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn BlueSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_BlueSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#cyanSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#cyanSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn CyanSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_CyanSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#magentaSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#magentaSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn MagentaSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_MagentaSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#yellowSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#yellowSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn YellowSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_YellowSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#blackSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#blackSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn BlackSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_BlackSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#hueSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#hueSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn HueSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_HueSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#saturationSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#saturationSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn SaturationSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_SaturationSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#lightnessSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#lightnessSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn LightnessSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_LightnessSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#brightnessSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#brightnessSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn BrightnessSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_BrightnessSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#alphaSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#alphaSize)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn AlphaSize(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_AlphaSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#bitsPerPixel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#bitsPerPixel)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn BitsPerPixel(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_BitsPerPixel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#alphaUsage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#alphaUsage)
     ///
     /// ``` self: QtC.QPixelFormat ```
     ///
@@ -183,7 +183,7 @@ pub const qpixelformat = struct {
         return qtc.QPixelFormat_AlphaUsage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#alphaPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#alphaPosition)
     ///
     /// ``` self: QtC.QPixelFormat ```
     ///
@@ -192,7 +192,7 @@ pub const qpixelformat = struct {
         return qtc.QPixelFormat_AlphaPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#premultiplied)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#premultiplied)
     ///
     /// ``` self: QtC.QPixelFormat ```
     ///
@@ -201,7 +201,7 @@ pub const qpixelformat = struct {
         return qtc.QPixelFormat_Premultiplied(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#typeInterpretation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#typeInterpretation)
     ///
     /// ``` self: QtC.QPixelFormat ```
     ///
@@ -210,7 +210,7 @@ pub const qpixelformat = struct {
         return qtc.QPixelFormat_TypeInterpretation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#byteOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#byteOrder)
     ///
     /// ``` self: QtC.QPixelFormat ```
     ///
@@ -219,7 +219,7 @@ pub const qpixelformat = struct {
         return qtc.QPixelFormat_ByteOrder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#yuvLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#yuvLayout)
     ///
     /// ``` self: QtC.QPixelFormat ```
     ///
@@ -228,14 +228,14 @@ pub const qpixelformat = struct {
         return qtc.QPixelFormat_YuvLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#subEnum)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#subEnum)
     ///
     /// ``` self: QtC.QPixelFormat ```
     pub fn SubEnum(self: ?*anyopaque) u8 {
         return qtc.QPixelFormat_SubEnum(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#dtor.QPixelFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#dtor.QPixelFormat)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -18,14 +18,14 @@ pub const attica__accountbalance = struct {
         return qtc.Attica__AccountBalance_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-accountbalance.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__AccountBalance, other: QtC.Attica__AccountBalance ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__AccountBalance_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-accountbalance.html#setCurrency)
+    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#setCurrency)
     ///
     /// ``` self: QtC.Attica__AccountBalance, currency: []const u8 ```
     pub fn SetCurrency(self: ?*anyopaque, currency: []const u8) void {
@@ -36,7 +36,7 @@ pub const attica__accountbalance = struct {
         qtc.Attica__AccountBalance_SetCurrency(@ptrCast(self), currency_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-accountbalance.html#currency)
+    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#currency)
     ///
     /// ``` self: QtC.Attica__AccountBalance, allocator: std.mem.Allocator ```
     pub fn Currency(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -47,7 +47,7 @@ pub const attica__accountbalance = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-accountbalance.html#setBalance)
+    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#setBalance)
     ///
     /// ``` self: QtC.Attica__AccountBalance, name: []const u8 ```
     pub fn SetBalance(self: ?*anyopaque, name: []const u8) void {
@@ -58,7 +58,7 @@ pub const attica__accountbalance = struct {
         qtc.Attica__AccountBalance_SetBalance(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-accountbalance.html#balance)
+    /// [Upstream resources](https://api.kde.org/attica-accountbalance.html#balance)
     ///
     /// ``` self: QtC.Attica__AccountBalance, allocator: std.mem.Allocator ```
     pub fn Balance(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {

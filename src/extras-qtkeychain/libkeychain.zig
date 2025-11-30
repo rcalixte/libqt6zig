@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://github.com/frankosterfeld/qtkeychain
 pub const qkeychain__job = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qkeychain__job = struct {
         return qtc.QKeychain__Job_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,28 +37,28 @@ pub const qkeychain__job = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn Settings(self: ?*anyopaque) QtC.QSettings {
         return qtc.QKeychain__Job_Settings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, settings: QtC.QSettings ```
     pub fn SetSettings(self: ?*anyopaque, settings: ?*anyopaque) void {
         qtc.QKeychain__Job_SetSettings(@ptrCast(self), @ptrCast(settings));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.QKeychain__Job_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, allocator: std.mem.Allocator ```
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -69,7 +69,7 @@ pub const qkeychain__job = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     ///
@@ -78,7 +78,7 @@ pub const qkeychain__job = struct {
         return qtc.QKeychain__Job_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -89,35 +89,35 @@ pub const qkeychain__job = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn AutoDelete(self: ?*anyopaque) bool {
         return qtc.QKeychain__Job_AutoDelete(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, autoDelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autoDelete: bool) void {
         qtc.QKeychain__Job_SetAutoDelete(@ptrCast(self), autoDelete);
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn InsecureFallback(self: ?*anyopaque) bool {
         return qtc.QKeychain__Job_InsecureFallback(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, insecureFallback: bool ```
     pub fn SetInsecureFallback(self: ?*anyopaque, insecureFallback: bool) void {
         qtc.QKeychain__Job_SetInsecureFallback(@ptrCast(self), insecureFallback);
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -128,7 +128,7 @@ pub const qkeychain__job = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, key: []const u8 ```
     pub fn SetKey(self: ?*anyopaque, key: []const u8) void {
@@ -139,14 +139,14 @@ pub const qkeychain__job = struct {
         qtc.QKeychain__Job_SetKey(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn EmitFinished(self: ?*anyopaque) void {
         qtc.QKeychain__Job_EmitFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, param1: keychain_enums.Error, errorString: []const u8 ```
     pub fn EmitFinishedWithError(self: ?*anyopaque, param1: i32, errorString: []const u8) void {
@@ -157,21 +157,21 @@ pub const qkeychain__job = struct {
         qtc.QKeychain__Job_EmitFinishedWithError(@ptrCast(self), @intCast(param1), errorString_str);
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, param1: QtC.QKeychain__Job ```
     pub fn Finished(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QKeychain__Job_Finished(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__Job, callback: *const fn (self: QtC.QKeychain__Job, param1: QtC.QKeychain__Job) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QKeychain__Job_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -184,7 +184,7 @@ pub const qkeychain__job = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -199,7 +199,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QKeychain__Job, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -208,7 +208,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QKeychain__Job, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -217,7 +217,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QKeychain__Job, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -230,7 +230,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QKeychain__Job, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -243,7 +243,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -252,7 +252,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -261,7 +261,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -270,7 +270,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -279,7 +279,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QKeychain__Job, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -288,7 +288,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -297,7 +297,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeychain__Job, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -306,7 +306,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeychain__Job, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -315,7 +315,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QKeychain__Job, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -324,7 +324,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QKeychain__Job, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -333,7 +333,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QKeychain__Job, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -347,7 +347,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QKeychain__Job, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -356,7 +356,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QKeychain__Job, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -365,7 +365,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QKeychain__Job, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -374,7 +374,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -383,7 +383,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QKeychain__Job, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -394,7 +394,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -403,7 +403,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -412,7 +412,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -421,7 +421,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -430,7 +430,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QKeychain__Job, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -440,7 +440,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QKeychain__Job, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -450,7 +450,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QKeychain__Job, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -474,7 +474,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -483,7 +483,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -492,7 +492,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -501,7 +501,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__Job, callback: *const fn (self: QtC.QKeychain__Job) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -510,7 +510,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -519,7 +519,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QKeychain__Job, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -529,7 +529,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QKeychain__Job ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -538,7 +538,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeychain__Job, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -547,7 +547,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeychain__Job, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -556,7 +556,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -565,7 +565,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QKeychain__Job, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -576,7 +576,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__Job, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -585,7 +585,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__Job, callback: *const fn (self: QtC.QKeychain__Job, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -594,7 +594,7 @@ pub const qkeychain__job = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -603,7 +603,7 @@ pub const qkeychain__job = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -639,7 +639,7 @@ pub const qkeychain__readpasswordjob = struct {
         return qtc.QKeychain__ReadPasswordJob_new2(service_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -671,7 +671,7 @@ pub const qkeychain__readpasswordjob = struct {
         return qtc.QKeychain__ReadPasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -683,7 +683,7 @@ pub const qkeychain__readpasswordjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, allocator: std.mem.Allocator ```
     pub fn BinaryData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -694,7 +694,7 @@ pub const qkeychain__readpasswordjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, allocator: std.mem.Allocator ```
     pub fn TextData(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -705,7 +705,7 @@ pub const qkeychain__readpasswordjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -718,7 +718,7 @@ pub const qkeychain__readpasswordjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -733,7 +733,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn Settings(self: ?*anyopaque) QtC.QSettings {
@@ -742,7 +742,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, settings: QtC.QSettings ```
     pub fn SetSettings(self: ?*anyopaque, settings: ?*anyopaque) void {
@@ -751,7 +751,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn Start(self: ?*anyopaque) void {
@@ -760,7 +760,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, allocator: std.mem.Allocator ```
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -773,7 +773,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     ///
@@ -784,7 +784,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -797,7 +797,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn AutoDelete(self: ?*anyopaque) bool {
@@ -806,7 +806,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, autoDelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autoDelete: bool) void {
@@ -815,7 +815,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn InsecureFallback(self: ?*anyopaque) bool {
@@ -824,7 +824,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, insecureFallback: bool ```
     pub fn SetInsecureFallback(self: ?*anyopaque, insecureFallback: bool) void {
@@ -833,7 +833,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -846,7 +846,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, key: []const u8 ```
     pub fn SetKey(self: ?*anyopaque, key: []const u8) void {
@@ -859,7 +859,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn EmitFinished(self: ?*anyopaque) void {
@@ -868,7 +868,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, param1: keychain_enums.Error, errorString: []const u8 ```
     pub fn EmitFinishedWithError(self: ?*anyopaque, param1: i32, errorString: []const u8) void {
@@ -881,7 +881,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, param1: QtC.QKeychain__Job ```
     pub fn Finished(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -890,7 +890,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, callback: *const fn (self: QtC.QKeychain__ReadPasswordJob, param1: QtC.QKeychain__Job) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -899,7 +899,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -912,7 +912,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -925,7 +925,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -934,7 +934,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -943,7 +943,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -952,7 +952,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -961,7 +961,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -970,7 +970,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -979,7 +979,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -988,7 +988,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -997,7 +997,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1006,7 +1006,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1015,7 +1015,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1029,7 +1029,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1038,7 +1038,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1047,7 +1047,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1056,7 +1056,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1065,7 +1065,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1076,7 +1076,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1085,7 +1085,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1094,7 +1094,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1103,7 +1103,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1112,7 +1112,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1122,7 +1122,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1132,7 +1132,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1156,7 +1156,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1165,7 +1165,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1174,7 +1174,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1183,7 +1183,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, callback: *const fn (self: QtC.QKeychain__ReadPasswordJob) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1192,7 +1192,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1201,7 +1201,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1211,7 +1211,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1220,7 +1220,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1229,7 +1229,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1238,7 +1238,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1247,7 +1247,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1258,7 +1258,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1267,7 +1267,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__ReadPasswordJob, callback: *const fn (self: QtC.QKeychain__ReadPasswordJob, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1276,7 +1276,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1287,7 +1287,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1298,7 +1298,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1309,7 +1309,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1320,7 +1320,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1331,7 +1331,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1342,7 +1342,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1353,7 +1353,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1364,7 +1364,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1375,7 +1375,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1386,7 +1386,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1397,7 +1397,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1408,7 +1408,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1419,7 +1419,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1430,7 +1430,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1441,7 +1441,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1452,7 +1452,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1463,7 +1463,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1474,7 +1474,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1485,7 +1485,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1496,7 +1496,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1507,7 +1507,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1518,7 +1518,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1529,7 +1529,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1540,7 +1540,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1551,7 +1551,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1562,7 +1562,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1573,7 +1573,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1584,7 +1584,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1595,7 +1595,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1606,7 +1606,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1618,7 +1618,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1630,7 +1630,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1641,7 +1641,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1652,7 +1652,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1663,7 +1663,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1674,7 +1674,7 @@ pub const qkeychain__readpasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1683,7 +1683,7 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1719,7 +1719,7 @@ pub const qkeychain__writepasswordjob = struct {
         return qtc.QKeychain__WritePasswordJob_new2(service_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -1751,7 +1751,7 @@ pub const qkeychain__writepasswordjob = struct {
         return qtc.QKeychain__WritePasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1763,7 +1763,7 @@ pub const qkeychain__writepasswordjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, data: []u8 ```
     pub fn SetBinaryData(self: ?*anyopaque, data: []u8) void {
@@ -1774,7 +1774,7 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_SetBinaryData(@ptrCast(self), data_str);
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, data: []const u8 ```
     pub fn SetTextData(self: ?*anyopaque, data: []const u8) void {
@@ -1785,7 +1785,7 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_SetTextData(@ptrCast(self), data_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1798,7 +1798,7 @@ pub const qkeychain__writepasswordjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1813,7 +1813,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn Settings(self: ?*anyopaque) QtC.QSettings {
@@ -1822,7 +1822,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, settings: QtC.QSettings ```
     pub fn SetSettings(self: ?*anyopaque, settings: ?*anyopaque) void {
@@ -1831,7 +1831,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn Start(self: ?*anyopaque) void {
@@ -1840,7 +1840,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, allocator: std.mem.Allocator ```
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1853,7 +1853,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     ///
@@ -1864,7 +1864,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1877,7 +1877,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn AutoDelete(self: ?*anyopaque) bool {
@@ -1886,7 +1886,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, autoDelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autoDelete: bool) void {
@@ -1895,7 +1895,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn InsecureFallback(self: ?*anyopaque) bool {
@@ -1904,7 +1904,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, insecureFallback: bool ```
     pub fn SetInsecureFallback(self: ?*anyopaque, insecureFallback: bool) void {
@@ -1913,7 +1913,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1926,7 +1926,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, key: []const u8 ```
     pub fn SetKey(self: ?*anyopaque, key: []const u8) void {
@@ -1939,7 +1939,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn EmitFinished(self: ?*anyopaque) void {
@@ -1948,7 +1948,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, param1: keychain_enums.Error, errorString: []const u8 ```
     pub fn EmitFinishedWithError(self: ?*anyopaque, param1: i32, errorString: []const u8) void {
@@ -1961,7 +1961,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, param1: QtC.QKeychain__Job ```
     pub fn Finished(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1970,7 +1970,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, callback: *const fn (self: QtC.QKeychain__WritePasswordJob, param1: QtC.QKeychain__Job) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1979,7 +1979,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1992,7 +1992,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2005,7 +2005,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2014,7 +2014,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2023,7 +2023,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2032,7 +2032,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2041,7 +2041,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2050,7 +2050,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2059,7 +2059,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2068,7 +2068,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2077,7 +2077,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2086,7 +2086,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2095,7 +2095,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2109,7 +2109,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2118,7 +2118,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2127,7 +2127,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2136,7 +2136,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2145,7 +2145,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2156,7 +2156,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2165,7 +2165,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2174,7 +2174,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2183,7 +2183,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2192,7 +2192,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2202,7 +2202,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2212,7 +2212,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2236,7 +2236,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2245,7 +2245,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2254,7 +2254,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2263,7 +2263,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, callback: *const fn (self: QtC.QKeychain__WritePasswordJob) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2272,7 +2272,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2281,7 +2281,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2291,7 +2291,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2300,7 +2300,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2309,7 +2309,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2318,7 +2318,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2327,7 +2327,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2338,7 +2338,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2347,7 +2347,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__WritePasswordJob, callback: *const fn (self: QtC.QKeychain__WritePasswordJob, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2356,7 +2356,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2367,7 +2367,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2378,7 +2378,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2389,7 +2389,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2400,7 +2400,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2411,7 +2411,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2422,7 +2422,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2433,7 +2433,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2444,7 +2444,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2455,7 +2455,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2466,7 +2466,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2477,7 +2477,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2488,7 +2488,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2499,7 +2499,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2510,7 +2510,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2521,7 +2521,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2532,7 +2532,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2543,7 +2543,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2554,7 +2554,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2565,7 +2565,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2576,7 +2576,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2587,7 +2587,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2598,7 +2598,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2609,7 +2609,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2620,7 +2620,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2631,7 +2631,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2642,7 +2642,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2653,7 +2653,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2664,7 +2664,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2675,7 +2675,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2686,7 +2686,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2698,7 +2698,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2710,7 +2710,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2721,7 +2721,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2732,7 +2732,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2743,7 +2743,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2754,7 +2754,7 @@ pub const qkeychain__writepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2763,7 +2763,7 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2799,7 +2799,7 @@ pub const qkeychain__deletepasswordjob = struct {
         return qtc.QKeychain__DeletePasswordJob_new2(service_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -2831,7 +2831,7 @@ pub const qkeychain__deletepasswordjob = struct {
         return qtc.QKeychain__DeletePasswordJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2843,7 +2843,7 @@ pub const qkeychain__deletepasswordjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2856,7 +2856,7 @@ pub const qkeychain__deletepasswordjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -2871,7 +2871,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn Settings(self: ?*anyopaque) QtC.QSettings {
@@ -2880,7 +2880,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, settings: QtC.QSettings ```
     pub fn SetSettings(self: ?*anyopaque, settings: ?*anyopaque) void {
@@ -2889,7 +2889,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn Start(self: ?*anyopaque) void {
@@ -2898,7 +2898,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, allocator: std.mem.Allocator ```
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2911,7 +2911,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     ///
@@ -2922,7 +2922,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2935,7 +2935,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn AutoDelete(self: ?*anyopaque) bool {
@@ -2944,7 +2944,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, autoDelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autoDelete: bool) void {
@@ -2953,7 +2953,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn InsecureFallback(self: ?*anyopaque) bool {
@@ -2962,7 +2962,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, insecureFallback: bool ```
     pub fn SetInsecureFallback(self: ?*anyopaque, insecureFallback: bool) void {
@@ -2971,7 +2971,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2984,7 +2984,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, key: []const u8 ```
     pub fn SetKey(self: ?*anyopaque, key: []const u8) void {
@@ -2997,7 +2997,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn EmitFinished(self: ?*anyopaque) void {
@@ -3006,7 +3006,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, param1: keychain_enums.Error, errorString: []const u8 ```
     pub fn EmitFinishedWithError(self: ?*anyopaque, param1: i32, errorString: []const u8) void {
@@ -3019,7 +3019,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, param1: QtC.QKeychain__Job ```
     pub fn Finished(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3028,7 +3028,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, callback: *const fn (self: QtC.QKeychain__DeletePasswordJob, param1: QtC.QKeychain__Job) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3037,7 +3037,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3050,7 +3050,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3063,7 +3063,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3072,7 +3072,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3081,7 +3081,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3090,7 +3090,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3099,7 +3099,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3108,7 +3108,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3117,7 +3117,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3126,7 +3126,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3135,7 +3135,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3144,7 +3144,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3153,7 +3153,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3167,7 +3167,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3176,7 +3176,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3185,7 +3185,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3194,7 +3194,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3203,7 +3203,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -3214,7 +3214,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -3223,7 +3223,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -3232,7 +3232,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -3241,7 +3241,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -3250,7 +3250,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -3260,7 +3260,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -3270,7 +3270,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -3294,7 +3294,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3303,7 +3303,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3312,7 +3312,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -3321,7 +3321,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, callback: *const fn (self: QtC.QKeychain__DeletePasswordJob) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3330,7 +3330,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3339,7 +3339,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3349,7 +3349,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3358,7 +3358,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3367,7 +3367,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3376,7 +3376,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3385,7 +3385,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3396,7 +3396,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3405,7 +3405,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QKeychain__DeletePasswordJob, callback: *const fn (self: QtC.QKeychain__DeletePasswordJob, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3414,7 +3414,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3425,7 +3425,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3436,7 +3436,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3447,7 +3447,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3458,7 +3458,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3469,7 +3469,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3480,7 +3480,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3491,7 +3491,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3502,7 +3502,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3513,7 +3513,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3524,7 +3524,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3535,7 +3535,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3546,7 +3546,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3557,7 +3557,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3568,7 +3568,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3579,7 +3579,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3590,7 +3590,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3601,7 +3601,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3612,7 +3612,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3623,7 +3623,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3634,7 +3634,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3645,7 +3645,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3656,7 +3656,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3667,7 +3667,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QKeychain::Job
     ///
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3678,7 +3678,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3689,7 +3689,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3700,7 +3700,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3711,7 +3711,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3722,7 +3722,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3733,7 +3733,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3744,7 +3744,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3756,7 +3756,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3768,7 +3768,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3779,7 +3779,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3790,7 +3790,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3801,7 +3801,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3812,7 +3812,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3821,7 +3821,7 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -3833,7 +3833,7 @@ pub const qkeychain__deletepasswordjob = struct {
 
 /// https://github.com/frankosterfeld/qtkeychain
 pub const qkeychain = struct {
-    /// [Qt documentation](https://github.com/frankosterfeld/qtkeychain)
+    /// [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
     ///
     pub fn IsAvailable() bool {

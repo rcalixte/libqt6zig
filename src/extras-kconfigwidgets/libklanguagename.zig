@@ -4,7 +4,7 @@ const std = @import("std");
 
 /// https://api.kde.org/klanguagename.html
 pub const klanguagename = struct {
-    /// [Qt documentation](https://api.kde.org/klanguagename.html#nameForCode)
+    /// [Upstream resources](https://api.kde.org/klanguagename.html#nameForCode)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn NameForCode(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -19,7 +19,7 @@ pub const klanguagename = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/klanguagename.html#nameForCodeInLocale)
+    /// [Upstream resources](https://api.kde.org/klanguagename.html#nameForCodeInLocale)
     ///
     /// ``` param1: []const u8, param2: []const u8, allocator: std.mem.Allocator ```
     pub fn NameForCodeInLocale(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -38,7 +38,7 @@ pub const klanguagename = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/klanguagename.html#allLanguageCodes)
+    /// [Upstream resources](https://api.kde.org/klanguagename.html#allLanguageCodes)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllLanguageCodes(allocator: std.mem.Allocator) [][]const u8 {

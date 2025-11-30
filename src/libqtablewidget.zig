@@ -57,49 +57,49 @@ pub const qtablewidgetselectionrange = struct {
         qtc.QTableWidgetSelectionRange_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#topRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#topRow)
     ///
     /// ``` self: QtC.QTableWidgetSelectionRange ```
     pub fn TopRow(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetSelectionRange_TopRow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#bottomRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#bottomRow)
     ///
     /// ``` self: QtC.QTableWidgetSelectionRange ```
     pub fn BottomRow(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetSelectionRange_BottomRow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#leftColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#leftColumn)
     ///
     /// ``` self: QtC.QTableWidgetSelectionRange ```
     pub fn LeftColumn(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetSelectionRange_LeftColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#rightColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#rightColumn)
     ///
     /// ``` self: QtC.QTableWidgetSelectionRange ```
     pub fn RightColumn(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetSelectionRange_RightColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#rowCount)
     ///
     /// ``` self: QtC.QTableWidgetSelectionRange ```
     pub fn RowCount(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetSelectionRange_RowCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#columnCount)
     ///
     /// ``` self: QtC.QTableWidgetSelectionRange ```
     pub fn ColumnCount(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetSelectionRange_ColumnCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#dtor.QTableWidgetSelectionRange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#dtor.QTableWidgetSelectionRange)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -180,14 +180,14 @@ pub const qtablewidgetitem = struct {
         return qtc.QTableWidgetItem_new7(@ptrCast(icon), text_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn Clone(self: ?*anyopaque) QtC.QTableWidgetItem {
         return qtc.QTableWidgetItem_Clone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
     ///
     /// Allows for overriding the related default method
     ///
@@ -196,7 +196,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
     ///
     /// Base class method implementation
     ///
@@ -205,42 +205,42 @@ pub const qtablewidgetitem = struct {
         return qtc.QTableWidgetItem_QBaseClone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#tableWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#tableWidget)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn TableWidget(self: ?*anyopaque) QtC.QTableWidget {
         return qtc.QTableWidgetItem_TableWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#row)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#row)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn Row(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetItem_Row(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#column)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#column)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn Column(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetItem_Column(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setSelected)
     ///
     /// ``` self: QtC.QTableWidgetItem, selectVal: bool ```
     pub fn SetSelected(self: ?*anyopaque, selectVal: bool) void {
         qtc.QTableWidgetItem_SetSelected(@ptrCast(self), selectVal);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#isSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#isSelected)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn IsSelected(self: ?*anyopaque) bool {
         return qtc.QTableWidgetItem_IsSelected(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#flags)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     ///
@@ -249,14 +249,14 @@ pub const qtablewidgetitem = struct {
         return qtc.QTableWidgetItem_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFlags)
     ///
     /// ``` self: QtC.QTableWidgetItem, flags: flag of qnamespace_enums.ItemFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QTableWidgetItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#text)
     ///
     /// ``` self: QtC.QTableWidgetItem, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -267,7 +267,7 @@ pub const qtablewidgetitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setText)
     ///
     /// ``` self: QtC.QTableWidgetItem, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -278,21 +278,21 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#icon)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.QTableWidgetItem_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setIcon)
     ///
     /// ``` self: QtC.QTableWidgetItem, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QTableWidgetItem_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#statusTip)
     ///
     /// ``` self: QtC.QTableWidgetItem, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -303,7 +303,7 @@ pub const qtablewidgetitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setStatusTip)
     ///
     /// ``` self: QtC.QTableWidgetItem, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -314,7 +314,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_SetStatusTip(@ptrCast(self), statusTip_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#toolTip)
     ///
     /// ``` self: QtC.QTableWidgetItem, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -325,7 +325,7 @@ pub const qtablewidgetitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setToolTip)
     ///
     /// ``` self: QtC.QTableWidgetItem, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -336,7 +336,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_SetToolTip(@ptrCast(self), toolTip_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#whatsThis)
     ///
     /// ``` self: QtC.QTableWidgetItem, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -347,7 +347,7 @@ pub const qtablewidgetitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setWhatsThis)
     ///
     /// ``` self: QtC.QTableWidgetItem, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -358,77 +358,77 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#font)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.QTableWidgetItem_Font(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFont)
     ///
     /// ``` self: QtC.QTableWidgetItem, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QTableWidgetItem_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#textAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#textAlignment)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn TextAlignment(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetItem_TextAlignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
     /// ``` self: QtC.QTableWidgetItem, alignment: i32 ```
     pub fn SetTextAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTableWidgetItem_SetTextAlignment(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
     /// ``` self: QtC.QTableWidgetItem, alignment: qnamespace_enums.AlignmentFlag ```
     pub fn SetTextAlignment2(self: ?*anyopaque, alignment: i32) void {
         qtc.QTableWidgetItem_SetTextAlignment2(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
     /// ``` self: QtC.QTableWidgetItem, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetTextAlignment3(self: ?*anyopaque, alignment: i32) void {
         qtc.QTableWidgetItem_SetTextAlignment3(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#background)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#background)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn Background(self: ?*anyopaque) QtC.QBrush {
         return qtc.QTableWidgetItem_Background(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setBackground)
     ///
     /// ``` self: QtC.QTableWidgetItem, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QTableWidgetItem_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#foreground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#foreground)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
         return qtc.QTableWidgetItem_Foreground(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setForeground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setForeground)
     ///
     /// ``` self: QtC.QTableWidgetItem, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QTableWidgetItem_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#checkState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#checkState)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     ///
@@ -437,35 +437,35 @@ pub const qtablewidgetitem = struct {
         return qtc.QTableWidgetItem_CheckState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setCheckState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setCheckState)
     ///
     /// ``` self: QtC.QTableWidgetItem, state: qnamespace_enums.CheckState ```
     pub fn SetCheckState(self: ?*anyopaque, state: i32) void {
         qtc.QTableWidgetItem_SetCheckState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#sizeHint)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QTableWidgetItem_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setSizeHint)
     ///
     /// ``` self: QtC.QTableWidgetItem, size: QtC.QSize ```
     pub fn SetSizeHint(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QTableWidgetItem_SetSizeHint(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
     ///
     /// ``` self: QtC.QTableWidgetItem, role: i32 ```
     pub fn Data(self: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QTableWidgetItem_Data(@ptrCast(self), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -474,7 +474,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
     ///
     /// Base class method implementation
     ///
@@ -483,14 +483,14 @@ pub const qtablewidgetitem = struct {
         return qtc.QTableWidgetItem_QBaseData(@ptrCast(self), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
     ///
     /// ``` self: QtC.QTableWidgetItem, role: i32, value: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, role: i32, value: ?*anyopaque) void {
         qtc.QTableWidgetItem_SetData(@ptrCast(self), @intCast(role), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -499,7 +499,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
     ///
     /// Base class method implementation
     ///
@@ -508,14 +508,14 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_QBaseSetData(@ptrCast(self), @intCast(role), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
     /// ``` self: QtC.QTableWidgetItem, other: QtC.QTableWidgetItem ```
     pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTableWidgetItem_OperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -524,7 +524,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_OnOperatorLesser(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
     /// Base class method implementation
     ///
@@ -533,14 +533,14 @@ pub const qtablewidgetitem = struct {
         return qtc.QTableWidgetItem_QBaseOperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
     ///
     /// ``` self: QtC.QTableWidgetItem, in: QtC.QDataStream ```
     pub fn Read(self: ?*anyopaque, in: ?*anyopaque) void {
         qtc.QTableWidgetItem_Read(@ptrCast(self), @ptrCast(in));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
     ///
     /// Allows for overriding the related default method
     ///
@@ -549,7 +549,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
     ///
     /// Base class method implementation
     ///
@@ -558,14 +558,14 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_QBaseRead(@ptrCast(self), @ptrCast(in));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
     ///
     /// ``` self: QtC.QTableWidgetItem, out: QtC.QDataStream ```
     pub fn Write(self: ?*anyopaque, out: ?*anyopaque) void {
         qtc.QTableWidgetItem_Write(@ptrCast(self), @ptrCast(out));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
     ///
     /// Allows for overriding the related default method
     ///
@@ -574,7 +574,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
     ///
     /// Base class method implementation
     ///
@@ -583,21 +583,21 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_QBaseWrite(@ptrCast(self), @ptrCast(out));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-eq)
     ///
     /// ``` self: QtC.QTableWidgetItem, other: QtC.QTableWidgetItem ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QTableWidgetItem_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#type)
     ///
     /// ``` self: QtC.QTableWidgetItem ```
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetItem_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#dtor.QTableWidgetItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#dtor.QTableWidgetItem)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -637,7 +637,7 @@ pub const qtablewidget = struct {
         return qtc.QTableWidget_new4(@intCast(rows), @intCast(columns), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -669,7 +669,7 @@ pub const qtablewidget = struct {
         return qtc.QTableWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -681,70 +681,70 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setRowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setRowCount)
     ///
     /// ``` self: QtC.QTableWidget, rows: i32 ```
     pub fn SetRowCount(self: ?*anyopaque, rows: i32) void {
         qtc.QTableWidget_SetRowCount(@ptrCast(self), @intCast(rows));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#rowCount)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn RowCount(self: ?*anyopaque) i32 {
         return qtc.QTableWidget_RowCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setColumnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setColumnCount)
     ///
     /// ``` self: QtC.QTableWidget, columns: i32 ```
     pub fn SetColumnCount(self: ?*anyopaque, columns: i32) void {
         qtc.QTableWidget_SetColumnCount(@ptrCast(self), @intCast(columns));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#columnCount)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ColumnCount(self: ?*anyopaque) i32 {
         return qtc.QTableWidget_ColumnCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#row)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#row)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn Row(self: ?*anyopaque, item: ?*anyopaque) i32 {
         return qtc.QTableWidget_Row(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#column)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#column)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn Column(self: ?*anyopaque, item: ?*anyopaque) i32 {
         return qtc.QTableWidget_Column(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#item)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#item)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn Item(self: ?*anyopaque, row: i32, column: i32) QtC.QTableWidgetItem {
         return qtc.QTableWidget_Item(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setItem)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32, item: QtC.QTableWidgetItem ```
     pub fn SetItem(self: ?*anyopaque, row: i32, column: i32, item: ?*anyopaque) void {
         qtc.QTableWidget_SetItem(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#takeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeItem)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn TakeItem(self: ?*anyopaque, row: i32, column: i32) QtC.QTableWidgetItem {
         return qtc.QTableWidget_TakeItem(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#items)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#items)
     ///
     /// ``` self: QtC.QTableWidget, data: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, data: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTableWidgetItem {
@@ -756,63 +756,63 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#indexFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#indexFromItem)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn IndexFromItem(self: ?*anyopaque, item: ?*anyopaque) QtC.QModelIndex {
         return qtc.QTableWidget_IndexFromItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemFromIndex)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn ItemFromIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QTableWidgetItem {
         return qtc.QTableWidget_ItemFromIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#verticalHeaderItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#verticalHeaderItem)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn VerticalHeaderItem(self: ?*anyopaque, row: i32) QtC.QTableWidgetItem {
         return qtc.QTableWidget_VerticalHeaderItem(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderItem)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, item: QtC.QTableWidgetItem ```
     pub fn SetVerticalHeaderItem(self: ?*anyopaque, row: i32, item: ?*anyopaque) void {
         qtc.QTableWidget_SetVerticalHeaderItem(@ptrCast(self), @intCast(row), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#takeVerticalHeaderItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeVerticalHeaderItem)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn TakeVerticalHeaderItem(self: ?*anyopaque, row: i32) QtC.QTableWidgetItem {
         return qtc.QTableWidget_TakeVerticalHeaderItem(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#horizontalHeaderItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#horizontalHeaderItem)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn HorizontalHeaderItem(self: ?*anyopaque, column: i32) QtC.QTableWidgetItem {
         return qtc.QTableWidget_HorizontalHeaderItem(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderItem)
     ///
     /// ``` self: QtC.QTableWidget, column: i32, item: QtC.QTableWidgetItem ```
     pub fn SetHorizontalHeaderItem(self: ?*anyopaque, column: i32, item: ?*anyopaque) void {
         qtc.QTableWidget_SetHorizontalHeaderItem(@ptrCast(self), @intCast(column), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#takeHorizontalHeaderItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeHorizontalHeaderItem)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn TakeHorizontalHeaderItem(self: ?*anyopaque, column: i32) QtC.QTableWidgetItem {
         return qtc.QTableWidget_TakeHorizontalHeaderItem(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderLabels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderLabels)
     ///
     /// ``` self: QtC.QTableWidget, labels: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetVerticalHeaderLabels(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
@@ -831,7 +831,7 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_SetVerticalHeaderLabels(@ptrCast(self), labels_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderLabels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderLabels)
     ///
     /// ``` self: QtC.QTableWidget, labels: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetHorizontalHeaderLabels(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
@@ -850,133 +850,133 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_SetHorizontalHeaderLabels(@ptrCast(self), labels_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#currentRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentRow)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn CurrentRow(self: ?*anyopaque) i32 {
         return qtc.QTableWidget_CurrentRow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#currentColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentColumn)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn CurrentColumn(self: ?*anyopaque) i32 {
         return qtc.QTableWidget_CurrentColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#currentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItem)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn CurrentItem(self: ?*anyopaque) QtC.QTableWidgetItem {
         return qtc.QTableWidget_CurrentItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn SetCurrentItem(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_SetCurrentItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetCurrentItem2(self: ?*anyopaque, item: ?*anyopaque, command: i32) void {
         qtc.QTableWidget_SetCurrentItem2(@ptrCast(self), @ptrCast(item), @intCast(command));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn SetCurrentCell(self: ?*anyopaque, row: i32, column: i32) void {
         qtc.QTableWidget_SetCurrentCell(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetCurrentCell2(self: ?*anyopaque, row: i32, column: i32, command: i32) void {
         qtc.QTableWidget_SetCurrentCell2(@ptrCast(self), @intCast(row), @intCast(column), @intCast(command));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#sortItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#sortItems)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn SortItems(self: ?*anyopaque, column: i32) void {
         qtc.QTableWidget_SortItems(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setSortingEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setSortingEnabled)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetSortingEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QTableWidget_SetSortingEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#isSortingEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#isSortingEnabled)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsSortingEnabled(self: ?*anyopaque) bool {
         return qtc.QTableWidget_IsSortingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#editItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#editItem)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn EditItem(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_EditItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#openPersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#openPersistentEditor)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn OpenPersistentEditor(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_OpenPersistentEditor(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#closePersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#closePersistentEditor)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn ClosePersistentEditor(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_ClosePersistentEditor(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#isPersistentEditorOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#isPersistentEditorOpen)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn IsPersistentEditorOpen(self: ?*anyopaque, item: ?*anyopaque) bool {
         return qtc.QTableWidget_IsPersistentEditorOpen(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellWidget)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn CellWidget(self: ?*anyopaque, row: i32, column: i32) QtC.QWidget {
         return qtc.QTableWidget_CellWidget(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setCellWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCellWidget)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32, widget: QtC.QWidget ```
     pub fn SetCellWidget(self: ?*anyopaque, row: i32, column: i32, widget: ?*anyopaque) void {
         qtc.QTableWidget_SetCellWidget(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#removeCellWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeCellWidget)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn RemoveCellWidget(self: ?*anyopaque, row: i32, column: i32) void {
         qtc.QTableWidget_RemoveCellWidget(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setRangeSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setRangeSelected)
     ///
     /// ``` self: QtC.QTableWidget, range: QtC.QTableWidgetSelectionRange, selectVal: bool ```
     pub fn SetRangeSelected(self: ?*anyopaque, range: ?*anyopaque, selectVal: bool) void {
         qtc.QTableWidget_SetRangeSelected(@ptrCast(self), @ptrCast(range), selectVal);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#selectedRanges)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#selectedRanges)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn SelectedRanges(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTableWidgetSelectionRange {
@@ -988,7 +988,7 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#selectedItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#selectedItems)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn SelectedItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTableWidgetItem {
@@ -1000,7 +1000,7 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#findItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#findItems)
     ///
     /// ``` self: QtC.QTableWidget, text: []const u8, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn FindItems(self: ?*anyopaque, text: []const u8, flags: i32, allocator: std.mem.Allocator) []QtC.QTableWidgetItem {
@@ -1016,322 +1016,322 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#visualRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#visualRow)
     ///
     /// ``` self: QtC.QTableWidget, logicalRow: i32 ```
     pub fn VisualRow(self: ?*anyopaque, logicalRow: i32) i32 {
         return qtc.QTableWidget_VisualRow(@ptrCast(self), @intCast(logicalRow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#visualColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#visualColumn)
     ///
     /// ``` self: QtC.QTableWidget, logicalColumn: i32 ```
     pub fn VisualColumn(self: ?*anyopaque, logicalColumn: i32) i32 {
         return qtc.QTableWidget_VisualColumn(@ptrCast(self), @intCast(logicalColumn));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemAt)
     ///
     /// ``` self: QtC.QTableWidget, p: QtC.QPoint ```
     pub fn ItemAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QTableWidgetItem {
         return qtc.QTableWidget_ItemAt(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemAt)
     ///
     /// ``` self: QtC.QTableWidget, x: i32, y: i32 ```
     pub fn ItemAt2(self: ?*anyopaque, x: i32, y: i32) QtC.QTableWidgetItem {
         return qtc.QTableWidget_ItemAt2(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#visualItemRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#visualItemRect)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn VisualItemRect(self: ?*anyopaque, item: ?*anyopaque) QtC.QRect {
         return qtc.QTableWidget_VisualItemRect(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemPrototype)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPrototype)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ItemPrototype(self: ?*anyopaque) QtC.QTableWidgetItem {
         return qtc.QTableWidget_ItemPrototype(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setItemPrototype)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setItemPrototype)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn SetItemPrototype(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_SetItemPrototype(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#scrollToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#scrollToItem)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn ScrollToItem(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_ScrollToItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#insertRow)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) void {
         qtc.QTableWidget_InsertRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#insertColumn)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) void {
         qtc.QTableWidget_InsertColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeRow)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) void {
         qtc.QTableWidget_RemoveRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeColumn)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) void {
         qtc.QTableWidget_RemoveColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#clear)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QTableWidget_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#clearContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#clearContents)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ClearContents(self: ?*anyopaque) void {
         qtc.QTableWidget_ClearContents(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemPressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPressed)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn ItemPressed(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_ItemPressed(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemPressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPressed)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void ```
     pub fn OnItemPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemClicked)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn ItemClicked(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_ItemClicked(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemClicked)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void ```
     pub fn OnItemClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn ItemDoubleClicked(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_ItemDoubleClicked(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void ```
     pub fn OnItemDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemActivated)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn ItemActivated(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_ItemActivated(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemActivated)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void ```
     pub fn OnItemActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemEntered)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn ItemEntered(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_ItemEntered(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemEntered)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void ```
     pub fn OnItemEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemChanged)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem ```
     pub fn ItemChanged(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QTableWidget_ItemChanged(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void ```
     pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged)
     ///
     /// ``` self: QtC.QTableWidget, current: QtC.QTableWidgetItem, previous: QtC.QTableWidgetItem ```
     pub fn CurrentItemChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
         qtc.QTableWidget_CurrentItemChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, current: QtC.QTableWidgetItem, previous: QtC.QTableWidgetItem) callconv(.c) void ```
     pub fn OnCurrentItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CurrentItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ItemSelectionChanged(self: ?*anyopaque) void {
         qtc.QTableWidget_ItemSelectionChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget) callconv(.c) void ```
     pub fn OnItemSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellPressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellPressed)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn CellPressed(self: ?*anyopaque, row: i32, column: i32) void {
         qtc.QTableWidget_CellPressed(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellPressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellPressed)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void ```
     pub fn OnCellPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellClicked)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn CellClicked(self: ?*anyopaque, row: i32, column: i32) void {
         qtc.QTableWidget_CellClicked(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellClicked)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void ```
     pub fn OnCellClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn CellDoubleClicked(self: ?*anyopaque, row: i32, column: i32) void {
         qtc.QTableWidget_CellDoubleClicked(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void ```
     pub fn OnCellDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellActivated)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn CellActivated(self: ?*anyopaque, row: i32, column: i32) void {
         qtc.QTableWidget_CellActivated(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellActivated)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void ```
     pub fn OnCellActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellEntered)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn CellEntered(self: ?*anyopaque, row: i32, column: i32) void {
         qtc.QTableWidget_CellEntered(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellEntered)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void ```
     pub fn OnCellEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellChanged)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn CellChanged(self: ?*anyopaque, row: i32, column: i32) void {
         qtc.QTableWidget_CellChanged(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#cellChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void ```
     pub fn OnCellChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged)
     ///
     /// ``` self: QtC.QTableWidget, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32 ```
     pub fn CurrentCellChanged(self: ?*anyopaque, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) void {
         qtc.QTableWidget_CurrentCellChanged(@ptrCast(self), @intCast(currentRow), @intCast(currentColumn), @intCast(previousRow), @intCast(previousColumn));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) callconv(.c) void ```
     pub fn OnCurrentCellChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CurrentCellChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#event)
     ///
     /// ``` self: QtC.QTableWidget, e: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QTableWidget_Event(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1340,7 +1340,7 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#event)
     ///
     /// Base class method implementation
     ///
@@ -1349,7 +1349,7 @@ pub const qtablewidget = struct {
         return qtc.QTableWidget_QBaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -1371,7 +1371,7 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1380,7 +1380,7 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
     ///
     /// Base class method implementation
     ///
@@ -1404,7 +1404,7 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
     ///
     /// ``` self: QtC.QTableWidget, items: []QtC.QTableWidgetItem ```
     pub fn MimeData(self: ?*anyopaque, items: []?*anyopaque) QtC.QMimeData {
@@ -1415,7 +1415,7 @@ pub const qtablewidget = struct {
         return qtc.QTableWidget_MimeData(@ptrCast(self), items_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1424,7 +1424,7 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
     ///
     /// Base class method implementation
     ///
@@ -1437,14 +1437,14 @@ pub const qtablewidget = struct {
         return qtc.QTableWidget_QBaseMimeData(@ptrCast(self), items_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32, data: QtC.QMimeData, action: qnamespace_enums.DropAction ```
     pub fn DropMimeData(self: ?*anyopaque, row: i32, column: i32, data: ?*anyopaque, action: i32) bool {
         return qtc.QTableWidget_DropMimeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(data), @intCast(action));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1453,7 +1453,7 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
     ///
     /// Base class method implementation
     ///
@@ -1462,7 +1462,7 @@ pub const qtablewidget = struct {
         return qtc.QTableWidget_QBaseDropMimeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(data), @intCast(action));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -1471,7 +1471,7 @@ pub const qtablewidget = struct {
         return qtc.QTableWidget_SupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1480,7 +1480,7 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
     ///
     /// Base class method implementation
     ///
@@ -1491,14 +1491,14 @@ pub const qtablewidget = struct {
         return qtc.QTableWidget_QBaseSupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
     ///
     /// ``` self: QtC.QTableWidget, event: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QTableWidget_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1507,7 +1507,7 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
     ///
     /// Base class method implementation
     ///
@@ -1516,7 +1516,7 @@ pub const qtablewidget = struct {
         qtc.QTableWidget_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1529,7 +1529,7 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1542,14 +1542,14 @@ pub const qtablewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#sortItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#sortItems)
     ///
     /// ``` self: QtC.QTableWidget, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn SortItems2(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QTableWidget_SortItems2(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#scrollToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#scrollToItem)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem, hint: qabstractitemview_enums.ScrollHint ```
     pub fn ScrollToItem2(self: ?*anyopaque, item: ?*anyopaque, hint: i32) void {
@@ -1558,7 +1558,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setModel)
     ///
     /// ``` self: QtC.QTableWidget, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
@@ -1567,7 +1567,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1578,7 +1578,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setModel)
     ///
     /// Base class method implementation
     ///
@@ -1589,7 +1589,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#horizontalHeader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalHeader)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn HorizontalHeader(self: ?*anyopaque) QtC.QHeaderView {
@@ -1598,7 +1598,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#verticalHeader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalHeader)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn VerticalHeader(self: ?*anyopaque) QtC.QHeaderView {
@@ -1607,7 +1607,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setHorizontalHeader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setHorizontalHeader)
     ///
     /// ``` self: QtC.QTableWidget, header: QtC.QHeaderView ```
     pub fn SetHorizontalHeader(self: ?*anyopaque, header: ?*anyopaque) void {
@@ -1616,7 +1616,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setVerticalHeader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setVerticalHeader)
     ///
     /// ``` self: QtC.QTableWidget, header: QtC.QHeaderView ```
     pub fn SetVerticalHeader(self: ?*anyopaque, header: ?*anyopaque) void {
@@ -1625,7 +1625,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowViewportPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowViewportPosition)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn RowViewportPosition(self: ?*anyopaque, row: i32) i32 {
@@ -1634,7 +1634,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowAt)
     ///
     /// ``` self: QtC.QTableWidget, y: i32 ```
     pub fn RowAt(self: ?*anyopaque, y: i32) i32 {
@@ -1643,7 +1643,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setRowHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setRowHeight)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, height: i32 ```
     pub fn SetRowHeight(self: ?*anyopaque, row: i32, height: i32) void {
@@ -1652,7 +1652,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowHeight)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn RowHeight(self: ?*anyopaque, row: i32) i32 {
@@ -1661,7 +1661,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnViewportPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnViewportPosition)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn ColumnViewportPosition(self: ?*anyopaque, column: i32) i32 {
@@ -1670,7 +1670,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnAt)
     ///
     /// ``` self: QtC.QTableWidget, x: i32 ```
     pub fn ColumnAt(self: ?*anyopaque, x: i32) i32 {
@@ -1679,7 +1679,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setColumnWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setColumnWidth)
     ///
     /// ``` self: QtC.QTableWidget, column: i32, width: i32 ```
     pub fn SetColumnWidth(self: ?*anyopaque, column: i32, width: i32) void {
@@ -1688,7 +1688,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnWidth)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn ColumnWidth(self: ?*anyopaque, column: i32) i32 {
@@ -1697,7 +1697,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#isRowHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#isRowHidden)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn IsRowHidden(self: ?*anyopaque, row: i32) bool {
@@ -1706,7 +1706,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setRowHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setRowHidden)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, hide: bool ```
     pub fn SetRowHidden(self: ?*anyopaque, row: i32, hide: bool) void {
@@ -1715,7 +1715,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#isColumnHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#isColumnHidden)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn IsColumnHidden(self: ?*anyopaque, column: i32) bool {
@@ -1724,7 +1724,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setColumnHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setColumnHidden)
     ///
     /// ``` self: QtC.QTableWidget, column: i32, hide: bool ```
     pub fn SetColumnHidden(self: ?*anyopaque, column: i32, hide: bool) void {
@@ -1733,7 +1733,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#showGrid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#showGrid)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ShowGrid(self: ?*anyopaque) bool {
@@ -1742,7 +1742,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#gridStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#gridStyle)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -1753,7 +1753,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setGridStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setGridStyle)
     ///
     /// ``` self: QtC.QTableWidget, style: qnamespace_enums.PenStyle ```
     pub fn SetGridStyle(self: ?*anyopaque, style: i32) void {
@@ -1762,7 +1762,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setWordWrap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setWordWrap)
     ///
     /// ``` self: QtC.QTableWidget, on: bool ```
     pub fn SetWordWrap(self: ?*anyopaque, on: bool) void {
@@ -1771,7 +1771,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#wordWrap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#wordWrap)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn WordWrap(self: ?*anyopaque) bool {
@@ -1780,7 +1780,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setCornerButtonEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setCornerButtonEnabled)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetCornerButtonEnabled(self: ?*anyopaque, enable: bool) void {
@@ -1789,7 +1789,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#isCornerButtonEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#isCornerButtonEnabled)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsCornerButtonEnabled(self: ?*anyopaque) bool {
@@ -1798,7 +1798,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setSpan)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSpan)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32, rowSpan: i32, columnSpan: i32 ```
     pub fn SetSpan(self: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
@@ -1807,7 +1807,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowSpan)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowSpan)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn RowSpan(self: ?*anyopaque, row: i32, column: i32) i32 {
@@ -1816,7 +1816,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnSpan)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnSpan)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32 ```
     pub fn ColumnSpan(self: ?*anyopaque, row: i32, column: i32) i32 {
@@ -1825,7 +1825,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#clearSpans)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#clearSpans)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ClearSpans(self: ?*anyopaque) void {
@@ -1834,7 +1834,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#selectRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectRow)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn SelectRow(self: ?*anyopaque, row: i32) void {
@@ -1843,7 +1843,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#selectColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectColumn)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn SelectColumn(self: ?*anyopaque, column: i32) void {
@@ -1852,7 +1852,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#hideRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#hideRow)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn HideRow(self: ?*anyopaque, row: i32) void {
@@ -1861,7 +1861,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#hideColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#hideColumn)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn HideColumn(self: ?*anyopaque, column: i32) void {
@@ -1870,7 +1870,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#showRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#showRow)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn ShowRow(self: ?*anyopaque, row: i32) void {
@@ -1879,7 +1879,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#showColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#showColumn)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn ShowColumn(self: ?*anyopaque, column: i32) void {
@@ -1888,7 +1888,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#resizeRowToContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#resizeRowToContents)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn ResizeRowToContents(self: ?*anyopaque, row: i32) void {
@@ -1897,7 +1897,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#resizeRowsToContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#resizeRowsToContents)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ResizeRowsToContents(self: ?*anyopaque) void {
@@ -1906,7 +1906,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#resizeColumnToContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#resizeColumnToContents)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn ResizeColumnToContents(self: ?*anyopaque, column: i32) void {
@@ -1915,7 +1915,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#resizeColumnsToContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#resizeColumnsToContents)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ResizeColumnsToContents(self: ?*anyopaque) void {
@@ -1924,7 +1924,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#sortByColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sortByColumn)
     ///
     /// ``` self: QtC.QTableWidget, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn SortByColumn(self: ?*anyopaque, column: i32, order: i32) void {
@@ -1933,7 +1933,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setShowGrid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setShowGrid)
     ///
     /// ``` self: QtC.QTableWidget, show: bool ```
     pub fn SetShowGrid(self: ?*anyopaque, show: bool) void {
@@ -1942,7 +1942,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#model)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
@@ -1951,7 +1951,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
@@ -1960,7 +1960,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
     ///
     /// ``` self: QtC.QTableWidget, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -1969,7 +1969,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -1978,7 +1978,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
     /// ``` self: QtC.QTableWidget, mode: qabstractitemview_enums.SelectionMode ```
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
@@ -1987,7 +1987,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -1998,7 +1998,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
     /// ``` self: QtC.QTableWidget, behavior: qabstractitemview_enums.SelectionBehavior ```
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
@@ -2007,7 +2007,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2018,7 +2018,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -2027,7 +2027,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -2036,7 +2036,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
     /// ``` self: QtC.QTableWidget, triggers: flag of qabstractitemview_enums.EditTrigger ```
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
@@ -2045,7 +2045,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2056,7 +2056,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
     /// ``` self: QtC.QTableWidget, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
@@ -2065,7 +2065,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2076,7 +2076,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
@@ -2085,7 +2085,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
     /// ``` self: QtC.QTableWidget, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
@@ -2094,7 +2094,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2105,7 +2105,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
@@ -2114,7 +2114,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
@@ -2123,7 +2123,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn HasAutoScroll(self: ?*anyopaque) bool {
@@ -2132,7 +2132,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
     ///
     /// ``` self: QtC.QTableWidget, margin: i32 ```
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
@@ -2141,7 +2141,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
@@ -2150,7 +2150,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
@@ -2159,7 +2159,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn TabKeyNavigation(self: ?*anyopaque) bool {
@@ -2168,7 +2168,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
@@ -2177,7 +2177,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ShowDropIndicator(self: ?*anyopaque) bool {
@@ -2186,7 +2186,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
@@ -2195,7 +2195,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn DragEnabled(self: ?*anyopaque) bool {
@@ -2204,7 +2204,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
     ///
     /// ``` self: QtC.QTableWidget, overwrite: bool ```
     pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
@@ -2213,7 +2213,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
@@ -2222,7 +2222,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
     /// ``` self: QtC.QTableWidget, behavior: qabstractitemview_enums.DragDropMode ```
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
@@ -2231,7 +2231,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2242,7 +2242,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
     /// ``` self: QtC.QTableWidget, dropAction: qnamespace_enums.DropAction ```
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
@@ -2251,7 +2251,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2262,7 +2262,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
@@ -2271,7 +2271,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn AlternatingRowColors(self: ?*anyopaque) bool {
@@ -2280,7 +2280,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
     ///
     /// ``` self: QtC.QTableWidget, size: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -2289,7 +2289,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IconSize(self: ?*anyopaque) QtC.QSize {
@@ -2298,7 +2298,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
     /// ``` self: QtC.QTableWidget, mode: qnamespace_enums.TextElideMode ```
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
@@ -2307,7 +2307,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2318,7 +2318,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
@@ -2327,7 +2327,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex, widget: QtC.QWidget ```
     pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2336,7 +2336,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
@@ -2345,7 +2345,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
@@ -2354,7 +2354,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
     ///
     /// ``` self: QtC.QTableWidget, row: i32 ```
     pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
@@ -2363,7 +2363,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
     ///
     /// ``` self: QtC.QTableWidget, column: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
@@ -2372,7 +2372,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
     ///
     /// ``` self: QtC.QTableWidget, column: i32 ```
     pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
@@ -2381,7 +2381,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -2390,7 +2390,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2399,7 +2399,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ClearSelection(self: ?*anyopaque) void {
@@ -2408,7 +2408,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2417,7 +2417,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ScrollToTop(self: ?*anyopaque) void {
@@ -2426,7 +2426,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ScrollToBottom(self: ?*anyopaque) void {
@@ -2435,7 +2435,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#update)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2444,7 +2444,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2453,7 +2453,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2462,7 +2462,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2471,7 +2471,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2480,7 +2480,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2489,7 +2489,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2498,7 +2498,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2507,7 +2507,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2516,7 +2516,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex ```
     pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2525,7 +2525,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2534,7 +2534,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ViewportEntered(self: ?*anyopaque) void {
@@ -2543,7 +2543,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget) callconv(.c) void ```
     pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2552,7 +2552,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.QTableWidget, size: QtC.QSize ```
     pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -2561,7 +2561,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, size: QtC.QSize) callconv(.c) void ```
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2570,7 +2570,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2581,7 +2581,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTableWidget, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -2590,7 +2590,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -2599,7 +2599,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.QTableWidget, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -2608,7 +2608,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2619,7 +2619,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTableWidget, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -2628,7 +2628,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -2637,7 +2637,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.QTableWidget, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -2646,7 +2646,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2655,7 +2655,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.QTableWidget, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2664,7 +2664,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QTableWidget, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -2673,7 +2673,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QTableWidget, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -2687,7 +2687,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -2696,7 +2696,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.QTableWidget, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2705,7 +2705,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -2714,7 +2714,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2725,7 +2725,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QTableWidget, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2734,7 +2734,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -2743,7 +2743,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.QTableWidget, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -2752,7 +2752,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -2761,7 +2761,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2772,7 +2772,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QTableWidget, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -2781,7 +2781,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2792,7 +2792,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QTableWidget, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -2801,7 +2801,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -2810,7 +2810,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.QTableWidget, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -2819,7 +2819,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -2828,7 +2828,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.QTableWidget, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -2837,7 +2837,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -2846,7 +2846,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.QTableWidget, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -2855,7 +2855,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -2864,7 +2864,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -2873,7 +2873,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -2882,7 +2882,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -2891,7 +2891,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -2900,7 +2900,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.QTableWidget, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -2909,7 +2909,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -2918,7 +2918,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2927,7 +2927,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -2936,7 +2936,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -2947,7 +2947,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QTableWidget, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -2956,7 +2956,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2965,7 +2965,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2974,7 +2974,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.QTableWidget, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2983,7 +2983,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.QTableWidget, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -2992,7 +2992,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.QTableWidget, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -3001,7 +3001,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -3010,7 +3010,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -3019,7 +3019,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -3028,7 +3028,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -3037,7 +3037,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -3046,7 +3046,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -3055,7 +3055,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -3064,7 +3064,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -3073,7 +3073,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -3082,7 +3082,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -3091,7 +3091,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -3100,7 +3100,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -3109,7 +3109,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -3118,7 +3118,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -3127,7 +3127,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -3136,7 +3136,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -3145,7 +3145,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -3154,7 +3154,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -3163,7 +3163,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -3172,7 +3172,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QTableWidget, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -3181,7 +3181,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QTableWidget, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -3190,7 +3190,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QTableWidget, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -3199,7 +3199,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QTableWidget, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -3208,7 +3208,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QTableWidget, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -3217,7 +3217,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QTableWidget, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -3226,7 +3226,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QTableWidget, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -3235,7 +3235,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QTableWidget, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -3244,7 +3244,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -3253,7 +3253,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QTableWidget, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -3262,7 +3262,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QTableWidget, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3271,7 +3271,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -3280,7 +3280,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QTableWidget, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -3289,7 +3289,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QTableWidget, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -3298,7 +3298,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QTableWidget, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -3307,7 +3307,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QTableWidget, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3316,7 +3316,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.QTableWidget, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -3325,7 +3325,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.QTableWidget, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -3334,7 +3334,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3343,7 +3343,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3352,7 +3352,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3361,7 +3361,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3370,7 +3370,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3379,7 +3379,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3388,7 +3388,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3397,7 +3397,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3406,7 +3406,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -3415,7 +3415,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -3424,7 +3424,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -3433,7 +3433,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -3442,7 +3442,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -3451,7 +3451,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3460,7 +3460,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3469,7 +3469,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -3478,7 +3478,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.QTableWidget, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -3487,7 +3487,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QTableWidget, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -3496,7 +3496,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -3507,7 +3507,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QTableWidget, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -3516,7 +3516,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -3527,7 +3527,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -3536,7 +3536,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.QTableWidget, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -3545,7 +3545,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -3554,7 +3554,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -3563,7 +3563,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -3572,7 +3572,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.QTableWidget, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -3581,7 +3581,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -3590,7 +3590,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -3599,7 +3599,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -3608,7 +3608,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -3617,7 +3617,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -3626,7 +3626,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -3635,7 +3635,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QTableWidget, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -3644,7 +3644,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QTableWidget, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -3653,7 +3653,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -3662,7 +3662,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -3671,7 +3671,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -3680,7 +3680,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -3689,7 +3689,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -3698,7 +3698,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -3707,7 +3707,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QTableWidget, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -3716,7 +3716,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QTableWidget, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3725,7 +3725,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.QTableWidget, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3734,7 +3734,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QTableWidget, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -3747,7 +3747,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.QTableWidget, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -3760,7 +3760,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3773,7 +3773,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3786,7 +3786,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.QTableWidget, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3795,7 +3795,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -3804,7 +3804,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.QTableWidget, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -3817,7 +3817,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3830,7 +3830,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.QTableWidget, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -3843,7 +3843,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3856,7 +3856,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.QTableWidget, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -3869,7 +3869,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3882,7 +3882,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.QTableWidget, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -3891,7 +3891,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -3900,7 +3900,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -3909,7 +3909,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.QTableWidget, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -3922,7 +3922,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3935,7 +3935,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.QTableWidget, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -3944,7 +3944,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -3953,7 +3953,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.QTableWidget, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -3966,7 +3966,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3979,7 +3979,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.QTableWidget, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -3992,7 +3992,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4005,7 +4005,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4018,7 +4018,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.QTableWidget, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -4031,7 +4031,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4044,7 +4044,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.QTableWidget, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -4057,7 +4057,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTableWidget, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -4066,7 +4066,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -4077,7 +4077,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -4086,7 +4086,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.QTableWidget, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -4095,7 +4095,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -4104,7 +4104,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -4113,7 +4113,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -4122,7 +4122,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -4131,7 +4131,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -4140,7 +4140,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -4149,7 +4149,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -4158,7 +4158,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -4167,7 +4167,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QTableWidget, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -4176,7 +4176,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -4187,7 +4187,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QTableWidget, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -4196,7 +4196,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -4205,7 +4205,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -4214,7 +4214,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.QTableWidget, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -4223,7 +4223,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -4232,7 +4232,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -4243,7 +4243,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QTableWidget, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -4252,7 +4252,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -4261,7 +4261,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4270,7 +4270,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -4279,7 +4279,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -4288,7 +4288,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -4297,7 +4297,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QTableWidget, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -4306,7 +4306,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QTableWidget, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -4315,7 +4315,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QTableWidget, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -4324,7 +4324,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QTableWidget, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -4333,7 +4333,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -4342,7 +4342,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -4351,7 +4351,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -4360,7 +4360,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.QTableWidget, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -4369,7 +4369,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -4378,7 +4378,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -4387,7 +4387,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTableWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4396,7 +4396,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4405,7 +4405,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4414,7 +4414,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTableWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4423,7 +4423,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4432,7 +4432,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4441,7 +4441,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.QTableWidget, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -4450,7 +4450,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Show(self: ?*anyopaque) void {
@@ -4459,7 +4459,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -4468,7 +4468,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -4477,7 +4477,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -4486,7 +4486,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -4495,7 +4495,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -4504,7 +4504,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -4513,7 +4513,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -4522,7 +4522,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -4531,7 +4531,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4540,7 +4540,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QTableWidget, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -4549,7 +4549,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4558,7 +4558,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QTableWidget, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -4567,7 +4567,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4576,7 +4576,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QTableWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4585,7 +4585,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QTableWidget, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -4594,7 +4594,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -4607,7 +4607,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.QTableWidget, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -4620,7 +4620,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -4629,7 +4629,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -4638,7 +4638,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -4647,7 +4647,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -4656,7 +4656,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -4665,7 +4665,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -4674,7 +4674,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -4683,7 +4683,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -4694,7 +4694,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QTableWidget, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -4703,7 +4703,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QTableWidget, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -4712,7 +4712,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -4721,7 +4721,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QTableWidget, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -4730,7 +4730,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QTableWidget, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -4739,7 +4739,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -4748,7 +4748,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QTableWidget, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -4757,7 +4757,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QTableWidget, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -4766,7 +4766,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -4775,7 +4775,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -4784,7 +4784,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -4793,7 +4793,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.QTableWidget, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -4802,7 +4802,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -4811,7 +4811,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QTableWidget, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -4820,7 +4820,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QTableWidget, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -4829,7 +4829,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QTableWidget, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -4838,7 +4838,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QTableWidget, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -4847,7 +4847,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4856,7 +4856,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4865,7 +4865,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4874,7 +4874,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -4883,7 +4883,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QTableWidget, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -4892,7 +4892,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableWidget, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4901,7 +4901,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.QTableWidget, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4914,7 +4914,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.QTableWidget, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4927,7 +4927,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.QTableWidget, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -4936,7 +4936,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.QTableWidget, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4945,7 +4945,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4959,7 +4959,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableWidget, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4972,7 +4972,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableWidget, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4985,7 +4985,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableWidget, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4998,7 +4998,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableWidget, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -5011,7 +5011,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -5020,7 +5020,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QTableWidget, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -5029,7 +5029,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -5040,7 +5040,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QTableWidget, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -5049,7 +5049,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.QTableWidget, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -5058,7 +5058,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -5069,7 +5069,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -5078,7 +5078,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QTableWidget, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -5087,7 +5087,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QTableWidget, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -5096,7 +5096,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QTableWidget, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -5105,7 +5105,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTableWidget, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -5114,7 +5114,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QTableWidget, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -5123,7 +5123,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -5132,7 +5132,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.QTableWidget, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -5141,7 +5141,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -5150,7 +5150,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QTableWidget, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -5159,7 +5159,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -5168,7 +5168,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -5177,7 +5177,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -5186,7 +5186,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.QTableWidget, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -5195,7 +5195,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -5204,7 +5204,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QTableWidget, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -5217,7 +5217,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -5226,7 +5226,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QTableWidget, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -5235,7 +5235,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5244,7 +5244,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QTableWidget, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -5257,7 +5257,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -5266,7 +5266,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QTableWidget, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -5275,7 +5275,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5284,7 +5284,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QTableWidget ```
     ///
@@ -5295,7 +5295,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QTableWidget, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -5304,7 +5304,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -5313,7 +5313,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -5322,7 +5322,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -5331,7 +5331,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -5340,7 +5340,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -5349,7 +5349,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -5358,7 +5358,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QTableWidget, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -5367,7 +5367,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QTableWidget, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -5376,7 +5376,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QTableWidget, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -5385,7 +5385,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QTableWidget, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -5394,7 +5394,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QTableWidget, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -5403,7 +5403,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QTableWidget, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -5412,7 +5412,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTableWidget, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -5421,7 +5421,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -5430,7 +5430,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -5439,7 +5439,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5452,7 +5452,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QTableWidget, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -5465,7 +5465,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -5474,7 +5474,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -5483,7 +5483,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -5492,7 +5492,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -5501,7 +5501,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QTableWidget, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -5510,7 +5510,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -5519,7 +5519,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTableWidget, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -5528,7 +5528,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTableWidget, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -5537,7 +5537,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTableWidget, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -5546,7 +5546,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTableWidget, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -5555,7 +5555,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -5569,7 +5569,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QTableWidget, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -5578,7 +5578,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QTableWidget, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -5587,7 +5587,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -5596,7 +5596,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTableWidget, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -5607,7 +5607,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -5616,7 +5616,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -5625,7 +5625,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -5634,7 +5634,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -5643,7 +5643,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QTableWidget, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -5653,7 +5653,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QTableWidget, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -5663,7 +5663,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QTableWidget, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -5687,7 +5687,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5696,7 +5696,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5705,7 +5705,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -5714,7 +5714,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -5723,7 +5723,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -5732,7 +5732,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QTableWidget, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -5742,7 +5742,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -5751,7 +5751,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTableWidget, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -5760,7 +5760,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTableWidget, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -5769,7 +5769,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5778,7 +5778,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTableWidget, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5789,7 +5789,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTableWidget, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5798,7 +5798,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTableWidget, callback: *const fn (self: QtC.QTableWidget, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5807,7 +5807,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -5816,7 +5816,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -5825,7 +5825,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -5834,7 +5834,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -5843,7 +5843,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -5852,7 +5852,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -5861,7 +5861,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -5870,7 +5870,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -5879,7 +5879,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -5888,7 +5888,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -5897,7 +5897,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QTableWidget ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -5906,7 +5906,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -5915,7 +5915,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -5924,7 +5924,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setRootIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5935,7 +5935,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setRootIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5946,7 +5946,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setRootIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5957,7 +5957,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelectionModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5968,7 +5968,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelectionModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5979,7 +5979,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelectionModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5990,7 +5990,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#doItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6001,7 +6001,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#doItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6012,7 +6012,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#doItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6023,7 +6023,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6034,7 +6034,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6045,7 +6045,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6056,7 +6056,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollTo)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6067,7 +6067,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollTo)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6078,7 +6078,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollTo)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6089,7 +6089,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#indexAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6100,7 +6100,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#indexAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6111,7 +6111,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#indexAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6122,7 +6122,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6133,7 +6133,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6144,7 +6144,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6155,7 +6155,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6166,7 +6166,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6177,7 +6177,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#initViewItemOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6188,7 +6188,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6199,7 +6199,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6210,7 +6210,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6221,7 +6221,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6232,7 +6232,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6243,7 +6243,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6254,7 +6254,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6265,7 +6265,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6276,7 +6276,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6287,7 +6287,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6298,7 +6298,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6309,7 +6309,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6320,7 +6320,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#moveCursor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6331,7 +6331,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#moveCursor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6342,7 +6342,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#moveCursor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6353,7 +6353,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6364,7 +6364,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6375,7 +6375,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6386,7 +6386,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6397,7 +6397,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6408,7 +6408,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6419,7 +6419,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6435,7 +6435,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6451,7 +6451,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectedIndexes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6462,7 +6462,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#updateGeometries)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6473,7 +6473,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#updateGeometries)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6484,7 +6484,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#updateGeometries)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6495,7 +6495,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6506,7 +6506,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6517,7 +6517,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6528,7 +6528,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6539,7 +6539,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6550,7 +6550,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6561,7 +6561,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6572,7 +6572,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6583,7 +6583,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6594,7 +6594,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6605,7 +6605,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6616,7 +6616,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6627,7 +6627,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6638,7 +6638,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6649,7 +6649,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6660,7 +6660,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#isIndexHidden)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6671,7 +6671,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#isIndexHidden)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6682,7 +6682,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#isIndexHidden)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6693,7 +6693,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectionChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6704,7 +6704,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectionChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6715,7 +6715,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectionChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6726,7 +6726,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#currentChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6737,7 +6737,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#currentChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6748,7 +6748,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#currentChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6759,7 +6759,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6774,7 +6774,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6789,7 +6789,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6800,7 +6800,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6811,7 +6811,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6822,7 +6822,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6833,7 +6833,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6844,7 +6844,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6855,7 +6855,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6866,7 +6866,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6877,7 +6877,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6888,7 +6888,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6899,7 +6899,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6910,7 +6910,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6921,7 +6921,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6932,7 +6932,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6947,7 +6947,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6962,7 +6962,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6973,7 +6973,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6984,7 +6984,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6995,7 +6995,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7006,7 +7006,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7017,7 +7017,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7028,7 +7028,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7039,7 +7039,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7050,7 +7050,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7061,7 +7061,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7072,7 +7072,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7083,7 +7083,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7094,7 +7094,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7105,7 +7105,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7116,7 +7116,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7127,7 +7127,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7138,7 +7138,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7149,7 +7149,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7160,7 +7160,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7171,7 +7171,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7182,7 +7182,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7193,7 +7193,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7204,7 +7204,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7215,7 +7215,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7226,7 +7226,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7237,7 +7237,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7248,7 +7248,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7259,7 +7259,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7270,7 +7270,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7281,7 +7281,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7292,7 +7292,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7303,7 +7303,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7316,7 +7316,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7329,7 +7329,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7340,7 +7340,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7351,7 +7351,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7362,7 +7362,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7373,7 +7373,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7384,7 +7384,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7395,7 +7395,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7406,7 +7406,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7417,7 +7417,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7428,7 +7428,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7439,7 +7439,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7450,7 +7450,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7461,7 +7461,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7472,7 +7472,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7483,7 +7483,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7494,7 +7494,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7505,7 +7505,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7516,7 +7516,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7527,7 +7527,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7538,7 +7538,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7549,7 +7549,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7560,7 +7560,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7571,7 +7571,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7582,7 +7582,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7593,7 +7593,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7604,7 +7604,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7615,7 +7615,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7626,7 +7626,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7637,7 +7637,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7648,7 +7648,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7659,7 +7659,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7670,7 +7670,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7681,7 +7681,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7692,7 +7692,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7703,7 +7703,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7714,7 +7714,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7725,7 +7725,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7736,7 +7736,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7747,7 +7747,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7758,7 +7758,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7769,7 +7769,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7780,7 +7780,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7791,7 +7791,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7802,7 +7802,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7813,7 +7813,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7824,7 +7824,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7835,7 +7835,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7846,7 +7846,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7857,7 +7857,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7868,7 +7868,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7879,7 +7879,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7890,7 +7890,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7901,7 +7901,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7912,7 +7912,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7923,7 +7923,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7934,7 +7934,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7945,7 +7945,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7956,7 +7956,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7967,7 +7967,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7978,7 +7978,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7989,7 +7989,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8000,7 +8000,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8011,7 +8011,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8022,7 +8022,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8033,7 +8033,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8044,7 +8044,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8055,7 +8055,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8066,7 +8066,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8077,7 +8077,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8088,7 +8088,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8099,7 +8099,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8110,7 +8110,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8121,7 +8121,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8132,7 +8132,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8143,7 +8143,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8154,7 +8154,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8165,7 +8165,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8176,7 +8176,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8187,7 +8187,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8198,7 +8198,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8209,7 +8209,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8220,7 +8220,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8231,7 +8231,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8242,7 +8242,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8253,7 +8253,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8264,7 +8264,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8275,7 +8275,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8286,7 +8286,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8297,7 +8297,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8308,7 +8308,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8319,7 +8319,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8330,7 +8330,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8341,7 +8341,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8352,7 +8352,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8363,7 +8363,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8374,7 +8374,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8385,7 +8385,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8396,7 +8396,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8407,7 +8407,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8418,7 +8418,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8429,7 +8429,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8440,7 +8440,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8451,7 +8451,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8462,7 +8462,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8473,7 +8473,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8484,7 +8484,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8495,7 +8495,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8506,7 +8506,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8517,7 +8517,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8528,7 +8528,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8539,7 +8539,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8550,7 +8550,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8561,7 +8561,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8576,7 +8576,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8591,7 +8591,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8602,7 +8602,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8613,7 +8613,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8624,7 +8624,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8635,7 +8635,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8646,7 +8646,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8657,7 +8657,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8668,7 +8668,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8679,7 +8679,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8690,7 +8690,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8701,7 +8701,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8712,7 +8712,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8723,7 +8723,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8734,7 +8734,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8745,7 +8745,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8756,7 +8756,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8767,7 +8767,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8778,7 +8778,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8789,7 +8789,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8800,7 +8800,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8811,7 +8811,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8822,7 +8822,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8833,7 +8833,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8844,7 +8844,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8855,7 +8855,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8866,7 +8866,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8877,7 +8877,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8888,7 +8888,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8899,7 +8899,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8910,7 +8910,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8921,7 +8921,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8932,7 +8932,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowResized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowResized)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8943,7 +8943,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowResized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowResized)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8954,7 +8954,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowResized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowResized)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8965,7 +8965,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnResized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnResized)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8976,7 +8976,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnResized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnResized)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8987,7 +8987,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnResized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnResized)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8998,7 +8998,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9009,7 +9009,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9020,7 +9020,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9031,7 +9031,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9042,7 +9042,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9053,7 +9053,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QTableView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9064,7 +9064,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9077,7 +9077,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9090,7 +9090,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9101,7 +9101,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9112,7 +9112,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9123,7 +9123,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9134,7 +9134,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9145,7 +9145,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9156,7 +9156,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9167,7 +9167,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9178,7 +9178,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9189,7 +9189,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9200,7 +9200,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9211,7 +9211,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9222,7 +9222,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9233,7 +9233,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9244,7 +9244,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9255,7 +9255,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9266,7 +9266,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9277,7 +9277,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9288,7 +9288,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9299,7 +9299,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9310,7 +9310,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9321,7 +9321,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9332,7 +9332,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9343,7 +9343,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9354,7 +9354,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9365,7 +9365,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9376,7 +9376,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9387,7 +9387,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9398,7 +9398,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9411,7 +9411,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9424,7 +9424,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9435,7 +9435,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9446,7 +9446,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9457,7 +9457,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9468,7 +9468,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9479,7 +9479,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9490,7 +9490,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9501,7 +9501,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9512,7 +9512,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9523,7 +9523,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9534,7 +9534,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9545,7 +9545,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9556,7 +9556,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9567,7 +9567,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9578,7 +9578,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9589,7 +9589,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9600,7 +9600,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9611,7 +9611,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9622,7 +9622,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9633,7 +9633,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9644,7 +9644,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9655,7 +9655,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9666,7 +9666,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9677,7 +9677,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9688,7 +9688,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9699,7 +9699,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9710,7 +9710,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9721,7 +9721,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9732,7 +9732,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9743,7 +9743,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9754,7 +9754,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9765,7 +9765,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9777,7 +9777,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9789,7 +9789,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9800,7 +9800,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9811,7 +9811,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9822,7 +9822,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9833,7 +9833,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9844,7 +9844,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9855,7 +9855,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9866,7 +9866,7 @@ pub const qtablewidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9875,7 +9875,7 @@ pub const qtablewidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#dtor.QTableWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dtor.QTableWidget)
     ///
     /// Delete this object from C++ memory.
     ///

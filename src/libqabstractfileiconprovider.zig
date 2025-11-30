@@ -12,14 +12,14 @@ pub const qabstractfileiconprovider = struct {
         return qtc.QAbstractFileIconProvider_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType ```
     pub fn Icon(self: ?*anyopaque, param1: i32) QtC.QIcon {
         return qtc.QAbstractFileIconProvider_Icon(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Allows for overriding the related default method
     ///
@@ -28,7 +28,7 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Base class method implementation
     ///
@@ -37,14 +37,14 @@ pub const qabstractfileiconprovider = struct {
         return qtc.QAbstractFileIconProvider_QBaseIcon(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo ```
     pub fn Icon2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
         return qtc.QAbstractFileIconProvider_Icon2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Allows for overriding the related default method
     ///
@@ -53,7 +53,7 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnIcon2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Base class method implementation
     ///
@@ -62,7 +62,7 @@ pub const qabstractfileiconprovider = struct {
         return qtc.QAbstractFileIconProvider_QBaseIcon2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo, allocator: std.mem.Allocator ```
     pub fn Type(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -73,7 +73,7 @@ pub const qabstractfileiconprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// Allows for overriding the related default method
     ///
@@ -82,7 +82,7 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// Base class method implementation
     ///
@@ -95,14 +95,14 @@ pub const qabstractfileiconprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QAbstractFileIconProvider_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -111,7 +111,7 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// Base class method implementation
     ///
@@ -120,7 +120,7 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_QBaseSetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// ``` self: QtC.QAbstractFileIconProvider ```
     ///
@@ -129,7 +129,7 @@ pub const qabstractfileiconprovider = struct {
         return qtc.QAbstractFileIconProvider_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// Allows for overriding the related default method
     ///
@@ -138,7 +138,7 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// Base class method implementation
     ///
@@ -149,7 +149,7 @@ pub const qabstractfileiconprovider = struct {
         return qtc.QAbstractFileIconProvider_QBaseOptions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#dtor.QAbstractFileIconProvider)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#dtor.QAbstractFileIconProvider)
     ///
     /// Delete this object from C++ memory.
     ///

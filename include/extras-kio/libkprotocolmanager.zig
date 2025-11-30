@@ -33,154 +33,154 @@ pub const kprotocolmanager = struct {
         qtc.KProtocolManager_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#readTimeout)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#readTimeout)
     ///
     ///
     pub fn ReadTimeout() i32 {
         return qtc.KProtocolManager_ReadTimeout();
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#connectTimeout)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#connectTimeout)
     ///
     ///
     pub fn ConnectTimeout() i32 {
         return qtc.KProtocolManager_ConnectTimeout();
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#proxyConnectTimeout)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#proxyConnectTimeout)
     ///
     ///
     pub fn ProxyConnectTimeout() i32 {
         return qtc.KProtocolManager_ProxyConnectTimeout();
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#responseTimeout)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#responseTimeout)
     ///
     ///
     pub fn ResponseTimeout() i32 {
         return qtc.KProtocolManager_ResponseTimeout();
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#autoResume)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#autoResume)
     ///
     ///
     pub fn AutoResume() bool {
         return qtc.KProtocolManager_AutoResume();
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#markPartial)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#markPartial)
     ///
     ///
     pub fn MarkPartial() bool {
         return qtc.KProtocolManager_MarkPartial();
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#minimumKeepSize)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#minimumKeepSize)
     ///
     ///
     pub fn MinimumKeepSize() i32 {
         return qtc.KProtocolManager_MinimumKeepSize();
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsListing)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsListing)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsListing(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsListing(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsReading)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsReading)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsReading(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsReading(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsWriting)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsWriting)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsWriting(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsWriting(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsMakeDir)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsMakeDir)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsMakeDir(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsMakeDir(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsDeleting)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsDeleting)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsDeleting(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsDeleting(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsLinking)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsLinking)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsLinking(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsLinking(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsMoving)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsMoving)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsMoving(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsMoving(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsOpening)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsOpening)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsOpening(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsOpening(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsTruncating)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsTruncating)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsTruncating(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsTruncating(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#canCopyFromFile)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#canCopyFromFile)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn CanCopyFromFile(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_CanCopyFromFile(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#canCopyToFile)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#canCopyToFile)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn CanCopyToFile(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_CanCopyToFile(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#canRenameFromFile)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#canRenameFromFile)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn CanRenameFromFile(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_CanRenameFromFile(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#canRenameToFile)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#canRenameToFile)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn CanRenameToFile(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_CanRenameToFile(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#canDeleteRecursive)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#canDeleteRecursive)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn CanDeleteRecursive(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_CanDeleteRecursive(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#defaultMimetype)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#defaultMimetype)
     ///
     /// ``` url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn DefaultMimetype(url: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -191,7 +191,7 @@ pub const kprotocolmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#inputType)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#inputType)
     ///
     /// ``` url: QtC.QUrl ```
     ///
@@ -200,7 +200,7 @@ pub const kprotocolmanager = struct {
         return qtc.KProtocolManager_InputType(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#outputType)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#outputType)
     ///
     /// ``` url: QtC.QUrl ```
     ///
@@ -209,7 +209,7 @@ pub const kprotocolmanager = struct {
         return qtc.KProtocolManager_OutputType(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#listing)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#listing)
     ///
     /// ``` url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn Listing(url: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -231,14 +231,14 @@ pub const kprotocolmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#isSourceProtocol)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#isSourceProtocol)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn IsSourceProtocol(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_IsSourceProtocol(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#protocolForArchiveMimetype)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#protocolForArchiveMimetype)
     ///
     /// ``` mimeType: []const u8, allocator: std.mem.Allocator ```
     pub fn ProtocolForArchiveMimetype(mimeType: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -253,14 +253,14 @@ pub const kprotocolmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#reparseConfiguration)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#reparseConfiguration)
     ///
     ///
     pub fn ReparseConfiguration() void {
         qtc.KProtocolManager_ReparseConfiguration();
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#charsetFor)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#charsetFor)
     ///
     /// ``` url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn CharsetFor(url: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -271,14 +271,14 @@ pub const kprotocolmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#supportsPermissions)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#supportsPermissions)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn SupportsPermissions(url: ?*anyopaque) bool {
         return qtc.KProtocolManager_SupportsPermissions(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kprotocolmanager.html#dtor.KProtocolManager)
+    /// [Upstream resources](https://api.kde.org/kprotocolmanager.html#dtor.KProtocolManager)
     ///
     /// Delete this object from C++ memory.
     ///

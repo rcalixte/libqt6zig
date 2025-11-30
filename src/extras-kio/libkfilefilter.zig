@@ -54,21 +54,21 @@ pub const kfilefilter = struct {
         return qtc.KFileFilter_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#operator-eq)
     ///
     /// ``` self: QtC.KFileFilter, other: QtC.KFileFilter ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KFileFilter_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KFileFilter, other: QtC.KFileFilter ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KFileFilter_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#label)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#label)
     ///
     /// ``` self: QtC.KFileFilter, allocator: std.mem.Allocator ```
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -79,7 +79,7 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#filePatterns)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#filePatterns)
     ///
     /// ``` self: QtC.KFileFilter, allocator: std.mem.Allocator ```
     pub fn FilePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -101,7 +101,7 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#mimePatterns)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#mimePatterns)
     ///
     /// ``` self: QtC.KFileFilter, allocator: std.mem.Allocator ```
     pub fn MimePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -123,7 +123,7 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#toFilterString)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#toFilterString)
     ///
     /// ``` self: QtC.KFileFilter, allocator: std.mem.Allocator ```
     pub fn ToFilterString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -134,21 +134,21 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#isEmpty)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#isEmpty)
     ///
     /// ``` self: QtC.KFileFilter ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.KFileFilter_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#isValid)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#isValid)
     ///
     /// ``` self: QtC.KFileFilter ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KFileFilter_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#fromMimeType)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#fromMimeType)
     ///
     /// ``` mimeType: []const u8 ```
     pub fn FromMimeType(mimeType: []const u8) QtC.KFileFilter {
@@ -159,7 +159,7 @@ pub const kfilefilter = struct {
         return qtc.KFileFilter_FromMimeType(mimeType_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#fromMimeTypes)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#fromMimeTypes)
     ///
     /// ``` mimeTypes: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FromMimeTypes(mimeTypes: [][]const u8, allocator: std.mem.Allocator) []QtC.KFileFilter {
@@ -183,7 +183,7 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilefilter.html#dtor.KFileFilter)
+    /// [Upstream resources](https://api.kde.org/kfilefilter.html#dtor.KFileFilter)
     ///
     /// Delete this object from C++ memory.
     ///

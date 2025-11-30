@@ -25,56 +25,56 @@ pub const kfileitemlistproperties = struct {
         return qtc.KFileItemListProperties_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#operator-eq)
     ///
     /// ``` self: QtC.KFileItemListProperties, other: QtC.KFileItemListProperties ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KFileItemListProperties_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#setItems)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#setItems)
     ///
     /// ``` self: QtC.KFileItemListProperties, items: QtC.KFileItemList ```
     pub fn SetItems(self: ?*anyopaque, items: ?*anyopaque) void {
         qtc.KFileItemListProperties_SetItems(@ptrCast(self), @ptrCast(items));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#supportsReading)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#supportsReading)
     ///
     /// ``` self: QtC.KFileItemListProperties ```
     pub fn SupportsReading(self: ?*anyopaque) bool {
         return qtc.KFileItemListProperties_SupportsReading(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#supportsDeleting)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#supportsDeleting)
     ///
     /// ``` self: QtC.KFileItemListProperties ```
     pub fn SupportsDeleting(self: ?*anyopaque) bool {
         return qtc.KFileItemListProperties_SupportsDeleting(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#supportsWriting)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#supportsWriting)
     ///
     /// ``` self: QtC.KFileItemListProperties ```
     pub fn SupportsWriting(self: ?*anyopaque) bool {
         return qtc.KFileItemListProperties_SupportsWriting(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#supportsMoving)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#supportsMoving)
     ///
     /// ``` self: QtC.KFileItemListProperties ```
     pub fn SupportsMoving(self: ?*anyopaque) bool {
         return qtc.KFileItemListProperties_SupportsMoving(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#isLocal)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#isLocal)
     ///
     /// ``` self: QtC.KFileItemListProperties ```
     pub fn IsLocal(self: ?*anyopaque) bool {
         return qtc.KFileItemListProperties_IsLocal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#urlList)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#urlList)
     ///
     /// ``` self: QtC.KFileItemListProperties, allocator: std.mem.Allocator ```
     pub fn UrlList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -86,21 +86,21 @@ pub const kfileitemlistproperties = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#isDirectory)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#isDirectory)
     ///
     /// ``` self: QtC.KFileItemListProperties ```
     pub fn IsDirectory(self: ?*anyopaque) bool {
         return qtc.KFileItemListProperties_IsDirectory(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#isFile)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#isFile)
     ///
     /// ``` self: QtC.KFileItemListProperties ```
     pub fn IsFile(self: ?*anyopaque) bool {
         return qtc.KFileItemListProperties_IsFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#mimeType)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#mimeType)
     ///
     /// ``` self: QtC.KFileItemListProperties, allocator: std.mem.Allocator ```
     pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -111,7 +111,7 @@ pub const kfileitemlistproperties = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#mimeGroup)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#mimeGroup)
     ///
     /// ``` self: QtC.KFileItemListProperties, allocator: std.mem.Allocator ```
     pub fn MimeGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const kfileitemlistproperties = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlistproperties.html#dtor.KFileItemListProperties)
+    /// [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#dtor.KFileItemListProperties)
     ///
     /// Delete this object from C++ memory.
     ///

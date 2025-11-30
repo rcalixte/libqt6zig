@@ -24,7 +24,7 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -56,7 +56,7 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -68,84 +68,84 @@ pub const kdirmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#openUrl)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#openUrl)
     ///
     /// ``` self: QtC.KDirModel, url: QtC.QUrl ```
     pub fn OpenUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KDirModel_OpenUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#setDirLister)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#setDirLister)
     ///
     /// ``` self: QtC.KDirModel, dirLister: QtC.KDirLister ```
     pub fn SetDirLister(self: ?*anyopaque, dirLister: ?*anyopaque) void {
         qtc.KDirModel_SetDirLister(@ptrCast(self), @ptrCast(dirLister));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#dirLister)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#dirLister)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn DirLister(self: ?*anyopaque) QtC.KDirLister {
         return qtc.KDirModel_DirLister(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#itemForIndex)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#itemForIndex)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex ```
     pub fn ItemForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.KFileItem {
         return qtc.KDirModel_ItemForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#indexForItem)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#indexForItem)
     ///
     /// ``` self: QtC.KDirModel, param1: QtC.KFileItem ```
     pub fn IndexForItem(self: ?*anyopaque, param1: ?*anyopaque) QtC.QModelIndex {
         return qtc.KDirModel_IndexForItem(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#indexForUrl)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#indexForUrl)
     ///
     /// ``` self: QtC.KDirModel, url: QtC.QUrl ```
     pub fn IndexForUrl(self: ?*anyopaque, url: ?*anyopaque) QtC.QModelIndex {
         return qtc.KDirModel_IndexForUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#expandToUrl)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#expandToUrl)
     ///
     /// ``` self: QtC.KDirModel, url: QtC.QUrl ```
     pub fn ExpandToUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KDirModel_ExpandToUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#itemChanged)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#itemChanged)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex ```
     pub fn ItemChanged(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KDirModel_ItemChanged(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#clearAllPreviews)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#clearAllPreviews)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn ClearAllPreviews(self: ?*anyopaque) void {
         qtc.KDirModel_ClearAllPreviews(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#setDropsAllowed)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#setDropsAllowed)
     ///
     /// ``` self: QtC.KDirModel, dropsAllowed: flag of kdirmodel_enums.DropsAllowedFlag ```
     pub fn SetDropsAllowed(self: ?*anyopaque, dropsAllowed: i32) void {
         qtc.KDirModel_SetDropsAllowed(@ptrCast(self), @intCast(dropsAllowed));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#canFetchMore)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#canFetchMore)
     ///
     /// ``` self: QtC.KDirModel, parent: QtC.QModelIndex ```
     pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
         return qtc.KDirModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#canFetchMore)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#canFetchMore)
     ///
     /// Allows for overriding the related default method
     ///
@@ -154,7 +154,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#canFetchMore)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#canFetchMore)
     ///
     /// Base class method implementation
     ///
@@ -163,14 +163,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseCanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#columnCount)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#columnCount)
     ///
     /// ``` self: QtC.KDirModel, parent: QtC.QModelIndex ```
     pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.KDirModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#columnCount)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#columnCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -179,7 +179,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#columnCount)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#columnCount)
     ///
     /// Base class method implementation
     ///
@@ -188,14 +188,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#data)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#data)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex, role: i32 ```
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.KDirModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#data)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -204,7 +204,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#data)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#data)
     ///
     /// Base class method implementation
     ///
@@ -213,14 +213,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#dropMimeData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#dropMimeData)
     ///
     /// ``` self: QtC.KDirModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.KDirModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#dropMimeData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#dropMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -229,7 +229,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#dropMimeData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#dropMimeData)
     ///
     /// Base class method implementation
     ///
@@ -238,14 +238,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#fetchMore)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#fetchMore)
     ///
     /// ``` self: QtC.KDirModel, parent: QtC.QModelIndex ```
     pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.KDirModel_FetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#fetchMore)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#fetchMore)
     ///
     /// Allows for overriding the related default method
     ///
@@ -254,7 +254,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#fetchMore)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#fetchMore)
     ///
     /// Base class method implementation
     ///
@@ -263,7 +263,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_QBaseFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#flags)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#flags)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex ```
     ///
@@ -272,7 +272,7 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#flags)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#flags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -281,7 +281,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#flags)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#flags)
     ///
     /// Base class method implementation
     ///
@@ -292,14 +292,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#hasChildren)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#hasChildren)
     ///
     /// ``` self: QtC.KDirModel, parent: QtC.QModelIndex ```
     pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
         return qtc.KDirModel_HasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#hasChildren)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#hasChildren)
     ///
     /// Allows for overriding the related default method
     ///
@@ -308,7 +308,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#hasChildren)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#hasChildren)
     ///
     /// Base class method implementation
     ///
@@ -317,14 +317,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseHasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#headerData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#headerData)
     ///
     /// ``` self: QtC.KDirModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32 ```
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
         return qtc.KDirModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#headerData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#headerData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -333,7 +333,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#headerData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#headerData)
     ///
     /// Base class method implementation
     ///
@@ -342,14 +342,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#index)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#index)
     ///
     /// ``` self: QtC.KDirModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
         return qtc.KDirModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#index)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#index)
     ///
     /// Allows for overriding the related default method
     ///
@@ -358,7 +358,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#index)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#index)
     ///
     /// Base class method implementation
     ///
@@ -367,7 +367,7 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#mimeData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#mimeData)
     ///
     /// ``` self: QtC.KDirModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
@@ -378,7 +378,7 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_MimeData(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#mimeData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#mimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -387,7 +387,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#mimeData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#mimeData)
     ///
     /// Base class method implementation
     ///
@@ -400,7 +400,7 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseMimeData(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#mimeTypes)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#mimeTypes)
     ///
     /// ``` self: QtC.KDirModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -422,7 +422,7 @@ pub const kdirmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#mimeTypes)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#mimeTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -431,7 +431,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#mimeTypes)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#mimeTypes)
     ///
     /// Base class method implementation
     ///
@@ -455,14 +455,14 @@ pub const kdirmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#parent)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#parent)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
         return qtc.KDirModel_Parent(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#parent)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -471,7 +471,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#parent)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -480,14 +480,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseParent(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#sibling)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#sibling)
     ///
     /// ``` self: QtC.KDirModel, row: i32, column: i32, index: QtC.QModelIndex ```
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, index: ?*anyopaque) QtC.QModelIndex {
         return qtc.KDirModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#sibling)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#sibling)
     ///
     /// Allows for overriding the related default method
     ///
@@ -496,7 +496,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#sibling)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#sibling)
     ///
     /// Base class method implementation
     ///
@@ -505,14 +505,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#rowCount)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#rowCount)
     ///
     /// ``` self: QtC.KDirModel, parent: QtC.QModelIndex ```
     pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.KDirModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#rowCount)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#rowCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -521,7 +521,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#rowCount)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#rowCount)
     ///
     /// Base class method implementation
     ///
@@ -530,14 +530,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#setData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#setData)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32 ```
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
         return qtc.KDirModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#setData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#setData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -546,7 +546,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#setData)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#setData)
     ///
     /// Base class method implementation
     ///
@@ -555,14 +555,14 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#sort)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#sort)
     ///
     /// ``` self: QtC.KDirModel, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.KDirModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#sort)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#sort)
     ///
     /// Allows for overriding the related default method
     ///
@@ -571,7 +571,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#sort)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#sort)
     ///
     /// Base class method implementation
     ///
@@ -580,7 +580,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#roleNames)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#roleNames)
     ///
     /// ``` self: QtC.KDirModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
@@ -601,7 +601,7 @@ pub const kdirmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#simplifiedUrlList)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#simplifiedUrlList)
     ///
     /// ``` urls: []QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn SimplifiedUrlList(urls: []QtC.QUrl, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -617,28 +617,28 @@ pub const kdirmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#requestSequenceIcon)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#requestSequenceIcon)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex, sequenceIndex: i32 ```
     pub fn RequestSequenceIcon(self: ?*anyopaque, index: ?*anyopaque, sequenceIndex: i32) void {
         qtc.KDirModel_RequestSequenceIcon(@ptrCast(self), @ptrCast(index), @intCast(sequenceIndex));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#setJobTransfersVisible)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#setJobTransfersVisible)
     ///
     /// ``` self: QtC.KDirModel, show: bool ```
     pub fn SetJobTransfersVisible(self: ?*anyopaque, show: bool) void {
         qtc.KDirModel_SetJobTransfersVisible(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#jobTransfersVisible)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#jobTransfersVisible)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn JobTransfersVisible(self: ?*anyopaque) bool {
         return qtc.KDirModel_JobTransfersVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#supportedDropActions)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.KDirModel ```
     ///
@@ -647,7 +647,7 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_SupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#supportedDropActions)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#supportedDropActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -656,7 +656,7 @@ pub const kdirmodel = struct {
         qtc.KDirModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#supportedDropActions)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#supportedDropActions)
     ///
     /// Base class method implementation
     ///
@@ -667,35 +667,35 @@ pub const kdirmodel = struct {
         return qtc.KDirModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#expand)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#expand)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex ```
     pub fn Expand(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KDirModel_Expand(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#expand)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#expand)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnExpand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirModel_Connect_Expand(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#needSequenceIcon)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#needSequenceIcon)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex, sequenceIndex: i32 ```
     pub fn NeedSequenceIcon(self: ?*anyopaque, index: ?*anyopaque, sequenceIndex: i32) void {
         qtc.KDirModel_NeedSequenceIcon(@ptrCast(self), @ptrCast(index), @intCast(sequenceIndex));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#needSequenceIcon)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#needSequenceIcon)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex, sequenceIndex: i32) callconv(.c) void ```
     pub fn OnNeedSequenceIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.KDirModel_Connect_NeedSequenceIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -708,7 +708,7 @@ pub const kdirmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -721,7 +721,7 @@ pub const kdirmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#openUrl)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#openUrl)
     ///
     /// ``` self: QtC.KDirModel, url: QtC.QUrl, flags: flag of kdirmodel_enums.OpenUrlFlag ```
     pub fn OpenUrl2(self: ?*anyopaque, url: ?*anyopaque, flags: i32) void {
@@ -730,7 +730,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.KDirModel, row: i32, column: i32 ```
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
@@ -739,7 +739,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// ``` self: QtC.KDirModel, row: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
@@ -748,7 +748,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -759,7 +759,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
     ///
     /// Base class method implementation
     ///
@@ -770,7 +770,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// ``` self: QtC.KDirModel, column: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
@@ -779,7 +779,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -790,7 +790,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
     ///
     /// Base class method implementation
     ///
@@ -801,7 +801,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// ``` self: QtC.KDirModel, row: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
@@ -810,7 +810,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -821,7 +821,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
     ///
     /// Base class method implementation
     ///
@@ -832,7 +832,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// ``` self: QtC.KDirModel, column: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
@@ -841,7 +841,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -852,7 +852,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
     ///
     /// Base class method implementation
     ///
@@ -863,7 +863,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.KDirModel, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
@@ -872,7 +872,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.KDirModel, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
@@ -881,7 +881,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.KDirModel, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
@@ -890,7 +890,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.KDirModel, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
@@ -899,7 +899,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
     ///
     /// ``` self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceRow: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -908,7 +908,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
     ///
     /// ``` self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -917,7 +917,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex ```
     pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -926,7 +926,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.KDirModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
@@ -935,7 +935,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -944,7 +944,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.KDirModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
@@ -953,7 +953,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
@@ -962,7 +962,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -971,7 +971,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -980,7 +980,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
@@ -989,7 +989,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -998,7 +998,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.KDirModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -1007,7 +1007,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.KDirModel, row: i32, parent: QtC.QModelIndex ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -1016,7 +1016,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.KDirModel, column: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -1025,7 +1025,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.KDirModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -1034,7 +1034,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.KDirModel, column: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -1043,7 +1043,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.KDirModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
@@ -1052,7 +1052,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.KDirModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -1065,7 +1065,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
@@ -1074,7 +1074,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KDirModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -1087,7 +1087,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -1096,7 +1096,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KDirModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -1109,7 +1109,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -1118,7 +1118,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KDirModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -1131,7 +1131,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -1140,7 +1140,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KDirModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -1153,7 +1153,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -1162,7 +1162,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KDirModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1175,7 +1175,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KDirModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1188,7 +1188,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1197,7 +1197,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1206,7 +1206,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1215,7 +1215,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1224,7 +1224,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KDirModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1233,7 +1233,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1242,7 +1242,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KDirModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1251,7 +1251,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KDirModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1260,7 +1260,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KDirModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1269,7 +1269,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KDirModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1278,7 +1278,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KDirModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1292,7 +1292,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KDirModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1301,7 +1301,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KDirModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1310,7 +1310,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KDirModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1319,7 +1319,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1328,7 +1328,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KDirModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1339,7 +1339,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1348,7 +1348,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1357,7 +1357,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1366,7 +1366,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1375,7 +1375,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KDirModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1385,7 +1385,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KDirModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1395,7 +1395,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KDirModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1419,7 +1419,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1428,7 +1428,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1437,7 +1437,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1446,7 +1446,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1455,7 +1455,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KDirModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1465,7 +1465,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KDirModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1474,7 +1474,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KDirModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1483,7 +1483,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KDirModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1492,7 +1492,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1501,7 +1501,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KDirModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1512,7 +1512,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDirModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1521,7 +1521,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDirModel, callback: *const fn (self: QtC.KDirModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1530,7 +1530,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1541,7 +1541,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1552,7 +1552,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1563,7 +1563,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1588,7 +1588,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1616,7 +1616,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1627,7 +1627,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1638,7 +1638,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1649,7 +1649,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1660,7 +1660,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1671,7 +1671,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1682,7 +1682,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1695,7 +1695,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1708,7 +1708,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1719,7 +1719,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1730,7 +1730,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1741,7 +1741,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1752,7 +1752,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1763,7 +1763,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1774,7 +1774,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1785,7 +1785,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1796,7 +1796,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1807,7 +1807,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1818,7 +1818,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1834,7 +1834,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1850,7 +1850,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1861,7 +1861,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1872,7 +1872,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1883,7 +1883,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1894,7 +1894,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1905,7 +1905,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1916,7 +1916,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1927,7 +1927,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1938,7 +1938,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1949,7 +1949,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1960,7 +1960,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1971,7 +1971,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1982,7 +1982,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1993,7 +1993,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2004,7 +2004,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2015,7 +2015,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2026,7 +2026,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2037,7 +2037,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2048,7 +2048,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2059,7 +2059,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2070,7 +2070,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2081,7 +2081,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2092,7 +2092,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2103,7 +2103,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2114,7 +2114,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2125,7 +2125,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2136,7 +2136,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2147,7 +2147,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2158,7 +2158,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2169,7 +2169,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2180,7 +2180,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2191,7 +2191,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2202,7 +2202,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2213,7 +2213,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2224,7 +2224,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2235,7 +2235,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2246,7 +2246,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2257,7 +2257,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2268,7 +2268,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2279,7 +2279,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2290,7 +2290,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2305,7 +2305,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2320,7 +2320,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2331,7 +2331,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2342,7 +2342,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2353,7 +2353,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2364,7 +2364,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2375,7 +2375,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2386,7 +2386,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2397,7 +2397,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2408,7 +2408,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2419,7 +2419,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2430,7 +2430,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2441,7 +2441,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2452,7 +2452,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2463,7 +2463,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2474,7 +2474,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2485,7 +2485,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2496,7 +2496,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2507,7 +2507,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2518,7 +2518,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2529,7 +2529,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2540,7 +2540,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2551,7 +2551,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2562,7 +2562,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2573,7 +2573,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2584,7 +2584,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2595,7 +2595,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2606,7 +2606,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2617,7 +2617,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2628,7 +2628,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2639,7 +2639,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2650,7 +2650,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2661,7 +2661,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2672,7 +2672,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2683,7 +2683,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2694,7 +2694,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2705,7 +2705,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2716,7 +2716,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2727,7 +2727,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2738,7 +2738,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2749,7 +2749,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2760,7 +2760,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2771,7 +2771,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2782,7 +2782,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2793,7 +2793,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2804,7 +2804,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2815,7 +2815,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2826,7 +2826,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2837,7 +2837,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2848,7 +2848,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2859,7 +2859,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2878,7 +2878,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2897,7 +2897,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2908,7 +2908,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2924,7 +2924,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2940,7 +2940,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2951,7 +2951,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2962,7 +2962,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2973,7 +2973,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2984,7 +2984,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2995,7 +2995,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3006,7 +3006,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3017,7 +3017,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3029,7 +3029,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3041,7 +3041,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3052,7 +3052,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3063,7 +3063,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3074,7 +3074,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3085,7 +3085,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3096,7 +3096,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3107,7 +3107,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3118,7 +3118,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3129,7 +3129,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3140,7 +3140,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3151,7 +3151,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3162,7 +3162,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3173,7 +3173,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3184,7 +3184,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3195,7 +3195,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3206,7 +3206,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3217,7 +3217,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3228,7 +3228,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3239,7 +3239,7 @@ pub const kdirmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3248,7 +3248,7 @@ pub const kdirmodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdirmodel.html#dtor.KDirModel)
+    /// [Upstream resources](https://api.kde.org/kdirmodel.html#dtor.KDirModel)
     ///
     /// Delete this object from C++ memory.
     ///

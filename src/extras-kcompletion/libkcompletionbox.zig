@@ -30,7 +30,7 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -62,7 +62,7 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -74,14 +74,14 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#sizeHint)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KCompletionBox_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#sizeHint)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -90,7 +90,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#sizeHint)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -99,14 +99,14 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#activateOnSelect)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#activateOnSelect)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ActivateOnSelect(self: ?*anyopaque) bool {
         return qtc.KCompletionBox_ActivateOnSelect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#items)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#items)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -128,14 +128,14 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#isTabHandling)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#isTabHandling)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsTabHandling(self: ?*anyopaque) bool {
         return qtc.KCompletionBox_IsTabHandling(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#cancelledText)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#cancelledText)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn CancelledText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -146,7 +146,7 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#insertItems)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#insertItems)
     ///
     /// ``` self: QtC.KCompletionBox, items: [][]const u8, allocator: std.mem.Allocator ```
     pub fn InsertItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
@@ -165,7 +165,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_InsertItems(@ptrCast(self), items_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setItems)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#setItems)
     ///
     /// ``` self: QtC.KCompletionBox, items: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
@@ -184,14 +184,14 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_SetItems(@ptrCast(self), items_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#popup)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#popup)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Popup(self: ?*anyopaque) void {
         qtc.KCompletionBox_Popup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#popup)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#popup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -200,7 +200,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnPopup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#popup)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#popup)
     ///
     /// Base class method implementation
     ///
@@ -209,14 +209,14 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_QBasePopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setTabHandling)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#setTabHandling)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetTabHandling(self: ?*anyopaque, enable: bool) void {
         qtc.KCompletionBox_SetTabHandling(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setCancelledText)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#setCancelledText)
     ///
     /// ``` self: QtC.KCompletionBox, text: []const u8 ```
     pub fn SetCancelledText(self: ?*anyopaque, text: []const u8) void {
@@ -227,63 +227,63 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_SetCancelledText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setActivateOnSelect)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#setActivateOnSelect)
     ///
     /// ``` self: QtC.KCompletionBox, doEmit: bool ```
     pub fn SetActivateOnSelect(self: ?*anyopaque, doEmit: bool) void {
         qtc.KCompletionBox_SetActivateOnSelect(@ptrCast(self), doEmit);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#down)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#down)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Down(self: ?*anyopaque) void {
         qtc.KCompletionBox_Down(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#up)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#up)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Up(self: ?*anyopaque) void {
         qtc.KCompletionBox_Up(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#pageDown)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#pageDown)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn PageDown(self: ?*anyopaque) void {
         qtc.KCompletionBox_PageDown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#pageUp)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#pageUp)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn PageUp(self: ?*anyopaque) void {
         qtc.KCompletionBox_PageUp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#home)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#home)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Home(self: ?*anyopaque) void {
         qtc.KCompletionBox_Home(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#end)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#end)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn End(self: ?*anyopaque) void {
         qtc.KCompletionBox_End(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setVisible)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
     /// ``` self: QtC.KCompletionBox, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KCompletionBox_SetVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setVisible)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
     /// Allows for overriding the related default method
     ///
@@ -292,7 +292,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setVisible)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
     /// Base class method implementation
     ///
@@ -301,7 +301,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_QBaseSetVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#textActivated)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#textActivated)
     ///
     /// ``` self: QtC.KCompletionBox, text: []const u8 ```
     pub fn TextActivated(self: ?*anyopaque, text: []const u8) void {
@@ -312,14 +312,14 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_TextActivated(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#textActivated)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#textActivated)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletionBox_Connect_TextActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#userCancelled)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#userCancelled)
     ///
     /// ``` self: QtC.KCompletionBox, param1: []const u8 ```
     pub fn UserCancelled(self: ?*anyopaque, param1: []const u8) void {
@@ -330,21 +330,21 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_UserCancelled(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#userCancelled)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#userCancelled)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnUserCancelled(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletionBox_Connect_UserCancelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#calculateGeometry)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn CalculateGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.KCompletionBox_CalculateGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#calculateGeometry)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -353,7 +353,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnCalculateGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#calculateGeometry)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
     /// Base class method implementation
     ///
@@ -362,14 +362,14 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseCalculateGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ResizeAndReposition(self: ?*anyopaque) void {
         qtc.KCompletionBox_ResizeAndReposition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
     /// Allows for overriding the related default method
     ///
@@ -378,7 +378,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnResizeAndReposition(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
     /// Base class method implementation
     ///
@@ -387,14 +387,14 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_QBaseResizeAndReposition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QObject, param2: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
         return qtc.KCompletionBox_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -403,7 +403,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -412,14 +412,14 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#globalPositionHint)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn GlobalPositionHint(self: ?*anyopaque) QtC.QPoint {
         return qtc.KCompletionBox_GlobalPositionHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#globalPositionHint)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -428,7 +428,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnGlobalPositionHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#globalPositionHint)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
     /// Base class method implementation
     ///
@@ -437,14 +437,14 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseGlobalPositionHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#slotActivated)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QListWidgetItem ```
     pub fn SlotActivated(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCompletionBox_SlotActivated(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#slotActivated)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
     /// Allows for overriding the related default method
     ///
@@ -453,7 +453,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnSlotActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#slotActivated)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
     /// Base class method implementation
     ///
@@ -462,7 +462,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_QBaseSlotActivated(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -475,7 +475,7 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -488,7 +488,7 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#insertItems)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#insertItems)
     ///
     /// ``` self: QtC.KCompletionBox, items: [][]const u8, index: i32, allocator: std.mem.Allocator ```
     pub fn InsertItems2(self: ?*anyopaque, items: [][]const u8, index: i32, allocator: std.mem.Allocator) void {
@@ -509,7 +509,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#item)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#item)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32 ```
     pub fn Item(self: ?*anyopaque, row: i32) QtC.QListWidgetItem {
@@ -518,7 +518,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#row)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#row)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn Row(self: ?*anyopaque, item: ?*anyopaque) i32 {
@@ -527,7 +527,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#insertItem)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32, item: QtC.QListWidgetItem ```
     pub fn InsertItem(self: ?*anyopaque, row: i32, item: ?*anyopaque) void {
@@ -536,7 +536,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#insertItem)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32, label: []const u8 ```
     pub fn InsertItem2(self: ?*anyopaque, row: i32, label: []const u8) void {
@@ -549,7 +549,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#addItem)
     ///
     /// ``` self: QtC.KCompletionBox, label: []const u8 ```
     pub fn AddItem(self: ?*anyopaque, label: []const u8) void {
@@ -562,7 +562,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#addItem)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn AddItem2(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -571,7 +571,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#addItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#addItems)
     ///
     /// ``` self: QtC.KCompletionBox, labels: [][]const u8, allocator: std.mem.Allocator ```
     pub fn AddItems(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
@@ -592,7 +592,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#takeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#takeItem)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32 ```
     pub fn TakeItem(self: ?*anyopaque, row: i32) QtC.QListWidgetItem {
@@ -601,7 +601,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#count)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Count(self: ?*anyopaque) i32 {
@@ -610,7 +610,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#currentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#currentItem)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn CurrentItem(self: ?*anyopaque) QtC.QListWidgetItem {
@@ -619,7 +619,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentItem)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn SetCurrentItem(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -628,7 +628,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentItem)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetCurrentItem2(self: ?*anyopaque, item: ?*anyopaque, command: i32) void {
@@ -637,7 +637,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#currentRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#currentRow)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn CurrentRow(self: ?*anyopaque) i32 {
@@ -646,7 +646,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentRow)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32 ```
     pub fn SetCurrentRow(self: ?*anyopaque, row: i32) void {
@@ -655,7 +655,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentRow)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetCurrentRow2(self: ?*anyopaque, row: i32, command: i32) void {
@@ -664,7 +664,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemAt)
     ///
     /// ``` self: QtC.KCompletionBox, p: QtC.QPoint ```
     pub fn ItemAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QListWidgetItem {
@@ -673,7 +673,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemAt)
     ///
     /// ``` self: QtC.KCompletionBox, x: i32, y: i32 ```
     pub fn ItemAt2(self: ?*anyopaque, x: i32, y: i32) QtC.QListWidgetItem {
@@ -682,7 +682,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#visualItemRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#visualItemRect)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn VisualItemRect(self: ?*anyopaque, item: ?*anyopaque) QtC.QRect {
@@ -691,7 +691,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#sortItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#sortItems)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn SortItems(self: ?*anyopaque) void {
@@ -700,7 +700,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setSortingEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setSortingEnabled)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetSortingEnabled(self: ?*anyopaque, enable: bool) void {
@@ -709,7 +709,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#isSortingEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#isSortingEnabled)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsSortingEnabled(self: ?*anyopaque) bool {
@@ -718,7 +718,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#editItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#editItem)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn EditItem(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -727,7 +727,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#openPersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#openPersistentEditor)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn OpenPersistentEditor(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -736,7 +736,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#closePersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#closePersistentEditor)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ClosePersistentEditor(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -745,7 +745,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#isPersistentEditorOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#isPersistentEditorOpen)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn IsPersistentEditorOpen(self: ?*anyopaque, item: ?*anyopaque) bool {
@@ -754,7 +754,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemWidget)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ItemWidget(self: ?*anyopaque, item: ?*anyopaque) QtC.QWidget {
@@ -763,7 +763,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setItemWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setItemWidget)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem, widget: QtC.QWidget ```
     pub fn SetItemWidget(self: ?*anyopaque, item: ?*anyopaque, widget: ?*anyopaque) void {
@@ -772,7 +772,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#removeItemWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#removeItemWidget)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn RemoveItemWidget(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -781,7 +781,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#selectedItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#selectedItems)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn SelectedItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QListWidgetItem {
@@ -795,7 +795,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#findItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#findItems)
     ///
     /// ``` self: QtC.KCompletionBox, text: []const u8, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn FindItems(self: ?*anyopaque, text: []const u8, flags: i32, allocator: std.mem.Allocator) []QtC.QListWidgetItem {
@@ -813,7 +813,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#indexFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#indexFromItem)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn IndexFromItem(self: ?*anyopaque, item: ?*anyopaque) QtC.QModelIndex {
@@ -822,7 +822,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemFromIndex)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn ItemFromIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QListWidgetItem {
@@ -831,7 +831,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#scrollToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#scrollToItem)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ScrollToItem(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -840,7 +840,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#clear)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -849,7 +849,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemPressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemPressed)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ItemPressed(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -858,7 +858,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemPressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemPressed)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnItemPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -867,7 +867,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemClicked)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ItemClicked(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -876,7 +876,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemClicked)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnItemClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -885,7 +885,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemDoubleClicked)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ItemDoubleClicked(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -894,7 +894,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemDoubleClicked)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnItemDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -903,7 +903,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemActivated)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ItemActivated(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -912,7 +912,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemActivated)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnItemActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -921,7 +921,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemEntered)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ItemEntered(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -930,7 +930,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemEntered)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnItemEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -939,7 +939,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemChanged)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem ```
     pub fn ItemChanged(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -948,7 +948,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -957,7 +957,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#currentItemChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#currentItemChanged)
     ///
     /// ``` self: QtC.KCompletionBox, current: QtC.QListWidgetItem, previous: QtC.QListWidgetItem ```
     pub fn CurrentItemChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
@@ -966,7 +966,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#currentItemChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#currentItemChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, current: QtC.QListWidgetItem, previous: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnCurrentItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -975,7 +975,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#currentTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#currentTextChanged)
     ///
     /// ``` self: QtC.KCompletionBox, currentText: []const u8 ```
     pub fn CurrentTextChanged(self: ?*anyopaque, currentText: []const u8) void {
@@ -988,7 +988,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#currentTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#currentTextChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, currentText: [*:0]const u8) callconv(.c) void ```
     pub fn OnCurrentTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -997,7 +997,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#currentRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#currentRowChanged)
     ///
     /// ``` self: QtC.KCompletionBox, currentRow: i32 ```
     pub fn CurrentRowChanged(self: ?*anyopaque, currentRow: i32) void {
@@ -1006,7 +1006,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#currentRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#currentRowChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, currentRow: i32) callconv(.c) void ```
     pub fn OnCurrentRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1015,7 +1015,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemSelectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemSelectionChanged)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ItemSelectionChanged(self: ?*anyopaque) void {
@@ -1024,7 +1024,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#itemSelectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemSelectionChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox) callconv(.c) void ```
     pub fn OnItemSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1033,7 +1033,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#sortItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#sortItems)
     ///
     /// ``` self: QtC.KCompletionBox, order: qnamespace_enums.SortOrder ```
     pub fn SortItems1(self: ?*anyopaque, order: i32) void {
@@ -1042,7 +1042,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#scrollToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#scrollToItem)
     ///
     /// ``` self: QtC.KCompletionBox, item: QtC.QListWidgetItem, hint: qabstractitemview_enums.ScrollHint ```
     pub fn ScrollToItem2(self: ?*anyopaque, item: ?*anyopaque, hint: i32) void {
@@ -1051,7 +1051,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setMovement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setMovement)
     ///
     /// ``` self: QtC.KCompletionBox, movement: qlistview_enums.Movement ```
     pub fn SetMovement(self: ?*anyopaque, movement: i32) void {
@@ -1060,7 +1060,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#movement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#movement)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1071,7 +1071,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setFlow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setFlow)
     ///
     /// ``` self: QtC.KCompletionBox, flow: qlistview_enums.Flow ```
     pub fn SetFlow(self: ?*anyopaque, flow: i32) void {
@@ -1080,7 +1080,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#flow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#flow)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1091,7 +1091,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setWrapping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setWrapping)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetWrapping(self: ?*anyopaque, enable: bool) void {
@@ -1100,7 +1100,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isWrapping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isWrapping)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsWrapping(self: ?*anyopaque) bool {
@@ -1109,7 +1109,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setResizeMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setResizeMode)
     ///
     /// ``` self: QtC.KCompletionBox, mode: qlistview_enums.ResizeMode ```
     pub fn SetResizeMode(self: ?*anyopaque, mode: i32) void {
@@ -1118,7 +1118,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1129,7 +1129,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setLayoutMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setLayoutMode)
     ///
     /// ``` self: QtC.KCompletionBox, mode: qlistview_enums.LayoutMode ```
     pub fn SetLayoutMode(self: ?*anyopaque, mode: i32) void {
@@ -1138,7 +1138,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#layoutMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#layoutMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1149,7 +1149,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setSpacing)
     ///
     /// ``` self: QtC.KCompletionBox, space: i32 ```
     pub fn SetSpacing(self: ?*anyopaque, space: i32) void {
@@ -1158,7 +1158,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#spacing)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Spacing(self: ?*anyopaque) i32 {
@@ -1167,7 +1167,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setBatchSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setBatchSize)
     ///
     /// ``` self: QtC.KCompletionBox, batchSize: i32 ```
     pub fn SetBatchSize(self: ?*anyopaque, batchSize: i32) void {
@@ -1176,7 +1176,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#batchSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#batchSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn BatchSize(self: ?*anyopaque) i32 {
@@ -1185,7 +1185,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setGridSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setGridSize)
     ///
     /// ``` self: QtC.KCompletionBox, size: QtC.QSize ```
     pub fn SetGridSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -1194,7 +1194,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#gridSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#gridSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn GridSize(self: ?*anyopaque) QtC.QSize {
@@ -1203,7 +1203,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setViewMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setViewMode)
     ///
     /// ``` self: QtC.KCompletionBox, mode: qlistview_enums.ViewMode ```
     pub fn SetViewMode(self: ?*anyopaque, mode: i32) void {
@@ -1212,7 +1212,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#viewMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#viewMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1223,7 +1223,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#clearPropertyFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#clearPropertyFlags)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ClearPropertyFlags(self: ?*anyopaque) void {
@@ -1232,7 +1232,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isRowHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isRowHidden)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32 ```
     pub fn IsRowHidden(self: ?*anyopaque, row: i32) bool {
@@ -1241,7 +1241,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setRowHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setRowHidden)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32, hide: bool ```
     pub fn SetRowHidden(self: ?*anyopaque, row: i32, hide: bool) void {
@@ -1250,7 +1250,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setModelColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setModelColumn)
     ///
     /// ``` self: QtC.KCompletionBox, column: i32 ```
     pub fn SetModelColumn(self: ?*anyopaque, column: i32) void {
@@ -1259,7 +1259,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#modelColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#modelColumn)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ModelColumn(self: ?*anyopaque) i32 {
@@ -1268,7 +1268,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setUniformItemSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setUniformItemSizes)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetUniformItemSizes(self: ?*anyopaque, enable: bool) void {
@@ -1277,7 +1277,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#uniformItemSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#uniformItemSizes)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn UniformItemSizes(self: ?*anyopaque) bool {
@@ -1286,7 +1286,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setWordWrap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setWordWrap)
     ///
     /// ``` self: QtC.KCompletionBox, on: bool ```
     pub fn SetWordWrap(self: ?*anyopaque, on: bool) void {
@@ -1295,7 +1295,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#wordWrap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#wordWrap)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn WordWrap(self: ?*anyopaque) bool {
@@ -1304,7 +1304,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setSelectionRectVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setSelectionRectVisible)
     ///
     /// ``` self: QtC.KCompletionBox, show: bool ```
     pub fn SetSelectionRectVisible(self: ?*anyopaque, show: bool) void {
@@ -1313,7 +1313,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isSelectionRectVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isSelectionRectVisible)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsSelectionRectVisible(self: ?*anyopaque) bool {
@@ -1322,7 +1322,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setItemAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setItemAlignment)
     ///
     /// ``` self: QtC.KCompletionBox, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetItemAlignment(self: ?*anyopaque, alignment: i32) void {
@@ -1331,7 +1331,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#itemAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#itemAlignment)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1342,7 +1342,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#indexesMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#indexesMoved)
     ///
     /// ``` self: QtC.KCompletionBox, indexes: []QtC.QModelIndex ```
     pub fn IndexesMoved(self: ?*anyopaque, indexes: []QtC.QModelIndex) void {
@@ -1355,7 +1355,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#indexesMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#indexesMoved)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, indexes: [*]QtC.QModelIndex) callconv(.c) void ```
     pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) void) void {
@@ -1364,7 +1364,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
     ///
     /// ``` self: QtC.KCompletionBox, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
@@ -1373,7 +1373,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1384,7 +1384,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
     ///
     /// Base class method implementation
     ///
@@ -1395,7 +1395,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#model)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
@@ -1404,7 +1404,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
@@ -1413,7 +1413,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
     ///
     /// ``` self: QtC.KCompletionBox, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -1422,7 +1422,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -1431,7 +1431,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
     /// ``` self: QtC.KCompletionBox, mode: qabstractitemview_enums.SelectionMode ```
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
@@ -1440,7 +1440,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1451,7 +1451,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
     /// ``` self: QtC.KCompletionBox, behavior: qabstractitemview_enums.SelectionBehavior ```
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
@@ -1460,7 +1460,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1471,7 +1471,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -1480,7 +1480,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -1489,7 +1489,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
     /// ``` self: QtC.KCompletionBox, triggers: flag of qabstractitemview_enums.EditTrigger ```
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
@@ -1498,7 +1498,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1509,7 +1509,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
     /// ``` self: QtC.KCompletionBox, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
@@ -1518,7 +1518,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1529,7 +1529,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
@@ -1538,7 +1538,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
     /// ``` self: QtC.KCompletionBox, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
@@ -1547,7 +1547,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1558,7 +1558,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
@@ -1567,7 +1567,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
@@ -1576,7 +1576,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn HasAutoScroll(self: ?*anyopaque) bool {
@@ -1585,7 +1585,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
     ///
     /// ``` self: QtC.KCompletionBox, margin: i32 ```
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
@@ -1594,7 +1594,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
@@ -1603,7 +1603,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
@@ -1612,7 +1612,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn TabKeyNavigation(self: ?*anyopaque) bool {
@@ -1621,7 +1621,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
@@ -1630,7 +1630,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ShowDropIndicator(self: ?*anyopaque) bool {
@@ -1639,7 +1639,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
@@ -1648,7 +1648,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn DragEnabled(self: ?*anyopaque) bool {
@@ -1657,7 +1657,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
     ///
     /// ``` self: QtC.KCompletionBox, overwrite: bool ```
     pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
@@ -1666,7 +1666,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
@@ -1675,7 +1675,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
     /// ``` self: QtC.KCompletionBox, behavior: qabstractitemview_enums.DragDropMode ```
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
@@ -1684,7 +1684,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1695,7 +1695,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
     /// ``` self: QtC.KCompletionBox, dropAction: qnamespace_enums.DropAction ```
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
@@ -1704,7 +1704,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1715,7 +1715,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
@@ -1724,7 +1724,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn AlternatingRowColors(self: ?*anyopaque) bool {
@@ -1733,7 +1733,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
     ///
     /// ``` self: QtC.KCompletionBox, size: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -1742,7 +1742,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IconSize(self: ?*anyopaque) QtC.QSize {
@@ -1751,7 +1751,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
     /// ``` self: QtC.KCompletionBox, mode: qnamespace_enums.TextElideMode ```
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
@@ -1760,7 +1760,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -1771,7 +1771,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
@@ -1780,7 +1780,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex, widget: QtC.QWidget ```
     pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1789,7 +1789,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
@@ -1798,7 +1798,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
@@ -1807,7 +1807,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
     ///
     /// ``` self: QtC.KCompletionBox, row: i32 ```
     pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
@@ -1816,7 +1816,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
     ///
     /// ``` self: QtC.KCompletionBox, column: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
@@ -1825,7 +1825,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
     ///
     /// ``` self: QtC.KCompletionBox, column: i32 ```
     pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
@@ -1834,7 +1834,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -1843,7 +1843,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1852,7 +1852,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ClearSelection(self: ?*anyopaque) void {
@@ -1861,7 +1861,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1870,7 +1870,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ScrollToTop(self: ?*anyopaque) void {
@@ -1879,7 +1879,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ScrollToBottom(self: ?*anyopaque) void {
@@ -1888,7 +1888,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#update)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1897,7 +1897,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1906,7 +1906,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1915,7 +1915,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1924,7 +1924,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1933,7 +1933,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1942,7 +1942,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1951,7 +1951,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1960,7 +1960,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1969,7 +1969,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.KCompletionBox, index: QtC.QModelIndex ```
     pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1978,7 +1978,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1987,7 +1987,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ViewportEntered(self: ?*anyopaque) void {
@@ -1996,7 +1996,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox) callconv(.c) void ```
     pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2005,7 +2005,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.KCompletionBox, size: QtC.QSize ```
     pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -2014,7 +2014,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, size: QtC.QSize) callconv(.c) void ```
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2023,7 +2023,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -2034,7 +2034,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.KCompletionBox, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -2043,7 +2043,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -2052,7 +2052,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.KCompletionBox, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -2061,7 +2061,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -2072,7 +2072,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.KCompletionBox, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -2081,7 +2081,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -2090,7 +2090,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.KCompletionBox, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -2099,7 +2099,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2108,7 +2108,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.KCompletionBox, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2117,7 +2117,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.KCompletionBox, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -2126,7 +2126,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.KCompletionBox, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -2140,7 +2140,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -2149,7 +2149,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.KCompletionBox, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2158,7 +2158,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -2167,7 +2167,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -2178,7 +2178,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.KCompletionBox, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2187,7 +2187,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -2196,7 +2196,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.KCompletionBox, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -2205,7 +2205,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -2214,7 +2214,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -2225,7 +2225,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.KCompletionBox, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -2234,7 +2234,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -2245,7 +2245,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.KCompletionBox, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -2254,7 +2254,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -2263,7 +2263,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.KCompletionBox, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -2272,7 +2272,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -2281,7 +2281,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.KCompletionBox, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -2290,7 +2290,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -2299,7 +2299,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.KCompletionBox, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -2308,7 +2308,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -2317,7 +2317,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -2326,7 +2326,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -2335,7 +2335,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -2344,7 +2344,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -2353,7 +2353,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.KCompletionBox, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -2362,7 +2362,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -2371,7 +2371,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2380,7 +2380,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -2389,7 +2389,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -2400,7 +2400,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.KCompletionBox, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -2409,7 +2409,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2418,7 +2418,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2427,7 +2427,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.KCompletionBox, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2436,7 +2436,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.KCompletionBox, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -2445,7 +2445,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.KCompletionBox, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -2454,7 +2454,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2463,7 +2463,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -2472,7 +2472,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2481,7 +2481,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -2490,7 +2490,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -2499,7 +2499,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -2508,7 +2508,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -2517,7 +2517,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -2526,7 +2526,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -2535,7 +2535,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -2544,7 +2544,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -2553,7 +2553,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -2562,7 +2562,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2571,7 +2571,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -2580,7 +2580,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -2589,7 +2589,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -2598,7 +2598,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -2607,7 +2607,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -2616,7 +2616,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -2625,7 +2625,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KCompletionBox, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -2634,7 +2634,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KCompletionBox, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -2643,7 +2643,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KCompletionBox, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -2652,7 +2652,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KCompletionBox, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -2661,7 +2661,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.KCompletionBox, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -2670,7 +2670,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.KCompletionBox, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -2679,7 +2679,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.KCompletionBox, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -2688,7 +2688,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.KCompletionBox, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -2697,7 +2697,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -2706,7 +2706,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KCompletionBox, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -2715,7 +2715,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KCompletionBox, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2724,7 +2724,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -2733,7 +2733,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KCompletionBox, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -2742,7 +2742,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KCompletionBox, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -2751,7 +2751,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KCompletionBox, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -2760,7 +2760,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KCompletionBox, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2769,7 +2769,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.KCompletionBox, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -2778,7 +2778,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.KCompletionBox, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -2787,7 +2787,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2796,7 +2796,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2805,7 +2805,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2814,7 +2814,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2823,7 +2823,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2832,7 +2832,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2841,7 +2841,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2850,7 +2850,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2859,7 +2859,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2868,7 +2868,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2877,7 +2877,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2886,7 +2886,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2895,7 +2895,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -2904,7 +2904,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2913,7 +2913,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2922,7 +2922,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -2931,7 +2931,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.KCompletionBox, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -2940,7 +2940,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.KCompletionBox, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -2949,7 +2949,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -2960,7 +2960,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.KCompletionBox, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -2969,7 +2969,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -2980,7 +2980,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -2989,7 +2989,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.KCompletionBox, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -2998,7 +2998,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -3007,7 +3007,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -3016,7 +3016,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -3025,7 +3025,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.KCompletionBox, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -3034,7 +3034,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -3043,7 +3043,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -3052,7 +3052,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -3061,7 +3061,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -3070,7 +3070,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -3079,7 +3079,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -3088,7 +3088,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KCompletionBox, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -3097,7 +3097,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KCompletionBox, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -3106,7 +3106,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -3115,7 +3115,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -3124,7 +3124,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCompletionBox, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -3133,7 +3133,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCompletionBox, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -3142,7 +3142,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -3151,7 +3151,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -3160,7 +3160,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.KCompletionBox, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -3169,7 +3169,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KCompletionBox, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3178,7 +3178,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.KCompletionBox, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3187,7 +3187,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.KCompletionBox, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -3200,7 +3200,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.KCompletionBox, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -3213,7 +3213,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3226,7 +3226,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3239,7 +3239,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.KCompletionBox, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3248,7 +3248,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -3257,7 +3257,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.KCompletionBox, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -3270,7 +3270,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3283,7 +3283,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.KCompletionBox, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -3296,7 +3296,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3309,7 +3309,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.KCompletionBox, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -3322,7 +3322,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3335,7 +3335,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.KCompletionBox, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -3344,7 +3344,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -3353,7 +3353,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -3362,7 +3362,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.KCompletionBox, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -3375,7 +3375,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3388,7 +3388,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.KCompletionBox, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -3397,7 +3397,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -3406,7 +3406,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.KCompletionBox, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -3419,7 +3419,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3432,7 +3432,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.KCompletionBox, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -3445,7 +3445,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3458,7 +3458,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3471,7 +3471,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.KCompletionBox, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -3484,7 +3484,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3497,7 +3497,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.KCompletionBox, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -3510,7 +3510,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KCompletionBox, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -3519,7 +3519,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -3530,7 +3530,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -3539,7 +3539,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.KCompletionBox, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -3548,7 +3548,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -3557,7 +3557,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -3566,7 +3566,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -3575,7 +3575,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -3584,7 +3584,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -3593,7 +3593,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -3602,7 +3602,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -3611,7 +3611,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -3620,7 +3620,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KCompletionBox, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -3629,7 +3629,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -3640,7 +3640,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.KCompletionBox, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3649,7 +3649,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -3658,7 +3658,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -3667,7 +3667,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.KCompletionBox, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -3676,7 +3676,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -3685,7 +3685,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -3696,7 +3696,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.KCompletionBox, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3705,7 +3705,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -3714,7 +3714,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3723,7 +3723,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -3732,7 +3732,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -3741,7 +3741,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -3750,7 +3750,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KCompletionBox, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -3759,7 +3759,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.KCompletionBox, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -3768,7 +3768,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KCompletionBox, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -3777,7 +3777,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KCompletionBox, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -3786,7 +3786,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -3795,7 +3795,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -3804,7 +3804,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -3813,7 +3813,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -3822,7 +3822,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -3831,7 +3831,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -3840,7 +3840,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KCompletionBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3849,7 +3849,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3858,7 +3858,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3867,7 +3867,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KCompletionBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3876,7 +3876,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3885,7 +3885,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3894,7 +3894,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.KCompletionBox, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -3903,7 +3903,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Show(self: ?*anyopaque) void {
@@ -3912,7 +3912,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -3921,7 +3921,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -3930,7 +3930,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -3939,7 +3939,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -3948,7 +3948,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -3957,7 +3957,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -3966,7 +3966,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -3975,7 +3975,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -3984,7 +3984,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3993,7 +3993,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KCompletionBox, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -4002,7 +4002,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4011,7 +4011,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KCompletionBox, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -4020,7 +4020,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4029,7 +4029,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KCompletionBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4038,7 +4038,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KCompletionBox, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -4047,7 +4047,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -4060,7 +4060,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.KCompletionBox, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -4073,7 +4073,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -4082,7 +4082,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -4091,7 +4091,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -4100,7 +4100,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -4109,7 +4109,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -4118,7 +4118,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -4127,7 +4127,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -4136,7 +4136,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -4147,7 +4147,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KCompletionBox, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -4156,7 +4156,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KCompletionBox, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -4165,7 +4165,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -4174,7 +4174,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KCompletionBox, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -4183,7 +4183,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KCompletionBox, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -4192,7 +4192,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -4201,7 +4201,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KCompletionBox, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -4210,7 +4210,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KCompletionBox, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -4219,7 +4219,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -4228,7 +4228,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -4237,7 +4237,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -4246,7 +4246,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.KCompletionBox, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -4255,7 +4255,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -4264,7 +4264,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KCompletionBox, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -4273,7 +4273,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KCompletionBox, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -4282,7 +4282,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KCompletionBox, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -4291,7 +4291,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KCompletionBox, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -4300,7 +4300,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4309,7 +4309,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4318,7 +4318,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4327,7 +4327,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -4336,7 +4336,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.KCompletionBox, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -4345,7 +4345,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCompletionBox, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4354,7 +4354,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.KCompletionBox, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4367,7 +4367,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.KCompletionBox, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4380,7 +4380,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.KCompletionBox, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -4389,7 +4389,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.KCompletionBox, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4398,7 +4398,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4412,7 +4412,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCompletionBox, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4425,7 +4425,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCompletionBox, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4438,7 +4438,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCompletionBox, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4451,7 +4451,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCompletionBox, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4464,7 +4464,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4473,7 +4473,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.KCompletionBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4482,7 +4482,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -4493,7 +4493,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KCompletionBox, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -4502,7 +4502,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.KCompletionBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4511,7 +4511,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -4522,7 +4522,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -4531,7 +4531,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KCompletionBox, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -4540,7 +4540,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KCompletionBox, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4549,7 +4549,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KCompletionBox, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4558,7 +4558,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KCompletionBox, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -4567,7 +4567,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.KCompletionBox, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -4576,7 +4576,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -4585,7 +4585,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.KCompletionBox, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -4594,7 +4594,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -4603,7 +4603,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.KCompletionBox, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -4612,7 +4612,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -4621,7 +4621,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -4630,7 +4630,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -4639,7 +4639,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.KCompletionBox, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -4648,7 +4648,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -4657,7 +4657,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KCompletionBox, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -4670,7 +4670,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4679,7 +4679,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KCompletionBox, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -4688,7 +4688,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4697,7 +4697,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KCompletionBox, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -4710,7 +4710,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4719,7 +4719,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KCompletionBox, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -4728,7 +4728,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4737,7 +4737,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.KCompletionBox ```
     ///
@@ -4748,7 +4748,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.KCompletionBox, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -4757,7 +4757,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCompletionBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4766,7 +4766,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCompletionBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4775,7 +4775,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCompletionBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4784,7 +4784,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCompletionBox, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4793,7 +4793,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCompletionBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4802,7 +4802,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCompletionBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4811,7 +4811,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KCompletionBox, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -4820,7 +4820,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KCompletionBox, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -4829,7 +4829,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KCompletionBox, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -4838,7 +4838,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KCompletionBox, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4847,7 +4847,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KCompletionBox, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4856,7 +4856,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KCompletionBox, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -4865,7 +4865,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KCompletionBox, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -4874,7 +4874,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -4883,7 +4883,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -4892,7 +4892,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4905,7 +4905,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KCompletionBox, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -4918,7 +4918,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -4927,7 +4927,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -4936,7 +4936,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -4945,7 +4945,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4954,7 +4954,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KCompletionBox, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4963,7 +4963,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4972,7 +4972,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KCompletionBox, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4981,7 +4981,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KCompletionBox, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4990,7 +4990,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KCompletionBox, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4999,7 +4999,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KCompletionBox, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -5008,7 +5008,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -5022,7 +5022,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KCompletionBox, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -5031,7 +5031,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KCompletionBox, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -5040,7 +5040,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -5049,7 +5049,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KCompletionBox, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -5060,7 +5060,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -5069,7 +5069,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -5078,7 +5078,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -5087,7 +5087,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -5096,7 +5096,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KCompletionBox, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -5106,7 +5106,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KCompletionBox, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -5116,7 +5116,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -5140,7 +5140,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5149,7 +5149,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5158,7 +5158,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -5167,7 +5167,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -5176,7 +5176,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -5185,7 +5185,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KCompletionBox, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -5195,7 +5195,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -5204,7 +5204,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KCompletionBox, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -5213,7 +5213,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KCompletionBox, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -5222,7 +5222,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5231,7 +5231,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KCompletionBox, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5242,7 +5242,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5251,7 +5251,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KCompletionBox, callback: *const fn (self: QtC.KCompletionBox, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5260,7 +5260,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -5269,7 +5269,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -5278,7 +5278,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -5287,7 +5287,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -5296,7 +5296,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -5305,7 +5305,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -5314,7 +5314,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -5323,7 +5323,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -5332,7 +5332,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -5341,7 +5341,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -5350,7 +5350,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -5359,7 +5359,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -5368,7 +5368,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -5377,7 +5377,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setSelectionModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5388,7 +5388,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setSelectionModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5399,7 +5399,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setSelectionModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5410,7 +5410,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5421,7 +5421,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5432,7 +5432,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5443,7 +5443,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5454,7 +5454,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5465,7 +5465,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5476,7 +5476,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#mimeTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5502,7 +5502,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#mimeTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5528,7 +5528,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#mimeTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5539,7 +5539,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#mimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5554,7 +5554,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#mimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5569,7 +5569,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#mimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5580,7 +5580,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#dropMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5591,7 +5591,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#dropMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5602,7 +5602,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#dropMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5613,7 +5613,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#supportedDropActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5626,7 +5626,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#supportedDropActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5639,7 +5639,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistwidget.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#supportedDropActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5650,7 +5650,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5661,7 +5661,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5672,7 +5672,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5683,7 +5683,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5694,7 +5694,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5705,7 +5705,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5716,7 +5716,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#indexAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5727,7 +5727,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#indexAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5738,7 +5738,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#indexAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5749,7 +5749,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5760,7 +5760,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5771,7 +5771,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5782,7 +5782,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5793,7 +5793,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5804,7 +5804,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5815,7 +5815,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5826,7 +5826,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5837,7 +5837,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5848,7 +5848,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5859,7 +5859,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5870,7 +5870,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5881,7 +5881,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dataChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5896,7 +5896,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dataChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5911,7 +5911,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dataChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5922,7 +5922,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rowsInserted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5933,7 +5933,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rowsInserted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5944,7 +5944,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rowsInserted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5955,7 +5955,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5966,7 +5966,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5977,7 +5977,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5988,7 +5988,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5999,7 +5999,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6010,7 +6010,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6021,7 +6021,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6032,7 +6032,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6043,7 +6043,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6054,7 +6054,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6065,7 +6065,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6076,7 +6076,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6087,7 +6087,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6098,7 +6098,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6109,7 +6109,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6120,7 +6120,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6131,7 +6131,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6142,7 +6142,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6153,7 +6153,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6164,7 +6164,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6175,7 +6175,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6186,7 +6186,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6197,7 +6197,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6208,7 +6208,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6219,7 +6219,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#startDrag)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6230,7 +6230,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#startDrag)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6241,7 +6241,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#startDrag)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6252,7 +6252,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6263,7 +6263,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6274,7 +6274,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6285,7 +6285,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6296,7 +6296,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6307,7 +6307,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6318,7 +6318,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6329,7 +6329,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6340,7 +6340,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6351,7 +6351,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6362,7 +6362,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6373,7 +6373,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6384,7 +6384,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#moveCursor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6395,7 +6395,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#moveCursor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6406,7 +6406,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#moveCursor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6417,7 +6417,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setSelection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6428,7 +6428,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setSelection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6439,7 +6439,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setSelection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6450,7 +6450,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6461,7 +6461,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6472,7 +6472,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6483,7 +6483,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6499,7 +6499,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6515,7 +6515,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6526,7 +6526,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#updateGeometries)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6537,7 +6537,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#updateGeometries)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6548,7 +6548,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#updateGeometries)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6559,7 +6559,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6570,7 +6570,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6581,7 +6581,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6592,7 +6592,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6603,7 +6603,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6614,7 +6614,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6625,7 +6625,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#currentChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6636,7 +6636,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#currentChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6647,7 +6647,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#currentChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6658,7 +6658,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6669,7 +6669,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6680,7 +6680,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6691,7 +6691,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6706,7 +6706,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6721,7 +6721,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6732,7 +6732,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6743,7 +6743,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6754,7 +6754,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6765,7 +6765,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6776,7 +6776,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6787,7 +6787,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6798,7 +6798,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6809,7 +6809,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6820,7 +6820,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6831,7 +6831,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6842,7 +6842,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6853,7 +6853,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6864,7 +6864,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6875,7 +6875,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6886,7 +6886,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6897,7 +6897,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6908,7 +6908,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6919,7 +6919,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6930,7 +6930,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6941,7 +6941,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6952,7 +6952,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6963,7 +6963,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6974,7 +6974,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6985,7 +6985,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6996,7 +6996,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7007,7 +7007,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7018,7 +7018,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7029,7 +7029,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7040,7 +7040,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7051,7 +7051,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7062,7 +7062,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7073,7 +7073,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7084,7 +7084,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7095,7 +7095,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7106,7 +7106,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7117,7 +7117,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7128,7 +7128,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7139,7 +7139,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7150,7 +7150,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7161,7 +7161,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7172,7 +7172,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7183,7 +7183,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7194,7 +7194,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7205,7 +7205,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7216,7 +7216,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7227,7 +7227,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7240,7 +7240,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7253,7 +7253,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7264,7 +7264,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7275,7 +7275,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7286,7 +7286,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7297,7 +7297,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7308,7 +7308,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7319,7 +7319,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7330,7 +7330,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7341,7 +7341,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7352,7 +7352,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7363,7 +7363,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7374,7 +7374,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7385,7 +7385,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7396,7 +7396,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7407,7 +7407,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7418,7 +7418,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7429,7 +7429,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7440,7 +7440,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7451,7 +7451,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7462,7 +7462,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7473,7 +7473,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7484,7 +7484,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7495,7 +7495,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7506,7 +7506,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7517,7 +7517,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7528,7 +7528,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7539,7 +7539,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7550,7 +7550,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7561,7 +7561,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7572,7 +7572,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7583,7 +7583,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7594,7 +7594,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7605,7 +7605,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7616,7 +7616,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7627,7 +7627,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7638,7 +7638,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7649,7 +7649,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7660,7 +7660,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7671,7 +7671,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7682,7 +7682,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7693,7 +7693,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7704,7 +7704,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7715,7 +7715,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7726,7 +7726,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7737,7 +7737,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7748,7 +7748,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7759,7 +7759,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7770,7 +7770,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7781,7 +7781,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7792,7 +7792,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7803,7 +7803,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7814,7 +7814,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7825,7 +7825,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7836,7 +7836,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7847,7 +7847,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7858,7 +7858,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7869,7 +7869,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7880,7 +7880,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7891,7 +7891,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7902,7 +7902,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7913,7 +7913,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7924,7 +7924,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7935,7 +7935,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7946,7 +7946,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7957,7 +7957,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7968,7 +7968,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7979,7 +7979,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7990,7 +7990,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8001,7 +8001,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8012,7 +8012,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8023,7 +8023,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8034,7 +8034,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8045,7 +8045,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8056,7 +8056,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8067,7 +8067,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8078,7 +8078,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8089,7 +8089,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8100,7 +8100,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8111,7 +8111,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8122,7 +8122,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8133,7 +8133,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8144,7 +8144,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8155,7 +8155,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8170,7 +8170,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8185,7 +8185,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8196,7 +8196,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8207,7 +8207,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8218,7 +8218,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8229,7 +8229,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8240,7 +8240,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8251,7 +8251,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8262,7 +8262,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8273,7 +8273,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8284,7 +8284,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8295,7 +8295,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8306,7 +8306,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8317,7 +8317,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8328,7 +8328,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8339,7 +8339,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8350,7 +8350,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8361,7 +8361,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8372,7 +8372,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8383,7 +8383,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8394,7 +8394,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8405,7 +8405,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8416,7 +8416,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8427,7 +8427,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8438,7 +8438,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8449,7 +8449,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8460,7 +8460,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8471,7 +8471,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8482,7 +8482,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8493,7 +8493,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8504,7 +8504,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8515,7 +8515,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8526,7 +8526,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8537,7 +8537,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8548,7 +8548,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8559,7 +8559,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8570,7 +8570,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8581,7 +8581,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8592,7 +8592,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8605,7 +8605,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8618,7 +8618,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8629,7 +8629,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8640,7 +8640,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8651,7 +8651,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8662,7 +8662,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8673,7 +8673,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8684,7 +8684,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8695,7 +8695,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8706,7 +8706,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8717,7 +8717,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8728,7 +8728,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8739,7 +8739,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8750,7 +8750,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8761,7 +8761,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8772,7 +8772,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8783,7 +8783,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8794,7 +8794,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8805,7 +8805,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8816,7 +8816,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8827,7 +8827,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8838,7 +8838,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8849,7 +8849,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8860,7 +8860,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8871,7 +8871,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8882,7 +8882,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8893,7 +8893,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8904,7 +8904,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8915,7 +8915,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8926,7 +8926,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8939,7 +8939,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8952,7 +8952,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8963,7 +8963,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8974,7 +8974,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8985,7 +8985,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8996,7 +8996,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9007,7 +9007,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9018,7 +9018,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9029,7 +9029,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9040,7 +9040,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9051,7 +9051,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9062,7 +9062,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9073,7 +9073,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9084,7 +9084,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9095,7 +9095,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9106,7 +9106,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9117,7 +9117,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9128,7 +9128,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9139,7 +9139,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9150,7 +9150,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9161,7 +9161,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9172,7 +9172,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9183,7 +9183,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9194,7 +9194,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9205,7 +9205,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9216,7 +9216,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9227,7 +9227,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9238,7 +9238,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9249,7 +9249,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9260,7 +9260,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9271,7 +9271,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9282,7 +9282,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9293,7 +9293,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9305,7 +9305,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9317,7 +9317,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9328,7 +9328,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9339,7 +9339,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9350,7 +9350,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9361,7 +9361,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9372,7 +9372,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9383,7 +9383,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9394,7 +9394,7 @@ pub const kcompletionbox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -9403,7 +9403,7 @@ pub const kcompletionbox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#dtor.KCompletionBox)
+    /// [Upstream resources](https://api.kde.org/kcompletionbox.html#dtor.KCompletionBox)
     ///
     /// Delete this object from C++ memory.
     ///

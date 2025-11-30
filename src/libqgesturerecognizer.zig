@@ -12,14 +12,14 @@ pub const qgesturerecognizer = struct {
         return qtc.QGestureRecognizer_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
     ///
     /// ``` self: QtC.QGestureRecognizer, target: QtC.QObject ```
     pub fn Create(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
         return qtc.QGestureRecognizer_Create(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
     ///
     /// Allows for overriding the related default method
     ///
@@ -28,7 +28,7 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
     ///
     /// Base class method implementation
     ///
@@ -37,7 +37,7 @@ pub const qgesturerecognizer = struct {
         return qtc.QGestureRecognizer_QBaseCreate(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
     ///
     /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
@@ -46,7 +46,7 @@ pub const qgesturerecognizer = struct {
         return qtc.QGestureRecognizer_Recognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -55,7 +55,7 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
     ///
     /// Base class method implementation
     ///
@@ -66,14 +66,14 @@ pub const qgesturerecognizer = struct {
         return qtc.QGestureRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
     /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture ```
     pub fn Reset(self: ?*anyopaque, state: ?*anyopaque) void {
         qtc.QGestureRecognizer_Reset(@ptrCast(self), @ptrCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -82,7 +82,7 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
     /// Base class method implementation
     ///
@@ -91,7 +91,7 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_QBaseReset(@ptrCast(self), @ptrCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#registerRecognizer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#registerRecognizer)
     ///
     /// ``` recognizer: QtC.QGestureRecognizer ```
     ///
@@ -100,21 +100,21 @@ pub const qgesturerecognizer = struct {
         return qtc.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#unregisterRecognizer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#unregisterRecognizer)
     ///
     /// ``` typeVal: qnamespace_enums.GestureType ```
     pub fn UnregisterRecognizer(typeVal: i64) void {
         qtc.QGestureRecognizer_UnregisterRecognizer(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator-eq)
     ///
     /// ``` self: QtC.QGestureRecognizer, param1: QtC.QGestureRecognizer ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#dtor.QGestureRecognizer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#dtor.QGestureRecognizer)
     ///
     /// Delete this object from C++ memory.
     ///

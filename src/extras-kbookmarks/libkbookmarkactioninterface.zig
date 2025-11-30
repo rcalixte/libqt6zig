@@ -17,14 +17,14 @@ pub const kbookmarkactioninterface = struct {
         return qtc.KBookmarkActionInterface_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkactioninterface.html#bookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkactioninterface.html#bookmark)
     ///
     /// ``` self: QtC.KBookmarkActionInterface ```
     pub fn Bookmark(self: ?*anyopaque) QtC.KBookmark {
         return qtc.KBookmarkActionInterface_Bookmark(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkactioninterface.html#dtor.KBookmarkActionInterface)
+    /// [Upstream resources](https://api.kde.org/kbookmarkactioninterface.html#dtor.KBookmarkActionInterface)
     ///
     /// Delete this object from C++ memory.
     ///

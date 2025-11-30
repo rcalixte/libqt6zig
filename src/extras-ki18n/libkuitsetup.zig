@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kuit.html
 pub const kuit = struct {
-    /// [Qt documentation](https://api.kde.org/kuit.html#setupForDomain)
+    /// [Upstream resources](https://api.kde.org/kuit.html#setupForDomain)
     ///
     /// ``` param1: []u8 ```
     pub fn SetupForDomain(param1: []u8) QtC.KuitSetup {
@@ -19,7 +19,7 @@ pub const kuit = struct {
 
 /// https://api.kde.org/kuitsetup.html
 pub const kuitsetup = struct {
-    /// [Qt documentation](https://api.kde.org/kuitsetup.html#setTagPattern)
+    /// [Upstream resources](https://api.kde.org/kuitsetup.html#setTagPattern)
     ///
     /// ``` self: QtC.KuitSetup, tagName: []const u8, attribNames: [][]const u8, format: kuitsetup_enums.VisualFormat, pattern: QtC.KLocalizedString, allocator: std.mem.Allocator ```
     pub fn SetTagPattern(self: ?*anyopaque, tagName: []const u8, attribNames: [][]const u8, format: i32, pattern: ?*anyopaque, allocator: std.mem.Allocator) void {
@@ -42,7 +42,7 @@ pub const kuitsetup = struct {
         qtc.KuitSetup_SetTagPattern(@ptrCast(self), tagName_str, attribNames_list, @intCast(format), @ptrCast(pattern));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuitsetup.html#setTagClass)
+    /// [Upstream resources](https://api.kde.org/kuitsetup.html#setTagClass)
     ///
     /// ``` self: QtC.KuitSetup, tagName: []const u8, aClass: kuitsetup_enums.TagClass ```
     pub fn SetTagClass(self: ?*anyopaque, tagName: []const u8, aClass: i32) void {
@@ -53,7 +53,7 @@ pub const kuitsetup = struct {
         qtc.KuitSetup_SetTagClass(@ptrCast(self), tagName_str, @intCast(aClass));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuitsetup.html#setFormatForMarker)
+    /// [Upstream resources](https://api.kde.org/kuitsetup.html#setFormatForMarker)
     ///
     /// ``` self: QtC.KuitSetup, marker: []const u8, format: kuitsetup_enums.VisualFormat ```
     pub fn SetFormatForMarker(self: ?*anyopaque, marker: []const u8, format: i32) void {
@@ -64,7 +64,7 @@ pub const kuitsetup = struct {
         qtc.KuitSetup_SetFormatForMarker(@ptrCast(self), marker_str, @intCast(format));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuitsetup.html#dtor.KuitSetup)
+    /// [Upstream resources](https://api.kde.org/kuitsetup.html#dtor.KuitSetup)
     ///
     /// Delete this object from C++ memory.
     ///

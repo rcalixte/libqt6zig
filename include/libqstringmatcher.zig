@@ -57,14 +57,14 @@ pub const qstringmatcher = struct {
         return qtc.QStringMatcher_new6(@ptrCast(uc), @intCast(lenVal), @intCast(cs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#operator-eq)
     ///
     /// ``` self: QtC.QStringMatcher, other: QtC.QStringMatcher ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QStringMatcher_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#setPattern)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#setPattern)
     ///
     /// ``` self: QtC.QStringMatcher, pattern: []const u8 ```
     pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
@@ -75,14 +75,14 @@ pub const qstringmatcher = struct {
         qtc.QStringMatcher_SetPattern(@ptrCast(self), pattern_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#setCaseSensitivity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#setCaseSensitivity)
     ///
     /// ``` self: QtC.QStringMatcher, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
         qtc.QStringMatcher_SetCaseSensitivity(@ptrCast(self), @intCast(cs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
     ///
     /// ``` self: QtC.QStringMatcher, str: []const u8 ```
     pub fn IndexIn(self: ?*anyopaque, str: []const u8) i64 {
@@ -93,14 +93,14 @@ pub const qstringmatcher = struct {
         return qtc.QStringMatcher_IndexIn(@ptrCast(self), str_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
     ///
     /// ``` self: QtC.QStringMatcher, str: QtC.QChar, length: i64 ```
     pub fn IndexIn2(self: ?*anyopaque, str: ?*anyopaque, length: i64) i64 {
         return qtc.QStringMatcher_IndexIn2(@ptrCast(self), @ptrCast(str), @intCast(length));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#pattern)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#pattern)
     ///
     /// ``` self: QtC.QStringMatcher, allocator: std.mem.Allocator ```
     pub fn Pattern(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -111,7 +111,7 @@ pub const qstringmatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#caseSensitivity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#caseSensitivity)
     ///
     /// ``` self: QtC.QStringMatcher ```
     ///
@@ -120,7 +120,7 @@ pub const qstringmatcher = struct {
         return qtc.QStringMatcher_CaseSensitivity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
     ///
     /// ``` self: QtC.QStringMatcher, str: []const u8, from: i64 ```
     pub fn IndexIn22(self: ?*anyopaque, str: []const u8, from: i64) i64 {
@@ -131,14 +131,14 @@ pub const qstringmatcher = struct {
         return qtc.QStringMatcher_IndexIn22(@ptrCast(self), str_str, @intCast(from));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
     ///
     /// ``` self: QtC.QStringMatcher, str: QtC.QChar, length: i64, from: i64 ```
     pub fn IndexIn32(self: ?*anyopaque, str: ?*anyopaque, length: i64, from: i64) i64 {
         return qtc.QStringMatcher_IndexIn32(@ptrCast(self), @ptrCast(str), @intCast(length), @intCast(from));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#dtor.QStringMatcher)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#dtor.QStringMatcher)
     ///
     /// Delete this object from C++ memory.
     ///

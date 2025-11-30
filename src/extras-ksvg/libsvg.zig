@@ -21,7 +21,7 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,91 +65,91 @@ pub const ksvg__svg = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setDevicePixelRatio)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setDevicePixelRatio)
     ///
     /// ``` self: QtC.KSvg__Svg, factor: f64 ```
     pub fn SetDevicePixelRatio(self: ?*anyopaque, factor: f64) void {
         qtc.KSvg__Svg_SetDevicePixelRatio(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#devicePixelRatio)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#devicePixelRatio)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
         return qtc.KSvg__Svg_DevicePixelRatio(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#pixmap)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#pixmap)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn Pixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.KSvg__Svg_Pixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#image)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#image)
     ///
     /// ``` self: QtC.KSvg__Svg, size: QtC.QSize ```
     pub fn Image(self: ?*anyopaque, size: ?*anyopaque) QtC.QImage {
         return qtc.KSvg__Svg_Image(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#paint)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ``` self: QtC.KSvg__Svg, painter: QtC.QPainter, point: QtC.QPointF ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, point: ?*anyopaque) void {
         qtc.KSvg__Svg_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#paint)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ``` self: QtC.KSvg__Svg, painter: QtC.QPainter, x: i32, y: i32 ```
     pub fn Paint2(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32) void {
         qtc.KSvg__Svg_Paint2(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#paint)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ``` self: QtC.KSvg__Svg, painter: QtC.QPainter, rect: QtC.QRectF ```
     pub fn Paint3(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.KSvg__Svg_Paint3(@ptrCast(self), @ptrCast(painter), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#paint)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ``` self: QtC.KSvg__Svg, painter: QtC.QPainter, x: i32, y: i32, width: i32, height: i32 ```
     pub fn Paint4(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, width: i32, height: i32) void {
         qtc.KSvg__Svg_Paint4(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), @intCast(width), @intCast(height));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#size)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#size)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn Size(self: ?*anyopaque) QtC.QSizeF {
         return qtc.KSvg__Svg_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#resize)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#resize)
     ///
     /// ``` self: QtC.KSvg__Svg, width: f64, height: f64 ```
     pub fn Resize(self: ?*anyopaque, width: f64, height: f64) void {
         qtc.KSvg__Svg_Resize(@ptrCast(self), @floatCast(width), @floatCast(height));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#resize)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#resize)
     ///
     /// ``` self: QtC.KSvg__Svg, size: QtC.QSizeF ```
     pub fn Resize2(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.KSvg__Svg_Resize2(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#resize)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#resize)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn Resize3(self: ?*anyopaque) void {
         qtc.KSvg__Svg_Resize3(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#elementSize)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#elementSize)
     ///
     /// ``` self: QtC.KSvg__Svg, elementId: []const u8 ```
     pub fn ElementSize(self: ?*anyopaque, elementId: []const u8) QtC.QSizeF {
@@ -160,7 +160,7 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_ElementSize(@ptrCast(self), elementId_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#elementRect)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#elementRect)
     ///
     /// ``` self: QtC.KSvg__Svg, elementId: []const u8 ```
     pub fn ElementRect(self: ?*anyopaque, elementId: []const u8) QtC.QRectF {
@@ -171,7 +171,7 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_ElementRect(@ptrCast(self), elementId_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#hasElement)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#hasElement)
     ///
     /// ``` self: QtC.KSvg__Svg, elementId: []const u8 ```
     pub fn HasElement(self: ?*anyopaque, elementId: []const u8) bool {
@@ -182,28 +182,28 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_HasElement(@ptrCast(self), elementId_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#isValid)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#isValid)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KSvg__Svg_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setContainsMultipleImages)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setContainsMultipleImages)
     ///
     /// ``` self: QtC.KSvg__Svg, multiple: bool ```
     pub fn SetContainsMultipleImages(self: ?*anyopaque, multiple: bool) void {
         qtc.KSvg__Svg_SetContainsMultipleImages(@ptrCast(self), multiple);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#containsMultipleImages)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#containsMultipleImages)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn ContainsMultipleImages(self: ?*anyopaque) bool {
         return qtc.KSvg__Svg_ContainsMultipleImages(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setImagePath)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setImagePath)
     ///
     /// ``` self: QtC.KSvg__Svg, svgFilePath: []const u8 ```
     pub fn SetImagePath(self: ?*anyopaque, svgFilePath: []const u8) void {
@@ -214,7 +214,7 @@ pub const ksvg__svg = struct {
         qtc.KSvg__Svg_SetImagePath(@ptrCast(self), svgFilePath_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setImagePath)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setImagePath)
     ///
     /// Allows for overriding the related default method
     ///
@@ -223,7 +223,7 @@ pub const ksvg__svg = struct {
         qtc.KSvg__Svg_OnSetImagePath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setImagePath)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setImagePath)
     ///
     /// Base class method implementation
     ///
@@ -236,7 +236,7 @@ pub const ksvg__svg = struct {
         qtc.KSvg__Svg_QBaseSetImagePath(@ptrCast(self), svgFilePath_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#imagePath)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#imagePath)
     ///
     /// ``` self: QtC.KSvg__Svg, allocator: std.mem.Allocator ```
     pub fn ImagePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -247,49 +247,49 @@ pub const ksvg__svg = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setUsingRenderingCache)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setUsingRenderingCache)
     ///
     /// ``` self: QtC.KSvg__Svg, useCache: bool ```
     pub fn SetUsingRenderingCache(self: ?*anyopaque, useCache: bool) void {
         qtc.KSvg__Svg_SetUsingRenderingCache(@ptrCast(self), useCache);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#isUsingRenderingCache)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#isUsingRenderingCache)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn IsUsingRenderingCache(self: ?*anyopaque) bool {
         return qtc.KSvg__Svg_IsUsingRenderingCache(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#fromCurrentImageSet)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#fromCurrentImageSet)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn FromCurrentImageSet(self: ?*anyopaque) bool {
         return qtc.KSvg__Svg_FromCurrentImageSet(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setImageSet)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setImageSet)
     ///
     /// ``` self: QtC.KSvg__Svg, theme: QtC.KSvg__ImageSet ```
     pub fn SetImageSet(self: ?*anyopaque, theme: ?*anyopaque) void {
         qtc.KSvg__Svg_SetImageSet(@ptrCast(self), @ptrCast(theme));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#imageSet)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#imageSet)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn ImageSet(self: ?*anyopaque) QtC.KSvg__ImageSet {
         return qtc.KSvg__Svg_ImageSet(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setStatus)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setStatus)
     ///
     /// ``` self: QtC.KSvg__Svg, status: svg_enums.Status ```
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
         qtc.KSvg__Svg_SetStatus(@ptrCast(self), @intCast(status));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#status)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#status)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     ///
@@ -298,14 +298,14 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_Status(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setColorSet)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setColorSet)
     ///
     /// ``` self: QtC.KSvg__Svg, colorSet: svg_enums.ColorSet ```
     pub fn SetColorSet(self: ?*anyopaque, colorSet: i32) void {
         qtc.KSvg__Svg_SetColorSet(@ptrCast(self), @intCast(colorSet));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#colorSet)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#colorSet)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     ///
@@ -314,140 +314,140 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_ColorSet(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#color)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#color)
     ///
     /// ``` self: QtC.KSvg__Svg, colorName: svg_enums.StyleSheetColor ```
     pub fn Color(self: ?*anyopaque, colorName: i32) QtC.QColor {
         return qtc.KSvg__Svg_Color(@ptrCast(self), @intCast(colorName));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#setColor)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#setColor)
     ///
     /// ``` self: QtC.KSvg__Svg, colorName: svg_enums.StyleSheetColor, color: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, colorName: i32, color: ?*anyopaque) void {
         qtc.KSvg__Svg_SetColor(@ptrCast(self), @intCast(colorName), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#clearColorOverrides)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#clearColorOverrides)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn ClearColorOverrides(self: ?*anyopaque) void {
         qtc.KSvg__Svg_ClearColorOverrides(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#repaintNeeded)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#repaintNeeded)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn RepaintNeeded(self: ?*anyopaque) void {
         qtc.KSvg__Svg_RepaintNeeded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#repaintNeeded)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#repaintNeeded)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void ```
     pub fn OnRepaintNeeded(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_RepaintNeeded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#sizeChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#sizeChanged)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn SizeChanged(self: ?*anyopaque) void {
         qtc.KSvg__Svg_SizeChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#sizeChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#sizeChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void ```
     pub fn OnSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_SizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#imagePathChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#imagePathChanged)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn ImagePathChanged(self: ?*anyopaque) void {
         qtc.KSvg__Svg_ImagePathChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#imagePathChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#imagePathChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void ```
     pub fn OnImagePathChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_ImagePathChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#colorHintChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#colorHintChanged)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn ColorHintChanged(self: ?*anyopaque) void {
         qtc.KSvg__Svg_ColorHintChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#colorHintChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#colorHintChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void ```
     pub fn OnColorHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_ColorHintChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#fromCurrentImageSetChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#fromCurrentImageSetChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, fromCurrentImageSet: bool ```
     pub fn FromCurrentImageSetChanged(self: ?*anyopaque, fromCurrentImageSet: bool) void {
         qtc.KSvg__Svg_FromCurrentImageSetChanged(@ptrCast(self), fromCurrentImageSet);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#fromCurrentImageSetChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#fromCurrentImageSetChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg, fromCurrentImageSet: bool) callconv(.c) void ```
     pub fn OnFromCurrentImageSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_FromCurrentImageSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#statusChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#statusChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, status: svg_enums.Status ```
     pub fn StatusChanged(self: ?*anyopaque, status: i32) void {
         qtc.KSvg__Svg_StatusChanged(@ptrCast(self), @intCast(status));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#statusChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#statusChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg, status: svg_enums.Status) callconv(.c) void ```
     pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_StatusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#colorSetChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#colorSetChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, colorSet: svg_enums.ColorSet ```
     pub fn ColorSetChanged(self: ?*anyopaque, colorSet: i32) void {
         qtc.KSvg__Svg_ColorSetChanged(@ptrCast(self), @intCast(colorSet));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#colorSetChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#colorSetChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg, colorSet: svg_enums.ColorSet) callconv(.c) void ```
     pub fn OnColorSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_ColorSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#imageSetChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#imageSetChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, imageSet: QtC.KSvg__ImageSet ```
     pub fn ImageSetChanged(self: ?*anyopaque, imageSet: ?*anyopaque) void {
         qtc.KSvg__Svg_ImageSetChanged(@ptrCast(self), @ptrCast(imageSet));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#imageSetChanged)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#imageSetChanged)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg, imageSet: QtC.KSvg__ImageSet) callconv(.c) void ```
     pub fn OnImageSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KSvg__Svg_Connect_ImageSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -460,7 +460,7 @@ pub const ksvg__svg = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -473,7 +473,7 @@ pub const ksvg__svg = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#pixmap)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#pixmap)
     ///
     /// ``` self: QtC.KSvg__Svg, elementID: []const u8 ```
     pub fn Pixmap1(self: ?*anyopaque, elementID: []const u8) QtC.QPixmap {
@@ -484,7 +484,7 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_Pixmap1(@ptrCast(self), elementID_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#image)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#image)
     ///
     /// ``` self: QtC.KSvg__Svg, size: QtC.QSize, elementID: []const u8 ```
     pub fn Image2(self: ?*anyopaque, size: ?*anyopaque, elementID: []const u8) QtC.QImage {
@@ -495,7 +495,7 @@ pub const ksvg__svg = struct {
         return qtc.KSvg__Svg_Image2(@ptrCast(self), @ptrCast(size), elementID_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#paint)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ``` self: QtC.KSvg__Svg, painter: QtC.QPainter, point: QtC.QPointF, elementID: []const u8 ```
     pub fn Paint32(self: ?*anyopaque, painter: ?*anyopaque, point: ?*anyopaque, elementID: []const u8) void {
@@ -506,7 +506,7 @@ pub const ksvg__svg = struct {
         qtc.KSvg__Svg_Paint32(@ptrCast(self), @ptrCast(painter), @ptrCast(point), elementID_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#paint)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ``` self: QtC.KSvg__Svg, painter: QtC.QPainter, x: i32, y: i32, elementID: []const u8 ```
     pub fn Paint42(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, elementID: []const u8) void {
@@ -517,7 +517,7 @@ pub const ksvg__svg = struct {
         qtc.KSvg__Svg_Paint42(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), elementID_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#paint)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ``` self: QtC.KSvg__Svg, painter: QtC.QPainter, rect: QtC.QRectF, elementID: []const u8 ```
     pub fn Paint33(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, elementID: []const u8) void {
@@ -528,7 +528,7 @@ pub const ksvg__svg = struct {
         qtc.KSvg__Svg_Paint33(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), elementID_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ksvg-svg.html#paint)
+    /// [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ``` self: QtC.KSvg__Svg, painter: QtC.QPainter, x: i32, y: i32, width: i32, height: i32, elementID: []const u8 ```
     pub fn Paint6(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, width: i32, height: i32, elementID: []const u8) void {
@@ -541,7 +541,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.KSvg__Svg, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -550,7 +550,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -561,7 +561,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -572,7 +572,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KSvg__Svg, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -585,7 +585,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KSvg__Svg, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -598,7 +598,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -607,7 +607,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -616,7 +616,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -625,7 +625,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -634,7 +634,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KSvg__Svg, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -643,7 +643,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -652,7 +652,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KSvg__Svg, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -661,7 +661,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KSvg__Svg, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -670,7 +670,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KSvg__Svg, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -679,7 +679,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KSvg__Svg, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -688,7 +688,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KSvg__Svg, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -702,7 +702,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KSvg__Svg, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -711,7 +711,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KSvg__Svg, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -720,7 +720,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KSvg__Svg, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -729,7 +729,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -738,7 +738,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KSvg__Svg, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -749,7 +749,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -758,7 +758,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -767,7 +767,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -776,7 +776,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -785,7 +785,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KSvg__Svg, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -795,7 +795,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KSvg__Svg, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -805,7 +805,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KSvg__Svg, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -829,7 +829,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -838,7 +838,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -847,7 +847,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -856,7 +856,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -865,7 +865,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -874,7 +874,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KSvg__Svg, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -884,7 +884,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KSvg__Svg ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -893,7 +893,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KSvg__Svg, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -902,7 +902,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KSvg__Svg, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -911,7 +911,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -920,7 +920,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KSvg__Svg, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -931,7 +931,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KSvg__Svg, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -940,7 +940,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KSvg__Svg, callback: *const fn (self: QtC.KSvg__Svg, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -949,7 +949,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -960,7 +960,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -971,7 +971,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -982,7 +982,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -993,7 +993,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1004,7 +1004,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1015,7 +1015,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1026,7 +1026,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1037,7 +1037,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1048,7 +1048,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1059,7 +1059,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1070,7 +1070,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1081,7 +1081,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1092,7 +1092,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1103,7 +1103,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1114,7 +1114,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1125,7 +1125,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1136,7 +1136,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1147,7 +1147,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1158,7 +1158,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1169,7 +1169,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1180,7 +1180,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1191,7 +1191,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1202,7 +1202,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1213,7 +1213,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1225,7 +1225,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1237,7 +1237,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1248,7 +1248,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1259,7 +1259,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1270,7 +1270,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1281,7 +1281,7 @@ pub const ksvg__svg = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

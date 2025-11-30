@@ -21,7 +21,7 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,14 +65,14 @@ pub const qgraphicsvideoitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#videoSink)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#videoSink)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn VideoSink(self: ?*anyopaque) QtC.QVideoSink {
         return qtc.QGraphicsVideoItem_VideoSink(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#aspectRatioMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#aspectRatioMode)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     ///
@@ -81,56 +81,56 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_AspectRatioMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setAspectRatioMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setAspectRatioMode)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, mode: qnamespace_enums.AspectRatioMode ```
     pub fn SetAspectRatioMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGraphicsVideoItem_SetAspectRatioMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#offset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#offset)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Offset(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsVideoItem_Offset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setOffset)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, offset: QtC.QPointF ```
     pub fn SetOffset(self: ?*anyopaque, offset: ?*anyopaque) void {
         qtc.QGraphicsVideoItem_SetOffset(@ptrCast(self), @ptrCast(offset));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#size)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Size(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsVideoItem_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setSize)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, size: QtC.QSizeF ```
     pub fn SetSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QGraphicsVideoItem_SetSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSize)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn NativeSize(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsVideoItem_NativeSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn BoundingRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsVideoItem_BoundingRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -139,7 +139,7 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
     ///
     /// Base class method implementation
     ///
@@ -148,14 +148,14 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_QBaseBoundingRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QGraphicsVideoItem_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -164,7 +164,7 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
     ///
     /// Base class method implementation
     ///
@@ -173,14 +173,14 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGraphicsVideoItem_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
     ///
     /// Allows for overriding the related default method
     ///
@@ -189,7 +189,7 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
     ///
     /// Base class method implementation
     ///
@@ -198,28 +198,28 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_QBaseType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSizeChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, size: QtC.QSizeF ```
     pub fn NativeSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QGraphicsVideoItem_NativeSizeChanged(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSizeChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem, size: QtC.QSizeF) callconv(.c) void ```
     pub fn OnNativeSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_Connect_NativeSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsVideoItem_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -228,7 +228,7 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
     ///
     /// Base class method implementation
     ///
@@ -237,14 +237,14 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant ```
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
         return qtc.QGraphicsVideoItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
     ///
     /// Allows for overriding the related default method
     ///
@@ -253,7 +253,7 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
     ///
     /// Base class method implementation
     ///
@@ -262,7 +262,7 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -275,7 +275,7 @@ pub const qgraphicsvideoitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -290,7 +290,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -299,7 +299,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#ungrabGesture)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -308,7 +308,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ParentChanged(self: ?*anyopaque) void {
@@ -317,7 +317,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -326,7 +326,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn OpacityChanged(self: ?*anyopaque) void {
@@ -335,7 +335,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -344,7 +344,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -353,7 +353,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -362,7 +362,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn EnabledChanged(self: ?*anyopaque) void {
@@ -371,7 +371,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -380,7 +380,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn XChanged(self: ?*anyopaque) void {
@@ -389,7 +389,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -398,7 +398,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn YChanged(self: ?*anyopaque) void {
@@ -407,7 +407,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -416,7 +416,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ZChanged(self: ?*anyopaque) void {
@@ -425,7 +425,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -434,7 +434,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn RotationChanged(self: ?*anyopaque) void {
@@ -443,7 +443,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -452,7 +452,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ScaleChanged(self: ?*anyopaque) void {
@@ -461,7 +461,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -470,7 +470,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ChildrenChanged(self: ?*anyopaque) void {
@@ -479,7 +479,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -488,7 +488,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn WidthChanged(self: ?*anyopaque) void {
@@ -497,7 +497,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -506,7 +506,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn HeightChanged(self: ?*anyopaque) void {
@@ -515,7 +515,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -524,7 +524,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -533,7 +533,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -546,7 +546,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -559,7 +559,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -568,7 +568,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -577,7 +577,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -586,7 +586,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -595,7 +595,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -604,7 +604,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -613,7 +613,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -622,7 +622,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -631,7 +631,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -640,7 +640,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -649,7 +649,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -663,7 +663,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -672,7 +672,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -681,7 +681,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -690,7 +690,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -699,7 +699,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -710,7 +710,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -719,7 +719,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -728,7 +728,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -737,7 +737,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -746,7 +746,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -756,7 +756,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -766,7 +766,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -790,7 +790,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -799,7 +799,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -808,7 +808,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -817,7 +817,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -826,7 +826,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -835,7 +835,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -845,7 +845,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -854,7 +854,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -863,7 +863,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -872,7 +872,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -881,7 +881,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -892,7 +892,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -901,7 +901,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, callback: *const fn (self: QtC.QGraphicsVideoItem, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -910,7 +910,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Scene(self: ?*anyopaque) QtC.QGraphicsScene {
@@ -919,7 +919,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ParentItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -928,7 +928,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn TopLevelItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -937,7 +937,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentObject)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ParentObject(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -946,7 +946,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentWidget)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -955,7 +955,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelWidget)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -964,7 +964,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#window)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Window(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -973,7 +973,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#panel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#panel)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Panel(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -982,7 +982,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setParentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setParentItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, parent: QtC.QGraphicsItem ```
     pub fn SetParentItem(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -991,7 +991,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#childItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#childItems)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, allocator: std.mem.Allocator ```
     pub fn ChildItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -1005,7 +1005,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isWidget)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsWidget(self: ?*anyopaque) bool {
@@ -1014,7 +1014,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isWindow)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -1023,7 +1023,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isPanel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isPanel)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsPanel(self: ?*anyopaque) bool {
@@ -1032,7 +1032,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ToGraphicsObject(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -1041,7 +1041,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ToGraphicsObject2(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -1050,7 +1050,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#group)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#group)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Group(self: ?*anyopaque) QtC.QGraphicsItemGroup {
@@ -1059,7 +1059,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setGroup)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, group: QtC.QGraphicsItemGroup ```
     pub fn SetGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -1068,7 +1068,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#flags)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     ///
@@ -1079,7 +1079,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, flag: qgraphicsitem_enums.GraphicsItemFlag ```
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
@@ -1088,7 +1088,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
@@ -1097,7 +1097,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     ///
@@ -1108,7 +1108,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, mode: qgraphicsitem_enums.CacheMode ```
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
@@ -1117,7 +1117,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     ///
@@ -1128,7 +1128,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, panelModality: qgraphicsitem_enums.PanelModality ```
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
@@ -1137,7 +1137,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsBlockedByModalPanel(self: ?*anyopaque) bool {
@@ -1146,7 +1146,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toolTip)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1159,7 +1159,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setToolTip)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -1172,7 +1172,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#cursor)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -1181,7 +1181,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCursor)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -1190,7 +1190,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hasCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hasCursor)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn HasCursor(self: ?*anyopaque) bool {
@@ -1199,7 +1199,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#unsetCursor)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -1208,7 +1208,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -1217,7 +1217,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisibleTo)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, parent: QtC.QGraphicsItem ```
     pub fn IsVisibleTo(self: ?*anyopaque, parent: ?*anyopaque) bool {
@@ -1226,7 +1226,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -1235,7 +1235,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hide)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -1244,7 +1244,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#show)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Show(self: ?*anyopaque) void {
@@ -1253,7 +1253,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isEnabled)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1262,7 +1262,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setEnabled)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1271,7 +1271,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isSelected)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsSelected(self: ?*anyopaque) bool {
@@ -1280,7 +1280,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setSelected)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, selected: bool ```
     pub fn SetSelected(self: ?*anyopaque, selected: bool) void {
@@ -1289,7 +1289,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptDrops)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -1298,7 +1298,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -1307,7 +1307,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opacity)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Opacity(self: ?*anyopaque) f64 {
@@ -1316,7 +1316,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#effectiveOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#effectiveOpacity)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn EffectiveOpacity(self: ?*anyopaque) f64 {
@@ -1325,7 +1325,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, opacity: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
@@ -1334,7 +1334,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#graphicsEffect)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -1343,7 +1343,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -1352,7 +1352,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptedMouseButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptedMouseButtons)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     ///
@@ -1363,7 +1363,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
@@ -1372,7 +1372,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn AcceptHoverEvents(self: ?*anyopaque) bool {
@@ -1381,7 +1381,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptHoverEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptHoverEvents)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, enabled: bool ```
     pub fn SetAcceptHoverEvents(self: ?*anyopaque, enabled: bool) void {
@@ -1390,7 +1390,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptTouchEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptTouchEvents)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn AcceptTouchEvents(self: ?*anyopaque) bool {
@@ -1399,7 +1399,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptTouchEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptTouchEvents)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, enabled: bool ```
     pub fn SetAcceptTouchEvents(self: ?*anyopaque, enabled: bool) void {
@@ -1408,7 +1408,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#filtersChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#filtersChildEvents)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn FiltersChildEvents(self: ?*anyopaque) bool {
@@ -1417,7 +1417,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFiltersChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFiltersChildEvents)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, enabled: bool ```
     pub fn SetFiltersChildEvents(self: ?*anyopaque, enabled: bool) void {
@@ -1426,7 +1426,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#handlesChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#handlesChildEvents)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn HandlesChildEvents(self: ?*anyopaque) bool {
@@ -1435,7 +1435,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setHandlesChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setHandlesChildEvents)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, enabled: bool ```
     pub fn SetHandlesChildEvents(self: ?*anyopaque, enabled: bool) void {
@@ -1444,7 +1444,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isActive)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsActive(self: ?*anyopaque) bool {
@@ -1453,7 +1453,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setActive)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, active: bool ```
     pub fn SetActive(self: ?*anyopaque, active: bool) void {
@@ -1462,7 +1462,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hasFocus)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -1471,7 +1471,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -1480,7 +1480,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#clearFocus)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -1489,7 +1489,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusProxy)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -1498,7 +1498,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocusProxy)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem ```
     pub fn SetFocusProxy(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -1507,7 +1507,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn FocusItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -1516,7 +1516,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusScopeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusScopeItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn FocusScopeItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -1525,7 +1525,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#grabMouse)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -1534,7 +1534,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabMouse)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn UngrabMouse(self: ?*anyopaque) void {
@@ -1543,7 +1543,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#grabKeyboard)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -1552,7 +1552,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabKeyboard)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn UngrabKeyboard(self: ?*anyopaque) void {
@@ -1561,7 +1561,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#pos)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
@@ -1570,7 +1570,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#x)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn X(self: ?*anyopaque) f64 {
@@ -1579,7 +1579,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setX)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64 ```
     pub fn SetX(self: ?*anyopaque, x: f64) void {
@@ -1588,7 +1588,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#y)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Y(self: ?*anyopaque) f64 {
@@ -1597,7 +1597,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setY)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, y: f64 ```
     pub fn SetY(self: ?*anyopaque, y: f64) void {
@@ -1606,7 +1606,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
@@ -1615,7 +1615,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -1624,7 +1624,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64 ```
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
@@ -1633,7 +1633,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#moveBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#moveBy)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, dx: f64, dy: f64 ```
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
@@ -1642,7 +1642,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn EnsureVisible(self: ?*anyopaque) void {
@@ -1651,7 +1651,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
@@ -1660,7 +1660,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transform)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Transform(self: ?*anyopaque) QtC.QTransform {
@@ -1669,7 +1669,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneTransform)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn SceneTransform(self: ?*anyopaque) QtC.QTransform {
@@ -1678,7 +1678,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#deviceTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#deviceTransform)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, viewportTransform: QtC.QTransform ```
     pub fn DeviceTransform(self: ?*anyopaque, viewportTransform: ?*anyopaque) QtC.QTransform {
@@ -1687,7 +1687,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, other: QtC.QGraphicsItem ```
     pub fn ItemTransform(self: ?*anyopaque, other: ?*anyopaque) QtC.QTransform {
@@ -1696,7 +1696,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, matrix: QtC.QTransform ```
     pub fn SetTransform(self: ?*anyopaque, matrix: ?*anyopaque) void {
@@ -1705,7 +1705,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#resetTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#resetTransform)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ResetTransform(self: ?*anyopaque) void {
@@ -1714,7 +1714,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setRotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setRotation)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, angle: f64 ```
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
@@ -1723,7 +1723,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#rotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#rotation)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Rotation(self: ?*anyopaque) f64 {
@@ -1732,7 +1732,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setScale)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, scale: f64 ```
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
@@ -1741,7 +1741,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scale)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Scale(self: ?*anyopaque) f64 {
@@ -1750,7 +1750,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transformations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transformations)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, allocator: std.mem.Allocator ```
     pub fn Transformations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsTransform {
@@ -1764,7 +1764,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformations)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, transformations: []QtC.QGraphicsTransform ```
     pub fn SetTransformations(self: ?*anyopaque, transformations: []?*anyopaque) void {
@@ -1777,7 +1777,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transformOriginPoint)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn TransformOriginPoint(self: ?*anyopaque) QtC.QPointF {
@@ -1786,7 +1786,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, origin: QtC.QPointF ```
     pub fn SetTransformOriginPoint(self: ?*anyopaque, origin: ?*anyopaque) void {
@@ -1795,7 +1795,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, ax: f64, ay: f64 ```
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
@@ -1804,7 +1804,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#zValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#zValue)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ZValue(self: ?*anyopaque) f64 {
@@ -1813,7 +1813,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setZValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setZValue)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, z: f64 ```
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
@@ -1822,7 +1822,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#stackBefore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#stackBefore)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, sibling: QtC.QGraphicsItem ```
     pub fn StackBefore(self: ?*anyopaque, sibling: ?*anyopaque) void {
@@ -1831,7 +1831,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#childrenBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#childrenBoundingRect)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ChildrenBoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -1840,7 +1840,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneBoundingRect)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn SceneBoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -1849,7 +1849,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isClipped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isClipped)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsClipped(self: ?*anyopaque) bool {
@@ -1858,7 +1858,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#clipPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#clipPath)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn ClipPath(self: ?*anyopaque) QtC.QPainterPath {
@@ -1867,7 +1867,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, allocator: std.mem.Allocator ```
     pub fn CollidingItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -1881,7 +1881,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsObscured(self: ?*anyopaque) bool {
@@ -1890,7 +1890,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
@@ -1899,7 +1899,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegion)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, itemToDeviceTransform: QtC.QTransform ```
     pub fn BoundingRegion(self: ?*anyopaque, itemToDeviceTransform: ?*anyopaque) QtC.QRegion {
@@ -1908,7 +1908,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegionGranularity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegionGranularity)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn BoundingRegionGranularity(self: ?*anyopaque) f64 {
@@ -1917,7 +1917,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setBoundingRegionGranularity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setBoundingRegionGranularity)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, granularity: f64 ```
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
@@ -1926,7 +1926,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn Update(self: ?*anyopaque) void {
@@ -1935,7 +1935,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, width: f64, height: f64 ```
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
@@ -1944,7 +1944,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, dx: f64, dy: f64 ```
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
@@ -1953,7 +1953,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, point: QtC.QPointF ```
     pub fn MapToItem(self: ?*anyopaque, item: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -1962,7 +1962,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, point: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -1971,7 +1971,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, point: QtC.QPointF ```
     pub fn MapToScene(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -1980,7 +1980,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, rect: QtC.QRectF ```
     pub fn MapRectToItem(self: ?*anyopaque, item: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -1989,7 +1989,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF ```
     pub fn MapRectToParent(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -1998,7 +1998,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF ```
     pub fn MapRectToScene(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -2007,7 +2007,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, path: QtC.QPainterPath ```
     pub fn MapToItem4(self: ?*anyopaque, item: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -2016,7 +2016,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, path: QtC.QPainterPath ```
     pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -2025,7 +2025,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, path: QtC.QPainterPath ```
     pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -2034,7 +2034,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, point: QtC.QPointF ```
     pub fn MapFromItem(self: ?*anyopaque, item: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -2043,7 +2043,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, point: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -2052,7 +2052,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, point: QtC.QPointF ```
     pub fn MapFromScene(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -2061,7 +2061,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, rect: QtC.QRectF ```
     pub fn MapRectFromItem(self: ?*anyopaque, item: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -2070,7 +2070,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF ```
     pub fn MapRectFromParent(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -2079,7 +2079,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF ```
     pub fn MapRectFromScene(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -2088,7 +2088,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, path: QtC.QPainterPath ```
     pub fn MapFromItem4(self: ?*anyopaque, item: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -2097,7 +2097,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, path: QtC.QPainterPath ```
     pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -2106,7 +2106,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, path: QtC.QPainterPath ```
     pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -2115,7 +2115,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, x: f64, y: f64 ```
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -2124,7 +2124,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64 ```
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -2133,7 +2133,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64 ```
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -2142,7 +2142,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -2151,7 +2151,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -2160,7 +2160,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -2169,7 +2169,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, x: f64, y: f64 ```
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -2178,7 +2178,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64 ```
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -2187,7 +2187,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64 ```
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -2196,7 +2196,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -2205,7 +2205,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -2214,7 +2214,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -2223,7 +2223,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isAncestorOf)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, child: QtC.QGraphicsItem ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -2232,7 +2232,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#commonAncestorItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#commonAncestorItem)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, other: QtC.QGraphicsItem ```
     pub fn CommonAncestorItem(self: ?*anyopaque, other: ?*anyopaque) QtC.QGraphicsItem {
@@ -2241,7 +2241,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isUnderMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isUnderMouse)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     pub fn IsUnderMouse(self: ?*anyopaque) bool {
@@ -2250,7 +2250,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#data)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, key: i32 ```
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
@@ -2259,7 +2259,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setData)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, key: i32, value: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
@@ -2268,7 +2268,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints)
     ///
     /// ``` self: QtC.QGraphicsVideoItem ```
     ///
@@ -2279,7 +2279,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -2288,7 +2288,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#installSceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#installSceneEventFilter)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, filterItem: QtC.QGraphicsItem ```
     pub fn InstallSceneEventFilter(self: ?*anyopaque, filterItem: ?*anyopaque) void {
@@ -2297,7 +2297,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeSceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeSceneEventFilter)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, filterItem: QtC.QGraphicsItem ```
     pub fn RemoveSceneEventFilter(self: ?*anyopaque, filterItem: ?*anyopaque) void {
@@ -2306,7 +2306,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, flag: qgraphicsitem_enums.GraphicsItemFlag, enabled: bool ```
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
@@ -2315,7 +2315,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, mode: qgraphicsitem_enums.CacheMode, cacheSize: QtC.QSize ```
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
@@ -2324,7 +2324,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, focusReason: qnamespace_enums.FocusReason ```
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
@@ -2333,7 +2333,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF ```
     pub fn EnsureVisible1(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -2342,7 +2342,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF, xmargin: i32 ```
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
@@ -2351,7 +2351,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF, xmargin: i32, ymargin: i32 ```
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
@@ -2360,7 +2360,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64, xmargin: i32 ```
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
@@ -2369,7 +2369,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32 ```
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
@@ -2378,7 +2378,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, other: QtC.QGraphicsItem, ok: *bool ```
     pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
@@ -2387,7 +2387,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, matrix: QtC.QTransform, combine: bool ```
     pub fn SetTransform2(self: ?*anyopaque, matrix: ?*anyopaque, combine: bool) void {
@@ -2396,7 +2396,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -2410,7 +2410,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF ```
     pub fn IsObscured1(self: ?*anyopaque, rect: ?*anyopaque) bool {
@@ -2419,7 +2419,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, rect: QtC.QRectF ```
     pub fn Update1(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -2428,7 +2428,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
     ///
     /// ``` self: QtC.QGraphicsVideoItem, dx: f64, dy: f64, rect: QtC.QRectF ```
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
@@ -2437,7 +2437,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2448,7 +2448,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2459,7 +2459,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2470,7 +2470,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2481,7 +2481,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2492,7 +2492,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2503,7 +2503,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2514,7 +2514,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2525,7 +2525,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2536,7 +2536,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2547,7 +2547,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2558,7 +2558,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2569,7 +2569,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2580,7 +2580,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2591,7 +2591,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2602,7 +2602,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2613,7 +2613,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2624,7 +2624,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2635,7 +2635,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2646,7 +2646,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2657,7 +2657,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2668,7 +2668,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2679,7 +2679,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2690,7 +2690,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2701,7 +2701,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2712,7 +2712,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2723,7 +2723,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2734,7 +2734,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2745,7 +2745,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2756,7 +2756,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2767,7 +2767,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2778,7 +2778,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2789,7 +2789,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2800,7 +2800,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2811,7 +2811,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2822,7 +2822,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2833,7 +2833,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2844,7 +2844,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2855,7 +2855,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2866,7 +2866,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2877,7 +2877,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2888,7 +2888,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2899,7 +2899,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2910,7 +2910,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2921,7 +2921,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2932,7 +2932,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2943,7 +2943,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2954,7 +2954,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2965,7 +2965,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2976,7 +2976,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2987,7 +2987,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2998,7 +2998,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3009,7 +3009,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3020,7 +3020,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3031,7 +3031,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3042,7 +3042,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3053,7 +3053,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3064,7 +3064,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3075,7 +3075,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3086,7 +3086,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3097,7 +3097,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3108,7 +3108,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3119,7 +3119,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3130,7 +3130,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3141,7 +3141,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3152,7 +3152,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3163,7 +3163,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3174,7 +3174,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3185,7 +3185,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3196,7 +3196,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3207,7 +3207,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3218,7 +3218,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3229,7 +3229,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3240,7 +3240,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3251,7 +3251,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3262,7 +3262,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3273,7 +3273,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3284,7 +3284,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3295,7 +3295,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3306,7 +3306,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3317,7 +3317,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3328,7 +3328,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3339,7 +3339,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3350,7 +3350,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3361,7 +3361,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3372,7 +3372,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3383,7 +3383,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3394,7 +3394,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3405,7 +3405,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3416,7 +3416,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3427,7 +3427,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3438,7 +3438,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3449,7 +3449,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3460,7 +3460,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3471,7 +3471,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3482,7 +3482,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3493,7 +3493,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3504,7 +3504,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3515,7 +3515,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3526,7 +3526,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3537,7 +3537,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3548,7 +3548,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3559,7 +3559,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3570,7 +3570,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3581,7 +3581,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3592,7 +3592,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3603,7 +3603,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3614,7 +3614,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3625,7 +3625,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3636,7 +3636,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3647,7 +3647,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3658,7 +3658,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3669,7 +3669,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3680,7 +3680,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3691,7 +3691,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3702,7 +3702,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3713,7 +3713,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3724,7 +3724,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3735,7 +3735,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3746,7 +3746,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3757,7 +3757,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3769,7 +3769,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3781,7 +3781,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3792,7 +3792,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3803,7 +3803,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3814,7 +3814,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3825,7 +3825,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3836,7 +3836,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3847,7 +3847,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3858,7 +3858,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3869,7 +3869,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3880,7 +3880,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3891,7 +3891,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3902,7 +3902,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3913,7 +3913,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3924,7 +3924,7 @@ pub const qgraphicsvideoitem = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3933,7 +3933,7 @@ pub const qgraphicsvideoitem = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#dtor.QGraphicsVideoItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#dtor.QGraphicsVideoItem)
     ///
     /// Delete this object from C++ memory.
     ///

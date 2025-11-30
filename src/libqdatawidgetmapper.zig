@@ -21,7 +21,7 @@ pub const qdatawidgetmapper = struct {
         return qtc.QDataWidgetMapper_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qdatawidgetmapper = struct {
         return qtc.QDataWidgetMapper_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,56 +65,56 @@ pub const qdatawidgetmapper = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setModel)
     ///
     /// ``` self: QtC.QDataWidgetMapper, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.QDataWidgetMapper_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#model)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QDataWidgetMapper_Model(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setItemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setItemDelegate)
     ///
     /// ``` self: QtC.QDataWidgetMapper, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.QDataWidgetMapper_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#itemDelegate)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
         return qtc.QDataWidgetMapper_ItemDelegate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setRootIndex)
     ///
     /// ``` self: QtC.QDataWidgetMapper, index: QtC.QModelIndex ```
     pub fn SetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QDataWidgetMapper_SetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#rootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#rootIndex)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QDataWidgetMapper_RootIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setOrientation)
     ///
     /// ``` self: QtC.QDataWidgetMapper, aOrientation: qnamespace_enums.Orientation ```
     pub fn SetOrientation(self: ?*anyopaque, aOrientation: i32) void {
         qtc.QDataWidgetMapper_SetOrientation(@ptrCast(self), @intCast(aOrientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#orientation)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     ///
@@ -123,14 +123,14 @@ pub const qdatawidgetmapper = struct {
         return qtc.QDataWidgetMapper_Orientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setSubmitPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setSubmitPolicy)
     ///
     /// ``` self: QtC.QDataWidgetMapper, policy: qdatawidgetmapper_enums.SubmitPolicy ```
     pub fn SetSubmitPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QDataWidgetMapper_SetSubmitPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submitPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submitPolicy)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     ///
@@ -139,14 +139,14 @@ pub const qdatawidgetmapper = struct {
         return qtc.QDataWidgetMapper_SubmitPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
     ///
     /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget, section: i32 ```
     pub fn AddMapping(self: ?*anyopaque, widget: ?*anyopaque, section: i32) void {
         qtc.QDataWidgetMapper_AddMapping(@ptrCast(self), @ptrCast(widget), @intCast(section));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
     ///
     /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget, section: i32, propertyName: []u8 ```
     pub fn AddMapping2(self: ?*anyopaque, widget: ?*anyopaque, section: i32, propertyName: []u8) void {
@@ -157,21 +157,21 @@ pub const qdatawidgetmapper = struct {
         qtc.QDataWidgetMapper_AddMapping2(@ptrCast(self), @ptrCast(widget), @intCast(section), propertyName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#removeMapping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#removeMapping)
     ///
     /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget ```
     pub fn RemoveMapping(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QDataWidgetMapper_RemoveMapping(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedSection)
     ///
     /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget ```
     pub fn MappedSection(self: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_MappedSection(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedPropertyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedPropertyName)
     ///
     /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn MappedPropertyName(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -182,77 +182,77 @@ pub const qdatawidgetmapper = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedWidgetAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedWidgetAt)
     ///
     /// ``` self: QtC.QDataWidgetMapper, section: i32 ```
     pub fn MappedWidgetAt(self: ?*anyopaque, section: i32) QtC.QWidget {
         return qtc.QDataWidgetMapper_MappedWidgetAt(@ptrCast(self), @intCast(section));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#clearMapping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#clearMapping)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn ClearMapping(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ClearMapping(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndex)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn CurrentIndex(self: ?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_CurrentIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#revert)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn Revert(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_Revert(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submit)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn Submit(self: ?*anyopaque) bool {
         return qtc.QDataWidgetMapper_Submit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toFirst)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toFirst)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn ToFirst(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ToFirst(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toLast)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toLast)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn ToLast(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ToLast(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toNext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toNext)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn ToNext(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ToNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toPrevious)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toPrevious)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn ToPrevious(self: ?*anyopaque) void {
         qtc.QDataWidgetMapper_ToPrevious(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
     /// ``` self: QtC.QDataWidgetMapper, index: i32 ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
         qtc.QDataWidgetMapper_SetCurrentIndex(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -261,7 +261,7 @@ pub const qdatawidgetmapper = struct {
         qtc.QDataWidgetMapper_OnSetCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
     /// Base class method implementation
     ///
@@ -270,28 +270,28 @@ pub const qdatawidgetmapper = struct {
         qtc.QDataWidgetMapper_QBaseSetCurrentIndex(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentModelIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentModelIndex)
     ///
     /// ``` self: QtC.QDataWidgetMapper, index: QtC.QModelIndex ```
     pub fn SetCurrentModelIndex(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QDataWidgetMapper_SetCurrentModelIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
     ///
     /// ``` self: QtC.QDataWidgetMapper, index: i32 ```
     pub fn CurrentIndexChanged(self: ?*anyopaque, index: i32) void {
         qtc.QDataWidgetMapper_CurrentIndexChanged(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
     ///
     /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, index: i32) callconv(.c) void ```
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDataWidgetMapper_Connect_CurrentIndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -304,7 +304,7 @@ pub const qdatawidgetmapper = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -319,7 +319,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QDataWidgetMapper, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -332,7 +332,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QDataWidgetMapper, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -345,7 +345,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -354,7 +354,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -363,7 +363,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -372,7 +372,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -381,7 +381,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QDataWidgetMapper, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -390,7 +390,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -399,7 +399,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDataWidgetMapper, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -408,7 +408,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDataWidgetMapper, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -417,7 +417,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDataWidgetMapper, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -426,7 +426,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDataWidgetMapper, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -435,7 +435,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QDataWidgetMapper, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -449,7 +449,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QDataWidgetMapper, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -458,7 +458,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QDataWidgetMapper, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -467,7 +467,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QDataWidgetMapper, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -476,7 +476,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -485,7 +485,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDataWidgetMapper, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -496,7 +496,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -505,7 +505,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -514,7 +514,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -523,7 +523,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -532,7 +532,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QDataWidgetMapper, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -542,7 +542,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QDataWidgetMapper, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -552,7 +552,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QDataWidgetMapper, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -576,7 +576,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -585,7 +585,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -594,7 +594,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -603,7 +603,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -612,7 +612,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -621,7 +621,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QDataWidgetMapper, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -631,7 +631,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -640,7 +640,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDataWidgetMapper, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -649,7 +649,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDataWidgetMapper, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -658,7 +658,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -667,7 +667,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDataWidgetMapper, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -678,7 +678,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDataWidgetMapper, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -687,7 +687,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDataWidgetMapper, callback: *const fn (self: QtC.QDataWidgetMapper, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -696,7 +696,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -707,7 +707,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -718,7 +718,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -729,7 +729,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -740,7 +740,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -751,7 +751,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -762,7 +762,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -773,7 +773,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -784,7 +784,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -795,7 +795,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -806,7 +806,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -817,7 +817,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -828,7 +828,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -839,7 +839,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -850,7 +850,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -861,7 +861,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -872,7 +872,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -883,7 +883,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -894,7 +894,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -905,7 +905,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -916,7 +916,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -927,7 +927,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -938,7 +938,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -949,7 +949,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -960,7 +960,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -971,7 +971,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -982,7 +982,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -993,7 +993,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1005,7 +1005,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1017,7 +1017,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1028,7 +1028,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1039,7 +1039,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1050,7 +1050,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1061,7 +1061,7 @@ pub const qdatawidgetmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1070,7 +1070,7 @@ pub const qdatawidgetmapper = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#dtor.QDataWidgetMapper)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#dtor.QDataWidgetMapper)
     ///
     /// Delete this object from C++ memory.
     ///

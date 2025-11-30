@@ -5,7 +5,7 @@ const qtc = @import("qt6c");
 pub const qdbuspendingreplybase = struct {
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#operator-eq)
     ///
     /// ``` self: QtC.QDBusPendingReplyBase, other: QtC.QDBusPendingCall ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -14,7 +14,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#swap)
     ///
     /// ``` self: QtC.QDBusPendingReplyBase, other: QtC.QDBusPendingCall ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -23,7 +23,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isFinished)
     ///
     /// ``` self: QtC.QDBusPendingReplyBase ```
     pub fn IsFinished(self: ?*anyopaque) bool {
@@ -32,7 +32,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#waitForFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#waitForFinished)
     ///
     /// ``` self: QtC.QDBusPendingReplyBase ```
     pub fn WaitForFinished(self: ?*anyopaque) void {
@@ -41,7 +41,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isError)
     ///
     /// ``` self: QtC.QDBusPendingReplyBase ```
     pub fn IsError(self: ?*anyopaque) bool {
@@ -50,7 +50,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isValid)
     ///
     /// ``` self: QtC.QDBusPendingReplyBase ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -59,7 +59,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#error)
     ///
     /// ``` self: QtC.QDBusPendingReplyBase ```
     pub fn Error(self: ?*anyopaque) QtC.QDBusError {
@@ -68,7 +68,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#reply)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#reply)
     ///
     /// ``` self: QtC.QDBusPendingReplyBase ```
     pub fn Reply(self: ?*anyopaque) QtC.QDBusMessage {
@@ -77,7 +77,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromError)
     ///
     /// ``` errorVal: QtC.QDBusError ```
     pub fn FromError(errorVal: ?*anyopaque) QtC.QDBusPendingCall {
@@ -86,7 +86,7 @@ pub const qdbuspendingreplybase = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromCompletedCall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromCompletedCall)
     ///
     /// ``` message: QtC.QDBusMessage ```
     pub fn FromCompletedCall(message: ?*anyopaque) QtC.QDBusPendingCall {

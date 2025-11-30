@@ -10,14 +10,14 @@ pub const qrunnable = struct {
         return qtc.QRunnable_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrunnable.html#run)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
     ///
     /// ``` self: QtC.QRunnable ```
     pub fn Run(self: ?*anyopaque) void {
         qtc.QRunnable_Run(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrunnable.html#run)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
     ///
     /// Allows for overriding the related default method
     ///
@@ -26,7 +26,7 @@ pub const qrunnable = struct {
         qtc.QRunnable_OnRun(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrunnable.html#run)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
     ///
     /// Base class method implementation
     ///
@@ -35,21 +35,21 @@ pub const qrunnable = struct {
         qtc.QRunnable_QBaseRun(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrunnable.html#autoDelete)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#autoDelete)
     ///
     /// ``` self: QtC.QRunnable ```
     pub fn AutoDelete(self: ?*anyopaque) bool {
         return qtc.QRunnable_AutoDelete(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrunnable.html#setAutoDelete)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#setAutoDelete)
     ///
     /// ``` self: QtC.QRunnable, autoDelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autoDelete: bool) void {
         qtc.QRunnable_SetAutoDelete(@ptrCast(self), autoDelete);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrunnable.html#dtor.QRunnable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#dtor.QRunnable)
     ///
     /// Delete this object from C++ memory.
     ///

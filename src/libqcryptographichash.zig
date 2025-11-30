@@ -12,21 +12,21 @@ pub const qcryptographichash = struct {
         return qtc.QCryptographicHash_new(@intCast(method));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#swap)
     ///
     /// ``` self: QtC.QCryptographicHash, other: QtC.QCryptographicHash ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCryptographicHash_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#reset)
     ///
     /// ``` self: QtC.QCryptographicHash ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QCryptographicHash_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#algorithm)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#algorithm)
     ///
     /// ``` self: QtC.QCryptographicHash ```
     ///
@@ -35,7 +35,7 @@ pub const qcryptographichash = struct {
         return qtc.QCryptographicHash_Algorithm(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
     ///
     /// ``` self: QtC.QCryptographicHash, data: []const u8, length: i64 ```
     pub fn AddData(self: ?*anyopaque, data: []const u8, length: i64) void {
@@ -43,7 +43,7 @@ pub const qcryptographichash = struct {
         qtc.QCryptographicHash_AddData(@ptrCast(self), data_Cstring, @intCast(length));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
     ///
     /// ``` self: QtC.QCryptographicHash, data: []const u8 ```
     pub fn AddData2(self: ?*anyopaque, data: []const u8) void {
@@ -54,14 +54,14 @@ pub const qcryptographichash = struct {
         qtc.QCryptographicHash_AddData2(@ptrCast(self), data_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
     ///
     /// ``` self: QtC.QCryptographicHash, device: QtC.QIODevice ```
     pub fn AddData3(self: ?*anyopaque, device: ?*anyopaque) bool {
         return qtc.QCryptographicHash_AddData3(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#result)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#result)
     ///
     /// ``` self: QtC.QCryptographicHash, allocator: std.mem.Allocator ```
     pub fn Result(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -72,7 +72,7 @@ pub const qcryptographichash = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#resultView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#resultView)
     ///
     /// ``` self: QtC.QCryptographicHash, allocator: std.mem.Allocator ```
     pub fn ResultView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -83,7 +83,7 @@ pub const qcryptographichash = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hash)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#hash)
     ///
     /// ``` data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn Hash(data: []const u8, method: i32, allocator: std.mem.Allocator) []u8 {
@@ -98,7 +98,7 @@ pub const qcryptographichash = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
     ///
     /// ``` buffer: []u8, data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto(buffer: []u8, data: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
@@ -117,7 +117,7 @@ pub const qcryptographichash = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
     ///
     /// ``` buffer: []u8, data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto2(buffer: []u8, data: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
@@ -136,7 +136,7 @@ pub const qcryptographichash = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
     ///
     /// ``` buffer: []u8, data: [][]const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto4(buffer: []u8, data: [][]const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
@@ -155,7 +155,7 @@ pub const qcryptographichash = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
     ///
     /// ``` buffer: []u8, data: [][]const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto5(buffer: []u8, data: [][]const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
@@ -174,21 +174,21 @@ pub const qcryptographichash = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#hashLength)
     ///
     /// ``` method: qcryptographichash_enums.Algorithm ```
     pub fn HashLength(method: i32) i32 {
         return qtc.QCryptographicHash_HashLength(@intCast(method));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#supportsAlgorithm)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#supportsAlgorithm)
     ///
     /// ``` method: qcryptographichash_enums.Algorithm ```
     pub fn SupportsAlgorithm(method: i32) bool {
         return qtc.QCryptographicHash_SupportsAlgorithm(@intCast(method));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#dtor.QCryptographicHash)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#dtor.QCryptographicHash)
     ///
     /// Delete this object from C++ memory.
     ///

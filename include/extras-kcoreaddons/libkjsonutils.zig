@@ -4,7 +4,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kjsonutils.html
 pub const kjsonutils = struct {
-    /// [Qt documentation](https://api.kde.org/kjsonutils.html#readTranslatedValue)
+    /// [Upstream resources](https://api.kde.org/kjsonutils.html#readTranslatedValue)
     ///
     /// ``` param1: QtC.QJsonObject, param2: []const u8, param3: QtC.QJsonValue ```
     pub fn ReadTranslatedValue(param1: ?*anyopaque, param2: []const u8, param3: ?*anyopaque) QtC.QJsonValue {
@@ -15,7 +15,7 @@ pub const kjsonutils = struct {
         return qtc.KJsonUtils_ReadTranslatedValue(@ptrCast(param1), param2_str, @ptrCast(param3));
     }
 
-    /// [Qt documentation](https://api.kde.org/kjsonutils.html#readTranslatedString)
+    /// [Upstream resources](https://api.kde.org/kjsonutils.html#readTranslatedString)
     ///
     /// ``` param1: QtC.QJsonObject, param2: []const u8, param3: []const u8, allocator: std.mem.Allocator ```
     pub fn ReadTranslatedString(param1: ?*anyopaque, param2: []const u8, param3: []const u8, allocator: std.mem.Allocator) []const u8 {

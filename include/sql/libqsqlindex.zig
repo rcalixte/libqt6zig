@@ -46,21 +46,21 @@ pub const qsqlindex = struct {
         return qtc.QSqlIndex_new4(cursorName_str, name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#operator-eq)
     ///
     /// ``` self: QtC.QSqlIndex, other: QtC.QSqlIndex ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSqlIndex_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#swap)
     ///
     /// ``` self: QtC.QSqlIndex, other: QtC.QSqlIndex ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSqlIndex_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#setCursorName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#setCursorName)
     ///
     /// ``` self: QtC.QSqlIndex, cursorName: []const u8 ```
     pub fn SetCursorName(self: ?*anyopaque, cursorName: []const u8) void {
@@ -71,7 +71,7 @@ pub const qsqlindex = struct {
         qtc.QSqlIndex_SetCursorName(@ptrCast(self), cursorName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#cursorName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#cursorName)
     ///
     /// ``` self: QtC.QSqlIndex, allocator: std.mem.Allocator ```
     pub fn CursorName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -82,7 +82,7 @@ pub const qsqlindex = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#setName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#setName)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -93,7 +93,7 @@ pub const qsqlindex = struct {
         qtc.QSqlIndex_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#name)
     ///
     /// ``` self: QtC.QSqlIndex, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -104,28 +104,28 @@ pub const qsqlindex = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#append)
     ///
     /// ``` self: QtC.QSqlIndex, field: QtC.QSqlField ```
     pub fn Append(self: ?*anyopaque, field: ?*anyopaque) void {
         qtc.QSqlIndex_Append(@ptrCast(self), @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#append)
     ///
     /// ``` self: QtC.QSqlIndex, field: QtC.QSqlField, desc: bool ```
     pub fn Append2(self: ?*anyopaque, field: ?*anyopaque, desc: bool) void {
         qtc.QSqlIndex_Append2(@ptrCast(self), @ptrCast(field), desc);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#isDescending)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#isDescending)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32 ```
     pub fn IsDescending(self: ?*anyopaque, i: i32) bool {
         return qtc.QSqlIndex_IsDescending(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#setDescending)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#setDescending)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32, desc: bool ```
     pub fn SetDescending(self: ?*anyopaque, i: i32, desc: bool) void {
@@ -134,7 +134,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSqlIndex, other: QtC.QSqlRecord ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -143,7 +143,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSqlIndex, other: QtC.QSqlRecord ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -152,7 +152,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#value)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#value)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32 ```
     pub fn Value(self: ?*anyopaque, i: i32) QtC.QVariant {
@@ -161,7 +161,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#value)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#value)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8 ```
     pub fn Value2(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -174,7 +174,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#setValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setValue)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32, val: QtC.QVariant ```
     pub fn SetValue(self: ?*anyopaque, i: i32, val: ?*anyopaque) void {
@@ -183,7 +183,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#setValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setValue)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8, val: QtC.QVariant ```
     pub fn SetValue2(self: ?*anyopaque, name: []const u8, val: ?*anyopaque) void {
@@ -196,7 +196,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#setNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setNull)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32 ```
     pub fn SetNull(self: ?*anyopaque, i: i32) void {
@@ -205,7 +205,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#setNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setNull)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8 ```
     pub fn SetNull2(self: ?*anyopaque, name: []const u8) void {
@@ -218,7 +218,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#isNull)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32 ```
     pub fn IsNull(self: ?*anyopaque, i: i32) bool {
@@ -227,7 +227,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#isNull)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8 ```
     pub fn IsNull2(self: ?*anyopaque, name: []const u8) bool {
@@ -240,7 +240,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#indexOf)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8 ```
     pub fn IndexOf(self: ?*anyopaque, name: []const u8) i32 {
@@ -253,7 +253,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#fieldName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#fieldName)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32, allocator: std.mem.Allocator ```
     pub fn FieldName(self: ?*anyopaque, i: i32, allocator: std.mem.Allocator) []const u8 {
@@ -266,7 +266,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#field)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#field)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32 ```
     pub fn Field(self: ?*anyopaque, i: i32) QtC.QSqlField {
@@ -275,7 +275,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#field)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#field)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8 ```
     pub fn Field2(self: ?*anyopaque, name: []const u8) QtC.QSqlField {
@@ -288,7 +288,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#isGenerated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#isGenerated)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32 ```
     pub fn IsGenerated(self: ?*anyopaque, i: i32) bool {
@@ -297,7 +297,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#isGenerated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#isGenerated)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8 ```
     pub fn IsGenerated2(self: ?*anyopaque, name: []const u8) bool {
@@ -310,7 +310,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#setGenerated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setGenerated)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8, generated: bool ```
     pub fn SetGenerated(self: ?*anyopaque, name: []const u8, generated: bool) void {
@@ -323,7 +323,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#setGenerated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setGenerated)
     ///
     /// ``` self: QtC.QSqlIndex, i: i32, generated: bool ```
     pub fn SetGenerated2(self: ?*anyopaque, i: i32, generated: bool) void {
@@ -332,7 +332,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#replace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#replace)
     ///
     /// ``` self: QtC.QSqlIndex, pos: i32, field: QtC.QSqlField ```
     pub fn Replace(self: ?*anyopaque, pos: i32, field: ?*anyopaque) void {
@@ -341,7 +341,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#insert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#insert)
     ///
     /// ``` self: QtC.QSqlIndex, pos: i32, field: QtC.QSqlField ```
     pub fn Insert(self: ?*anyopaque, pos: i32, field: ?*anyopaque) void {
@@ -350,7 +350,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#remove)
     ///
     /// ``` self: QtC.QSqlIndex, pos: i32 ```
     pub fn Remove(self: ?*anyopaque, pos: i32) void {
@@ -359,7 +359,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#isEmpty)
     ///
     /// ``` self: QtC.QSqlIndex ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
@@ -368,7 +368,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#contains)
     ///
     /// ``` self: QtC.QSqlIndex, name: []const u8 ```
     pub fn Contains(self: ?*anyopaque, name: []const u8) bool {
@@ -381,7 +381,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#clear)
     ///
     /// ``` self: QtC.QSqlIndex ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -390,7 +390,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#clearValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#clearValues)
     ///
     /// ``` self: QtC.QSqlIndex ```
     pub fn ClearValues(self: ?*anyopaque) void {
@@ -399,7 +399,7 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#count)
     ///
     /// ``` self: QtC.QSqlIndex ```
     pub fn Count(self: ?*anyopaque) i32 {
@@ -408,14 +408,14 @@ pub const qsqlindex = struct {
 
     /// Inherited from QSqlRecord
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlrecord.html#keyValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#keyValues)
     ///
     /// ``` self: QtC.QSqlIndex, keyFields: QtC.QSqlRecord ```
     pub fn KeyValues(self: ?*anyopaque, keyFields: ?*anyopaque) QtC.QSqlRecord {
         return qtc.QSqlRecord_KeyValues(@ptrCast(self), @ptrCast(keyFields));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlindex.html#dtor.QSqlIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#dtor.QSqlIndex)
     ///
     /// Delete this object from C++ memory.
     ///

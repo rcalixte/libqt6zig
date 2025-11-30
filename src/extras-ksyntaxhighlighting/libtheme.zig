@@ -19,21 +19,21 @@ pub const ksyntaxhighlighting__theme = struct {
         return qtc.KSyntaxHighlighting__Theme_new2(@ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#operator-eq)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, other: QtC.KSyntaxHighlighting__Theme ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__Theme_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#isValid)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isValid)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Theme_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#name)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#name)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -44,7 +44,7 @@ pub const ksyntaxhighlighting__theme = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#translatedName)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#translatedName)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, allocator: std.mem.Allocator ```
     pub fn TranslatedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -55,14 +55,14 @@ pub const ksyntaxhighlighting__theme = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#isReadOnly)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isReadOnly)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__Theme_IsReadOnly(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#filePath)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#filePath)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -73,63 +73,63 @@ pub const ksyntaxhighlighting__theme = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#textColor)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#textColor)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
     pub fn TextColor(self: ?*anyopaque, style: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_TextColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#selectedTextColor)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#selectedTextColor)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
     pub fn SelectedTextColor(self: ?*anyopaque, style: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_SelectedTextColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#backgroundColor)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#backgroundColor)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
     pub fn BackgroundColor(self: ?*anyopaque, style: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_BackgroundColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#selectedBackgroundColor)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#selectedBackgroundColor)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
     pub fn SelectedBackgroundColor(self: ?*anyopaque, style: i32) u32 {
         return qtc.KSyntaxHighlighting__Theme_SelectedBackgroundColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#isBold)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isBold)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
     pub fn IsBold(self: ?*anyopaque, style: i32) bool {
         return qtc.KSyntaxHighlighting__Theme_IsBold(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#isItalic)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isItalic)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
     pub fn IsItalic(self: ?*anyopaque, style: i32) bool {
         return qtc.KSyntaxHighlighting__Theme_IsItalic(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#isUnderline)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isUnderline)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
     pub fn IsUnderline(self: ?*anyopaque, style: i32) bool {
         return qtc.KSyntaxHighlighting__Theme_IsUnderline(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#isStrikeThrough)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#isStrikeThrough)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, style: theme_enums.TextStyle ```
     pub fn IsStrikeThrough(self: ?*anyopaque, style: i32) bool {
         return qtc.KSyntaxHighlighting__Theme_IsStrikeThrough(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-theme.html#editorColor)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#editorColor)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__Theme, role: theme_enums.EditorColorRole ```
     pub fn EditorColor(self: ?*anyopaque, role: i32) u32 {

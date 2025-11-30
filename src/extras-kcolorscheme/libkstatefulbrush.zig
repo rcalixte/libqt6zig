@@ -54,28 +54,28 @@ pub const kstatefulbrush = struct {
         return qtc.KStatefulBrush_new7(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kstatefulbrush.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kstatefulbrush.html#operator-eq)
     ///
     /// ``` self: QtC.KStatefulBrush, param1: QtC.KStatefulBrush ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KStatefulBrush_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kstatefulbrush.html#brush)
+    /// [Upstream resources](https://api.kde.org/kstatefulbrush.html#brush)
     ///
     /// ``` self: QtC.KStatefulBrush, param1: qpalette_enums.ColorGroup ```
     pub fn Brush(self: ?*anyopaque, param1: i32) QtC.QBrush {
         return qtc.KStatefulBrush_Brush(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kstatefulbrush.html#brush)
+    /// [Upstream resources](https://api.kde.org/kstatefulbrush.html#brush)
     ///
     /// ``` self: QtC.KStatefulBrush, param1: QtC.QPalette ```
     pub fn Brush2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QBrush {
         return qtc.KStatefulBrush_Brush2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kstatefulbrush.html#dtor.KStatefulBrush)
+    /// [Upstream resources](https://api.kde.org/kstatefulbrush.html#dtor.KStatefulBrush)
     ///
     /// Delete this object from C++ memory.
     ///

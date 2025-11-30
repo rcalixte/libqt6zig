@@ -18,28 +18,28 @@ pub const kparts__openurlevent = struct {
         return qtc.KParts__OpenUrlEvent_new2(@ptrCast(part), @ptrCast(url), @ptrCast(args));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlevent.html#part)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlevent.html#part)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn Part(self: ?*anyopaque) QtC.KParts__ReadOnlyPart {
         return qtc.KParts__OpenUrlEvent_Part(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlevent.html#url)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlevent.html#url)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KParts__OpenUrlEvent_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlevent.html#arguments)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlevent.html#arguments)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn Arguments(self: ?*anyopaque) QtC.KParts__OpenUrlArguments {
         return qtc.KParts__OpenUrlEvent_Arguments(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlevent.html#test)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlevent.html#test)
     ///
     /// ``` event: QtC.QEvent ```
     pub fn Test(event: ?*anyopaque) bool {
@@ -48,7 +48,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     ///
@@ -59,7 +59,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -68,7 +68,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -77,7 +77,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -86,7 +86,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -95,7 +95,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -104,7 +104,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -113,7 +113,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.KParts__OpenUrlEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -122,7 +122,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -131,7 +131,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -140,7 +140,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -151,7 +151,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -162,7 +162,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -173,7 +173,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -184,7 +184,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -195,7 +195,7 @@ pub const kparts__openurlevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///

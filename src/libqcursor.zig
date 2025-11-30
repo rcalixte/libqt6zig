@@ -67,28 +67,28 @@ pub const qcursor = struct {
         return qtc.QCursor_new9(@ptrCast(pixmap), @intCast(hotX), @intCast(hotY));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#operator-eq)
     ///
     /// ``` self: QtC.QCursor, cursor: QtC.QCursor ```
     pub fn OperatorAssign(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.QCursor_OperatorAssign(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#swap)
     ///
     /// ``` self: QtC.QCursor, other: QtC.QCursor ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCursor_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#operator)
     ///
     /// ``` self: QtC.QCursor ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QCursor_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#shape)
     ///
     /// ``` self: QtC.QCursor ```
     ///
@@ -97,98 +97,98 @@ pub const qcursor = struct {
         return qtc.QCursor_Shape(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#setShape)
     ///
     /// ``` self: QtC.QCursor, newShape: qnamespace_enums.CursorShape ```
     pub fn SetShape(self: ?*anyopaque, newShape: i32) void {
         qtc.QCursor_SetShape(@ptrCast(self), @intCast(newShape));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#bitmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#bitmap)
     ///
     /// ``` self: QtC.QCursor, param1: qnamespace_enums.ReturnByValueConstant ```
     pub fn Bitmap(self: ?*anyopaque, param1: i32) QtC.QBitmap {
         return qtc.QCursor_Bitmap(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#mask)
     ///
     /// ``` self: QtC.QCursor, param1: qnamespace_enums.ReturnByValueConstant ```
     pub fn Mask(self: ?*anyopaque, param1: i32) QtC.QBitmap {
         return qtc.QCursor_Mask(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#bitmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#bitmap)
     ///
     /// ``` self: QtC.QCursor ```
     pub fn Bitmap2(self: ?*anyopaque) QtC.QBitmap {
         return qtc.QCursor_Bitmap2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#mask)
     ///
     /// ``` self: QtC.QCursor ```
     pub fn Mask2(self: ?*anyopaque) QtC.QBitmap {
         return qtc.QCursor_Mask2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#pixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#pixmap)
     ///
     /// ``` self: QtC.QCursor ```
     pub fn Pixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QCursor_Pixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#hotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#hotSpot)
     ///
     /// ``` self: QtC.QCursor ```
     pub fn HotSpot(self: ?*anyopaque) QtC.QPoint {
         return qtc.QCursor_HotSpot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#pos)
     ///
     ///
     pub fn Pos() QtC.QPoint {
         return qtc.QCursor_Pos();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#pos)
     ///
     /// ``` screen: QtC.QScreen ```
     pub fn Pos2(screen: ?*anyopaque) QtC.QPoint {
         return qtc.QCursor_Pos2(@ptrCast(screen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#setPos)
     ///
     /// ``` x: i32, y: i32 ```
     pub fn SetPos(x: i32, y: i32) void {
         qtc.QCursor_SetPos(@intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#setPos)
     ///
     /// ``` screen: QtC.QScreen, x: i32, y: i32 ```
     pub fn SetPos2(screen: ?*anyopaque, x: i32, y: i32) void {
         qtc.QCursor_SetPos2(@ptrCast(screen), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#setPos)
     ///
     /// ``` p: QtC.QPoint ```
     pub fn SetPos3(p: ?*anyopaque) void {
         qtc.QCursor_SetPos3(@ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#setPos)
     ///
     /// ``` screen: QtC.QScreen, p: QtC.QPoint ```
     pub fn SetPos4(screen: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QCursor_SetPos4(@ptrCast(screen), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#dtor.QCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#dtor.QCursor)
     ///
     /// Delete this object from C++ memory.
     ///

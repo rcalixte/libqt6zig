@@ -19,14 +19,14 @@ pub const attica__project = struct {
         return qtc.Attica__Project_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__Project, other: QtC.Attica__Project ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Project_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setId)
     ///
     /// ``` self: QtC.Attica__Project, id: []const u8 ```
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
@@ -37,7 +37,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#id)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -48,7 +48,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setName)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setName)
     ///
     /// ``` self: QtC.Attica__Project, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -59,7 +59,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#name)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#name)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -70,7 +70,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setVersion)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setVersion)
     ///
     /// ``` self: QtC.Attica__Project, version: []const u8 ```
     pub fn SetVersion(self: ?*anyopaque, version: []const u8) void {
@@ -81,7 +81,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetVersion(@ptrCast(self), version_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#version)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#version)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -92,7 +92,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setUrl)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setUrl)
     ///
     /// ``` self: QtC.Attica__Project, url: []const u8 ```
     pub fn SetUrl(self: ?*anyopaque, url: []const u8) void {
@@ -103,7 +103,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetUrl(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#url)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#url)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -114,7 +114,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setLicense)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setLicense)
     ///
     /// ``` self: QtC.Attica__Project, license: []const u8 ```
     pub fn SetLicense(self: ?*anyopaque, license: []const u8) void {
@@ -125,7 +125,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetLicense(@ptrCast(self), license_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#license)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#license)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -136,7 +136,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setSummary)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setSummary)
     ///
     /// ``` self: QtC.Attica__Project, summary: []const u8 ```
     pub fn SetSummary(self: ?*anyopaque, summary: []const u8) void {
@@ -147,7 +147,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetSummary(@ptrCast(self), summary_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#summary)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#summary)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn Summary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -158,7 +158,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setDescription)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setDescription)
     ///
     /// ``` self: QtC.Attica__Project, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
@@ -169,7 +169,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#description)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#description)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -180,7 +180,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setDevelopers)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setDevelopers)
     ///
     /// ``` self: QtC.Attica__Project, developers: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetDevelopers(self: ?*anyopaque, developers: [][]const u8, allocator: std.mem.Allocator) void {
@@ -199,7 +199,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetDevelopers(@ptrCast(self), developers_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#developers)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#developers)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn Developers(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -221,7 +221,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setRequirements)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setRequirements)
     ///
     /// ``` self: QtC.Attica__Project, requirements: []const u8 ```
     pub fn SetRequirements(self: ?*anyopaque, requirements: []const u8) void {
@@ -232,7 +232,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetRequirements(@ptrCast(self), requirements_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#requirements)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#requirements)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn Requirements(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -243,7 +243,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#setSpecFile)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#setSpecFile)
     ///
     /// ``` self: QtC.Attica__Project, specFile: []const u8 ```
     pub fn SetSpecFile(self: ?*anyopaque, specFile: []const u8) void {
@@ -254,7 +254,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_SetSpecFile(@ptrCast(self), specFile_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#specFile)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#specFile)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn SpecFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -265,7 +265,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#addExtendedAttribute)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#addExtendedAttribute)
     ///
     /// ``` self: QtC.Attica__Project, key: []const u8, value: []const u8 ```
     pub fn AddExtendedAttribute(self: ?*anyopaque, key: []const u8, value: []const u8) void {
@@ -280,7 +280,7 @@ pub const attica__project = struct {
         qtc.Attica__Project_AddExtendedAttribute(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#extendedAttribute)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#extendedAttribute)
     ///
     /// ``` self: QtC.Attica__Project, key: []const u8, allocator: std.mem.Allocator ```
     pub fn ExtendedAttribute(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -295,7 +295,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#extendedAttributes)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#extendedAttributes)
     ///
     /// ``` self: QtC.Attica__Project, allocator: std.mem.Allocator ```
     pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -321,7 +321,7 @@ pub const attica__project = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-project.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-project.html#isValid)
     ///
     /// ``` self: QtC.Attica__Project ```
     pub fn IsValid(self: ?*anyopaque) bool {

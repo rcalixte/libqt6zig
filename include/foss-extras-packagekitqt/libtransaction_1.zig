@@ -14,7 +14,7 @@ pub const packagekit__transaction = struct {
         return qtc.PackageKit__Transaction_new(@ptrCast(tid));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -46,7 +46,7 @@ pub const packagekit__transaction = struct {
         return qtc.PackageKit__Transaction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -58,28 +58,28 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Tid(self: ?*anyopaque) QtC.QDBusObjectPath {
         return qtc.PackageKit__Transaction_Tid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn AllowCancel(self: ?*anyopaque) bool {
         return qtc.PackageKit__Transaction_AllowCancel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn IsCallerActive(self: ?*anyopaque) bool {
         return qtc.PackageKit__Transaction_IsCallerActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, allocator: std.mem.Allocator ```
     pub fn LastPackage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,42 +90,42 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Percentage(self: ?*anyopaque) u32 {
         return qtc.PackageKit__Transaction_Percentage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn ElapsedTime(self: ?*anyopaque) u32 {
         return qtc.PackageKit__Transaction_ElapsedTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn RemainingTime(self: ?*anyopaque) u32 {
         return qtc.PackageKit__Transaction_RemainingTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Speed(self: ?*anyopaque) u32 {
         return qtc.PackageKit__Transaction_Speed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn DownloadSizeRemaining(self: ?*anyopaque) u64 {
         return qtc.PackageKit__Transaction_DownloadSizeRemaining(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     ///
@@ -134,7 +134,7 @@ pub const packagekit__transaction = struct {
         return qtc.PackageKit__Transaction_Role(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     ///
@@ -143,7 +143,7 @@ pub const packagekit__transaction = struct {
         return qtc.PackageKit__Transaction_Status(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     ///
@@ -152,28 +152,28 @@ pub const packagekit__transaction = struct {
         return qtc.PackageKit__Transaction_TransactionFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Timespec(self: ?*anyopaque) QtC.QDateTime {
         return qtc.PackageKit__Transaction_Timespec(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Succeeded(self: ?*anyopaque) bool {
         return qtc.PackageKit__Transaction_Succeeded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Duration(self: ?*anyopaque) u32 {
         return qtc.PackageKit__Transaction_Duration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, allocator: std.mem.Allocator ```
     pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -184,14 +184,14 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Uid(self: ?*anyopaque) u32 {
         return qtc.PackageKit__Transaction_Uid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, allocator: std.mem.Allocator ```
     pub fn SenderName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -202,7 +202,7 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, allocator: std.mem.Allocator ```
     pub fn Cmdline(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -213,7 +213,7 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allocator: std.mem.Allocator ```
     pub fn PackageName(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -228,7 +228,7 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allocator: std.mem.Allocator ```
     pub fn PackageVersion(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -243,7 +243,7 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allocator: std.mem.Allocator ```
     pub fn PackageArch(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -258,7 +258,7 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` packageID: []const u8, allocator: std.mem.Allocator ```
     pub fn PackageData(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -273,189 +273,189 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn AllowCancelChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_AllowCancelChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnAllowCancelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_AllowCancelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn IsCallerActiveChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_IsCallerActiveChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnIsCallerActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_IsCallerActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn DownloadSizeRemainingChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_DownloadSizeRemainingChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnDownloadSizeRemainingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_DownloadSizeRemainingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn ElapsedTimeChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_ElapsedTimeChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnElapsedTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_ElapsedTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn LastPackageChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_LastPackageChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnLastPackageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_LastPackageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn PercentageChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_PercentageChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnPercentageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_PercentageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn RemainingTimeChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_RemainingTimeChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnRemainingTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_RemainingTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn RoleChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_RoleChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnRoleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_RoleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn SpeedChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_SpeedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnSpeedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_SpeedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn StatusChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_StatusChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_StatusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn TransactionFlagsChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_TransactionFlagsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnTransactionFlagsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_TransactionFlagsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn UidChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_UidChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnUidChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_UidChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn SenderNameChanged(self: ?*anyopaque) void {
         qtc.PackageKit__Transaction_SenderNameChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnSenderNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_SenderNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, parentId: []const u8, categoryId: []const u8, name: []const u8, summary: []const u8, icon: []const u8 ```
     pub fn Category(self: ?*anyopaque, parentId: []const u8, categoryId: []const u8, name: []const u8, summary: []const u8, icon: []const u8) void {
@@ -482,14 +482,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_Category(@ptrCast(self), parentId_str, categoryId_str, name_str, summary_str, icon_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, parentId: [*:0]const u8, categoryId: [*:0]const u8, name: [*:0]const u8, summary: [*:0]const u8, icon: [*:0]const u8) callconv(.c) void ```
     pub fn OnCategory(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Category(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, typeVal: transaction_enums.DistroUpgrade, name: []const u8, description: []const u8 ```
     pub fn DistroUpgrade(self: ?*anyopaque, typeVal: i32, name: []const u8, description: []const u8) void {
@@ -504,14 +504,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_DistroUpgrade(@ptrCast(self), @intCast(typeVal), name_str, description_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.DistroUpgrade, name: [*:0]const u8, description: [*:0]const u8) callconv(.c) void ```
     pub fn OnDistroUpgrade(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_DistroUpgrade(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, errorVal: transaction_enums.Error, details: []const u8 ```
     pub fn ErrorCode(self: ?*anyopaque, errorVal: i32, details: []const u8) void {
@@ -522,14 +522,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_ErrorCode(@ptrCast(self), @intCast(errorVal), details_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, errorVal: transaction_enums.Error, details: [*:0]const u8) callconv(.c) void ```
     pub fn OnErrorCode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_ErrorCode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, eulaID: []const u8, packageID: []const u8, vendor: []const u8, licenseAgreement: []const u8 ```
     pub fn EulaRequired(self: ?*anyopaque, eulaID: []const u8, packageID: []const u8, vendor: []const u8, licenseAgreement: []const u8) void {
@@ -552,14 +552,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_EulaRequired(@ptrCast(self), eulaID_str, packageID_str, vendor_str, licenseAgreement_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, eulaID: [*:0]const u8, packageID: [*:0]const u8, vendor: [*:0]const u8, licenseAgreement: [*:0]const u8) callconv(.c) void ```
     pub fn OnEulaRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_EulaRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, typeVal: transaction_enums.MediaType, id: []const u8, text: []const u8 ```
     pub fn MediaChangeRequired(self: ?*anyopaque, typeVal: i32, id: []const u8, text: []const u8) void {
@@ -574,14 +574,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_MediaChangeRequired(@ptrCast(self), @intCast(typeVal), id_str, text_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.MediaType, id: [*:0]const u8, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnMediaChangeRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_MediaChangeRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, itemID: []const u8, status: transaction_enums.Status, percentage: u32 ```
     pub fn ItemProgress(self: ?*anyopaque, itemID: []const u8, status: i32, percentage: u32) void {
@@ -592,14 +592,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_ItemProgress(@ptrCast(self), itemID_str, @intCast(status), @intCast(percentage));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, itemID: [*:0]const u8, status: transaction_enums.Status, percentage: u32) callconv(.c) void ```
     pub fn OnItemProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, u32) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_ItemProgress(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, packageID: []const u8, filenames: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Files(self: ?*anyopaque, packageID: []const u8, filenames: [][]const u8, allocator: std.mem.Allocator) void {
@@ -622,28 +622,28 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_Files(@ptrCast(self), packageID_str, filenames_list);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, filenames: [*][*:0]const u8) callconv(.c) void ```
     pub fn OnFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Files(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, status: transaction_enums.Exit, runtime: u32 ```
     pub fn Finished(self: ?*anyopaque, status: i32, runtime: u32) void {
         qtc.PackageKit__Transaction_Finished(@ptrCast(self), @intCast(status), @intCast(runtime));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, status: transaction_enums.Exit, runtime: u32) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u32) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, info: transaction_enums.Info, packageID: []const u8, summary: []const u8 ```
     pub fn Package(self: ?*anyopaque, info: i32, packageID: []const u8, summary: []const u8) void {
@@ -658,28 +658,28 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_Package(@ptrCast(self), @intCast(info), packageID_str, summary_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, info: transaction_enums.Info, packageID: [*:0]const u8, summary: [*:0]const u8) callconv(.c) void ```
     pub fn OnPackage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Package(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, values: QtC.PackageKit__Details ```
     pub fn Details(self: ?*anyopaque, values: ?*anyopaque) void {
         qtc.PackageKit__Transaction_Details(@ptrCast(self), @ptrCast(values));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, values: QtC.PackageKit__Details) callconv(.c) void ```
     pub fn OnDetails(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Details(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, packageID: []const u8, updates: [][]const u8, obsoletes: [][]const u8, vendorUrls: [][]const u8, bugzillaUrls: [][]const u8, cveUrls: [][]const u8, restart: transaction_enums.Restart, updateText: []const u8, changelog: []const u8, state: transaction_enums.UpdateState, issued: QtC.QDateTime, updated: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn UpdateDetail(self: ?*anyopaque, packageID: []const u8, updates: [][]const u8, obsoletes: [][]const u8, vendorUrls: [][]const u8, bugzillaUrls: [][]const u8, cveUrls: [][]const u8, restart: i32, updateText: []const u8, changelog: []const u8, state: i32, issued: ?*anyopaque, updated: ?*anyopaque, allocator: std.mem.Allocator) void {
@@ -758,14 +758,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_UpdateDetail(@ptrCast(self), packageID_str, updates_list, obsoletes_list, vendorUrls_list, bugzillaUrls_list, cveUrls_list, @intCast(restart), updateText_str, changelog_str, @intCast(state), @ptrCast(issued), @ptrCast(updated));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, updates: [*][*:0]const u8, obsoletes: [*][*:0]const u8, vendorUrls: [*][*:0]const u8, bugzillaUrls: [*][*:0]const u8, cveUrls: [*][*:0]const u8, restart: transaction_enums.Restart, updateText: [*:0]const u8, changelog: [*:0]const u8, state: transaction_enums.UpdateState, issued: QtC.QDateTime, updated: QtC.QDateTime) callconv(.c) void ```
     pub fn OnUpdateDetail(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, i32, [*:0]const u8, [*:0]const u8, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_UpdateDetail(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, repoId: []const u8, description: []const u8, enabled: bool ```
     pub fn RepoDetail(self: ?*anyopaque, repoId: []const u8, description: []const u8, enabled: bool) void {
@@ -780,14 +780,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_RepoDetail(@ptrCast(self), repoId_str, description_str, enabled);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, repoId: [*:0]const u8, description: [*:0]const u8, enabled: bool) callconv(.c) void ```
     pub fn OnRepoDetail(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_RepoDetail(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, packageID: []const u8, repoName: []const u8, keyUrl: []const u8, keyUserid: []const u8, keyId: []const u8, keyFingerprint: []const u8, keyTimestamp: []const u8, typeVal: transaction_enums.SigType ```
     pub fn RepoSignatureRequired(self: ?*anyopaque, packageID: []const u8, repoName: []const u8, keyUrl: []const u8, keyUserid: []const u8, keyId: []const u8, keyFingerprint: []const u8, keyTimestamp: []const u8, typeVal: i32) void {
@@ -822,14 +822,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_RepoSignatureRequired(@ptrCast(self), packageID_str, repoName_str, keyUrl_str, keyUserid_str, keyId_str, keyFingerprint_str, keyTimestamp_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, repoName: [*:0]const u8, keyUrl: [*:0]const u8, keyUserid: [*:0]const u8, keyId: [*:0]const u8, keyFingerprint: [*:0]const u8, keyTimestamp: [*:0]const u8, typeVal: transaction_enums.SigType) callconv(.c) void ```
     pub fn OnRepoSignatureRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_RepoSignatureRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, typeVal: transaction_enums.Restart, packageID: []const u8 ```
     pub fn RequireRestart(self: ?*anyopaque, typeVal: i32, packageID: []const u8) void {
@@ -840,28 +840,28 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_RequireRestart(@ptrCast(self), @intCast(typeVal), packageID_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.Restart, packageID: [*:0]const u8) callconv(.c) void ```
     pub fn OnRequireRestart(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_RequireRestart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, transaction: QtC.PackageKit__Transaction ```
     pub fn Transaction(self: ?*anyopaque, transaction: ?*anyopaque) void {
         qtc.PackageKit__Transaction_Transaction(@ptrCast(self), @ptrCast(transaction));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, transaction: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnTransaction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Transaction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, errorName: []const u8 ```
     ///
@@ -874,7 +874,7 @@ pub const packagekit__transaction = struct {
         return qtc.PackageKit__Transaction_ParseError(@ptrCast(self), errorName_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -883,7 +883,7 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_OnParseError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Base class method implementation
     ///
@@ -898,14 +898,14 @@ pub const packagekit__transaction = struct {
         return qtc.PackageKit__Transaction_QBaseParseError(@ptrCast(self), errorName_str);
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.PackageKit__Transaction_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -914,7 +914,7 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Base class method implementation
     ///
@@ -923,14 +923,14 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ``` self: QtC.PackageKit__Transaction, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.PackageKit__Transaction_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -939,7 +939,7 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Base class method implementation
     ///
@@ -948,7 +948,7 @@ pub const packagekit__transaction = struct {
         qtc.PackageKit__Transaction_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -961,7 +961,7 @@ pub const packagekit__transaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -976,7 +976,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.PackageKit__Transaction, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -989,7 +989,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.PackageKit__Transaction, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1002,7 +1002,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1011,7 +1011,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1020,7 +1020,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1029,7 +1029,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1038,7 +1038,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.PackageKit__Transaction, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1047,7 +1047,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1056,7 +1056,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.PackageKit__Transaction, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1065,7 +1065,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.PackageKit__Transaction, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1074,7 +1074,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.PackageKit__Transaction, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1083,7 +1083,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.PackageKit__Transaction, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1092,7 +1092,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.PackageKit__Transaction, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1106,7 +1106,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.PackageKit__Transaction, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1115,7 +1115,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.PackageKit__Transaction, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1124,7 +1124,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.PackageKit__Transaction, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1133,7 +1133,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1142,7 +1142,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.PackageKit__Transaction, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1153,7 +1153,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1162,7 +1162,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1171,7 +1171,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1180,7 +1180,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1189,7 +1189,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.PackageKit__Transaction, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1199,7 +1199,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.PackageKit__Transaction, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1209,7 +1209,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.PackageKit__Transaction, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1233,7 +1233,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1242,7 +1242,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1251,7 +1251,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1260,7 +1260,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1269,7 +1269,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1278,7 +1278,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.PackageKit__Transaction, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1288,7 +1288,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.PackageKit__Transaction ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1297,7 +1297,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.PackageKit__Transaction, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1306,7 +1306,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.PackageKit__Transaction, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1315,7 +1315,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1324,7 +1324,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.PackageKit__Transaction, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1335,7 +1335,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.PackageKit__Transaction, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1344,7 +1344,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.PackageKit__Transaction, callback: *const fn (self: QtC.PackageKit__Transaction, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1353,7 +1353,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1364,7 +1364,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1375,7 +1375,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1386,7 +1386,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1397,7 +1397,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1408,7 +1408,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1419,7 +1419,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1430,7 +1430,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1441,7 +1441,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1452,7 +1452,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1463,7 +1463,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1474,7 +1474,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1485,7 +1485,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1496,7 +1496,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1507,7 +1507,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1518,7 +1518,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1529,7 +1529,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1540,7 +1540,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1551,7 +1551,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1562,7 +1562,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1573,7 +1573,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1584,7 +1584,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1596,7 +1596,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1608,7 +1608,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1619,7 +1619,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1630,7 +1630,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1641,7 +1641,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1652,7 +1652,7 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1661,7 +1661,7 @@ pub const packagekit__transaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/PackageKit/PackageKit-Qt)
+    /// [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Delete this object from C++ memory.
     ///

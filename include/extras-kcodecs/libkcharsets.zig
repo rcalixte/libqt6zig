@@ -4,7 +4,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kcharsets.html
 pub const kcharsets = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -16,14 +16,14 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcharsets.html#charsets)
+    /// [Upstream resources](https://api.kde.org/kcharsets.html#charsets)
     ///
     ///
     pub fn Charsets() QtC.KCharsets {
         return qtc.KCharsets_Charsets();
     }
 
-    /// [Qt documentation](https://api.kde.org/kcharsets.html#toEntity)
+    /// [Upstream resources](https://api.kde.org/kcharsets.html#toEntity)
     ///
     /// ``` ch: QtC.QChar, allocator: std.mem.Allocator ```
     pub fn ToEntity(ch: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -34,7 +34,7 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcharsets.html#resolveEntities)
+    /// [Upstream resources](https://api.kde.org/kcharsets.html#resolveEntities)
     ///
     /// ``` text: []const u8, allocator: std.mem.Allocator ```
     pub fn ResolveEntities(text: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -49,7 +49,7 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcharsets.html#availableEncodingNames)
+    /// [Upstream resources](https://api.kde.org/kcharsets.html#availableEncodingNames)
     ///
     /// ``` self: QtC.KCharsets, allocator: std.mem.Allocator ```
     pub fn AvailableEncodingNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -71,7 +71,7 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcharsets.html#descriptiveEncodingNames)
+    /// [Upstream resources](https://api.kde.org/kcharsets.html#descriptiveEncodingNames)
     ///
     /// ``` self: QtC.KCharsets, allocator: std.mem.Allocator ```
     pub fn DescriptiveEncodingNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -93,7 +93,7 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcharsets.html#encodingsByScript)
+    /// [Upstream resources](https://api.kde.org/kcharsets.html#encodingsByScript)
     ///
     /// ``` self: QtC.KCharsets, allocator: std.mem.Allocator ```
     pub fn EncodingsByScript(self: ?*anyopaque, allocator: std.mem.Allocator) [][][]const u8 {
@@ -115,7 +115,7 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcharsets.html#encodingForName)
+    /// [Upstream resources](https://api.kde.org/kcharsets.html#encodingForName)
     ///
     /// ``` self: QtC.KCharsets, descriptiveName: []const u8, allocator: std.mem.Allocator ```
     pub fn EncodingForName(self: ?*anyopaque, descriptiveName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -130,7 +130,7 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -143,7 +143,7 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -156,7 +156,7 @@ pub const kcharsets = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcharsets.html#dtor.KCharsets)
+    /// [Upstream resources](https://api.kde.org/kcharsets.html#dtor.KCharsets)
     ///
     /// Delete this object from C++ memory.
     ///

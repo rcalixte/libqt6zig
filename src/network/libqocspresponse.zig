@@ -18,14 +18,14 @@ pub const qocspresponse = struct {
         return qtc.QOcspResponse_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#operator-eq)
     ///
     /// ``` self: QtC.QOcspResponse, other: QtC.QOcspResponse ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QOcspResponse_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#certificateStatus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#certificateStatus)
     ///
     /// ``` self: QtC.QOcspResponse ```
     ///
@@ -34,7 +34,7 @@ pub const qocspresponse = struct {
         return qtc.QOcspResponse_CertificateStatus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#revocationReason)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#revocationReason)
     ///
     /// ``` self: QtC.QOcspResponse ```
     ///
@@ -43,28 +43,28 @@ pub const qocspresponse = struct {
         return qtc.QOcspResponse_RevocationReason(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#responder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#responder)
     ///
     /// ``` self: QtC.QOcspResponse ```
     pub fn Responder(self: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QOcspResponse_Responder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#subject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#subject)
     ///
     /// ``` self: QtC.QOcspResponse ```
     pub fn Subject(self: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QOcspResponse_Subject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#swap)
     ///
     /// ``` self: QtC.QOcspResponse, other: QtC.QOcspResponse ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QOcspResponse_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#dtor.QOcspResponse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#dtor.QOcspResponse)
     ///
     /// Delete this object from C++ memory.
     ///

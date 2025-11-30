@@ -38,28 +38,28 @@ pub const qdbuserror = struct {
         return qtc.QDBusError_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
     ///
     /// ``` self: QtC.QDBusError, other: QtC.QDBusError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
     ///
     /// ``` self: QtC.QDBusError, msg: QtC.QDBusMessage ```
     pub fn OperatorAssign2(self: ?*anyopaque, msg: ?*anyopaque) void {
         qtc.QDBusError_OperatorAssign2(@ptrCast(self), @ptrCast(msg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#swap)
     ///
     /// ``` self: QtC.QDBusError, other: QtC.QDBusError ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusError_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#type)
     ///
     /// ``` self: QtC.QDBusError ```
     ///
@@ -68,7 +68,7 @@ pub const qdbuserror = struct {
         return qtc.QDBusError_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#name)
     ///
     /// ``` self: QtC.QDBusError, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -79,7 +79,7 @@ pub const qdbuserror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#message)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#message)
     ///
     /// ``` self: QtC.QDBusError, allocator: std.mem.Allocator ```
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,14 +90,14 @@ pub const qdbuserror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#isValid)
     ///
     /// ``` self: QtC.QDBusError ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QDBusError_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#errorString)
     ///
     /// ``` errorVal: qdbuserror_enums.ErrorType, allocator: std.mem.Allocator ```
     pub fn ErrorString(errorVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -108,7 +108,7 @@ pub const qdbuserror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuserror.html#dtor.QDBusError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#dtor.QDBusError)
     ///
     /// Delete this object from C++ memory.
     ///

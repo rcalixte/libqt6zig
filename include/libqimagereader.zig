@@ -61,7 +61,7 @@ pub const qimagereader = struct {
         return qtc.QImageReader_new5(fileName_str, format_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -73,7 +73,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setFormat)
     ///
     /// ``` self: QtC.QImageReader, format: []u8 ```
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
@@ -84,7 +84,7 @@ pub const qimagereader = struct {
         qtc.QImageReader_SetFormat(@ptrCast(self), format_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#format)
     ///
     /// ``` self: QtC.QImageReader, allocator: std.mem.Allocator ```
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -95,49 +95,49 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setAutoDetectImageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setAutoDetectImageFormat)
     ///
     /// ``` self: QtC.QImageReader, enabled: bool ```
     pub fn SetAutoDetectImageFormat(self: ?*anyopaque, enabled: bool) void {
         qtc.QImageReader_SetAutoDetectImageFormat(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#autoDetectImageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#autoDetectImageFormat)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn AutoDetectImageFormat(self: ?*anyopaque) bool {
         return qtc.QImageReader_AutoDetectImageFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setDecideFormatFromContent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setDecideFormatFromContent)
     ///
     /// ``` self: QtC.QImageReader, ignored: bool ```
     pub fn SetDecideFormatFromContent(self: ?*anyopaque, ignored: bool) void {
         qtc.QImageReader_SetDecideFormatFromContent(@ptrCast(self), ignored);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#decideFormatFromContent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#decideFormatFromContent)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn DecideFormatFromContent(self: ?*anyopaque) bool {
         return qtc.QImageReader_DecideFormatFromContent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setDevice)
     ///
     /// ``` self: QtC.QImageReader, device: QtC.QIODevice ```
     pub fn SetDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QImageReader_SetDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#device)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#device)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn Device(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QImageReader_Device(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setFileName)
     ///
     /// ``` self: QtC.QImageReader, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
@@ -148,7 +148,7 @@ pub const qimagereader = struct {
         qtc.QImageReader_SetFileName(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#fileName)
     ///
     /// ``` self: QtC.QImageReader, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -159,14 +159,14 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#size)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QImageReader_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
     ///
     /// ``` self: QtC.QImageReader ```
     ///
@@ -175,7 +175,7 @@ pub const qimagereader = struct {
         return qtc.QImageReader_ImageFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#textKeys)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#textKeys)
     ///
     /// ``` self: QtC.QImageReader, allocator: std.mem.Allocator ```
     pub fn TextKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -197,7 +197,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#text)
     ///
     /// ``` self: QtC.QImageReader, key: []const u8, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -212,84 +212,84 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setClipRect)
     ///
     /// ``` self: QtC.QImageReader, rect: QtC.QRect ```
     pub fn SetClipRect(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QImageReader_SetClipRect(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#clipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#clipRect)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn ClipRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QImageReader_ClipRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setScaledSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setScaledSize)
     ///
     /// ``` self: QtC.QImageReader, size: QtC.QSize ```
     pub fn SetScaledSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QImageReader_SetScaledSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#scaledSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#scaledSize)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn ScaledSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QImageReader_ScaledSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setQuality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setQuality)
     ///
     /// ``` self: QtC.QImageReader, quality: i32 ```
     pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
         qtc.QImageReader_SetQuality(@ptrCast(self), @intCast(quality));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#quality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#quality)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn Quality(self: ?*anyopaque) i32 {
         return qtc.QImageReader_Quality(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setScaledClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setScaledClipRect)
     ///
     /// ``` self: QtC.QImageReader, rect: QtC.QRect ```
     pub fn SetScaledClipRect(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QImageReader_SetScaledClipRect(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#scaledClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#scaledClipRect)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn ScaledClipRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QImageReader_ScaledClipRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setBackgroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setBackgroundColor)
     ///
     /// ``` self: QtC.QImageReader, color: QtC.QColor ```
     pub fn SetBackgroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QImageReader_SetBackgroundColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#backgroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#backgroundColor)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QImageReader_BackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#supportsAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#supportsAnimation)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn SupportsAnimation(self: ?*anyopaque) bool {
         return qtc.QImageReader_SupportsAnimation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#transformation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#transformation)
     ///
     /// ``` self: QtC.QImageReader ```
     ///
@@ -298,21 +298,21 @@ pub const qimagereader = struct {
         return qtc.QImageReader_Transformation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setAutoTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setAutoTransform)
     ///
     /// ``` self: QtC.QImageReader, enabled: bool ```
     pub fn SetAutoTransform(self: ?*anyopaque, enabled: bool) void {
         qtc.QImageReader_SetAutoTransform(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#autoTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#autoTransform)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn AutoTransform(self: ?*anyopaque) bool {
         return qtc.QImageReader_AutoTransform(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#subType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#subType)
     ///
     /// ``` self: QtC.QImageReader, allocator: std.mem.Allocator ```
     pub fn SubType(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -323,7 +323,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#supportedSubTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#supportedSubTypes)
     ///
     /// ``` self: QtC.QImageReader, allocator: std.mem.Allocator ```
     pub fn SupportedSubTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -345,77 +345,77 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#canRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#canRead)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn CanRead(self: ?*anyopaque) bool {
         return qtc.QImageReader_CanRead(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#read)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn Read(self: ?*anyopaque) QtC.QImage {
         return qtc.QImageReader_Read(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#read)
     ///
     /// ``` self: QtC.QImageReader, image: QtC.QImage ```
     pub fn Read2(self: ?*anyopaque, image: ?*anyopaque) bool {
         return qtc.QImageReader_Read2(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#jumpToNextImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#jumpToNextImage)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn JumpToNextImage(self: ?*anyopaque) bool {
         return qtc.QImageReader_JumpToNextImage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#jumpToImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#jumpToImage)
     ///
     /// ``` self: QtC.QImageReader, imageNumber: i32 ```
     pub fn JumpToImage(self: ?*anyopaque, imageNumber: i32) bool {
         return qtc.QImageReader_JumpToImage(@ptrCast(self), @intCast(imageNumber));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#loopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#loopCount)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn LoopCount(self: ?*anyopaque) i32 {
         return qtc.QImageReader_LoopCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#imageCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#imageCount)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn ImageCount(self: ?*anyopaque) i32 {
         return qtc.QImageReader_ImageCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#nextImageDelay)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#nextImageDelay)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn NextImageDelay(self: ?*anyopaque) i32 {
         return qtc.QImageReader_NextImageDelay(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#currentImageNumber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#currentImageNumber)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn CurrentImageNumber(self: ?*anyopaque) i32 {
         return qtc.QImageReader_CurrentImageNumber(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#currentImageRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#currentImageRect)
     ///
     /// ``` self: QtC.QImageReader ```
     pub fn CurrentImageRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QImageReader_CurrentImageRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#error)
     ///
     /// ``` self: QtC.QImageReader ```
     ///
@@ -424,7 +424,7 @@ pub const qimagereader = struct {
         return qtc.QImageReader_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#errorString)
     ///
     /// ``` self: QtC.QImageReader, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -435,14 +435,14 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#supportsOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#supportsOption)
     ///
     /// ``` self: QtC.QImageReader, option: qimageiohandler_enums.ImageOption ```
     pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QImageReader_SupportsOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
     ///
     /// ``` fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn ImageFormat2(fileName: []const u8, allocator: std.mem.Allocator) []u8 {
@@ -457,7 +457,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
     ///
     /// ``` device: QtC.QIODevice, allocator: std.mem.Allocator ```
     pub fn ImageFormat3(device: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -468,7 +468,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#supportedImageFormats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#supportedImageFormats)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedImageFormats(allocator: std.mem.Allocator) [][]u8 {
@@ -490,7 +490,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#supportedMimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#supportedMimeTypes)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedMimeTypes(allocator: std.mem.Allocator) [][]u8 {
@@ -512,7 +512,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#imageFormatsForMimeType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#imageFormatsForMimeType)
     ///
     /// ``` mimeType: []u8, allocator: std.mem.Allocator ```
     pub fn ImageFormatsForMimeType(mimeType: []u8, allocator: std.mem.Allocator) [][]u8 {
@@ -538,21 +538,21 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#allocationLimit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#allocationLimit)
     ///
     ///
     pub fn AllocationLimit() i32 {
         return qtc.QImageReader_AllocationLimit();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#setAllocationLimit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#setAllocationLimit)
     ///
     /// ``` mbLimit: i32 ```
     pub fn SetAllocationLimit(mbLimit: i32) void {
         qtc.QImageReader_SetAllocationLimit(@intCast(mbLimit));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -565,7 +565,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -578,7 +578,7 @@ pub const qimagereader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#dtor.QImageReader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#dtor.QImageReader)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -30,7 +30,7 @@ pub const kbookmarkmanager = struct {
         return qtc.KBookmarkManager_new2(bookmarksFile_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -62,7 +62,7 @@ pub const kbookmarkmanager = struct {
         return qtc.KBookmarkManager_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -74,7 +74,7 @@ pub const kbookmarkmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#saveAs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#saveAs)
     ///
     /// ``` self: QtC.KBookmarkManager, filename: []const u8 ```
     pub fn SaveAs(self: ?*anyopaque, filename: []const u8) bool {
@@ -85,7 +85,7 @@ pub const kbookmarkmanager = struct {
         return qtc.KBookmarkManager_SaveAs(@ptrCast(self), filename_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#updateAccessMetadata)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#updateAccessMetadata)
     ///
     /// ``` self: QtC.KBookmarkManager, url: []const u8 ```
     pub fn UpdateAccessMetadata(self: ?*anyopaque, url: []const u8) bool {
@@ -96,7 +96,7 @@ pub const kbookmarkmanager = struct {
         return qtc.KBookmarkManager_UpdateAccessMetadata(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#path)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#path)
     ///
     /// ``` self: QtC.KBookmarkManager, allocator: std.mem.Allocator ```
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -107,21 +107,21 @@ pub const kbookmarkmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#root)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#root)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn Root(self: ?*anyopaque) QtC.KBookmarkGroup {
         return qtc.KBookmarkManager_Root(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#toolbar)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#toolbar)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn Toolbar(self: ?*anyopaque) QtC.KBookmarkGroup {
         return qtc.KBookmarkManager_Toolbar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#findByAddress)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#findByAddress)
     ///
     /// ``` self: QtC.KBookmarkManager, address: []const u8 ```
     pub fn FindByAddress(self: ?*anyopaque, address: []const u8) QtC.KBookmark {
@@ -132,35 +132,35 @@ pub const kbookmarkmanager = struct {
         return qtc.KBookmarkManager_FindByAddress(@ptrCast(self), address_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#emitChanged)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#emitChanged)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn EmitChanged(self: ?*anyopaque) void {
         qtc.KBookmarkManager_EmitChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#emitChanged)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#emitChanged)
     ///
     /// ``` self: QtC.KBookmarkManager, group: QtC.KBookmarkGroup ```
     pub fn EmitChanged2(self: ?*anyopaque, group: ?*anyopaque) void {
         qtc.KBookmarkManager_EmitChanged2(@ptrCast(self), @ptrCast(group));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#save)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#save)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn Save(self: ?*anyopaque) bool {
         return qtc.KBookmarkManager_Save(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#internalDocument)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#internalDocument)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn InternalDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KBookmarkManager_InternalDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#changed)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#changed)
     ///
     /// ``` self: QtC.KBookmarkManager, groupAddress: []const u8 ```
     pub fn Changed(self: ?*anyopaque, groupAddress: []const u8) void {
@@ -171,14 +171,14 @@ pub const kbookmarkmanager = struct {
         qtc.KBookmarkManager_Changed(@ptrCast(self), groupAddress_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#changed)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#changed)
     ///
     /// ``` self: QtC.KBookmarkManager, callback: *const fn (self: QtC.KBookmarkManager, groupAddress: [*:0]const u8) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KBookmarkManager_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#error)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#error)
     ///
     /// ``` self: QtC.KBookmarkManager, errorMessage: []const u8 ```
     pub fn Error(self: ?*anyopaque, errorMessage: []const u8) void {
@@ -189,14 +189,14 @@ pub const kbookmarkmanager = struct {
         qtc.KBookmarkManager_Error(@ptrCast(self), errorMessage_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#error)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#error)
     ///
     /// ``` self: QtC.KBookmarkManager, callback: *const fn (self: QtC.KBookmarkManager, errorMessage: [*:0]const u8) callconv(.c) void ```
     pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KBookmarkManager_Connect_Error(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -209,7 +209,7 @@ pub const kbookmarkmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -222,7 +222,7 @@ pub const kbookmarkmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#saveAs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#saveAs)
     ///
     /// ``` self: QtC.KBookmarkManager, filename: []const u8, toolbarCache: bool ```
     pub fn SaveAs2(self: ?*anyopaque, filename: []const u8, toolbarCache: bool) bool {
@@ -233,7 +233,7 @@ pub const kbookmarkmanager = struct {
         return qtc.KBookmarkManager_SaveAs2(@ptrCast(self), filename_str, toolbarCache);
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#save)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#save)
     ///
     /// ``` self: QtC.KBookmarkManager, toolbarCache: bool ```
     pub fn Save1(self: ?*anyopaque, toolbarCache: bool) bool {
@@ -242,7 +242,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KBookmarkManager, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -255,7 +255,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KBookmarkManager, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -268,7 +268,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -277,7 +277,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -286,7 +286,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -295,7 +295,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -304,7 +304,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KBookmarkManager, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -313,7 +313,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -322,7 +322,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KBookmarkManager, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -331,7 +331,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KBookmarkManager, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -340,7 +340,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KBookmarkManager, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -349,7 +349,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KBookmarkManager, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -358,7 +358,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KBookmarkManager, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -372,7 +372,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KBookmarkManager, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -381,7 +381,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KBookmarkManager, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -390,7 +390,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KBookmarkManager, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -399,7 +399,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -408,7 +408,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KBookmarkManager, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -419,7 +419,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -428,7 +428,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -437,7 +437,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -446,7 +446,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -455,7 +455,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KBookmarkManager, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -465,7 +465,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KBookmarkManager, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -475,7 +475,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KBookmarkManager, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -499,7 +499,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -508,7 +508,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -517,7 +517,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -526,7 +526,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KBookmarkManager, callback: *const fn (self: QtC.KBookmarkManager) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -535,7 +535,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -544,7 +544,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KBookmarkManager, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -554,7 +554,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KBookmarkManager ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -563,7 +563,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KBookmarkManager, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -572,7 +572,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KBookmarkManager, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -581,7 +581,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -590,7 +590,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KBookmarkManager, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -601,7 +601,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KBookmarkManager, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -610,7 +610,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KBookmarkManager, callback: *const fn (self: QtC.KBookmarkManager, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -619,7 +619,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -630,7 +630,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -641,7 +641,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -652,7 +652,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -663,7 +663,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -674,7 +674,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -685,7 +685,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -696,7 +696,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -707,7 +707,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -718,7 +718,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -729,7 +729,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -740,7 +740,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -751,7 +751,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -762,7 +762,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -773,7 +773,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -784,7 +784,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -795,7 +795,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -806,7 +806,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -817,7 +817,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -828,7 +828,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -839,7 +839,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -850,7 +850,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -861,7 +861,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -872,7 +872,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -883,7 +883,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -894,7 +894,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -905,7 +905,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -916,7 +916,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -928,7 +928,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -940,7 +940,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -951,7 +951,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -962,7 +962,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -973,7 +973,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -984,7 +984,7 @@ pub const kbookmarkmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -993,7 +993,7 @@ pub const kbookmarkmanager = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmanager.html#dtor.KBookmarkManager)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmanager.html#dtor.KBookmarkManager)
     ///
     /// Delete this object from C++ memory.
     ///

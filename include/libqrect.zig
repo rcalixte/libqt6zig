@@ -66,511 +66,511 @@ pub const qrect = struct {
         qtc.QRect_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#isNull)
     ///
     /// ``` self: QtC.QRect ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QRect_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#isEmpty)
     ///
     /// ``` self: QtC.QRect ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QRect_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#isValid)
     ///
     /// ``` self: QtC.QRect ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QRect_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#left)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#left)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Left(self: ?*anyopaque) i32 {
         return qtc.QRect_Left(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#top)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#top)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Top(self: ?*anyopaque) i32 {
         return qtc.QRect_Top(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#right)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#right)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Right(self: ?*anyopaque) i32 {
         return qtc.QRect_Right(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#bottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#bottom)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Bottom(self: ?*anyopaque) i32 {
         return qtc.QRect_Bottom(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#normalized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#normalized)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Normalized(self: ?*anyopaque) QtC.QRect {
         return qtc.QRect_Normalized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#x)
     ///
     /// ``` self: QtC.QRect ```
     pub fn X(self: ?*anyopaque) i32 {
         return qtc.QRect_X(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#y)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Y(self: ?*anyopaque) i32 {
         return qtc.QRect_Y(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setLeft)
     ///
     /// ``` self: QtC.QRect, pos: i32 ```
     pub fn SetLeft(self: ?*anyopaque, pos: i32) void {
         qtc.QRect_SetLeft(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setTop)
     ///
     /// ``` self: QtC.QRect, pos: i32 ```
     pub fn SetTop(self: ?*anyopaque, pos: i32) void {
         qtc.QRect_SetTop(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setRight)
     ///
     /// ``` self: QtC.QRect, pos: i32 ```
     pub fn SetRight(self: ?*anyopaque, pos: i32) void {
         qtc.QRect_SetRight(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setBottom)
     ///
     /// ``` self: QtC.QRect, pos: i32 ```
     pub fn SetBottom(self: ?*anyopaque, pos: i32) void {
         qtc.QRect_SetBottom(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setX)
     ///
     /// ``` self: QtC.QRect, x: i32 ```
     pub fn SetX(self: ?*anyopaque, x: i32) void {
         qtc.QRect_SetX(@ptrCast(self), @intCast(x));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setY)
     ///
     /// ``` self: QtC.QRect, y: i32 ```
     pub fn SetY(self: ?*anyopaque, y: i32) void {
         qtc.QRect_SetY(@ptrCast(self), @intCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setTopLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setTopLeft)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn SetTopLeft(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_SetTopLeft(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setBottomRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setBottomRight)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn SetBottomRight(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_SetBottomRight(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setTopRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setTopRight)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn SetTopRight(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_SetTopRight(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setBottomLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setBottomLeft)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn SetBottomLeft(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_SetBottomLeft(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#topLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#topLeft)
     ///
     /// ``` self: QtC.QRect ```
     pub fn TopLeft(self: ?*anyopaque) QtC.QPoint {
         return qtc.QRect_TopLeft(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#bottomRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#bottomRight)
     ///
     /// ``` self: QtC.QRect ```
     pub fn BottomRight(self: ?*anyopaque) QtC.QPoint {
         return qtc.QRect_BottomRight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#topRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#topRight)
     ///
     /// ``` self: QtC.QRect ```
     pub fn TopRight(self: ?*anyopaque) QtC.QPoint {
         return qtc.QRect_TopRight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#bottomLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#bottomLeft)
     ///
     /// ``` self: QtC.QRect ```
     pub fn BottomLeft(self: ?*anyopaque) QtC.QPoint {
         return qtc.QRect_BottomLeft(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#center)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#center)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Center(self: ?*anyopaque) QtC.QPoint {
         return qtc.QRect_Center(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveLeft)
     ///
     /// ``` self: QtC.QRect, pos: i32 ```
     pub fn MoveLeft(self: ?*anyopaque, pos: i32) void {
         qtc.QRect_MoveLeft(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveTop)
     ///
     /// ``` self: QtC.QRect, pos: i32 ```
     pub fn MoveTop(self: ?*anyopaque, pos: i32) void {
         qtc.QRect_MoveTop(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveRight)
     ///
     /// ``` self: QtC.QRect, pos: i32 ```
     pub fn MoveRight(self: ?*anyopaque, pos: i32) void {
         qtc.QRect_MoveRight(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveBottom)
     ///
     /// ``` self: QtC.QRect, pos: i32 ```
     pub fn MoveBottom(self: ?*anyopaque, pos: i32) void {
         qtc.QRect_MoveBottom(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveTopLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveTopLeft)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn MoveTopLeft(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_MoveTopLeft(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveBottomRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveBottomRight)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn MoveBottomRight(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_MoveBottomRight(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveTopRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveTopRight)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn MoveTopRight(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_MoveTopRight(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveBottomLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveBottomLeft)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn MoveBottomLeft(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_MoveBottomLeft(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveCenter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveCenter)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn MoveCenter(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_MoveCenter(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#translate)
     ///
     /// ``` self: QtC.QRect, dx: i32, dy: i32 ```
     pub fn Translate(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QRect_Translate(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#translate)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn Translate2(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_Translate2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#translated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#translated)
     ///
     /// ``` self: QtC.QRect, dx: i32, dy: i32 ```
     pub fn Translated(self: ?*anyopaque, dx: i32, dy: i32) QtC.QRect {
         return qtc.QRect_Translated(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#translated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#translated)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn Translated2(self: ?*anyopaque, p: ?*anyopaque) QtC.QRect {
         return qtc.QRect_Translated2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#transposed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#transposed)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Transposed(self: ?*anyopaque) QtC.QRect {
         return qtc.QRect_Transposed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveTo)
     ///
     /// ``` self: QtC.QRect, x: i32, t: i32 ```
     pub fn MoveTo(self: ?*anyopaque, x: i32, t: i32) void {
         qtc.QRect_MoveTo(@ptrCast(self), @intCast(x), @intCast(t));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveTo)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn MoveTo2(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRect_MoveTo2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setRect)
     ///
     /// ``` self: QtC.QRect, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetRect(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QRect_SetRect(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#getRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#getRect)
     ///
     /// ``` self: QtC.QRect, x: *i32, y: *i32, w: *i32, h: *i32 ```
     pub fn GetRect(self: ?*anyopaque, x: *i32, y: *i32, w: *i32, h: *i32) void {
         qtc.QRect_GetRect(@ptrCast(self), @ptrCast(x), @ptrCast(y), @ptrCast(w), @ptrCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setCoords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setCoords)
     ///
     /// ``` self: QtC.QRect, x1: i32, y1: i32, x2: i32, y2: i32 ```
     pub fn SetCoords(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
         qtc.QRect_SetCoords(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#getCoords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#getCoords)
     ///
     /// ``` self: QtC.QRect, x1: *i32, y1: *i32, x2: *i32, y2: *i32 ```
     pub fn GetCoords(self: ?*anyopaque, x1: *i32, y1: *i32, x2: *i32, y2: *i32) void {
         qtc.QRect_GetCoords(@ptrCast(self), @ptrCast(x1), @ptrCast(y1), @ptrCast(x2), @ptrCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#adjust)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#adjust)
     ///
     /// ``` self: QtC.QRect, x1: i32, y1: i32, x2: i32, y2: i32 ```
     pub fn Adjust(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
         qtc.QRect_Adjust(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#adjusted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#adjusted)
     ///
     /// ``` self: QtC.QRect, x1: i32, y1: i32, x2: i32, y2: i32 ```
     pub fn Adjusted(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) QtC.QRect {
         return qtc.QRect_Adjusted(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#size)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QRect_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#width)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Width(self: ?*anyopaque) i32 {
         return qtc.QRect_Width(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#height)
     ///
     /// ``` self: QtC.QRect ```
     pub fn Height(self: ?*anyopaque) i32 {
         return qtc.QRect_Height(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setWidth)
     ///
     /// ``` self: QtC.QRect, w: i32 ```
     pub fn SetWidth(self: ?*anyopaque, w: i32) void {
         qtc.QRect_SetWidth(@ptrCast(self), @intCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setHeight)
     ///
     /// ``` self: QtC.QRect, h: i32 ```
     pub fn SetHeight(self: ?*anyopaque, h: i32) void {
         qtc.QRect_SetHeight(@ptrCast(self), @intCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setSize)
     ///
     /// ``` self: QtC.QRect, s: QtC.QSize ```
     pub fn SetSize(self: ?*anyopaque, s: ?*anyopaque) void {
         qtc.QRect_SetSize(@ptrCast(self), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-7c)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#operator-7c)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn OperatorBitwiseOr(self: ?*anyopaque, r: ?*anyopaque) QtC.QRect {
         return qtc.QRect_OperatorBitwiseOr(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-and)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#operator-and)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn OperatorBitwiseAnd(self: ?*anyopaque, r: ?*anyopaque) QtC.QRect {
         return qtc.QRect_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-7c-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#operator-7c-eq)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRect_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-and-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#operator-and-eq)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRect_OperatorBitwiseAndAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn Contains(self: ?*anyopaque, r: ?*anyopaque) bool {
         return qtc.QRect_Contains(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
     pub fn Contains2(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.QRect_Contains2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, x: i32, y: i32 ```
     pub fn Contains3(self: ?*anyopaque, x: i32, y: i32) bool {
         return qtc.QRect_Contains3(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, x: i32, y: i32, proper: bool ```
     pub fn Contains4(self: ?*anyopaque, x: i32, y: i32, proper: bool) bool {
         return qtc.QRect_Contains4(@ptrCast(self), @intCast(x), @intCast(y), proper);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#united)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#united)
     ///
     /// ``` self: QtC.QRect, other: QtC.QRect ```
     pub fn United(self: ?*anyopaque, other: ?*anyopaque) QtC.QRect {
         return qtc.QRect_United(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#intersected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#intersected)
     ///
     /// ``` self: QtC.QRect, other: QtC.QRect ```
     pub fn Intersected(self: ?*anyopaque, other: ?*anyopaque) QtC.QRect {
         return qtc.QRect_Intersected(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#intersects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#intersects)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn Intersects(self: ?*anyopaque, r: ?*anyopaque) bool {
         return qtc.QRect_Intersects(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#marginsAdded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#marginsAdded)
     ///
     /// ``` self: QtC.QRect, margins: QtC.QMargins ```
     pub fn MarginsAdded(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRect {
         return qtc.QRect_MarginsAdded(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#marginsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#marginsRemoved)
     ///
     /// ``` self: QtC.QRect, margins: QtC.QMargins ```
     pub fn MarginsRemoved(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRect {
         return qtc.QRect_MarginsRemoved(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-2b-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QRect, margins: QtC.QMargins ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRect {
         return qtc.QRect_OperatorPlusAssign(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator--eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#operator--eq)
     ///
     /// ``` self: QtC.QRect, margins: QtC.QMargins ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRect {
         return qtc.QRect_OperatorMinusAssign(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#span)
     ///
     /// ``` p1: QtC.QPoint, p2: QtC.QPoint ```
     pub fn Span(p1: ?*anyopaque, p2: ?*anyopaque) QtC.QRect {
         return qtc.QRect_Span(@ptrCast(p1), @ptrCast(p2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#toRectF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#toRectF)
     ///
     /// ``` self: QtC.QRect ```
     pub fn ToRectF(self: ?*anyopaque) QtC.QRectF {
         return qtc.QRect_ToRectF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect, proper: bool ```
     pub fn Contains22(self: ?*anyopaque, r: ?*anyopaque, proper: bool) bool {
         return qtc.QRect_Contains22(@ptrCast(self), @ptrCast(r), proper);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint, proper: bool ```
     pub fn Contains23(self: ?*anyopaque, p: ?*anyopaque, proper: bool) bool {
         return qtc.QRect_Contains23(@ptrCast(self), @ptrCast(p), proper);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#dtor.QRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrect.html#dtor.QRect)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -652,490 +652,490 @@ pub const qrectf = struct {
         qtc.QRectF_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#isNull)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QRectF_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#isEmpty)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QRectF_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#isValid)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QRectF_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#normalized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#normalized)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Normalized(self: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_Normalized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#left)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#left)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Left(self: ?*anyopaque) f64 {
         return qtc.QRectF_Left(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#top)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#top)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Top(self: ?*anyopaque) f64 {
         return qtc.QRectF_Top(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#right)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#right)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Right(self: ?*anyopaque) f64 {
         return qtc.QRectF_Right(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#bottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#bottom)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Bottom(self: ?*anyopaque) f64 {
         return qtc.QRectF_Bottom(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#x)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn X(self: ?*anyopaque) f64 {
         return qtc.QRectF_X(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#y)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Y(self: ?*anyopaque) f64 {
         return qtc.QRectF_Y(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setLeft)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn SetLeft(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_SetLeft(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setTop)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn SetTop(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_SetTop(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setRight)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn SetRight(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_SetRight(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setBottom)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn SetBottom(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_SetBottom(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setX)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn SetX(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_SetX(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setY)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn SetY(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_SetY(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#topLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#topLeft)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn TopLeft(self: ?*anyopaque) QtC.QPointF {
         return qtc.QRectF_TopLeft(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#bottomRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#bottomRight)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn BottomRight(self: ?*anyopaque) QtC.QPointF {
         return qtc.QRectF_BottomRight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#topRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#topRight)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn TopRight(self: ?*anyopaque) QtC.QPointF {
         return qtc.QRectF_TopRight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#bottomLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#bottomLeft)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn BottomLeft(self: ?*anyopaque) QtC.QPointF {
         return qtc.QRectF_BottomLeft(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#center)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#center)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Center(self: ?*anyopaque) QtC.QPointF {
         return qtc.QRectF_Center(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setTopLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setTopLeft)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn SetTopLeft(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_SetTopLeft(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setBottomRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setBottomRight)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn SetBottomRight(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_SetBottomRight(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setTopRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setTopRight)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn SetTopRight(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_SetTopRight(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setBottomLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setBottomLeft)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn SetBottomLeft(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_SetBottomLeft(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveLeft)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn MoveLeft(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_MoveLeft(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveTop)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn MoveTop(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_MoveTop(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveRight)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn MoveRight(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_MoveRight(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveBottom)
     ///
     /// ``` self: QtC.QRectF, pos: f64 ```
     pub fn MoveBottom(self: ?*anyopaque, pos: f64) void {
         qtc.QRectF_MoveBottom(@ptrCast(self), @floatCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveTopLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveTopLeft)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn MoveTopLeft(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_MoveTopLeft(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveBottomRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveBottomRight)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn MoveBottomRight(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_MoveBottomRight(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveTopRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveTopRight)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn MoveTopRight(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_MoveTopRight(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveBottomLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveBottomLeft)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn MoveBottomLeft(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_MoveBottomLeft(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveCenter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveCenter)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn MoveCenter(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_MoveCenter(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#translate)
     ///
     /// ``` self: QtC.QRectF, dx: f64, dy: f64 ```
     pub fn Translate(self: ?*anyopaque, dx: f64, dy: f64) void {
         qtc.QRectF_Translate(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#translate)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn Translate2(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_Translate2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#translated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#translated)
     ///
     /// ``` self: QtC.QRectF, dx: f64, dy: f64 ```
     pub fn Translated(self: ?*anyopaque, dx: f64, dy: f64) QtC.QRectF {
         return qtc.QRectF_Translated(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#translated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#translated)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn Translated2(self: ?*anyopaque, p: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_Translated2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#transposed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#transposed)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Transposed(self: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_Transposed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveTo)
     ///
     /// ``` self: QtC.QRectF, x: f64, y: f64 ```
     pub fn MoveTo(self: ?*anyopaque, x: f64, y: f64) void {
         qtc.QRectF_MoveTo(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveTo)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn MoveTo2(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QRectF_MoveTo2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setRect)
     ///
     /// ``` self: QtC.QRectF, x: f64, y: f64, w: f64, h: f64 ```
     pub fn SetRect(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
         qtc.QRectF_SetRect(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#getRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#getRect)
     ///
     /// ``` self: QtC.QRectF, x: *f64, y: *f64, w: *f64, h: *f64 ```
     pub fn GetRect(self: ?*anyopaque, x: *f64, y: *f64, w: *f64, h: *f64) void {
         qtc.QRectF_GetRect(@ptrCast(self), @ptrCast(x), @ptrCast(y), @ptrCast(w), @ptrCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setCoords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setCoords)
     ///
     /// ``` self: QtC.QRectF, x1: f64, y1: f64, x2: f64, y2: f64 ```
     pub fn SetCoords(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
         qtc.QRectF_SetCoords(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#getCoords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#getCoords)
     ///
     /// ``` self: QtC.QRectF, x1: *f64, y1: *f64, x2: *f64, y2: *f64 ```
     pub fn GetCoords(self: ?*anyopaque, x1: *f64, y1: *f64, x2: *f64, y2: *f64) void {
         qtc.QRectF_GetCoords(@ptrCast(self), @ptrCast(x1), @ptrCast(y1), @ptrCast(x2), @ptrCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#adjust)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#adjust)
     ///
     /// ``` self: QtC.QRectF, x1: f64, y1: f64, x2: f64, y2: f64 ```
     pub fn Adjust(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
         qtc.QRectF_Adjust(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#adjusted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#adjusted)
     ///
     /// ``` self: QtC.QRectF, x1: f64, y1: f64, x2: f64, y2: f64 ```
     pub fn Adjusted(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) QtC.QRectF {
         return qtc.QRectF_Adjusted(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#size)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Size(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QRectF_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#width)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Width(self: ?*anyopaque) f64 {
         return qtc.QRectF_Width(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#height)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn Height(self: ?*anyopaque) f64 {
         return qtc.QRectF_Height(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setWidth)
     ///
     /// ``` self: QtC.QRectF, w: f64 ```
     pub fn SetWidth(self: ?*anyopaque, w: f64) void {
         qtc.QRectF_SetWidth(@ptrCast(self), @floatCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setHeight)
     ///
     /// ``` self: QtC.QRectF, h: f64 ```
     pub fn SetHeight(self: ?*anyopaque, h: f64) void {
         qtc.QRectF_SetHeight(@ptrCast(self), @floatCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setSize)
     ///
     /// ``` self: QtC.QRectF, s: QtC.QSizeF ```
     pub fn SetSize(self: ?*anyopaque, s: ?*anyopaque) void {
         qtc.QRectF_SetSize(@ptrCast(self), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-7c)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#operator-7c)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn OperatorBitwiseOr(self: ?*anyopaque, r: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_OperatorBitwiseOr(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-and)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#operator-and)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn OperatorBitwiseAnd(self: ?*anyopaque, r: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-7c-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#operator-7c-eq)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRectF_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-and-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#operator-and-eq)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRectF_OperatorBitwiseAndAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#contains)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn Contains(self: ?*anyopaque, r: ?*anyopaque) bool {
         return qtc.QRectF_Contains(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#contains)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
     pub fn Contains2(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.QRectF_Contains2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#contains)
     ///
     /// ``` self: QtC.QRectF, x: f64, y: f64 ```
     pub fn Contains3(self: ?*anyopaque, x: f64, y: f64) bool {
         return qtc.QRectF_Contains3(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#united)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#united)
     ///
     /// ``` self: QtC.QRectF, other: QtC.QRectF ```
     pub fn United(self: ?*anyopaque, other: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_United(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#intersected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#intersected)
     ///
     /// ``` self: QtC.QRectF, other: QtC.QRectF ```
     pub fn Intersected(self: ?*anyopaque, other: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_Intersected(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#intersects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#intersects)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn Intersects(self: ?*anyopaque, r: ?*anyopaque) bool {
         return qtc.QRectF_Intersects(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#marginsAdded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#marginsAdded)
     ///
     /// ``` self: QtC.QRectF, margins: QtC.QMarginsF ```
     pub fn MarginsAdded(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_MarginsAdded(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#marginsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#marginsRemoved)
     ///
     /// ``` self: QtC.QRectF, margins: QtC.QMarginsF ```
     pub fn MarginsRemoved(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_MarginsRemoved(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-2b-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QRectF, margins: QtC.QMarginsF ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_OperatorPlusAssign(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator--eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#operator--eq)
     ///
     /// ``` self: QtC.QRectF, margins: QtC.QMarginsF ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_OperatorMinusAssign(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#toRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#toRect)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn ToRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QRectF_ToRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#toAlignedRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#toAlignedRect)
     ///
     /// ``` self: QtC.QRectF ```
     pub fn ToAlignedRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QRectF_ToAlignedRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#dtor.QRectF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#dtor.QRectF)
     ///
     /// Delete this object from C++ memory.
     ///

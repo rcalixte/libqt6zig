@@ -29,42 +29,42 @@ pub const qprocessenvironment = struct {
         return qtc.QProcessEnvironment_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#operator-eq)
     ///
     /// ``` self: QtC.QProcessEnvironment, other: QtC.QProcessEnvironment ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QProcessEnvironment_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#swap)
     ///
     /// ``` self: QtC.QProcessEnvironment, other: QtC.QProcessEnvironment ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QProcessEnvironment_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#isEmpty)
     ///
     /// ``` self: QtC.QProcessEnvironment ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QProcessEnvironment_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#inheritsFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#inheritsFromParent)
     ///
     /// ``` self: QtC.QProcessEnvironment ```
     pub fn InheritsFromParent(self: ?*anyopaque) bool {
         return qtc.QProcessEnvironment_InheritsFromParent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#clear)
     ///
     /// ``` self: QtC.QProcessEnvironment ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QProcessEnvironment_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#contains)
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8 ```
     pub fn Contains(self: ?*anyopaque, name: []const u8) bool {
@@ -75,7 +75,7 @@ pub const qprocessenvironment = struct {
         return qtc.QProcessEnvironment_Contains(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#insert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#insert)
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8, value: []const u8 ```
     pub fn Insert(self: ?*anyopaque, name: []const u8, value: []const u8) void {
@@ -90,7 +90,7 @@ pub const qprocessenvironment = struct {
         qtc.QProcessEnvironment_Insert(@ptrCast(self), name_str, value_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#remove)
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8 ```
     pub fn Remove(self: ?*anyopaque, name: []const u8) void {
@@ -101,7 +101,7 @@ pub const qprocessenvironment = struct {
         qtc.QProcessEnvironment_Remove(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#value)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#value)
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8, allocator: std.mem.Allocator ```
     pub fn Value(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -116,7 +116,7 @@ pub const qprocessenvironment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#toStringList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#toStringList)
     ///
     /// ``` self: QtC.QProcessEnvironment, allocator: std.mem.Allocator ```
     pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -138,7 +138,7 @@ pub const qprocessenvironment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#keys)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#keys)
     ///
     /// ``` self: QtC.QProcessEnvironment, allocator: std.mem.Allocator ```
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -160,21 +160,21 @@ pub const qprocessenvironment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#insert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#insert)
     ///
     /// ``` self: QtC.QProcessEnvironment, e: QtC.QProcessEnvironment ```
     pub fn Insert2(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QProcessEnvironment_Insert2(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#systemEnvironment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#systemEnvironment)
     ///
     ///
     pub fn SystemEnvironment() QtC.QProcessEnvironment {
         return qtc.QProcessEnvironment_SystemEnvironment();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#value)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#value)
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn Value2(self: ?*anyopaque, name: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -193,7 +193,7 @@ pub const qprocessenvironment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#dtor.QProcessEnvironment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#dtor.QProcessEnvironment)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -219,7 +219,7 @@ pub const qprocess = struct {
         return qtc.QProcess_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -251,7 +251,7 @@ pub const qprocess = struct {
         return qtc.QProcess_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -263,7 +263,7 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
     /// ``` self: QtC.QProcess, program: []const u8 ```
     pub fn Start(self: ?*anyopaque, program: []const u8) void {
@@ -274,14 +274,14 @@ pub const qprocess = struct {
         qtc.QProcess_Start(@ptrCast(self), program_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn Start2(self: ?*anyopaque) void {
         qtc.QProcess_Start2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startCommand)
     ///
     /// ``` self: QtC.QProcess, command: []const u8 ```
     pub fn StartCommand(self: ?*anyopaque, command: []const u8) void {
@@ -292,21 +292,21 @@ pub const qprocess = struct {
         qtc.QProcess_StartCommand(@ptrCast(self), command_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn StartDetached(self: ?*anyopaque) bool {
         return qtc.QProcess_StartDetached(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#open)
     ///
     /// ``` self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, mode: i32) bool {
         return qtc.QProcess_Open(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#open)
     ///
     /// Allows for overriding the related default method
     ///
@@ -315,7 +315,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#open)
     ///
     /// Base class method implementation
     ///
@@ -324,7 +324,7 @@ pub const qprocess = struct {
         return qtc.QProcess_QBaseOpen(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#program)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#program)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn Program(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -335,7 +335,7 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setProgram)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProgram)
     ///
     /// ``` self: QtC.QProcess, program: []const u8 ```
     pub fn SetProgram(self: ?*anyopaque, program: []const u8) void {
@@ -346,7 +346,7 @@ pub const qprocess = struct {
         qtc.QProcess_SetProgram(@ptrCast(self), program_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#arguments)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#arguments)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn Arguments(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -368,7 +368,7 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setArguments)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setArguments)
     ///
     /// ``` self: QtC.QProcess, arguments: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetArguments(self: ?*anyopaque, arguments: [][]const u8, allocator: std.mem.Allocator) void {
@@ -387,7 +387,7 @@ pub const qprocess = struct {
         qtc.QProcess_SetArguments(@ptrCast(self), arguments_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#processChannelMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#processChannelMode)
     ///
     /// ``` self: QtC.QProcess ```
     ///
@@ -396,14 +396,14 @@ pub const qprocess = struct {
         return qtc.QProcess_ProcessChannelMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setProcessChannelMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessChannelMode)
     ///
     /// ``` self: QtC.QProcess, mode: qprocess_enums.ProcessChannelMode ```
     pub fn SetProcessChannelMode(self: ?*anyopaque, mode: i32) void {
         qtc.QProcess_SetProcessChannelMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#inputChannelMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#inputChannelMode)
     ///
     /// ``` self: QtC.QProcess ```
     ///
@@ -412,14 +412,14 @@ pub const qprocess = struct {
         return qtc.QProcess_InputChannelMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setInputChannelMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setInputChannelMode)
     ///
     /// ``` self: QtC.QProcess, mode: qprocess_enums.InputChannelMode ```
     pub fn SetInputChannelMode(self: ?*anyopaque, mode: i32) void {
         qtc.QProcess_SetInputChannelMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readChannel)
     ///
     /// ``` self: QtC.QProcess ```
     ///
@@ -428,28 +428,28 @@ pub const qprocess = struct {
         return qtc.QProcess_ReadChannel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setReadChannel)
     ///
     /// ``` self: QtC.QProcess, channel: qprocess_enums.ProcessChannel ```
     pub fn SetReadChannel(self: ?*anyopaque, channel: i32) void {
         qtc.QProcess_SetReadChannel(@ptrCast(self), @intCast(channel));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#closeReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#closeReadChannel)
     ///
     /// ``` self: QtC.QProcess, channel: qprocess_enums.ProcessChannel ```
     pub fn CloseReadChannel(self: ?*anyopaque, channel: i32) void {
         qtc.QProcess_CloseReadChannel(@ptrCast(self), @intCast(channel));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#closeWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#closeWriteChannel)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn CloseWriteChannel(self: ?*anyopaque) void {
         qtc.QProcess_CloseWriteChannel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardInputFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setStandardInputFile)
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8 ```
     pub fn SetStandardInputFile(self: ?*anyopaque, fileName: []const u8) void {
@@ -460,7 +460,7 @@ pub const qprocess = struct {
         qtc.QProcess_SetStandardInputFile(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputFile)
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8 ```
     pub fn SetStandardOutputFile(self: ?*anyopaque, fileName: []const u8) void {
@@ -471,7 +471,7 @@ pub const qprocess = struct {
         qtc.QProcess_SetStandardOutputFile(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardErrorFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setStandardErrorFile)
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8 ```
     pub fn SetStandardErrorFile(self: ?*anyopaque, fileName: []const u8) void {
@@ -482,14 +482,14 @@ pub const qprocess = struct {
         qtc.QProcess_SetStandardErrorFile(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputProcess)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputProcess)
     ///
     /// ``` self: QtC.QProcess, destination: QtC.QProcess ```
     pub fn SetStandardOutputProcess(self: ?*anyopaque, destination: ?*anyopaque) void {
         qtc.QProcess_SetStandardOutputProcess(@ptrCast(self), @ptrCast(destination));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
     ///
     /// ``` self: QtC.QProcess, description: []const u8 ```
     pub fn FailChildProcessModifier(self: ?*anyopaque, description: []const u8) void {
@@ -497,28 +497,28 @@ pub const qprocess = struct {
         qtc.QProcess_FailChildProcessModifier(@ptrCast(self), description_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#unixProcessParameters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#unixProcessParameters)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn UnixProcessParameters(self: ?*anyopaque) QtC.QProcess__UnixProcessParameters {
         return qtc.QProcess_UnixProcessParameters(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
     ///
     /// ``` self: QtC.QProcess, params: QtC.QProcess__UnixProcessParameters ```
     pub fn SetUnixProcessParameters(self: ?*anyopaque, params: ?*anyopaque) void {
         qtc.QProcess_SetUnixProcessParameters(@ptrCast(self), @ptrCast(params));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
     ///
     /// ``` self: QtC.QProcess, flagsOnly: flag of qprocess_enums.UnixProcessFlag ```
     pub fn SetUnixProcessParameters2(self: ?*anyopaque, flagsOnly: u32) void {
         qtc.QProcess_SetUnixProcessParameters2(@ptrCast(self), @intCast(flagsOnly));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#workingDirectory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#workingDirectory)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn WorkingDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -529,7 +529,7 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setWorkingDirectory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setWorkingDirectory)
     ///
     /// ``` self: QtC.QProcess, dir: []const u8 ```
     pub fn SetWorkingDirectory(self: ?*anyopaque, dir: []const u8) void {
@@ -540,7 +540,7 @@ pub const qprocess = struct {
         qtc.QProcess_SetWorkingDirectory(@ptrCast(self), dir_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setEnvironment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setEnvironment)
     ///
     /// ``` self: QtC.QProcess, environment: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetEnvironment(self: ?*anyopaque, environment: [][]const u8, allocator: std.mem.Allocator) void {
@@ -559,7 +559,7 @@ pub const qprocess = struct {
         qtc.QProcess_SetEnvironment(@ptrCast(self), environment_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#environment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#environment)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn Environment(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -581,21 +581,21 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setProcessEnvironment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessEnvironment)
     ///
     /// ``` self: QtC.QProcess, environment: QtC.QProcessEnvironment ```
     pub fn SetProcessEnvironment(self: ?*anyopaque, environment: ?*anyopaque) void {
         qtc.QProcess_SetProcessEnvironment(@ptrCast(self), @ptrCast(environment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#processEnvironment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#processEnvironment)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn ProcessEnvironment(self: ?*anyopaque) QtC.QProcessEnvironment {
         return qtc.QProcess_ProcessEnvironment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#error)
     ///
     /// ``` self: QtC.QProcess ```
     ///
@@ -604,7 +604,7 @@ pub const qprocess = struct {
         return qtc.QProcess_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#state)
     ///
     /// ``` self: QtC.QProcess ```
     ///
@@ -613,28 +613,28 @@ pub const qprocess = struct {
         return qtc.QProcess_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#processId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#processId)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn ProcessId(self: ?*anyopaque) i64 {
         return qtc.QProcess_ProcessId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForStarted)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn WaitForStarted(self: ?*anyopaque) bool {
         return qtc.QProcess_WaitForStarted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
     ///
     /// ``` self: QtC.QProcess, msecs: i32 ```
     pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QProcess_WaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
     ///
     /// Allows for overriding the related default method
     ///
@@ -643,7 +643,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
     ///
     /// Base class method implementation
     ///
@@ -652,14 +652,14 @@ pub const qprocess = struct {
         return qtc.QProcess_QBaseWaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
     ///
     /// ``` self: QtC.QProcess, msecs: i32 ```
     pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QProcess_WaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
     ///
     /// Allows for overriding the related default method
     ///
@@ -668,7 +668,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
     ///
     /// Base class method implementation
     ///
@@ -677,14 +677,14 @@ pub const qprocess = struct {
         return qtc.QProcess_QBaseWaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForFinished)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn WaitForFinished(self: ?*anyopaque) bool {
         return qtc.QProcess_WaitForFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readAllStandardOutput)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readAllStandardOutput)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ReadAllStandardOutput(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -695,7 +695,7 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readAllStandardError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readAllStandardError)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ReadAllStandardError(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -706,14 +706,14 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#exitCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#exitCode)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn ExitCode(self: ?*anyopaque) i32 {
         return qtc.QProcess_ExitCode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#exitStatus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#exitStatus)
     ///
     /// ``` self: QtC.QProcess ```
     ///
@@ -722,14 +722,14 @@ pub const qprocess = struct {
         return qtc.QProcess_ExitStatus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#bytesToWrite)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn BytesToWrite(self: ?*anyopaque) i64 {
         return qtc.QProcess_BytesToWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#bytesToWrite)
     ///
     /// Allows for overriding the related default method
     ///
@@ -738,7 +738,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#bytesToWrite)
     ///
     /// Base class method implementation
     ///
@@ -747,14 +747,14 @@ pub const qprocess = struct {
         return qtc.QProcess_QBaseBytesToWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#isSequential)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsSequential(self: ?*anyopaque) bool {
         return qtc.QProcess_IsSequential(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#isSequential)
     ///
     /// Allows for overriding the related default method
     ///
@@ -763,7 +763,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#isSequential)
     ///
     /// Base class method implementation
     ///
@@ -772,14 +772,14 @@ pub const qprocess = struct {
         return qtc.QProcess_QBaseIsSequential(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#close)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn Close(self: ?*anyopaque) void {
         qtc.QProcess_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#close)
     ///
     /// Allows for overriding the related default method
     ///
@@ -788,7 +788,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#close)
     ///
     /// Base class method implementation
     ///
@@ -797,7 +797,7 @@ pub const qprocess = struct {
         qtc.QProcess_QBaseClose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#execute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#execute)
     ///
     /// ``` program: []const u8 ```
     pub fn Execute(program: []const u8) i32 {
@@ -808,7 +808,7 @@ pub const qprocess = struct {
         return qtc.QProcess_Execute(program_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
     /// ``` program: []const u8 ```
     pub fn StartDetached2(program: []const u8) bool {
@@ -819,7 +819,7 @@ pub const qprocess = struct {
         return qtc.QProcess_StartDetached2(program_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#systemEnvironment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#systemEnvironment)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SystemEnvironment(allocator: std.mem.Allocator) [][]const u8 {
@@ -841,7 +841,7 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#nullDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#nullDevice)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn NullDevice(allocator: std.mem.Allocator) []const u8 {
@@ -852,56 +852,56 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#terminate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#terminate)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn Terminate(self: ?*anyopaque) void {
         qtc.QProcess_Terminate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#kill)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#kill)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn Kill(self: ?*anyopaque) void {
         qtc.QProcess_Kill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#finished)
     ///
     /// ``` self: QtC.QProcess, exitCode: i32 ```
     pub fn Finished(self: ?*anyopaque, exitCode: i32) void {
         qtc.QProcess_Finished(@ptrCast(self), @intCast(exitCode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#finished)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess, exitCode: i32) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
     ///
     /// ``` self: QtC.QProcess, errorVal: qprocess_enums.ProcessError ```
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
         qtc.QProcess_ErrorOccurred(@ptrCast(self), @intCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess, errorVal: qprocess_enums.ProcessError) callconv(.c) void ```
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
     ///
     /// ``` self: QtC.QProcess, state: qprocess_enums.ProcessState ```
     pub fn SetProcessState(self: ?*anyopaque, state: i32) void {
         qtc.QProcess_SetProcessState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -910,7 +910,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnSetProcessState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
     ///
     /// Base class method implementation
     ///
@@ -919,7 +919,7 @@ pub const qprocess = struct {
         qtc.QProcess_QBaseSetProcessState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readData)
     ///
     /// ``` self: QtC.QProcess, data: []u8, maxlen: i64 ```
     pub fn ReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -927,7 +927,7 @@ pub const qprocess = struct {
         return qtc.QProcess_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -936,7 +936,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readData)
     ///
     /// Base class method implementation
     ///
@@ -946,7 +946,7 @@ pub const qprocess = struct {
         return qtc.QProcess_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#writeData)
     ///
     /// ``` self: QtC.QProcess, data: []const u8, lenVal: i64 ```
     pub fn WriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -954,7 +954,7 @@ pub const qprocess = struct {
         return qtc.QProcess_WriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#writeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -963,7 +963,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#writeData)
     ///
     /// Base class method implementation
     ///
@@ -973,7 +973,7 @@ pub const qprocess = struct {
         return qtc.QProcess_QBaseWriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -986,7 +986,7 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -999,7 +999,7 @@ pub const qprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
     /// ``` self: QtC.QProcess, program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Start22(self: ?*anyopaque, program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) void {
@@ -1022,7 +1022,7 @@ pub const qprocess = struct {
         qtc.QProcess_Start22(@ptrCast(self), program_str, arguments_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
     /// ``` self: QtC.QProcess, program: []const u8, arguments: [][]const u8, mode: flag of qiodevicebase_enums.OpenModeFlag, allocator: std.mem.Allocator ```
     pub fn Start3(self: ?*anyopaque, program: []const u8, arguments: [][]const u8, mode: i32, allocator: std.mem.Allocator) void {
@@ -1045,14 +1045,14 @@ pub const qprocess = struct {
         qtc.QProcess_Start3(@ptrCast(self), program_str, arguments_list, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
     /// ``` self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Start1(self: ?*anyopaque, mode: i32) void {
         qtc.QProcess_Start1(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startCommand)
     ///
     /// ``` self: QtC.QProcess, command: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn StartCommand2(self: ?*anyopaque, command: []const u8, mode: i32) void {
@@ -1063,14 +1063,14 @@ pub const qprocess = struct {
         qtc.QProcess_StartCommand2(@ptrCast(self), command_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
     /// ``` self: QtC.QProcess, pid: *i64 ```
     pub fn StartDetached1(self: ?*anyopaque, pid: *i64) bool {
         return qtc.QProcess_StartDetached1(@ptrCast(self), @ptrCast(pid));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputFile)
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetStandardOutputFile2(self: ?*anyopaque, fileName: []const u8, mode: i32) void {
@@ -1081,7 +1081,7 @@ pub const qprocess = struct {
         qtc.QProcess_SetStandardOutputFile2(@ptrCast(self), fileName_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardErrorFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setStandardErrorFile)
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetStandardErrorFile2(self: ?*anyopaque, fileName: []const u8, mode: i32) void {
@@ -1092,7 +1092,7 @@ pub const qprocess = struct {
         qtc.QProcess_SetStandardErrorFile2(@ptrCast(self), fileName_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
     ///
     /// ``` self: QtC.QProcess, description: []const u8, errorVal: i32 ```
     pub fn FailChildProcessModifier2(self: ?*anyopaque, description: []const u8, errorVal: i32) void {
@@ -1100,21 +1100,21 @@ pub const qprocess = struct {
         qtc.QProcess_FailChildProcessModifier2(@ptrCast(self), description_Cstring, @intCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForStarted)
     ///
     /// ``` self: QtC.QProcess, msecs: i32 ```
     pub fn WaitForStarted1(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QProcess_WaitForStarted1(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForFinished)
     ///
     /// ``` self: QtC.QProcess, msecs: i32 ```
     pub fn WaitForFinished1(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QProcess_WaitForFinished1(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#execute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#execute)
     ///
     /// ``` program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Execute2(program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) i32 {
@@ -1137,7 +1137,7 @@ pub const qprocess = struct {
         return qtc.QProcess_Execute2(program_str, arguments_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
     /// ``` program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator ```
     pub fn StartDetached22(program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) bool {
@@ -1160,7 +1160,7 @@ pub const qprocess = struct {
         return qtc.QProcess_StartDetached22(program_str, arguments_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
     /// ``` program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, allocator: std.mem.Allocator ```
     pub fn StartDetached3(program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, allocator: std.mem.Allocator) bool {
@@ -1187,7 +1187,7 @@ pub const qprocess = struct {
         return qtc.QProcess_StartDetached3(program_str, arguments_list, workingDirectory_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
     /// ``` program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: *i64, allocator: std.mem.Allocator ```
     pub fn StartDetached4(program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: *i64, allocator: std.mem.Allocator) bool {
@@ -1214,14 +1214,14 @@ pub const qprocess = struct {
         return qtc.QProcess_StartDetached4(program_str, arguments_list, workingDirectory_str, @ptrCast(pid));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#finished)
     ///
     /// ``` self: QtC.QProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus ```
     pub fn Finished2(self: ?*anyopaque, exitCode: i32, exitStatus: i32) void {
         qtc.QProcess_Finished2(@ptrCast(self), @intCast(exitCode), @intCast(exitStatus));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#finished)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus) callconv(.c) void ```
     pub fn OnFinished2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
@@ -1230,7 +1230,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QProcess ```
     ///
@@ -1241,7 +1241,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
     ///
     /// ``` self: QtC.QProcess, enabled: bool ```
     pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1250,7 +1250,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
@@ -1259,7 +1259,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsOpen(self: ?*anyopaque) bool {
@@ -1268,7 +1268,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsReadable(self: ?*anyopaque) bool {
@@ -1277,7 +1277,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsWritable(self: ?*anyopaque) bool {
@@ -1286,7 +1286,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn ReadChannelCount(self: ?*anyopaque) i32 {
@@ -1295,7 +1295,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn WriteChannelCount(self: ?*anyopaque) i32 {
@@ -1304,7 +1304,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
@@ -1313,7 +1313,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
     ///
     /// ``` self: QtC.QProcess, channel: i32 ```
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
@@ -1322,7 +1322,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
@@ -1331,7 +1331,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
     ///
     /// ``` self: QtC.QProcess, channel: i32 ```
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
@@ -1340,7 +1340,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QProcess, data: []u8, maxlen: i64 ```
     pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1350,7 +1350,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QProcess, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -1363,7 +1363,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1376,7 +1376,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QProcess, data: []u8, maxlen: i64 ```
     pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1386,7 +1386,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1399,7 +1399,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn StartTransaction(self: ?*anyopaque) void {
@@ -1408,7 +1408,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn CommitTransaction(self: ?*anyopaque) void {
@@ -1417,7 +1417,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn RollbackTransaction(self: ?*anyopaque) void {
@@ -1426,7 +1426,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsTransactionStarted(self: ?*anyopaque) bool {
@@ -1435,7 +1435,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QProcess, data: []const u8, lenVal: i64 ```
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -1445,7 +1445,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QProcess, data: []const u8 ```
     pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
@@ -1455,7 +1455,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QProcess, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
@@ -1468,7 +1468,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QProcess, data: []u8, maxlen: i64 ```
     pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1478,7 +1478,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QProcess, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -1491,7 +1491,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
     ///
     /// ``` self: QtC.QProcess, maxSize: i64 ```
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
@@ -1500,7 +1500,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
     /// ``` self: QtC.QProcess, c: u8 ```
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
@@ -1509,7 +1509,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#putChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
     /// ``` self: QtC.QProcess, c: u8 ```
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
@@ -1518,7 +1518,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#getChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
     /// ``` self: QtC.QProcess, c: []u8 ```
     pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
@@ -1528,7 +1528,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1541,7 +1541,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn ReadyRead(self: ?*anyopaque) void {
@@ -1550,7 +1550,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess) callconv(.c) void ```
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1559,7 +1559,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QProcess, channel: i32 ```
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
@@ -1568,7 +1568,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess, channel: i32) callconv(.c) void ```
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1577,7 +1577,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QProcess, bytes: i64 ```
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
@@ -1586,7 +1586,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess, bytes: i64) callconv(.c) void ```
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
@@ -1595,7 +1595,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QProcess, channel: i32, bytes: i64 ```
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
@@ -1604,7 +1604,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess, channel: i32, bytes: i64) callconv(.c) void ```
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
@@ -1613,7 +1613,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn AboutToClose(self: ?*anyopaque) void {
@@ -1622,7 +1622,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess) callconv(.c) void ```
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1631,7 +1631,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn ReadChannelFinished(self: ?*anyopaque) void {
@@ -1640,7 +1640,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess) callconv(.c) void ```
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1649,7 +1649,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QProcess, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -1662,7 +1662,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1675,7 +1675,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QProcess, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1688,7 +1688,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1697,7 +1697,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1706,7 +1706,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1715,7 +1715,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1724,7 +1724,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QProcess, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1733,7 +1733,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1742,7 +1742,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QProcess, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1751,7 +1751,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QProcess, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1760,7 +1760,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QProcess, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1769,7 +1769,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QProcess, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1778,7 +1778,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1792,7 +1792,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QProcess, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1801,7 +1801,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QProcess, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1810,7 +1810,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QProcess, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1819,7 +1819,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1828,7 +1828,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QProcess, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1839,7 +1839,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1848,7 +1848,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1857,7 +1857,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1866,7 +1866,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1875,7 +1875,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QProcess, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1885,7 +1885,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QProcess, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1895,7 +1895,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1919,7 +1919,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1928,7 +1928,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1937,7 +1937,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1946,7 +1946,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1955,7 +1955,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1964,7 +1964,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QProcess, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1974,7 +1974,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QProcess ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1983,7 +1983,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QProcess, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1992,7 +1992,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QProcess, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2001,7 +2001,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2010,7 +2010,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QProcess, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2021,7 +2021,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QProcess, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2030,7 +2030,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QProcess, callback: *const fn (self: QtC.QProcess, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2039,7 +2039,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2050,7 +2050,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2061,7 +2061,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2072,7 +2072,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2083,7 +2083,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2094,7 +2094,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2105,7 +2105,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2116,7 +2116,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2127,7 +2127,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2138,7 +2138,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2149,7 +2149,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2160,7 +2160,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2171,7 +2171,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2182,7 +2182,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2193,7 +2193,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2204,7 +2204,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2215,7 +2215,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2226,7 +2226,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2237,7 +2237,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2248,7 +2248,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2259,7 +2259,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2270,7 +2270,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2282,7 +2282,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2294,7 +2294,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2305,7 +2305,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2316,7 +2316,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2327,7 +2327,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2338,7 +2338,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2349,7 +2349,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2360,7 +2360,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2371,7 +2371,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2382,7 +2382,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2393,7 +2393,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2404,7 +2404,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2415,7 +2415,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2426,7 +2426,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2437,7 +2437,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2448,7 +2448,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2459,7 +2459,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2470,7 +2470,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2481,7 +2481,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2492,7 +2492,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2503,7 +2503,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2514,7 +2514,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2525,7 +2525,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2536,7 +2536,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2547,7 +2547,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2558,7 +2558,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2569,7 +2569,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2580,7 +2580,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2591,7 +2591,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2602,7 +2602,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2617,7 +2617,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2632,7 +2632,7 @@ pub const qprocess = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2643,7 +2643,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2654,7 +2654,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2665,7 +2665,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2676,7 +2676,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2687,7 +2687,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2698,7 +2698,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2709,7 +2709,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2721,7 +2721,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2733,7 +2733,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2744,7 +2744,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2755,7 +2755,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2766,7 +2766,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2775,7 +2775,7 @@ pub const qprocess = struct {
         qtc.QProcess_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#started)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#started)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2784,7 +2784,7 @@ pub const qprocess = struct {
         qtc.QProcess_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#stateChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2793,7 +2793,7 @@ pub const qprocess = struct {
         qtc.QProcess_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readyReadStandardOutput)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readyReadStandardOutput)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2802,7 +2802,7 @@ pub const qprocess = struct {
         qtc.QProcess_Connect_ReadyReadStandardOutput(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readyReadStandardError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readyReadStandardError)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2813,7 +2813,7 @@ pub const qprocess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2822,7 +2822,7 @@ pub const qprocess = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#dtor.QProcess)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#dtor.QProcess)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2862,7 +2862,7 @@ pub const qprocess__unixprocessparameters = struct {
         qtc.QProcess__UnixProcessParameters_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#flags-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#flags-var)
     ///
     /// ``` self: QtC.QProcess__UnixProcessParameters ```
     ///
@@ -2871,21 +2871,21 @@ pub const qprocess__unixprocessparameters = struct {
         return qtc.QProcess__UnixProcessParameters_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#flags-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#flags-var)
     ///
     /// ``` self: QtC.QProcess__UnixProcessParameters, flags: flag of qprocess_enums.UnixProcessFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: u32) void {
         qtc.QProcess__UnixProcessParameters_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#lowestFileDescriptorToClose-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#lowestFileDescriptorToClose-var)
     ///
     /// ``` self: QtC.QProcess__UnixProcessParameters ```
     pub fn LowestFileDescriptorToClose(self: ?*anyopaque) i32 {
         return qtc.QProcess__UnixProcessParameters_LowestFileDescriptorToClose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#lowestFileDescriptorToClose-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#lowestFileDescriptorToClose-var)
     ///
     /// ``` self: QtC.QProcess__UnixProcessParameters, lowestFileDescriptorToClose: i32 ```
     pub fn SetLowestFileDescriptorToClose(self: ?*anyopaque, lowestFileDescriptorToClose: i32) void {

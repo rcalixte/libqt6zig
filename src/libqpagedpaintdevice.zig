@@ -5,56 +5,56 @@ const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 
 /// https://doc.qt.io/qt-6/qpagedpaintdevice.html
 pub const qpagedpaintdevice = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#newPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#newPage)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn NewPage(self: ?*anyopaque) bool {
         return qtc.QPagedPaintDevice_NewPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
     ///
     /// ``` self: QtC.QPagedPaintDevice, pageLayout: QtC.QPageLayout ```
     pub fn SetPageLayout(self: ?*anyopaque, pageLayout: ?*anyopaque) bool {
         return qtc.QPagedPaintDevice_SetPageLayout(@ptrCast(self), @ptrCast(pageLayout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
     ///
     /// ``` self: QtC.QPagedPaintDevice, pageSize: QtC.QPageSize ```
     pub fn SetPageSize(self: ?*anyopaque, pageSize: ?*anyopaque) bool {
         return qtc.QPagedPaintDevice_SetPageSize(@ptrCast(self), @ptrCast(pageSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
     ///
     /// ``` self: QtC.QPagedPaintDevice, orientation: qpagelayout_enums.Orientation ```
     pub fn SetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QPagedPaintDevice_SetPageOrientation(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
     ///
     /// ``` self: QtC.QPagedPaintDevice, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit ```
     pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
         return qtc.QPagedPaintDevice_SetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageLayout)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn PageLayout(self: ?*anyopaque) QtC.QPageLayout {
         return qtc.QPagedPaintDevice_PageLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
     ///
     /// ``` self: QtC.QPagedPaintDevice, ranges: QtC.QPageRanges ```
     pub fn SetPageRanges(self: ?*anyopaque, ranges: ?*anyopaque) void {
         qtc.QPagedPaintDevice_SetPageRanges(@ptrCast(self), @ptrCast(ranges));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageRanges)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageRanges)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn PageRanges(self: ?*anyopaque) QtC.QPageRanges {
@@ -63,7 +63,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn DevType(self: ?*anyopaque) i32 {
@@ -72,7 +72,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -81,7 +81,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
@@ -90,7 +90,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#width)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -99,7 +99,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#height)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -108,7 +108,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -117,7 +117,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -126,7 +126,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -135,7 +135,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -144,7 +144,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -153,7 +153,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -162,7 +162,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -171,7 +171,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -180,7 +180,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -189,7 +189,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QPagedPaintDevice ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -198,7 +198,7 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -207,14 +207,14 @@ pub const qpagedpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#dtor.QPagedPaintDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#dtor.QPagedPaintDevice)
     ///
     /// Delete this object from C++ memory.
     ///

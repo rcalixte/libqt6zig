@@ -39,7 +39,7 @@ pub const qelapsedtimer = struct {
         qtc.QElapsedTimer_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#clockType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#clockType)
     ///
     ///
     ///
@@ -48,84 +48,84 @@ pub const qelapsedtimer = struct {
         return qtc.QElapsedTimer_ClockType();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#isMonotonic)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#isMonotonic)
     ///
     ///
     pub fn IsMonotonic() bool {
         return qtc.QElapsedTimer_IsMonotonic();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#start)
     ///
     /// ``` self: QtC.QElapsedTimer ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.QElapsedTimer_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#restart)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#restart)
     ///
     /// ``` self: QtC.QElapsedTimer ```
     pub fn Restart(self: ?*anyopaque) i64 {
         return qtc.QElapsedTimer_Restart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#invalidate)
     ///
     /// ``` self: QtC.QElapsedTimer ```
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QElapsedTimer_Invalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#isValid)
     ///
     /// ``` self: QtC.QElapsedTimer ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QElapsedTimer_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#nsecsElapsed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#nsecsElapsed)
     ///
     /// ``` self: QtC.QElapsedTimer ```
     pub fn NsecsElapsed(self: ?*anyopaque) i64 {
         return qtc.QElapsedTimer_NsecsElapsed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#elapsed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#elapsed)
     ///
     /// ``` self: QtC.QElapsedTimer ```
     pub fn Elapsed(self: ?*anyopaque) i64 {
         return qtc.QElapsedTimer_Elapsed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#hasExpired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#hasExpired)
     ///
     /// ``` self: QtC.QElapsedTimer, timeout: i64 ```
     pub fn HasExpired(self: ?*anyopaque, timeout: i64) bool {
         return qtc.QElapsedTimer_HasExpired(@ptrCast(self), @intCast(timeout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#msecsSinceReference)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#msecsSinceReference)
     ///
     /// ``` self: QtC.QElapsedTimer ```
     pub fn MsecsSinceReference(self: ?*anyopaque) i64 {
         return qtc.QElapsedTimer_MsecsSinceReference(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#msecsTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#msecsTo)
     ///
     /// ``` self: QtC.QElapsedTimer, other: QtC.QElapsedTimer ```
     pub fn MsecsTo(self: ?*anyopaque, other: ?*anyopaque) i64 {
         return qtc.QElapsedTimer_MsecsTo(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#secsTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#secsTo)
     ///
     /// ``` self: QtC.QElapsedTimer, other: QtC.QElapsedTimer ```
     pub fn SecsTo(self: ?*anyopaque, other: ?*anyopaque) i64 {
         return qtc.QElapsedTimer_SecsTo(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#dtor.QElapsedTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#dtor.QElapsedTimer)
     ///
     /// Delete this object from C++ memory.
     ///

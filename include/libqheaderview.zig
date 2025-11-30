@@ -30,7 +30,7 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_new2(@intCast(orientation), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -62,7 +62,7 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -74,14 +74,14 @@ pub const qheaderview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setModel)
     ///
     /// ``` self: QtC.QHeaderView, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.QHeaderView_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -90,7 +90,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnSetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setModel)
     ///
     /// Base class method implementation
     ///
@@ -99,7 +99,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#orientation)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -108,28 +108,28 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_Orientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#offset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#offset)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Offset(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_Offset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#length)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Length(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QHeaderView_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -138,7 +138,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -147,14 +147,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
     ///
     /// ``` self: QtC.QHeaderView, v: bool ```
     pub fn SetVisible(self: ?*anyopaque, v: bool) void {
         qtc.QHeaderView_SetVisible(@ptrCast(self), v);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
     ///
     /// Allows for overriding the related default method
     ///
@@ -163,7 +163,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
     ///
     /// Base class method implementation
     ///
@@ -172,203 +172,203 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseSetVisible(@ptrCast(self), v);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeHint)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionSizeHint(self: ?*anyopaque, logicalIndex: i32) i32 {
         return qtc.QHeaderView_SectionSizeHint(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualIndexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualIndexAt)
     ///
     /// ``` self: QtC.QHeaderView, position: i32 ```
     pub fn VisualIndexAt(self: ?*anyopaque, position: i32) i32 {
         return qtc.QHeaderView_VisualIndexAt(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
     ///
     /// ``` self: QtC.QHeaderView, position: i32 ```
     pub fn LogicalIndexAt(self: ?*anyopaque, position: i32) i32 {
         return qtc.QHeaderView_LogicalIndexAt(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
     ///
     /// ``` self: QtC.QHeaderView, x: i32, y: i32 ```
     pub fn LogicalIndexAt2(self: ?*anyopaque, x: i32, y: i32) i32 {
         return qtc.QHeaderView_LogicalIndexAt2(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
     ///
     /// ``` self: QtC.QHeaderView, pos: QtC.QPoint ```
     pub fn LogicalIndexAt3(self: ?*anyopaque, pos: ?*anyopaque) i32 {
         return qtc.QHeaderView_LogicalIndexAt3(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSize)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionSize(self: ?*anyopaque, logicalIndex: i32) i32 {
         return qtc.QHeaderView_SectionSize(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPosition)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionPosition(self: ?*anyopaque, logicalIndex: i32) i32 {
         return qtc.QHeaderView_SectionPosition(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionViewportPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionViewportPosition)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionViewportPosition(self: ?*anyopaque, logicalIndex: i32) i32 {
         return qtc.QHeaderView_SectionViewportPosition(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#moveSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveSection)
     ///
     /// ``` self: QtC.QHeaderView, from: i32, to: i32 ```
     pub fn MoveSection(self: ?*anyopaque, from: i32, to: i32) void {
         qtc.QHeaderView_MoveSection(@ptrCast(self), @intCast(from), @intCast(to));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#swapSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#swapSections)
     ///
     /// ``` self: QtC.QHeaderView, first: i32, second: i32 ```
     pub fn SwapSections(self: ?*anyopaque, first: i32, second: i32) void {
         qtc.QHeaderView_SwapSections(@ptrCast(self), @intCast(first), @intCast(second));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSection)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32, size: i32 ```
     pub fn ResizeSection(self: ?*anyopaque, logicalIndex: i32, size: i32) void {
         qtc.QHeaderView_ResizeSection(@ptrCast(self), @intCast(logicalIndex), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
     /// ``` self: QtC.QHeaderView, mode: qheaderview_enums.ResizeMode ```
     pub fn ResizeSections(self: ?*anyopaque, mode: i32) void {
         qtc.QHeaderView_ResizeSections(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isSectionHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isSectionHidden)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn IsSectionHidden(self: ?*anyopaque, logicalIndex: i32) bool {
         return qtc.QHeaderView_IsSectionHidden(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionHidden)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32, hide: bool ```
     pub fn SetSectionHidden(self: ?*anyopaque, logicalIndex: i32, hide: bool) void {
         qtc.QHeaderView_SetSectionHidden(@ptrCast(self), @intCast(logicalIndex), hide);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#hiddenSectionCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#hiddenSectionCount)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HiddenSectionCount(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_HiddenSectionCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#hideSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#hideSection)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn HideSection(self: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_HideSection(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#showSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#showSection)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn ShowSection(self: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_ShowSection(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#count)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualIndex)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn VisualIndex(self: ?*anyopaque, logicalIndex: i32) i32 {
         return qtc.QHeaderView_VisualIndex(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#logicalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndex)
     ///
     /// ``` self: QtC.QHeaderView, visualIndex: i32 ```
     pub fn LogicalIndex(self: ?*anyopaque, visualIndex: i32) i32 {
         return qtc.QHeaderView_LogicalIndex(@ptrCast(self), @intCast(visualIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionsMovable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionsMovable)
     ///
     /// ``` self: QtC.QHeaderView, movable: bool ```
     pub fn SetSectionsMovable(self: ?*anyopaque, movable: bool) void {
         qtc.QHeaderView_SetSectionsMovable(@ptrCast(self), movable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsMovable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsMovable)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SectionsMovable(self: ?*anyopaque) bool {
         return qtc.QHeaderView_SectionsMovable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setFirstSectionMovable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setFirstSectionMovable)
     ///
     /// ``` self: QtC.QHeaderView, movable: bool ```
     pub fn SetFirstSectionMovable(self: ?*anyopaque, movable: bool) void {
         qtc.QHeaderView_SetFirstSectionMovable(@ptrCast(self), movable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isFirstSectionMovable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isFirstSectionMovable)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsFirstSectionMovable(self: ?*anyopaque) bool {
         return qtc.QHeaderView_IsFirstSectionMovable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionsClickable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionsClickable)
     ///
     /// ``` self: QtC.QHeaderView, clickable: bool ```
     pub fn SetSectionsClickable(self: ?*anyopaque, clickable: bool) void {
         qtc.QHeaderView_SetSectionsClickable(@ptrCast(self), clickable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsClickable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsClickable)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SectionsClickable(self: ?*anyopaque) bool {
         return qtc.QHeaderView_SectionsClickable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setHighlightSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setHighlightSections)
     ///
     /// ``` self: QtC.QHeaderView, highlight: bool ```
     pub fn SetHighlightSections(self: ?*anyopaque, highlight: bool) void {
         qtc.QHeaderView_SetHighlightSections(@ptrCast(self), highlight);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#highlightSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#highlightSections)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HighlightSections(self: ?*anyopaque) bool {
         return qtc.QHeaderView_HighlightSections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionResizeMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionResizeMode)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     ///
@@ -377,70 +377,70 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_SectionResizeMode(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
     ///
     /// ``` self: QtC.QHeaderView, mode: qheaderview_enums.ResizeMode ```
     pub fn SetSectionResizeMode(self: ?*anyopaque, mode: i32) void {
         qtc.QHeaderView_SetSectionResizeMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32, mode: qheaderview_enums.ResizeMode ```
     pub fn SetSectionResizeMode2(self: ?*anyopaque, logicalIndex: i32, mode: i32) void {
         qtc.QHeaderView_SetSectionResizeMode2(@ptrCast(self), @intCast(logicalIndex), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setResizeContentsPrecision)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setResizeContentsPrecision)
     ///
     /// ``` self: QtC.QHeaderView, precision: i32 ```
     pub fn SetResizeContentsPrecision(self: ?*anyopaque, precision: i32) void {
         qtc.QHeaderView_SetResizeContentsPrecision(@ptrCast(self), @intCast(precision));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeContentsPrecision)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeContentsPrecision)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ResizeContentsPrecision(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_ResizeContentsPrecision(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#stretchSectionCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#stretchSectionCount)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn StretchSectionCount(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_StretchSectionCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicatorShown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicatorShown)
     ///
     /// ``` self: QtC.QHeaderView, show: bool ```
     pub fn SetSortIndicatorShown(self: ?*anyopaque, show: bool) void {
         qtc.QHeaderView_SetSortIndicatorShown(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isSortIndicatorShown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isSortIndicatorShown)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsSortIndicatorShown(self: ?*anyopaque) bool {
         return qtc.QHeaderView_IsSortIndicatorShown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicator)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder ```
     pub fn SetSortIndicator(self: ?*anyopaque, logicalIndex: i32, order: i32) void {
         qtc.QHeaderView_SetSortIndicator(@ptrCast(self), @intCast(logicalIndex), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorSection)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SortIndicatorSection(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_SortIndicatorSection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorOrder)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -449,98 +449,98 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_SortIndicatorOrder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicatorClearable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicatorClearable)
     ///
     /// ``` self: QtC.QHeaderView, clearable: bool ```
     pub fn SetSortIndicatorClearable(self: ?*anyopaque, clearable: bool) void {
         qtc.QHeaderView_SetSortIndicatorClearable(@ptrCast(self), clearable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isSortIndicatorClearable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isSortIndicatorClearable)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsSortIndicatorClearable(self: ?*anyopaque) bool {
         return qtc.QHeaderView_IsSortIndicatorClearable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#stretchLastSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#stretchLastSection)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn StretchLastSection(self: ?*anyopaque) bool {
         return qtc.QHeaderView_StretchLastSection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setStretchLastSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setStretchLastSection)
     ///
     /// ``` self: QtC.QHeaderView, stretch: bool ```
     pub fn SetStretchLastSection(self: ?*anyopaque, stretch: bool) void {
         qtc.QHeaderView_SetStretchLastSection(@ptrCast(self), stretch);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#cascadingSectionResizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#cascadingSectionResizes)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn CascadingSectionResizes(self: ?*anyopaque) bool {
         return qtc.QHeaderView_CascadingSectionResizes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setCascadingSectionResizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setCascadingSectionResizes)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetCascadingSectionResizes(self: ?*anyopaque, enable: bool) void {
         qtc.QHeaderView_SetCascadingSectionResizes(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#defaultSectionSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#defaultSectionSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DefaultSectionSize(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_DefaultSectionSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setDefaultSectionSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setDefaultSectionSize)
     ///
     /// ``` self: QtC.QHeaderView, size: i32 ```
     pub fn SetDefaultSectionSize(self: ?*anyopaque, size: i32) void {
         qtc.QHeaderView_SetDefaultSectionSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resetDefaultSectionSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resetDefaultSectionSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ResetDefaultSectionSize(self: ?*anyopaque) void {
         qtc.QHeaderView_ResetDefaultSectionSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#minimumSectionSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#minimumSectionSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MinimumSectionSize(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_MinimumSectionSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setMinimumSectionSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setMinimumSectionSize)
     ///
     /// ``` self: QtC.QHeaderView, size: i32 ```
     pub fn SetMinimumSectionSize(self: ?*anyopaque, size: i32) void {
         qtc.QHeaderView_SetMinimumSectionSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#maximumSectionSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#maximumSectionSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MaximumSectionSize(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_MaximumSectionSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setMaximumSectionSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setMaximumSectionSize)
     ///
     /// ``` self: QtC.QHeaderView, size: i32 ```
     pub fn SetMaximumSectionSize(self: ?*anyopaque, size: i32) void {
         qtc.QHeaderView_SetMaximumSectionSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#defaultAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#defaultAlignment)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -549,21 +549,21 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_DefaultAlignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setDefaultAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setDefaultAlignment)
     ///
     /// ``` self: QtC.QHeaderView, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetDefaultAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QHeaderView_SetDefaultAlignment(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DoItemsLayout(self: ?*anyopaque) void {
         qtc.QHeaderView_DoItemsLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
     ///
     /// Allows for overriding the related default method
     ///
@@ -572,7 +572,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnDoItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
     ///
     /// Base class method implementation
     ///
@@ -581,21 +581,21 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseDoItemsLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsMoved)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SectionsMoved(self: ?*anyopaque) bool {
         return qtc.QHeaderView_SectionsMoved(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsHidden)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SectionsHidden(self: ?*anyopaque) bool {
         return qtc.QHeaderView_SectionsHidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#saveState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#saveState)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn SaveState(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -606,7 +606,7 @@ pub const qheaderview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#restoreState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#restoreState)
     ///
     /// ``` self: QtC.QHeaderView, state: []u8 ```
     pub fn RestoreState(self: ?*anyopaque, state: []u8) bool {
@@ -617,14 +617,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_RestoreState(@ptrCast(self), state_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#reset)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QHeaderView_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#reset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -633,7 +633,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#reset)
     ///
     /// Base class method implementation
     ///
@@ -642,196 +642,196 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseReset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setOffset)
     ///
     /// ``` self: QtC.QHeaderView, offset: i32 ```
     pub fn SetOffset(self: ?*anyopaque, offset: i32) void {
         qtc.QHeaderView_SetOffset(@ptrCast(self), @intCast(offset));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToSectionPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToSectionPosition)
     ///
     /// ``` self: QtC.QHeaderView, visualIndex: i32 ```
     pub fn SetOffsetToSectionPosition(self: ?*anyopaque, visualIndex: i32) void {
         qtc.QHeaderView_SetOffsetToSectionPosition(@ptrCast(self), @intCast(visualIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToLastSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToLastSection)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SetOffsetToLastSection(self: ?*anyopaque) void {
         qtc.QHeaderView_SetOffsetToLastSection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#headerDataChanged)
     ///
     /// ``` self: QtC.QHeaderView, orientation: qnamespace_enums.Orientation, logicalFirst: i32, logicalLast: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, logicalFirst: i32, logicalLast: i32) void {
         qtc.QHeaderView_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32 ```
     pub fn SectionMoved(self: ?*anyopaque, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) void {
         qtc.QHeaderView_SectionMoved(@ptrCast(self), @intCast(logicalIndex), @intCast(oldVisualIndex), @intCast(newVisualIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) callconv(.c) void ```
     pub fn OnSectionMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32 ```
     pub fn SectionResized(self: ?*anyopaque, logicalIndex: i32, oldSize: i32, newSize: i32) void {
         qtc.QHeaderView_SectionResized(@ptrCast(self), @intCast(logicalIndex), @intCast(oldSize), @intCast(newSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32) callconv(.c) void ```
     pub fn OnSectionResized(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionResized(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionPressed(self: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_SectionPressed(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionClicked(self: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_SectionClicked(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionEntered(self: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_SectionEntered(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionDoubleClicked(self: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_SectionDoubleClicked(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
     ///
     /// ``` self: QtC.QHeaderView, oldCount: i32, newCount: i32 ```
     pub fn SectionCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
         qtc.QHeaderView_SectionCountChanged(@ptrCast(self), @intCast(oldCount), @intCast(newCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, oldCount: i32, newCount: i32) callconv(.c) void ```
     pub fn OnSectionCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionHandleDoubleClicked(self: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_SectionHandleDoubleClicked(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionHandleDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionHandleDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn GeometriesChanged(self: ?*anyopaque) void {
         qtc.QHeaderView_GeometriesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView) callconv(.c) void ```
     pub fn OnGeometriesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QHeaderView_Connect_GeometriesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder ```
     pub fn SortIndicatorChanged(self: ?*anyopaque, logicalIndex: i32, order: i32) void {
         qtc.QHeaderView_SortIndicatorChanged(@ptrCast(self), @intCast(logicalIndex), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder) callconv(.c) void ```
     pub fn OnSortIndicatorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SortIndicatorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
     ///
     /// ``` self: QtC.QHeaderView, clearable: bool ```
     pub fn SortIndicatorClearableChanged(self: ?*anyopaque, clearable: bool) void {
         qtc.QHeaderView_SortIndicatorClearableChanged(@ptrCast(self), clearable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, clearable: bool) callconv(.c) void ```
     pub fn OnSortIndicatorClearableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SortIndicatorClearableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn UpdateSection(self: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_UpdateSection(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -840,7 +840,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnUpdateSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
     ///
     /// Base class method implementation
     ///
@@ -849,14 +849,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseUpdateSection(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ResizeSections2(self: ?*anyopaque) void {
         qtc.QHeaderView_ResizeSections2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -865,7 +865,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnResizeSections2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
     /// Base class method implementation
     ///
@@ -874,14 +874,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseResizeSections2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
     ///
     /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
     pub fn SectionsInserted(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
         qtc.QHeaderView_SectionsInserted(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
     ///
     /// Allows for overriding the related default method
     ///
@@ -890,7 +890,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnSectionsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
     ///
     /// Base class method implementation
     ///
@@ -899,14 +899,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseSectionsInserted(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
     ///
     /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
     pub fn SectionsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
         qtc.QHeaderView_SectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
     ///
     /// Allows for overriding the related default method
     ///
@@ -915,7 +915,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnSectionsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
     ///
     /// Base class method implementation
     ///
@@ -924,14 +924,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseSectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initialize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Initialize(self: ?*anyopaque) void {
         qtc.QHeaderView_Initialize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initialize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -940,7 +940,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnInitialize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initialize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
     ///
     /// Base class method implementation
     ///
@@ -949,14 +949,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseInitialize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn InitializeSections(self: ?*anyopaque) void {
         qtc.QHeaderView_InitializeSections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -965,7 +965,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnInitializeSections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
     /// Base class method implementation
     ///
@@ -974,14 +974,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseInitializeSections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
     /// ``` self: QtC.QHeaderView, start: i32, end: i32 ```
     pub fn InitializeSections2(self: ?*anyopaque, start: i32, end: i32) void {
         qtc.QHeaderView_InitializeSections2(@ptrCast(self), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -990,7 +990,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnInitializeSections2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
     /// Base class method implementation
     ///
@@ -999,14 +999,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseInitializeSections2(@ptrCast(self), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
     ///
     /// ``` self: QtC.QHeaderView, current: QtC.QModelIndex, old: QtC.QModelIndex ```
     pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, old: ?*anyopaque) void {
         qtc.QHeaderView_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(old));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1015,7 +1015,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnCurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
     ///
     /// Base class method implementation
     ///
@@ -1024,14 +1024,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(old));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#event)
     ///
     /// ``` self: QtC.QHeaderView, e: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QHeaderView_Event(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1040,7 +1040,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#event)
     ///
     /// Base class method implementation
     ///
@@ -1049,14 +1049,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
     ///
     /// ``` self: QtC.QHeaderView, e: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QHeaderView_PaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1065,7 +1065,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -1074,14 +1074,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
     ///
     /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QHeaderView_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1090,7 +1090,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -1099,14 +1099,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QHeaderView_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1115,7 +1115,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -1124,14 +1124,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QHeaderView_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1140,7 +1140,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -1149,14 +1149,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
     ///
     /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QHeaderView_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1165,7 +1165,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
     ///
@@ -1174,14 +1174,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
     ///
     /// ``` self: QtC.QHeaderView, e: QtC.QEvent ```
     pub fn ViewportEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QHeaderView_ViewportEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1190,7 +1190,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
     ///
     /// Base class method implementation
     ///
@@ -1199,14 +1199,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseViewportEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
     ///
     /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, rect: QtC.QRect, logicalIndex: i32 ```
     pub fn PaintSection(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_PaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1215,7 +1215,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnPaintSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
     ///
     /// Base class method implementation
     ///
@@ -1224,14 +1224,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBasePaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
     ///
     /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionSizeFromContents(self: ?*anyopaque, logicalIndex: i32) QtC.QSize {
         return qtc.QHeaderView_SectionSizeFromContents(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1240,7 +1240,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnSectionSizeFromContents(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
     ///
     /// Base class method implementation
     ///
@@ -1249,14 +1249,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseSectionSizeFromContents(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HorizontalOffset(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_HorizontalOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1265,7 +1265,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnHorizontalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
     ///
     /// Base class method implementation
     ///
@@ -1274,14 +1274,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseHorizontalOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn VerticalOffset(self: ?*anyopaque) i32 {
         return qtc.QHeaderView_VerticalOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1290,7 +1290,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnVerticalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
     ///
     /// Base class method implementation
     ///
@@ -1299,14 +1299,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseVerticalOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn UpdateGeometries(self: ?*anyopaque) void {
         qtc.QHeaderView_UpdateGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1315,7 +1315,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnUpdateGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
     ///
     /// Base class method implementation
     ///
@@ -1324,14 +1324,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseUpdateGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
     ///
     /// ``` self: QtC.QHeaderView, dx: i32, dy: i32 ```
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QHeaderView_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1340,7 +1340,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
     ///
     /// Base class method implementation
     ///
@@ -1349,7 +1349,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
     ///
     /// ``` self: QtC.QHeaderView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -1360,7 +1360,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1369,7 +1369,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
     ///
     /// Base class method implementation
     ///
@@ -1382,14 +1382,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
     ///
     /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
         qtc.QHeaderView_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1398,7 +1398,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnRowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
     ///
     /// Base class method implementation
     ///
@@ -1407,14 +1407,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
         return qtc.QHeaderView_VisualRect(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1423,7 +1423,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnVisualRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
     ///
     /// Base class method implementation
     ///
@@ -1432,14 +1432,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
     pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
         qtc.QHeaderView_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1448,7 +1448,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnScrollTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
     ///
     /// Base class method implementation
     ///
@@ -1457,14 +1457,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
     ///
     /// ``` self: QtC.QHeaderView, p: QtC.QPoint ```
     pub fn IndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
         return qtc.QHeaderView_IndexAt(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1473,7 +1473,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnIndexAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
     ///
     /// Base class method implementation
     ///
@@ -1482,14 +1482,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseIndexAt(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn IsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QHeaderView_IsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1498,7 +1498,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnIsIndexHidden(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
     ///
     /// Base class method implementation
     ///
@@ -1507,14 +1507,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseIsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
     ///
     /// ``` self: QtC.QHeaderView, param1: qabstractitemview_enums.CursorAction, param2: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MoveCursor(self: ?*anyopaque, param1: i32, param2: i64) QtC.QModelIndex {
         return qtc.QHeaderView_MoveCursor(@ptrCast(self), @intCast(param1), @intCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1523,7 +1523,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnMoveCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
     ///
     /// Base class method implementation
     ///
@@ -1532,14 +1532,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseMoveCursor(@ptrCast(self), @intCast(param1), @intCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
     ///
     /// ``` self: QtC.QHeaderView, rect: QtC.QRect, flags: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, flags: i32) void {
         qtc.QHeaderView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1548,7 +1548,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnSetSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
     ///
     /// Base class method implementation
     ///
@@ -1557,14 +1557,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
     ///
     /// ``` self: QtC.QHeaderView, selection: QtC.QItemSelection ```
     pub fn VisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
         return qtc.QHeaderView_VisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1573,7 +1573,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnVisualRegionForSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
     ///
     /// Base class method implementation
     ///
@@ -1582,14 +1582,14 @@ pub const qheaderview = struct {
         return qtc.QHeaderView_QBaseVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
     ///
     /// ``` self: QtC.QHeaderView, option: QtC.QStyleOptionHeader, logicalIndex: i32 ```
     pub fn InitStyleOptionForIndex(self: ?*anyopaque, option: ?*anyopaque, logicalIndex: i32) void {
         qtc.QHeaderView_InitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1598,7 +1598,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnInitStyleOptionForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
     ///
     /// Base class method implementation
     ///
@@ -1607,14 +1607,14 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseInitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @intCast(logicalIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
     ///
     /// ``` self: QtC.QHeaderView, option: QtC.QStyleOptionHeader ```
     pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
         qtc.QHeaderView_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1623,7 +1623,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
     ///
     /// Base class method implementation
     ///
@@ -1632,7 +1632,7 @@ pub const qheaderview = struct {
         qtc.QHeaderView_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1645,7 +1645,7 @@ pub const qheaderview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1660,7 +1660,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#model)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
@@ -1669,7 +1669,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
@@ -1678,7 +1678,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
     ///
     /// ``` self: QtC.QHeaderView, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -1687,7 +1687,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -1696,7 +1696,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
     /// ``` self: QtC.QHeaderView, mode: qabstractitemview_enums.SelectionMode ```
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
@@ -1705,7 +1705,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -1716,7 +1716,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
     /// ``` self: QtC.QHeaderView, behavior: qabstractitemview_enums.SelectionBehavior ```
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
@@ -1725,7 +1725,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -1736,7 +1736,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -1745,7 +1745,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -1754,7 +1754,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
     /// ``` self: QtC.QHeaderView, triggers: flag of qabstractitemview_enums.EditTrigger ```
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
@@ -1763,7 +1763,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -1774,7 +1774,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
     /// ``` self: QtC.QHeaderView, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
@@ -1783,7 +1783,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -1794,7 +1794,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
@@ -1803,7 +1803,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
     /// ``` self: QtC.QHeaderView, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
@@ -1812,7 +1812,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -1823,7 +1823,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
@@ -1832,7 +1832,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
@@ -1841,7 +1841,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HasAutoScroll(self: ?*anyopaque) bool {
@@ -1850,7 +1850,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
     ///
     /// ``` self: QtC.QHeaderView, margin: i32 ```
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
@@ -1859,7 +1859,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
@@ -1868,7 +1868,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
@@ -1877,7 +1877,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn TabKeyNavigation(self: ?*anyopaque) bool {
@@ -1886,7 +1886,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
@@ -1895,7 +1895,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ShowDropIndicator(self: ?*anyopaque) bool {
@@ -1904,7 +1904,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
@@ -1913,7 +1913,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DragEnabled(self: ?*anyopaque) bool {
@@ -1922,7 +1922,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
     ///
     /// ``` self: QtC.QHeaderView, overwrite: bool ```
     pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
@@ -1931,7 +1931,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
@@ -1940,7 +1940,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
     /// ``` self: QtC.QHeaderView, behavior: qabstractitemview_enums.DragDropMode ```
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
@@ -1949,7 +1949,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -1960,7 +1960,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
     /// ``` self: QtC.QHeaderView, dropAction: qnamespace_enums.DropAction ```
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
@@ -1969,7 +1969,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -1980,7 +1980,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
@@ -1989,7 +1989,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn AlternatingRowColors(self: ?*anyopaque) bool {
@@ -1998,7 +1998,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
     ///
     /// ``` self: QtC.QHeaderView, size: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -2007,7 +2007,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IconSize(self: ?*anyopaque) QtC.QSize {
@@ -2016,7 +2016,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
     /// ``` self: QtC.QHeaderView, mode: qnamespace_enums.TextElideMode ```
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
@@ -2025,7 +2025,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -2036,7 +2036,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
@@ -2045,7 +2045,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn OpenPersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2054,7 +2054,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closePersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closePersistentEditor)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn ClosePersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2063,7 +2063,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#isPersistentEditorOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isPersistentEditorOpen)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn IsPersistentEditorOpen(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -2072,7 +2072,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, widget: QtC.QWidget ```
     pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2081,7 +2081,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
@@ -2090,7 +2090,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
     ///
     /// ``` self: QtC.QHeaderView, row: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
@@ -2099,7 +2099,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
     ///
     /// ``` self: QtC.QHeaderView, row: i32 ```
     pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
@@ -2108,7 +2108,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
     ///
     /// ``` self: QtC.QHeaderView, column: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
@@ -2117,7 +2117,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
     ///
     /// ``` self: QtC.QHeaderView, column: i32 ```
     pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
@@ -2126,7 +2126,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -2135,7 +2135,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2144,7 +2144,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ClearSelection(self: ?*anyopaque) void {
@@ -2153,7 +2153,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2162,7 +2162,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ScrollToTop(self: ?*anyopaque) void {
@@ -2171,7 +2171,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ScrollToBottom(self: ?*anyopaque) void {
@@ -2180,7 +2180,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#update)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2189,7 +2189,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2198,7 +2198,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2207,7 +2207,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2216,7 +2216,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2225,7 +2225,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2234,7 +2234,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2243,7 +2243,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2252,7 +2252,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2261,7 +2261,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -2270,7 +2270,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2279,7 +2279,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ViewportEntered(self: ?*anyopaque) void {
@@ -2288,7 +2288,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView) callconv(.c) void ```
     pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2297,7 +2297,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.QHeaderView, size: QtC.QSize ```
     pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -2306,7 +2306,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, size: QtC.QSize) callconv(.c) void ```
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2315,7 +2315,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -2326,7 +2326,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QHeaderView, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -2335,7 +2335,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -2344,7 +2344,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.QHeaderView, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -2353,7 +2353,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -2364,7 +2364,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QHeaderView, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -2373,7 +2373,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -2382,7 +2382,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.QHeaderView, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -2391,7 +2391,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2400,7 +2400,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.QHeaderView, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2409,7 +2409,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QHeaderView, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -2418,7 +2418,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QHeaderView, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -2432,7 +2432,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -2441,7 +2441,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.QHeaderView, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2450,7 +2450,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -2459,7 +2459,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -2470,7 +2470,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QHeaderView, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2479,7 +2479,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -2488,7 +2488,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.QHeaderView, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -2497,7 +2497,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -2506,7 +2506,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -2517,7 +2517,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QHeaderView, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -2526,7 +2526,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -2537,7 +2537,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QHeaderView, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -2546,7 +2546,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -2555,7 +2555,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.QHeaderView, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -2564,7 +2564,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -2573,7 +2573,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.QHeaderView, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -2582,7 +2582,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -2591,7 +2591,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.QHeaderView, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -2600,7 +2600,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -2609,7 +2609,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -2618,7 +2618,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -2627,7 +2627,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -2636,7 +2636,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -2645,7 +2645,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.QHeaderView, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -2654,7 +2654,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -2663,7 +2663,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2672,7 +2672,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -2681,7 +2681,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -2692,7 +2692,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QHeaderView, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -2701,7 +2701,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2710,7 +2710,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2719,7 +2719,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.QHeaderView, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2728,7 +2728,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.QHeaderView, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -2737,7 +2737,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.QHeaderView, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -2746,7 +2746,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2755,7 +2755,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -2764,7 +2764,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2773,7 +2773,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -2782,7 +2782,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -2791,7 +2791,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -2800,7 +2800,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -2809,7 +2809,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -2818,7 +2818,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -2827,7 +2827,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -2836,7 +2836,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -2845,7 +2845,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -2854,7 +2854,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2863,7 +2863,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -2872,7 +2872,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -2881,7 +2881,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -2890,7 +2890,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -2899,7 +2899,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -2908,7 +2908,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -2917,7 +2917,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QHeaderView, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -2926,7 +2926,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QHeaderView, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -2935,7 +2935,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QHeaderView, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -2944,7 +2944,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QHeaderView, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -2953,7 +2953,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QHeaderView, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -2962,7 +2962,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QHeaderView, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -2971,7 +2971,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QHeaderView, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -2980,7 +2980,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QHeaderView, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -2989,7 +2989,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -2998,7 +2998,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QHeaderView, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -3007,7 +3007,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QHeaderView, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3016,7 +3016,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -3025,7 +3025,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QHeaderView, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -3034,7 +3034,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QHeaderView, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -3043,7 +3043,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QHeaderView, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -3052,7 +3052,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QHeaderView, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3061,7 +3061,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.QHeaderView, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -3070,7 +3070,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.QHeaderView, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -3079,7 +3079,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3088,7 +3088,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3097,7 +3097,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3106,7 +3106,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3115,7 +3115,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3124,7 +3124,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3133,7 +3133,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3142,7 +3142,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3151,7 +3151,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -3160,7 +3160,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -3169,7 +3169,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -3178,7 +3178,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -3187,7 +3187,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -3196,7 +3196,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3205,7 +3205,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3214,7 +3214,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -3223,7 +3223,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.QHeaderView, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -3232,7 +3232,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QHeaderView, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -3241,7 +3241,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -3252,7 +3252,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QHeaderView, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -3261,7 +3261,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -3272,7 +3272,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -3281,7 +3281,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.QHeaderView, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -3290,7 +3290,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -3299,7 +3299,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -3308,7 +3308,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -3317,7 +3317,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.QHeaderView, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -3326,7 +3326,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -3335,7 +3335,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -3344,7 +3344,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -3353,7 +3353,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -3362,7 +3362,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -3371,7 +3371,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -3380,7 +3380,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QHeaderView, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -3389,7 +3389,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QHeaderView, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -3398,7 +3398,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -3407,7 +3407,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -3416,7 +3416,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QHeaderView, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -3425,7 +3425,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QHeaderView, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -3434,7 +3434,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -3443,7 +3443,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -3452,7 +3452,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QHeaderView, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -3461,7 +3461,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QHeaderView, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3470,7 +3470,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.QHeaderView, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3479,7 +3479,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QHeaderView, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -3492,7 +3492,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.QHeaderView, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -3505,7 +3505,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3518,7 +3518,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3531,7 +3531,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.QHeaderView, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3540,7 +3540,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -3549,7 +3549,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.QHeaderView, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -3562,7 +3562,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3575,7 +3575,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.QHeaderView, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -3588,7 +3588,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3601,7 +3601,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.QHeaderView, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -3614,7 +3614,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3627,7 +3627,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.QHeaderView, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -3636,7 +3636,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -3645,7 +3645,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -3654,7 +3654,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.QHeaderView, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -3667,7 +3667,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3680,7 +3680,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.QHeaderView, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -3689,7 +3689,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -3698,7 +3698,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.QHeaderView, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -3711,7 +3711,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3724,7 +3724,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.QHeaderView, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -3737,7 +3737,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3750,7 +3750,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3763,7 +3763,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.QHeaderView, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -3776,7 +3776,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3789,7 +3789,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.QHeaderView, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -3802,7 +3802,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QHeaderView, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -3811,7 +3811,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -3822,7 +3822,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -3831,7 +3831,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.QHeaderView, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -3840,7 +3840,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -3849,7 +3849,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -3858,7 +3858,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -3867,7 +3867,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -3876,7 +3876,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -3885,7 +3885,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -3894,7 +3894,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -3903,7 +3903,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -3912,7 +3912,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QHeaderView, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -3921,7 +3921,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -3932,7 +3932,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QHeaderView, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3941,7 +3941,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -3950,7 +3950,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -3959,7 +3959,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.QHeaderView, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -3968,7 +3968,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -3977,7 +3977,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -3988,7 +3988,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QHeaderView, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3997,7 +3997,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -4006,7 +4006,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4015,7 +4015,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -4024,7 +4024,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -4033,7 +4033,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -4042,7 +4042,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QHeaderView, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -4051,7 +4051,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QHeaderView, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -4060,7 +4060,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QHeaderView, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -4069,7 +4069,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QHeaderView, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -4078,7 +4078,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -4087,7 +4087,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -4096,7 +4096,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -4105,7 +4105,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -4114,7 +4114,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -4123,7 +4123,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -4132,7 +4132,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4141,7 +4141,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4150,7 +4150,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4159,7 +4159,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4168,7 +4168,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4177,7 +4177,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4186,7 +4186,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.QHeaderView, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -4195,7 +4195,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Show(self: ?*anyopaque) void {
@@ -4204,7 +4204,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -4213,7 +4213,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -4222,7 +4222,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -4231,7 +4231,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -4240,7 +4240,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -4249,7 +4249,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -4258,7 +4258,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -4267,7 +4267,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -4276,7 +4276,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4285,7 +4285,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QHeaderView, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -4294,7 +4294,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4303,7 +4303,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QHeaderView, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -4312,7 +4312,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4321,7 +4321,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4330,7 +4330,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QHeaderView, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -4339,7 +4339,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -4352,7 +4352,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.QHeaderView, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -4365,7 +4365,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -4374,7 +4374,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -4383,7 +4383,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -4392,7 +4392,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -4401,7 +4401,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -4410,7 +4410,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -4419,7 +4419,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -4428,7 +4428,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -4439,7 +4439,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QHeaderView, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -4448,7 +4448,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QHeaderView, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -4457,7 +4457,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -4466,7 +4466,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QHeaderView, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -4475,7 +4475,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QHeaderView, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -4484,7 +4484,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -4493,7 +4493,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QHeaderView, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -4502,7 +4502,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QHeaderView, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -4511,7 +4511,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -4520,7 +4520,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -4529,7 +4529,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -4538,7 +4538,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.QHeaderView, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -4547,7 +4547,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -4556,7 +4556,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QHeaderView, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -4565,7 +4565,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QHeaderView, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -4574,7 +4574,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QHeaderView, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -4583,7 +4583,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QHeaderView, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -4592,7 +4592,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4601,7 +4601,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4610,7 +4610,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4619,7 +4619,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -4628,7 +4628,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QHeaderView, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -4637,7 +4637,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QHeaderView, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4646,7 +4646,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.QHeaderView, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4659,7 +4659,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.QHeaderView, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4672,7 +4672,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.QHeaderView, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -4681,7 +4681,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.QHeaderView, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4690,7 +4690,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4704,7 +4704,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QHeaderView, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4717,7 +4717,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QHeaderView, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4730,7 +4730,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QHeaderView, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4743,7 +4743,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QHeaderView, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4756,7 +4756,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4765,7 +4765,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QHeaderView, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4774,7 +4774,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -4785,7 +4785,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -4794,7 +4794,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.QHeaderView, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4803,7 +4803,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -4814,7 +4814,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -4823,7 +4823,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QHeaderView, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -4832,7 +4832,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QHeaderView, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4841,7 +4841,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QHeaderView, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4850,7 +4850,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -4859,7 +4859,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -4868,7 +4868,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -4877,7 +4877,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.QHeaderView, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -4886,7 +4886,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -4895,7 +4895,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QHeaderView, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -4904,7 +4904,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -4913,7 +4913,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -4922,7 +4922,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -4931,7 +4931,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.QHeaderView, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -4940,7 +4940,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -4949,7 +4949,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QHeaderView, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -4962,7 +4962,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4971,7 +4971,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QHeaderView, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -4980,7 +4980,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4989,7 +4989,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QHeaderView, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -5002,7 +5002,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -5011,7 +5011,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QHeaderView, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -5020,7 +5020,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5029,7 +5029,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QHeaderView ```
     ///
@@ -5040,7 +5040,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QHeaderView, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -5049,7 +5049,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QHeaderView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -5058,7 +5058,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QHeaderView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -5067,7 +5067,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QHeaderView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -5076,7 +5076,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -5085,7 +5085,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -5094,7 +5094,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -5103,7 +5103,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QHeaderView, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -5112,7 +5112,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QHeaderView, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -5121,7 +5121,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QHeaderView, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -5130,7 +5130,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QHeaderView, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -5139,7 +5139,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QHeaderView, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -5148,7 +5148,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -5157,7 +5157,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -5166,7 +5166,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -5175,7 +5175,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -5184,7 +5184,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5197,7 +5197,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QHeaderView, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -5210,7 +5210,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -5219,7 +5219,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -5228,7 +5228,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -5237,7 +5237,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -5246,7 +5246,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QHeaderView, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -5255,7 +5255,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -5264,7 +5264,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QHeaderView, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -5273,7 +5273,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QHeaderView, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -5282,7 +5282,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QHeaderView, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -5291,7 +5291,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QHeaderView, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -5300,7 +5300,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -5314,7 +5314,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QHeaderView, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -5323,7 +5323,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QHeaderView, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -5332,7 +5332,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -5341,7 +5341,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QHeaderView, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -5352,7 +5352,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -5361,7 +5361,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -5370,7 +5370,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -5379,7 +5379,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -5388,7 +5388,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QHeaderView, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -5398,7 +5398,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QHeaderView, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -5408,7 +5408,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -5432,7 +5432,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5441,7 +5441,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5450,7 +5450,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -5459,7 +5459,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -5468,7 +5468,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -5477,7 +5477,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QHeaderView, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -5487,7 +5487,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -5496,7 +5496,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QHeaderView, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -5505,7 +5505,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QHeaderView, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -5514,7 +5514,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5523,7 +5523,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QHeaderView, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5534,7 +5534,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHeaderView, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5543,7 +5543,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHeaderView, callback: *const fn (self: QtC.QHeaderView, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5552,7 +5552,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -5561,7 +5561,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -5570,7 +5570,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -5579,7 +5579,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -5588,7 +5588,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -5597,7 +5597,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -5606,7 +5606,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -5615,7 +5615,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -5624,7 +5624,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -5633,7 +5633,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -5642,7 +5642,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QHeaderView ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -5651,7 +5651,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -5660,7 +5660,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -5669,7 +5669,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5680,7 +5680,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5691,7 +5691,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5702,7 +5702,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5717,7 +5717,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5732,7 +5732,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5743,7 +5743,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5754,7 +5754,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5765,7 +5765,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5776,7 +5776,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5787,7 +5787,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5798,7 +5798,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5809,7 +5809,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5820,7 +5820,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5831,7 +5831,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5842,7 +5842,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5853,7 +5853,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5864,7 +5864,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5875,7 +5875,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5886,7 +5886,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5897,7 +5897,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5908,7 +5908,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5919,7 +5919,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5930,7 +5930,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5941,7 +5941,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5952,7 +5952,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5963,7 +5963,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5974,7 +5974,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5985,7 +5985,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5996,7 +5996,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6007,7 +6007,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6018,7 +6018,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6029,7 +6029,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6040,7 +6040,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6051,7 +6051,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6062,7 +6062,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6073,7 +6073,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6084,7 +6084,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6095,7 +6095,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6106,7 +6106,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6117,7 +6117,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6128,7 +6128,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6139,7 +6139,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6150,7 +6150,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6161,7 +6161,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6172,7 +6172,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6183,7 +6183,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6194,7 +6194,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6205,7 +6205,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6216,7 +6216,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6227,7 +6227,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6238,7 +6238,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6249,7 +6249,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6260,7 +6260,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6271,7 +6271,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6282,7 +6282,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6293,7 +6293,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6304,7 +6304,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6320,7 +6320,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6336,7 +6336,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6347,7 +6347,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6358,7 +6358,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6369,7 +6369,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6380,7 +6380,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6393,7 +6393,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6406,7 +6406,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6417,7 +6417,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6428,7 +6428,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6439,7 +6439,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6450,7 +6450,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6461,7 +6461,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6472,7 +6472,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6483,7 +6483,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6494,7 +6494,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6505,7 +6505,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6516,7 +6516,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6527,7 +6527,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6538,7 +6538,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6549,7 +6549,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6560,7 +6560,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6571,7 +6571,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6582,7 +6582,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6593,7 +6593,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6604,7 +6604,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6615,7 +6615,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6626,7 +6626,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6637,7 +6637,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6648,7 +6648,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6659,7 +6659,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6670,7 +6670,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6681,7 +6681,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6692,7 +6692,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6703,7 +6703,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6714,7 +6714,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6725,7 +6725,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6736,7 +6736,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6747,7 +6747,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6758,7 +6758,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6769,7 +6769,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6780,7 +6780,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6791,7 +6791,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6802,7 +6802,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6813,7 +6813,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6824,7 +6824,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6835,7 +6835,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6846,7 +6846,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6857,7 +6857,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6868,7 +6868,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6879,7 +6879,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6890,7 +6890,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6901,7 +6901,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6912,7 +6912,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6923,7 +6923,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6934,7 +6934,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6945,7 +6945,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6956,7 +6956,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6967,7 +6967,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6978,7 +6978,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6989,7 +6989,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7000,7 +7000,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7011,7 +7011,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7022,7 +7022,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7033,7 +7033,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7044,7 +7044,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7055,7 +7055,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7066,7 +7066,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7077,7 +7077,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7088,7 +7088,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7099,7 +7099,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7110,7 +7110,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7121,7 +7121,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7132,7 +7132,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7143,7 +7143,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7154,7 +7154,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7165,7 +7165,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7176,7 +7176,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7187,7 +7187,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7198,7 +7198,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7209,7 +7209,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7220,7 +7220,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7231,7 +7231,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7242,7 +7242,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7253,7 +7253,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7264,7 +7264,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7275,7 +7275,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7286,7 +7286,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7297,7 +7297,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7308,7 +7308,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7319,7 +7319,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7330,7 +7330,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7341,7 +7341,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7352,7 +7352,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7363,7 +7363,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7374,7 +7374,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7385,7 +7385,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7396,7 +7396,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7407,7 +7407,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7418,7 +7418,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7429,7 +7429,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7440,7 +7440,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7451,7 +7451,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7462,7 +7462,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7473,7 +7473,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7484,7 +7484,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7495,7 +7495,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7506,7 +7506,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7521,7 +7521,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7536,7 +7536,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7547,7 +7547,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7558,7 +7558,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7569,7 +7569,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7580,7 +7580,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7591,7 +7591,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7602,7 +7602,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7613,7 +7613,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7624,7 +7624,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7635,7 +7635,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7646,7 +7646,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7657,7 +7657,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7668,7 +7668,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7679,7 +7679,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7690,7 +7690,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7701,7 +7701,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7712,7 +7712,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7723,7 +7723,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7734,7 +7734,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7745,7 +7745,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7756,7 +7756,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7767,7 +7767,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7778,7 +7778,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7789,7 +7789,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7800,7 +7800,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7811,7 +7811,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7824,7 +7824,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7837,7 +7837,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7848,7 +7848,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7859,7 +7859,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7870,7 +7870,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7881,7 +7881,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7892,7 +7892,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7903,7 +7903,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7914,7 +7914,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7925,7 +7925,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7936,7 +7936,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7947,7 +7947,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7958,7 +7958,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7969,7 +7969,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7980,7 +7980,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7991,7 +7991,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8002,7 +8002,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8013,7 +8013,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8024,7 +8024,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8035,7 +8035,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8046,7 +8046,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8057,7 +8057,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8068,7 +8068,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8079,7 +8079,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8090,7 +8090,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8101,7 +8101,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8112,7 +8112,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8123,7 +8123,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8134,7 +8134,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8145,7 +8145,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8158,7 +8158,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8171,7 +8171,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8182,7 +8182,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8193,7 +8193,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8204,7 +8204,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8215,7 +8215,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8226,7 +8226,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8237,7 +8237,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8248,7 +8248,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8259,7 +8259,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8270,7 +8270,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8281,7 +8281,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8292,7 +8292,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8303,7 +8303,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8314,7 +8314,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8325,7 +8325,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8336,7 +8336,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8347,7 +8347,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8358,7 +8358,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8369,7 +8369,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8380,7 +8380,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8391,7 +8391,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8402,7 +8402,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8413,7 +8413,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8424,7 +8424,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8435,7 +8435,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8446,7 +8446,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8457,7 +8457,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8468,7 +8468,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8479,7 +8479,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8490,7 +8490,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8501,7 +8501,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8512,7 +8512,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8524,7 +8524,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8536,7 +8536,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8547,7 +8547,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8558,7 +8558,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8569,7 +8569,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8580,7 +8580,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8591,7 +8591,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8602,7 +8602,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8613,7 +8613,7 @@ pub const qheaderview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -8622,7 +8622,7 @@ pub const qheaderview = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#dtor.QHeaderView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dtor.QHeaderView)
     ///
     /// Delete this object from C++ memory.
     ///

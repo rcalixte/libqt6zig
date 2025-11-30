@@ -15,7 +15,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_new(@intCast(socketType), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -47,7 +47,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -59,14 +59,14 @@ pub const qabstractsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
     ///
     /// Allows for overriding the related default method
     ///
@@ -75,7 +75,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
     ///
     /// Base class method implementation
     ///
@@ -84,7 +84,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseResume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#pauseMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#pauseMode)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     ///
@@ -93,21 +93,21 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_PauseMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPauseMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPauseMode)
     ///
     /// ``` self: QtC.QAbstractSocket, pauseMode: flag of qabstractsocket_enums.PauseMode ```
     pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i32) void {
         qtc.QAbstractSocket_SetPauseMode(@ptrCast(self), @intCast(pauseMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// ``` self: QtC.QAbstractSocket, address: QtC.QHostAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
     pub fn Bind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
         return qtc.QAbstractSocket_Bind(@ptrCast(self), @ptrCast(address), @intCast(port), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// Allows for overriding the related default method
     ///
@@ -116,7 +116,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnBind(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// Base class method implementation
     ///
@@ -125,14 +125,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseBind(@ptrCast(self), @ptrCast(address), @intCast(port), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Bind2(self: ?*anyopaque) bool {
         return qtc.QAbstractSocket_Bind2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QAbstractSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
     pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
@@ -143,7 +143,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_ConnectToHost(@ptrCast(self), hostName_str, @intCast(port), @intCast(mode), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// Allows for overriding the related default method
     ///
@@ -152,7 +152,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnConnectToHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// Base class method implementation
     ///
@@ -165,21 +165,21 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseConnectToHost(@ptrCast(self), hostName_str, @intCast(port), @intCast(mode), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QAbstractSocket, address: QtC.QHostAddress, port: u16 ```
     pub fn ConnectToHost2(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
         qtc.QAbstractSocket_ConnectToHost2(@ptrCast(self), @ptrCast(address), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn DisconnectFromHost(self: ?*anyopaque) void {
         qtc.QAbstractSocket_DisconnectFromHost(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
     ///
     /// Allows for overriding the related default method
     ///
@@ -188,7 +188,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnDisconnectFromHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
     ///
     /// Base class method implementation
     ///
@@ -197,21 +197,21 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseDisconnectFromHost(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isValid)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QAbstractSocket_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn BytesAvailable(self: ?*anyopaque) i64 {
         return qtc.QAbstractSocket_BytesAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
     ///
     /// Allows for overriding the related default method
     ///
@@ -220,7 +220,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
     ///
     /// Base class method implementation
     ///
@@ -229,14 +229,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseBytesAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn BytesToWrite(self: ?*anyopaque) i64 {
         return qtc.QAbstractSocket_BytesToWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
     ///
     /// Allows for overriding the related default method
     ///
@@ -245,7 +245,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
     ///
     /// Base class method implementation
     ///
@@ -254,35 +254,35 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseBytesToWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#localPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localPort)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn LocalPort(self: ?*anyopaque) u16 {
         return qtc.QAbstractSocket_LocalPort(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#localAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localAddress)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn LocalAddress(self: ?*anyopaque) QtC.QHostAddress {
         return qtc.QAbstractSocket_LocalAddress(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#peerPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerPort)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn PeerPort(self: ?*anyopaque) u16 {
         return qtc.QAbstractSocket_PeerPort(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#peerAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerAddress)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn PeerAddress(self: ?*anyopaque) QtC.QHostAddress {
         return qtc.QAbstractSocket_PeerAddress(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#peerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#peerName)
     ///
     /// ``` self: QtC.QAbstractSocket, allocator: std.mem.Allocator ```
     pub fn PeerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -293,21 +293,21 @@ pub const qabstractsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readBufferSize)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn ReadBufferSize(self: ?*anyopaque) i64 {
         return qtc.QAbstractSocket_ReadBufferSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
     ///
     /// ``` self: QtC.QAbstractSocket, size: i64 ```
     pub fn SetReadBufferSize(self: ?*anyopaque, size: i64) void {
         qtc.QAbstractSocket_SetReadBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -316,7 +316,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetReadBufferSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
     ///
     /// Base class method implementation
     ///
@@ -325,21 +325,21 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetReadBufferSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#abort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#abort)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Abort(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Abort(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn SocketDescriptor(self: ?*anyopaque) isize {
         return qtc.QAbstractSocket_SocketDescriptor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -348,7 +348,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSocketDescriptor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Base class method implementation
     ///
@@ -357,14 +357,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseSocketDescriptor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
     ///
     /// ``` self: QtC.QAbstractSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
         return qtc.QAbstractSocket_SetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -373,7 +373,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetSocketDescriptor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
     ///
     /// Base class method implementation
     ///
@@ -382,14 +382,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseSetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
     ///
     /// ``` self: QtC.QAbstractSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant ```
     pub fn SetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QAbstractSocket_SetSocketOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -398,7 +398,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetSocketOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
     ///
     /// Base class method implementation
     ///
@@ -407,14 +407,14 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetSocketOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
     ///
     /// ``` self: QtC.QAbstractSocket, option: qabstractsocket_enums.SocketOption ```
     pub fn SocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QAbstractSocket_SocketOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -423,7 +423,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSocketOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
     ///
     /// Base class method implementation
     ///
@@ -432,7 +432,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseSocketOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketType)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     ///
@@ -441,7 +441,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_SocketType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#state)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     ///
@@ -450,7 +450,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#error)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     ///
@@ -459,14 +459,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Close(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
     ///
     /// Allows for overriding the related default method
     ///
@@ -475,7 +475,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
     ///
     /// Base class method implementation
     ///
@@ -484,14 +484,14 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseClose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsSequential(self: ?*anyopaque) bool {
         return qtc.QAbstractSocket_IsSequential(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Allows for overriding the related default method
     ///
@@ -500,7 +500,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Base class method implementation
     ///
@@ -509,21 +509,21 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseIsSequential(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#flush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#flush)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Flush(self: ?*anyopaque) bool {
         return qtc.QAbstractSocket_Flush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
     ///
     /// ``` self: QtC.QAbstractSocket, msecs: i32 ```
     pub fn WaitForConnected(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QAbstractSocket_WaitForConnected(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
     ///
     /// Allows for overriding the related default method
     ///
@@ -532,7 +532,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWaitForConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
     ///
     /// Base class method implementation
     ///
@@ -541,14 +541,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseWaitForConnected(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
     ///
     /// ``` self: QtC.QAbstractSocket, msecs: i32 ```
     pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QAbstractSocket_WaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
     ///
     /// Allows for overriding the related default method
     ///
@@ -557,7 +557,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
     ///
     /// Base class method implementation
     ///
@@ -566,14 +566,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseWaitForReadyRead(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
     ///
     /// ``` self: QtC.QAbstractSocket, msecs: i32 ```
     pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QAbstractSocket_WaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
     ///
     /// Allows for overriding the related default method
     ///
@@ -582,7 +582,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
     ///
     /// Base class method implementation
     ///
@@ -591,14 +591,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseWaitForBytesWritten(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
     ///
     /// ``` self: QtC.QAbstractSocket, msecs: i32 ```
     pub fn WaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
         return qtc.QAbstractSocket_WaitForDisconnected(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
     ///
     /// Allows for overriding the related default method
     ///
@@ -607,7 +607,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWaitForDisconnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
     ///
     /// Base class method implementation
     ///
@@ -616,21 +616,21 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseWaitForDisconnected(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProxy)
     ///
     /// ``` self: QtC.QAbstractSocket, networkProxy: QtC.QNetworkProxy ```
     pub fn SetProxy(self: ?*anyopaque, networkProxy: ?*anyopaque) void {
         qtc.QAbstractSocket_SetProxy(@ptrCast(self), @ptrCast(networkProxy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#proxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxy)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Proxy(self: ?*anyopaque) QtC.QNetworkProxy {
         return qtc.QAbstractSocket_Proxy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#protocolTag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#protocolTag)
     ///
     /// ``` self: QtC.QAbstractSocket, allocator: std.mem.Allocator ```
     pub fn ProtocolTag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -641,7 +641,7 @@ pub const qabstractsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setProtocolTag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProtocolTag)
     ///
     /// ``` self: QtC.QAbstractSocket, tag: []const u8 ```
     pub fn SetProtocolTag(self: ?*anyopaque, tag: []const u8) void {
@@ -652,91 +652,91 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_SetProtocolTag(@ptrCast(self), tag_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn HostFound(self: ?*anyopaque) void {
         qtc.QAbstractSocket_HostFound(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket) callconv(.c) void ```
     pub fn OnHostFound(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_HostFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Connected(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Connected(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket) callconv(.c) void ```
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_Connected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Disconnected(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Disconnected(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket) callconv(.c) void ```
     pub fn OnDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_Disconnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
     /// ``` self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketState ```
     pub fn StateChanged(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractSocket_StateChanged(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
     /// ``` self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketError ```
     pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractSocket_ErrorOccurred(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void ```
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
     ///
     /// ``` self: QtC.QAbstractSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator ```
     pub fn ProxyAuthenticationRequired(self: ?*anyopaque, proxy: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QAbstractSocket_ProxyAuthenticationRequired(@ptrCast(self), @ptrCast(proxy), @ptrCast(authenticator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void ```
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []u8, maxlen: i64 ```
     pub fn ReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -744,7 +744,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -753,7 +753,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
     ///
     /// Base class method implementation
     ///
@@ -763,7 +763,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []u8, maxlen: i64 ```
     pub fn ReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -771,7 +771,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_ReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -780,7 +780,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Base class method implementation
     ///
@@ -790,14 +790,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
     ///
     /// ``` self: QtC.QAbstractSocket, maxSize: i64 ```
     pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
         return qtc.QAbstractSocket_SkipData(@ptrCast(self), @intCast(maxSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -806,7 +806,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
     ///
     /// Base class method implementation
     ///
@@ -815,7 +815,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseSkipData(@ptrCast(self), @intCast(maxSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []const u8, lenVal: i64 ```
     pub fn WriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -823,7 +823,7 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_WriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -832,7 +832,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
     ///
     /// Base class method implementation
     ///
@@ -842,14 +842,14 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_QBaseWriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// ``` self: QtC.QAbstractSocket, state: qabstractsocket_enums.SocketState ```
     pub fn SetSocketState(self: ?*anyopaque, state: i32) void {
         qtc.QAbstractSocket_SetSocketState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -858,7 +858,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetSocketState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Base class method implementation
     ///
@@ -867,14 +867,14 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetSocketState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// ``` self: QtC.QAbstractSocket, socketError: qabstractsocket_enums.SocketError ```
     pub fn SetSocketError(self: ?*anyopaque, socketError: i32) void {
         qtc.QAbstractSocket_SetSocketError(@ptrCast(self), @intCast(socketError));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Allows for overriding the related default method
     ///
@@ -883,7 +883,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetSocketError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Base class method implementation
     ///
@@ -892,14 +892,14 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetSocketError(@ptrCast(self), @intCast(socketError));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// ``` self: QtC.QAbstractSocket, port: u16 ```
     pub fn SetLocalPort(self: ?*anyopaque, port: u16) void {
         qtc.QAbstractSocket_SetLocalPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Allows for overriding the related default method
     ///
@@ -908,7 +908,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetLocalPort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Base class method implementation
     ///
@@ -917,14 +917,14 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetLocalPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// ``` self: QtC.QAbstractSocket, address: QtC.QHostAddress ```
     pub fn SetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
         qtc.QAbstractSocket_SetLocalAddress(@ptrCast(self), @ptrCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Allows for overriding the related default method
     ///
@@ -933,7 +933,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetLocalAddress(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Base class method implementation
     ///
@@ -942,14 +942,14 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetLocalAddress(@ptrCast(self), @ptrCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// ``` self: QtC.QAbstractSocket, port: u16 ```
     pub fn SetPeerPort(self: ?*anyopaque, port: u16) void {
         qtc.QAbstractSocket_SetPeerPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Allows for overriding the related default method
     ///
@@ -958,7 +958,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetPeerPort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Base class method implementation
     ///
@@ -967,14 +967,14 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetPeerPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// ``` self: QtC.QAbstractSocket, address: QtC.QHostAddress ```
     pub fn SetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
         qtc.QAbstractSocket_SetPeerAddress(@ptrCast(self), @ptrCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Allows for overriding the related default method
     ///
@@ -983,7 +983,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetPeerAddress(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Base class method implementation
     ///
@@ -992,7 +992,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetPeerAddress(@ptrCast(self), @ptrCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// ``` self: QtC.QAbstractSocket, name: []const u8 ```
     pub fn SetPeerName(self: ?*anyopaque, name: []const u8) void {
@@ -1003,7 +1003,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_SetPeerName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1012,7 +1012,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetPeerName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Base class method implementation
     ///
@@ -1025,7 +1025,7 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_QBaseSetPeerName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1038,7 +1038,7 @@ pub const qabstractsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1051,21 +1051,21 @@ pub const qabstractsocket = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// ``` self: QtC.QAbstractSocket, port: u16 ```
     pub fn Bind1(self: ?*anyopaque, port: u16) bool {
         return qtc.QAbstractSocket_Bind1(@ptrCast(self), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// ``` self: QtC.QAbstractSocket, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
     pub fn Bind22(self: ?*anyopaque, port: u16, mode: i32) bool {
         return qtc.QAbstractSocket_Bind22(@ptrCast(self), @intCast(port), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QAbstractSocket, address: QtC.QHostAddress, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn ConnectToHost3(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) void {
@@ -1074,7 +1074,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     ///
@@ -1085,7 +1085,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
     ///
     /// ``` self: QtC.QAbstractSocket, enabled: bool ```
     pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1094,7 +1094,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
@@ -1103,7 +1103,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsOpen(self: ?*anyopaque) bool {
@@ -1112,7 +1112,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsReadable(self: ?*anyopaque) bool {
@@ -1121,7 +1121,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsWritable(self: ?*anyopaque) bool {
@@ -1130,7 +1130,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn ReadChannelCount(self: ?*anyopaque) i32 {
@@ -1139,7 +1139,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn WriteChannelCount(self: ?*anyopaque) i32 {
@@ -1148,7 +1148,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
@@ -1157,7 +1157,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
     ///
     /// ``` self: QtC.QAbstractSocket, channel: i32 ```
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
@@ -1166,7 +1166,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
@@ -1175,7 +1175,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
     ///
     /// ``` self: QtC.QAbstractSocket, channel: i32 ```
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
@@ -1184,7 +1184,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []u8, maxlen: i64 ```
     pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1194,7 +1194,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QAbstractSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -1207,7 +1207,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
     ///
     /// ``` self: QtC.QAbstractSocket, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1220,7 +1220,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []u8, maxlen: i64 ```
     pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1230,7 +1230,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QAbstractSocket, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1243,7 +1243,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn StartTransaction(self: ?*anyopaque) void {
@@ -1252,7 +1252,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn CommitTransaction(self: ?*anyopaque) void {
@@ -1261,7 +1261,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn RollbackTransaction(self: ?*anyopaque) void {
@@ -1270,7 +1270,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsTransactionStarted(self: ?*anyopaque) bool {
@@ -1279,7 +1279,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []const u8, lenVal: i64 ```
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -1289,7 +1289,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []const u8 ```
     pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
@@ -1299,7 +1299,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
@@ -1312,7 +1312,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QAbstractSocket, data: []u8, maxlen: i64 ```
     pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -1322,7 +1322,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QAbstractSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -1335,7 +1335,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
     ///
     /// ``` self: QtC.QAbstractSocket, maxSize: i64 ```
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
@@ -1344,7 +1344,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
     /// ``` self: QtC.QAbstractSocket, c: u8 ```
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
@@ -1353,7 +1353,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#putChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
     /// ``` self: QtC.QAbstractSocket, c: u8 ```
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
@@ -1362,7 +1362,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#getChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
     /// ``` self: QtC.QAbstractSocket, c: []u8 ```
     pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
@@ -1372,7 +1372,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
     ///
     /// ``` self: QtC.QAbstractSocket, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1385,7 +1385,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn ReadyRead(self: ?*anyopaque) void {
@@ -1394,7 +1394,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket) callconv(.c) void ```
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1403,7 +1403,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QAbstractSocket, channel: i32 ```
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
@@ -1412,7 +1412,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket, channel: i32) callconv(.c) void ```
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1421,7 +1421,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QAbstractSocket, bytes: i64 ```
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
@@ -1430,7 +1430,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket, bytes: i64) callconv(.c) void ```
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
@@ -1439,7 +1439,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QAbstractSocket, channel: i32, bytes: i64 ```
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
@@ -1448,7 +1448,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket, channel: i32, bytes: i64) callconv(.c) void ```
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
@@ -1457,7 +1457,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn AboutToClose(self: ?*anyopaque) void {
@@ -1466,7 +1466,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket) callconv(.c) void ```
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1475,7 +1475,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn ReadChannelFinished(self: ?*anyopaque) void {
@@ -1484,7 +1484,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket) callconv(.c) void ```
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1493,7 +1493,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QAbstractSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -1506,7 +1506,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractSocket, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1519,7 +1519,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractSocket, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1532,7 +1532,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1541,7 +1541,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1550,7 +1550,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1559,7 +1559,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1568,7 +1568,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractSocket, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1577,7 +1577,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1586,7 +1586,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractSocket, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1595,7 +1595,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractSocket, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1604,7 +1604,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractSocket, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1613,7 +1613,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractSocket, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1622,7 +1622,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractSocket, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1636,7 +1636,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAbstractSocket, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1645,7 +1645,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractSocket, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1654,7 +1654,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractSocket, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1663,7 +1663,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1672,7 +1672,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractSocket, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1683,7 +1683,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1692,7 +1692,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1701,7 +1701,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1710,7 +1710,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1719,7 +1719,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractSocket, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1729,7 +1729,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractSocket, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1739,7 +1739,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractSocket, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1763,7 +1763,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1772,7 +1772,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1781,7 +1781,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1790,7 +1790,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1799,7 +1799,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1808,7 +1808,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractSocket, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1818,7 +1818,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractSocket ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1827,7 +1827,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractSocket, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1836,7 +1836,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractSocket, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1845,7 +1845,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1854,7 +1854,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractSocket, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1865,7 +1865,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractSocket, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1874,7 +1874,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractSocket, callback: *const fn (self: QtC.QAbstractSocket, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1883,7 +1883,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1894,7 +1894,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1905,7 +1905,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1916,7 +1916,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1927,7 +1927,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1938,7 +1938,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1949,7 +1949,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1960,7 +1960,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1971,7 +1971,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1982,7 +1982,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1993,7 +1993,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2004,7 +2004,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2015,7 +2015,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2026,7 +2026,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2037,7 +2037,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2048,7 +2048,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2059,7 +2059,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2070,7 +2070,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2081,7 +2081,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2092,7 +2092,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2103,7 +2103,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2114,7 +2114,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2125,7 +2125,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2136,7 +2136,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2147,7 +2147,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2158,7 +2158,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2169,7 +2169,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2180,7 +2180,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2191,7 +2191,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2202,7 +2202,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2213,7 +2213,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2224,7 +2224,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2235,7 +2235,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2246,7 +2246,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2257,7 +2257,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2268,7 +2268,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2279,7 +2279,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2290,7 +2290,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2301,7 +2301,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2312,7 +2312,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2323,7 +2323,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2334,7 +2334,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2345,7 +2345,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2356,7 +2356,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2367,7 +2367,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2378,7 +2378,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2393,7 +2393,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2408,7 +2408,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2419,7 +2419,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2430,7 +2430,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2441,7 +2441,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2452,7 +2452,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2463,7 +2463,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2474,7 +2474,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2485,7 +2485,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2497,7 +2497,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2509,7 +2509,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2520,7 +2520,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2531,7 +2531,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2542,7 +2542,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2553,7 +2553,7 @@ pub const qabstractsocket = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2562,7 +2562,7 @@ pub const qabstractsocket = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#dtor.QAbstractSocket)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#dtor.QAbstractSocket)
     ///
     /// Delete this object from C++ memory.
     ///

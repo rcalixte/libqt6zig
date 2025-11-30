@@ -118,42 +118,42 @@ pub const qsslkey = struct {
         return qtc.QSslKey_new12(@ptrCast(handle), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#operator-eq)
     ///
     /// ``` self: QtC.QSslKey, other: QtC.QSslKey ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslKey_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#swap)
     ///
     /// ``` self: QtC.QSslKey, other: QtC.QSslKey ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslKey_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#isNull)
     ///
     /// ``` self: QtC.QSslKey ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QSslKey_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#clear)
     ///
     /// ``` self: QtC.QSslKey ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QSslKey_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#length)
     ///
     /// ``` self: QtC.QSslKey ```
     pub fn Length(self: ?*anyopaque) i32 {
         return qtc.QSslKey_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#type)
     ///
     /// ``` self: QtC.QSslKey ```
     ///
@@ -162,7 +162,7 @@ pub const qsslkey = struct {
         return qtc.QSslKey_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#algorithm)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#algorithm)
     ///
     /// ``` self: QtC.QSslKey ```
     ///
@@ -171,7 +171,7 @@ pub const qsslkey = struct {
         return qtc.QSslKey_Algorithm(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#toPem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#toPem)
     ///
     /// ``` self: QtC.QSslKey, allocator: std.mem.Allocator ```
     pub fn ToPem(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -182,7 +182,7 @@ pub const qsslkey = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#toDer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#toDer)
     ///
     /// ``` self: QtC.QSslKey, allocator: std.mem.Allocator ```
     pub fn ToDer(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -193,28 +193,28 @@ pub const qsslkey = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#handle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#handle)
     ///
     /// ``` self: QtC.QSslKey ```
     pub fn Handle(self: ?*anyopaque) ?*anyopaque {
         return qtc.QSslKey_Handle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSslKey, key: QtC.QSslKey ```
     pub fn OperatorEqual(self: ?*anyopaque, key: ?*anyopaque) bool {
         return qtc.QSslKey_OperatorEqual(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSslKey, key: QtC.QSslKey ```
     pub fn OperatorNotEqual(self: ?*anyopaque, key: ?*anyopaque) bool {
         return qtc.QSslKey_OperatorNotEqual(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#toPem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#toPem)
     ///
     /// ``` self: QtC.QSslKey, passPhrase: []u8, allocator: std.mem.Allocator ```
     pub fn ToPem1(self: ?*anyopaque, passPhrase: []u8, allocator: std.mem.Allocator) []u8 {
@@ -229,7 +229,7 @@ pub const qsslkey = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#toDer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#toDer)
     ///
     /// ``` self: QtC.QSslKey, passPhrase: []u8, allocator: std.mem.Allocator ```
     pub fn ToDer1(self: ?*anyopaque, passPhrase: []u8, allocator: std.mem.Allocator) []u8 {
@@ -244,7 +244,7 @@ pub const qsslkey = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#dtor.QSslKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#dtor.QSslKey)
     ///
     /// Delete this object from C++ memory.
     ///

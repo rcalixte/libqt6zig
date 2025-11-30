@@ -5,28 +5,28 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qstringconverter.html
 pub const qstringconverter = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
     ///
     /// ``` self: QtC.QStringConverter ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QStringConverter_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
     ///
     /// ``` self: QtC.QStringConverter ```
     pub fn ResetState(self: ?*anyopaque) void {
         qtc.QStringConverter_ResetState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
     ///
     /// ``` self: QtC.QStringConverter ```
     pub fn HasError(self: ?*anyopaque) bool {
         return qtc.QStringConverter_HasError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#name)
     ///
     /// ``` self: QtC.QStringConverter ```
     pub fn Name(self: ?*anyopaque) []const u8 {
@@ -34,7 +34,7 @@ pub const qstringconverter = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
     ///
     /// ``` e: qstringconverter_base_enums.Encoding ```
     pub fn NameForEncoding(e: i32) []const u8 {
@@ -42,7 +42,7 @@ pub const qstringconverter = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableCodecs(allocator: std.mem.Allocator) [][]const u8 {
@@ -81,21 +81,21 @@ pub const qstringconverterbase__state = struct {
         return qtc.QStringConverterBase__State_new2(@intCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#clear)
     ///
     /// ``` self: QtC.QStringConverterBase__State ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QStringConverterBase__State_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#reset)
     ///
     /// ``` self: QtC.QStringConverterBase__State ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QStringConverterBase__State_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#flags-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#flags-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State ```
     ///
@@ -104,49 +104,49 @@ pub const qstringconverterbase__state = struct {
         return qtc.QStringConverterBase__State_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#flags-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#flags-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State, flags: flag of qstringconverter_base_enums.Flag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QStringConverterBase__State_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#internalState-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#internalState-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State ```
     pub fn InternalState(self: ?*anyopaque) i32 {
         return qtc.QStringConverterBase__State_InternalState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#internalState-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#internalState-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State, internalState: i32 ```
     pub fn SetInternalState(self: ?*anyopaque, internalState: i32) void {
         qtc.QStringConverterBase__State_SetInternalState(@ptrCast(self), @intCast(internalState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#remainingChars-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#remainingChars-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State ```
     pub fn RemainingChars(self: ?*anyopaque) i64 {
         return qtc.QStringConverterBase__State_RemainingChars(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#remainingChars-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#remainingChars-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State, remainingChars: i64 ```
     pub fn SetRemainingChars(self: ?*anyopaque, remainingChars: i64) void {
         qtc.QStringConverterBase__State_SetRemainingChars(@ptrCast(self), @intCast(remainingChars));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#invalidChars-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#invalidChars-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State ```
     pub fn InvalidChars(self: ?*anyopaque) i64 {
         return qtc.QStringConverterBase__State_InvalidChars(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#invalidChars-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#invalidChars-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State, invalidChars: i64 ```
     pub fn SetInvalidChars(self: ?*anyopaque, invalidChars: i64) void {

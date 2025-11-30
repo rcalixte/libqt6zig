@@ -53,28 +53,28 @@ pub const ktexteditor__cursor = struct {
         qtc.KTextEditor__Cursor_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#isValid)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#isValid)
     ///
     /// ``` self: QtC.KTextEditor__Cursor ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Cursor_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#invalid)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#invalid)
     ///
     ///
     pub fn Invalid() QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__Cursor_Invalid();
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#start)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#start)
     ///
     ///
     pub fn Start() QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__Cursor_Start();
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#toString)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#toString)
     ///
     /// ``` self: QtC.KTextEditor__Cursor, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -85,63 +85,63 @@ pub const ktexteditor__cursor = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#setPosition)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setPosition)
     ///
     /// ``` self: QtC.KTextEditor__Cursor, position: QtC.KTextEditor__Cursor ```
     pub fn SetPosition(self: ?*anyopaque, position: QtC.KTextEditor__Cursor) void {
         qtc.KTextEditor__Cursor_SetPosition(@ptrCast(self), @ptrCast(position));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#setPosition)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setPosition)
     ///
     /// ``` self: QtC.KTextEditor__Cursor, line: i32, column: i32 ```
     pub fn SetPosition2(self: ?*anyopaque, line: i32, column: i32) void {
         qtc.KTextEditor__Cursor_SetPosition2(@ptrCast(self), @intCast(line), @intCast(column));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#line)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#line)
     ///
     /// ``` self: QtC.KTextEditor__Cursor ```
     pub fn Line(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__Cursor_Line(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#setLine)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setLine)
     ///
     /// ``` self: QtC.KTextEditor__Cursor, line: i32 ```
     pub fn SetLine(self: ?*anyopaque, line: i32) void {
         qtc.KTextEditor__Cursor_SetLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#column)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#column)
     ///
     /// ``` self: QtC.KTextEditor__Cursor ```
     pub fn Column(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__Cursor_Column(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#setColumn)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setColumn)
     ///
     /// ``` self: QtC.KTextEditor__Cursor, column: i32 ```
     pub fn SetColumn(self: ?*anyopaque, column: i32) void {
         qtc.KTextEditor__Cursor_SetColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#atStartOfLine)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#atStartOfLine)
     ///
     /// ``` self: QtC.KTextEditor__Cursor ```
     pub fn AtStartOfLine(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Cursor_AtStartOfLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#atStartOfDocument)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#atStartOfDocument)
     ///
     /// ``` self: QtC.KTextEditor__Cursor ```
     pub fn AtStartOfDocument(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Cursor_AtStartOfDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-cursor.html#position)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#position)
     ///
     /// ``` self: QtC.KTextEditor__Cursor, line: *i32, column: *i32 ```
     pub fn Position(self: ?*anyopaque, line: *i32, column: *i32) void {

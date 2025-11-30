@@ -140,7 +140,7 @@ pub const qdiriterator = struct {
         return qtc.QDirIterator_new9(path_str, nameFilters_list, @intCast(filters), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdiriterator.html#next)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#next)
     ///
     /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
     pub fn Next(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -151,21 +151,21 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdiriterator.html#nextFileInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#nextFileInfo)
     ///
     /// ``` self: QtC.QDirIterator ```
     pub fn NextFileInfo(self: ?*anyopaque) QtC.QFileInfo {
         return qtc.QDirIterator_NextFileInfo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdiriterator.html#hasNext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#hasNext)
     ///
     /// ``` self: QtC.QDirIterator ```
     pub fn HasNext(self: ?*anyopaque) bool {
         return qtc.QDirIterator_HasNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdiriterator.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#fileName)
     ///
     /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -176,7 +176,7 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdiriterator.html#filePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#filePath)
     ///
     /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -187,14 +187,14 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdiriterator.html#fileInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#fileInfo)
     ///
     /// ``` self: QtC.QDirIterator ```
     pub fn FileInfo(self: ?*anyopaque) QtC.QFileInfo {
         return qtc.QDirIterator_FileInfo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdiriterator.html#path)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#path)
     ///
     /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -205,7 +205,7 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdiriterator.html#dtor.QDirIterator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#dtor.QDirIterator)
     ///
     /// Delete this object from C++ memory.
     ///

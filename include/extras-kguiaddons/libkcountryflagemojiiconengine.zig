@@ -17,14 +17,14 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_new(regionOrCountry_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine ```
     pub fn Clone(self: ?*anyopaque) QtC.QIconEngine {
         return qtc.KCountryFlagEmojiIconEngine_Clone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
     ///
     /// Allows for overriding the related default method
     ///
@@ -33,7 +33,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
     ///
     /// Base class method implementation
     ///
@@ -42,7 +42,7 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_QBaseClone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#key)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#key)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -53,7 +53,7 @@ pub const kcountryflagemojiiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#key)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#key)
     ///
     /// Allows for overriding the related default method
     ///
@@ -62,7 +62,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnKey(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#key)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#key)
     ///
     /// Base class method implementation
     ///
@@ -75,14 +75,14 @@ pub const kcountryflagemojiiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
         qtc.KCountryFlagEmojiIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -91,7 +91,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
     ///
     /// Base class method implementation
     ///
@@ -100,14 +100,14 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn Pixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
         return qtc.KCountryFlagEmojiIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -116,7 +116,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
     ///
     /// Base class method implementation
     ///
@@ -125,14 +125,14 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64 ```
     pub fn ScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
         return qtc.KCountryFlagEmojiIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -141,7 +141,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnScaledPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
     ///
     /// Base class method implementation
     ///
@@ -150,14 +150,14 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.KCountryFlagEmojiIconEngine_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
     ///
     /// Allows for overriding the related default method
     ///
@@ -166,7 +166,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnIsNull(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
     ///
     /// Base class method implementation
     ///
@@ -175,7 +175,7 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_QBaseIsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#setGlobalDefaultFont)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#setGlobalDefaultFont)
     ///
     /// ``` font: QtC.QFont ```
     pub fn SetGlobalDefaultFont(font: ?*anyopaque) void {
@@ -184,7 +184,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -195,7 +195,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -206,7 +206,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -217,7 +217,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -228,7 +228,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -239,7 +239,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -250,7 +250,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#addFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -265,7 +265,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#addFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -280,7 +280,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#addFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -291,7 +291,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#read)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -302,7 +302,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#read)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -313,7 +313,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#read)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -324,7 +324,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#write)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -335,7 +335,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#write)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -346,7 +346,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#write)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -357,7 +357,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -373,7 +373,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -389,7 +389,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -400,7 +400,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#iconName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#iconName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -415,7 +415,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#iconName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#iconName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -430,7 +430,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#iconName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#iconName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -441,7 +441,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -452,7 +452,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -463,7 +463,7 @@ pub const kcountryflagemojiiconengine = struct {
 
     /// Inherited from QIconEngine
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -472,7 +472,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#dtor.KCountryFlagEmojiIconEngine)
+    /// [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#dtor.KCountryFlagEmojiIconEngine)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -38,14 +38,14 @@ pub const accounts__error = struct {
         return qtc.Accounts__Error_new4(@intCast(typeVal), message_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
     /// ``` self: QtC.Accounts__Error, src: QtC.Accounts__Error ```
     pub fn OperatorAssign(self: ?*anyopaque, src: ?*anyopaque) void {
         qtc.Accounts__Error_OperatorAssign(@ptrCast(self), @ptrCast(src));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
     /// ``` self: QtC.Accounts__Error ```
     ///
@@ -54,7 +54,7 @@ pub const accounts__error = struct {
         return qtc.Accounts__Error_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
     /// ``` self: QtC.Accounts__Error, allocator: std.mem.Allocator ```
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -65,7 +65,7 @@ pub const accounts__error = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
     /// Delete this object from C++ memory.
     ///

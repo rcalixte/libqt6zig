@@ -18,14 +18,14 @@ pub const attica__buildservicejoboutput = struct {
         return qtc.Attica__BuildServiceJobOutput_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-buildservicejoboutput.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-buildservicejoboutput.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__BuildServiceJobOutput, other: QtC.Attica__BuildServiceJobOutput ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__BuildServiceJobOutput_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-buildservicejoboutput.html#setOutput)
+    /// [Upstream resources](https://api.kde.org/attica-buildservicejoboutput.html#setOutput)
     ///
     /// ``` self: QtC.Attica__BuildServiceJobOutput, output: []const u8 ```
     pub fn SetOutput(self: ?*anyopaque, output: []const u8) void {
@@ -36,7 +36,7 @@ pub const attica__buildservicejoboutput = struct {
         qtc.Attica__BuildServiceJobOutput_SetOutput(@ptrCast(self), output_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-buildservicejoboutput.html#output)
+    /// [Upstream resources](https://api.kde.org/attica-buildservicejoboutput.html#output)
     ///
     /// ``` self: QtC.Attica__BuildServiceJobOutput, allocator: std.mem.Allocator ```
     pub fn Output(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -47,28 +47,28 @@ pub const attica__buildservicejoboutput = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-buildservicejoboutput.html#isRunning)
+    /// [Upstream resources](https://api.kde.org/attica-buildservicejoboutput.html#isRunning)
     ///
     /// ``` self: QtC.Attica__BuildServiceJobOutput ```
     pub fn IsRunning(self: ?*anyopaque) bool {
         return qtc.Attica__BuildServiceJobOutput_IsRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-buildservicejoboutput.html#isCompleted)
+    /// [Upstream resources](https://api.kde.org/attica-buildservicejoboutput.html#isCompleted)
     ///
     /// ``` self: QtC.Attica__BuildServiceJobOutput ```
     pub fn IsCompleted(self: ?*anyopaque) bool {
         return qtc.Attica__BuildServiceJobOutput_IsCompleted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-buildservicejoboutput.html#isFailed)
+    /// [Upstream resources](https://api.kde.org/attica-buildservicejoboutput.html#isFailed)
     ///
     /// ``` self: QtC.Attica__BuildServiceJobOutput ```
     pub fn IsFailed(self: ?*anyopaque) bool {
         return qtc.Attica__BuildServiceJobOutput_IsFailed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-buildservicejoboutput.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-buildservicejoboutput.html#isValid)
     ///
     /// ``` self: QtC.Attica__BuildServiceJobOutput ```
     pub fn IsValid(self: ?*anyopaque) bool {

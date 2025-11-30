@@ -8,7 +8,7 @@ const std = @import("std");
 
 /// https://api.kde.org/solid-storageaccess.html
 pub const solid__storageaccess = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -26,7 +26,7 @@ pub const solid__storageaccess = struct {
         return qtc.Solid__StorageAccess_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -38,7 +38,7 @@ pub const solid__storageaccess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#deviceInterfaceType)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#deviceInterfaceType)
     ///
     ///
     ///
@@ -47,14 +47,14 @@ pub const solid__storageaccess = struct {
         return qtc.Solid__StorageAccess_DeviceInterfaceType();
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#isAccessible)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#isAccessible)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn IsAccessible(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_IsAccessible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#filePath)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#filePath)
     ///
     /// ``` self: QtC.Solid__StorageAccess, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -65,63 +65,63 @@ pub const solid__storageaccess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#isIgnored)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#isIgnored)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn IsIgnored(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_IsIgnored(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#isEncrypted)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#isEncrypted)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn IsEncrypted(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_IsEncrypted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setup)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#setup)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn Setup(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_Setup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardown)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardown)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn Teardown(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_Teardown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#canCheck)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#canCheck)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn CanCheck(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_CanCheck(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#check)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#check)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn Check(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_Check(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#canRepair)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#canRepair)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn CanRepair(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_CanRepair(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repair)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#repair)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn Repair(self: ?*anyopaque) bool {
         return qtc.Solid__StorageAccess_Repair(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#accessibilityChanged)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#accessibilityChanged)
     ///
     /// ``` self: QtC.Solid__StorageAccess, accessible: bool, udi: []const u8 ```
     pub fn AccessibilityChanged(self: ?*anyopaque, accessible: bool, udi: []const u8) void {
@@ -132,14 +132,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_AccessibilityChanged(@ptrCast(self), accessible, udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#accessibilityChanged)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#accessibilityChanged)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, accessible: bool, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnAccessibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_AccessibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setupDone)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#setupDone)
     ///
     /// ``` self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: []const u8 ```
     pub fn SetupDone(self: ?*anyopaque, errorVal: i32, errorData: QtC.QVariant, udi: []const u8) void {
@@ -150,14 +150,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_SetupDone(@ptrCast(self), @intCast(errorVal), @ptrCast(errorData), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setupDone)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#setupDone)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnSetupDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_SetupDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardownDone)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardownDone)
     ///
     /// ``` self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: []const u8 ```
     pub fn TeardownDone(self: ?*anyopaque, errorVal: i32, errorData: QtC.QVariant, udi: []const u8) void {
@@ -168,14 +168,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_TeardownDone(@ptrCast(self), @intCast(errorVal), @ptrCast(errorData), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardownDone)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardownDone)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnTeardownDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_TeardownDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setupRequested)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#setupRequested)
     ///
     /// ``` self: QtC.Solid__StorageAccess, udi: []const u8 ```
     pub fn SetupRequested(self: ?*anyopaque, udi: []const u8) void {
@@ -186,14 +186,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_SetupRequested(@ptrCast(self), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setupRequested)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#setupRequested)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnSetupRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_SetupRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardownRequested)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardownRequested)
     ///
     /// ``` self: QtC.Solid__StorageAccess, udi: []const u8 ```
     pub fn TeardownRequested(self: ?*anyopaque, udi: []const u8) void {
@@ -204,14 +204,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_TeardownRequested(@ptrCast(self), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardownRequested)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardownRequested)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnTeardownRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_TeardownRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#checkRequested)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#checkRequested)
     ///
     /// ``` self: QtC.Solid__StorageAccess, udi: []const u8 ```
     pub fn CheckRequested(self: ?*anyopaque, udi: []const u8) void {
@@ -222,14 +222,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_CheckRequested(@ptrCast(self), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#checkRequested)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#checkRequested)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnCheckRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_CheckRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#checkDone)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#checkDone)
     ///
     /// ``` self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: []const u8 ```
     pub fn CheckDone(self: ?*anyopaque, errorVal: i32, errorData: QtC.QVariant, udi: []const u8) void {
@@ -240,14 +240,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_CheckDone(@ptrCast(self), @intCast(errorVal), @ptrCast(errorData), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#checkDone)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#checkDone)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnCheckDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_CheckDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repairRequested)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#repairRequested)
     ///
     /// ``` self: QtC.Solid__StorageAccess, udi: []const u8 ```
     pub fn RepairRequested(self: ?*anyopaque, udi: []const u8) void {
@@ -258,14 +258,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_RepairRequested(@ptrCast(self), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repairRequested)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#repairRequested)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnRepairRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_RepairRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repairDone)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#repairDone)
     ///
     /// ``` self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: []const u8 ```
     pub fn RepairDone(self: ?*anyopaque, errorVal: i32, errorData: QtC.QVariant, udi: []const u8) void {
@@ -276,14 +276,14 @@ pub const solid__storageaccess = struct {
         qtc.Solid__StorageAccess_RepairDone(@ptrCast(self), @intCast(errorVal), @ptrCast(errorData), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repairDone)
+    /// [Upstream resources](https://api.kde.org/solid-storageaccess.html#repairDone)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnRepairDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_RepairDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -296,7 +296,7 @@ pub const solid__storageaccess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -311,7 +311,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from Solid::DeviceInterface
     ///
-    /// [Qt documentation](https://api.kde.org/solid-deviceinterface.html#isValid)
+    /// [Upstream resources](https://api.kde.org/solid-deviceinterface.html#isValid)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -320,7 +320,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from Solid::DeviceInterface
     ///
-    /// [Qt documentation](https://api.kde.org/solid-deviceinterface.html#typeToString)
+    /// [Upstream resources](https://api.kde.org/solid-deviceinterface.html#typeToString)
     ///
     /// ``` typeVal: deviceinterface_enums.Type, allocator: std.mem.Allocator ```
     pub fn TypeToString(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -333,7 +333,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from Solid::DeviceInterface
     ///
-    /// [Qt documentation](https://api.kde.org/solid-deviceinterface.html#stringToType)
+    /// [Upstream resources](https://api.kde.org/solid-deviceinterface.html#stringToType)
     ///
     /// ``` typeVal: []const u8 ```
     ///
@@ -348,7 +348,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from Solid::DeviceInterface
     ///
-    /// [Qt documentation](https://api.kde.org/solid-deviceinterface.html#typeDescription)
+    /// [Upstream resources](https://api.kde.org/solid-deviceinterface.html#typeDescription)
     ///
     /// ``` typeVal: deviceinterface_enums.Type, allocator: std.mem.Allocator ```
     pub fn TypeDescription(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -361,7 +361,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.Solid__StorageAccess, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -370,7 +370,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.Solid__StorageAccess, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -379,7 +379,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Solid__StorageAccess, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -392,7 +392,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Solid__StorageAccess, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -405,7 +405,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -414,7 +414,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -423,7 +423,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -432,7 +432,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -441,7 +441,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Solid__StorageAccess, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -450,7 +450,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -459,7 +459,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Solid__StorageAccess, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -468,7 +468,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Solid__StorageAccess, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -477,7 +477,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Solid__StorageAccess, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -486,7 +486,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Solid__StorageAccess, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -495,7 +495,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Solid__StorageAccess, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -509,7 +509,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Solid__StorageAccess, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -518,7 +518,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Solid__StorageAccess, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -527,7 +527,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Solid__StorageAccess, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -536,7 +536,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -545,7 +545,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Solid__StorageAccess, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -556,7 +556,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -565,7 +565,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -574,7 +574,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -583,7 +583,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -592,7 +592,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Solid__StorageAccess, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -602,7 +602,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Solid__StorageAccess, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -612,7 +612,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Solid__StorageAccess, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -636,7 +636,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -645,7 +645,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -654,7 +654,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -663,7 +663,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -672,7 +672,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -681,7 +681,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Solid__StorageAccess, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -691,7 +691,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Solid__StorageAccess ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -700,7 +700,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Solid__StorageAccess, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -709,7 +709,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Solid__StorageAccess, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -718,7 +718,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -727,7 +727,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Solid__StorageAccess, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -738,7 +738,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Solid__StorageAccess, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -747,7 +747,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -756,7 +756,7 @@ pub const solid__storageaccess = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

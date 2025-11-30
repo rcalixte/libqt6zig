@@ -45,49 +45,49 @@ pub const qtyperevision = struct {
         qtc.QTypeRevision_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtyperevision.html#zero)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#zero)
     ///
     ///
     pub fn Zero() QtC.QTypeRevision {
         return qtc.QTypeRevision_Zero();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtyperevision.html#hasMajorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#hasMajorVersion)
     ///
     /// ``` self: QtC.QTypeRevision ```
     pub fn HasMajorVersion(self: ?*anyopaque) bool {
         return qtc.QTypeRevision_HasMajorVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtyperevision.html#majorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#majorVersion)
     ///
     /// ``` self: QtC.QTypeRevision ```
     pub fn MajorVersion(self: ?*anyopaque) u8 {
         return qtc.QTypeRevision_MajorVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtyperevision.html#hasMinorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#hasMinorVersion)
     ///
     /// ``` self: QtC.QTypeRevision ```
     pub fn HasMinorVersion(self: ?*anyopaque) bool {
         return qtc.QTypeRevision_HasMinorVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtyperevision.html#minorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#minorVersion)
     ///
     /// ``` self: QtC.QTypeRevision ```
     pub fn MinorVersion(self: ?*anyopaque) u8 {
         return qtc.QTypeRevision_MinorVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtyperevision.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#isValid)
     ///
     /// ``` self: QtC.QTypeRevision ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QTypeRevision_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtyperevision.html#dtor.QTypeRevision)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#dtor.QTypeRevision)
     ///
     /// Delete this object from C++ memory.
     ///

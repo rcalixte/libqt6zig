@@ -5,14 +5,14 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qssl.html
 pub const qssl = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.KeyType ```
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.KeyType ```
     pub fn GetEnumName(param1: i32) []const u8 {
@@ -20,14 +20,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.EncodingFormat ```
     pub fn GetEnumMetaObject2(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject2(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.EncodingFormat ```
     pub fn GetEnumName2(param1: i32) []const u8 {
@@ -35,14 +35,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.KeyAlgorithm ```
     pub fn GetEnumMetaObject3(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject3(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.KeyAlgorithm ```
     pub fn GetEnumName3(param1: i32) []const u8 {
@@ -50,14 +50,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.AlternativeNameEntryType ```
     pub fn GetEnumMetaObject4(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject4(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.AlternativeNameEntryType ```
     pub fn GetEnumName4(param1: i32) []const u8 {
@@ -65,14 +65,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.SslProtocol ```
     pub fn GetEnumMetaObject5(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject5(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.SslProtocol ```
     pub fn GetEnumName5(param1: i32) []const u8 {
@@ -80,14 +80,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.SslOption ```
     pub fn GetEnumMetaObject6(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject6(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.SslOption ```
     pub fn GetEnumName6(param1: i32) []const u8 {
@@ -95,14 +95,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.AlertLevel ```
     pub fn GetEnumMetaObject7(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject7(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.AlertLevel ```
     pub fn GetEnumName7(param1: i32) []const u8 {
@@ -110,14 +110,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.AlertType ```
     pub fn GetEnumMetaObject8(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject8(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.AlertType ```
     pub fn GetEnumName8(param1: i32) []const u8 {
@@ -125,14 +125,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.ImplementedClass ```
     pub fn GetEnumMetaObject9(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject9(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.ImplementedClass ```
     pub fn GetEnumName9(param1: i32) []const u8 {
@@ -140,14 +140,14 @@ pub const qssl = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: qssl_enums.SupportedFeature ```
     pub fn GetEnumMetaObject10(param1: i32) QtC.QMetaObject {
         return qtc.QSsl_GetEnumMetaObject10(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qssl.html#qt_getEnumName)
     ///
     /// ``` param1: qssl_enums.SupportedFeature ```
     pub fn GetEnumName10(param1: i32) []const u8 {

@@ -4,14 +4,14 @@ const std = @import("std");
 
 /// https://api.kde.org/kio.html
 pub const kio = struct {
-    /// [Qt documentation](https://api.kde.org/kio.html#canPasteMimeData)
+    /// [Upstream resources](https://api.kde.org/kio.html#canPasteMimeData)
     ///
     /// ``` param1: QtC.QMimeData ```
     pub fn CanPasteMimeData(param1: ?*anyopaque) bool {
         return qtc.KIO_CanPasteMimeData(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#pasteActionText)
+    /// [Upstream resources](https://api.kde.org/kio.html#pasteActionText)
     ///
     /// ``` param1: QtC.QMimeData, param2: *bool, param3: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn PasteActionText(param1: ?*anyopaque, param2: *bool, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -22,14 +22,14 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#setClipboardDataCut)
+    /// [Upstream resources](https://api.kde.org/kio.html#setClipboardDataCut)
     ///
     /// ``` param1: QtC.QMimeData, param2: bool ```
     pub fn SetClipboardDataCut(param1: ?*anyopaque, param2: bool) void {
         qtc.KIO_SetClipboardDataCut(@ptrCast(param1), param2);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#isClipboardDataCut)
+    /// [Upstream resources](https://api.kde.org/kio.html#isClipboardDataCut)
     ///
     /// ``` param1: QtC.QMimeData ```
     pub fn IsClipboardDataCut(param1: ?*anyopaque) bool {

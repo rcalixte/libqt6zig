@@ -78,49 +78,49 @@ pub const kfileitem = struct {
         return qtc.KFileItem_new9(@ptrCast(url), mimeType_str, mode);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#operator-eq)
     ///
     /// ``` self: QtC.KFileItem, param1: QtC.KFileItem ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KFileItem_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#refresh)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#refresh)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn Refresh(self: ?*anyopaque) void {
         qtc.KFileItem_Refresh(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#refreshMimeType)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#refreshMimeType)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn RefreshMimeType(self: ?*anyopaque) void {
         qtc.KFileItem_RefreshMimeType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#setDelayedMimeTypes)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#setDelayedMimeTypes)
     ///
     /// ``` self: QtC.KFileItem, b: bool ```
     pub fn SetDelayedMimeTypes(self: ?*anyopaque, b: bool) void {
         qtc.KFileItem_SetDelayedMimeTypes(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#url)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#url)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KFileItem_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#setUrl)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#setUrl)
     ///
     /// ``` self: QtC.KFileItem, url: QtC.QUrl ```
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KFileItem_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#setLocalPath)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#setLocalPath)
     ///
     /// ``` self: QtC.KFileItem, path: []const u8 ```
     pub fn SetLocalPath(self: ?*anyopaque, path: []const u8) void {
@@ -131,7 +131,7 @@ pub const kfileitem = struct {
         qtc.KFileItem_SetLocalPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#setName)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#setName)
     ///
     /// ``` self: QtC.KFileItem, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -142,14 +142,14 @@ pub const kfileitem = struct {
         qtc.KFileItem_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#permissions)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#permissions)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn Permissions(self: ?*anyopaque) u16 {
         return @intCast(qtc.KFileItem_Permissions(@ptrCast(self)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#permissionsString)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#permissionsString)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn PermissionsString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -160,49 +160,49 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#hasExtendedACL)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#hasExtendedACL)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn HasExtendedACL(self: ?*anyopaque) bool {
         return qtc.KFileItem_HasExtendedACL(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#ACL)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#ACL)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn ACL(self: ?*anyopaque) QtC.KACL {
         return qtc.KFileItem_ACL(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#defaultACL)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#defaultACL)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn DefaultACL(self: ?*anyopaque) QtC.KACL {
         return qtc.KFileItem_DefaultACL(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#mode)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#mode)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn Mode(self: ?*anyopaque) u16 {
         return @intCast(qtc.KFileItem_Mode(@ptrCast(self)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#userId)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#userId)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn UserId(self: ?*anyopaque) i32 {
         return qtc.KFileItem_UserId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#groupId)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#groupId)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn GroupId(self: ?*anyopaque) i32 {
         return qtc.KFileItem_GroupId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#user)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#user)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -213,7 +213,7 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#group)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#group)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -224,63 +224,63 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isLink)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isLink)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsLink(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsLink(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isDir)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isDir)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsDir(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsDir(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isFile)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isFile)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsFile(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isReadable)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isReadable)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsReadable(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsReadable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isWritable)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isWritable)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsWritable(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsWritable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isHidden)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isHidden)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsHidden(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsHidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isSlow)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isSlow)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsSlow(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsSlow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isDesktopFile)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isDesktopFile)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsDesktopFile(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsDesktopFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#linkDest)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#linkDest)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn LinkDest(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -291,14 +291,14 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#targetUrl)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#targetUrl)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn TargetUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.KFileItem_TargetUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#localPath)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#localPath)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn LocalPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -309,28 +309,28 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#size)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#size)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn Size(self: ?*anyopaque) u64 {
         return qtc.KFileItem_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#recursiveSize)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#recursiveSize)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn RecursiveSize(self: ?*anyopaque) u64 {
         return qtc.KFileItem_RecursiveSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#time)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#time)
     ///
     /// ``` self: QtC.KFileItem, which: kfileitem_enums.FileTimes ```
     pub fn Time(self: ?*anyopaque, which: i32) QtC.QDateTime {
         return qtc.KFileItem_Time(@ptrCast(self), @intCast(which));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#timeString)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#timeString)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn TimeString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -341,14 +341,14 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isLocalFile)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isLocalFile)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsLocalFile(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsLocalFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#text)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#text)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -359,7 +359,7 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#name)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#name)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -370,7 +370,7 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#mimetype)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#mimetype)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn Mimetype(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -381,35 +381,35 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#determineMimeType)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#determineMimeType)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn DetermineMimeType(self: ?*anyopaque) QtC.QMimeType {
         return qtc.KFileItem_DetermineMimeType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#currentMimeType)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#currentMimeType)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn CurrentMimeType(self: ?*anyopaque) QtC.QMimeType {
         return qtc.KFileItem_CurrentMimeType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isFinalIconKnown)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isFinalIconKnown)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsFinalIconKnown(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsFinalIconKnown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isMimeTypeKnown)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isMimeTypeKnown)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsMimeTypeKnown(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsMimeTypeKnown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#mimeComment)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#mimeComment)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn MimeComment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -420,7 +420,7 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#iconName)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#iconName)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -431,7 +431,7 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#overlays)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#overlays)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn Overlays(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -453,7 +453,7 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#comment)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#comment)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -464,7 +464,7 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#getStatusBarInfo)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#getStatusBarInfo)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn GetStatusBarInfo(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -475,21 +475,21 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#entry)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#entry)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn Entry(self: ?*anyopaque) QtC.KIO__UDSEntry {
         return qtc.KFileItem_Entry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isRegularFile)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isRegularFile)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsRegularFile(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsRegularFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#suffix)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#suffix)
     ///
     /// ``` self: QtC.KFileItem, allocator: std.mem.Allocator ```
     pub fn Suffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -500,84 +500,84 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#cmp)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#cmp)
     ///
     /// ``` self: QtC.KFileItem, item: QtC.KFileItem ```
     pub fn Cmp(self: ?*anyopaque, item: ?*anyopaque) bool {
         return qtc.KFileItem_Cmp(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KFileItem, other: QtC.KFileItem ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KFileItem_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#operator-not-eq)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#operator-not-eq)
     ///
     /// ``` self: QtC.KFileItem, other: QtC.KFileItem ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KFileItem_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#operator-lt)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#operator-lt)
     ///
     /// ``` self: QtC.KFileItem, other: QtC.KFileItem ```
     pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KFileItem_OperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#operator-lt)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#operator-lt)
     ///
     /// ``` self: QtC.KFileItem, other: QtC.QUrl ```
     pub fn OperatorLesser2(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KFileItem_OperatorLesser2(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#operator)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#operator)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.KFileItem_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#mostLocalUrl)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#mostLocalUrl)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn MostLocalUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.KFileItem_MostLocalUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isMostLocalUrl)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isMostLocalUrl)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsMostLocalUrl(self: ?*anyopaque) QtC.KFileItem__MostLocalUrlResult {
         return qtc.KFileItem_IsMostLocalUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isNull)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isNull)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#exists)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#exists)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn Exists(self: ?*anyopaque) bool {
         return qtc.KFileItem_Exists(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#isExecutable)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#isExecutable)
     ///
     /// ``` self: QtC.KFileItem ```
     pub fn IsExecutable(self: ?*anyopaque) bool {
         return qtc.KFileItem_IsExecutable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#timeString)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#timeString)
     ///
     /// ``` self: QtC.KFileItem, which: kfileitem_enums.FileTimes, allocator: std.mem.Allocator ```
     pub fn TimeString1(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
@@ -588,7 +588,7 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#name)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#name)
     ///
     /// ``` self: QtC.KFileItem, lowerCase: bool, allocator: std.mem.Allocator ```
     pub fn Name1(self: ?*anyopaque, lowerCase: bool, allocator: std.mem.Allocator) []const u8 {
@@ -599,14 +599,14 @@ pub const kfileitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#mostLocalUrl)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#mostLocalUrl)
     ///
     /// ``` self: QtC.KFileItem, local: *bool ```
     pub fn MostLocalUrl1(self: ?*anyopaque, local: *bool) QtC.QUrl {
         return qtc.KFileItem_MostLocalUrl1(@ptrCast(self), @ptrCast(local));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem.html#dtor.KFileItem)
+    /// [Upstream resources](https://api.kde.org/kfileitem.html#dtor.KFileItem)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -639,7 +639,7 @@ pub const kfileitemlist = struct {
         return qtc.KFileItemList_new2(items_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlist.html#findByName)
+    /// [Upstream resources](https://api.kde.org/kfileitemlist.html#findByName)
     ///
     /// ``` self: QtC.KFileItemList, fileName: []const u8 ```
     pub fn FindByName(self: ?*anyopaque, fileName: []const u8) QtC.KFileItem {
@@ -650,14 +650,14 @@ pub const kfileitemlist = struct {
         return qtc.KFileItemList_FindByName(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlist.html#findByUrl)
+    /// [Upstream resources](https://api.kde.org/kfileitemlist.html#findByUrl)
     ///
     /// ``` self: QtC.KFileItemList, url: QtC.QUrl ```
     pub fn FindByUrl(self: ?*anyopaque, url: ?*anyopaque) QtC.KFileItem {
         return qtc.KFileItemList_FindByUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlist.html#urlList)
+    /// [Upstream resources](https://api.kde.org/kfileitemlist.html#urlList)
     ///
     /// ``` self: QtC.KFileItemList, allocator: std.mem.Allocator ```
     pub fn UrlList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -669,7 +669,7 @@ pub const kfileitemlist = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlist.html#targetUrlList)
+    /// [Upstream resources](https://api.kde.org/kfileitemlist.html#targetUrlList)
     ///
     /// ``` self: QtC.KFileItemList, allocator: std.mem.Allocator ```
     pub fn TargetUrlList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -681,7 +681,7 @@ pub const kfileitemlist = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemlist.html#dtor.KFileItemList)
+    /// [Upstream resources](https://api.kde.org/kfileitemlist.html#dtor.KFileItemList)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -700,35 +700,35 @@ pub const kfileitem__mostlocalurlresult = struct {
         return qtc.KFileItem__MostLocalUrlResult_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem-mostlocalurlresult.html#url-var)
+    /// [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#url-var)
     ///
     /// ``` self: QtC.KFileItem__MostLocalUrlResult ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KFileItem__MostLocalUrlResult_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem-mostlocalurlresult.html#url-var)
+    /// [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#url-var)
     ///
     /// ``` self: QtC.KFileItem__MostLocalUrlResult, url: QtC.QUrl ```
     pub fn SetUrl(self: ?*anyopaque, url: QtC.QUrl) void {
         qtc.KFileItem__MostLocalUrlResult_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem-mostlocalurlresult.html#local-var)
+    /// [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#local-var)
     ///
     /// ``` self: QtC.KFileItem__MostLocalUrlResult ```
     pub fn Local(self: ?*anyopaque) bool {
         return qtc.KFileItem__MostLocalUrlResult_Local(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem-mostlocalurlresult.html#local-var)
+    /// [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#local-var)
     ///
     /// ``` self: QtC.KFileItem__MostLocalUrlResult, local: bool ```
     pub fn SetLocal(self: ?*anyopaque, local: bool) void {
         qtc.KFileItem__MostLocalUrlResult_SetLocal(@ptrCast(self), local);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitem-mostlocalurlresult.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#operator-eq)
     ///
     /// ``` self: QtC.KFileItem__MostLocalUrlResult, param1: QtC.KFileItem__MostLocalUrlResult ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

@@ -32,21 +32,21 @@ pub const qdbusmetatype = struct {
         qtc.QDBusMetaType_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusmetatype.html#marshall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#marshall)
     ///
     /// ``` param1: QtC.QDBusArgument, id: QtC.QMetaType, data: ?*anyopaque ```
     pub fn Marshall(param1: ?*anyopaque, id: QtC.QMetaType, data: ?*anyopaque) bool {
         return qtc.QDBusMetaType_Marshall(@ptrCast(param1), @ptrCast(id), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusmetatype.html#demarshall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#demarshall)
     ///
     /// ``` param1: QtC.QDBusArgument, id: QtC.QMetaType, data: ?*anyopaque ```
     pub fn Demarshall(param1: ?*anyopaque, id: QtC.QMetaType, data: ?*anyopaque) bool {
         return qtc.QDBusMetaType_Demarshall(@ptrCast(param1), @ptrCast(id), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusmetatype.html#registerCustomType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#registerCustomType)
     ///
     /// ``` typeVal: QtC.QMetaType, signature: []u8 ```
     pub fn RegisterCustomType(typeVal: QtC.QMetaType, signature: []u8) void {
@@ -57,7 +57,7 @@ pub const qdbusmetatype = struct {
         qtc.QDBusMetaType_RegisterCustomType(@ptrCast(typeVal), signature_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusmetatype.html#signatureToMetaType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#signatureToMetaType)
     ///
     /// ``` signature: []const u8 ```
     pub fn SignatureToMetaType(signature: []const u8) QtC.QMetaType {
@@ -65,7 +65,7 @@ pub const qdbusmetatype = struct {
         return qtc.QDBusMetaType_SignatureToMetaType(signature_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusmetatype.html#typeToSignature)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#typeToSignature)
     ///
     /// ``` typeVal: QtC.QMetaType ```
     pub fn TypeToSignature(typeVal: QtC.QMetaType) []const u8 {
@@ -73,7 +73,7 @@ pub const qdbusmetatype = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusmetatype.html#dtor.QDBusMetaType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#dtor.QDBusMetaType)
     ///
     /// Delete this object from C++ memory.
     ///

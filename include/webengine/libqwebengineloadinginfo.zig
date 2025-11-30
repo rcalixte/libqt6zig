@@ -12,28 +12,28 @@ pub const qwebengineloadinginfo = struct {
         return qtc.QWebEngineLoadingInfo_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineLoadingInfo, other: QtC.QWebEngineLoadingInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineLoadingInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#url)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#url)
     ///
     /// ``` self: QtC.QWebEngineLoadingInfo ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineLoadingInfo_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#isErrorPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#isErrorPage)
     ///
     /// ``` self: QtC.QWebEngineLoadingInfo ```
     pub fn IsErrorPage(self: ?*anyopaque) bool {
         return qtc.QWebEngineLoadingInfo_IsErrorPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#status)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#status)
     ///
     /// ``` self: QtC.QWebEngineLoadingInfo ```
     ///
@@ -42,7 +42,7 @@ pub const qwebengineloadinginfo = struct {
         return qtc.QWebEngineLoadingInfo_Status(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorString)
     ///
     /// ``` self: QtC.QWebEngineLoadingInfo, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -53,7 +53,7 @@ pub const qwebengineloadinginfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorDomain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorDomain)
     ///
     /// ``` self: QtC.QWebEngineLoadingInfo ```
     ///
@@ -62,14 +62,14 @@ pub const qwebengineloadinginfo = struct {
         return qtc.QWebEngineLoadingInfo_ErrorDomain(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorCode)
     ///
     /// ``` self: QtC.QWebEngineLoadingInfo ```
     pub fn ErrorCode(self: ?*anyopaque) i32 {
         return qtc.QWebEngineLoadingInfo_ErrorCode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#dtor.QWebEngineLoadingInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#dtor.QWebEngineLoadingInfo)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -24,21 +24,21 @@ pub const qmessageauthenticationcode = struct {
         return qtc.QMessageAuthenticationCode_new2(@intCast(method), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#swap)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, other: QtC.QMessageAuthenticationCode ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMessageAuthenticationCode_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#reset)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QMessageAuthenticationCode_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#setKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#setKey)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, key: []const u8 ```
     pub fn SetKey(self: ?*anyopaque, key: []const u8) void {
@@ -49,7 +49,7 @@ pub const qmessageauthenticationcode = struct {
         qtc.QMessageAuthenticationCode_SetKey(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, data: []const u8, length: i64 ```
     pub fn AddData(self: ?*anyopaque, data: []const u8, length: i64) void {
@@ -57,7 +57,7 @@ pub const qmessageauthenticationcode = struct {
         qtc.QMessageAuthenticationCode_AddData(@ptrCast(self), data_Cstring, @intCast(length));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, data: []const u8 ```
     pub fn AddData2(self: ?*anyopaque, data: []const u8) void {
@@ -68,14 +68,14 @@ pub const qmessageauthenticationcode = struct {
         qtc.QMessageAuthenticationCode_AddData2(@ptrCast(self), data_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, device: QtC.QIODevice ```
     pub fn AddData3(self: ?*anyopaque, device: ?*anyopaque) bool {
         return qtc.QMessageAuthenticationCode_AddData3(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#resultView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#resultView)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, allocator: std.mem.Allocator ```
     pub fn ResultView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -86,7 +86,7 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#result)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#result)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, allocator: std.mem.Allocator ```
     pub fn Result(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -97,7 +97,7 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hash)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hash)
     ///
     /// ``` message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn Hash(message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []u8 {
@@ -116,7 +116,7 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
     /// ``` buffer: []u8, message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto(buffer: []u8, message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
@@ -139,7 +139,7 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
     /// ``` buffer: []u8, message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto2(buffer: []u8, message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
@@ -162,7 +162,7 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
     /// ``` buffer: []u8, messageParts: [][]const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto4(buffer: []u8, messageParts: [][]const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
@@ -185,7 +185,7 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
     /// ``` buffer: []u8, messageParts: [][]const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto5(buffer: []u8, messageParts: [][]const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
@@ -208,7 +208,7 @@ pub const qmessageauthenticationcode = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#dtor.QMessageAuthenticationCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#dtor.QMessageAuthenticationCode)
     ///
     /// Delete this object from C++ memory.
     ///

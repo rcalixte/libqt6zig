@@ -23,7 +23,7 @@ pub const qcategoryaxis = struct {
         return qtc.QCategoryAxis_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -55,7 +55,7 @@ pub const qcategoryaxis = struct {
         return qtc.QCategoryAxis_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -67,7 +67,7 @@ pub const qcategoryaxis = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     ///
@@ -76,7 +76,7 @@ pub const qcategoryaxis = struct {
         return qtc.QCategoryAxis_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
     ///
     /// Allows for overriding the related default method
     ///
@@ -85,7 +85,7 @@ pub const qcategoryaxis = struct {
         qtc.QCategoryAxis_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
     ///
     /// Base class method implementation
     ///
@@ -96,7 +96,7 @@ pub const qcategoryaxis = struct {
         return qtc.QCategoryAxis_QBaseType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#append)
     ///
     /// ``` self: QtC.QCategoryAxis, label: []const u8, categoryEndValue: f64 ```
     pub fn Append(self: ?*anyopaque, label: []const u8, categoryEndValue: f64) void {
@@ -107,7 +107,7 @@ pub const qcategoryaxis = struct {
         qtc.QCategoryAxis_Append(@ptrCast(self), label_str, @floatCast(categoryEndValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#remove)
     ///
     /// ``` self: QtC.QCategoryAxis, label: []const u8 ```
     pub fn Remove(self: ?*anyopaque, label: []const u8) void {
@@ -118,7 +118,7 @@ pub const qcategoryaxis = struct {
         qtc.QCategoryAxis_Remove(@ptrCast(self), label_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#replaceLabel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#replaceLabel)
     ///
     /// ``` self: QtC.QCategoryAxis, oldLabel: []const u8, newLabel: []const u8 ```
     pub fn ReplaceLabel(self: ?*anyopaque, oldLabel: []const u8, newLabel: []const u8) void {
@@ -133,21 +133,21 @@ pub const qcategoryaxis = struct {
         qtc.QCategoryAxis_ReplaceLabel(@ptrCast(self), oldLabel_str, newLabel_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#startValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#startValue)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn StartValue(self: ?*anyopaque) f64 {
         return qtc.QCategoryAxis_StartValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#setStartValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#setStartValue)
     ///
     /// ``` self: QtC.QCategoryAxis, min: f64 ```
     pub fn SetStartValue(self: ?*anyopaque, min: f64) void {
         qtc.QCategoryAxis_SetStartValue(@ptrCast(self), @floatCast(min));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#endValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#endValue)
     ///
     /// ``` self: QtC.QCategoryAxis, categoryLabel: []const u8 ```
     pub fn EndValue(self: ?*anyopaque, categoryLabel: []const u8) f64 {
@@ -158,7 +158,7 @@ pub const qcategoryaxis = struct {
         return qtc.QCategoryAxis_EndValue(@ptrCast(self), categoryLabel_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesLabels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesLabels)
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn CategoriesLabels(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -180,14 +180,14 @@ pub const qcategoryaxis = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#count)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QCategoryAxis_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPosition)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     ///
@@ -196,42 +196,42 @@ pub const qcategoryaxis = struct {
         return qtc.QCategoryAxis_LabelsPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#setLabelsPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#setLabelsPosition)
     ///
     /// ``` self: QtC.QCategoryAxis, position: qcategoryaxis_enums.AxisLabelsPosition ```
     pub fn SetLabelsPosition(self: ?*anyopaque, position: i32) void {
         qtc.QCategoryAxis_SetLabelsPosition(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesChanged)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn CategoriesChanged(self: ?*anyopaque) void {
         qtc.QCategoryAxis_CategoriesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis) callconv(.c) void ```
     pub fn OnCategoriesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCategoryAxis_Connect_CategoriesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPositionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPositionChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, position: qcategoryaxis_enums.AxisLabelsPosition ```
     pub fn LabelsPositionChanged(self: ?*anyopaque, position: i32) void {
         qtc.QCategoryAxis_LabelsPositionChanged(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPositionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPositionChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, position: qcategoryaxis_enums.AxisLabelsPosition) callconv(.c) void ```
     pub fn OnLabelsPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QCategoryAxis_Connect_LabelsPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -244,7 +244,7 @@ pub const qcategoryaxis = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -257,7 +257,7 @@ pub const qcategoryaxis = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#startValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#startValue)
     ///
     /// ``` self: QtC.QCategoryAxis, categoryLabel: []const u8 ```
     pub fn StartValue1(self: ?*anyopaque, categoryLabel: []const u8) f64 {
@@ -270,7 +270,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setMin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setMin)
     ///
     /// ``` self: QtC.QCategoryAxis, min: f64 ```
     pub fn SetMin(self: ?*anyopaque, min: f64) void {
@@ -279,7 +279,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#min)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#min)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn Min(self: ?*anyopaque) f64 {
@@ -288,7 +288,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setMax)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setMax)
     ///
     /// ``` self: QtC.QCategoryAxis, max: f64 ```
     pub fn SetMax(self: ?*anyopaque, max: f64) void {
@@ -297,7 +297,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#max)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#max)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn Max(self: ?*anyopaque) f64 {
@@ -306,7 +306,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setRange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setRange)
     ///
     /// ``` self: QtC.QCategoryAxis, min: f64, max: f64 ```
     pub fn SetRange(self: ?*anyopaque, min: f64, max: f64) void {
@@ -315,7 +315,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setTickCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setTickCount)
     ///
     /// ``` self: QtC.QCategoryAxis, count: i32 ```
     pub fn SetTickCount(self: ?*anyopaque, count: i32) void {
@@ -324,7 +324,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickCount)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn TickCount(self: ?*anyopaque) i32 {
@@ -333,7 +333,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setMinorTickCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setMinorTickCount)
     ///
     /// ``` self: QtC.QCategoryAxis, count: i32 ```
     pub fn SetMinorTickCount(self: ?*anyopaque, count: i32) void {
@@ -342,7 +342,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#minorTickCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#minorTickCount)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn MinorTickCount(self: ?*anyopaque) i32 {
@@ -351,7 +351,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setTickAnchor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setTickAnchor)
     ///
     /// ``` self: QtC.QCategoryAxis, anchor: f64 ```
     pub fn SetTickAnchor(self: ?*anyopaque, anchor: f64) void {
@@ -360,7 +360,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickAnchor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickAnchor)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn TickAnchor(self: ?*anyopaque) f64 {
@@ -369,7 +369,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setTickInterval)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setTickInterval)
     ///
     /// ``` self: QtC.QCategoryAxis, insterval: f64 ```
     pub fn SetTickInterval(self: ?*anyopaque, insterval: f64) void {
@@ -378,7 +378,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickInterval)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickInterval)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn TickInterval(self: ?*anyopaque) f64 {
@@ -387,7 +387,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setTickType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setTickType)
     ///
     /// ``` self: QtC.QCategoryAxis, typeVal: qvalueaxis_enums.TickType ```
     pub fn SetTickType(self: ?*anyopaque, typeVal: i32) void {
@@ -396,7 +396,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickType)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     ///
@@ -407,7 +407,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#setLabelFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#setLabelFormat)
     ///
     /// ``` self: QtC.QCategoryAxis, format: []const u8 ```
     pub fn SetLabelFormat(self: ?*anyopaque, format: []const u8) void {
@@ -420,7 +420,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#labelFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#labelFormat)
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn LabelFormat(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -433,7 +433,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#applyNiceNumbers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#applyNiceNumbers)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn ApplyNiceNumbers(self: ?*anyopaque) void {
@@ -442,7 +442,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#minChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#minChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, min: f64 ```
     pub fn MinChanged(self: ?*anyopaque, min: f64) void {
@@ -451,7 +451,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#minChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#minChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, min: f64) callconv(.c) void ```
     pub fn OnMinChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
@@ -460,7 +460,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#maxChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#maxChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, max: f64 ```
     pub fn MaxChanged(self: ?*anyopaque, max: f64) void {
@@ -469,7 +469,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#maxChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#maxChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, max: f64) callconv(.c) void ```
     pub fn OnMaxChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
@@ -478,7 +478,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#rangeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#rangeChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, min: f64, max: f64 ```
     pub fn RangeChanged(self: ?*anyopaque, min: f64, max: f64) void {
@@ -487,7 +487,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#rangeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#rangeChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, min: f64, max: f64) callconv(.c) void ```
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, f64) callconv(.c) void) void {
@@ -496,7 +496,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickCountChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, tickCount: i32 ```
     pub fn TickCountChanged(self: ?*anyopaque, tickCount: i32) void {
@@ -505,7 +505,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickCountChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, tickCount: i32) callconv(.c) void ```
     pub fn OnTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -514,7 +514,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#minorTickCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#minorTickCountChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, tickCount: i32 ```
     pub fn MinorTickCountChanged(self: ?*anyopaque, tickCount: i32) void {
@@ -523,7 +523,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#minorTickCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#minorTickCountChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, tickCount: i32) callconv(.c) void ```
     pub fn OnMinorTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -532,7 +532,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#labelFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#labelFormatChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, format: []const u8 ```
     pub fn LabelFormatChanged(self: ?*anyopaque, format: []const u8) void {
@@ -545,7 +545,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#labelFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#labelFormatChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, format: [*:0]const u8) callconv(.c) void ```
     pub fn OnLabelFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -554,7 +554,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickIntervalChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickIntervalChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, interval: f64 ```
     pub fn TickIntervalChanged(self: ?*anyopaque, interval: f64) void {
@@ -563,7 +563,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickIntervalChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickIntervalChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, interval: f64) callconv(.c) void ```
     pub fn OnTickIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
@@ -572,7 +572,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickAnchorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickAnchorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, anchor: f64 ```
     pub fn TickAnchorChanged(self: ?*anyopaque, anchor: f64) void {
@@ -581,7 +581,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickAnchorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickAnchorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, anchor: f64) callconv(.c) void ```
     pub fn OnTickAnchorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
@@ -590,7 +590,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickTypeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickTypeChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, typeVal: qvalueaxis_enums.TickType ```
     pub fn TickTypeChanged(self: ?*anyopaque, typeVal: i32) void {
@@ -599,7 +599,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QValueAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickTypeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis.html#tickTypeChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, typeVal: qvalueaxis_enums.TickType) callconv(.c) void ```
     pub fn OnTickTypeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -608,7 +608,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -617,7 +617,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetVisible(self: ?*anyopaque) void {
@@ -626,7 +626,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#show)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn Show(self: ?*anyopaque) void {
@@ -635,7 +635,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#hide)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -644,7 +644,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#isLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsLineVisible(self: ?*anyopaque) bool {
@@ -653,7 +653,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetLineVisible(self: ?*anyopaque) void {
@@ -662,7 +662,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLinePen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLinePen)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QPen ```
     pub fn SetLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -671,7 +671,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#linePen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePen)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LinePen(self: ?*anyopaque) QtC.QPen {
@@ -680,7 +680,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLinePenColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLinePenColor)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn SetLinePenColor(self: ?*anyopaque, color: QtC.QColor) void {
@@ -689,7 +689,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#linePenColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenColor)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LinePenColor(self: ?*anyopaque) QtC.QColor {
@@ -698,7 +698,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#isGridLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isGridLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsGridLineVisible(self: ?*anyopaque) bool {
@@ -707,7 +707,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetGridLineVisible(self: ?*anyopaque) void {
@@ -716,7 +716,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLinePen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLinePen)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QPen ```
     pub fn SetGridLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -725,7 +725,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePen)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn GridLinePen(self: ?*anyopaque) QtC.QPen {
@@ -734,7 +734,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#isMinorGridLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isMinorGridLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsMinorGridLineVisible(self: ?*anyopaque) bool {
@@ -743,7 +743,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetMinorGridLineVisible(self: ?*anyopaque) void {
@@ -752,7 +752,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLinePen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLinePen)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QPen ```
     pub fn SetMinorGridLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -761,7 +761,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePen)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn MinorGridLinePen(self: ?*anyopaque) QtC.QPen {
@@ -770,7 +770,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineColor)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn SetGridLineColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -779,7 +779,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColor)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn GridLineColor(self: ?*anyopaque) QtC.QColor {
@@ -788,7 +788,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineColor)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn SetMinorGridLineColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -797,7 +797,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColor)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn MinorGridLineColor(self: ?*anyopaque) QtC.QColor {
@@ -806,7 +806,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LabelsVisible(self: ?*anyopaque) bool {
@@ -815,7 +815,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetLabelsVisible(self: ?*anyopaque) void {
@@ -824,7 +824,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsBrush)
     ///
     /// ``` self: QtC.QCategoryAxis, brush: QtC.QBrush ```
     pub fn SetLabelsBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -833,7 +833,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrush)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LabelsBrush(self: ?*anyopaque) QtC.QBrush {
@@ -842,7 +842,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsFont)
     ///
     /// ``` self: QtC.QCategoryAxis, font: QtC.QFont ```
     pub fn SetLabelsFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -851,7 +851,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFont)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LabelsFont(self: ?*anyopaque) QtC.QFont {
@@ -860,7 +860,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsAngle)
     ///
     /// ``` self: QtC.QCategoryAxis, angle: i32 ```
     pub fn SetLabelsAngle(self: ?*anyopaque, angle: i32) void {
@@ -869,7 +869,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngle)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LabelsAngle(self: ?*anyopaque) i32 {
@@ -878,7 +878,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsColor)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn SetLabelsColor(self: ?*anyopaque, color: QtC.QColor) void {
@@ -887,7 +887,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColor)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LabelsColor(self: ?*anyopaque) QtC.QColor {
@@ -896,7 +896,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#isTitleVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isTitleVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsTitleVisible(self: ?*anyopaque) bool {
@@ -905,7 +905,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetTitleVisible(self: ?*anyopaque) void {
@@ -914,7 +914,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleBrush)
     ///
     /// ``` self: QtC.QCategoryAxis, brush: QtC.QBrush ```
     pub fn SetTitleBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -923,7 +923,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrush)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn TitleBrush(self: ?*anyopaque) QtC.QBrush {
@@ -932,7 +932,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleFont)
     ///
     /// ``` self: QtC.QCategoryAxis, font: QtC.QFont ```
     pub fn SetTitleFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -941,7 +941,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFont)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn TitleFont(self: ?*anyopaque) QtC.QFont {
@@ -950,7 +950,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleText)
     ///
     /// ``` self: QtC.QCategoryAxis, title: []const u8 ```
     pub fn SetTitleText(self: ?*anyopaque, title: []const u8) void {
@@ -963,7 +963,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleText)
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn TitleText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -976,7 +976,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn ShadesVisible(self: ?*anyopaque) bool {
@@ -985,7 +985,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesVisible)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetShadesVisible(self: ?*anyopaque) void {
@@ -994,7 +994,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesPen)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QPen ```
     pub fn SetShadesPen(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -1003,7 +1003,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPen)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn ShadesPen(self: ?*anyopaque) QtC.QPen {
@@ -1012,7 +1012,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesBrush)
     ///
     /// ``` self: QtC.QCategoryAxis, brush: QtC.QBrush ```
     pub fn SetShadesBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -1021,7 +1021,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrush)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn ShadesBrush(self: ?*anyopaque) QtC.QBrush {
@@ -1030,7 +1030,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesColor)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn SetShadesColor(self: ?*anyopaque, color: QtC.QColor) void {
@@ -1039,7 +1039,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColor)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn ShadesColor(self: ?*anyopaque) QtC.QColor {
@@ -1048,7 +1048,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesBorderColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesBorderColor)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn SetShadesBorderColor(self: ?*anyopaque, color: QtC.QColor) void {
@@ -1057,7 +1057,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColor)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn ShadesBorderColor(self: ?*anyopaque) QtC.QColor {
@@ -1066,7 +1066,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#orientation)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     ///
@@ -1077,7 +1077,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#alignment)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     ///
@@ -1088,7 +1088,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setReverse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setReverse)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetReverse(self: ?*anyopaque) void {
@@ -1097,7 +1097,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#isReverse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#isReverse)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsReverse(self: ?*anyopaque) bool {
@@ -1106,7 +1106,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsEditable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsEditable)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetLabelsEditable(self: ?*anyopaque) void {
@@ -1115,7 +1115,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditable)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LabelsEditable(self: ?*anyopaque) bool {
@@ -1124,7 +1124,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncated)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn LabelsTruncated(self: ?*anyopaque) bool {
@@ -1133,7 +1133,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setTruncateLabels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTruncateLabels)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SetTruncateLabels(self: ?*anyopaque) void {
@@ -1142,7 +1142,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabels)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn TruncateLabels(self: ?*anyopaque) bool {
@@ -1151,7 +1151,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn VisibleChanged(self: ?*anyopaque, visible: bool) void {
@@ -1160,7 +1160,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1169,7 +1169,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QPen ```
     pub fn LinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -1178,7 +1178,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void ```
     pub fn OnLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1187,7 +1187,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn LineVisibleChanged(self: ?*anyopaque, visible: bool) void {
@@ -1196,7 +1196,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void ```
     pub fn OnLineVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1205,7 +1205,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn LabelsVisibleChanged(self: ?*anyopaque, visible: bool) void {
@@ -1214,7 +1214,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void ```
     pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1223,7 +1223,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, brush: QtC.QBrush ```
     pub fn LabelsBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -1232,7 +1232,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void ```
     pub fn OnLabelsBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1241,7 +1241,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QFont ```
     pub fn LabelsFontChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -1250,7 +1250,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QFont) callconv(.c) void ```
     pub fn OnLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1259,7 +1259,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, angle: i32 ```
     pub fn LabelsAngleChanged(self: ?*anyopaque, angle: i32) void {
@@ -1268,7 +1268,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, angle: i32) callconv(.c) void ```
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1277,7 +1277,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QPen ```
     pub fn GridLinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -1286,7 +1286,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void ```
     pub fn OnGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1295,7 +1295,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn GridVisibleChanged(self: ?*anyopaque, visible: bool) void {
@@ -1304,7 +1304,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void ```
     pub fn OnGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1313,7 +1313,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn MinorGridVisibleChanged(self: ?*anyopaque, visible: bool) void {
@@ -1322,7 +1322,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void ```
     pub fn OnMinorGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1331,7 +1331,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QPen ```
     pub fn MinorGridLinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -1340,7 +1340,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void ```
     pub fn OnMinorGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1349,7 +1349,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn GridLineColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -1358,7 +1358,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void ```
     pub fn OnGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1367,7 +1367,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn MinorGridLineColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -1376,7 +1376,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void ```
     pub fn OnMinorGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1385,7 +1385,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn ColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
@@ -1394,7 +1394,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void ```
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
@@ -1403,7 +1403,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn LabelsColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
@@ -1412,7 +1412,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void ```
     pub fn OnLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
@@ -1421,7 +1421,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, title: []const u8 ```
     pub fn TitleTextChanged(self: ?*anyopaque, title: []const u8) void {
@@ -1434,7 +1434,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnTitleTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -1443,7 +1443,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, brush: QtC.QBrush ```
     pub fn TitleBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -1452,7 +1452,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void ```
     pub fn OnTitleBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1461,7 +1461,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn TitleVisibleChanged(self: ?*anyopaque, visible: bool) void {
@@ -1470,7 +1470,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void ```
     pub fn OnTitleVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1479,7 +1479,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, font: QtC.QFont ```
     pub fn TitleFontChanged(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -1488,7 +1488,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, font: QtC.QFont) callconv(.c) void ```
     pub fn OnTitleFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1497,7 +1497,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn ShadesVisibleChanged(self: ?*anyopaque, visible: bool) void {
@@ -1506,7 +1506,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void ```
     pub fn OnShadesVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1515,7 +1515,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn ShadesColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
@@ -1524,7 +1524,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void ```
     pub fn OnShadesColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
@@ -1533,7 +1533,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, color: QtC.QColor ```
     pub fn ShadesBorderColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
@@ -1542,7 +1542,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void ```
     pub fn OnShadesBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
@@ -1551,7 +1551,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, pen: QtC.QPen ```
     pub fn ShadesPenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -1560,7 +1560,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void ```
     pub fn OnShadesPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1569,7 +1569,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, brush: QtC.QBrush ```
     pub fn ShadesBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -1578,7 +1578,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void ```
     pub fn OnShadesBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1587,7 +1587,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, reverse: bool ```
     pub fn ReverseChanged(self: ?*anyopaque, reverse: bool) void {
@@ -1596,7 +1596,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, reverse: bool) callconv(.c) void ```
     pub fn OnReverseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1605,7 +1605,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, editable: bool ```
     pub fn LabelsEditableChanged(self: ?*anyopaque, editable: bool) void {
@@ -1614,7 +1614,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, editable: bool) callconv(.c) void ```
     pub fn OnLabelsEditableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1623,7 +1623,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, labelsTruncated: bool ```
     pub fn LabelsTruncatedChanged(self: ?*anyopaque, labelsTruncated: bool) void {
@@ -1632,7 +1632,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, labelsTruncated: bool) callconv(.c) void ```
     pub fn OnLabelsTruncatedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1641,7 +1641,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, truncateLabels: bool ```
     pub fn TruncateLabelsChanged(self: ?*anyopaque, truncateLabels: bool) void {
@@ -1650,7 +1650,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, truncateLabels: bool) callconv(.c) void ```
     pub fn OnTruncateLabelsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1659,7 +1659,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setVisible)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn SetVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1668,7 +1668,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn SetLineVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1677,7 +1677,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setGridLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn SetGridLineVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1686,7 +1686,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setMinorGridLineVisible)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn SetMinorGridLineVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1695,7 +1695,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsVisible)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn SetLabelsVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1704,7 +1704,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTitleVisible)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn SetTitleVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1713,7 +1713,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setShadesVisible)
     ///
     /// ``` self: QtC.QCategoryAxis, visible: bool ```
     pub fn SetShadesVisible1(self: ?*anyopaque, visible: bool) void {
@@ -1722,7 +1722,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setReverse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setReverse)
     ///
     /// ``` self: QtC.QCategoryAxis, reverse: bool ```
     pub fn SetReverse1(self: ?*anyopaque, reverse: bool) void {
@@ -1731,7 +1731,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsEditable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setLabelsEditable)
     ///
     /// ``` self: QtC.QCategoryAxis, editable: bool ```
     pub fn SetLabelsEditable1(self: ?*anyopaque, editable: bool) void {
@@ -1740,7 +1740,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QAbstractAxis
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#setTruncateLabels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#setTruncateLabels)
     ///
     /// ``` self: QtC.QCategoryAxis, truncateLabels: bool ```
     pub fn SetTruncateLabels1(self: ?*anyopaque, truncateLabels: bool) void {
@@ -1749,7 +1749,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1762,7 +1762,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QCategoryAxis, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1775,7 +1775,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1784,7 +1784,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1793,7 +1793,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1802,7 +1802,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1811,7 +1811,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QCategoryAxis, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1820,7 +1820,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1829,7 +1829,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QCategoryAxis, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1838,7 +1838,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QCategoryAxis, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1847,7 +1847,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QCategoryAxis, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1856,7 +1856,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QCategoryAxis, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1865,7 +1865,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1879,7 +1879,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QCategoryAxis, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1888,7 +1888,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QCategoryAxis, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1897,7 +1897,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QCategoryAxis, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1906,7 +1906,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1915,7 +1915,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QCategoryAxis, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1926,7 +1926,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1935,7 +1935,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1944,7 +1944,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1953,7 +1953,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1962,7 +1962,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QCategoryAxis, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1972,7 +1972,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QCategoryAxis, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1982,7 +1982,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2006,7 +2006,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2015,7 +2015,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2024,7 +2024,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2033,7 +2033,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2042,7 +2042,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2051,7 +2051,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QCategoryAxis, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2061,7 +2061,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QCategoryAxis ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2070,7 +2070,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QCategoryAxis, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2079,7 +2079,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QCategoryAxis, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2088,7 +2088,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2097,7 +2097,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QCategoryAxis, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2108,7 +2108,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCategoryAxis, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2117,7 +2117,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCategoryAxis, callback: *const fn (self: QtC.QCategoryAxis, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2126,7 +2126,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2137,7 +2137,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2148,7 +2148,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2159,7 +2159,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2170,7 +2170,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2181,7 +2181,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2192,7 +2192,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2203,7 +2203,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2214,7 +2214,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2225,7 +2225,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2236,7 +2236,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2247,7 +2247,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2258,7 +2258,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2269,7 +2269,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2280,7 +2280,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2291,7 +2291,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2302,7 +2302,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2313,7 +2313,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2324,7 +2324,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2335,7 +2335,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2346,7 +2346,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2357,7 +2357,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2368,7 +2368,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2379,7 +2379,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2390,7 +2390,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2401,7 +2401,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2412,7 +2412,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2423,7 +2423,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2435,7 +2435,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2447,7 +2447,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2458,7 +2458,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2469,7 +2469,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2480,7 +2480,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2491,7 +2491,7 @@ pub const qcategoryaxis = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2500,7 +2500,7 @@ pub const qcategoryaxis = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#dtor.QCategoryAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#dtor.QCategoryAxis)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -79,21 +79,21 @@ pub const qdir = struct {
         return qtc.QDir_new6(path_str, nameFilter_str, @intCast(sort), @intCast(filter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#operator-eq)
     ///
     /// ``` self: QtC.QDir, param1: QtC.QDir ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QDir_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#swap)
     ///
     /// ``` self: QtC.QDir, other: QtC.QDir ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDir_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#setPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setPath)
     ///
     /// ``` self: QtC.QDir, path: []const u8 ```
     pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
@@ -104,7 +104,7 @@ pub const qdir = struct {
         qtc.QDir_SetPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#path)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#path)
     ///
     /// ``` self: QtC.QDir, allocator: std.mem.Allocator ```
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -115,7 +115,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#absolutePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#absolutePath)
     ///
     /// ``` self: QtC.QDir, allocator: std.mem.Allocator ```
     pub fn AbsolutePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -126,7 +126,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#canonicalPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#canonicalPath)
     ///
     /// ``` self: QtC.QDir, allocator: std.mem.Allocator ```
     pub fn CanonicalPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -137,7 +137,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#setSearchPaths)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setSearchPaths)
     ///
     /// ``` prefix: []const u8, searchPaths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetSearchPaths(prefix: []const u8, searchPaths: [][]const u8, allocator: std.mem.Allocator) void {
@@ -160,7 +160,7 @@ pub const qdir = struct {
         qtc.QDir_SetSearchPaths(prefix_str, searchPaths_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#addSearchPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#addSearchPath)
     ///
     /// ``` prefix: []const u8, path: []const u8 ```
     pub fn AddSearchPath(prefix: []const u8, path: []const u8) void {
@@ -175,7 +175,7 @@ pub const qdir = struct {
         qtc.QDir_AddSearchPath(prefix_str, path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#searchPaths)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#searchPaths)
     ///
     /// ``` prefix: []const u8, allocator: std.mem.Allocator ```
     pub fn SearchPaths(prefix: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -201,7 +201,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#dirName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#dirName)
     ///
     /// ``` self: QtC.QDir, allocator: std.mem.Allocator ```
     pub fn DirName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -212,7 +212,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#filePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#filePath)
     ///
     /// ``` self: QtC.QDir, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -227,7 +227,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#absoluteFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#absoluteFilePath)
     ///
     /// ``` self: QtC.QDir, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn AbsoluteFilePath(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -242,7 +242,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#relativeFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#relativeFilePath)
     ///
     /// ``` self: QtC.QDir, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn RelativeFilePath(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -257,7 +257,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#toNativeSeparators)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#toNativeSeparators)
     ///
     /// ``` pathName: []const u8, allocator: std.mem.Allocator ```
     pub fn ToNativeSeparators(pathName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -272,7 +272,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#fromNativeSeparators)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#fromNativeSeparators)
     ///
     /// ``` pathName: []const u8, allocator: std.mem.Allocator ```
     pub fn FromNativeSeparators(pathName: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -287,7 +287,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#cd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#cd)
     ///
     /// ``` self: QtC.QDir, dirName: []const u8 ```
     pub fn Cd(self: ?*anyopaque, dirName: []const u8) bool {
@@ -298,14 +298,14 @@ pub const qdir = struct {
         return qtc.QDir_Cd(@ptrCast(self), dirName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#cdUp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#cdUp)
     ///
     /// ``` self: QtC.QDir ```
     pub fn CdUp(self: ?*anyopaque) bool {
         return qtc.QDir_CdUp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#nameFilters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#nameFilters)
     ///
     /// ``` self: QtC.QDir, allocator: std.mem.Allocator ```
     pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -327,7 +327,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#setNameFilters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setNameFilters)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetNameFilters(self: ?*anyopaque, nameFilters: [][]const u8, allocator: std.mem.Allocator) void {
@@ -346,7 +346,7 @@ pub const qdir = struct {
         qtc.QDir_SetNameFilters(@ptrCast(self), nameFilters_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#filter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#filter)
     ///
     /// ``` self: QtC.QDir ```
     ///
@@ -355,14 +355,14 @@ pub const qdir = struct {
         return qtc.QDir_Filter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#setFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setFilter)
     ///
     /// ``` self: QtC.QDir, filter: flag of qdir_enums.Filter ```
     pub fn SetFilter(self: ?*anyopaque, filter: i32) void {
         qtc.QDir_SetFilter(@ptrCast(self), @intCast(filter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#sorting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#sorting)
     ///
     /// ``` self: QtC.QDir ```
     ///
@@ -371,28 +371,28 @@ pub const qdir = struct {
         return qtc.QDir_Sorting(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#setSorting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setSorting)
     ///
     /// ``` self: QtC.QDir, sort: flag of qdir_enums.SortFlag ```
     pub fn SetSorting(self: ?*anyopaque, sort: i32) void {
         qtc.QDir_SetSorting(@ptrCast(self), @intCast(sort));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#count)
     ///
     /// ``` self: QtC.QDir ```
     pub fn Count(self: ?*anyopaque) i64 {
         return qtc.QDir_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isEmpty)
     ///
     /// ``` self: QtC.QDir ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QDir_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QDir, param1: i64, allocator: std.mem.Allocator ```
     pub fn OperatorSubscript(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {
@@ -403,7 +403,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#nameFiltersFromString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#nameFiltersFromString)
     ///
     /// ``` nameFilter: []const u8, allocator: std.mem.Allocator ```
     pub fn NameFiltersFromString(nameFilter: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -429,7 +429,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, allocator: std.mem.Allocator ```
     pub fn EntryList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -451,7 +451,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, allocator: std.mem.Allocator ```
     pub fn EntryList2(self: ?*anyopaque, nameFilters: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -485,7 +485,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, allocator: std.mem.Allocator ```
     pub fn EntryInfoList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QFileInfo {
@@ -497,7 +497,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, allocator: std.mem.Allocator ```
     pub fn EntryInfoList2(self: ?*anyopaque, nameFilters: [][]const u8, allocator: std.mem.Allocator) []QtC.QFileInfo {
@@ -521,7 +521,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#rmdir)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rmdir)
     ///
     /// ``` self: QtC.QDir, dirName: []const u8 ```
     pub fn Rmdir(self: ?*anyopaque, dirName: []const u8) bool {
@@ -532,7 +532,7 @@ pub const qdir = struct {
         return qtc.QDir_Rmdir(@ptrCast(self), dirName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#rmpath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rmpath)
     ///
     /// ``` self: QtC.QDir, dirPath: []const u8 ```
     pub fn Rmpath(self: ?*anyopaque, dirPath: []const u8) bool {
@@ -543,35 +543,35 @@ pub const qdir = struct {
         return qtc.QDir_Rmpath(@ptrCast(self), dirPath_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#removeRecursively)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#removeRecursively)
     ///
     /// ``` self: QtC.QDir ```
     pub fn RemoveRecursively(self: ?*anyopaque) bool {
         return qtc.QDir_RemoveRecursively(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isReadable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isReadable)
     ///
     /// ``` self: QtC.QDir ```
     pub fn IsReadable(self: ?*anyopaque) bool {
         return qtc.QDir_IsReadable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#exists)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#exists)
     ///
     /// ``` self: QtC.QDir ```
     pub fn Exists(self: ?*anyopaque) bool {
         return qtc.QDir_Exists(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isRoot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isRoot)
     ///
     /// ``` self: QtC.QDir ```
     pub fn IsRoot(self: ?*anyopaque) bool {
         return qtc.QDir_IsRoot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isRelativePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isRelativePath)
     ///
     /// ``` path: []const u8 ```
     pub fn IsRelativePath(path: []const u8) bool {
@@ -582,7 +582,7 @@ pub const qdir = struct {
         return qtc.QDir_IsRelativePath(path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isAbsolutePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isAbsolutePath)
     ///
     /// ``` path: []const u8 ```
     pub fn IsAbsolutePath(path: []const u8) bool {
@@ -593,28 +593,28 @@ pub const qdir = struct {
         return qtc.QDir_IsAbsolutePath(path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isRelative)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isRelative)
     ///
     /// ``` self: QtC.QDir ```
     pub fn IsRelative(self: ?*anyopaque) bool {
         return qtc.QDir_IsRelative(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isAbsolute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isAbsolute)
     ///
     /// ``` self: QtC.QDir ```
     pub fn IsAbsolute(self: ?*anyopaque) bool {
         return qtc.QDir_IsAbsolute(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#makeAbsolute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#makeAbsolute)
     ///
     /// ``` self: QtC.QDir ```
     pub fn MakeAbsolute(self: ?*anyopaque) bool {
         return qtc.QDir_MakeAbsolute(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#remove)
     ///
     /// ``` self: QtC.QDir, fileName: []const u8 ```
     pub fn Remove(self: ?*anyopaque, fileName: []const u8) bool {
@@ -625,7 +625,7 @@ pub const qdir = struct {
         return qtc.QDir_Remove(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#rename)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rename)
     ///
     /// ``` self: QtC.QDir, oldName: []const u8, newName: []const u8 ```
     pub fn Rename(self: ?*anyopaque, oldName: []const u8, newName: []const u8) bool {
@@ -640,7 +640,7 @@ pub const qdir = struct {
         return qtc.QDir_Rename(@ptrCast(self), oldName_str, newName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#exists)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#exists)
     ///
     /// ``` self: QtC.QDir, name: []const u8 ```
     pub fn Exists2(self: ?*anyopaque, name: []const u8) bool {
@@ -651,7 +651,7 @@ pub const qdir = struct {
         return qtc.QDir_Exists2(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#drives)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#drives)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Drives(allocator: std.mem.Allocator) []QtC.QFileInfo {
@@ -663,21 +663,21 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#listSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#listSeparator)
     ///
     ///
     pub fn ListSeparator() QtC.QChar {
         return qtc.QDir_ListSeparator();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#separator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#separator)
     ///
     ///
     pub fn Separator() QtC.QChar {
         return qtc.QDir_Separator();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#setCurrent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setCurrent)
     ///
     /// ``` path: []const u8 ```
     pub fn SetCurrent(path: []const u8) bool {
@@ -688,14 +688,14 @@ pub const qdir = struct {
         return qtc.QDir_SetCurrent(path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#current)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#current)
     ///
     ///
     pub fn Current() QtC.QDir {
         return qtc.QDir_Current();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#currentPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#currentPath)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn CurrentPath(allocator: std.mem.Allocator) []const u8 {
@@ -706,14 +706,14 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#home)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#home)
     ///
     ///
     pub fn Home() QtC.QDir {
         return qtc.QDir_Home();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#homePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#homePath)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn HomePath(allocator: std.mem.Allocator) []const u8 {
@@ -724,14 +724,14 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#root)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#root)
     ///
     ///
     pub fn Root() QtC.QDir {
         return qtc.QDir_Root();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#rootPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rootPath)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn RootPath(allocator: std.mem.Allocator) []const u8 {
@@ -742,14 +742,14 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#temp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#temp)
     ///
     ///
     pub fn Temp() QtC.QDir {
         return qtc.QDir_Temp();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#tempPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#tempPath)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn TempPath(allocator: std.mem.Allocator) []const u8 {
@@ -760,7 +760,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#match)
     ///
     /// ``` filters: [][]const u8, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn Match(filters: [][]const u8, fileName: []const u8, allocator: std.mem.Allocator) bool {
@@ -783,7 +783,7 @@ pub const qdir = struct {
         return qtc.QDir_Match(filters_list, fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#match)
     ///
     /// ``` filter: []const u8, fileName: []const u8 ```
     pub fn Match2(filter: []const u8, fileName: []const u8) bool {
@@ -798,7 +798,7 @@ pub const qdir = struct {
         return qtc.QDir_Match2(filter_str, fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#cleanPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#cleanPath)
     ///
     /// ``` path: []const u8, allocator: std.mem.Allocator ```
     pub fn CleanPath(path: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -813,28 +813,28 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#refresh)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#refresh)
     ///
     /// ``` self: QtC.QDir ```
     pub fn Refresh(self: ?*anyopaque) void {
         qtc.QDir_Refresh(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#count)
     ///
     /// ``` self: QtC.QDir, param1: QtC.Disambiguated_t ```
     pub fn Count1(self: ?*anyopaque, param1: QtC.Disambiguated_t) i64 {
         return qtc.QDir_Count1(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isEmpty)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter ```
     pub fn IsEmpty1(self: ?*anyopaque, filters: i32) bool {
         return qtc.QDir_IsEmpty1(@ptrCast(self), @intCast(filters));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
     pub fn EntryList1(self: ?*anyopaque, filters: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -856,7 +856,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter, sort: flag of qdir_enums.SortFlag, allocator: std.mem.Allocator ```
     pub fn EntryList22(self: ?*anyopaque, filters: i32, sort: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -878,7 +878,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
     pub fn EntryList23(self: ?*anyopaque, nameFilters: [][]const u8, filters: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -912,7 +912,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, sort: flag of qdir_enums.SortFlag, allocator: std.mem.Allocator ```
     pub fn EntryList3(self: ?*anyopaque, nameFilters: [][]const u8, filters: i32, sort: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -946,7 +946,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
     pub fn EntryInfoList1(self: ?*anyopaque, filters: i32, allocator: std.mem.Allocator) []QtC.QFileInfo {
@@ -958,7 +958,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter, sort: flag of qdir_enums.SortFlag, allocator: std.mem.Allocator ```
     pub fn EntryInfoList22(self: ?*anyopaque, filters: i32, sort: i32, allocator: std.mem.Allocator) []QtC.QFileInfo {
@@ -970,7 +970,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
     pub fn EntryInfoList23(self: ?*anyopaque, nameFilters: [][]const u8, filters: i32, allocator: std.mem.Allocator) []QtC.QFileInfo {
@@ -994,7 +994,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, sort: flag of qdir_enums.SortFlag, allocator: std.mem.Allocator ```
     pub fn EntryInfoList3(self: ?*anyopaque, nameFilters: [][]const u8, filters: i32, sort: i32, allocator: std.mem.Allocator) []QtC.QFileInfo {
@@ -1018,7 +1018,7 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#dtor.QDir)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdir.html#dtor.QDir)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -89,35 +89,35 @@ pub const qjsonvalue = struct {
         return qtc.QJsonValue_new11(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-eq)
     ///
     /// ``` self: QtC.QJsonValue, other: QtC.QJsonValue ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QJsonValue_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#swap)
     ///
     /// ``` self: QtC.QJsonValue, other: QtC.QJsonValue ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QJsonValue_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#fromVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#fromVariant)
     ///
     /// ``` variant: QtC.QVariant ```
     pub fn FromVariant(variant: ?*anyopaque) QtC.QJsonValue {
         return qtc.QJsonValue_FromVariant(@ptrCast(variant));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toVariant)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QJsonValue_ToVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#type)
     ///
     /// ``` self: QtC.QJsonValue ```
     ///
@@ -126,84 +126,84 @@ pub const qjsonvalue = struct {
         return qtc.QJsonValue_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isNull)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QJsonValue_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#isBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isBool)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn IsBool(self: ?*anyopaque) bool {
         return qtc.QJsonValue_IsBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#isDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isDouble)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn IsDouble(self: ?*anyopaque) bool {
         return qtc.QJsonValue_IsDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#isString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isString)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn IsString(self: ?*anyopaque) bool {
         return qtc.QJsonValue_IsString(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#isArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isArray)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn IsArray(self: ?*anyopaque) bool {
         return qtc.QJsonValue_IsArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#isObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isObject)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn IsObject(self: ?*anyopaque) bool {
         return qtc.QJsonValue_IsObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#isUndefined)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isUndefined)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn IsUndefined(self: ?*anyopaque) bool {
         return qtc.QJsonValue_IsUndefined(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QJsonValue_ToBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInt)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QJsonValue_ToInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInteger)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn ToInteger(self: ?*anyopaque) i64 {
         return qtc.QJsonValue_ToInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toDouble)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QJsonValue_ToDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toString)
     ///
     /// ``` self: QtC.QJsonValue, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -214,7 +214,7 @@ pub const qjsonvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toString)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString2(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -229,35 +229,35 @@ pub const qjsonvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toArray)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn ToArray(self: ?*anyopaque) QtC.QJsonArray {
         return qtc.QJsonValue_ToArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toArray)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: QtC.QJsonArray ```
     pub fn ToArray2(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QJsonArray {
         return qtc.QJsonValue_ToArray2(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toObject)
     ///
     /// ``` self: QtC.QJsonValue ```
     pub fn ToObject(self: ?*anyopaque) QtC.QJsonObject {
         return qtc.QJsonValue_ToObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toObject)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: QtC.QJsonObject ```
     pub fn ToObject2(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QJsonObject {
         return qtc.QJsonValue_ToObject2(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonValue, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QJsonValue {
@@ -268,42 +268,42 @@ pub const qjsonvalue = struct {
         return qtc.QJsonValue_OperatorSubscript(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonValue, i: i64 ```
     pub fn OperatorSubscript4(self: ?*anyopaque, i: i64) QtC.QJsonValue {
         return qtc.QJsonValue_OperatorSubscript4(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: bool ```
     pub fn ToBool1(self: ?*anyopaque, defaultValue: bool) bool {
         return qtc.QJsonValue_ToBool1(@ptrCast(self), defaultValue);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInt)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: i32 ```
     pub fn ToInt1(self: ?*anyopaque, defaultValue: i32) i32 {
         return qtc.QJsonValue_ToInt1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInteger)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: i64 ```
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QJsonValue_ToInteger1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toDouble)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: f64 ```
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
         return qtc.QJsonValue_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#dtor.QJsonValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#dtor.QJsonValue)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -329,21 +329,21 @@ pub const qjsonvalueconstref = struct {
         return qtc.QJsonValueConstRef_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToQJsonValue(self: ?*anyopaque) QtC.QJsonValue {
         return qtc.QJsonValueConstRef_ToQJsonValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toVariant)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QJsonValueConstRef_ToVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#type)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     ///
@@ -352,84 +352,84 @@ pub const qjsonvalueconstref = struct {
         return qtc.QJsonValueConstRef_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isNull)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QJsonValueConstRef_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isBool)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn IsBool(self: ?*anyopaque) bool {
         return qtc.QJsonValueConstRef_IsBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isDouble)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn IsDouble(self: ?*anyopaque) bool {
         return qtc.QJsonValueConstRef_IsDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isString)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn IsString(self: ?*anyopaque) bool {
         return qtc.QJsonValueConstRef_IsString(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isArray)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn IsArray(self: ?*anyopaque) bool {
         return qtc.QJsonValueConstRef_IsArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isObject)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn IsObject(self: ?*anyopaque) bool {
         return qtc.QJsonValueConstRef_IsObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isUndefined)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isUndefined)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn IsUndefined(self: ?*anyopaque) bool {
         return qtc.QJsonValueConstRef_IsUndefined(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QJsonValueConstRef_ToBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInt)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QJsonValueConstRef_ToInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInteger)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToInteger(self: ?*anyopaque) i64 {
         return qtc.QJsonValueConstRef_ToInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toDouble)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QJsonValueConstRef_ToDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toString)
     ///
     /// ``` self: QtC.QJsonValueConstRef, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -440,56 +440,56 @@ pub const qjsonvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toArray)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToArray(self: ?*anyopaque) QtC.QJsonArray {
         return qtc.QJsonValueConstRef_ToArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toObject)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToObject(self: ?*anyopaque) QtC.QJsonObject {
         return qtc.QJsonValueConstRef_ToObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonValueConstRef, i: i64 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
         return qtc.QJsonValueConstRef_OperatorSubscript3(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
     ///
     /// ``` self: QtC.QJsonValueConstRef, defaultValue: bool ```
     pub fn ToBool1(self: ?*anyopaque, defaultValue: bool) bool {
         return qtc.QJsonValueConstRef_ToBool1(@ptrCast(self), defaultValue);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInt)
     ///
     /// ``` self: QtC.QJsonValueConstRef, defaultValue: i32 ```
     pub fn ToInt1(self: ?*anyopaque, defaultValue: i32) i32 {
         return qtc.QJsonValueConstRef_ToInt1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInteger)
     ///
     /// ``` self: QtC.QJsonValueConstRef, defaultValue: i64 ```
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QJsonValueConstRef_ToInteger1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toDouble)
     ///
     /// ``` self: QtC.QJsonValueConstRef, defaultValue: f64 ```
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
         return qtc.QJsonValueConstRef_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toString)
     ///
     /// ``` self: QtC.QJsonValueConstRef, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -504,7 +504,7 @@ pub const qjsonvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#dtor.QJsonValueConstRef)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#dtor.QJsonValueConstRef)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -544,35 +544,35 @@ pub const qjsonvalueref = struct {
         return qtc.QJsonValueRef_new4(@ptrCast(object), @intCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
     ///
     /// ``` self: QtC.QJsonValueRef, val: QtC.QJsonValue ```
     pub fn OperatorAssign(self: ?*anyopaque, val: ?*anyopaque) void {
         qtc.QJsonValueRef_OperatorAssign(@ptrCast(self), @ptrCast(val));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
     ///
     /// ``` self: QtC.QJsonValueRef, val: QtC.QJsonValueRef ```
     pub fn OperatorAssign2(self: ?*anyopaque, val: ?*anyopaque) void {
         qtc.QJsonValueRef_OperatorAssign2(@ptrCast(self), @ptrCast(val));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToQJsonValue(self: ?*anyopaque) QtC.QJsonValue {
         return qtc.QJsonValueRef_ToQJsonValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toVariant)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QJsonValueRef_ToVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#type)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     ///
@@ -581,84 +581,84 @@ pub const qjsonvalueref = struct {
         return qtc.QJsonValueRef_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isNull)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QJsonValueRef_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#isBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isBool)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn IsBool(self: ?*anyopaque) bool {
         return qtc.QJsonValueRef_IsBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#isDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isDouble)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn IsDouble(self: ?*anyopaque) bool {
         return qtc.QJsonValueRef_IsDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#isString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isString)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn IsString(self: ?*anyopaque) bool {
         return qtc.QJsonValueRef_IsString(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#isArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isArray)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn IsArray(self: ?*anyopaque) bool {
         return qtc.QJsonValueRef_IsArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#isObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isObject)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn IsObject(self: ?*anyopaque) bool {
         return qtc.QJsonValueRef_IsObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#isUndefined)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isUndefined)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn IsUndefined(self: ?*anyopaque) bool {
         return qtc.QJsonValueRef_IsUndefined(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QJsonValueRef_ToBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInt)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QJsonValueRef_ToInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInteger)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToInteger(self: ?*anyopaque) i64 {
         return qtc.QJsonValueRef_ToInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toDouble)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QJsonValueRef_ToDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toString)
     ///
     /// ``` self: QtC.QJsonValueRef, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -669,56 +669,56 @@ pub const qjsonvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toArray)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToArray(self: ?*anyopaque) QtC.QJsonArray {
         return qtc.QJsonValueRef_ToArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toObject)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToObject(self: ?*anyopaque) QtC.QJsonObject {
         return qtc.QJsonValueRef_ToObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonValueRef, i: i64 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
         return qtc.QJsonValueRef_OperatorSubscript3(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)
     ///
     /// ``` self: QtC.QJsonValueRef, defaultValue: bool ```
     pub fn ToBool1(self: ?*anyopaque, defaultValue: bool) bool {
         return qtc.QJsonValueRef_ToBool1(@ptrCast(self), defaultValue);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInt)
     ///
     /// ``` self: QtC.QJsonValueRef, defaultValue: i32 ```
     pub fn ToInt1(self: ?*anyopaque, defaultValue: i32) i32 {
         return qtc.QJsonValueRef_ToInt1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInteger)
     ///
     /// ``` self: QtC.QJsonValueRef, defaultValue: i64 ```
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QJsonValueRef_ToInteger1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toDouble)
     ///
     /// ``` self: QtC.QJsonValueRef, defaultValue: f64 ```
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
         return qtc.QJsonValueRef_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toString)
     ///
     /// ``` self: QtC.QJsonValueRef, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -733,7 +733,7 @@ pub const qjsonvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#dtor.QJsonValueRef)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#dtor.QJsonValueRef)
     ///
     /// Delete this object from C++ memory.
     ///

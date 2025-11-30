@@ -10,7 +10,7 @@ pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 pub const ksharedconfig = struct {
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#locationType)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#locationType)
     ///
     /// ``` self: QtC.KSharedConfig ```
     ///
@@ -21,7 +21,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#name)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#name)
     ///
     /// ``` self: QtC.KSharedConfig, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -34,7 +34,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#openFlags)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#openFlags)
     ///
     /// ``` self: QtC.KSharedConfig ```
     ///
@@ -45,7 +45,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#sync)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#sync)
     ///
     /// ``` self: QtC.KSharedConfig ```
     pub fn Sync(self: ?*anyopaque) bool {
@@ -54,7 +54,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isDirty)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isDirty)
     ///
     /// ``` self: QtC.KSharedConfig ```
     pub fn IsDirty(self: ?*anyopaque) bool {
@@ -63,7 +63,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#markAsClean)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
     ///
     /// ``` self: QtC.KSharedConfig ```
     pub fn MarkAsClean(self: ?*anyopaque) void {
@@ -72,7 +72,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#accessMode)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
     ///
     /// ``` self: QtC.KSharedConfig ```
     ///
@@ -83,7 +83,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isConfigWritable)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isConfigWritable)
     ///
     /// ``` self: QtC.KSharedConfig, warnUser: bool ```
     pub fn IsConfigWritable(self: ?*anyopaque, warnUser: bool) bool {
@@ -92,7 +92,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#copyTo)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#copyTo)
     ///
     /// ``` self: QtC.KSharedConfig, file: []const u8 ```
     pub fn CopyTo(self: ?*anyopaque, file: []const u8) QtC.KConfig {
@@ -105,7 +105,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#checkUpdate)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#checkUpdate)
     ///
     /// ``` self: QtC.KSharedConfig, id: []const u8, updateFile: []const u8 ```
     pub fn CheckUpdate(self: ?*anyopaque, id: []const u8, updateFile: []const u8) void {
@@ -122,7 +122,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#reparseConfiguration)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#reparseConfiguration)
     ///
     /// ``` self: QtC.KSharedConfig ```
     pub fn ReparseConfiguration(self: ?*anyopaque) void {
@@ -131,7 +131,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#addConfigSources)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#addConfigSources)
     ///
     /// ``` self: QtC.KSharedConfig, sources: [][]const u8, allocator: std.mem.Allocator ```
     pub fn AddConfigSources(self: ?*anyopaque, sources: [][]const u8, allocator: std.mem.Allocator) void {
@@ -152,7 +152,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#additionalConfigSources)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#additionalConfigSources)
     ///
     /// ``` self: QtC.KSharedConfig, allocator: std.mem.Allocator ```
     pub fn AdditionalConfigSources(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -176,7 +176,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#locale)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#locale)
     ///
     /// ``` self: QtC.KSharedConfig, allocator: std.mem.Allocator ```
     pub fn Locale(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -189,7 +189,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#setLocale)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#setLocale)
     ///
     /// ``` self: QtC.KSharedConfig, aLocale: []const u8 ```
     pub fn SetLocale(self: ?*anyopaque, aLocale: []const u8) bool {
@@ -202,7 +202,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#setReadDefaults)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#setReadDefaults)
     ///
     /// ``` self: QtC.KSharedConfig, b: bool ```
     pub fn SetReadDefaults(self: ?*anyopaque, b: bool) void {
@@ -211,7 +211,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#readDefaults)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#readDefaults)
     ///
     /// ``` self: QtC.KSharedConfig ```
     pub fn ReadDefaults(self: ?*anyopaque) bool {
@@ -220,7 +220,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isImmutable)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
     ///
     /// ``` self: QtC.KSharedConfig ```
     pub fn IsImmutable(self: ?*anyopaque) bool {
@@ -229,7 +229,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupList)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupList)
     ///
     /// ``` self: QtC.KSharedConfig, allocator: std.mem.Allocator ```
     pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -253,7 +253,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#entryMap)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#entryMap)
     ///
     /// ``` self: QtC.KSharedConfig, allocator: std.mem.Allocator ```
     pub fn EntryMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -281,7 +281,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#setMainConfigName)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#setMainConfigName)
     ///
     /// ``` str: []const u8 ```
     pub fn SetMainConfigName(str: []const u8) void {
@@ -294,7 +294,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#mainConfigName)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#mainConfigName)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
@@ -307,7 +307,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#copyTo)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#copyTo)
     ///
     /// ``` self: QtC.KSharedConfig, file: []const u8, config: QtC.KConfig ```
     pub fn CopyTo2(self: ?*anyopaque, file: []const u8, config: ?*anyopaque) QtC.KConfig {
@@ -320,7 +320,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api.kde.org/kconfig.html#entryMap)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#entryMap)
     ///
     /// ``` self: QtC.KSharedConfig, aGroup: []const u8, allocator: std.mem.Allocator ```
     pub fn EntryMap1(self: ?*anyopaque, aGroup: []const u8, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -352,7 +352,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#hasGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#hasGroup)
     ///
     /// ``` self: QtC.KSharedConfig, group: []const u8 ```
     pub fn HasGroup(self: ?*anyopaque, group: []const u8) bool {
@@ -365,7 +365,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#group)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#group)
     ///
     /// ``` self: QtC.KSharedConfig, group: []const u8 ```
     pub fn Group(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -378,7 +378,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#group)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#group)
     ///
     /// ``` self: QtC.KSharedConfig, group: []const u8 ```
     pub fn Group2(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -391,7 +391,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#deleteGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KSharedConfig, group: []const u8 ```
     pub fn DeleteGroup(self: ?*anyopaque, group: []const u8) void {
@@ -404,7 +404,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#isGroupImmutable)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#isGroupImmutable)
     ///
     /// ``` self: QtC.KSharedConfig, group: []const u8 ```
     pub fn IsGroupImmutable(self: ?*anyopaque, group: []const u8) bool {
@@ -417,7 +417,7 @@ pub const ksharedconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#deleteGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KSharedConfig, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
     pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {

@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kfilesystemtype.html
 pub const kfilesystemtype = struct {
-    /// [Qt documentation](https://api.kde.org/kfilesystemtype.html#fileSystemType)
+    /// [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemType)
     ///
     /// ``` param1: []const u8 ```
     ///
@@ -18,7 +18,7 @@ pub const kfilesystemtype = struct {
         return qtc.KFileSystemType_FileSystemType(param1_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfilesystemtype.html#fileSystemName)
+    /// [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemName)
     ///
     /// ``` param1: kfilesystemtype_enums.Type, allocator: std.mem.Allocator ```
     pub fn FileSystemName(param1: i32, allocator: std.mem.Allocator) []const u8 {

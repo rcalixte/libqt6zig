@@ -53,7 +53,7 @@ pub const qimagewriter = struct {
         return qtc.QImageWriter_new4(fileName_str, format_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,7 +65,7 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setFormat)
     ///
     /// ``` self: QtC.QImageWriter, format: []u8 ```
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
@@ -76,7 +76,7 @@ pub const qimagewriter = struct {
         qtc.QImageWriter_SetFormat(@ptrCast(self), format_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#format)
     ///
     /// ``` self: QtC.QImageWriter, allocator: std.mem.Allocator ```
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -87,21 +87,21 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setDevice)
     ///
     /// ``` self: QtC.QImageWriter, device: QtC.QIODevice ```
     pub fn SetDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QImageWriter_SetDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#device)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#device)
     ///
     /// ``` self: QtC.QImageWriter ```
     pub fn Device(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QImageWriter_Device(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setFileName)
     ///
     /// ``` self: QtC.QImageWriter, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
@@ -112,7 +112,7 @@ pub const qimagewriter = struct {
         qtc.QImageWriter_SetFileName(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#fileName)
     ///
     /// ``` self: QtC.QImageWriter, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -123,35 +123,35 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setQuality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setQuality)
     ///
     /// ``` self: QtC.QImageWriter, quality: i32 ```
     pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
         qtc.QImageWriter_SetQuality(@ptrCast(self), @intCast(quality));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#quality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#quality)
     ///
     /// ``` self: QtC.QImageWriter ```
     pub fn Quality(self: ?*anyopaque) i32 {
         return qtc.QImageWriter_Quality(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setCompression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setCompression)
     ///
     /// ``` self: QtC.QImageWriter, compression: i32 ```
     pub fn SetCompression(self: ?*anyopaque, compression: i32) void {
         qtc.QImageWriter_SetCompression(@ptrCast(self), @intCast(compression));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#compression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#compression)
     ///
     /// ``` self: QtC.QImageWriter ```
     pub fn Compression(self: ?*anyopaque) i32 {
         return qtc.QImageWriter_Compression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setSubType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setSubType)
     ///
     /// ``` self: QtC.QImageWriter, typeVal: []u8 ```
     pub fn SetSubType(self: ?*anyopaque, typeVal: []u8) void {
@@ -162,7 +162,7 @@ pub const qimagewriter = struct {
         qtc.QImageWriter_SetSubType(@ptrCast(self), typeVal_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#subType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#subType)
     ///
     /// ``` self: QtC.QImageWriter, allocator: std.mem.Allocator ```
     pub fn SubType(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -173,7 +173,7 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#supportedSubTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#supportedSubTypes)
     ///
     /// ``` self: QtC.QImageWriter, allocator: std.mem.Allocator ```
     pub fn SupportedSubTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -195,35 +195,35 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setOptimizedWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setOptimizedWrite)
     ///
     /// ``` self: QtC.QImageWriter, optimize: bool ```
     pub fn SetOptimizedWrite(self: ?*anyopaque, optimize: bool) void {
         qtc.QImageWriter_SetOptimizedWrite(@ptrCast(self), optimize);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#optimizedWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#optimizedWrite)
     ///
     /// ``` self: QtC.QImageWriter ```
     pub fn OptimizedWrite(self: ?*anyopaque) bool {
         return qtc.QImageWriter_OptimizedWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setProgressiveScanWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setProgressiveScanWrite)
     ///
     /// ``` self: QtC.QImageWriter, progressive: bool ```
     pub fn SetProgressiveScanWrite(self: ?*anyopaque, progressive: bool) void {
         qtc.QImageWriter_SetProgressiveScanWrite(@ptrCast(self), progressive);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#progressiveScanWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#progressiveScanWrite)
     ///
     /// ``` self: QtC.QImageWriter ```
     pub fn ProgressiveScanWrite(self: ?*anyopaque) bool {
         return qtc.QImageWriter_ProgressiveScanWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#transformation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#transformation)
     ///
     /// ``` self: QtC.QImageWriter ```
     ///
@@ -232,14 +232,14 @@ pub const qimagewriter = struct {
         return qtc.QImageWriter_Transformation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setTransformation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setTransformation)
     ///
     /// ``` self: QtC.QImageWriter, orientation: flag of qimageiohandler_enums.Transformation ```
     pub fn SetTransformation(self: ?*anyopaque, orientation: i32) void {
         qtc.QImageWriter_SetTransformation(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setText)
     ///
     /// ``` self: QtC.QImageWriter, key: []const u8, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, key: []const u8, text: []const u8) void {
@@ -254,21 +254,21 @@ pub const qimagewriter = struct {
         qtc.QImageWriter_SetText(@ptrCast(self), key_str, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#canWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#canWrite)
     ///
     /// ``` self: QtC.QImageWriter ```
     pub fn CanWrite(self: ?*anyopaque) bool {
         return qtc.QImageWriter_CanWrite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#write)
     ///
     /// ``` self: QtC.QImageWriter, image: QtC.QImage ```
     pub fn Write(self: ?*anyopaque, image: ?*anyopaque) bool {
         return qtc.QImageWriter_Write(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#error)
     ///
     /// ``` self: QtC.QImageWriter ```
     ///
@@ -277,7 +277,7 @@ pub const qimagewriter = struct {
         return qtc.QImageWriter_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#errorString)
     ///
     /// ``` self: QtC.QImageWriter, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -288,14 +288,14 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#supportsOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#supportsOption)
     ///
     /// ``` self: QtC.QImageWriter, option: qimageiohandler_enums.ImageOption ```
     pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QImageWriter_SupportsOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#supportedImageFormats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#supportedImageFormats)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedImageFormats(allocator: std.mem.Allocator) [][]u8 {
@@ -317,7 +317,7 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#supportedMimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#supportedMimeTypes)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedMimeTypes(allocator: std.mem.Allocator) [][]u8 {
@@ -339,7 +339,7 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#imageFormatsForMimeType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#imageFormatsForMimeType)
     ///
     /// ``` mimeType: []u8, allocator: std.mem.Allocator ```
     pub fn ImageFormatsForMimeType(mimeType: []u8, allocator: std.mem.Allocator) [][]u8 {
@@ -365,7 +365,7 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -378,7 +378,7 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -391,7 +391,7 @@ pub const qimagewriter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#dtor.QImageWriter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#dtor.QImageWriter)
     ///
     /// Delete this object from C++ memory.
     ///

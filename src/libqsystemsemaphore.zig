@@ -63,7 +63,7 @@ pub const qsystemsemaphore = struct {
         return qtc.QSystemSemaphore_new6(key_str, @intCast(initialValue), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -75,14 +75,14 @@ pub const qsystemsemaphore = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: QtC.QNativeIpcKey ```
     pub fn SetNativeKey(self: ?*anyopaque, key: ?*anyopaque) void {
         qtc.QSystemSemaphore_SetNativeKey(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8 ```
     pub fn SetNativeKey2(self: ?*anyopaque, key: []const u8) void {
@@ -93,14 +93,14 @@ pub const qsystemsemaphore = struct {
         qtc.QSystemSemaphore_SetNativeKey2(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#nativeIpcKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#nativeIpcKey)
     ///
     /// ``` self: QtC.QSystemSemaphore ```
     pub fn NativeIpcKey(self: ?*anyopaque) QtC.QNativeIpcKey {
         return qtc.QSystemSemaphore_NativeIpcKey(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8 ```
     pub fn SetKey(self: ?*anyopaque, key: []const u8) void {
@@ -111,7 +111,7 @@ pub const qsystemsemaphore = struct {
         qtc.QSystemSemaphore_SetKey(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#key)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#key)
     ///
     /// ``` self: QtC.QSystemSemaphore, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -122,21 +122,21 @@ pub const qsystemsemaphore = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#acquire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#acquire)
     ///
     /// ``` self: QtC.QSystemSemaphore ```
     pub fn Acquire(self: ?*anyopaque) bool {
         return qtc.QSystemSemaphore_Acquire(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#release)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#release)
     ///
     /// ``` self: QtC.QSystemSemaphore ```
     pub fn Release(self: ?*anyopaque) bool {
         return qtc.QSystemSemaphore_Release(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#error)
     ///
     /// ``` self: QtC.QSystemSemaphore ```
     ///
@@ -145,7 +145,7 @@ pub const qsystemsemaphore = struct {
         return qtc.QSystemSemaphore_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#errorString)
     ///
     /// ``` self: QtC.QSystemSemaphore, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -156,14 +156,14 @@ pub const qsystemsemaphore = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#isKeyTypeSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#isKeyTypeSupported)
     ///
     /// ``` typeVal: qtipccommon_enums.Type ```
     pub fn IsKeyTypeSupported(typeVal: u16) bool {
         return qtc.QSystemSemaphore_IsKeyTypeSupported(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#platformSafeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#platformSafeKey)
     ///
     /// ``` key: []const u8 ```
     pub fn PlatformSafeKey(key: []const u8) QtC.QNativeIpcKey {
@@ -174,7 +174,7 @@ pub const qsystemsemaphore = struct {
         return qtc.QSystemSemaphore_PlatformSafeKey(key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#legacyNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#legacyNativeKey)
     ///
     /// ``` key: []const u8 ```
     pub fn LegacyNativeKey(key: []const u8) QtC.QNativeIpcKey {
@@ -185,7 +185,7 @@ pub const qsystemsemaphore = struct {
         return qtc.QSystemSemaphore_LegacyNativeKey(key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -198,7 +198,7 @@ pub const qsystemsemaphore = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -211,21 +211,21 @@ pub const qsystemsemaphore = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: QtC.QNativeIpcKey, initialValue: i32 ```
     pub fn SetNativeKey22(self: ?*anyopaque, key: ?*anyopaque, initialValue: i32) void {
         qtc.QSystemSemaphore_SetNativeKey22(@ptrCast(self), @ptrCast(key), @intCast(initialValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: QtC.QNativeIpcKey, initialValue: i32, param3: qsystemsemaphore_enums.AccessMode ```
     pub fn SetNativeKey3(self: ?*anyopaque, key: ?*anyopaque, initialValue: i32, param3: i32) void {
         qtc.QSystemSemaphore_SetNativeKey3(@ptrCast(self), @ptrCast(key), @intCast(initialValue), @intCast(param3));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32 ```
     pub fn SetNativeKey23(self: ?*anyopaque, key: []const u8, initialValue: i32) void {
@@ -236,7 +236,7 @@ pub const qsystemsemaphore = struct {
         qtc.QSystemSemaphore_SetNativeKey23(@ptrCast(self), key_str, @intCast(initialValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32, mode: qsystemsemaphore_enums.AccessMode ```
     pub fn SetNativeKey32(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i32) void {
@@ -247,7 +247,7 @@ pub const qsystemsemaphore = struct {
         qtc.QSystemSemaphore_SetNativeKey32(@ptrCast(self), key_str, @intCast(initialValue), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32, mode: qsystemsemaphore_enums.AccessMode, typeVal: qtipccommon_enums.Type ```
     pub fn SetNativeKey4(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i32, typeVal: u16) void {
@@ -258,7 +258,7 @@ pub const qsystemsemaphore = struct {
         qtc.QSystemSemaphore_SetNativeKey4(@ptrCast(self), key_str, @intCast(initialValue), @intCast(mode), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32 ```
     pub fn SetKey2(self: ?*anyopaque, key: []const u8, initialValue: i32) void {
@@ -269,7 +269,7 @@ pub const qsystemsemaphore = struct {
         qtc.QSystemSemaphore_SetKey2(@ptrCast(self), key_str, @intCast(initialValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#setKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32, mode: qsystemsemaphore_enums.AccessMode ```
     pub fn SetKey3(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i32) void {
@@ -280,14 +280,14 @@ pub const qsystemsemaphore = struct {
         qtc.QSystemSemaphore_SetKey3(@ptrCast(self), key_str, @intCast(initialValue), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#release)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#release)
     ///
     /// ``` self: QtC.QSystemSemaphore, n: i32 ```
     pub fn Release1(self: ?*anyopaque, n: i32) bool {
         return qtc.QSystemSemaphore_Release1(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#platformSafeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#platformSafeKey)
     ///
     /// ``` key: []const u8, typeVal: qtipccommon_enums.Type ```
     pub fn PlatformSafeKey2(key: []const u8, typeVal: u16) QtC.QNativeIpcKey {
@@ -298,7 +298,7 @@ pub const qsystemsemaphore = struct {
         return qtc.QSystemSemaphore_PlatformSafeKey2(key_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#legacyNativeKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#legacyNativeKey)
     ///
     /// ``` key: []const u8, typeVal: qtipccommon_enums.Type ```
     pub fn LegacyNativeKey2(key: []const u8, typeVal: u16) QtC.QNativeIpcKey {
@@ -309,7 +309,7 @@ pub const qsystemsemaphore = struct {
         return qtc.QSystemSemaphore_LegacyNativeKey2(key_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#dtor.QSystemSemaphore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#dtor.QSystemSemaphore)
     ///
     /// Delete this object from C++ memory.
     ///

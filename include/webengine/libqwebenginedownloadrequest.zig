@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qwebenginedownloadrequest.html
 pub const qwebenginedownloadrequest = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qwebenginedownloadrequest = struct {
         return qtc.QWebEngineDownloadRequest_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,14 +37,14 @@ pub const qwebenginedownloadrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#id)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#id)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Id(self: ?*anyopaque) u32 {
         return qtc.QWebEngineDownloadRequest_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#state)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     ///
@@ -53,28 +53,28 @@ pub const qwebenginedownloadrequest = struct {
         return qtc.QWebEngineDownloadRequest_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#totalBytes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#totalBytes)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn TotalBytes(self: ?*anyopaque) i64 {
         return qtc.QWebEngineDownloadRequest_TotalBytes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#receivedBytes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#receivedBytes)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn ReceivedBytes(self: ?*anyopaque) i64 {
         return qtc.QWebEngineDownloadRequest_ReceivedBytes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#url)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#url)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineDownloadRequest_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#mimeType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#mimeType)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -85,21 +85,21 @@ pub const qwebenginedownloadrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isFinished)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn IsFinished(self: ?*anyopaque) bool {
         return qtc.QWebEngineDownloadRequest_IsFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isPaused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isPaused)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn IsPaused(self: ?*anyopaque) bool {
         return qtc.QWebEngineDownloadRequest_IsPaused(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormat)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     ///
@@ -108,14 +108,14 @@ pub const qwebenginedownloadrequest = struct {
         return qtc.QWebEngineDownloadRequest_SavePageFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#setSavePageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#setSavePageFormat)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, format: qwebenginedownloadrequest_enums.SavePageFormat ```
     pub fn SetSavePageFormat(self: ?*anyopaque, format: i32) void {
         qtc.QWebEngineDownloadRequest_SetSavePageFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReason)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReason)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     ///
@@ -124,7 +124,7 @@ pub const qwebenginedownloadrequest = struct {
         return qtc.QWebEngineDownloadRequest_InterruptReason(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReasonString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReasonString)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn InterruptReasonString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -135,14 +135,14 @@ pub const qwebenginedownloadrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isSavePageDownload)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isSavePageDownload)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn IsSavePageDownload(self: ?*anyopaque) bool {
         return qtc.QWebEngineDownloadRequest_IsSavePageDownload(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#suggestedFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#suggestedFileName)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn SuggestedFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -153,7 +153,7 @@ pub const qwebenginedownloadrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadDirectory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadDirectory)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn DownloadDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -164,7 +164,7 @@ pub const qwebenginedownloadrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#setDownloadDirectory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#setDownloadDirectory)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, directory: []const u8 ```
     pub fn SetDownloadDirectory(self: ?*anyopaque, directory: []const u8) void {
@@ -175,7 +175,7 @@ pub const qwebenginedownloadrequest = struct {
         qtc.QWebEngineDownloadRequest_SetDownloadDirectory(@ptrCast(self), directory_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadFileName)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn DownloadFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -186,7 +186,7 @@ pub const qwebenginedownloadrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#setDownloadFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#setDownloadFileName)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, fileName: []const u8 ```
     pub fn SetDownloadFileName(self: ?*anyopaque, fileName: []const u8) void {
@@ -197,168 +197,168 @@ pub const qwebenginedownloadrequest = struct {
         qtc.QWebEngineDownloadRequest_SetDownloadFileName(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#page)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#page)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Page(self: ?*anyopaque) QtC.QWebEnginePage {
         return qtc.QWebEngineDownloadRequest_Page(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#accept)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Accept(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_Accept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#cancel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#cancel)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Cancel(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_Cancel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#pause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#pause)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Pause(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_Pause(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#resume)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#stateChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, state: qwebenginedownloadrequest_enums.DownloadState ```
     pub fn StateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QWebEngineDownloadRequest_StateChanged(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#stateChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest, state: qwebenginedownloadrequest_enums.DownloadState) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormatChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn SavePageFormatChanged(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_SavePageFormatChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormatChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnSavePageFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_SavePageFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#receivedBytesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#receivedBytesChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn ReceivedBytesChanged(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_ReceivedBytesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#receivedBytesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#receivedBytesChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnReceivedBytesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_ReceivedBytesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#totalBytesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#totalBytesChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn TotalBytesChanged(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_TotalBytesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#totalBytesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#totalBytesChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnTotalBytesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_TotalBytesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReasonChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReasonChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn InterruptReasonChanged(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_InterruptReasonChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReasonChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReasonChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnInterruptReasonChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_InterruptReasonChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isFinishedChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isFinishedChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn IsFinishedChanged(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_IsFinishedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isFinishedChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isFinishedChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnIsFinishedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_IsFinishedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isPausedChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isPausedChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn IsPausedChanged(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_IsPausedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isPausedChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isPausedChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnIsPausedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_IsPausedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadDirectoryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadDirectoryChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn DownloadDirectoryChanged(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_DownloadDirectoryChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadDirectoryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadDirectoryChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnDownloadDirectoryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_DownloadDirectoryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadFileNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadFileNameChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn DownloadFileNameChanged(self: ?*anyopaque) void {
         qtc.QWebEngineDownloadRequest_DownloadFileNameChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadFileNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadFileNameChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnDownloadFileNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_DownloadFileNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -371,7 +371,7 @@ pub const qwebenginedownloadrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -386,7 +386,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -395,7 +395,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -404,7 +404,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -417,7 +417,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -430,7 +430,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -439,7 +439,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -448,7 +448,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -457,7 +457,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -466,7 +466,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -475,7 +475,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -484,7 +484,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -493,7 +493,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -502,7 +502,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -511,7 +511,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -520,7 +520,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -534,7 +534,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -543,7 +543,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -552,7 +552,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -561,7 +561,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -570,7 +570,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -581,7 +581,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -590,7 +590,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -599,7 +599,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -608,7 +608,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -617,7 +617,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -627,7 +627,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -637,7 +637,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -661,7 +661,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -670,7 +670,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -679,7 +679,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -688,7 +688,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -697,7 +697,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -706,7 +706,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -716,7 +716,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -725,7 +725,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -734,7 +734,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -743,7 +743,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -752,7 +752,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -763,7 +763,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -772,7 +772,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -781,7 +781,7 @@ pub const qwebenginedownloadrequest = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -790,7 +790,7 @@ pub const qwebenginedownloadrequest = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#dtor.QWebEngineDownloadRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#dtor.QWebEngineDownloadRequest)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -12,35 +12,35 @@ pub const qcolormap = struct {
         return qtc.QColormap_new(@ptrCast(colormap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#initialize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#initialize)
     ///
     ///
     pub fn Initialize() void {
         qtc.QColormap_Initialize();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#cleanup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#cleanup)
     ///
     ///
     pub fn Cleanup() void {
         qtc.QColormap_Cleanup();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#instance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#instance)
     ///
     ///
     pub fn Instance() QtC.QColormap {
         return qtc.QColormap_Instance();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#operator-eq)
     ///
     /// ``` self: QtC.QColormap, colormap: QtC.QColormap ```
     pub fn OperatorAssign(self: ?*anyopaque, colormap: ?*anyopaque) void {
         qtc.QColormap_OperatorAssign(@ptrCast(self), @ptrCast(colormap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#mode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#mode)
     ///
     /// ``` self: QtC.QColormap ```
     ///
@@ -49,35 +49,35 @@ pub const qcolormap = struct {
         return qtc.QColormap_Mode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#depth)
     ///
     /// ``` self: QtC.QColormap ```
     pub fn Depth(self: ?*anyopaque) i32 {
         return qtc.QColormap_Depth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#size)
     ///
     /// ``` self: QtC.QColormap ```
     pub fn Size(self: ?*anyopaque) i32 {
         return qtc.QColormap_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#pixel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#pixel)
     ///
     /// ``` self: QtC.QColormap, color: QtC.QColor ```
     pub fn Pixel(self: ?*anyopaque, color: ?*anyopaque) u32 {
         return qtc.QColormap_Pixel(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#colorAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#colorAt)
     ///
     /// ``` self: QtC.QColormap, pixel: u32 ```
     pub fn ColorAt(self: ?*anyopaque, pixel: u32) QtC.QColor {
         return qtc.QColormap_ColorAt(@ptrCast(self), @intCast(pixel));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#colormap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#colormap)
     ///
     /// ``` self: QtC.QColormap, allocator: std.mem.Allocator ```
     pub fn Colormap(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QColor {
@@ -89,14 +89,14 @@ pub const qcolormap = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#instance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#instance)
     ///
     /// ``` screen: i32 ```
     pub fn Instance1(screen: i32) QtC.QColormap {
         return qtc.QColormap_Instance1(@intCast(screen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#dtor.QColormap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#dtor.QColormap)
     ///
     /// Delete this object from C++ memory.
     ///

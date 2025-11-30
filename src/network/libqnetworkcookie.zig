@@ -47,63 +47,63 @@ pub const qnetworkcookie = struct {
         return qtc.QNetworkCookie_new4(name_str, value_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkCookie, other: QtC.QNetworkCookie ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNetworkCookie_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#swap)
     ///
     /// ``` self: QtC.QNetworkCookie, other: QtC.QNetworkCookie ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNetworkCookie_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QNetworkCookie, other: QtC.QNetworkCookie ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkCookie_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-not-eq)
     ///
     /// ``` self: QtC.QNetworkCookie, other: QtC.QNetworkCookie ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkCookie_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#isSecure)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#isSecure)
     ///
     /// ``` self: QtC.QNetworkCookie ```
     pub fn IsSecure(self: ?*anyopaque) bool {
         return qtc.QNetworkCookie_IsSecure(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setSecure)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#setSecure)
     ///
     /// ``` self: QtC.QNetworkCookie, enable: bool ```
     pub fn SetSecure(self: ?*anyopaque, enable: bool) void {
         qtc.QNetworkCookie_SetSecure(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#isHttpOnly)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#isHttpOnly)
     ///
     /// ``` self: QtC.QNetworkCookie ```
     pub fn IsHttpOnly(self: ?*anyopaque) bool {
         return qtc.QNetworkCookie_IsHttpOnly(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setHttpOnly)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#setHttpOnly)
     ///
     /// ``` self: QtC.QNetworkCookie, enable: bool ```
     pub fn SetHttpOnly(self: ?*anyopaque, enable: bool) void {
         qtc.QNetworkCookie_SetHttpOnly(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#sameSitePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#sameSitePolicy)
     ///
     /// ``` self: QtC.QNetworkCookie ```
     ///
@@ -112,35 +112,35 @@ pub const qnetworkcookie = struct {
         return qtc.QNetworkCookie_SameSitePolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setSameSitePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#setSameSitePolicy)
     ///
     /// ``` self: QtC.QNetworkCookie, sameSite: qnetworkcookie_enums.SameSite ```
     pub fn SetSameSitePolicy(self: ?*anyopaque, sameSite: i32) void {
         qtc.QNetworkCookie_SetSameSitePolicy(@ptrCast(self), @intCast(sameSite));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#isSessionCookie)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#isSessionCookie)
     ///
     /// ``` self: QtC.QNetworkCookie ```
     pub fn IsSessionCookie(self: ?*anyopaque) bool {
         return qtc.QNetworkCookie_IsSessionCookie(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#expirationDate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#expirationDate)
     ///
     /// ``` self: QtC.QNetworkCookie ```
     pub fn ExpirationDate(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QNetworkCookie_ExpirationDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setExpirationDate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#setExpirationDate)
     ///
     /// ``` self: QtC.QNetworkCookie, date: QtC.QDateTime ```
     pub fn SetExpirationDate(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.QNetworkCookie_SetExpirationDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#domain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#domain)
     ///
     /// ``` self: QtC.QNetworkCookie, allocator: std.mem.Allocator ```
     pub fn Domain(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -151,7 +151,7 @@ pub const qnetworkcookie = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setDomain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#setDomain)
     ///
     /// ``` self: QtC.QNetworkCookie, domain: []const u8 ```
     pub fn SetDomain(self: ?*anyopaque, domain: []const u8) void {
@@ -162,7 +162,7 @@ pub const qnetworkcookie = struct {
         qtc.QNetworkCookie_SetDomain(@ptrCast(self), domain_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#path)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#path)
     ///
     /// ``` self: QtC.QNetworkCookie, allocator: std.mem.Allocator ```
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -173,7 +173,7 @@ pub const qnetworkcookie = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#setPath)
     ///
     /// ``` self: QtC.QNetworkCookie, path: []const u8 ```
     pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
@@ -184,7 +184,7 @@ pub const qnetworkcookie = struct {
         qtc.QNetworkCookie_SetPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#name)
     ///
     /// ``` self: QtC.QNetworkCookie, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -195,7 +195,7 @@ pub const qnetworkcookie = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#setName)
     ///
     /// ``` self: QtC.QNetworkCookie, cookieName: []u8 ```
     pub fn SetName(self: ?*anyopaque, cookieName: []u8) void {
@@ -206,7 +206,7 @@ pub const qnetworkcookie = struct {
         qtc.QNetworkCookie_SetName(@ptrCast(self), cookieName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#value)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#value)
     ///
     /// ``` self: QtC.QNetworkCookie, allocator: std.mem.Allocator ```
     pub fn Value(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -217,7 +217,7 @@ pub const qnetworkcookie = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#setValue)
     ///
     /// ``` self: QtC.QNetworkCookie, value: []u8 ```
     pub fn SetValue(self: ?*anyopaque, value: []u8) void {
@@ -228,7 +228,7 @@ pub const qnetworkcookie = struct {
         qtc.QNetworkCookie_SetValue(@ptrCast(self), value_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#toRawForm)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#toRawForm)
     ///
     /// ``` self: QtC.QNetworkCookie, allocator: std.mem.Allocator ```
     pub fn ToRawForm(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -239,21 +239,21 @@ pub const qnetworkcookie = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#hasSameIdentifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#hasSameIdentifier)
     ///
     /// ``` self: QtC.QNetworkCookie, other: QtC.QNetworkCookie ```
     pub fn HasSameIdentifier(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkCookie_HasSameIdentifier(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#normalize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#normalize)
     ///
     /// ``` self: QtC.QNetworkCookie, url: QtC.QUrl ```
     pub fn Normalize(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QNetworkCookie_Normalize(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#parseCookies)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#parseCookies)
     ///
     /// ``` cookieString: []const u8, allocator: std.mem.Allocator ```
     pub fn ParseCookies(cookieString: []const u8, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
@@ -269,7 +269,7 @@ pub const qnetworkcookie = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#toRawForm)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#toRawForm)
     ///
     /// ``` self: QtC.QNetworkCookie, form: qnetworkcookie_enums.RawForm, allocator: std.mem.Allocator ```
     pub fn ToRawForm1(self: ?*anyopaque, form: i32, allocator: std.mem.Allocator) []u8 {
@@ -280,7 +280,7 @@ pub const qnetworkcookie = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#dtor.QNetworkCookie)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#dtor.QNetworkCookie)
     ///
     /// Delete this object from C++ memory.
     ///

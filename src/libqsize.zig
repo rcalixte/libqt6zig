@@ -53,175 +53,175 @@ pub const qsize = struct {
         qtc.QSize_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#isNull)
     ///
     /// ``` self: QtC.QSize ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QSize_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#isEmpty)
     ///
     /// ``` self: QtC.QSize ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QSize_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#isValid)
     ///
     /// ``` self: QtC.QSize ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QSize_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#width)
     ///
     /// ``` self: QtC.QSize ```
     pub fn Width(self: ?*anyopaque) i32 {
         return qtc.QSize_Width(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#height)
     ///
     /// ``` self: QtC.QSize ```
     pub fn Height(self: ?*anyopaque) i32 {
         return qtc.QSize_Height(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#setWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#setWidth)
     ///
     /// ``` self: QtC.QSize, w: i32 ```
     pub fn SetWidth(self: ?*anyopaque, w: i32) void {
         qtc.QSize_SetWidth(@ptrCast(self), @intCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#setHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#setHeight)
     ///
     /// ``` self: QtC.QSize, h: i32 ```
     pub fn SetHeight(self: ?*anyopaque, h: i32) void {
         qtc.QSize_SetHeight(@ptrCast(self), @intCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#transpose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#transpose)
     ///
     /// ``` self: QtC.QSize ```
     pub fn Transpose(self: ?*anyopaque) void {
         qtc.QSize_Transpose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#transposed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#transposed)
     ///
     /// ``` self: QtC.QSize ```
     pub fn Transposed(self: ?*anyopaque) QtC.QSize {
         return qtc.QSize_Transposed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#scale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scale)
     ///
     /// ``` self: QtC.QSize, w: i32, h: i32, mode: qnamespace_enums.AspectRatioMode ```
     pub fn Scale(self: ?*anyopaque, w: i32, h: i32, mode: i32) void {
         qtc.QSize_Scale(@ptrCast(self), @intCast(w), @intCast(h), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#scale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scale)
     ///
     /// ``` self: QtC.QSize, s: QtC.QSize, mode: qnamespace_enums.AspectRatioMode ```
     pub fn Scale2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) void {
         qtc.QSize_Scale2(@ptrCast(self), @ptrCast(s), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scaled)
     ///
     /// ``` self: QtC.QSize, w: i32, h: i32, mode: qnamespace_enums.AspectRatioMode ```
     pub fn Scaled(self: ?*anyopaque, w: i32, h: i32, mode: i32) QtC.QSize {
         return qtc.QSize_Scaled(@ptrCast(self), @intCast(w), @intCast(h), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scaled)
     ///
     /// ``` self: QtC.QSize, s: QtC.QSize, mode: qnamespace_enums.AspectRatioMode ```
     pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) QtC.QSize {
         return qtc.QSize_Scaled2(@ptrCast(self), @ptrCast(s), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#expandedTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#expandedTo)
     ///
     /// ``` self: QtC.QSize, param1: QtC.QSize ```
     pub fn ExpandedTo(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSize {
         return qtc.QSize_ExpandedTo(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#boundedTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#boundedTo)
     ///
     /// ``` self: QtC.QSize, param1: QtC.QSize ```
     pub fn BoundedTo(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSize {
         return qtc.QSize_BoundedTo(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#grownBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#grownBy)
     ///
     /// ``` self: QtC.QSize, m: QtC.QMargins ```
     pub fn GrownBy(self: ?*anyopaque, m: QtC.QMargins) QtC.QSize {
         return qtc.QSize_GrownBy(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#shrunkBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#shrunkBy)
     ///
     /// ``` self: QtC.QSize, m: QtC.QMargins ```
     pub fn ShrunkBy(self: ?*anyopaque, m: QtC.QMargins) QtC.QSize {
         return qtc.QSize_ShrunkBy(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#rwidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#rwidth)
     ///
     /// ``` self: QtC.QSize ```
     pub fn Rwidth(self: ?*anyopaque) ?*i32 {
         return @ptrCast(qtc.QSize_Rwidth(@ptrCast(self)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#rheight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#rheight)
     ///
     /// ``` self: QtC.QSize ```
     pub fn Rheight(self: ?*anyopaque) ?*i32 {
         return @ptrCast(qtc.QSize_Rheight(@ptrCast(self)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator-2b-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QSize, param1: QtC.QSize ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSize {
         return qtc.QSize_OperatorPlusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator--eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator--eq)
     ///
     /// ``` self: QtC.QSize, param1: QtC.QSize ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSize {
         return qtc.QSize_OperatorMinusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator-2a-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QSize, c: f64 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, c: f64) QtC.QSize {
         return qtc.QSize_OperatorMultiplyAssign(@ptrCast(self), @floatCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator-2f-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QSize, c: f64 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, c: f64) QtC.QSize {
         return qtc.QSize_OperatorDivideAssign(@ptrCast(self), @floatCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#toSizeF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#toSizeF)
     ///
     /// ``` self: QtC.QSize ```
     pub fn ToSizeF(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QSize_ToSizeF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#dtor.QSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsize.html#dtor.QSize)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -289,175 +289,175 @@ pub const qsizef = struct {
         qtc.QSizeF_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#isNull)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QSizeF_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#isEmpty)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QSizeF_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#isValid)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QSizeF_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#width)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn Width(self: ?*anyopaque) f64 {
         return qtc.QSizeF_Width(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#height)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn Height(self: ?*anyopaque) f64 {
         return qtc.QSizeF_Height(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#setWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#setWidth)
     ///
     /// ``` self: QtC.QSizeF, w: f64 ```
     pub fn SetWidth(self: ?*anyopaque, w: f64) void {
         qtc.QSizeF_SetWidth(@ptrCast(self), @floatCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#setHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#setHeight)
     ///
     /// ``` self: QtC.QSizeF, h: f64 ```
     pub fn SetHeight(self: ?*anyopaque, h: f64) void {
         qtc.QSizeF_SetHeight(@ptrCast(self), @floatCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#transpose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#transpose)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn Transpose(self: ?*anyopaque) void {
         qtc.QSizeF_Transpose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#transposed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#transposed)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn Transposed(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QSizeF_Transposed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#scale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scale)
     ///
     /// ``` self: QtC.QSizeF, w: f64, h: f64, mode: qnamespace_enums.AspectRatioMode ```
     pub fn Scale(self: ?*anyopaque, w: f64, h: f64, mode: i32) void {
         qtc.QSizeF_Scale(@ptrCast(self), @floatCast(w), @floatCast(h), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#scale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scale)
     ///
     /// ``` self: QtC.QSizeF, s: QtC.QSizeF, mode: qnamespace_enums.AspectRatioMode ```
     pub fn Scale2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) void {
         qtc.QSizeF_Scale2(@ptrCast(self), @ptrCast(s), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scaled)
     ///
     /// ``` self: QtC.QSizeF, w: f64, h: f64, mode: qnamespace_enums.AspectRatioMode ```
     pub fn Scaled(self: ?*anyopaque, w: f64, h: f64, mode: i32) QtC.QSizeF {
         return qtc.QSizeF_Scaled(@ptrCast(self), @floatCast(w), @floatCast(h), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scaled)
     ///
     /// ``` self: QtC.QSizeF, s: QtC.QSizeF, mode: qnamespace_enums.AspectRatioMode ```
     pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) QtC.QSizeF {
         return qtc.QSizeF_Scaled2(@ptrCast(self), @ptrCast(s), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#expandedTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#expandedTo)
     ///
     /// ``` self: QtC.QSizeF, param1: QtC.QSizeF ```
     pub fn ExpandedTo(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSizeF {
         return qtc.QSizeF_ExpandedTo(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#boundedTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#boundedTo)
     ///
     /// ``` self: QtC.QSizeF, param1: QtC.QSizeF ```
     pub fn BoundedTo(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSizeF {
         return qtc.QSizeF_BoundedTo(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#grownBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#grownBy)
     ///
     /// ``` self: QtC.QSizeF, m: QtC.QMarginsF ```
     pub fn GrownBy(self: ?*anyopaque, m: QtC.QMarginsF) QtC.QSizeF {
         return qtc.QSizeF_GrownBy(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#shrunkBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#shrunkBy)
     ///
     /// ``` self: QtC.QSizeF, m: QtC.QMarginsF ```
     pub fn ShrunkBy(self: ?*anyopaque, m: QtC.QMarginsF) QtC.QSizeF {
         return qtc.QSizeF_ShrunkBy(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#rwidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#rwidth)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn Rwidth(self: ?*anyopaque) ?*f64 {
         return @ptrCast(qtc.QSizeF_Rwidth(@ptrCast(self)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#rheight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#rheight)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn Rheight(self: ?*anyopaque) ?*f64 {
         return @ptrCast(qtc.QSizeF_Rheight(@ptrCast(self)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator-2b-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QSizeF, param1: QtC.QSizeF ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSizeF {
         return qtc.QSizeF_OperatorPlusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator--eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator--eq)
     ///
     /// ``` self: QtC.QSizeF, param1: QtC.QSizeF ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSizeF {
         return qtc.QSizeF_OperatorMinusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator-2a-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QSizeF, c: f64 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, c: f64) QtC.QSizeF {
         return qtc.QSizeF_OperatorMultiplyAssign(@ptrCast(self), @floatCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator-2f-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QSizeF, c: f64 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, c: f64) QtC.QSizeF {
         return qtc.QSizeF_OperatorDivideAssign(@ptrCast(self), @floatCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#toSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#toSize)
     ///
     /// ``` self: QtC.QSizeF ```
     pub fn ToSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QSizeF_ToSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#dtor.QSizeF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#dtor.QSizeF)
     ///
     /// Delete this object from C++ memory.
     ///

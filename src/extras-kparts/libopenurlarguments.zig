@@ -19,56 +19,56 @@ pub const kparts__openurlarguments = struct {
         return qtc.KParts__OpenUrlArguments_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#operator-eq)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, other: QtC.KParts__OpenUrlArguments ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KParts__OpenUrlArguments_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#reload)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#reload)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments ```
     pub fn Reload(self: ?*anyopaque) bool {
         return qtc.KParts__OpenUrlArguments_Reload(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#setReload)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setReload)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, b: bool ```
     pub fn SetReload(self: ?*anyopaque, b: bool) void {
         qtc.KParts__OpenUrlArguments_SetReload(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#xOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#xOffset)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments ```
     pub fn XOffset(self: ?*anyopaque) i32 {
         return qtc.KParts__OpenUrlArguments_XOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#setXOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setXOffset)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, x: i32 ```
     pub fn SetXOffset(self: ?*anyopaque, x: i32) void {
         qtc.KParts__OpenUrlArguments_SetXOffset(@ptrCast(self), @intCast(x));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#yOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#yOffset)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments ```
     pub fn YOffset(self: ?*anyopaque) i32 {
         return qtc.KParts__OpenUrlArguments_YOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#setYOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setYOffset)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, y: i32 ```
     pub fn SetYOffset(self: ?*anyopaque, y: i32) void {
         qtc.KParts__OpenUrlArguments_SetYOffset(@ptrCast(self), @intCast(y));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#mimeType)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#mimeType)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, allocator: std.mem.Allocator ```
     pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -79,7 +79,7 @@ pub const kparts__openurlarguments = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#setMimeType)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setMimeType)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, mime: []const u8 ```
     pub fn SetMimeType(self: ?*anyopaque, mime: []const u8) void {
@@ -90,21 +90,21 @@ pub const kparts__openurlarguments = struct {
         qtc.KParts__OpenUrlArguments_SetMimeType(@ptrCast(self), mime_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#actionRequestedByUser)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#actionRequestedByUser)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments ```
     pub fn ActionRequestedByUser(self: ?*anyopaque) bool {
         return qtc.KParts__OpenUrlArguments_ActionRequestedByUser(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#setActionRequestedByUser)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setActionRequestedByUser)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, userRequested: bool ```
     pub fn SetActionRequestedByUser(self: ?*anyopaque, userRequested: bool) void {
         qtc.KParts__OpenUrlArguments_SetActionRequestedByUser(@ptrCast(self), userRequested);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#metaData)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#metaData)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, allocator: std.mem.Allocator ```
     pub fn MetaData(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -130,7 +130,7 @@ pub const kparts__openurlarguments = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-openurlarguments.html#metaData)
+    /// [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#metaData)
     ///
     /// ``` self: QtC.KParts__OpenUrlArguments, allocator: std.mem.Allocator ```
     pub fn MetaData2(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {

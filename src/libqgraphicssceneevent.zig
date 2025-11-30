@@ -13,28 +13,28 @@ pub const qgraphicssceneevent = struct {
         return qtc.QGraphicsSceneEvent_new(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -43,7 +43,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     ///
@@ -54,7 +54,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -63,7 +63,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -72,7 +72,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -81,7 +81,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -90,7 +90,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -99,7 +99,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -108,7 +108,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -117,7 +117,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -126,7 +126,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -135,7 +135,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -146,7 +146,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -157,7 +157,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -168,7 +168,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -179,7 +179,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -190,7 +190,7 @@ pub const qgraphicssceneevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -199,7 +199,7 @@ pub const qgraphicssceneevent = struct {
         qtc.QGraphicsSceneEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#dtor.QGraphicsSceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#dtor.QGraphicsSceneEvent)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -225,133 +225,133 @@ pub const qgraphicsscenemouseevent = struct {
         return qtc.QGraphicsSceneMouseEvent_new2(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#pos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneMouseEvent_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#scenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneMouseEvent_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#screenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#screenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneMouseEvent_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
     pub fn ButtonDownPos(self: ?*anyopaque, button: i64) QtC.QPointF {
         return qtc.QGraphicsSceneMouseEvent_ButtonDownPos(@ptrCast(self), @intCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: QtC.QPointF ```
     pub fn SetButtonDownPos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetButtonDownPos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
     pub fn ButtonDownScenePos(self: ?*anyopaque, button: i64) QtC.QPointF {
         return qtc.QGraphicsSceneMouseEvent_ButtonDownScenePos(@ptrCast(self), @intCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: QtC.QPointF ```
     pub fn SetButtonDownScenePos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetButtonDownScenePos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
     pub fn ButtonDownScreenPos(self: ?*anyopaque, button: i64) QtC.QPoint {
         return qtc.QGraphicsSceneMouseEvent_ButtonDownScreenPos(@ptrCast(self), @intCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: QtC.QPoint ```
     pub fn SetButtonDownScreenPos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetButtonDownScreenPos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn LastPos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneMouseEvent_LastPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPointF ```
     pub fn SetLastPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetLastPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn LastScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneMouseEvent_LastScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPointF ```
     pub fn SetLastScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetLastScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn LastScreenPos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneMouseEvent_LastScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPoint ```
     pub fn SetLastScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_SetLastScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttons)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
@@ -360,14 +360,14 @@ pub const qgraphicsscenemouseevent = struct {
         return qtc.QGraphicsSceneMouseEvent_Buttons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtons)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
         qtc.QGraphicsSceneMouseEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#button)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#button)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
@@ -376,14 +376,14 @@ pub const qgraphicsscenemouseevent = struct {
         return qtc.QGraphicsSceneMouseEvent_Button(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButton)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
     pub fn SetButton(self: ?*anyopaque, button: i64) void {
         qtc.QGraphicsSceneMouseEvent_SetButton(@ptrCast(self), @intCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#modifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
@@ -392,14 +392,14 @@ pub const qgraphicsscenemouseevent = struct {
         return qtc.QGraphicsSceneMouseEvent_Modifiers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setModifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setModifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneMouseEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#source)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#source)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
@@ -408,14 +408,14 @@ pub const qgraphicsscenemouseevent = struct {
         return qtc.QGraphicsSceneMouseEvent_Source(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setSource)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, source: qnamespace_enums.MouseEventSource ```
     pub fn SetSource(self: ?*anyopaque, source: i32) void {
         qtc.QGraphicsSceneMouseEvent_SetSource(@ptrCast(self), @intCast(source));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#flags)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
@@ -424,7 +424,7 @@ pub const qgraphicsscenemouseevent = struct {
         return qtc.QGraphicsSceneMouseEvent_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, flags: flag of qnamespace_enums.MouseEventFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
@@ -433,7 +433,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -442,7 +442,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -451,7 +451,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
@@ -460,7 +460,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -469,7 +469,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
@@ -480,7 +480,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -489,7 +489,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -498,7 +498,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -507,7 +507,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -516,7 +516,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -525,7 +525,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -534,7 +534,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -543,7 +543,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -552,7 +552,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -561,7 +561,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -572,7 +572,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -583,7 +583,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -594,7 +594,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -605,7 +605,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -616,7 +616,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -625,7 +625,7 @@ pub const qgraphicsscenemouseevent = struct {
         qtc.QGraphicsSceneMouseEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#dtor.QGraphicsSceneMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#dtor.QGraphicsSceneMouseEvent)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -651,49 +651,49 @@ pub const qgraphicsscenewheelevent = struct {
         return qtc.QGraphicsSceneWheelEvent_new2(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#pos)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneWheelEvent_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneWheelEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#scenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneWheelEvent_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneWheelEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#screenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#screenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneWheelEvent_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneWheelEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#buttons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#buttons)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     ///
@@ -702,14 +702,14 @@ pub const qgraphicsscenewheelevent = struct {
         return qtc.QGraphicsSceneWheelEvent_Buttons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setButtons)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
         qtc.QGraphicsSceneWheelEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#modifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     ///
@@ -718,28 +718,28 @@ pub const qgraphicsscenewheelevent = struct {
         return qtc.QGraphicsSceneWheelEvent_Modifiers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setModifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setModifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneWheelEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#delta)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#delta)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Delta(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneWheelEvent_Delta(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setDelta)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setDelta)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, delta: i32 ```
     pub fn SetDelta(self: ?*anyopaque, delta: i32) void {
         qtc.QGraphicsSceneWheelEvent_SetDelta(@ptrCast(self), @intCast(delta));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#orientation)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     ///
@@ -748,14 +748,14 @@ pub const qgraphicsscenewheelevent = struct {
         return qtc.QGraphicsSceneWheelEvent_Orientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setOrientation)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, orientation: qnamespace_enums.Orientation ```
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QGraphicsSceneWheelEvent_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#phase)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#phase)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     ///
@@ -764,35 +764,35 @@ pub const qgraphicsscenewheelevent = struct {
         return qtc.QGraphicsSceneWheelEvent_Phase(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPhase)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPhase)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, scrollPhase: qnamespace_enums.ScrollPhase ```
     pub fn SetPhase(self: ?*anyopaque, scrollPhase: i32) void {
         qtc.QGraphicsSceneWheelEvent_SetPhase(@ptrCast(self), @intCast(scrollPhase));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#pixelDelta)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#pixelDelta)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn PixelDelta(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneWheelEvent_PixelDelta(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPixelDelta)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPixelDelta)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, delta: QtC.QPoint ```
     pub fn SetPixelDelta(self: ?*anyopaque, delta: QtC.QPoint) void {
         qtc.QGraphicsSceneWheelEvent_SetPixelDelta(@ptrCast(self), @ptrCast(delta));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#isInverted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#isInverted)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsInverted(self: ?*anyopaque) bool {
         return qtc.QGraphicsSceneWheelEvent_IsInverted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setInverted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setInverted)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, inverted: bool ```
     pub fn SetInverted(self: ?*anyopaque, inverted: bool) void {
@@ -801,7 +801,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -810,7 +810,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -819,7 +819,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
@@ -828,7 +828,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -837,7 +837,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     ///
@@ -848,7 +848,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -857,7 +857,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -866,7 +866,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -875,7 +875,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -884,7 +884,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -893,7 +893,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -902,7 +902,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -911,7 +911,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -920,7 +920,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -929,7 +929,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -940,7 +940,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -951,7 +951,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -962,7 +962,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -973,7 +973,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -984,7 +984,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -993,7 +993,7 @@ pub const qgraphicsscenewheelevent = struct {
         qtc.QGraphicsSceneWheelEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#dtor.QGraphicsSceneWheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#dtor.QGraphicsSceneWheelEvent)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1019,49 +1019,49 @@ pub const qgraphicsscenecontextmenuevent = struct {
         return qtc.QGraphicsSceneContextMenuEvent_new2(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#pos)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneContextMenuEvent_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneContextMenuEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#scenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneContextMenuEvent_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneContextMenuEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#screenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#screenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneContextMenuEvent_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneContextMenuEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#modifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     ///
@@ -1070,14 +1070,14 @@ pub const qgraphicsscenecontextmenuevent = struct {
         return qtc.QGraphicsSceneContextMenuEvent_Modifiers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setModifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setModifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneContextMenuEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#reason)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#reason)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     ///
@@ -1086,7 +1086,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
         return qtc.QGraphicsSceneContextMenuEvent_Reason(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setReason)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setReason)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent, reason: qgraphicssceneevent_enums.Reason ```
     pub fn SetReason(self: ?*anyopaque, reason: i32) void {
@@ -1095,7 +1095,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -1104,7 +1104,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1113,7 +1113,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
@@ -1122,7 +1122,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -1131,7 +1131,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     ///
@@ -1142,7 +1142,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -1151,7 +1151,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -1160,7 +1160,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -1169,7 +1169,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -1178,7 +1178,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -1187,7 +1187,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -1196,7 +1196,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -1205,7 +1205,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -1214,7 +1214,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -1223,7 +1223,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1234,7 +1234,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1245,7 +1245,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1256,7 +1256,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1267,7 +1267,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1278,7 +1278,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1287,7 +1287,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
         qtc.QGraphicsSceneContextMenuEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#dtor.QGraphicsSceneContextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#dtor.QGraphicsSceneContextMenuEvent)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1313,91 +1313,91 @@ pub const qgraphicsscenehoverevent = struct {
         return qtc.QGraphicsSceneHoverEvent_new2(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#pos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneHoverEvent_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneHoverEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#scenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneHoverEvent_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneHoverEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#screenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#screenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneHoverEvent_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneHoverEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn LastPos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneHoverEvent_LastPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPointF ```
     pub fn SetLastPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneHoverEvent_SetLastPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn LastScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneHoverEvent_LastScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPointF ```
     pub fn SetLastScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneHoverEvent_SetLastScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn LastScreenPos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneHoverEvent_LastScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPoint ```
     pub fn SetLastScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneHoverEvent_SetLastScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#modifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     ///
@@ -1406,7 +1406,7 @@ pub const qgraphicsscenehoverevent = struct {
         return qtc.QGraphicsSceneHoverEvent_Modifiers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setModifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setModifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
@@ -1415,7 +1415,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -1424,7 +1424,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1433,7 +1433,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
@@ -1442,7 +1442,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -1451,7 +1451,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     ///
@@ -1462,7 +1462,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -1471,7 +1471,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -1480,7 +1480,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -1489,7 +1489,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -1498,7 +1498,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -1507,7 +1507,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -1516,7 +1516,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -1525,7 +1525,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -1534,7 +1534,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -1543,7 +1543,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1554,7 +1554,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1565,7 +1565,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1576,7 +1576,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1587,7 +1587,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1598,7 +1598,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1607,7 +1607,7 @@ pub const qgraphicsscenehoverevent = struct {
         qtc.QGraphicsSceneHoverEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#dtor.QGraphicsSceneHoverEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#dtor.QGraphicsSceneHoverEvent)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1633,28 +1633,28 @@ pub const qgraphicsscenehelpevent = struct {
         return qtc.QGraphicsSceneHelpEvent_new2(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#scenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneHelpEvent_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#setScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#setScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneHelpEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#screenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#screenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneHelpEvent_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#setScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#setScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -1663,7 +1663,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -1672,7 +1672,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1681,7 +1681,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
@@ -1690,7 +1690,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -1699,7 +1699,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     ///
@@ -1710,7 +1710,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -1719,7 +1719,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -1728,7 +1728,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -1737,7 +1737,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -1746,7 +1746,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -1755,7 +1755,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -1764,7 +1764,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -1773,7 +1773,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -1782,7 +1782,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -1791,7 +1791,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1802,7 +1802,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1813,7 +1813,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1824,7 +1824,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1835,7 +1835,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1846,7 +1846,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1855,7 +1855,7 @@ pub const qgraphicsscenehelpevent = struct {
         qtc.QGraphicsSceneHelpEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#dtor.QGraphicsSceneHelpEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#dtor.QGraphicsSceneHelpEvent)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1881,49 +1881,49 @@ pub const qgraphicsscenedragdropevent = struct {
         return qtc.QGraphicsSceneDragDropEvent_new2(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#pos)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneDragDropEvent_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneDragDropEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#scenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneDragDropEvent_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setScenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setScenePos)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneDragDropEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#screenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#screenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
         return qtc.QGraphicsSceneDragDropEvent_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setScreenPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setScreenPos)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneDragDropEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#buttons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#buttons)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
@@ -1932,14 +1932,14 @@ pub const qgraphicsscenedragdropevent = struct {
         return qtc.QGraphicsSceneDragDropEvent_Buttons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setButtons)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
         qtc.QGraphicsSceneDragDropEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#modifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
@@ -1948,14 +1948,14 @@ pub const qgraphicsscenedragdropevent = struct {
         return qtc.QGraphicsSceneDragDropEvent_Modifiers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setModifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setModifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneDragDropEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#possibleActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#possibleActions)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
@@ -1964,14 +1964,14 @@ pub const qgraphicsscenedragdropevent = struct {
         return qtc.QGraphicsSceneDragDropEvent_PossibleActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPossibleActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPossibleActions)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, actions: flag of qnamespace_enums.DropAction ```
     pub fn SetPossibleActions(self: ?*anyopaque, actions: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetPossibleActions(@ptrCast(self), @intCast(actions));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#proposedAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#proposedAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
@@ -1980,21 +1980,21 @@ pub const qgraphicsscenedragdropevent = struct {
         return qtc.QGraphicsSceneDragDropEvent_ProposedAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setProposedAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setProposedAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, action: qnamespace_enums.DropAction ```
     pub fn SetProposedAction(self: ?*anyopaque, action: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetProposedAction(@ptrCast(self), @intCast(action));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#acceptProposedAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#acceptProposedAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn AcceptProposedAction(self: ?*anyopaque) void {
         qtc.QGraphicsSceneDragDropEvent_AcceptProposedAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dropAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
@@ -2003,35 +2003,35 @@ pub const qgraphicsscenedragdropevent = struct {
         return qtc.QGraphicsSceneDragDropEvent_DropAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setDropAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, action: qnamespace_enums.DropAction ```
     pub fn SetDropAction(self: ?*anyopaque, action: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#source)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#source)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Source(self: ?*anyopaque) QtC.QWidget {
         return qtc.QGraphicsSceneDragDropEvent_Source(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setSource)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, source: QtC.QWidget ```
     pub fn SetSource(self: ?*anyopaque, source: ?*anyopaque) void {
         qtc.QGraphicsSceneDragDropEvent_SetSource(@ptrCast(self), @ptrCast(source));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#mimeData)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn MimeData(self: ?*anyopaque) QtC.QMimeData {
         return qtc.QGraphicsSceneDragDropEvent_MimeData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setMimeData)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, data: QtC.QMimeData ```
     pub fn SetMimeData(self: ?*anyopaque, data: ?*anyopaque) void {
@@ -2040,7 +2040,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -2049,7 +2049,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2058,7 +2058,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
@@ -2067,7 +2067,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -2076,7 +2076,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
@@ -2087,7 +2087,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -2096,7 +2096,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -2105,7 +2105,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -2114,7 +2114,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -2123,7 +2123,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -2132,7 +2132,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -2141,7 +2141,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -2150,7 +2150,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -2159,7 +2159,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -2168,7 +2168,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2179,7 +2179,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2190,7 +2190,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2201,7 +2201,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2212,7 +2212,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2223,7 +2223,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2232,7 +2232,7 @@ pub const qgraphicsscenedragdropevent = struct {
         qtc.QGraphicsSceneDragDropEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dtor.QGraphicsSceneDragDropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dtor.QGraphicsSceneDragDropEvent)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2251,28 +2251,28 @@ pub const qgraphicssceneresizeevent = struct {
         return qtc.QGraphicsSceneResizeEvent_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#oldSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#oldSize)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn OldSize(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsSceneResizeEvent_OldSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#setOldSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#setOldSize)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent, size: QtC.QSizeF ```
     pub fn SetOldSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QGraphicsSceneResizeEvent_SetOldSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#newSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#newSize)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn NewSize(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsSceneResizeEvent_NewSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#setNewSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#setNewSize)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent, size: QtC.QSizeF ```
     pub fn SetNewSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -2281,7 +2281,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -2290,7 +2290,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2299,7 +2299,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
@@ -2308,7 +2308,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -2317,7 +2317,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     ///
@@ -2328,7 +2328,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -2337,7 +2337,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -2346,7 +2346,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -2355,7 +2355,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -2364,7 +2364,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -2373,7 +2373,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -2382,7 +2382,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -2391,7 +2391,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -2400,7 +2400,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -2409,7 +2409,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2420,7 +2420,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2431,7 +2431,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2442,7 +2442,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2453,7 +2453,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2464,7 +2464,7 @@ pub const qgraphicssceneresizeevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2473,7 +2473,7 @@ pub const qgraphicssceneresizeevent = struct {
         qtc.QGraphicsSceneResizeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#dtor.QGraphicsSceneResizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#dtor.QGraphicsSceneResizeEvent)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2492,28 +2492,28 @@ pub const qgraphicsscenemoveevent = struct {
         return qtc.QGraphicsSceneMoveEvent_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#oldPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#oldPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn OldPos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneMoveEvent_OldPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#setOldPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#setOldPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent, pos: QtC.QPointF ```
     pub fn SetOldPos(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QGraphicsSceneMoveEvent_SetOldPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#newPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#newPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn NewPos(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGraphicsSceneMoveEvent_NewPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#setNewPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#setNewPos)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent, pos: QtC.QPointF ```
     pub fn SetNewPos(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -2522,7 +2522,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
@@ -2531,7 +2531,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2540,7 +2540,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
@@ -2549,7 +2549,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QGraphicsSceneEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
@@ -2558,7 +2558,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     ///
@@ -2569,7 +2569,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -2578,7 +2578,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
@@ -2587,7 +2587,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -2596,7 +2596,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
@@ -2605,7 +2605,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -2614,7 +2614,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -2623,7 +2623,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -2632,7 +2632,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -2641,7 +2641,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -2650,7 +2650,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2661,7 +2661,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2672,7 +2672,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2683,7 +2683,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2694,7 +2694,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2705,7 +2705,7 @@ pub const qgraphicsscenemoveevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2714,7 +2714,7 @@ pub const qgraphicsscenemoveevent = struct {
         qtc.QGraphicsSceneMoveEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#dtor.QGraphicsSceneMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#dtor.QGraphicsSceneMoveEvent)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -50,28 +50,28 @@ pub const qscistyle = struct {
         return qtc.QsciStyle_new5(@intCast(style), description_str, @ptrCast(color), @ptrCast(paper), @ptrCast(font), eolFill);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, sci: QtC.QsciScintillaBase ```
     pub fn Apply(self: ?*anyopaque, sci: ?*anyopaque) void {
         qtc.QsciStyle_Apply(@ptrCast(self), @ptrCast(sci));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, style: i32 ```
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.QsciStyle_SetStyle(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QsciStyle_Style(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
@@ -82,7 +82,7 @@ pub const qscistyle = struct {
         qtc.QsciStyle_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -93,70 +93,70 @@ pub const qscistyle = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, color: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QsciStyle_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QsciStyle_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, paper: QtC.QColor ```
     pub fn SetPaper(self: ?*anyopaque, paper: ?*anyopaque) void {
         qtc.QsciStyle_SetPaper(@ptrCast(self), @ptrCast(paper));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn Paper(self: ?*anyopaque) QtC.QColor {
         return qtc.QsciStyle_Paper(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.QsciStyle_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.QsciStyle_Font(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, fill: bool ```
     pub fn SetEolFill(self: ?*anyopaque, fill: bool) void {
         qtc.QsciStyle_SetEolFill(@ptrCast(self), fill);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn EolFill(self: ?*anyopaque) bool {
         return qtc.QsciStyle_EolFill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, text_case: qscistyle_enums.TextCase ```
     pub fn SetTextCase(self: ?*anyopaque, text_case: i32) void {
         qtc.QsciStyle_SetTextCase(@ptrCast(self), @intCast(text_case));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     ///
@@ -165,56 +165,56 @@ pub const qscistyle = struct {
         return qtc.QsciStyle_TextCase(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.QsciStyle_SetVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn Visible(self: ?*anyopaque) bool {
         return qtc.QsciStyle_Visible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, changeable: bool ```
     pub fn SetChangeable(self: ?*anyopaque, changeable: bool) void {
         qtc.QsciStyle_SetChangeable(@ptrCast(self), changeable);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn Changeable(self: ?*anyopaque) bool {
         return qtc.QsciStyle_Changeable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, hotspot: bool ```
     pub fn SetHotspot(self: ?*anyopaque, hotspot: bool) void {
         qtc.QsciStyle_SetHotspot(@ptrCast(self), hotspot);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn Hotspot(self: ?*anyopaque) bool {
         return qtc.QsciStyle_Hotspot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
     pub fn Refresh(self: ?*anyopaque) void {
         qtc.QsciStyle_Refresh(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// Delete this object from C++ memory.
     ///

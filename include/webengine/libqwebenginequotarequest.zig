@@ -38,49 +38,49 @@ pub const qwebenginequotarequest = struct {
         qtc.QWebEngineQuotaRequest_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#accept)
     ///
     /// ``` self: QtC.QWebEngineQuotaRequest ```
     pub fn Accept(self: ?*anyopaque) void {
         qtc.QWebEngineQuotaRequest_Accept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#reject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#reject)
     ///
     /// ``` self: QtC.QWebEngineQuotaRequest ```
     pub fn Reject(self: ?*anyopaque) void {
         qtc.QWebEngineQuotaRequest_Reject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#origin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#origin)
     ///
     /// ``` self: QtC.QWebEngineQuotaRequest ```
     pub fn Origin(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineQuotaRequest_Origin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#requestedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#requestedSize)
     ///
     /// ``` self: QtC.QWebEngineQuotaRequest ```
     pub fn RequestedSize(self: ?*anyopaque) i64 {
         return qtc.QWebEngineQuotaRequest_RequestedSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QWebEngineQuotaRequest, param1: QtC.QWebEngineQuotaRequest ```
     pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWebEngineQuotaRequest_OperatorEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator-not-eq)
     ///
     /// ``` self: QtC.QWebEngineQuotaRequest, param1: QtC.QWebEngineQuotaRequest ```
     pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWebEngineQuotaRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#dtor.QWebEngineQuotaRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#dtor.QWebEngineQuotaRequest)
     ///
     /// Delete this object from C++ memory.
     ///

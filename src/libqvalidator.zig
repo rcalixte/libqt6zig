@@ -21,7 +21,7 @@ pub const qvalidator = struct {
         return qtc.QValidator_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qvalidator = struct {
         return qtc.QValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,21 +65,21 @@ pub const qvalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
     ///
     /// ``` self: QtC.QValidator, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
         qtc.QValidator_SetLocale(@ptrCast(self), @ptrCast(locale));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#locale)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
         return qtc.QValidator_Locale(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
     /// ``` self: QtC.QValidator, param1: []const u8, param2: *i32 ```
     ///
@@ -92,7 +92,7 @@ pub const qvalidator = struct {
         return qtc.QValidator_Validate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -101,7 +101,7 @@ pub const qvalidator = struct {
         qtc.QValidator_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
     /// Base class method implementation
     ///
@@ -116,7 +116,7 @@ pub const qvalidator = struct {
         return qtc.QValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
     /// ``` self: QtC.QValidator, param1: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, param1: []const u8) void {
@@ -127,7 +127,7 @@ pub const qvalidator = struct {
         qtc.QValidator_Fixup(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -136,7 +136,7 @@ pub const qvalidator = struct {
         qtc.QValidator_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
     /// Base class method implementation
     ///
@@ -149,21 +149,21 @@ pub const qvalidator = struct {
         qtc.QValidator_QBaseFixup(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn Changed(self: ?*anyopaque) void {
         qtc.QValidator_Changed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ``` self: QtC.QValidator, callback: *const fn (self: QtC.QValidator) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QValidator_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -176,7 +176,7 @@ pub const qvalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -191,7 +191,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QValidator, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -204,7 +204,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -217,7 +217,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -226,7 +226,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -235,7 +235,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -244,7 +244,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -253,7 +253,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QValidator, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -262,7 +262,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -271,7 +271,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QValidator, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -280,7 +280,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QValidator, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -289,7 +289,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QValidator, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -298,7 +298,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QValidator, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -307,7 +307,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QValidator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -321,7 +321,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QValidator, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -330,7 +330,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QValidator, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -339,7 +339,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QValidator, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -348,7 +348,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -357,7 +357,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QValidator, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -368,7 +368,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -377,7 +377,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -386,7 +386,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -395,7 +395,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -404,7 +404,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QValidator, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -414,7 +414,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QValidator, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -424,7 +424,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QValidator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -448,7 +448,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -457,7 +457,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -466,7 +466,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -475,7 +475,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QValidator, callback: *const fn (self: QtC.QValidator) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -484,7 +484,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -493,7 +493,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QValidator, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -503,7 +503,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QValidator ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -512,7 +512,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QValidator, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -521,7 +521,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QValidator, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -530,7 +530,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -539,7 +539,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QValidator, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -550,7 +550,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QValidator, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -559,7 +559,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QValidator, callback: *const fn (self: QtC.QValidator, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -568,7 +568,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -579,7 +579,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -590,7 +590,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -601,7 +601,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -612,7 +612,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -623,7 +623,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -634,7 +634,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -645,7 +645,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -656,7 +656,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -667,7 +667,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -678,7 +678,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -689,7 +689,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -700,7 +700,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -711,7 +711,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -722,7 +722,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -733,7 +733,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -744,7 +744,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -755,7 +755,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -766,7 +766,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -777,7 +777,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -788,7 +788,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -799,7 +799,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -810,7 +810,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -821,7 +821,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -832,7 +832,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -843,7 +843,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -854,7 +854,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -865,7 +865,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -877,7 +877,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -889,7 +889,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -900,7 +900,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -911,7 +911,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -922,7 +922,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -933,7 +933,7 @@ pub const qvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -942,7 +942,7 @@ pub const qvalidator = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#dtor.QValidator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#dtor.QValidator)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -982,7 +982,7 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_new4(@intCast(bottom), @intCast(top), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -1014,7 +1014,7 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1026,7 +1026,7 @@ pub const qintvalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
     /// ``` self: QtC.QIntValidator, param1: []const u8, param2: *i32 ```
     ///
@@ -1039,7 +1039,7 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_Validate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1048,7 +1048,7 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
     /// Base class method implementation
     ///
@@ -1063,7 +1063,7 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
     ///
     /// ``` self: QtC.QIntValidator, input: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
@@ -1074,7 +1074,7 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_Fixup(@ptrCast(self), input_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1083,7 +1083,7 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
     ///
     /// Base class method implementation
     ///
@@ -1096,70 +1096,70 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_QBaseFixup(@ptrCast(self), input_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#setBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setBottom)
     ///
     /// ``` self: QtC.QIntValidator, bottom: i32 ```
     pub fn SetBottom(self: ?*anyopaque, bottom: i32) void {
         qtc.QIntValidator_SetBottom(@ptrCast(self), @intCast(bottom));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#setTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setTop)
     ///
     /// ``` self: QtC.QIntValidator, top: i32 ```
     pub fn SetTop(self: ?*anyopaque, top: i32) void {
         qtc.QIntValidator_SetTop(@ptrCast(self), @intCast(top));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#setRange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setRange)
     ///
     /// ``` self: QtC.QIntValidator, bottom: i32, top: i32 ```
     pub fn SetRange(self: ?*anyopaque, bottom: i32, top: i32) void {
         qtc.QIntValidator_SetRange(@ptrCast(self), @intCast(bottom), @intCast(top));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#bottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#bottom)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn Bottom(self: ?*anyopaque) i32 {
         return qtc.QIntValidator_Bottom(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#top)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#top)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn Top(self: ?*anyopaque) i32 {
         return qtc.QIntValidator_Top(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#bottomChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#bottomChanged)
     ///
     /// ``` self: QtC.QIntValidator, bottom: i32 ```
     pub fn BottomChanged(self: ?*anyopaque, bottom: i32) void {
         qtc.QIntValidator_BottomChanged(@ptrCast(self), @intCast(bottom));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#bottomChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#bottomChanged)
     ///
     /// ``` self: QtC.QIntValidator, callback: *const fn (self: QtC.QIntValidator, bottom: i32) callconv(.c) void ```
     pub fn OnBottomChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIntValidator_Connect_BottomChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#topChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#topChanged)
     ///
     /// ``` self: QtC.QIntValidator, top: i32 ```
     pub fn TopChanged(self: ?*anyopaque, top: i32) void {
         qtc.QIntValidator_TopChanged(@ptrCast(self), @intCast(top));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#topChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#topChanged)
     ///
     /// ``` self: QtC.QIntValidator, callback: *const fn (self: QtC.QIntValidator, top: i32) callconv(.c) void ```
     pub fn OnTopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIntValidator_Connect_TopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1172,7 +1172,7 @@ pub const qintvalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1187,7 +1187,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
     ///
     /// ``` self: QtC.QIntValidator, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -1196,7 +1196,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#locale)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -1205,7 +1205,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -1214,7 +1214,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ``` self: QtC.QIntValidator, callback: *const fn (self: QtC.QIntValidator) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1223,7 +1223,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QIntValidator, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1236,7 +1236,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QIntValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1249,7 +1249,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1258,7 +1258,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1267,7 +1267,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1276,7 +1276,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1285,7 +1285,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QIntValidator, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1294,7 +1294,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1303,7 +1303,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QIntValidator, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1312,7 +1312,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QIntValidator, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1321,7 +1321,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QIntValidator, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1330,7 +1330,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QIntValidator, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1339,7 +1339,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QIntValidator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1353,7 +1353,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QIntValidator, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1362,7 +1362,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QIntValidator, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1371,7 +1371,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QIntValidator, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1380,7 +1380,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1389,7 +1389,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QIntValidator, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1400,7 +1400,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1409,7 +1409,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1418,7 +1418,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1427,7 +1427,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1436,7 +1436,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QIntValidator, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1446,7 +1446,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QIntValidator, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1456,7 +1456,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QIntValidator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1480,7 +1480,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1489,7 +1489,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1498,7 +1498,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1507,7 +1507,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QIntValidator, callback: *const fn (self: QtC.QIntValidator) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1516,7 +1516,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1525,7 +1525,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QIntValidator, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1535,7 +1535,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QIntValidator ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1544,7 +1544,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QIntValidator, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1553,7 +1553,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QIntValidator, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1562,7 +1562,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1571,7 +1571,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QIntValidator, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1582,7 +1582,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QIntValidator, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1591,7 +1591,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QIntValidator, callback: *const fn (self: QtC.QIntValidator, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1600,7 +1600,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1611,7 +1611,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1622,7 +1622,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1633,7 +1633,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1644,7 +1644,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1655,7 +1655,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1666,7 +1666,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1677,7 +1677,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1688,7 +1688,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1699,7 +1699,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1710,7 +1710,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1721,7 +1721,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1732,7 +1732,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1743,7 +1743,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1754,7 +1754,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1765,7 +1765,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1776,7 +1776,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1787,7 +1787,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1798,7 +1798,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1809,7 +1809,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1820,7 +1820,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1831,7 +1831,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1842,7 +1842,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1853,7 +1853,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1864,7 +1864,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1875,7 +1875,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1886,7 +1886,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1897,7 +1897,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1909,7 +1909,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1921,7 +1921,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1932,7 +1932,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1943,7 +1943,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1954,7 +1954,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1965,7 +1965,7 @@ pub const qintvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1974,7 +1974,7 @@ pub const qintvalidator = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#dtor.QIntValidator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#dtor.QIntValidator)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2014,7 +2014,7 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_new4(@floatCast(bottom), @floatCast(top), @intCast(decimals), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -2046,7 +2046,7 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2058,7 +2058,7 @@ pub const qdoublevalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
     /// ``` self: QtC.QDoubleValidator, param1: []const u8, param2: *i32 ```
     ///
@@ -2071,7 +2071,7 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_Validate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2080,7 +2080,7 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
     /// Base class method implementation
     ///
@@ -2095,7 +2095,7 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
     ///
     /// ``` self: QtC.QDoubleValidator, input: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
@@ -2106,7 +2106,7 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_Fixup(@ptrCast(self), input_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2115,7 +2115,7 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
     ///
     /// Base class method implementation
     ///
@@ -2128,70 +2128,70 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_QBaseFixup(@ptrCast(self), input_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
     ///
     /// ``` self: QtC.QDoubleValidator, bottom: f64, top: f64, decimals: i32 ```
     pub fn SetRange(self: ?*anyopaque, bottom: f64, top: f64, decimals: i32) void {
         qtc.QDoubleValidator_SetRange(@ptrCast(self), @floatCast(bottom), @floatCast(top), @intCast(decimals));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
     ///
     /// ``` self: QtC.QDoubleValidator, bottom: f64, top: f64 ```
     pub fn SetRange2(self: ?*anyopaque, bottom: f64, top: f64) void {
         qtc.QDoubleValidator_SetRange2(@ptrCast(self), @floatCast(bottom), @floatCast(top));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#setBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setBottom)
     ///
     /// ``` self: QtC.QDoubleValidator, bottom: f64 ```
     pub fn SetBottom(self: ?*anyopaque, bottom: f64) void {
         qtc.QDoubleValidator_SetBottom(@ptrCast(self), @floatCast(bottom));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#setTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setTop)
     ///
     /// ``` self: QtC.QDoubleValidator, top: f64 ```
     pub fn SetTop(self: ?*anyopaque, top: f64) void {
         qtc.QDoubleValidator_SetTop(@ptrCast(self), @floatCast(top));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#setDecimals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setDecimals)
     ///
     /// ``` self: QtC.QDoubleValidator, decimals: i32 ```
     pub fn SetDecimals(self: ?*anyopaque, decimals: i32) void {
         qtc.QDoubleValidator_SetDecimals(@ptrCast(self), @intCast(decimals));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#setNotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setNotation)
     ///
     /// ``` self: QtC.QDoubleValidator, notation: qvalidator_enums.Notation ```
     pub fn SetNotation(self: ?*anyopaque, notation: i32) void {
         qtc.QDoubleValidator_SetNotation(@ptrCast(self), @intCast(notation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#bottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#bottom)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn Bottom(self: ?*anyopaque) f64 {
         return qtc.QDoubleValidator_Bottom(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#top)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#top)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn Top(self: ?*anyopaque) f64 {
         return qtc.QDoubleValidator_Top(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#decimals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#decimals)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn Decimals(self: ?*anyopaque) i32 {
         return qtc.QDoubleValidator_Decimals(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#notation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#notation)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     ///
@@ -2200,63 +2200,63 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_Notation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#bottomChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#bottomChanged)
     ///
     /// ``` self: QtC.QDoubleValidator, bottom: f64 ```
     pub fn BottomChanged(self: ?*anyopaque, bottom: f64) void {
         qtc.QDoubleValidator_BottomChanged(@ptrCast(self), @floatCast(bottom));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#bottomChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#bottomChanged)
     ///
     /// ``` self: QtC.QDoubleValidator, callback: *const fn (self: QtC.QDoubleValidator, bottom: f64) callconv(.c) void ```
     pub fn OnBottomChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_BottomChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged)
     ///
     /// ``` self: QtC.QDoubleValidator, top: f64 ```
     pub fn TopChanged(self: ?*anyopaque, top: f64) void {
         qtc.QDoubleValidator_TopChanged(@ptrCast(self), @floatCast(top));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged)
     ///
     /// ``` self: QtC.QDoubleValidator, callback: *const fn (self: QtC.QDoubleValidator, top: f64) callconv(.c) void ```
     pub fn OnTopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_TopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged)
     ///
     /// ``` self: QtC.QDoubleValidator, decimals: i32 ```
     pub fn DecimalsChanged(self: ?*anyopaque, decimals: i32) void {
         qtc.QDoubleValidator_DecimalsChanged(@ptrCast(self), @intCast(decimals));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged)
     ///
     /// ``` self: QtC.QDoubleValidator, callback: *const fn (self: QtC.QDoubleValidator, decimals: i32) callconv(.c) void ```
     pub fn OnDecimalsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_DecimalsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged)
     ///
     /// ``` self: QtC.QDoubleValidator, notation: qvalidator_enums.Notation ```
     pub fn NotationChanged(self: ?*anyopaque, notation: i32) void {
         qtc.QDoubleValidator_NotationChanged(@ptrCast(self), @intCast(notation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged)
     ///
     /// ``` self: QtC.QDoubleValidator, callback: *const fn (self: QtC.QDoubleValidator, notation: qvalidator_enums.Notation) callconv(.c) void ```
     pub fn OnNotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_NotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2269,7 +2269,7 @@ pub const qdoublevalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -2284,7 +2284,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
     ///
     /// ``` self: QtC.QDoubleValidator, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -2293,7 +2293,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#locale)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -2302,7 +2302,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -2311,7 +2311,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ``` self: QtC.QDoubleValidator, callback: *const fn (self: QtC.QDoubleValidator) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2320,7 +2320,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QDoubleValidator, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2333,7 +2333,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QDoubleValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2346,7 +2346,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2355,7 +2355,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2364,7 +2364,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2373,7 +2373,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2382,7 +2382,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QDoubleValidator, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2391,7 +2391,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2400,7 +2400,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDoubleValidator, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2409,7 +2409,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDoubleValidator, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2418,7 +2418,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDoubleValidator, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2427,7 +2427,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDoubleValidator, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2436,7 +2436,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QDoubleValidator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2450,7 +2450,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QDoubleValidator, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2459,7 +2459,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QDoubleValidator, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2468,7 +2468,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QDoubleValidator, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2477,7 +2477,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2486,7 +2486,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDoubleValidator, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2497,7 +2497,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2506,7 +2506,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2515,7 +2515,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2524,7 +2524,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2533,7 +2533,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QDoubleValidator, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2543,7 +2543,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QDoubleValidator, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2553,7 +2553,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QDoubleValidator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2577,7 +2577,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2586,7 +2586,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2595,7 +2595,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2604,7 +2604,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDoubleValidator, callback: *const fn (self: QtC.QDoubleValidator) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2613,7 +2613,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2622,7 +2622,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QDoubleValidator, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2632,7 +2632,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QDoubleValidator ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2641,7 +2641,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDoubleValidator, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2650,7 +2650,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDoubleValidator, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2659,7 +2659,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2668,7 +2668,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDoubleValidator, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2679,7 +2679,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDoubleValidator, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2688,7 +2688,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDoubleValidator, callback: *const fn (self: QtC.QDoubleValidator, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2697,7 +2697,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2708,7 +2708,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2719,7 +2719,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2730,7 +2730,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2741,7 +2741,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2752,7 +2752,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2763,7 +2763,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2774,7 +2774,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2785,7 +2785,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2796,7 +2796,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2807,7 +2807,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2818,7 +2818,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2829,7 +2829,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2840,7 +2840,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2851,7 +2851,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2862,7 +2862,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2873,7 +2873,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2884,7 +2884,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2895,7 +2895,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2906,7 +2906,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2917,7 +2917,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2928,7 +2928,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2939,7 +2939,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2950,7 +2950,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2961,7 +2961,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2972,7 +2972,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2983,7 +2983,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2994,7 +2994,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3006,7 +3006,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3018,7 +3018,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3029,7 +3029,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3040,7 +3040,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3051,7 +3051,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3062,7 +3062,7 @@ pub const qdoublevalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3071,7 +3071,7 @@ pub const qdoublevalidator = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#dtor.QDoubleValidator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#dtor.QDoubleValidator)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -3111,7 +3111,7 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_new4(@ptrCast(re), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -3143,7 +3143,7 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3155,7 +3155,7 @@ pub const qregularexpressionvalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, input: []const u8, pos: *i32 ```
     ///
@@ -3168,7 +3168,7 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_Validate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3177,7 +3177,7 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
     /// Base class method implementation
     ///
@@ -3192,35 +3192,35 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_QBaseValidate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpression)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn RegularExpression(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QRegularExpressionValidator_RegularExpression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#setRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#setRegularExpression)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, re: QtC.QRegularExpression ```
     pub fn SetRegularExpression(self: ?*anyopaque, re: ?*anyopaque) void {
         qtc.QRegularExpressionValidator_SetRegularExpression(@ptrCast(self), @ptrCast(re));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpressionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpressionChanged)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, re: QtC.QRegularExpression ```
     pub fn RegularExpressionChanged(self: ?*anyopaque, re: ?*anyopaque) void {
         qtc.QRegularExpressionValidator_RegularExpressionChanged(@ptrCast(self), @ptrCast(re));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpressionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpressionChanged)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, callback: *const fn (self: QtC.QRegularExpressionValidator, re: QtC.QRegularExpression) callconv(.c) void ```
     pub fn OnRegularExpressionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_Connect_RegularExpressionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3233,7 +3233,7 @@ pub const qregularexpressionvalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -3248,7 +3248,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -3257,7 +3257,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#locale)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -3266,7 +3266,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -3275,7 +3275,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, callback: *const fn (self: QtC.QRegularExpressionValidator) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3284,7 +3284,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3297,7 +3297,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3310,7 +3310,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3319,7 +3319,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3328,7 +3328,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3337,7 +3337,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3346,7 +3346,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3355,7 +3355,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3364,7 +3364,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3373,7 +3373,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3382,7 +3382,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3391,7 +3391,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3400,7 +3400,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3414,7 +3414,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3423,7 +3423,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3432,7 +3432,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3441,7 +3441,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3450,7 +3450,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -3461,7 +3461,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -3470,7 +3470,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -3479,7 +3479,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -3488,7 +3488,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -3497,7 +3497,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -3507,7 +3507,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -3517,7 +3517,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -3541,7 +3541,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3550,7 +3550,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3559,7 +3559,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -3568,7 +3568,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, callback: *const fn (self: QtC.QRegularExpressionValidator) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3577,7 +3577,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3586,7 +3586,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3596,7 +3596,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QRegularExpressionValidator ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3605,7 +3605,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3614,7 +3614,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3623,7 +3623,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3632,7 +3632,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3643,7 +3643,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3652,7 +3652,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, callback: *const fn (self: QtC.QRegularExpressionValidator, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3661,7 +3661,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3676,7 +3676,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3691,7 +3691,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QValidator
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#fixup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3702,7 +3702,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3713,7 +3713,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3724,7 +3724,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3735,7 +3735,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3746,7 +3746,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3757,7 +3757,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3768,7 +3768,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3779,7 +3779,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3790,7 +3790,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3801,7 +3801,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3812,7 +3812,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3823,7 +3823,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3834,7 +3834,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3845,7 +3845,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3856,7 +3856,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3867,7 +3867,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3878,7 +3878,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3889,7 +3889,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3900,7 +3900,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3911,7 +3911,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3922,7 +3922,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3933,7 +3933,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3944,7 +3944,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3955,7 +3955,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3966,7 +3966,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3977,7 +3977,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3988,7 +3988,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3999,7 +3999,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4011,7 +4011,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4023,7 +4023,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4034,7 +4034,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4045,7 +4045,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4056,7 +4056,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4067,7 +4067,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -4076,7 +4076,7 @@ pub const qregularexpressionvalidator = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#dtor.QRegularExpressionValidator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#dtor.QRegularExpressionValidator)
     ///
     /// Delete this object from C++ memory.
     ///

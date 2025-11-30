@@ -16,7 +16,7 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_new(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -48,7 +48,7 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -60,42 +60,42 @@ pub const knewfilemenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#isModal)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#isModal)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsModal(self: ?*anyopaque) bool {
         return qtc.KNewFileMenu_IsModal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#setModal)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#setModal)
     ///
     /// ``` self: QtC.KNewFileMenu, modality: bool ```
     pub fn SetModal(self: ?*anyopaque, modality: bool) void {
         qtc.KNewFileMenu_SetModal(@ptrCast(self), modality);
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#setParentWidget)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#setParentWidget)
     ///
     /// ``` self: QtC.KNewFileMenu, parentWidget: QtC.QWidget ```
     pub fn SetParentWidget(self: ?*anyopaque, parentWidget: ?*anyopaque) void {
         qtc.KNewFileMenu_SetParentWidget(@ptrCast(self), @ptrCast(parentWidget));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#setWorkingDirectory)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#setWorkingDirectory)
     ///
     /// ``` self: QtC.KNewFileMenu, directory: QtC.QUrl ```
     pub fn SetWorkingDirectory(self: ?*anyopaque, directory: ?*anyopaque) void {
         qtc.KNewFileMenu_SetWorkingDirectory(@ptrCast(self), @ptrCast(directory));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#workingDirectory)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#workingDirectory)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn WorkingDirectory(self: ?*anyopaque) QtC.QUrl {
         return qtc.KNewFileMenu_WorkingDirectory(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#setSupportedMimeTypes)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#setSupportedMimeTypes)
     ///
     /// ``` self: QtC.KNewFileMenu, mime: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetSupportedMimeTypes(self: ?*anyopaque, mime: [][]const u8, allocator: std.mem.Allocator) void {
@@ -114,7 +114,7 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_SetSupportedMimeTypes(@ptrCast(self), mime_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#supportedMimeTypes)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#supportedMimeTypes)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn SupportedMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -136,42 +136,42 @@ pub const knewfilemenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#setSelectDirWhenAlreadyExist)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#setSelectDirWhenAlreadyExist)
     ///
     /// ``` self: QtC.KNewFileMenu, b: bool ```
     pub fn SetSelectDirWhenAlreadyExist(self: ?*anyopaque, b: bool) void {
         qtc.KNewFileMenu_SetSelectDirWhenAlreadyExist(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#setNewFolderShortcutAction)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#setNewFolderShortcutAction)
     ///
     /// ``` self: QtC.KNewFileMenu, action: QtC.QAction ```
     pub fn SetNewFolderShortcutAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KNewFileMenu_SetNewFolderShortcutAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#setNewFileShortcutAction)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#setNewFileShortcutAction)
     ///
     /// ``` self: QtC.KNewFileMenu, action: QtC.QAction ```
     pub fn SetNewFileShortcutAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KNewFileMenu_SetNewFileShortcutAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#isCreateDirectoryRunning)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#isCreateDirectoryRunning)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsCreateDirectoryRunning(self: ?*anyopaque) bool {
         return qtc.KNewFileMenu_IsCreateDirectoryRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#isCreateFileRunning)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#isCreateFileRunning)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsCreateFileRunning(self: ?*anyopaque) bool {
         return qtc.KNewFileMenu_IsCreateFileRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#setWindowTitle)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#setWindowTitle)
     ///
     /// ``` self: QtC.KNewFileMenu, title: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, title: []const u8) void {
@@ -182,133 +182,133 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_SetWindowTitle(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#checkUpToDate)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#checkUpToDate)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn CheckUpToDate(self: ?*anyopaque) void {
         qtc.KNewFileMenu_CheckUpToDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#createDirectory)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#createDirectory)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn CreateDirectory(self: ?*anyopaque) void {
         qtc.KNewFileMenu_CreateDirectory(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#createFile)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#createFile)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn CreateFile(self: ?*anyopaque) void {
         qtc.KNewFileMenu_CreateFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#fileCreationStarted)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#fileCreationStarted)
     ///
     /// ``` self: QtC.KNewFileMenu, url: QtC.QUrl ```
     pub fn FileCreationStarted(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KNewFileMenu_FileCreationStarted(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#fileCreationStarted)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#fileCreationStarted)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnFileCreationStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNewFileMenu_Connect_FileCreationStarted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#fileCreated)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#fileCreated)
     ///
     /// ``` self: QtC.KNewFileMenu, url: QtC.QUrl ```
     pub fn FileCreated(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KNewFileMenu_FileCreated(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#fileCreated)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#fileCreated)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnFileCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNewFileMenu_Connect_FileCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#fileCreationRejected)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#fileCreationRejected)
     ///
     /// ``` self: QtC.KNewFileMenu, url: QtC.QUrl ```
     pub fn FileCreationRejected(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KNewFileMenu_FileCreationRejected(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#fileCreationRejected)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#fileCreationRejected)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnFileCreationRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNewFileMenu_Connect_FileCreationRejected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#directoryCreationStarted)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#directoryCreationStarted)
     ///
     /// ``` self: QtC.KNewFileMenu, url: QtC.QUrl ```
     pub fn DirectoryCreationStarted(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KNewFileMenu_DirectoryCreationStarted(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#directoryCreationStarted)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#directoryCreationStarted)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnDirectoryCreationStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNewFileMenu_Connect_DirectoryCreationStarted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#directoryCreated)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#directoryCreated)
     ///
     /// ``` self: QtC.KNewFileMenu, url: QtC.QUrl ```
     pub fn DirectoryCreated(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KNewFileMenu_DirectoryCreated(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#directoryCreated)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#directoryCreated)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnDirectoryCreated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNewFileMenu_Connect_DirectoryCreated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#directoryCreationRejected)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#directoryCreationRejected)
     ///
     /// ``` self: QtC.KNewFileMenu, url: QtC.QUrl ```
     pub fn DirectoryCreationRejected(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KNewFileMenu_DirectoryCreationRejected(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#directoryCreationRejected)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#directoryCreationRejected)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnDirectoryCreationRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNewFileMenu_Connect_DirectoryCreationRejected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#selectExistingDir)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#selectExistingDir)
     ///
     /// ``` self: QtC.KNewFileMenu, url: QtC.QUrl ```
     pub fn SelectExistingDir(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KNewFileMenu_SelectExistingDir(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#selectExistingDir)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#selectExistingDir)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnSelectExistingDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KNewFileMenu_Connect_SelectExistingDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#slotResult)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#slotResult)
     ///
     /// ``` self: QtC.KNewFileMenu, job: QtC.KJob ```
     pub fn SlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KNewFileMenu_SlotResult(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#slotResult)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#slotResult)
     ///
     /// Allows for overriding the related default method
     ///
@@ -317,7 +317,7 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_OnSlotResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#slotResult)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#slotResult)
     ///
     /// Base class method implementation
     ///
@@ -326,7 +326,7 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_QBaseSlotResult(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -339,7 +339,7 @@ pub const knewfilemenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -354,7 +354,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#addAction)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#addAction)
     ///
     /// ``` self: QtC.KNewFileMenu, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -363,7 +363,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#addSeparator)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#addSeparator)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn AddSeparator(self: ?*anyopaque) QtC.QAction {
@@ -372,7 +372,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#insertAction)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#insertAction)
     ///
     /// ``` self: QtC.KNewFileMenu, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -381,7 +381,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#insertSeparator)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#insertSeparator)
     ///
     /// ``` self: QtC.KNewFileMenu, before: QtC.QAction ```
     pub fn InsertSeparator(self: ?*anyopaque, before: ?*anyopaque) QtC.QAction {
@@ -390,7 +390,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#removeAction)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#removeAction)
     ///
     /// ``` self: QtC.KNewFileMenu, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -399,7 +399,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#popupMode)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#popupMode)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     ///
@@ -410,7 +410,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#setPopupMode)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#setPopupMode)
     ///
     /// ``` self: QtC.KNewFileMenu, popupMode: qtoolbutton_enums.ToolButtonPopupMode ```
     pub fn SetPopupMode(self: ?*anyopaque, popupMode: i32) void {
@@ -419,7 +419,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
     ///
     /// ``` self: QtC.KNewFileMenu, w: QtC.QWidget ```
     pub fn SetDefaultWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -428,7 +428,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn DefaultWidget(self: ?*anyopaque) QtC.QWidget {
@@ -437,7 +437,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
     ///
     /// ``` self: QtC.KNewFileMenu, parent: QtC.QWidget ```
     pub fn RequestWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -446,7 +446,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
     ///
     /// ``` self: QtC.KNewFileMenu, widget: QtC.QWidget ```
     pub fn ReleaseWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -455,7 +455,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -469,7 +469,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
     ///
     /// ``` self: QtC.KNewFileMenu, group: QtC.QActionGroup ```
     pub fn SetActionGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -478,7 +478,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#actionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#actionGroup)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn ActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -487,7 +487,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIcon)
     ///
     /// ``` self: QtC.KNewFileMenu, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -496,7 +496,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#icon)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
@@ -505,7 +505,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setText)
     ///
     /// ``` self: QtC.KNewFileMenu, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -518,7 +518,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#text)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -531,7 +531,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconText)
     ///
     /// ``` self: QtC.KNewFileMenu, text: []const u8 ```
     pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
@@ -544,7 +544,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#iconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#iconText)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -557,7 +557,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setToolTip)
     ///
     /// ``` self: QtC.KNewFileMenu, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
@@ -570,7 +570,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toolTip)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -583,7 +583,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
     ///
     /// ``` self: QtC.KNewFileMenu, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -596,7 +596,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#statusTip)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -609,7 +609,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
     ///
     /// ``` self: QtC.KNewFileMenu, what: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
@@ -622,7 +622,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#whatsThis)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -635,7 +635,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setPriority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setPriority)
     ///
     /// ``` self: QtC.KNewFileMenu, priority: qaction_enums.Priority ```
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
@@ -644,7 +644,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#priority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#priority)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     ///
@@ -655,7 +655,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setSeparator)
     ///
     /// ``` self: QtC.KNewFileMenu, b: bool ```
     pub fn SetSeparator(self: ?*anyopaque, b: bool) void {
@@ -664,7 +664,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isSeparator)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsSeparator(self: ?*anyopaque) bool {
@@ -673,7 +673,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcut)
     ///
     /// ``` self: QtC.KNewFileMenu, shortcut: QtC.QKeySequence ```
     pub fn SetShortcut(self: ?*anyopaque, shortcut: ?*anyopaque) void {
@@ -682,7 +682,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcut)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Shortcut(self: ?*anyopaque) QtC.QKeySequence {
@@ -691,7 +691,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KNewFileMenu, shortcuts: []QtC.QKeySequence ```
     pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
@@ -704,7 +704,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KNewFileMenu, shortcuts: qkeysequence_enums.StandardKey ```
     pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
@@ -713,7 +713,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcuts)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -727,7 +727,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
     ///
     /// ``` self: QtC.KNewFileMenu, context: qnamespace_enums.ShortcutContext ```
     pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
@@ -736,7 +736,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     ///
@@ -747,7 +747,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
     ///
     /// ``` self: QtC.KNewFileMenu, autoRepeat: bool ```
     pub fn SetAutoRepeat(self: ?*anyopaque, autoRepeat: bool) void {
@@ -756,7 +756,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn AutoRepeat(self: ?*anyopaque) bool {
@@ -765,7 +765,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setFont)
     ///
     /// ``` self: QtC.KNewFileMenu, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -774,7 +774,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#font)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -783,7 +783,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setCheckable)
     ///
     /// ``` self: QtC.KNewFileMenu, checkable: bool ```
     pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
@@ -792,7 +792,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isCheckable)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsCheckable(self: ?*anyopaque) bool {
@@ -801,7 +801,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#data)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
@@ -810,7 +810,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setData)
     ///
     /// ``` self: QtC.KNewFileMenu, varVal: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, varVal: ?*anyopaque) void {
@@ -819,7 +819,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isChecked)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsChecked(self: ?*anyopaque) bool {
@@ -828,7 +828,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isEnabled)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -837,7 +837,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isVisible)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -846,7 +846,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#activate)
     ///
     /// ``` self: QtC.KNewFileMenu, event: qaction_enums.ActionEvent ```
     pub fn Activate(self: ?*anyopaque, event: i32) void {
@@ -855,7 +855,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
     ///
     /// ``` self: QtC.KNewFileMenu, menuRole: qaction_enums.MenuRole ```
     pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
@@ -864,7 +864,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#menuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#menuRole)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     ///
@@ -875,7 +875,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
     ///
     /// ``` self: QtC.KNewFileMenu, visible: bool ```
     pub fn SetIconVisibleInMenu(self: ?*anyopaque, visible: bool) void {
@@ -884,7 +884,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsIconVisibleInMenu(self: ?*anyopaque) bool {
@@ -893,7 +893,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KNewFileMenu, show: bool ```
     pub fn SetShortcutVisibleInContextMenu(self: ?*anyopaque, show: bool) void {
@@ -902,7 +902,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsShortcutVisibleInContextMenu(self: ?*anyopaque) bool {
@@ -911,7 +911,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn ShowStatusText(self: ?*anyopaque) bool {
@@ -920,7 +920,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#trigger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#trigger)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Trigger(self: ?*anyopaque) void {
@@ -929,7 +929,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hover)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hover)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Hover(self: ?*anyopaque) void {
@@ -938,7 +938,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setChecked)
     ///
     /// ``` self: QtC.KNewFileMenu, checked: bool ```
     pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
@@ -947,7 +947,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggle)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Toggle(self: ?*anyopaque) void {
@@ -956,7 +956,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setEnabled)
     ///
     /// ``` self: QtC.KNewFileMenu, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -965,7 +965,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn ResetEnabled(self: ?*anyopaque) void {
@@ -974,7 +974,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setDisabled)
     ///
     /// ``` self: QtC.KNewFileMenu, b: bool ```
     pub fn SetDisabled(self: ?*anyopaque, b: bool) void {
@@ -983,7 +983,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setVisible)
     ///
     /// ``` self: QtC.KNewFileMenu, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -992,7 +992,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -1001,7 +1001,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1010,7 +1010,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KNewFileMenu, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -1019,7 +1019,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1028,7 +1028,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KNewFileMenu, checkable: bool ```
     pub fn CheckableChanged(self: ?*anyopaque, checkable: bool) void {
@@ -1037,7 +1037,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, checkable: bool) callconv(.c) void ```
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1046,7 +1046,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -1055,7 +1055,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1064,7 +1064,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Triggered(self: ?*anyopaque) void {
@@ -1073,7 +1073,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu) callconv(.c) void ```
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1082,7 +1082,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Hovered(self: ?*anyopaque) void {
@@ -1091,7 +1091,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1100,7 +1100,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KNewFileMenu, param1: bool ```
     pub fn Toggled(self: ?*anyopaque, param1: bool) void {
@@ -1109,7 +1109,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, param1: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1118,7 +1118,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KNewFileMenu, object: QtC.QObject ```
     pub fn ShowStatusText1(self: ?*anyopaque, object: ?*anyopaque) bool {
@@ -1127,7 +1127,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KNewFileMenu, checked: bool ```
     pub fn Triggered1(self: ?*anyopaque, checked: bool) void {
@@ -1136,7 +1136,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, checked: bool) callconv(.c) void ```
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1145,7 +1145,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1158,7 +1158,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KNewFileMenu, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1171,7 +1171,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1180,7 +1180,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1189,7 +1189,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1198,7 +1198,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1207,7 +1207,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KNewFileMenu, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1216,7 +1216,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1225,7 +1225,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KNewFileMenu, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1234,7 +1234,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KNewFileMenu, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1243,7 +1243,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KNewFileMenu, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1252,7 +1252,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KNewFileMenu, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1261,7 +1261,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1275,7 +1275,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KNewFileMenu, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1284,7 +1284,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KNewFileMenu, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1293,7 +1293,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KNewFileMenu, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1302,7 +1302,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1311,7 +1311,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KNewFileMenu, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1322,7 +1322,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1331,7 +1331,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1340,7 +1340,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1349,7 +1349,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1358,7 +1358,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KNewFileMenu, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1368,7 +1368,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KNewFileMenu, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1378,7 +1378,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KNewFileMenu, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1402,7 +1402,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1411,7 +1411,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1420,7 +1420,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1429,7 +1429,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1438,7 +1438,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1447,7 +1447,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KNewFileMenu, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1457,7 +1457,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KNewFileMenu ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1466,7 +1466,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KNewFileMenu, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1475,7 +1475,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KNewFileMenu, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1484,7 +1484,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1493,7 +1493,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KNewFileMenu, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1504,7 +1504,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNewFileMenu, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1513,7 +1513,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNewFileMenu, callback: *const fn (self: QtC.KNewFileMenu, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1522,7 +1522,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#createWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1533,7 +1533,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#createWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1544,7 +1544,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from KActionMenu
     ///
-    /// [Qt documentation](https://api.kde.org/kactionmenu.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kactionmenu.html#createWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1555,7 +1555,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1566,7 +1566,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1577,7 +1577,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1588,7 +1588,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1599,7 +1599,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1610,7 +1610,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1621,7 +1621,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1632,7 +1632,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1643,7 +1643,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1654,7 +1654,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1665,7 +1665,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1676,7 +1676,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1687,7 +1687,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1698,7 +1698,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1709,7 +1709,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1720,7 +1720,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1731,7 +1731,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1742,7 +1742,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1753,7 +1753,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1764,7 +1764,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1775,7 +1775,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1786,7 +1786,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1797,7 +1797,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1808,7 +1808,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1819,7 +1819,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1835,7 +1835,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1851,7 +1851,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1862,7 +1862,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1873,7 +1873,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1884,7 +1884,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1895,7 +1895,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1906,7 +1906,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1917,7 +1917,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1928,7 +1928,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1940,7 +1940,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1952,7 +1952,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1963,7 +1963,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1974,7 +1974,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1985,7 +1985,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1996,7 +1996,7 @@ pub const knewfilemenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2005,7 +2005,7 @@ pub const knewfilemenu = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knewfilemenu.html#dtor.KNewFileMenu)
+    /// [Upstream resources](https://api.kde.org/knewfilemenu.html#dtor.KNewFileMenu)
     ///
     /// Delete this object from C++ memory.
     ///

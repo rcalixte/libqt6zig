@@ -33,105 +33,105 @@ pub const kfile = struct {
         qtc.KFile_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isSortByName)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isSortByName)
     ///
     /// ``` sort: *const flag of qdir_enums.SortFlag ```
     pub fn IsSortByName(sort: *const i32) bool {
         return qtc.KFile_IsSortByName(@ptrCast(sort));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isSortBySize)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isSortBySize)
     ///
     /// ``` sort: *const flag of qdir_enums.SortFlag ```
     pub fn IsSortBySize(sort: *const i32) bool {
         return qtc.KFile_IsSortBySize(@ptrCast(sort));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isSortByDate)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isSortByDate)
     ///
     /// ``` sort: *const flag of qdir_enums.SortFlag ```
     pub fn IsSortByDate(sort: *const i32) bool {
         return qtc.KFile_IsSortByDate(@ptrCast(sort));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isSortByType)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isSortByType)
     ///
     /// ``` sort: *const flag of qdir_enums.SortFlag ```
     pub fn IsSortByType(sort: *const i32) bool {
         return qtc.KFile_IsSortByType(@ptrCast(sort));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isSortDirsFirst)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isSortDirsFirst)
     ///
     /// ``` sort: *const flag of qdir_enums.SortFlag ```
     pub fn IsSortDirsFirst(sort: *const i32) bool {
         return qtc.KFile_IsSortDirsFirst(@ptrCast(sort));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isSortCaseInsensitive)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isSortCaseInsensitive)
     ///
     /// ``` sort: *const flag of qdir_enums.SortFlag ```
     pub fn IsSortCaseInsensitive(sort: *const i32) bool {
         return qtc.KFile_IsSortCaseInsensitive(@ptrCast(sort));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isDefaultView)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isDefaultView)
     ///
     /// ``` view: *const kfile_enums.FileView ```
     pub fn IsDefaultView(view: *const i32) bool {
         return qtc.KFile_IsDefaultView(@ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isSimpleView)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isSimpleView)
     ///
     /// ``` view: *const kfile_enums.FileView ```
     pub fn IsSimpleView(view: *const i32) bool {
         return qtc.KFile_IsSimpleView(@ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isDetailView)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isDetailView)
     ///
     /// ``` view: *const kfile_enums.FileView ```
     pub fn IsDetailView(view: *const i32) bool {
         return qtc.KFile_IsDetailView(@ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isSeparateDirs)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isSeparateDirs)
     ///
     /// ``` view: *const kfile_enums.FileView ```
     pub fn IsSeparateDirs(view: *const i32) bool {
         return qtc.KFile_IsSeparateDirs(@ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isPreviewContents)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isPreviewContents)
     ///
     /// ``` view: *const kfile_enums.FileView ```
     pub fn IsPreviewContents(view: *const i32) bool {
         return qtc.KFile_IsPreviewContents(@ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isPreviewInfo)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isPreviewInfo)
     ///
     /// ``` view: *const kfile_enums.FileView ```
     pub fn IsPreviewInfo(view: *const i32) bool {
         return qtc.KFile_IsPreviewInfo(@ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isTreeView)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isTreeView)
     ///
     /// ``` view: *const kfile_enums.FileView ```
     pub fn IsTreeView(view: *const i32) bool {
         return qtc.KFile_IsTreeView(@ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#isDetailTreeView)
+    /// [Upstream resources](https://api.kde.org/kfile.html#isDetailTreeView)
     ///
     /// ``` view: *const kfile_enums.FileView ```
     pub fn IsDetailTreeView(view: *const i32) bool {
         return qtc.KFile_IsDetailTreeView(@ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfile.html#dtor.KFile)
+    /// [Upstream resources](https://api.kde.org/kfile.html#dtor.KFile)
     ///
     /// Delete this object from C++ memory.
     ///

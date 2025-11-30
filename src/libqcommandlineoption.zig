@@ -188,21 +188,21 @@ pub const qcommandlineoption = struct {
         return qtc.QCommandLineOption_new9(names_list, description_str, valueName_str, defaultValue_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#operator-eq)
     ///
     /// ``` self: QtC.QCommandLineOption, other: QtC.QCommandLineOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCommandLineOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#swap)
     ///
     /// ``` self: QtC.QCommandLineOption, other: QtC.QCommandLineOption ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCommandLineOption_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#names)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#names)
     ///
     /// ``` self: QtC.QCommandLineOption, allocator: std.mem.Allocator ```
     pub fn Names(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -224,7 +224,7 @@ pub const qcommandlineoption = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#setValueName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#setValueName)
     ///
     /// ``` self: QtC.QCommandLineOption, name: []const u8 ```
     pub fn SetValueName(self: ?*anyopaque, name: []const u8) void {
@@ -235,7 +235,7 @@ pub const qcommandlineoption = struct {
         qtc.QCommandLineOption_SetValueName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#valueName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#valueName)
     ///
     /// ``` self: QtC.QCommandLineOption, allocator: std.mem.Allocator ```
     pub fn ValueName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -246,7 +246,7 @@ pub const qcommandlineoption = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#setDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#setDescription)
     ///
     /// ``` self: QtC.QCommandLineOption, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
@@ -257,7 +257,7 @@ pub const qcommandlineoption = struct {
         qtc.QCommandLineOption_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#description)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#description)
     ///
     /// ``` self: QtC.QCommandLineOption, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -268,7 +268,7 @@ pub const qcommandlineoption = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#setDefaultValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#setDefaultValue)
     ///
     /// ``` self: QtC.QCommandLineOption, defaultValue: []const u8 ```
     pub fn SetDefaultValue(self: ?*anyopaque, defaultValue: []const u8) void {
@@ -279,7 +279,7 @@ pub const qcommandlineoption = struct {
         qtc.QCommandLineOption_SetDefaultValue(@ptrCast(self), defaultValue_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#setDefaultValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#setDefaultValues)
     ///
     /// ``` self: QtC.QCommandLineOption, defaultValues: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetDefaultValues(self: ?*anyopaque, defaultValues: [][]const u8, allocator: std.mem.Allocator) void {
@@ -298,7 +298,7 @@ pub const qcommandlineoption = struct {
         qtc.QCommandLineOption_SetDefaultValues(@ptrCast(self), defaultValues_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#defaultValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#defaultValues)
     ///
     /// ``` self: QtC.QCommandLineOption, allocator: std.mem.Allocator ```
     pub fn DefaultValues(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -320,7 +320,7 @@ pub const qcommandlineoption = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#flags)
     ///
     /// ``` self: QtC.QCommandLineOption ```
     ///
@@ -329,14 +329,14 @@ pub const qcommandlineoption = struct {
         return qtc.QCommandLineOption_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#setFlags)
     ///
     /// ``` self: QtC.QCommandLineOption, aflags: flag of qcommandlineoption_enums.Flag ```
     pub fn SetFlags(self: ?*anyopaque, aflags: i32) void {
         qtc.QCommandLineOption_SetFlags(@ptrCast(self), @intCast(aflags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#dtor.QCommandLineOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#dtor.QCommandLineOption)
     ///
     /// Delete this object from C++ memory.
     ///

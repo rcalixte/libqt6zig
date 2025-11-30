@@ -11,7 +11,7 @@ pub const knscore__categorymetadata = struct {
         return qtc.KNSCore__CategoryMetadata_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-categorymetadata.html#id)
+    /// [Upstream resources](https://api.kde.org/knscore-categorymetadata.html#id)
     ///
     /// ``` self: QtC.KNSCore__CategoryMetadata, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -22,7 +22,7 @@ pub const knscore__categorymetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-categorymetadata.html#name)
+    /// [Upstream resources](https://api.kde.org/knscore-categorymetadata.html#name)
     ///
     /// ``` self: QtC.KNSCore__CategoryMetadata, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -33,7 +33,7 @@ pub const knscore__categorymetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-categorymetadata.html#displayName)
+    /// [Upstream resources](https://api.kde.org/knscore-categorymetadata.html#displayName)
     ///
     /// ``` self: QtC.KNSCore__CategoryMetadata, allocator: std.mem.Allocator ```
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {

@@ -76,7 +76,7 @@ pub const kio__metadata = struct {
         return qtc.KIO__MetaData_new4(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-metadata.html#operator-2b-eq)
+    /// [Upstream resources](https://api.kde.org/kio-metadata.html#operator-2b-eq)
     ///
     /// ``` self: QtC.KIO__MetaData, metaData: map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, metaData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
@@ -103,7 +103,7 @@ pub const kio__metadata = struct {
         return qtc.KIO__MetaData_OperatorPlusAssign(@ptrCast(self), metaData_map);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-metadata.html#operator-2b-eq)
+    /// [Upstream resources](https://api.kde.org/kio-metadata.html#operator-2b-eq)
     ///
     /// ``` self: QtC.KIO__MetaData, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn OperatorPlusAssign2(self: ?*anyopaque, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.KIO__MetaData {
@@ -130,7 +130,7 @@ pub const kio__metadata = struct {
         return qtc.KIO__MetaData_OperatorPlusAssign2(@ptrCast(self), metaData_map);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-metadata.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kio-metadata.html#operator-eq)
     ///
     /// ``` self: QtC.KIO__MetaData, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn OperatorAssign(self: ?*anyopaque, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
@@ -157,14 +157,14 @@ pub const kio__metadata = struct {
         qtc.KIO__MetaData_OperatorAssign(@ptrCast(self), metaData_map);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-metadata.html#toVariant)
+    /// [Upstream resources](https://api.kde.org/kio-metadata.html#toVariant)
     ///
     /// ``` self: QtC.KIO__MetaData ```
     pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.KIO__MetaData_ToVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-metadata.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kio-metadata.html#operator-eq)
     ///
     /// ``` self: QtC.KIO__MetaData, param1: QtC.KIO__MetaData ```
     pub fn OperatorAssign2(self: ?*anyopaque, param1: ?*anyopaque) void {

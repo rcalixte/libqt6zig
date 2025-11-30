@@ -67,112 +67,112 @@ pub const qcalendar = struct {
         qtc.QCalendar_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isValid)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QCalendar_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#daysInMonth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#daysInMonth)
     ///
     /// ``` self: QtC.QCalendar, month: i32 ```
     pub fn DaysInMonth(self: ?*anyopaque, month: i32) i32 {
         return qtc.QCalendar_DaysInMonth(@ptrCast(self), @intCast(month));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#daysInYear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#daysInYear)
     ///
     /// ``` self: QtC.QCalendar, year: i32 ```
     pub fn DaysInYear(self: ?*anyopaque, year: i32) i32 {
         return qtc.QCalendar_DaysInYear(@ptrCast(self), @intCast(year));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#monthsInYear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthsInYear)
     ///
     /// ``` self: QtC.QCalendar, year: i32 ```
     pub fn MonthsInYear(self: ?*anyopaque, year: i32) i32 {
         return qtc.QCalendar_MonthsInYear(@ptrCast(self), @intCast(year));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#isDateValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isDateValid)
     ///
     /// ``` self: QtC.QCalendar, year: i32, month: i32, day: i32 ```
     pub fn IsDateValid(self: ?*anyopaque, year: i32, month: i32, day: i32) bool {
         return qtc.QCalendar_IsDateValid(@ptrCast(self), @intCast(year), @intCast(month), @intCast(day));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#isLeapYear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isLeapYear)
     ///
     /// ``` self: QtC.QCalendar, year: i32 ```
     pub fn IsLeapYear(self: ?*anyopaque, year: i32) bool {
         return qtc.QCalendar_IsLeapYear(@ptrCast(self), @intCast(year));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#isGregorian)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isGregorian)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn IsGregorian(self: ?*anyopaque) bool {
         return qtc.QCalendar_IsGregorian(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#isLunar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isLunar)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn IsLunar(self: ?*anyopaque) bool {
         return qtc.QCalendar_IsLunar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#isLuniSolar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isLuniSolar)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn IsLuniSolar(self: ?*anyopaque) bool {
         return qtc.QCalendar_IsLuniSolar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#isSolar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isSolar)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn IsSolar(self: ?*anyopaque) bool {
         return qtc.QCalendar_IsSolar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#isProleptic)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isProleptic)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn IsProleptic(self: ?*anyopaque) bool {
         return qtc.QCalendar_IsProleptic(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#hasYearZero)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#hasYearZero)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn HasYearZero(self: ?*anyopaque) bool {
         return qtc.QCalendar_HasYearZero(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#maximumDaysInMonth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#maximumDaysInMonth)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn MaximumDaysInMonth(self: ?*anyopaque) i32 {
         return qtc.QCalendar_MaximumDaysInMonth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#minimumDaysInMonth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#minimumDaysInMonth)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn MinimumDaysInMonth(self: ?*anyopaque) i32 {
         return qtc.QCalendar_MinimumDaysInMonth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#maximumMonthsInYear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#maximumMonthsInYear)
     ///
     /// ``` self: QtC.QCalendar ```
     pub fn MaximumMonthsInYear(self: ?*anyopaque) i32 {
         return qtc.QCalendar_MaximumMonthsInYear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#name)
     ///
     /// ``` self: QtC.QCalendar, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -183,42 +183,42 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#dateFromParts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dateFromParts)
     ///
     /// ``` self: QtC.QCalendar, year: i32, month: i32, day: i32 ```
     pub fn DateFromParts(self: ?*anyopaque, year: i32, month: i32, day: i32) QtC.QDate {
         return qtc.QCalendar_DateFromParts(@ptrCast(self), @intCast(year), @intCast(month), @intCast(day));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#dateFromParts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dateFromParts)
     ///
     /// ``` self: QtC.QCalendar, parts: QtC.QCalendar__YearMonthDay ```
     pub fn DateFromParts2(self: ?*anyopaque, parts: ?*anyopaque) QtC.QDate {
         return qtc.QCalendar_DateFromParts2(@ptrCast(self), @ptrCast(parts));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#matchCenturyToWeekday)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#matchCenturyToWeekday)
     ///
     /// ``` self: QtC.QCalendar, parts: QtC.QCalendar__YearMonthDay, dow: i32 ```
     pub fn MatchCenturyToWeekday(self: ?*anyopaque, parts: ?*anyopaque, dow: i32) QtC.QDate {
         return qtc.QCalendar_MatchCenturyToWeekday(@ptrCast(self), @ptrCast(parts), @intCast(dow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#partsFromDate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#partsFromDate)
     ///
     /// ``` self: QtC.QCalendar, date: QtC.QDate ```
     pub fn PartsFromDate(self: ?*anyopaque, date: QtC.QDate) QtC.QCalendar__YearMonthDay {
         return qtc.QCalendar_PartsFromDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#dayOfWeek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dayOfWeek)
     ///
     /// ``` self: QtC.QCalendar, date: QtC.QDate ```
     pub fn DayOfWeek(self: ?*anyopaque, date: QtC.QDate) i32 {
         return qtc.QCalendar_DayOfWeek(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#monthName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, month: i32, allocator: std.mem.Allocator ```
     pub fn MonthName(self: ?*anyopaque, locale: ?*anyopaque, month: i32, allocator: std.mem.Allocator) []const u8 {
@@ -229,7 +229,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, month: i32, allocator: std.mem.Allocator ```
     pub fn StandaloneMonthName(self: ?*anyopaque, locale: ?*anyopaque, month: i32, allocator: std.mem.Allocator) []const u8 {
@@ -240,7 +240,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#weekDayName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#weekDayName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, day: i32, allocator: std.mem.Allocator ```
     pub fn WeekDayName(self: ?*anyopaque, locale: ?*anyopaque, day: i32, allocator: std.mem.Allocator) []const u8 {
@@ -251,7 +251,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#standaloneWeekDayName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneWeekDayName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, day: i32, allocator: std.mem.Allocator ```
     pub fn StandaloneWeekDayName(self: ?*anyopaque, locale: ?*anyopaque, day: i32, allocator: std.mem.Allocator) []const u8 {
@@ -262,7 +262,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#availableCalendars)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#availableCalendars)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableCalendars(allocator: std.mem.Allocator) [][]const u8 {
@@ -284,14 +284,14 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#daysInMonth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#daysInMonth)
     ///
     /// ``` self: QtC.QCalendar, month: i32, year: i32 ```
     pub fn DaysInMonth2(self: ?*anyopaque, month: i32, year: i32) i32 {
         return qtc.QCalendar_DaysInMonth2(@ptrCast(self), @intCast(month), @intCast(year));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#monthName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, month: i32, year: i32, allocator: std.mem.Allocator ```
     pub fn MonthName3(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, allocator: std.mem.Allocator) []const u8 {
@@ -302,7 +302,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#monthName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, month: i32, year: i32, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
     pub fn MonthName4(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
@@ -313,7 +313,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, month: i32, year: i32, allocator: std.mem.Allocator ```
     pub fn StandaloneMonthName3(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, allocator: std.mem.Allocator) []const u8 {
@@ -324,7 +324,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, month: i32, year: i32, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
     pub fn StandaloneMonthName4(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
@@ -335,7 +335,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#weekDayName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#weekDayName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, day: i32, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
     pub fn WeekDayName3(self: ?*anyopaque, locale: ?*anyopaque, day: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
@@ -346,7 +346,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#standaloneWeekDayName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneWeekDayName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, day: i32, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
     pub fn StandaloneWeekDayName3(self: ?*anyopaque, locale: ?*anyopaque, day: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
@@ -357,7 +357,7 @@ pub const qcalendar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#dtor.QCalendar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dtor.QCalendar)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -425,49 +425,49 @@ pub const qcalendar__yearmonthday = struct {
         qtc.QCalendar__YearMonthDay_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#isValid)
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QCalendar__YearMonthDay_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#year-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#year-var)
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay ```
     pub fn Year(self: ?*anyopaque) i32 {
         return qtc.QCalendar__YearMonthDay_Year(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#year-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#year-var)
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay, year: i32 ```
     pub fn SetYear(self: ?*anyopaque, year: i32) void {
         qtc.QCalendar__YearMonthDay_SetYear(@ptrCast(self), @intCast(year));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay ```
     pub fn Month(self: ?*anyopaque) i32 {
         return qtc.QCalendar__YearMonthDay_Month(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay, month: i32 ```
     pub fn SetMonth(self: ?*anyopaque, month: i32) void {
         qtc.QCalendar__YearMonthDay_SetMonth(@ptrCast(self), @intCast(month));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay ```
     pub fn Day(self: ?*anyopaque) i32 {
         return qtc.QCalendar__YearMonthDay_Day(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay, day: i32 ```
     pub fn SetDay(self: ?*anyopaque, day: i32) void {
@@ -519,14 +519,14 @@ pub const qcalendar__systemid = struct {
         qtc.QCalendar__SystemId_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-systemid.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-systemid.html#index)
     ///
     /// ``` self: QtC.QCalendar__SystemId ```
     pub fn Index(self: ?*anyopaque) u64 {
         return qtc.QCalendar__SystemId_Index(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-systemid.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcalendar-systemid.html#isValid)
     ///
     /// ``` self: QtC.QCalendar__SystemId ```
     pub fn IsValid(self: ?*anyopaque) bool {

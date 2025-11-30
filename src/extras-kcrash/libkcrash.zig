@@ -7,42 +7,42 @@ pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// https://api.kde.org/kcrash.html
 pub const kcrash = struct {
-    /// [Qt documentation](https://api.kde.org/kcrash.html#initialize)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#initialize)
     ///
     ///
     pub fn Initialize() void {
         qtc.KCrash_Initialize();
     }
 
-    /// [Qt documentation](https://api.kde.org/kcrash.html#defaultCrashHandler)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#defaultCrashHandler)
     ///
     /// ``` param1: i32 ```
     pub fn DefaultCrashHandler(param1: i32) void {
         qtc.KCrash_DefaultCrashHandler(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcrash.html#setFlags)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#setFlags)
     ///
     /// ``` param1: flag of kcrash_enums.CrashFlag ```
     pub fn SetFlags(param1: i32) void {
         qtc.KCrash_SetFlags(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcrash.html#setDrKonqiEnabled)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#setDrKonqiEnabled)
     ///
     /// ``` param1: bool ```
     pub fn SetDrKonqiEnabled(param1: bool) void {
         qtc.KCrash_SetDrKonqiEnabled(param1);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcrash.html#isDrKonqiEnabled)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#isDrKonqiEnabled)
     ///
     ///
     pub fn IsDrKonqiEnabled() bool {
         return qtc.KCrash_IsDrKonqiEnabled();
     }
 
-    /// [Qt documentation](https://api.kde.org/kcrash.html#setErrorMessage)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#setErrorMessage)
     ///
     /// ``` param1: []const u8 ```
     pub fn SetErrorMessage(param1: []const u8) void {
@@ -53,7 +53,7 @@ pub const kcrash = struct {
         qtc.KCrash_SetErrorMessage(param1_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcrash.html#setErrorTags)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#setErrorTags)
     ///
     /// ``` param1: map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn SetErrorTags(param1: map_constu8_constu8, allocator: std.mem.Allocator) void {
@@ -80,7 +80,7 @@ pub const kcrash = struct {
         qtc.KCrash_SetErrorTags(param1_map);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcrash.html#setErrorExtraData)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#setErrorExtraData)
     ///
     /// ``` param1: map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn SetErrorExtraData(param1: map_constu8_constu8, allocator: std.mem.Allocator) void {
@@ -107,7 +107,7 @@ pub const kcrash = struct {
         qtc.KCrash_SetErrorExtraData(param1_map);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcrash.html#setGPUData)
+    /// [Upstream resources](https://api.kde.org/kcrash.html#setGPUData)
     ///
     /// ``` param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn SetGPUData(param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {

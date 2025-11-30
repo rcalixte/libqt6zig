@@ -29,7 +29,7 @@ pub const qwindow = struct {
         return qtc.QWindow_new3(@ptrCast(screen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -61,7 +61,7 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -73,14 +73,14 @@ pub const qwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setSurfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setSurfaceType)
     ///
     /// ``` self: QtC.QWindow, surfaceType: qsurface_enums.SurfaceType ```
     pub fn SetSurfaceType(self: ?*anyopaque, surfaceType: i32) void {
         qtc.QWindow_SetSurfaceType(@ptrCast(self), @intCast(surfaceType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -89,7 +89,7 @@ pub const qwindow = struct {
         return qtc.QWindow_SurfaceType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
     ///
     /// Allows for overriding the related default method
     ///
@@ -98,7 +98,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnSurfaceType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
     ///
     /// Base class method implementation
     ///
@@ -109,14 +109,14 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseSurfaceType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isVisible)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QWindow_IsVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibility)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibility)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -125,56 +125,56 @@ pub const qwindow = struct {
         return qtc.QWindow_Visibility(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setVisibility)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setVisibility)
     ///
     /// ``` self: QtC.QWindow, v: qwindow_enums.Visibility ```
     pub fn SetVisibility(self: ?*anyopaque, v: i32) void {
         qtc.QWindow_SetVisibility(@ptrCast(self), @intCast(v));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#create)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Create(self: ?*anyopaque) void {
         qtc.QWindow_Create(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#winId)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn WinId(self: ?*anyopaque) usize {
         return qtc.QWindow_WinId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#parent)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Parent(self: ?*anyopaque) QtC.QWindow {
         return qtc.QWindow_Parent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setParent)
     ///
     /// ``` self: QtC.QWindow, parent: QtC.QWindow ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QWindow_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isTopLevel)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
         return qtc.QWindow_IsTopLevel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isModal)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn IsModal(self: ?*anyopaque) bool {
         return qtc.QWindow_IsModal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#modality)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -183,28 +183,28 @@ pub const qwindow = struct {
         return qtc.QWindow_Modality(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setModality)
     ///
     /// ``` self: QtC.QWindow, modality: qnamespace_enums.WindowModality ```
     pub fn SetModality(self: ?*anyopaque, modality: i32) void {
         qtc.QWindow_SetModality(@ptrCast(self), @intCast(modality));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFormat)
     ///
     /// ``` self: QtC.QWindow, format: QtC.QSurfaceFormat ```
     pub fn SetFormat(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QWindow_SetFormat(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#format)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Format(self: ?*anyopaque) QtC.QSurfaceFormat {
         return qtc.QWindow_Format(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#format)
     ///
     /// Allows for overriding the related default method
     ///
@@ -213,7 +213,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#format)
     ///
     /// Base class method implementation
     ///
@@ -222,21 +222,21 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#requestedFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#requestedFormat)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn RequestedFormat(self: ?*anyopaque) QtC.QSurfaceFormat {
         return qtc.QWindow_RequestedFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFlags)
     ///
     /// ``` self: QtC.QWindow, flags: flag of qnamespace_enums.WindowType ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QWindow_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#flags)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -245,14 +245,14 @@ pub const qwindow = struct {
         return qtc.QWindow_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFlag)
     ///
     /// ``` self: QtC.QWindow, param1: qnamespace_enums.WindowType ```
     pub fn SetFlag(self: ?*anyopaque, param1: i64) void {
         qtc.QWindow_SetFlag(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#type)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -261,7 +261,7 @@ pub const qwindow = struct {
         return qtc.QWindow_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#title)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#title)
     ///
     /// ``` self: QtC.QWindow, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -272,49 +272,49 @@ pub const qwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setOpacity)
     ///
     /// ``` self: QtC.QWindow, level: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, level: f64) void {
         qtc.QWindow_SetOpacity(@ptrCast(self), @floatCast(level));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#opacity)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Opacity(self: ?*anyopaque) f64 {
         return qtc.QWindow_Opacity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMask)
     ///
     /// ``` self: QtC.QWindow, region: QtC.QRegion ```
     pub fn SetMask(self: ?*anyopaque, region: ?*anyopaque) void {
         qtc.QWindow_SetMask(@ptrCast(self), @ptrCast(region));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mask)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
         return qtc.QWindow_Mask(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isActive)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn IsActive(self: ?*anyopaque) bool {
         return qtc.QWindow_IsActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#reportContentOrientationChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#reportContentOrientationChange)
     ///
     /// ``` self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation ```
     pub fn ReportContentOrientationChange(self: ?*anyopaque, orientation: i32) void {
         qtc.QWindow_ReportContentOrientationChange(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#contentOrientation)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -323,14 +323,14 @@ pub const qwindow = struct {
         return qtc.QWindow_ContentOrientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
         return qtc.QWindow_DevicePixelRatio(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowState)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -339,7 +339,7 @@ pub const qwindow = struct {
         return qtc.QWindow_WindowState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStates)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowStates)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -348,203 +348,203 @@ pub const qwindow = struct {
         return qtc.QWindow_WindowStates(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setWindowState)
     ///
     /// ``` self: QtC.QWindow, state: qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWindow_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWindowStates)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setWindowStates)
     ///
     /// ``` self: QtC.QWindow, states: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowStates(self: ?*anyopaque, states: i32) void {
         qtc.QWindow_SetWindowStates(@ptrCast(self), @intCast(states));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setTransientParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setTransientParent)
     ///
     /// ``` self: QtC.QWindow, parent: QtC.QWindow ```
     pub fn SetTransientParent(self: ?*anyopaque, parent: ?*anyopaque) void {
         qtc.QWindow_SetTransientParent(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#transientParent)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn TransientParent(self: ?*anyopaque) QtC.QWindow {
         return qtc.QWindow_TransientParent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
     ///
     /// ``` self: QtC.QWindow, child: QtC.QWindow ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
         return qtc.QWindow_IsAncestorOf(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isExposed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isExposed)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn IsExposed(self: ?*anyopaque) bool {
         return qtc.QWindow_IsExposed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumWidth)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
         return qtc.QWindow_MinimumWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumHeight)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
         return qtc.QWindow_MinimumHeight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumWidth)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
         return qtc.QWindow_MaximumWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumHeight)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
         return qtc.QWindow_MaximumHeight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumSize)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWindow_MinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumSize)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWindow_MaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#baseSize)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QWindow_BaseSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#sizeIncrement)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
         return qtc.QWindow_SizeIncrement(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMinimumSize)
     ///
     /// ``` self: QtC.QWindow, size: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QWindow_SetMinimumSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMaximumSize)
     ///
     /// ``` self: QtC.QWindow, size: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QWindow_SetMaximumSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setBaseSize)
     ///
     /// ``` self: QtC.QWindow, size: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QWindow_SetBaseSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QWindow, size: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QWindow_SetSizeIncrement(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#geometry)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWindow_Geometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#frameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#frameMargins)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn FrameMargins(self: ?*anyopaque) QtC.QMargins {
         return qtc.QWindow_FrameMargins(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#frameGeometry)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QWindow_FrameGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#framePosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#framePosition)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn FramePosition(self: ?*anyopaque) QtC.QPoint {
         return qtc.QWindow_FramePosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFramePosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFramePosition)
     ///
     /// ``` self: QtC.QWindow, point: QtC.QPoint ```
     pub fn SetFramePosition(self: ?*anyopaque, point: ?*anyopaque) void {
         qtc.QWindow_SetFramePosition(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#width)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Width(self: ?*anyopaque) i32 {
         return qtc.QWindow_Width(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#height)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Height(self: ?*anyopaque) i32 {
         return qtc.QWindow_Height(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#x)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn X(self: ?*anyopaque) i32 {
         return qtc.QWindow_X(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#y)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Y(self: ?*anyopaque) i32 {
         return qtc.QWindow_Y(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#size)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QWindow_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#size)
     ///
     /// Allows for overriding the related default method
     ///
@@ -553,7 +553,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#size)
     ///
     /// Base class method implementation
     ///
@@ -562,42 +562,42 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#position)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#position)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Position(self: ?*anyopaque) QtC.QPoint {
         return qtc.QWindow_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setPosition)
     ///
     /// ``` self: QtC.QWindow, pt: QtC.QPoint ```
     pub fn SetPosition(self: ?*anyopaque, pt: ?*anyopaque) void {
         qtc.QWindow_SetPosition(@ptrCast(self), @ptrCast(pt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setPosition)
     ///
     /// ``` self: QtC.QWindow, posx: i32, posy: i32 ```
     pub fn SetPosition2(self: ?*anyopaque, posx: i32, posy: i32) void {
         qtc.QWindow_SetPosition2(@ptrCast(self), @intCast(posx), @intCast(posy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resize)
     ///
     /// ``` self: QtC.QWindow, newSize: QtC.QSize ```
     pub fn Resize(self: ?*anyopaque, newSize: ?*anyopaque) void {
         qtc.QWindow_Resize(@ptrCast(self), @ptrCast(newSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resize)
     ///
     /// ``` self: QtC.QWindow, w: i32, h: i32 ```
     pub fn Resize2(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.QWindow_Resize2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFilePath)
     ///
     /// ``` self: QtC.QWindow, filePath: []const u8 ```
     pub fn SetFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -608,7 +608,7 @@ pub const qwindow = struct {
         qtc.QWindow_SetFilePath(@ptrCast(self), filePath_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#filePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#filePath)
     ///
     /// ``` self: QtC.QWindow, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -619,63 +619,63 @@ pub const qwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setIcon)
     ///
     /// ``` self: QtC.QWindow, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QWindow_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#icon)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.QWindow_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#destroy)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Destroy(self: ?*anyopaque) void {
         qtc.QWindow_Destroy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setKeyboardGrabEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setKeyboardGrabEnabled)
     ///
     /// ``` self: QtC.QWindow, grab: bool ```
     pub fn SetKeyboardGrabEnabled(self: ?*anyopaque, grab: bool) bool {
         return qtc.QWindow_SetKeyboardGrabEnabled(@ptrCast(self), grab);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMouseGrabEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMouseGrabEnabled)
     ///
     /// ``` self: QtC.QWindow, grab: bool ```
     pub fn SetMouseGrabEnabled(self: ?*anyopaque, grab: bool) bool {
         return qtc.QWindow_SetMouseGrabEnabled(@ptrCast(self), grab);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#screen)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
         return qtc.QWindow_Screen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setScreen)
     ///
     /// ``` self: QtC.QWindow, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
         qtc.QWindow_SetScreen(@ptrCast(self), @ptrCast(screen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn AccessibleRoot(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QWindow_AccessibleRoot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
     ///
     /// Allows for overriding the related default method
     ///
@@ -684,7 +684,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnAccessibleRoot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
     ///
     /// Base class method implementation
     ///
@@ -693,14 +693,14 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseAccessibleRoot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn FocusObject(self: ?*anyopaque) QtC.QObject {
         return qtc.QWindow_FocusObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
     ///
     /// Allows for overriding the related default method
     ///
@@ -709,7 +709,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnFocusObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
     ///
     /// Base class method implementation
     ///
@@ -718,63 +718,63 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseFocusObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
     ///
     /// ``` self: QtC.QWindow, pos: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPointF {
         return qtc.QWindow_MapToGlobal(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QWindow, pos: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPointF {
         return qtc.QWindow_MapFromGlobal(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
     ///
     /// ``` self: QtC.QWindow, pos: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
         return qtc.QWindow_MapToGlobal2(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QWindow, pos: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
         return qtc.QWindow_MapFromGlobal2(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#cursor)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
         return qtc.QWindow_Cursor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setCursor)
     ///
     /// ``` self: QtC.QWindow, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.QWindow_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#unsetCursor)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
         qtc.QWindow_UnsetCursor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#fromWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#fromWinId)
     ///
     /// ``` id: usize ```
     pub fn FromWinId(id: usize) QtC.QWindow {
         return qtc.QWindow_FromWinId(@intCast(id));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
     ///
     /// ``` self: QtC.QWindow, name: []const u8, revision: i32 ```
     pub fn ResolveInterface(self: ?*anyopaque, name: []const u8, revision: i32) ?*anyopaque {
@@ -782,7 +782,7 @@ pub const qwindow = struct {
         return qtc.QWindow_ResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
     ///
     /// Allows for overriding the related default method
     ///
@@ -791,7 +791,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnResolveInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
     ///
     /// Base class method implementation
     ///
@@ -801,98 +801,98 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#requestActivate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#requestActivate)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn RequestActivate(self: ?*anyopaque) void {
         qtc.QWindow_RequestActivate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setVisible)
     ///
     /// ``` self: QtC.QWindow, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.QWindow_SetVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#show)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Show(self: ?*anyopaque) void {
         qtc.QWindow_Show(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hide)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Hide(self: ?*anyopaque) void {
         qtc.QWindow_Hide(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showMinimized)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
         qtc.QWindow_ShowMinimized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showMaximized)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
         qtc.QWindow_ShowMaximized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showFullScreen)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
         qtc.QWindow_ShowFullScreen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showNormal)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn ShowNormal(self: ?*anyopaque) void {
         qtc.QWindow_ShowNormal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#close)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Close(self: ?*anyopaque) bool {
         return qtc.QWindow_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#raise)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Raise(self: ?*anyopaque) void {
         qtc.QWindow_Raise(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#lower)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Lower(self: ?*anyopaque) void {
         qtc.QWindow_Lower(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#startSystemResize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#startSystemResize)
     ///
     /// ``` self: QtC.QWindow, edges: flag of qnamespace_enums.Edge ```
     pub fn StartSystemResize(self: ?*anyopaque, edges: i32) bool {
         return qtc.QWindow_StartSystemResize(@ptrCast(self), @intCast(edges));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#startSystemMove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#startSystemMove)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn StartSystemMove(self: ?*anyopaque) bool {
         return qtc.QWindow_StartSystemMove(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setTitle)
     ///
     /// ``` self: QtC.QWindow, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
@@ -903,133 +903,133 @@ pub const qwindow = struct {
         qtc.QWindow_SetTitle(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setX)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn SetX(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_SetX(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setY)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn SetY(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_SetY(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setWidth)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn SetWidth(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_SetWidth(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setHeight)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn SetHeight(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_SetHeight(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
     ///
     /// ``` self: QtC.QWindow, posx: i32, posy: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, posx: i32, posy: i32, w: i32, h: i32) void {
         qtc.QWindow_SetGeometry(@ptrCast(self), @intCast(posx), @intCast(posy), @intCast(w), @intCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
     ///
     /// ``` self: QtC.QWindow, rect: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QWindow_SetGeometry2(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QWindow, w: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, w: i32) void {
         qtc.QWindow_SetMinimumWidth(@ptrCast(self), @intCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QWindow, h: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, h: i32) void {
         qtc.QWindow_SetMinimumHeight(@ptrCast(self), @intCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QWindow, w: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, w: i32) void {
         qtc.QWindow_SetMaximumWidth(@ptrCast(self), @intCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QWindow, h: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, h: i32) void {
         qtc.QWindow_SetMaximumHeight(@ptrCast(self), @intCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#alert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#alert)
     ///
     /// ``` self: QtC.QWindow, msec: i32 ```
     pub fn Alert(self: ?*anyopaque, msec: i32) void {
         qtc.QWindow_Alert(@ptrCast(self), @intCast(msec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#requestUpdate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#requestUpdate)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn RequestUpdate(self: ?*anyopaque) void {
         qtc.QWindow_RequestUpdate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
     ///
     /// ``` self: QtC.QWindow, screen: QtC.QScreen ```
     pub fn ScreenChanged(self: ?*anyopaque, screen: ?*anyopaque) void {
         qtc.QWindow_ScreenChanged(@ptrCast(self), @ptrCast(screen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, screen: QtC.QScreen) callconv(.c) void ```
     pub fn OnScreenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_ScreenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
     ///
     /// ``` self: QtC.QWindow, modality: qnamespace_enums.WindowModality ```
     pub fn ModalityChanged(self: ?*anyopaque, modality: i32) void {
         qtc.QWindow_ModalityChanged(@ptrCast(self), @intCast(modality));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void ```
     pub fn OnModalityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_ModalityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
     ///
     /// ``` self: QtC.QWindow, windowState: qnamespace_enums.WindowState ```
     pub fn WindowStateChanged(self: ?*anyopaque, windowState: i32) void {
         qtc.QWindow_WindowStateChanged(@ptrCast(self), @intCast(windowState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void ```
     pub fn OnWindowStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QWindow, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -1040,231 +1040,231 @@ pub const qwindow = struct {
         qtc.QWindow_WindowTitleChanged(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#xChanged)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn XChanged(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_XChanged(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#xChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#yChanged)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn YChanged(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_YChanged(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#yChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn WidthChanged(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_WidthChanged(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn HeightChanged(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_HeightChanged(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn MinimumWidthChanged(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_MinimumWidthChanged(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
     pub fn OnMinimumWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MinimumWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn MinimumHeightChanged(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_MinimumHeightChanged(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
     pub fn OnMinimumHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MinimumHeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn MaximumWidthChanged(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_MaximumWidthChanged(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
     pub fn OnMaximumWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MaximumWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
     ///
     /// ``` self: QtC.QWindow, arg: i32 ```
     pub fn MaximumHeightChanged(self: ?*anyopaque, arg: i32) void {
         qtc.QWindow_MaximumHeightChanged(@ptrCast(self), @intCast(arg));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
     pub fn OnMaximumHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MaximumHeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
     ///
     /// ``` self: QtC.QWindow, arg: bool ```
     pub fn VisibleChanged(self: ?*anyopaque, arg: bool) void {
         qtc.QWindow_VisibleChanged(@ptrCast(self), arg);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: bool) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
     ///
     /// ``` self: QtC.QWindow, visibility: qwindow_enums.Visibility ```
     pub fn VisibilityChanged(self: ?*anyopaque, visibility: i32) void {
         qtc.QWindow_VisibilityChanged(@ptrCast(self), @intCast(visibility));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, visibility: qwindow_enums.Visibility) callconv(.c) void ```
     pub fn OnVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn ActiveChanged(self: ?*anyopaque) void {
         qtc.QWindow_ActiveChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow) callconv(.c) void ```
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
     ///
     /// ``` self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation ```
     pub fn ContentOrientationChanged(self: ?*anyopaque, orientation: i32) void {
         qtc.QWindow_ContentOrientationChanged(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
     pub fn OnContentOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_ContentOrientationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
     ///
     /// ``` self: QtC.QWindow, object: QtC.QObject ```
     pub fn FocusObjectChanged(self: ?*anyopaque, object: ?*anyopaque) void {
         qtc.QWindow_FocusObjectChanged(@ptrCast(self), @ptrCast(object));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, object: QtC.QObject) callconv(.c) void ```
     pub fn OnFocusObjectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_FocusObjectChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
     ///
     /// ``` self: QtC.QWindow, opacity: f64 ```
     pub fn OpacityChanged(self: ?*anyopaque, opacity: f64) void {
         qtc.QWindow_OpacityChanged(@ptrCast(self), @floatCast(opacity));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, opacity: f64) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QWindow_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
     ///
     /// ``` self: QtC.QWindow, transientParent: QtC.QWindow ```
     pub fn TransientParentChanged(self: ?*anyopaque, transientParent: ?*anyopaque) void {
         qtc.QWindow_TransientParentChanged(@ptrCast(self), @ptrCast(transientParent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, transientParent: QtC.QWindow) callconv(.c) void ```
     pub fn OnTransientParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_TransientParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QExposeEvent ```
     pub fn ExposeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_ExposeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1273,7 +1273,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnExposeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
     ///
     /// Base class method implementation
     ///
@@ -1282,14 +1282,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseExposeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1298,7 +1298,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -1307,14 +1307,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1323,7 +1323,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -1332,14 +1332,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QMoveEvent ```
     pub fn MoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_MoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1348,7 +1348,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
     ///
     /// Base class method implementation
     ///
@@ -1357,14 +1357,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_FocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1373,7 +1373,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -1382,14 +1382,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_FocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1398,7 +1398,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -1407,14 +1407,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1423,7 +1423,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -1432,14 +1432,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_HideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1448,7 +1448,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
     ///
     /// Base class method implementation
     ///
@@ -1457,14 +1457,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseHideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QCloseEvent ```
     pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_CloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1473,7 +1473,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
     ///
     /// Base class method implementation
     ///
@@ -1482,14 +1482,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseCloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#event)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWindow_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1498,7 +1498,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#event)
     ///
     /// Base class method implementation
     ///
@@ -1507,14 +1507,14 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1523,7 +1523,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -1532,14 +1532,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QKeyEvent ```
     pub fn KeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_KeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1548,7 +1548,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -1557,14 +1557,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1573,7 +1573,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -1582,14 +1582,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1598,7 +1598,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -1607,14 +1607,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1623,7 +1623,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
     ///
@@ -1632,14 +1632,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1648,7 +1648,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -1657,14 +1657,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1673,7 +1673,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
     ///
     /// Base class method implementation
     ///
@@ -1682,14 +1682,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QTouchEvent ```
     pub fn TouchEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_TouchEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1698,7 +1698,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnTouchEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
     ///
     /// Base class method implementation
     ///
@@ -1707,14 +1707,14 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseTouchEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QTabletEvent ```
     pub fn TabletEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWindow_TabletEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1723,7 +1723,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
     ///
     /// Base class method implementation
     ///
@@ -1732,7 +1732,7 @@ pub const qwindow = struct {
         qtc.QWindow_QBaseTabletEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
     /// ``` self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
@@ -1743,7 +1743,7 @@ pub const qwindow = struct {
         return qtc.QWindow_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1752,7 +1752,7 @@ pub const qwindow = struct {
         qtc.QWindow_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
     /// Base class method implementation
     ///
@@ -1765,7 +1765,7 @@ pub const qwindow = struct {
         return qtc.QWindow_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1778,7 +1778,7 @@ pub const qwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1791,21 +1791,21 @@ pub const qwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#parent)
     ///
     /// ``` self: QtC.QWindow, mode: qwindow_enums.AncestorMode ```
     pub fn Parent1(self: ?*anyopaque, mode: i32) QtC.QWindow {
         return qtc.QWindow_Parent1(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFlag)
     ///
     /// ``` self: QtC.QWindow, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
         qtc.QWindow_SetFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
     ///
     /// ``` self: QtC.QWindow, child: QtC.QWindow, mode: qwindow_enums.AncestorMode ```
     pub fn IsAncestorOf2(self: ?*anyopaque, child: ?*anyopaque, mode: i32) bool {
@@ -1814,7 +1814,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QWindow, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1827,7 +1827,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QWindow, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1840,7 +1840,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1849,7 +1849,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1858,7 +1858,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1867,7 +1867,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1876,7 +1876,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QWindow, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1885,7 +1885,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1894,7 +1894,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWindow, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1903,7 +1903,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWindow, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1912,7 +1912,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWindow, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1921,7 +1921,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWindow, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1930,7 +1930,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QWindow, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1944,7 +1944,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QWindow, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1953,7 +1953,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QWindow, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1962,7 +1962,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1971,7 +1971,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWindow, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1982,7 +1982,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1991,7 +1991,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2000,7 +2000,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2009,7 +2009,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2018,7 +2018,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QWindow, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2028,7 +2028,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QWindow, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2038,7 +2038,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QWindow, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2062,7 +2062,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2071,7 +2071,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2080,7 +2080,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2089,7 +2089,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2098,7 +2098,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QWindow, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2108,7 +2108,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2117,7 +2117,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWindow, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2126,7 +2126,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2135,7 +2135,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2144,7 +2144,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWindow, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2155,7 +2155,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWindow, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2164,7 +2164,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2173,7 +2173,7 @@ pub const qwindow = struct {
 
     /// Inherited from QSurface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
     /// ``` self: QtC.QWindow ```
     ///
@@ -2184,7 +2184,7 @@ pub const qwindow = struct {
 
     /// Inherited from QSurface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
     ///
     /// ``` self: QtC.QWindow ```
     pub fn SupportsOpenGL(self: ?*anyopaque) bool {
@@ -2193,7 +2193,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2204,7 +2204,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2215,7 +2215,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2226,7 +2226,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2237,7 +2237,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2248,7 +2248,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2259,7 +2259,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2270,7 +2270,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2281,7 +2281,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2292,7 +2292,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2303,7 +2303,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2314,7 +2314,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2325,7 +2325,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2336,7 +2336,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2347,7 +2347,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2358,7 +2358,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2369,7 +2369,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2380,7 +2380,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2391,7 +2391,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2402,7 +2402,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2413,7 +2413,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2424,7 +2424,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2435,7 +2435,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2446,7 +2446,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2457,7 +2457,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2469,7 +2469,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2481,7 +2481,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2492,7 +2492,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2503,7 +2503,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2514,7 +2514,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2525,7 +2525,7 @@ pub const qwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2534,7 +2534,7 @@ pub const qwindow = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#dtor.QWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#dtor.QWindow)
     ///
     /// Delete this object from C++ memory.
     ///

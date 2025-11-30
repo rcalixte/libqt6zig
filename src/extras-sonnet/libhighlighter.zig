@@ -34,7 +34,7 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_new4(@ptrCast(textEdit), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -66,7 +66,7 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -78,14 +78,14 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#spellCheckerFound)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#spellCheckerFound)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn SpellCheckerFound(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_SpellCheckerFound(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#currentLanguage)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#currentLanguage)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, allocator: std.mem.Allocator ```
     pub fn CurrentLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -96,49 +96,49 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setActive)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setActive)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, active: bool ```
     pub fn SetActive(self: ?*anyopaque, active: bool) void {
         qtc.Sonnet__Highlighter_SetActive(@ptrCast(self), active);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#isActive)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#isActive)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn IsActive(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_IsActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#automatic)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#automatic)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn Automatic(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_Automatic(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setAutomatic)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setAutomatic)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, automatic: bool ```
     pub fn SetAutomatic(self: ?*anyopaque, automatic: bool) void {
         qtc.Sonnet__Highlighter_SetAutomatic(@ptrCast(self), automatic);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#autoDetectLanguageDisabled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#autoDetectLanguageDisabled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn AutoDetectLanguageDisabled(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_AutoDetectLanguageDisabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setAutoDetectLanguageDisabled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setAutoDetectLanguageDisabled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, autoDetectDisabled: bool ```
     pub fn SetAutoDetectLanguageDisabled(self: ?*anyopaque, autoDetectDisabled: bool) void {
         qtc.Sonnet__Highlighter_SetAutoDetectLanguageDisabled(@ptrCast(self), autoDetectDisabled);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#addWordToDictionary)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#addWordToDictionary)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8 ```
     pub fn AddWordToDictionary(self: ?*anyopaque, word: []const u8) void {
@@ -149,7 +149,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_AddWordToDictionary(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#ignoreWord)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#ignoreWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8 ```
     pub fn IgnoreWord(self: ?*anyopaque, word: []const u8) void {
@@ -160,7 +160,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_IgnoreWord(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8, allocator: std.mem.Allocator ```
     pub fn SuggestionsForWord(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -186,7 +186,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8, cursor: QtC.QTextCursor, allocator: std.mem.Allocator ```
     pub fn SuggestionsForWord2(self: ?*anyopaque, word: []const u8, cursor: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -212,7 +212,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#isWordMisspelled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#isWordMisspelled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8 ```
     pub fn IsWordMisspelled(self: ?*anyopaque, word: []const u8) bool {
@@ -223,28 +223,28 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_IsWordMisspelled(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelledColor)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setMisspelledColor)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, color: QtC.QColor ```
     pub fn SetMisspelledColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.Sonnet__Highlighter_SetMisspelledColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#checkerEnabledByDefault)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#checkerEnabledByDefault)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn CheckerEnabledByDefault(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_CheckerEnabledByDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setDocument)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setDocument)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, document: QtC.QTextDocument ```
     pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.Sonnet__Highlighter_SetDocument(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#activeChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#activeChanged)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, description: []const u8 ```
     pub fn ActiveChanged(self: ?*anyopaque, description: []const u8) void {
@@ -255,14 +255,14 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_ActiveChanged(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#activeChanged)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#activeChanged)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, description: [*:0]const u8) callconv(.c) void ```
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Highlighter_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, text: []const u8 ```
     pub fn HighlightBlock(self: ?*anyopaque, text: []const u8) void {
@@ -273,7 +273,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_HighlightBlock(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
     ///
     /// Allows for overriding the related default method
     ///
@@ -282,7 +282,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnHighlightBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
     ///
     /// Base class method implementation
     ///
@@ -295,14 +295,14 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_QBaseHighlightBlock(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, start: i32, count: i32 ```
     pub fn SetMisspelled(self: ?*anyopaque, start: i32, count: i32) void {
         qtc.Sonnet__Highlighter_SetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -311,7 +311,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnSetMisspelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
     ///
     /// Base class method implementation
     ///
@@ -320,14 +320,14 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_QBaseSetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, start: i32, count: i32 ```
     pub fn UnsetMisspelled(self: ?*anyopaque, start: i32, count: i32) void {
         qtc.Sonnet__Highlighter_UnsetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -336,7 +336,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnUnsetMisspelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
     ///
     /// Base class method implementation
     ///
@@ -345,14 +345,14 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_QBaseUnsetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#eventFilter)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, o: QtC.QObject, e: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, o: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_EventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -361,7 +361,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -370,14 +370,14 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_QBaseEventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn IntraWordEditing(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_IntraWordEditing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -386,7 +386,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnIntraWordEditing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
     ///
     /// Base class method implementation
     ///
@@ -395,14 +395,14 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_QBaseIntraWordEditing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, editing: bool ```
     pub fn SetIntraWordEditing(self: ?*anyopaque, editing: bool) void {
         qtc.Sonnet__Highlighter_SetIntraWordEditing(@ptrCast(self), editing);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -411,7 +411,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnSetIntraWordEditing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
     ///
     /// Base class method implementation
     ///
@@ -420,7 +420,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_QBaseSetIntraWordEditing(@ptrCast(self), editing);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setCurrentLanguage)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setCurrentLanguage)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, language: []const u8 ```
     pub fn SetCurrentLanguage(self: ?*anyopaque, language: []const u8) void {
@@ -431,21 +431,21 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_SetCurrentLanguage(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#slotAutoDetection)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#slotAutoDetection)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn SlotAutoDetection(self: ?*anyopaque) void {
         qtc.Sonnet__Highlighter_SlotAutoDetection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#slotRehighlight)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#slotRehighlight)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn SlotRehighlight(self: ?*anyopaque) void {
         qtc.Sonnet__Highlighter_SlotRehighlight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -458,7 +458,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -471,7 +471,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8, max: i32, allocator: std.mem.Allocator ```
     pub fn SuggestionsForWord22(self: ?*anyopaque, word: []const u8, max: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -497,7 +497,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
+    /// [Upstream resources](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8, cursor: QtC.QTextCursor, max: i32, allocator: std.mem.Allocator ```
     pub fn SuggestionsForWord3(self: ?*anyopaque, word: []const u8, cursor: ?*anyopaque, max: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -525,7 +525,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#document)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#document)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
@@ -534,7 +534,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlight)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn Rehighlight(self: ?*anyopaque) void {
@@ -543,7 +543,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlightBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlightBlock)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, block: QtC.QTextBlock ```
     pub fn RehighlightBlock(self: ?*anyopaque, block: ?*anyopaque) void {
@@ -552,7 +552,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -565,7 +565,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -578,7 +578,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -587,7 +587,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -596,7 +596,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -605,7 +605,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -614,7 +614,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -623,7 +623,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -632,7 +632,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -641,7 +641,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -650,7 +650,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -659,7 +659,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -668,7 +668,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -682,7 +682,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -691,7 +691,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -700,7 +700,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -709,7 +709,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -718,7 +718,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -729,7 +729,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -738,7 +738,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -747,7 +747,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -756,7 +756,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -765,7 +765,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -775,7 +775,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -785,7 +785,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -809,7 +809,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -818,7 +818,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -827,7 +827,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -836,7 +836,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -845,7 +845,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -854,7 +854,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -864,7 +864,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -873,7 +873,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -882,7 +882,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -891,7 +891,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -900,7 +900,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -911,7 +911,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -920,7 +920,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -929,7 +929,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -940,7 +940,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -951,7 +951,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -962,7 +962,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -973,7 +973,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -984,7 +984,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -995,7 +995,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1006,7 +1006,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1017,7 +1017,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1028,7 +1028,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1039,7 +1039,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1050,7 +1050,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1061,7 +1061,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1072,7 +1072,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1083,7 +1083,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1094,7 +1094,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1105,7 +1105,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1116,7 +1116,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1127,7 +1127,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1138,7 +1138,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1149,7 +1149,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1160,7 +1160,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1171,7 +1171,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1182,7 +1182,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1193,7 +1193,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1204,7 +1204,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1215,7 +1215,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1226,7 +1226,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1237,7 +1237,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1248,7 +1248,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1259,7 +1259,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1270,7 +1270,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1281,7 +1281,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1292,7 +1292,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1303,7 +1303,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1314,7 +1314,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1325,7 +1325,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1336,7 +1336,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1347,7 +1347,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1358,7 +1358,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1369,7 +1369,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1380,7 +1380,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QSyntaxHighlighter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1391,7 +1391,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1402,7 +1402,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1413,7 +1413,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1424,7 +1424,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1435,7 +1435,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1446,7 +1446,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1457,7 +1457,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1469,7 +1469,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1481,7 +1481,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1492,7 +1492,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1503,7 +1503,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1514,7 +1514,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1525,7 +1525,7 @@ pub const sonnet__highlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

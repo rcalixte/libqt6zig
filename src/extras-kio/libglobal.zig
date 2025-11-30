@@ -6,7 +6,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kio.html
 pub const kio = struct {
-    /// [Qt documentation](https://api.kde.org/kio.html#convertSize)
+    /// [Upstream resources](https://api.kde.org/kio.html#convertSize)
     ///
     /// ``` param1: u64, allocator: std.mem.Allocator ```
     pub fn ConvertSize(param1: u64, allocator: std.mem.Allocator) []const u8 {
@@ -17,7 +17,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#number)
+    /// [Upstream resources](https://api.kde.org/kio.html#number)
     ///
     /// ``` param1: u64, allocator: std.mem.Allocator ```
     pub fn Number(param1: u64, allocator: std.mem.Allocator) []const u8 {
@@ -28,7 +28,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#convertSizeFromKiB)
+    /// [Upstream resources](https://api.kde.org/kio.html#convertSizeFromKiB)
     ///
     /// ``` param1: u64, allocator: std.mem.Allocator ```
     pub fn ConvertSizeFromKiB(param1: u64, allocator: std.mem.Allocator) []const u8 {
@@ -39,14 +39,14 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#calculateRemainingSeconds)
+    /// [Upstream resources](https://api.kde.org/kio.html#calculateRemainingSeconds)
     ///
     /// ``` param1: u64, param2: u64, param3: u64 ```
     pub fn CalculateRemainingSeconds(param1: u64, param2: u64, param3: u64) u32 {
         return qtc.KIO_CalculateRemainingSeconds(@intCast(param1), @intCast(param2), @intCast(param3));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#convertSeconds)
+    /// [Upstream resources](https://api.kde.org/kio.html#convertSeconds)
     ///
     /// ``` param1: u32, allocator: std.mem.Allocator ```
     pub fn ConvertSeconds(param1: u32, allocator: std.mem.Allocator) []const u8 {
@@ -57,7 +57,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#itemsSummaryString)
+    /// [Upstream resources](https://api.kde.org/kio.html#itemsSummaryString)
     ///
     /// ``` param1: u32, param2: u32, param3: u32, param4: u64, param5: bool, allocator: std.mem.Allocator ```
     pub fn ItemsSummaryString(param1: u32, param2: u32, param3: u32, param4: u64, param5: bool, allocator: std.mem.Allocator) []const u8 {
@@ -68,7 +68,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#encodeFileName)
+    /// [Upstream resources](https://api.kde.org/kio.html#encodeFileName)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn EncodeFileName(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -83,7 +83,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#decodeFileName)
+    /// [Upstream resources](https://api.kde.org/kio.html#decodeFileName)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn DecodeFileName(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -98,7 +98,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#parseCacheControl)
+    /// [Upstream resources](https://api.kde.org/kio.html#parseCacheControl)
     ///
     /// ``` param1: []const u8 ```
     ///
@@ -111,7 +111,7 @@ pub const kio = struct {
         return qtc.KIO_ParseCacheControl(param1_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#getCacheControlString)
+    /// [Upstream resources](https://api.kde.org/kio.html#getCacheControlString)
     ///
     /// ``` param1: global_enums.CacheControl, allocator: std.mem.Allocator ```
     pub fn GetCacheControlString(param1: i32, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#favIconForUrl)
+    /// [Upstream resources](https://api.kde.org/kio.html#favIconForUrl)
     ///
     /// ``` param1: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn FavIconForUrl(param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -133,7 +133,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#convertPermissions)
+    /// [Upstream resources](https://api.kde.org/kio.html#convertPermissions)
     ///
     /// ``` param1: i32 ```
     ///
@@ -142,7 +142,7 @@ pub const kio = struct {
         return qtc.KIO_ConvertPermissions(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#iconNameForUrl)
+    /// [Upstream resources](https://api.kde.org/kio.html#iconNameForUrl)
     ///
     /// ``` param1: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn IconNameForUrl(param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -153,7 +153,7 @@ pub const kio = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#upUrl)
+    /// [Upstream resources](https://api.kde.org/kio.html#upUrl)
     ///
     /// ``` param1: QtC.QUrl ```
     pub fn UpUrl(param1: ?*anyopaque) QtC.QUrl {

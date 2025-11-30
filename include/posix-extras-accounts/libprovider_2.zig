@@ -19,21 +19,21 @@ pub const accounts__provider = struct {
         return qtc.Accounts__Provider_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, other: QtC.Accounts__Provider ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Accounts__Provider_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.Accounts__Provider_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -44,7 +44,7 @@ pub const accounts__provider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, allocator: std.mem.Allocator ```
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -55,7 +55,7 @@ pub const accounts__provider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -66,7 +66,7 @@ pub const accounts__provider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, allocator: std.mem.Allocator ```
     pub fn PluginName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -77,7 +77,7 @@ pub const accounts__provider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, allocator: std.mem.Allocator ```
     pub fn TrCatalog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -88,7 +88,7 @@ pub const accounts__provider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -99,7 +99,7 @@ pub const accounts__provider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, allocator: std.mem.Allocator ```
     pub fn DomainsRegExp(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -110,14 +110,14 @@ pub const accounts__provider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider ```
     pub fn IsSingleAccount(self: ?*anyopaque) bool {
         return qtc.Accounts__Provider_IsSingleAccount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, tag: []const u8 ```
     pub fn HasTag(self: ?*anyopaque, tag: []const u8) bool {
@@ -128,7 +128,7 @@ pub const accounts__provider = struct {
         return qtc.Accounts__Provider_HasTag(@ptrCast(self), tag_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider, allocator: std.mem.Allocator ```
     pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) set_constu8 {
@@ -141,14 +141,14 @@ pub const accounts__provider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// ``` self: QtC.Accounts__Provider ```
     pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.Accounts__Provider_DomDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Provider.html)
     ///
     /// Delete this object from C++ memory.
     ///

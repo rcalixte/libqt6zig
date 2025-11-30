@@ -17,49 +17,49 @@ pub const attica__icon = struct {
         return qtc.Attica__Icon_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-icon.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-icon.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__Icon, other: QtC.Attica__Icon ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Icon_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-icon.html#url)
+    /// [Upstream resources](https://api.kde.org/attica-icon.html#url)
     ///
     /// ``` self: QtC.Attica__Icon ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.Attica__Icon_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-icon.html#setUrl)
+    /// [Upstream resources](https://api.kde.org/attica-icon.html#setUrl)
     ///
     /// ``` self: QtC.Attica__Icon, url: QtC.QUrl ```
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.Attica__Icon_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-icon.html#width)
+    /// [Upstream resources](https://api.kde.org/attica-icon.html#width)
     ///
     /// ``` self: QtC.Attica__Icon ```
     pub fn Width(self: ?*anyopaque) u32 {
         return qtc.Attica__Icon_Width(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-icon.html#setWidth)
+    /// [Upstream resources](https://api.kde.org/attica-icon.html#setWidth)
     ///
     /// ``` self: QtC.Attica__Icon, width: u32 ```
     pub fn SetWidth(self: ?*anyopaque, width: u32) void {
         qtc.Attica__Icon_SetWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-icon.html#height)
+    /// [Upstream resources](https://api.kde.org/attica-icon.html#height)
     ///
     /// ``` self: QtC.Attica__Icon ```
     pub fn Height(self: ?*anyopaque) u32 {
         return qtc.Attica__Icon_Height(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-icon.html#setHeight)
+    /// [Upstream resources](https://api.kde.org/attica-icon.html#setHeight)
     ///
     /// ``` self: QtC.Attica__Icon, height: u32 ```
     pub fn SetHeight(self: ?*anyopaque, height: u32) void {
